@@ -1,0 +1,69 @@
+
+//page-home {
+
+   // ion-content {
+     // @include linear-gradient(left,$green-and-blue);
+      // -webkit-background-size: cover;
+     //  -moz-background-size: cover; 
+    // background: -webkit-linear-gradient(to right, #e5e5e5, #488aff);  
+  //  background: linear-gradient(to right, #e5e5e5,  #488aff); 
+      //background-size: cover;
+   // }
+  
+  //}
+.logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 110px;
+    width: 200px;
+   // opacity:0.5;
+  
+    
+}
+.content_1
+{
+    margin-top: -1px;
+    //background: #f3ff48; #3881AD #488aff
+   // background: -webkit-linear-gradient(left, #ffffff, #3881AD);  
+   // background: linear-gradient(left, #ffffff, #3881AD); 
+}
+.content_2
+{
+    opacity: 1.5;
+    background:  #488aff;
+    background: -webkit-linear-gradient(to right, #ffffff, #488aff);  
+    background: linear-gradient(to right,  #ffffff, #488aff); 
+  
+ 
+}
+.transparent{
+    background:  #488aff;
+   background: -webkit-linear-gradient(to right,  #ffffff,  #488aff);  
+   background: linear-gradient(to right,  #ffffff, #488aff); 
+}
+.inp
+{
+   color: black;
+        border-radius: 5px;
+ 
+}
+.iont
+{
+    background: transparent;
+}
+.height1{
+    margin-top: 60px;
+    border-radius: 5px;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: red;
+   
+}
+.click_down{
+    margin-top: 50px;
+}
+.fp{
+    color:#F6A253;
+    
+}

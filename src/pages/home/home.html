@@ -1,0 +1,29 @@
+ <!--  <ion-header no-border>
+<ion-navbar >
+  <ion-title>Login</ion-title>
+</ion-navbar>
+  </ion-header> -->
+ <!--   // [hidden]="true" *navbar -->
+<ion-content class= "content_1">
+    <img src="assets/imgs/companylogo.png" class="logo">
+   <div class="height1">
+  <ion-list >
+    <ion-item class="iont" > 
+      <ion-input type="text" placeholder="Username" name="username" #username class="inp"></ion-input>
+      <ion-icon name="person" item-left></ion-icon>
+    </ion-item>
+    <!-- <ion-item>
+      <ion-input type="password" placeholder="Password" name="password" #password></ion-input>
+    </ion-item> -->
+    <ion-item class="iont">
+    <ion-input type="password" placeholder="Password" name="password" #password class="inp"></ion-input> <ion-icon name="ios-eye" item-left></ion-icon>
+  </ion-item>
+  <div class="click_down">
+    <button ion-button round block (click)="signIn()">Sign In</button>
+    <p>
+   <a href="https://www.christuniversity.in/" class="fp">Forgot password?</a></p>
+   <button ion-button round outline block (click)="signUp()">Register</button> 
+  </div>
+  </ion-list>
+    </div>
+</ion-content>

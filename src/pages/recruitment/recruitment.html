@@ -1,0 +1,185 @@
+<!--
+  Generated template for the RecruitmentPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Recruitment</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+  <ion-content>
+ 
+      <ion-segment [(ngModel)]="icons" color="primary">
+        <ion-segment-button value="0" placeholder="system"(click)="selectedTab(0)">
+         <!-- <ion-icon name="camera"></ion-icon>-->
+         New Applicant
+        </ion-segment-button>
+        <ion-segment-button value="1" (click)="selectedTab(1)">
+          <!--   <ion-icon name="ios-people"></ion-icon>-->
+          Schedules
+        </ion-segment-button>
+        <ion-segment-button value="2" (click)="selectedTab(2)">
+          <!--   <ion-icon name="ios-people"></ion-icon>-->
+          Interviews
+        </ion-segment-button>
+      </ion-segment>
+      
+  
+    <ion-slides #slider>
+      <ion-slide>
+          
+          <ion-list style="margin-top: 90px;">
+              <ion-item class="iont" > 
+                <ion-input type="text" placeholder="SYSTEM ID" name="username" #username class="inp"></ion-input>
+                <ion-icon name="ios-laptop-outline" item-left></ion-icon>
+             
+              </ion-item>
+             <ion-item>
+              <ion-input  placeholder="CPU" name="password" #password class="inp"></ion-input> 
+              <ion-icon name="md-cog" item-left></ion-icon>
+            </ion-item>
+            <ion-item class="iont" > 
+                <ion-input type="text" placeholder="RAM" name="username" #username class="inp"></ion-input>
+                <ion-icon name="md-easel" item-left></ion-icon>
+              </ion-item>
+              <ion-item class="iont" > 
+                  <ion-input type="text" placeholder="HARD DISK" name="username" #username class="inp"></ion-input>
+                  <ion-icon name="ios-analytics-outline" item-left></ion-icon>
+              </ion-item>
+              <ion-item class="iont" > 
+                 
+                  <ion-input type="text" placeholder="KEY BOARD" name="username" #username class="inp"></ion-input>
+                  <ion-icon name="ios-calculator" item-left></ion-icon>
+                </ion-item>
+                <ion-item class="iont" > 
+                  <ion-input type="text" placeholder="MOUSE" name="username" #username class="inp"></ion-input>
+                  <ion-icon name="logo-octocat" item-left></ion-icon>
+               
+              </ion-item>
+            
+              <div Class="ALI" >
+                 
+                  <button ion-button  round> SAVE</button>
+              </div>
+          </ion-list>
+          
+          
+          
+         
+          
+      </ion-slide>
+      <ion-slide>
+          
+          <ion-list >
+              <ion-item class="iont" > 
+                <ion-input type="text" placeholder="Search User" name="username" #username class="inp"></ion-input>
+                <ion-icon name="ios-search" item-right></ion-icon>
+              </ion-item>
+             <ion-item>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>
+                    Name
+                  </ion-col>
+                  <ion-col>
+                   Experience 
+                  </ion-col>
+                  <ion-col>
+                    Interview Date
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+             </ion-item>
+             <ion-item>
+              <ion-grid>
+                <ion-row>
+                  <ion-col style="color:green;">
+                    Abey Abraham
+                  </ion-col>
+                  <ion-col style="color:lightseagreen;" >
+                    2 years
+                  </ion-col>
+                  <ion-col >
+                  <button ion-button round block >Edit</button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+             </ion-item>
+             <ion-item>
+              <ion-grid>
+                <ion-row>
+                  <ion-col style="color:green;">
+                    Tony Manuel
+                  </ion-col>
+                  <ion-col style="color:lightseagreen;" >
+                    2 years
+                  </ion-col>
+                  <ion-col >
+                  <button ion-button round block  (click)="selectedTab(0)" >Edit</button>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+             </ion-item>
+              <!-- <ion-item>
+                <ion-input type="password" placeholder="Password" name="password" #password></ion-input>
+              </ion-item> -->
+             
+            
+          </ion-list>
+          
+           
+      </ion-slide>
+      <ion-slide>
+          
+          <ion-list style="margin-top: 90px;">
+              <ion-item class="iont" > 
+                <ion-input type="text" placeholder="SYSTEM ID" name="username" #username class="inp"></ion-input>
+                <ion-icon name="ios-laptop-outline" item-left></ion-icon>
+             
+              </ion-item>
+             <ion-item>
+              <ion-input  placeholder="CPU" name="password" #password class="inp"></ion-input> 
+              <ion-icon name="md-cog" item-left></ion-icon>
+            </ion-item>
+            <ion-item class="iont" > 
+                <ion-input type="text" placeholder="RAM" name="username" #username class="inp"></ion-input>
+                <ion-icon name="md-easel" item-left></ion-icon>
+              </ion-item>
+              <ion-item class="iont" > 
+                  <ion-input type="text" placeholder="HARD DISK" name="username" #username class="inp"></ion-input>
+                  <ion-icon name="ios-analytics-outline" item-left></ion-icon>
+              </ion-item>
+              <ion-item class="iont" > 
+                 
+                  <ion-input type="text" placeholder="KEY BOARD" name="username" #username class="inp"></ion-input>
+                  <ion-icon name="ios-calculator" item-left></ion-icon>
+                </ion-item>
+                <ion-item class="iont" > 
+                  <ion-input type="text" placeholder="MOUSE" name="username" #username class="inp"></ion-input>
+                  <ion-icon name="logo-octocat" item-left></ion-icon>
+               
+              </ion-item>
+            
+              <div Class="ALI" >
+                 
+                  <button ion-button  round> SAVE</button>
+              </div>
+          </ion-list>
+          
+          
+          
+         
+          
+      </ion-slide>
+      
+    </ion-slides>
+
+    
+  </ion-content>
+  
+  
