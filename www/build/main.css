@@ -25756,6 +25756,12 @@ ion-navbar.toolbar {
   margin-left: 40%;
 }
 
+.hi {
+  width: 90%;
+  color: red;
+  background-color: red;
+}
+
 .ip {
   margin-top: 2px;
 }

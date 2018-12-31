@@ -18,6 +18,16 @@ import { NewuserPage } from '../pages/newuser/newuser';
 import { BotabsPage } from '../pages/botabs/botabs';
 import {SystemsPage} from '../pages/systems/systems';
 import {RecruitmentPage} from '../pages/recruitment/recruitment';
+import {AngularFireModule } from 'angularfire2';
+import {AngularFireDatabaseModule } from 'angularfire2/database';
+var config = {
+  apiKey: "AIzaSyDMKLi6y817JKgy6wEGaFKXFq6pjhbEXOs",
+  authDomain: "dddddddddddddddddd-56957.firebaseapp.com",
+  databaseURL: "https://dddddddddddddddddd-56957.firebaseio.com",
+  projectId: "dddddddddddddddddd-56957",
+  storageBucket: "dddddddddddddddddd-56957.appspot.com",
+  messagingSenderId: "511075654805"
+};
 @NgModule({
   declarations: [
     MyApp,
@@ -34,6 +44,8 @@ import {RecruitmentPage} from '../pages/recruitment/recruitment';
     HttpClientModule,
     HttpModule,
     IonicModule.forRoot(MyApp),
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(config),
     IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
