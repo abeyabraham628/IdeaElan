@@ -1,12 +1,27 @@
 
-.tabs-md-tab-icon-color-active{
-    color: RED;
-   
+    .tabs .tabbar {
+        background-color: #2679b0;
+        border-top: 5px solid #f6a253 !important;
+        
+    }
+    
+    .tabs .tabbar a[aria-selected=true] {
+        
+            .tab-button-icon, a.tab-button{
+                color: #FFF;
+           
+        }
+    }
+ 
+.tabs .tabbar {
+    .tab-button-icon, a.tab-button{
+        color: #FFF;
+    }
 }
-.clr{
-    color: black;
-}
-.toolbar-ios-title-text-align
-{
-    align-items: center;
-}
+
+
+
+
+
+
+

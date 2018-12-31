@@ -1,3 +1,4 @@
+import { DatePicker } from '@ionic-native/date-picker';
 import { Component,ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams ,Slides} from 'ionic-angular';
 
@@ -13,14 +14,38 @@ import { IonicPage, NavController, NavParams ,Slides} from 'ionic-angular';
   selector: 'page-newuser',
   templateUrl: 'newuser.html',
 })
-export class NewuserPage {
-  @ViewChild('slider') slider:Slides;
-page=0;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
 
-  selectedTab(ind){
-    this.slider.slideTo(ind);
+export class NewuserPage {
+  
+  @ViewChild('slider') slider:Slides;
+ users:String
+ doj:String
+ dob:String
+    constructor(public navCtrl: NavController, public navParams: NavParams, private datePicker:DatePicker) {
+      this.users="newUser";
+    }
+
+  
+  selectedTab(index:number){
+    this.slider.slideTo(index);
+  }
+  
+  dispdate(type:String){
+      this.datePicker.show({
+      date: new Date(),
+      mode: 'date',
+      androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_LIGHT
+
+    }).then(
+     date=>{
+      if(type==="join"){
+        this.doj = new Date(date).toLocaleDateString()
+      }
+      else{
+        this.dob = new Date(date).toLocaleDateString()
+      }
+    }
+    );
   }
 
 

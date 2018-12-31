@@ -38,7 +38,14 @@ $colors: (
   secondary:  #32db64,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:       #222,
+  orange:     #f6a253,
+  blue:       #2679b0,
+  white:#FFF
+
+  
+  
+
 );
 
 
@@ -91,3 +98,4 @@ $text-color:         white !default;
 $link-color:         color($colors, light) !default;
 
 //$toolbar-background: transparent !default;
+

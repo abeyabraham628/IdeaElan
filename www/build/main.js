@@ -1,6 +1,6 @@
 webpackJsonp([5],{
 
-/***/ 105:
+/***/ 106:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10,7 +10,7 @@ webpackJsonp([5],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_it_add_it__ = __webpack_require__(161);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_it_add_it__ = __webpack_require__(164);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -76,7 +76,7 @@ var ProfilePage = /** @class */ (function () {
     };
     ProfilePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-profile',template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app\src\pages\profile\profile.html"*/'<!--\n  Generated template for the ProfilePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>profile</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n<ion-item *ngFor="let item of items" >\n  <h2>Welcome {{item.username}}</h2>\n  <h3>Your profile information is as follows:</h3>\n  <ion-row>\n    <ion-col col-4>\n     Password\n    </ion-col>\n    <ion-col col-8>\n  {{item.password}}\n    </ion-col>\n \n</ion-row>\n<ion-row>\n    <ion-col col-4>\n      Telephone\n    </ion-col>\n    <ion-col col-8>\n  {{item.telephone}}\n    </ion-col>\n \n</ion-row>\n<ion-row>\n    <ion-col col-4>\n    Email \n    </ion-col>\n    <ion-col col-8>\n  {{item.email}}\n    </ion-col>\n \n</ion-row>\n<div padding>\n  <button ion-button  round outline block (click)="run()"> ADD ITEM </button>\n  </div>\n </ion-item>\n</ion-content>\n'/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app\src\pages\profile\profile.html"*/,
+            selector: 'page-profile',template:/*ion-inline-start:"F:\ionic-app\src\pages\profile\profile.html"*/'<!--\n  Generated template for the ProfilePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>profile</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n<ion-item *ngFor="let item of items" >\n  <h2>Welcome {{item.username}}</h2>\n  <h3>Your profile information is as follows:</h3>\n  <ion-row>\n    <ion-col col-4>\n     Password\n    </ion-col>\n    <ion-col col-8>\n  {{item.password}}\n    </ion-col>\n \n</ion-row>\n<ion-row>\n    <ion-col col-4>\n      Telephone\n    </ion-col>\n    <ion-col col-8>\n  {{item.telephone}}\n    </ion-col>\n \n</ion-row>\n<ion-row>\n    <ion-col col-4>\n    Email \n    </ion-col>\n    <ion-col col-8>\n  {{item.email}}\n    </ion-col>\n \n</ion-row>\n<div padding>\n  <button ion-button  round outline block (click)="run()"> ADD ITEM </button>\n  </div>\n </ion-item>\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\profile\profile.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
     ], ProfilePage);
@@ -87,7 +87,7 @@ var ProfilePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 106:
+/***/ 107:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -95,8 +95,8 @@ var ProfilePage = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__newuser_newuser__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__recruitment_recruitment__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__systems_systems__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__recruitment_recruitment__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__systems_systems__ = __webpack_require__(109);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -131,7 +131,7 @@ var TabsPage = /** @class */ (function () {
     };
     TabsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-tabs',template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app\src\pages\tabs\tabs.html"*/'<!--\n  Generated template for the TabsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!--\n<ion-header>\n\n  <ion-navbar>\n    <ion-title toolbar-ios-title-text-align="center"> USERS</ion-title>\n  </ion-navbar>\ntabsPlacement = "top"\n</ion-header>\n-->\n\n<ion-content padding>\n    <ion-tabs  >\n        <ion-tab [root]="tab1Root"  class="clr" tabTitle="USER" tabIcon="ios-contact"> USER</ion-tab>\n        <ion-tab [root]="tab2Root" tabTitle="SYSTEM" tabIcon="ios-people">ALL USERS</ion-tab>\n        <ion-tab [root]="tab3Root" tabTitle="RECRUITMENTS" tabIcon="ios-people">ALL USERS</ion-tab>\n        \n        \n        \n       \n      </ion-tabs>\n    </ion-content>\n   \n\n\n'/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app\src\pages\tabs\tabs.html"*/,
+            selector: 'page-tabs',template:/*ion-inline-start:"F:\ionic-app\src\pages\tabs\tabs.html"*/'<!--\n  Generated template for the TabsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header no-border>\n  <ion-toolbar color="blue" hideBackButton="true">\n    <button ion-button menuToggle icon-start>\n        <ion-icon name="menu"></ion-icon>\n    </button>\n    \n    <ion-title text-center>Header</ion-title>\n\n    <ion-buttons end>\n      <button ion-button >\n        <ion-icon name="notifications"></ion-icon> \n      </button> \n    </ion-buttons>\n</ion-toolbar>\n</ion-header>\n\n    <ion-tabs >\n            <ion-tab [root]="tab1Root"   tabTitle="User" tabIcon="person"></ion-tab>\n            <ion-tab [root]="tab2Root"  tabTitle="Systems" tabIcon="desktop"></ion-tab>\n            <ion-tab [root]="tab3Root"  tabTitle="Recruitment" tabIcon="people"></ion-tab>\n        </ion-tabs>\n    \n \n\n   \n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\tabs\tabs.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
     ], TabsPage);
@@ -142,7 +142,7 @@ var TabsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 107:
+/***/ 108:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -180,23 +180,22 @@ var RecruitmentPage = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('slider'),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */])
     ], RecruitmentPage.prototype, "slider", void 0);
     RecruitmentPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-recruitment',template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app\src\pages\recruitment\recruitment.html"*/'<!--\n  Generated template for the RecruitmentPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Recruitment</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n  <ion-content>\n \n      <ion-segment [(ngModel)]="icons" color="primary">\n        <ion-segment-button value="0" placeholder="system"(click)="selectedTab(0)">\n         <!-- <ion-icon name="camera"></ion-icon>-->\n         New Applicant\n        </ion-segment-button>\n        <ion-segment-button value="1" (click)="selectedTab(1)">\n          <!--   <ion-icon name="ios-people"></ion-icon>-->\n          Schedules\n        </ion-segment-button>\n        <ion-segment-button value="2" (click)="selectedTab(2)">\n          <!--   <ion-icon name="ios-people"></ion-icon>-->\n          Interviews\n        </ion-segment-button>\n      </ion-segment>\n      \n  \n    <ion-slides #slider>\n      <ion-slide>\n          \n          <ion-list style="margin-top: 90px;">\n              <ion-item class="iont" > \n                <ion-input type="text" placeholder="SYSTEM ID" name="username" #username class="inp"></ion-input>\n                <ion-icon name="ios-laptop-outline" item-left></ion-icon>\n             \n              </ion-item>\n             <ion-item>\n              <ion-input  placeholder="CPU" name="password" #password class="inp"></ion-input> \n              <ion-icon name="md-cog" item-left></ion-icon>\n            </ion-item>\n            <ion-item class="iont" > \n                <ion-input type="text" placeholder="RAM" name="username" #username class="inp"></ion-input>\n                <ion-icon name="md-easel" item-left></ion-icon>\n              </ion-item>\n              <ion-item class="iont" > \n                  <ion-input type="text" placeholder="HARD DISK" name="username" #username class="inp"></ion-input>\n                  <ion-icon name="ios-analytics-outline" item-left></ion-icon>\n              </ion-item>\n              <ion-item class="iont" > \n                 \n                  <ion-input type="text" placeholder="KEY BOARD" name="username" #username class="inp"></ion-input>\n                  <ion-icon name="ios-calculator" item-left></ion-icon>\n                </ion-item>\n                <ion-item class="iont" > \n                  <ion-input type="text" placeholder="MOUSE" name="username" #username class="inp"></ion-input>\n                  <ion-icon name="logo-octocat" item-left></ion-icon>\n               \n              </ion-item>\n            \n              <div Class="ALI" >\n                 \n                  <button ion-button  round> SAVE</button>\n              </div>\n          </ion-list>\n          \n          \n          \n         \n          \n      </ion-slide>\n      <ion-slide>\n          \n          <ion-list >\n              <ion-item class="iont" > \n                <ion-input type="text" placeholder="Search User" name="username" #username class="inp"></ion-input>\n                <ion-icon name="ios-search" item-right></ion-icon>\n              </ion-item>\n             <ion-item>\n              <ion-grid>\n                <ion-row>\n                  <ion-col>\n                    Name\n                  </ion-col>\n                  <ion-col>\n                   Experience \n                  </ion-col>\n                  <ion-col>\n                    Interview Date\n                  </ion-col>\n                </ion-row>\n              </ion-grid>\n             </ion-item>\n             <ion-item>\n              <ion-grid>\n                <ion-row>\n                  <ion-col style="color:green;">\n                    Abey Abraham\n                  </ion-col>\n                  <ion-col style="color:lightseagreen;" >\n                    2 years\n                  </ion-col>\n                  <ion-col >\n                  <button ion-button round block >Edit</button>\n                  </ion-col>\n                </ion-row>\n              </ion-grid>\n             </ion-item>\n             <ion-item>\n              <ion-grid>\n                <ion-row>\n                  <ion-col style="color:green;">\n                    Tony Manuel\n                  </ion-col>\n                  <ion-col style="color:lightseagreen;" >\n                    2 years\n                  </ion-col>\n                  <ion-col >\n                  <button ion-button round block  (click)="selectedTab(0)" >Edit</button>\n                  </ion-col>\n                </ion-row>\n              </ion-grid>\n             </ion-item>\n              <!-- <ion-item>\n                <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n              </ion-item> -->\n             \n            \n          </ion-list>\n          \n           \n      </ion-slide>\n      <ion-slide>\n          \n          <ion-list style="margin-top: 90px;">\n              <ion-item class="iont" > \n                <ion-input type="text" placeholder="SYSTEM ID" name="username" #username class="inp"></ion-input>\n                <ion-icon name="ios-laptop-outline" item-left></ion-icon>\n             \n              </ion-item>\n             <ion-item>\n              <ion-input  placeholder="CPU" name="password" #password class="inp"></ion-input> \n              <ion-icon name="md-cog" item-left></ion-icon>\n            </ion-item>\n            <ion-item class="iont" > \n                <ion-input type="text" placeholder="RAM" name="username" #username class="inp"></ion-input>\n                <ion-icon name="md-easel" item-left></ion-icon>\n              </ion-item>\n              <ion-item class="iont" > \n                  <ion-input type="text" placeholder="HARD DISK" name="username" #username class="inp"></ion-input>\n                  <ion-icon name="ios-analytics-outline" item-left></ion-icon>\n              </ion-item>\n              <ion-item class="iont" > \n                 \n                  <ion-input type="text" placeholder="KEY BOARD" name="username" #username class="inp"></ion-input>\n                  <ion-icon name="ios-calculator" item-left></ion-icon>\n                </ion-item>\n                <ion-item class="iont" > \n                  <ion-input type="text" placeholder="MOUSE" name="username" #username class="inp"></ion-input>\n                  <ion-icon name="logo-octocat" item-left></ion-icon>\n               \n              </ion-item>\n            \n              <div Class="ALI" >\n                 \n                  <button ion-button  round> SAVE</button>\n              </div>\n          </ion-list>\n          \n          \n          \n         \n          \n      </ion-slide>\n      \n    </ion-slides>\n\n    \n  </ion-content>\n  \n  '/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app\src\pages\recruitment\recruitment.html"*/,
+            selector: 'page-recruitment',template:/*ion-inline-start:"F:\ionic-app\src\pages\recruitment\recruitment.html"*/'<!--\n  Generated template for the RecruitmentPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Recruitment</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n  <ion-content>\n \n      <ion-segment [(ngModel)]="icons" color="primary">\n        <ion-segment-button value="0" placeholder="system"(click)="selectedTab(0)">\n         <!-- <ion-icon name="camera"></ion-icon>-->\n         New Applicant\n        </ion-segment-button>\n        <ion-segment-button value="1" (click)="selectedTab(1)">\n          <!--   <ion-icon name="ios-people"></ion-icon>-->\n          Schedules\n        </ion-segment-button>\n        <ion-segment-button value="2" (click)="selectedTab(2)">\n          <!--   <ion-icon name="ios-people"></ion-icon>-->\n          Interviews\n        </ion-segment-button>\n      </ion-segment>\n      \n  \n    <ion-slides #slider>\n      <ion-slide>\n          \n          <ion-list style="margin-top: 90px;">\n              <ion-item class="iont" > \n                <ion-input type="text" placeholder="SYSTEM ID" name="username" #username class="inp"></ion-input>\n                <ion-icon name="ios-laptop-outline" item-left></ion-icon>\n             \n              </ion-item>\n             <ion-item>\n              <ion-input  placeholder="CPU" name="password" #password class="inp"></ion-input> \n              <ion-icon name="md-cog" item-left></ion-icon>\n            </ion-item>\n            <ion-item class="iont" > \n                <ion-input type="text" placeholder="RAM" name="username" #username class="inp"></ion-input>\n                <ion-icon name="md-easel" item-left></ion-icon>\n              </ion-item>\n              <ion-item class="iont" > \n                  <ion-input type="text" placeholder="HARD DISK" name="username" #username class="inp"></ion-input>\n                  <ion-icon name="ios-analytics-outline" item-left></ion-icon>\n              </ion-item>\n              <ion-item class="iont" > \n                 \n                  <ion-input type="text" placeholder="KEY BOARD" name="username" #username class="inp"></ion-input>\n                  <ion-icon name="ios-calculator" item-left></ion-icon>\n                </ion-item>\n                <ion-item class="iont" > \n                  <ion-input type="text" placeholder="MOUSE" name="username" #username class="inp"></ion-input>\n                  <ion-icon name="logo-octocat" item-left></ion-icon>\n               \n              </ion-item>\n            \n              <div Class="ALI" >\n                 \n                  <button ion-button  round> SAVE</button>\n              </div>\n          </ion-list>\n          \n          \n          \n         \n          \n      </ion-slide>\n      <ion-slide>\n          \n          <ion-list >\n              <ion-item class="iont" > \n                <ion-input type="text" placeholder="Search User" name="username" #username class="inp"></ion-input>\n                <ion-icon name="ios-search" item-right></ion-icon>\n              </ion-item>\n             <ion-item>\n              <ion-grid>\n                <ion-row>\n                  <ion-col>\n                    Name\n                  </ion-col>\n                  <ion-col>\n                   Experience \n                  </ion-col>\n                  <ion-col>\n                    Interview Date\n                  </ion-col>\n                </ion-row>\n              </ion-grid>\n             </ion-item>\n             <ion-item>\n              <ion-grid>\n                <ion-row>\n                  <ion-col style="color:green;">\n                    Abey Abraham\n                  </ion-col>\n                  <ion-col style="color:lightseagreen;" >\n                    2 years\n                  </ion-col>\n                  <ion-col >\n                  <button ion-button round block >Edit</button>\n                  </ion-col>\n                </ion-row>\n              </ion-grid>\n             </ion-item>\n             <ion-item>\n              <ion-grid>\n                <ion-row>\n                  <ion-col style="color:green;">\n                    Tony Manuel\n                  </ion-col>\n                  <ion-col style="color:lightseagreen;" >\n                    2 years\n                  </ion-col>\n                  <ion-col >\n                  <button ion-button round block  (click)="selectedTab(0)" >Edit</button>\n                  </ion-col>\n                </ion-row>\n              </ion-grid>\n             </ion-item>\n              <!-- <ion-item>\n                <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n              </ion-item> -->\n             \n            \n          </ion-list>\n          \n           \n      </ion-slide>\n      <ion-slide>\n          \n          <ion-list style="margin-top: 90px;">\n              <ion-item class="iont" > \n                <ion-input type="text" placeholder="SYSTEM ID" name="username" #username class="inp"></ion-input>\n                <ion-icon name="ios-laptop-outline" item-left></ion-icon>\n             \n              </ion-item>\n             <ion-item>\n              <ion-input  placeholder="CPU" name="password" #password class="inp"></ion-input> \n              <ion-icon name="md-cog" item-left></ion-icon>\n            </ion-item>\n            <ion-item class="iont" > \n                <ion-input type="text" placeholder="RAM" name="username" #username class="inp"></ion-input>\n                <ion-icon name="md-easel" item-left></ion-icon>\n              </ion-item>\n              <ion-item class="iont" > \n                  <ion-input type="text" placeholder="HARD DISK" name="username" #username class="inp"></ion-input>\n                  <ion-icon name="ios-analytics-outline" item-left></ion-icon>\n              </ion-item>\n              <ion-item class="iont" > \n                 \n                  <ion-input type="text" placeholder="KEY BOARD" name="username" #username class="inp"></ion-input>\n                  <ion-icon name="ios-calculator" item-left></ion-icon>\n                </ion-item>\n                <ion-item class="iont" > \n                  <ion-input type="text" placeholder="MOUSE" name="username" #username class="inp"></ion-input>\n                  <ion-icon name="logo-octocat" item-left></ion-icon>\n               \n              </ion-item>\n            \n              <div Class="ALI" >\n                 \n                  <button ion-button  round> SAVE</button>\n              </div>\n          </ion-list>\n          \n          \n          \n         \n          \n      </ion-slide>\n      \n    </ion-slides>\n\n    \n  </ion-content>\n  \n  '/*ion-inline-end:"F:\ionic-app\src\pages\recruitment\recruitment.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
     ], RecruitmentPage);
     return RecruitmentPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=recruitment.js.map
 
 /***/ }),
 
-/***/ 108:
+/***/ 109:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -235,7 +234,7 @@ var SystemsPage = /** @class */ (function () {
     ], SystemsPage.prototype, "slider", void 0);
     SystemsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-systems',template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app\src\pages\systems\systems.html"*/'<!--\n  Generated template for the SystemsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!--\n  Generated template for the NewuserPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!--\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>newuser</ion-title>\n  </ion-navbar>\n\n</ion-header>\n -->\n <ion-header>\n\n    <ion-navbar>\n      <ion-title>Systems</ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n\n  \n\n\n\n  <ion-content>\n \n      <ion-segment [(ngModel)]="icons" color="primary">\n        <ion-segment-button value="0" placeholder="system"(click)="selectedTab(0)">\n         <!-- <ion-icon name="camera"></ion-icon>-->\n         New System\n        </ion-segment-button>\n        <ion-segment-button value="1" (click)="selectedTab(1)">\n          <!--   <ion-icon name="ios-people"></ion-icon>-->\n          All Systems\n        </ion-segment-button>\n      </ion-segment>\n  \n    <ion-slides #slider>\n      <ion-slide>\n          \n          <ion-list style="margin-top: 90px;">\n              <ion-item class="iont" > \n                <ion-input type="text" placeholder="SYSTEM ID" name="username" #username class="inp"></ion-input>\n                <ion-icon name="ios-laptop-outline" item-left></ion-icon>\n             \n              </ion-item>\n             <ion-item>\n              <ion-input  placeholder="CPU" name="password" #password class="inp"></ion-input> \n              <ion-icon name="md-cog" item-left></ion-icon>\n            </ion-item>\n            <ion-item class="iont" > \n                <ion-input type="text" placeholder="RAM" name="username" #username class="inp"></ion-input>\n                <ion-icon name="md-easel" item-left></ion-icon>\n              </ion-item>\n              <ion-item class="iont" > \n                  <ion-input type="text" placeholder="HARD DISK" name="username" #username class="inp"></ion-input>\n                  <ion-icon name="ios-analytics-outline" item-left></ion-icon>\n              </ion-item>\n              <ion-item class="iont" > \n                 \n                  <ion-input type="text" placeholder="KEY BOARD" name="username" #username class="inp"></ion-input>\n                  <ion-icon name="ios-calculator" item-left></ion-icon>\n                </ion-item>\n                <ion-item class="iont" > \n                  <ion-input type="text" placeholder="MOUSE" name="username" #username class="inp"></ion-input>\n                  <ion-icon name="logo-octocat" item-left></ion-icon>\n               \n              </ion-item>\n            \n              <div Class="ALI" >\n                 \n                  <button ion-button  round> SAVE</button>\n              </div>\n          </ion-list>\n          \n          \n          \n         \n          \n      </ion-slide>\n      <ion-slide>\n          \n          <ion-list >\n              <ion-item class="iont" > \n                <ion-input type="text" placeholder="Search User" name="username" #username class="inp"></ion-input>\n                <ion-icon name="ios-search" item-right></ion-icon>\n              </ion-item>\n             <ion-item>\n              <ion-grid>\n                <ion-row>\n                  <ion-col>\n                    Name\n                  </ion-col>\n                  <ion-col>\n                    Position\n                  </ion-col>\n                  <ion-col>\n                    Action\n                  </ion-col>\n                </ion-row>\n              </ion-grid>\n             </ion-item>\n             <ion-item>\n              <ion-grid>\n                <ion-row>\n                  <ion-col style="color:green;">\n                    Abey Abraham\n                  </ion-col>\n                  <ion-col style="color:lightseagreen;" >\n                    Intern\n                  </ion-col>\n                  <ion-col >\n                  <button ion-button round block >Edit</button>\n                  </ion-col>\n                </ion-row>\n              </ion-grid>\n             </ion-item>\n             <ion-item>\n              <ion-grid>\n                <ion-row>\n                  <ion-col style="color:green;">\n                    Tony Manuel\n                  </ion-col>\n                  <ion-col style="color:lightseagreen;" >\n                    Intern\n                  </ion-col>\n                  <ion-col >\n                  <button ion-button round block  (click)="selectedTab(0)" >Edit</button>\n                  </ion-col>\n                </ion-row>\n              </ion-grid>\n             </ion-item>\n              <!-- <ion-item>\n                <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n              </ion-item> -->\n             \n            \n          </ion-list>\n          \n           \n      </ion-slide>\n      \n    </ion-slides>\n  </ion-content>\n  \n  \n  \n  \n   <!-- \n  \n  \n  \n  \n  <ion-content padding>\n  <ion-list style="margin-top: 90px;">\n      <ion-item class="iont" > \n        <ion-input type="text" placeholder="First Name" name="username" #username class="inp"></ion-input>\n        <ion-icon name="person" item-left></ion-icon>\n     \n     <ion-item>\n        <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n      </ion-item> \n     \n      <ion-input  placeholder="Last Name" name="password" #password class="inp"></ion-input> \n    </ion-item>\n    <ion-item class="iont" > \n        <ion-input type="text" placeholder="Date of Birth" name="username" #username class="inp"></ion-input>\n        <ion-icon name="calendar" item-left></ion-icon>\n      </ion-item>\n      <ion-item class="iont" > \n          <ion-input type="text" placeholder="Mobile Number" name="username" #username class="inp"></ion-input>\n          <ion-icon name="ios-phone-portrait" item-left></ion-icon>\n      </ion-item>\n      <ion-item class="iont" > \n          <ion-input type="text" placeholder="Email ID" name="username" #username class="inp"></ion-input>\n          <ion-icon name="ios-mail-outline" item-left></ion-icon>\n      </ion-item>\n      <ion-item class="iont" > \n          <ion-input type="text" placeholder="Date of Join" name="username" #username class="inp"></ion-input>\n          <ion-icon name="calendar" item-left></ion-icon>\n      </ion-item>\n      <div Class="ALI" >\n         \n          <button ion-button  round> SAVE</button>\n      </div>\n  </ion-list>\n  \n  \n  \n  </ion-content>\n  -->'/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app\src\pages\systems\systems.html"*/,
+            selector: 'page-systems',template:/*ion-inline-start:"F:\ionic-app\src\pages\systems\systems.html"*/'<!--\n  Generated template for the SystemsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!--\n  Generated template for the NewuserPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<!--\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>newuser</ion-title>\n  </ion-navbar>\n\n</ion-header>\n -->\n <ion-header>\n\n    <ion-navbar>\n      <ion-title>Systems</ion-title>\n    </ion-navbar>\n  \n  </ion-header>\n\n  \n\n\n\n  <ion-content>\n \n      <ion-segment [(ngModel)]="icons" color="primary">\n        <ion-segment-button value="0" placeholder="system"(click)="selectedTab(0)">\n         <!-- <ion-icon name="camera"></ion-icon>-->\n         New System\n        </ion-segment-button>\n        <ion-segment-button value="1" (click)="selectedTab(1)">\n          <!--   <ion-icon name="ios-people"></ion-icon>-->\n          All Systems\n        </ion-segment-button>\n      </ion-segment>\n  \n    <ion-slides #slider>\n      <ion-slide>\n          \n          <ion-list style="margin-top: 90px;">\n              <ion-item class="iont" > \n                <ion-input type="text" placeholder="SYSTEM ID" name="username" #username class="inp"></ion-input>\n                <ion-icon name="ios-laptop-outline" item-left></ion-icon>\n             \n              </ion-item>\n             <ion-item>\n              <ion-input  placeholder="CPU" name="password" #password class="inp"></ion-input> \n              <ion-icon name="md-cog" item-left></ion-icon>\n            </ion-item>\n            <ion-item class="iont" > \n                <ion-input type="text" placeholder="RAM" name="username" #username class="inp"></ion-input>\n                <ion-icon name="md-easel" item-left></ion-icon>\n              </ion-item>\n              <ion-item class="iont" > \n                  <ion-input type="text" placeholder="HARD DISK" name="username" #username class="inp"></ion-input>\n                  <ion-icon name="ios-analytics-outline" item-left></ion-icon>\n              </ion-item>\n              <ion-item class="iont" > \n                 \n                  <ion-input type="text" placeholder="KEY BOARD" name="username" #username class="inp"></ion-input>\n                  <ion-icon name="ios-calculator" item-left></ion-icon>\n                </ion-item>\n                <ion-item class="iont" > \n                  <ion-input type="text" placeholder="MOUSE" name="username" #username class="inp"></ion-input>\n                  <ion-icon name="logo-octocat" item-left></ion-icon>\n               \n              </ion-item>\n            \n              <div Class="ALI" >\n                 \n                  <button ion-button  round> SAVE</button>\n              </div>\n          </ion-list>\n          \n          \n          \n         \n          \n      </ion-slide>\n      <ion-slide>\n          \n          <ion-list >\n              <ion-item class="iont" > \n                <ion-input type="text" placeholder="Search User" name="username" #username class="inp"></ion-input>\n                <ion-icon name="ios-search" item-right></ion-icon>\n              </ion-item>\n             <ion-item>\n              <ion-grid>\n                <ion-row>\n                  <ion-col>\n                    Name\n                  </ion-col>\n                  <ion-col>\n                    Position\n                  </ion-col>\n                  <ion-col>\n                    Action\n                  </ion-col>\n                </ion-row>\n              </ion-grid>\n             </ion-item>\n             <ion-item>\n              <ion-grid>\n                <ion-row>\n                  <ion-col style="color:green;">\n                    Abey Abraham\n                  </ion-col>\n                  <ion-col style="color:lightseagreen;" >\n                    Intern\n                  </ion-col>\n                  <ion-col >\n                  <button ion-button round block >Edit</button>\n                  </ion-col>\n                </ion-row>\n              </ion-grid>\n             </ion-item>\n             <ion-item>\n              <ion-grid>\n                <ion-row>\n                  <ion-col style="color:green;">\n                    Tony Manuel\n                  </ion-col>\n                  <ion-col style="color:lightseagreen;" >\n                    Intern\n                  </ion-col>\n                  <ion-col >\n                  <button ion-button round block  (click)="selectedTab(0)" >Edit</button>\n                  </ion-col>\n                </ion-row>\n              </ion-grid>\n             </ion-item>\n              <!-- <ion-item>\n                <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n              </ion-item> -->\n             \n            \n          </ion-list>\n          \n           \n      </ion-slide>\n      \n    </ion-slides>\n  </ion-content>\n  \n  \n  \n  \n   <!-- \n  \n  \n  \n  \n  <ion-content padding>\n  <ion-list style="margin-top: 90px;">\n      <ion-item class="iont" > \n        <ion-input type="text" placeholder="First Name" name="username" #username class="inp"></ion-input>\n        <ion-icon name="person" item-left></ion-icon>\n     \n     <ion-item>\n        <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n      </ion-item> \n     \n      <ion-input  placeholder="Last Name" name="password" #password class="inp"></ion-input> \n    </ion-item>\n    <ion-item class="iont" > \n        <ion-input type="text" placeholder="Date of Birth" name="username" #username class="inp"></ion-input>\n        <ion-icon name="calendar" item-left></ion-icon>\n      </ion-item>\n      <ion-item class="iont" > \n          <ion-input type="text" placeholder="Mobile Number" name="username" #username class="inp"></ion-input>\n          <ion-icon name="ios-phone-portrait" item-left></ion-icon>\n      </ion-item>\n      <ion-item class="iont" > \n          <ion-input type="text" placeholder="Email ID" name="username" #username class="inp"></ion-input>\n          <ion-icon name="ios-mail-outline" item-left></ion-icon>\n      </ion-item>\n      <ion-item class="iont" > \n          <ion-input type="text" placeholder="Date of Join" name="username" #username class="inp"></ion-input>\n          <ion-icon name="calendar" item-left></ion-icon>\n      </ion-item>\n      <div Class="ALI" >\n         \n          <button ion-button  round> SAVE</button>\n      </div>\n  </ion-list>\n  \n  \n  \n  </ion-content>\n  -->'/*ion-inline-end:"F:\ionic-app\src\pages\systems\systems.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
     ], SystemsPage);
@@ -246,7 +245,7 @@ var SystemsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 119:
+/***/ 120:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -259,32 +258,32 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 119;
+webpackEmptyAsyncContext.id = 120;
 
 /***/ }),
 
-/***/ 160:
+/***/ 161:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/newuser/newuser.module": [
-		287,
+		288,
 		4
 	],
 	"../pages/profile/profile.module": [
-		288,
+		289,
 		3
 	],
 	"../pages/recruitment/recruitment.module": [
-		289,
+		290,
 		2
 	],
 	"../pages/systems/systems.module": [
-		290,
+		291,
 		1
 	],
 	"../pages/tabs/tabs.module": [
-		291,
+		292,
 		0
 	]
 };
@@ -299,12 +298,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 160;
+webpackAsyncContext.id = 161;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 161:
+/***/ 164:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -487,7 +486,7 @@ var AddItPage = /** @class */ (function () {
     ], AddItPage.prototype, "mouseSerialNumber", void 0);
     AddItPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-add-it',template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app\src\pages\add-it\add-it.html"*/'<!--\n  Generated template for the AddItPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title> Add IT infrastructure</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list no-line>\n\n    <ion-item>\n      <ion-input type="text" placeholder="System Serial Number" name="SystemSerialNumber" #SystemSerialNumber></ion-input>\n    </ion-item>\n  \n      <ion-item>\n      <ion-input type="email" placeholder="CPUSerialNumber" name="CPUSerialNumber" #CPUSerialNumber></ion-input>\n    </ion-item>\n  \n      <ion-item>\n      <ion-input type="number" placeholder="RAMSize" name="RAMSize" #RAMSize></ion-input>\n    </ion-item>\n  \n    <ion-item>\n      <ion-input type="password" placeholder="Harddisksize" name="Harddisksize" #Harddisksize></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-input type="text" placeholder="KeyboardSerialNumber" name="KeyboardSerialNumber" #KeyboardSerialNumber></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-input type="text" placeholder="mouseSerialNumber" name="mouseSerialNumber" #mouseSerialNumber></ion-input>\n    </ion-item>\n  \n  </ion-list>\n \n  <div padding>\n  <button ion-button  round outline block (click)="additem()"> ADD ITEM </button>\n  </div>\n  <button  (click)="item()"> read ITEM </button>\n  </ion-content>'/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app\src\pages\add-it\add-it.html"*/,
+            selector: 'page-add-it',template:/*ion-inline-start:"F:\ionic-app\src\pages\add-it\add-it.html"*/'<!--\n  Generated template for the AddItPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title> Add IT infrastructure</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list no-line>\n\n    <ion-item>\n      <ion-input type="text" placeholder="System Serial Number" name="SystemSerialNumber" #SystemSerialNumber></ion-input>\n    </ion-item>\n  \n      <ion-item>\n      <ion-input type="email" placeholder="CPUSerialNumber" name="CPUSerialNumber" #CPUSerialNumber></ion-input>\n    </ion-item>\n  \n      <ion-item>\n      <ion-input type="number" placeholder="RAMSize" name="RAMSize" #RAMSize></ion-input>\n    </ion-item>\n  \n    <ion-item>\n      <ion-input type="password" placeholder="Harddisksize" name="Harddisksize" #Harddisksize></ion-input>\n    </ion-item>\n    <ion-item>\n      <ion-input type="text" placeholder="KeyboardSerialNumber" name="KeyboardSerialNumber" #KeyboardSerialNumber></ion-input>\n    </ion-item>\n\n    <ion-item>\n      <ion-input type="text" placeholder="mouseSerialNumber" name="mouseSerialNumber" #mouseSerialNumber></ion-input>\n    </ion-item>\n  \n  </ion-list>\n \n  <div padding>\n  <button ion-button  round outline block (click)="additem()"> ADD ITEM </button>\n  </div>\n  <button  (click)="item()"> read ITEM </button>\n  </ion-content>'/*ion-inline-end:"F:\ionic-app\src\pages\add-it\add-it.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
@@ -499,13 +498,13 @@ var AddItPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 206:
+/***/ 207:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(228);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -513,7 +512,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 227:
+/***/ 228:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -521,21 +520,22 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(27);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__(276);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__(277);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(41);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_storage__ = __webpack_require__(282);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(284);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_home_home__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_register_register__ = __webpack_require__(285);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_profile_profile__ = __webpack_require__(105);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_add_it_add_it__ = __webpack_require__(161);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_tabs_tabs__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_newuser_newuser__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_botabs_botabs__ = __webpack_require__(286);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_systems_systems__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_recruitment_recruitment__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_storage__ = __webpack_require__(283);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_date_picker__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_component__ = __webpack_require__(285);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_home_home__ = __webpack_require__(48);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_register_register__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_profile_profile__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_add_it_add_it__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_tabs_tabs__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_newuser_newuser__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_botabs_botabs__ = __webpack_require__(287);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_systems_systems__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_recruitment_recruitment__ = __webpack_require__(108);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -560,25 +560,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_register_register__["a" /* RegisterPage */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_profile_profile__["a" /* ProfilePage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_add_it_add_it__["a" /* AddItPage */], __WEBPACK_IMPORTED_MODULE_17__pages_recruitment_recruitment__["a" /* RecruitmentPage */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_tabs_tabs__["a" /* TabsPage */], __WEBPACK_IMPORTED_MODULE_14__pages_newuser_newuser__["a" /* NewuserPage */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_botabs_botabs__["a" /* BotabsPage */], __WEBPACK_IMPORTED_MODULE_16__pages_systems_systems__["a" /* SystemsPage */]
+                __WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_register_register__["a" /* RegisterPage */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_profile_profile__["a" /* ProfilePage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_add_it_add_it__["a" /* AddItPage */], __WEBPACK_IMPORTED_MODULE_18__pages_recruitment_recruitment__["a" /* RecruitmentPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_tabs_tabs__["a" /* TabsPage */], __WEBPACK_IMPORTED_MODULE_15__pages_newuser_newuser__["a" /* NewuserPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_botabs_botabs__["a" /* BotabsPage */], __WEBPACK_IMPORTED_MODULE_17__pages_systems_systems__["a" /* SystemsPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
                 __WEBPACK_IMPORTED_MODULE_5__angular_common_http__["a" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_6__angular_http__["c" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */], {}, {
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* MyApp */], {}, {
                     links: [
                         { loadChildren: '../pages/newuser/newuser.module#NewuserPageModule', name: 'NewuserPage', segment: 'newuser', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
@@ -591,19 +592,20 @@ var AppModule = /** @class */ (function () {
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicApp */]],
             entryComponents: [
-                __WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */],
-                __WEBPACK_IMPORTED_MODULE_9__pages_home_home__["a" /* HomePage */],
-                __WEBPACK_IMPORTED_MODULE_10__pages_register_register__["a" /* RegisterPage */],
-                __WEBPACK_IMPORTED_MODULE_11__pages_profile_profile__["a" /* ProfilePage */],
-                __WEBPACK_IMPORTED_MODULE_12__pages_add_it_add_it__["a" /* AddItPage */],
-                __WEBPACK_IMPORTED_MODULE_13__pages_tabs_tabs__["a" /* TabsPage */],
-                __WEBPACK_IMPORTED_MODULE_14__pages_newuser_newuser__["a" /* NewuserPage */],
-                __WEBPACK_IMPORTED_MODULE_15__pages_botabs_botabs__["a" /* BotabsPage */], __WEBPACK_IMPORTED_MODULE_16__pages_systems_systems__["a" /* SystemsPage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_recruitment_recruitment__["a" /* RecruitmentPage */]
+                __WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* MyApp */],
+                __WEBPACK_IMPORTED_MODULE_10__pages_home_home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_11__pages_register_register__["a" /* RegisterPage */],
+                __WEBPACK_IMPORTED_MODULE_12__pages_profile_profile__["a" /* ProfilePage */],
+                __WEBPACK_IMPORTED_MODULE_13__pages_add_it_add_it__["a" /* AddItPage */],
+                __WEBPACK_IMPORTED_MODULE_14__pages_tabs_tabs__["a" /* TabsPage */],
+                __WEBPACK_IMPORTED_MODULE_15__pages_newuser_newuser__["a" /* NewuserPage */],
+                __WEBPACK_IMPORTED_MODULE_16__pages_botabs_botabs__["a" /* BotabsPage */], __WEBPACK_IMPORTED_MODULE_17__pages_systems_systems__["a" /* SystemsPage */],
+                __WEBPACK_IMPORTED_MODULE_18__pages_recruitment_recruitment__["a" /* RecruitmentPage */]
             ],
             providers: [
                 __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */],
                 __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_8__ionic_native_date_picker__["a" /* DatePicker */],
                 { provide: __WEBPACK_IMPORTED_MODULE_1__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicErrorHandler */] }
             ]
         })
@@ -615,15 +617,15 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 284:
+/***/ 285:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(201);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(204);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(48);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -650,7 +652,7 @@ var MyApp = /** @class */ (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"F:\ionic-app\src\app\app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"F:\ionic-app\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
@@ -661,7 +663,7 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 285:
+/***/ 286:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -787,7 +789,7 @@ var RegisterPage = /** @class */ (function () {
     ], RegisterPage.prototype, "password", void 0);
     RegisterPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-register',template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app\src\pages\register\register.html"*/'<!--\n  Generated template for the RegisterPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>register</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list no-line>\n\n    <ion-item>\n      <ion-input type="text" placeholder="Username" name="fullname" #username></ion-input>\n    </ion-item>\n  \n      <ion-item>\n      <ion-input type="email" placeholder="Email" name="email" #email></ion-input>\n    </ion-item>\n  \n      <ion-item>\n      <ion-input type="number" placeholder="Mobile Number" name="mobile" #mobile></ion-input>\n    </ion-item>\n  \n    <ion-item>\n      <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n    </ion-item>\n  \n  </ion-list>\n \n  <div padding>\n  <button ion-button  round outline block (click)="Register()">Register</button>\n  </div>\n  \n  </ion-content>\n\n'/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app\src\pages\register\register.html"*/
+            selector: 'page-register',template:/*ion-inline-start:"F:\ionic-app\src\pages\register\register.html"*/'<!--\n  Generated template for the RegisterPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>register</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n  <ion-list no-line>\n\n    <ion-item>\n      <ion-input type="text" placeholder="Username" name="fullname" #username></ion-input>\n    </ion-item>\n  \n      <ion-item>\n      <ion-input type="email" placeholder="Email" name="email" #email></ion-input>\n    </ion-item>\n  \n      <ion-item>\n      <ion-input type="number" placeholder="Mobile Number" name="mobile" #mobile></ion-input>\n    </ion-item>\n  \n    <ion-item>\n      <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n    </ion-item>\n  \n  </ion-list>\n \n  <div padding>\n  <button ion-button  round outline block (click)="Register()">Register</button>\n  </div>\n  \n  </ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\register\register.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
     ], RegisterPage);
@@ -798,7 +800,7 @@ var RegisterPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 286:
+/***/ 287:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -836,7 +838,7 @@ var BotabsPage = /** @class */ (function () {
     };
     BotabsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-botabs',template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app\src\pages\botabs\botabs.html"*/'<!--\n  Generated template for the BotabsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-toolbar>\n    <ion-segment [(ngModel)]="icons" color="secondary">\n      <ion-segment-button value="camera">\n        <ion-icon name="camera"></ion-icon>\n      </ion-segment-button>\n      <ion-segment-button value="bookmark">\n        <ion-icon name="bookmark"></ion-icon>\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <!-- Segment in content -->\n  <ion-segment [(ngModel)]="relationship" color="primary" (ionChange)="segmentChanged($event)">\n    <ion-segment-button value="friends">\n      Friends\n    </ion-segment-button>\n    <ion-segment-button value="enemies">\n      Enemies\n    </ion-segment-button>\n    \n  </ion-segment>\n \n   Segment in a form \n  <form [formGroup]="myForm"> \n    <ion-segment formControlName="mapStyle" color="danger">\n      <ion-segment-button value="standard">\n        Standard\n      </ion-segment-button>\n      <ion-segment-button value="hybrid">\n        Hybrid\n      </ion-segment-button>\n      <ion-segment-button value="sat">\n        Satellite\n      </ion-segment-button>\n    </ion-segment>\n    </form> \n   \n    \n</ion-content>\n'/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app\src\pages\botabs\botabs.html"*/,
+            selector: 'page-botabs',template:/*ion-inline-start:"F:\ionic-app\src\pages\botabs\botabs.html"*/'<!--\n  Generated template for the BotabsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n  <ion-toolbar>\n    <ion-segment [(ngModel)]="icons" color="secondary">\n      <ion-segment-button value="camera">\n        <ion-icon name="camera"></ion-icon>\n      </ion-segment-button>\n      <ion-segment-button value="bookmark">\n        <ion-icon name="bookmark"></ion-icon>\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <!-- Segment in content -->\n  <ion-segment [(ngModel)]="relationship" color="primary" (ionChange)="segmentChanged($event)">\n    <ion-segment-button value="friends">\n      Friends\n    </ion-segment-button>\n    <ion-segment-button value="enemies">\n      Enemies\n    </ion-segment-button>\n    \n  </ion-segment>\n \n   Segment in a form \n  <form [formGroup]="myForm"> \n    <ion-segment formControlName="mapStyle" color="danger">\n      <ion-segment-button value="standard">\n        Standard\n      </ion-segment-button>\n      <ion-segment-button value="hybrid">\n        Hybrid\n      </ion-segment-button>\n      <ion-segment-button value="sat">\n        Satellite\n      </ion-segment-button>\n    </ion-segment>\n    </form> \n   \n    \n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\botabs\botabs.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
     ], BotabsPage);
@@ -854,8 +856,8 @@ var BotabsPage = /** @class */ (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs_tabs__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__profile_profile__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs_tabs__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__profile_profile__ = __webpack_require__(106);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
@@ -957,7 +959,7 @@ var HomePage = /** @class */ (function () {
     ], HomePage.prototype, "password", void 0);
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app\src\pages\home\home.html"*/' <!--  <ion-header no-border>\n<ion-navbar >\n  <ion-title>Login</ion-title>\n</ion-navbar>\n  </ion-header> -->\n <!--   // [hidden]="true" *navbar -->\n<ion-content class= "content_1">\n    <img src="assets/imgs/companylogo.png" class="logo">\n   <div class="height1">\n  <ion-list >\n    <ion-item class="iont" > \n      <ion-input type="text" placeholder="Username" name="username" #username class="inp"></ion-input>\n      <ion-icon name="person" item-left></ion-icon>\n    </ion-item>\n    <!-- <ion-item>\n      <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n    </ion-item> -->\n    <ion-item class="iont">\n    <ion-input type="password" placeholder="Password" name="password" #password class="inp"></ion-input> <ion-icon name="ios-eye" item-left></ion-icon>\n  </ion-item>\n  <div class="click_down">\n    <button ion-button round block (click)="signIn()">Sign In</button>\n    <p>\n   <a href="https://www.christuniversity.in/" class="fp">Forgot password?</a></p>\n   <button ion-button round outline block (click)="signUp()">Register</button> \n  </div>\n  </ion-list>\n    </div>\n</ion-content>\n'/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app\src\pages\home\home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"F:\ionic-app\src\pages\home\home.html"*/' <!--  <ion-header no-border>\n<ion-navbar >\n  <ion-title>Login</ion-title>\n</ion-navbar>\n  </ion-header> -->\n <!--   // [hidden]="true" *navbar -->\n<ion-content class= "content_1">\n    <img src="assets/imgs/companylogo.png" class="logo">\n   <div class="height1">\n  <ion-list >\n    <ion-item class="iont" > \n      <ion-input type="text" placeholder="Username" name="username" #username class="inp"></ion-input>\n      <ion-icon name="person" item-left></ion-icon>\n    </ion-item>\n    <!-- <ion-item>\n      <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n    </ion-item> -->\n    <ion-item class="iont">\n    <ion-input type="password" placeholder="Password" name="password" #password class="inp"></ion-input> <ion-icon name="ios-eye" item-left></ion-icon>\n  </ion-item>\n  <div class="click_down">\n    <button ion-button round block (click)="signIn()">Sign In</button>\n    <p>\n   <a href="https://www.christuniversity.in/" class="fp">Forgot password?</a></p>\n   <button ion-button round outline block (click)="signUp()">Register</button> \n  </div>\n  </ion-list>\n    </div>\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\home\home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */],
             __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* LoadingController */]])
@@ -974,8 +976,9 @@ var HomePage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewuserPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_date_picker__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -987,6 +990,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 /**
  * Generated class for the NewuserPage page.
  *
@@ -994,30 +998,47 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var NewuserPage = /** @class */ (function () {
-    function NewuserPage(navCtrl, navParams) {
+    function NewuserPage(navCtrl, navParams, datePicker) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.page = 0;
+        this.datePicker = datePicker;
+        this.users = "newUser";
     }
-    NewuserPage.prototype.selectedTab = function (ind) {
-        this.slider.slideTo(ind);
+    NewuserPage.prototype.selectedTab = function (index) {
+        this.slider.slideTo(index);
+    };
+    NewuserPage.prototype.dispdate = function (type) {
+        var _this = this;
+        this.datePicker.show({
+            date: new Date(),
+            mode: 'date',
+            androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_LIGHT
+        }).then(function (date) {
+            if (type === "join") {
+                _this.doj = new Date(date).toLocaleDateString();
+            }
+            else {
+                _this.dob = new Date(date).toLocaleDateString();
+            }
+        });
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('slider'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */])
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_8" /* ViewChild */])('slider'),
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* Slides */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* Slides */]) === "function" && _a || Object)
     ], NewuserPage.prototype, "slider", void 0);
     NewuserPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-newuser',template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app\src\pages\newuser\newuser.html"*/'<!--\n  Generated template for the NewuserPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Users</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n<!--\n\n <ion-header>\n  <ion-toolbar>-->\n   \n    <!--\n  </ion-toolbar>\n</ion-header>-->\n<ion-content>\n    <ion-segment [(ngModel)]="icons" color="primary">\n        <ion-segment-button value="0" placeholder="First Name"(click)="selectedTab(0)">\n         <!-- <ion-icon name="person"></ion-icon> -->\n         New User\n        </ion-segment-button>\n        <ion-segment-button value="1" (click)="selectedTab(1)">\n        <!--   <ion-icon name="ios-people"></ion-icon> --> \n        All User\n        </ion-segment-button>\n      </ion-segment>\n  <ion-slides #slider>\n    <ion-slide>\n        \n        <ion-list style="margin-top: 90px;">\n            <ion-item class="iont" > \n              <ion-input type="text" placeholder="First Name" name="username" #username class="inp"></ion-input>\n              <ion-icon name="person" item-left></ion-icon>\n           \n           <ion-item>\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n            </ion-item> \n           \n            <ion-input  placeholder="Last Name" name="password" #password class="inp"></ion-input> \n          </ion-item>\n          <ion-item class="iont" > \n              <ion-input type="text" placeholder="Date of Birth" name="username" #username class="inp"></ion-input>\n              <ion-icon name="calendar" item-left></ion-icon>\n            </ion-item>\n            <ion-item class="iont" > \n                <ion-input type="text" placeholder="Mobile Number" name="username" #username class="inp"></ion-input>\n                <ion-icon name="ios-phone-portrait" item-left></ion-icon>\n            </ion-item>\n            <ion-item class="iont" > \n                <ion-input type="text" placeholder="Email ID" name="username" #username class="inp"></ion-input>\n                <ion-icon name="ios-mail-outline" item-left></ion-icon>\n            </ion-item>\n            <ion-item class="iont" > \n                <ion-input type="text" placeholder="Date of Join" name="username" #username class="inp"></ion-input>\n                <ion-icon name="calendar" item-left></ion-icon>\n            </ion-item>\n            <div Class="ALI" >\n               \n                <button ion-button  round> SAVE</button>\n            </div>\n        </ion-list>\n        \n        \n        \n       \n        \n    </ion-slide>\n    <ion-slide>\n        \n        <ion-list >\n            <ion-item class="iont" > \n              <ion-input type="text" placeholder="Search User" name="username" #username class="inp"></ion-input>\n              <ion-icon name="ios-search" item-right></ion-icon>\n            </ion-item>\n           <ion-item>\n            <ion-grid>\n              <ion-row>\n                <ion-col>\n                  Name\n                </ion-col>\n                <ion-col>\n                  Position\n                </ion-col>\n                <ion-col>\n                  Action\n                </ion-col>\n              </ion-row>\n            </ion-grid>\n           </ion-item>\n           <ion-item>\n            <ion-grid>\n              <ion-row>\n                <ion-col style="color:green;">\n                  Abey Abraham\n                </ion-col>\n                <ion-col style="color:lightseagreen;" >\n                  Intern\n                </ion-col>\n                <ion-col >\n                <button ion-button round block >Edit</button>\n                </ion-col>\n              </ion-row>\n            </ion-grid>\n           </ion-item>\n           <ion-item>\n            <ion-grid>\n              <ion-row>\n                <ion-col style="color:green;">\n                  Tony Manuel\n                </ion-col>\n                <ion-col style="color:lightseagreen;" >\n                  Intern\n                </ion-col>\n                <ion-col >\n                <button ion-button round block  (click)="selectedTab(0)" >Edit</button>\n                </ion-col>\n              </ion-row>\n            </ion-grid>\n           </ion-item>\n            <!-- <ion-item>\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n            </ion-item> -->\n           \n          \n        </ion-list>\n        \n         \n    </ion-slide>\n    \n  </ion-slides>\n</ion-content>\n\n\n\n\n <!-- \n\n\n\n\n<ion-content padding>\n<ion-list style="margin-top: 90px;">\n    <ion-item class="iont" > \n      <ion-input type="text" placeholder="First Name" name="username" #username class="inp"></ion-input>\n      <ion-icon name="person" item-left></ion-icon>\n   \n   <ion-item>\n      <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n    </ion-item> \n   \n    <ion-input  placeholder="Last Name" name="password" #password class="inp"></ion-input> \n  </ion-item>\n  <ion-item class="iont" > \n      <ion-input type="text" placeholder="Date of Birth" name="username" #username class="inp"></ion-input>\n      <ion-icon name="calendar" item-left></ion-icon>\n    </ion-item>\n    <ion-item class="iont" > \n        <ion-input type="text" placeholder="Mobile Number" name="username" #username class="inp"></ion-input>\n        <ion-icon name="ios-phone-portrait" item-left></ion-icon>\n    </ion-item>\n    <ion-item class="iont" > \n        <ion-input type="text" placeholder="Email ID" name="username" #username class="inp"></ion-input>\n        <ion-icon name="ios-mail-outline" item-left></ion-icon>\n    </ion-item>\n    <ion-item class="iont" > \n        <ion-input type="text" placeholder="Date of Join" name="username" #username class="inp"></ion-input>\n        <ion-icon name="calendar" item-left></ion-icon>\n    </ion-item>\n    <div Class="ALI" >\n       \n        <button ion-button  round> SAVE</button>\n    </div>\n</ion-list>\n\n\n\n</ion-content>\n-->'/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app\src\pages\newuser\newuser.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
+            selector: 'page-newuser',template:/*ion-inline-start:"F:\ionic-app\src\pages\newuser\newuser.html"*/'<!--\n  Generated template for the NewuserPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n\n<ion-content style="margin-top:50px" >\n    <ion-segment [(ngModel)]="users" color="white">\n        <ion-segment-button value="newUser"  >\n         <!-- <ion-icon name="person"></ion-icon> -->\n         New User\n        </ion-segment-button>\n        <ion-segment-button value="allUsers">\n        <!--   <ion-icon name="ios-people"></ion-icon> --> \n        All User\n        </ion-segment-button>\n    </ion-segment>\n     \n      <div [ngSwitch]="users">\n\n          <div *ngSwitchCase="\'newUser\'">\n            <ion-list inset  >\n                  <ion-list-header  text-start no-padding no-margin class="heading1">\n                      User Information\n                    </ion-list-header>\n                \n                 \n                    <ion-row>\n                    <ion-item col-6 > \n                        <ion-label stacked>First Name</ion-label>\n                        <ion-input type="text" name="fName"  ></ion-input>\n                      </ion-item> \n                             \n                     <ion-item col-6  offset-1> \n                        <ion-label stacked>Last Name</ion-label>\n                        <ion-input type="text" name="lName" ></ion-input>\n                      </ion-item>\n                    </ion-row>\n\n                    <ion-row>\n                      <ion-item col-12 > \n                          <ion-label stacked>Date Of Birth</ion-label>\n                          <ion-input type="text"  (ionFocus)="dispdate(\'birth\')" (click)="dispdate(\'birth\')" [(ngModel)]=dob  ></ion-input>\n                        </ion-item> \n                    </ion-row>      \n                    <ion-row>\n                       <ion-item col-12> \n                          <ion-label stacked>Email Id</ion-label>\n                          <ion-input type="text" name="emailId"></ion-input>\n                        </ion-item>\n                      </ion-row>\n                      \n                      <ion-list-header  class="heading1">\n                          Job Details\n                        </ion-list-header>\n\n                        <ion-row>\n                            <ion-item col-6> \n                                <ion-label stacked>Date Of Joining</ion-label>\n                                <ion-input type="text"  (ionFocus)="dispdate(\'join\')" (click)="dispdate(\'join\')" [(ngModel)]=doj></ion-input>\n                              </ion-item>\n                             <ion-item col-6> \n                                <ion-label stacked>Position</ion-label>\n                                <ion-input type="text" name="position"></ion-input>\n                              </ion-item>\n                           </ion-row>  \n                \n\n              </ion-list>\n          </div>\n            \n       <div *ngSwitchCase="\'allUsers\'">\n        <ion-list >\n            <ion-item class="iont" > \n              <ion-input type="text" placeholder="Search User" name="username" #username class="inp"></ion-input>\n              <ion-icon name="ios-search" item-right></ion-icon>\n            </ion-item>\n           <ion-item>\n            <ion-grid>\n              <ion-row>\n                <ion-col>\n                  Name\n                </ion-col>\n                <ion-col>\n                  Position\n                </ion-col>\n                <ion-col>\n                  Action\n                </ion-col>\n              </ion-row>\n            </ion-grid>\n           </ion-item>\n           <ion-item>\n            <ion-grid>\n              <ion-row>\n                <ion-col style="color:green;">\n                  Abey Abraham\n                </ion-col>\n                <ion-col style="color:lightseagreen;" >\n                  Intern\n                </ion-col>\n                <ion-col >\n                <button ion-button round block >Edit</button>\n                </ion-col>\n              </ion-row>\n            </ion-grid>\n           </ion-item>\n           <ion-item>\n            <ion-grid>\n              <ion-row>\n                <ion-col style="color:green;">\n                  Tony Manuel\n                </ion-col>\n                <ion-col style="color:lightseagreen;" >\n                  Intern\n                </ion-col>\n                <ion-col >\n                <button ion-button round block  (click)="selectedTab(0)" >Edit</button>\n                </ion-col>\n              </ion-row>\n            </ion-grid>\n           </ion-item>\n            <!-- <ion-item>\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n            </ion-item> -->\n           \n          \n        </ion-list>\n      </div>\n      </div>\n</ion-content>\n\n \n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\newuser\newuser.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__ionic_native_date_picker__["a" /* DatePicker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__ionic_native_date_picker__["a" /* DatePicker */]) === "function" && _d || Object])
     ], NewuserPage);
     return NewuserPage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=newuser.js.map
 
 /***/ })
 
-},[206]);
+},[207]);
 //# sourceMappingURL=main.js.map

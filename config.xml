@@ -84,4 +84,5 @@
     <plugin name="cordova-plugin-splashscreen" spec="5.0.2" />
     <plugin name="cordova-plugin-statusbar" spec="2.4.2" />
     <engine name="android" spec="7.1.4" />
+    <plugin name="cordova-plugin-datepicker" spec="0.9.3" />
 </widget>

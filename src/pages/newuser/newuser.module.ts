@@ -10,4 +10,7 @@ import { NewuserPage } from './newuser';
     IonicPageModule.forChild(NewuserPage),
   ],
 })
-export class NewuserPageModule {}
+
+export class NewuserPageModule {
+ 
+}
