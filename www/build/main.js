@@ -1,16 +1,16 @@
 webpackJsonp([5],{
 
-/***/ 136:
+/***/ 138:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_it_add_it__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_it_add_it__ = __webpack_require__(246);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -87,16 +87,16 @@ var ProfilePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 137:
+/***/ 139:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__newuser_newuser__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__recruitment_recruitment__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__systems_systems__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__newuser_newuser__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__recruitment_recruitment__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__systems_systems__ = __webpack_require__(141);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -143,7 +143,7 @@ var TabsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 138:
+/***/ 140:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -205,7 +205,7 @@ var RecruitmentPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 139:
+/***/ 141:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -268,7 +268,7 @@ var SystemsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 151:
+/***/ 153:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -281,32 +281,32 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 151;
+webpackEmptyAsyncContext.id = 153;
 
 /***/ }),
 
-/***/ 192:
+/***/ 194:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/newuser/newuser.module": [
-		453,
+		466,
 		4
 	],
 	"../pages/profile/profile.module": [
-		449,
+		467,
 		3
 	],
 	"../pages/recruitment/recruitment.module": [
-		450,
+		468,
 		2
 	],
 	"../pages/systems/systems.module": [
-		451,
+		469,
 		1
 	],
 	"../pages/tabs/tabs.module": [
-		452,
+		470,
 		0
 	]
 };
@@ -321,22 +321,22 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 192;
+webpackAsyncContext.id = 194;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 193:
+/***/ 246:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AddItPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(75);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -521,13 +521,13 @@ var AddItPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 285:
+/***/ 291:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(286);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(304);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(292);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(310);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -535,7 +535,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 304:
+/***/ 310:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -543,23 +543,23 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(280);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(283);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__(441);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_storage__ = __webpack_require__(444);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(446);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_home_home__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_register_register__ = __webpack_require__(447);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_profile_profile__ = __webpack_require__(136);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_add_it_add_it__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_tabs_tabs__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_newuser_newuser__ = __webpack_require__(79);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_botabs_botabs__ = __webpack_require__(448);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_systems_systems__ = __webpack_require__(139);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_recruitment_recruitment__ = __webpack_require__(138);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_angularfire2__ = __webpack_require__(74);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_angularfire2_database__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__(458);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_storage__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__app_component__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_home_home__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_register_register__ = __webpack_require__(464);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_profile_profile__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_add_it_add_it__ = __webpack_require__(246);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_tabs_tabs__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_newuser_newuser__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_botabs_botabs__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_systems_systems__ = __webpack_require__(141);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_recruitment_recruitment__ = __webpack_require__(140);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18_angularfire2__ = __webpack_require__(73);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19_angularfire2_database__ = __webpack_require__(195);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -587,12 +587,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 var config = {
-    apiKey: "AIzaSyDMKLi6y817JKgy6wEGaFKXFq6pjhbEXOs",
-    authDomain: "dddddddddddddddddd-56957.firebaseapp.com",
-    databaseURL: "https://dddddddddddddddddd-56957.firebaseio.com",
-    projectId: "dddddddddddddddddd-56957",
-    storageBucket: "dddddddddddddddddd-56957.appspot.com",
-    messagingSenderId: "511075654805"
+    apiKey: "AIzaSyCRDymxcDEMORc4U1TjW5_SKiB22G45buM",
+    authDomain: "sopaa-b37c1.firebaseapp.com",
+    databaseURL: "https://sopaa-b37c1.firebaseio.com",
+    projectId: "sopaa-b37c1",
+    storageBucket: "",
+    messagingSenderId: "500138839182"
 };
 var AppModule = /** @class */ (function () {
     function AppModule() {
@@ -614,11 +614,11 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_6__angular_http__["c" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_8__app_component__["a" /* MyApp */], {}, {
                     links: [
+                        { loadChildren: '../pages/newuser/newuser.module#NewuserPageModule', name: 'NewuserPage', segment: 'newuser', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/recruitment/recruitment.module#RecruitmentPageModule', name: 'RecruitmentPage', segment: 'recruitment', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/systems/systems.module#SystemsPageModule', name: 'SystemsPage', segment: 'systems', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/newuser/newuser.module#NewuserPageModule', name: 'NewuserPage', segment: 'newuser', priority: 'low', defaultHistory: [] }
+                        { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_19_angularfire2_database__["b" /* AngularFireDatabaseModule */],
@@ -651,16 +651,16 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 446:
+/***/ 463:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(283);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(280);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(65);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(289);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(286);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(75);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -697,16 +697,16 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 447:
+/***/ 464:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RegisterPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(65);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home_home__ = __webpack_require__(75);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -834,14 +834,14 @@ var RegisterPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 448:
+/***/ 465:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return BotabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__newuser_newuser__ = __webpack_require__(79);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__newuser_newuser__ = __webpack_require__(80);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -883,17 +883,17 @@ var BotabsPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 65:
+/***/ 75:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs_tabs__ = __webpack_require__(137);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__profile_profile__ = __webpack_require__(136);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(38);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs_tabs__ = __webpack_require__(139);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__profile_profile__ = __webpack_require__(138);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(59);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1005,14 +1005,16 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 79:
+/***/ 80:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewuserPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(194);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__ = __webpack_require__(195);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase__ = __webpack_require__(422);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_firebase___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_firebase__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1022,6 +1024,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -1038,11 +1041,12 @@ var NewuserPage = /** @class */ (function () {
         this.fdb = fdb;
         this.navParams = navParams;
         this.alertCtrl = alertCtrl;
+        //@ViewChild("fname") ffname;
         this.arrData = [];
         this.page = 0;
         this.icons = "0";
         this.icons = "0";
-        this.fdb.list("/myitems/").valueChanges().subscribe(function (_data) {
+        this.fdb.list("/myitems/items/").valueChanges().subscribe(function (_data) {
             _this.arrData = _data;
             console.log(_this.arrData);
         });
@@ -1050,6 +1054,12 @@ var NewuserPage = /** @class */ (function () {
     NewuserPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad RecruitmentPage');
         this.slides.lockSwipes(true);
+        var reportRef = __WEBPACK_IMPORTED_MODULE_3_firebase___default.a.database().ref("/myitems/").orderByKey();
+        reportRef.on('child_added', function (data) {
+            console.log(data.val().fname, data.val().lname);
+            console.log(data.val().fname);
+            this.fname = data.val().fname;
+        });
     };
     NewuserPage.prototype.selectedTab = function (ind) {
         this.slides.lockSwipes(false);
@@ -1065,51 +1075,70 @@ var NewuserPage = /** @class */ (function () {
         //console.log("sasi");
     };
     NewuserPage.prototype.btn = function () {
-        console.log(this.fname);
-        this.fdb.list("/fname/").push(this.fname);
-        this.fdb.list("/lname/").push(this.lname);
-        this.fdb.list("/dob/").push(this.dob);
-        this.fdb.list("/mobile/").push(this.mobile);
-        this.fdb.list("/email/").push(this.email);
-        this.fdb.list("/doj/").push(this.doj);
+        //console.log(this.fname);
+        //var reportRef = firebase.database().ref("/myitems/items").orderByKey();
+        //reportRef.on('child_added', function(data) {
+        // console.log(data.val().fname);  
+        //console.log(data.val().fname);
+        //this.fname=data.val().fname;
+        //});
+        //this.shoppingItemRef$.push({
+        //itemName: this.shoppingItem.itemName,
+        //itemNumber: Number(this.shoppingItem.itemNumber)
+        //});
+        this.fdb.list("/users/").push({
+            fname: this.fname,
+            lname: this.lname,
+            dob: this.dob,
+            mobile: this.mobile,
+            email: this.email,
+            doj: this.doj
+        });
+        //this.fdb.list("/lname/").push(this.lname);
+        //this.fdb.list("/dob/").push(this.dob);
+        // this.fdb.list("/mobile/").push(this.mobile);
+        //this.fdb.list("/email/").push(this.email);
+        //this.fdb.list("/doj/").push(this.doj);
         var alert = this.alertCtrl.create({
             title: "SUCCESS",
             subTitle: "New User has been added succesfuly ",
             buttons: ['OK']
         });
         alert.present();
-        this.fname = "";
+        //this.fname="";
         this.lname = "";
         this.mobile = "";
         this.dob = "";
         this.doj = "";
         this.email = "";
     };
+    NewuserPage.prototype.createPerson = function (fname, lname) {
+        var personRef = __WEBPACK_IMPORTED_MODULE_3_firebase___default.a.database().ref("/person1/");
+        personRef.set({
+            fname: fname,
+            lname: lname
+        });
+    };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('slider'),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */])
     ], NewuserPage.prototype, "slider", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */]),
-        __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */]) === "function" && _b || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */])
     ], NewuserPage.prototype, "slides", void 0);
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])("fname"),
-        __metadata("design:type", Object)
-    ], NewuserPage.prototype, "ffname", void 0);
     NewuserPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-newuser',template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\newuser\newuser.html"*/'<!--\n\n  Generated template for the NewuserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<!--\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Users</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n-->\n\n<!--\n\n\n\n <ion-header>\n\n  <ion-toolbar>-->\n\n   \n\n    <!--\n\n  </ion-toolbar>\n\n</ion-header>-->\n\n<ion-content>\n\n    <ion-segment [(ngModel)]="icons" color="primary">\n\n        <ion-segment-button value="0" placeholder="First Name"(click)="selectedTab(0)"  aria-pressed="true">\n\n         <!-- <ion-icon name="person"></ion-icon> -->\n\n         New User\n\n        </ion-segment-button>\n\n        <ion-segment-button value="1" (click)="selectedTab(1)">\n\n        <!--   <ion-icon name="ios-people"></ion-icon> --> \n\n        All User\n\n        </ion-segment-button>\n\n      </ion-segment>\n\n  <ion-slides #slider>\n\n    <ion-slide>\n\n        \n\n        <ion-list style="margin-top: 90px;">\n\n            <ion-item class="iont" > \n\n              <ion-input type="text" placeholder="First Name" name="username" #ffname class="inp" [(ngModel)]="fname"></ion-input>\n\n              <ion-icon name="person" item-left></ion-icon>\n\n           \n\n           \n\n           \n\n            <ion-input  placeholder="Last Name" name="password" #llname class="inp" [(ngModel)]="lname"></ion-input> \n\n          </ion-item>\n\n          <ion-item class="iont" > \n\n              <ion-input type="text" placeholder="Date of Birth" name="username" #ddob class="inp" [(ngModel)]="dob"></ion-input>\n\n              <ion-icon name="calendar" item-left></ion-icon>\n\n            </ion-item>\n\n            <ion-item class="iont" > \n\n                <ion-input type="text" placeholder="Mobile Number" name="username" #mmobile class="inp" [(ngModel)]="mobile"></ion-input>\n\n                <ion-icon name="ios-phone-portrait" item-left></ion-icon>\n\n            </ion-item>\n\n            <ion-item class="iont" > \n\n                <ion-input type="text" placeholder="Email ID" name="username" #eemail class="inp" [(ngModel)]="email"></ion-input>\n\n                <ion-icon name="ios-mail-outline" item-left></ion-icon>\n\n            </ion-item>\n\n            <ion-item class="iont" > \n\n                <ion-input type="text" placeholder="Date of Join" name="username" #ddoj class="inp" [(ngModel)]="doj"></ion-input>\n\n                <ion-icon name="calendar" item-left></ion-icon>\n\n            </ion-item>\n\n            \n\n            <div Class="ALI" >\n\n               \n\n              <button ion-button  (click)="btn()" round> SAVE</button>\n\n          </div>\n\n        </ion-list>\n\n        \n\n        \n\n        \n\n       \n\n        \n\n    </ion-slide>\n\n    <ion-slide>\n\n        \n\n        <ion-list >\n\n            <ion-item class="iont" > \n\n              <ion-input type="text" placeholder="Search User" name="username" #username class="inp"></ion-input>\n\n              <ion-icon name="ios-search" item-right></ion-icon>\n\n            </ion-item>\n\n           <ion-item>\n\n            <ion-grid>\n\n              <ion-row>\n\n                <ion-col>\n\n                  Name\n\n                </ion-col>\n\n                <ion-col>\n\n                  Position\n\n                </ion-col>\n\n                <ion-col>\n\n                  Action\n\n                </ion-col>\n\n              </ion-row>\n\n            </ion-grid>\n\n           </ion-item>\n\n           <ion-item>\n\n            <ion-grid>\n\n              <ion-row>\n\n                <ion-col style="color:green;">\n\n                  Abey Abraham\n\n                </ion-col>\n\n                <ion-col style="color:lightseagreen;" >\n\n                  Intern\n\n                </ion-col>\n\n                <ion-col >\n\n                <button ion-button round block >Edit</button>\n\n                </ion-col>\n\n              </ion-row>\n\n            </ion-grid>\n\n           </ion-item>\n\n           <ion-item>\n\n            <ion-grid>\n\n              <ion-row>\n\n                <ion-col style="color:green;">\n\n                  Tony Manuel\n\n                </ion-col>\n\n                <ion-col style="color:lightseagreen;" >\n\n                  Intern\n\n                </ion-col>\n\n                <ion-col >\n\n                <button ion-button round block  (click)="selectedTab(0)" >Edit</button>\n\n                </ion-col>\n\n              </ion-row>\n\n            </ion-grid>\n\n           </ion-item>\n\n            <!-- <ion-item>\n\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n            </ion-item> -->\n\n           \n\n          \n\n        </ion-list>\n\n        \n\n         \n\n    </ion-slide>\n\n    \n\n  </ion-slides>\n\n</ion-content>\n\n\n\n\n\n\n\n\n\n <!-- \n\n\n\n\n\n\n\n\n\n<ion-content padding>\n\n<ion-list style="margin-top: 90px;">\n\n    <ion-item class="iont" > \n\n      <ion-input type="text" placeholder="First Name" name="username" #username class="inp"></ion-input>\n\n      <ion-icon name="person" item-left></ion-icon>\n\n   \n\n   <ion-item>\n\n      <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n    </ion-item> \n\n   \n\n    <ion-input  placeholder="Last Name" name="password" #password class="inp"></ion-input> \n\n  </ion-item>\n\n  <ion-item class="iont" > \n\n      <ion-input type="text" placeholder="Date of Birth" name="username" #username class="inp"></ion-input>\n\n      <ion-icon name="calendar" item-left></ion-icon>\n\n    </ion-item>\n\n    <ion-item class="iont" > \n\n        <ion-input type="text" placeholder="Mobile Number" name="username" #username class="inp"></ion-input>\n\n        <ion-icon name="ios-phone-portrait" item-left></ion-icon>\n\n    </ion-item>\n\n    <ion-item class="iont" > \n\n        <ion-input type="text" placeholder="Email ID" name="username" #username class="inp"></ion-input>\n\n        <ion-icon name="ios-mail-outline" item-left></ion-icon>\n\n    </ion-item>\n\n    <ion-item class="iont" > \n\n        <ion-input type="text" placeholder="Date of Join" name="username" #username class="inp"></ion-input>\n\n        <ion-icon name="calendar" item-left></ion-icon>\n\n    </ion-item>\n\n    <div Class="ALI" >\n\n       \n\n        <button ion-button  round> SAVE</button>\n\n    </div>\n\n</ion-list>\n\n\n\n\n\n\n\n</ion-content>\n\n-->'/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\newuser\newuser.html"*/,
+            selector: 'page-newuser',template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\newuser\newuser.html"*/'<!--\n\n  Generated template for the NewuserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<!--\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Users</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n-->\n\n<!--\n\n\n\n <ion-header>\n\n  <ion-toolbar>-->\n\n   \n\n    <!--\n\n  </ion-toolbar>\n\n</ion-header>-->\n\n<ion-content>\n\n    <ion-segment [(ngModel)]="icons" color="primary">\n\n        <ion-segment-button value="0" placeholder="First Name"(click)="selectedTab(0)"  aria-pressed="true">\n\n         <!-- <ion-icon name="person"></ion-icon> -->\n\n         New User\n\n        </ion-segment-button>\n\n        <ion-segment-button value="1" (click)="selectedTab(1)">\n\n        <!--   <ion-icon name="ios-people"></ion-icon> --> \n\n        All User\n\n        </ion-segment-button>\n\n      </ion-segment>\n\n  <ion-slides #slider>\n\n    <ion-slide>\n\n        \n\n        <ion-list style="margin-top: 90px;">\n\n            <ion-item class="iont" > \n\n              <ion-input type="text" placeholder="First Name" name="username" #ffname class="inp" [(ngModel)]="fname"></ion-input>\n\n              <ion-icon name="person" item-left></ion-icon>\n\n           \n\n           \n\n           \n\n            <ion-input  placeholder="Last Name" name="password" #llname class="inp" [(ngModel)]="lname"></ion-input> \n\n          </ion-item>\n\n          <ion-item class="iont" > \n\n              <ion-input type="text" placeholder="Date of Birth" name="username" #ddob class="inp" [(ngModel)]="dob"></ion-input>\n\n              <ion-icon name="calendar" item-left></ion-icon>\n\n            </ion-item>\n\n            <ion-item class="iont" > \n\n                <ion-input type="text" placeholder="Mobile Number" name="username" #mmobile class="inp" [(ngModel)]="mobile"></ion-input>\n\n                <ion-icon name="ios-phone-portrait" item-left></ion-icon>\n\n            </ion-item>\n\n            <ion-item class="iont" > \n\n                <ion-input type="text" placeholder="Email ID" name="username" #eemail class="inp" [(ngModel)]="email"></ion-input>\n\n                <ion-icon name="ios-mail-outline" item-left></ion-icon>\n\n            </ion-item>\n\n            <ion-item class="iont" > \n\n                <ion-input type="text" placeholder="Date of Join" name="username" #ddoj class="inp" [(ngModel)]="doj"></ion-input>\n\n                <ion-icon name="calendar" item-left></ion-icon>\n\n            </ion-item>\n\n          \n\n            \n\n            <div Class="ALI" >\n\n               \n\n              <button ion-button  (click)="btn()" round> SAVEe</button>\n\n          </div>\n\n           <!--\n\n          <div Class="ALI" >\n\n               \n\n            <button ion-button  (click)= "createPerson(fname, lname)" round> SAVErrrr</button>\n\n        </div>-->\n\n        </ion-list>\n\n        \n\n        \n\n        \n\n       \n\n        \n\n    </ion-slide>\n\n    <ion-slide>\n\n        \n\n        <ion-list >\n\n            <ion-item class="iont" > \n\n              <ion-input type="text" placeholder="Search User" name="username" #username class="inp"></ion-input>\n\n              <ion-icon name="ios-search" item-right></ion-icon>\n\n            </ion-item>\n\n           <ion-item>\n\n            <ion-grid>\n\n              <ion-row>\n\n                <ion-col>\n\n                  Name\n\n                </ion-col>\n\n                <ion-col>\n\n                  Position\n\n                </ion-col>\n\n                <ion-col>\n\n                  Action\n\n                </ion-col>\n\n              </ion-row>\n\n            </ion-grid>\n\n           </ion-item>\n\n           <ion-item>\n\n            <ion-grid>\n\n              <ion-row>\n\n                <ion-col style="color:green;">\n\n                  Abey Abraham\n\n                </ion-col>\n\n                <ion-col style="color:lightseagreen;" >\n\n                  Intern\n\n                </ion-col>\n\n                <ion-col >\n\n                <button ion-button round block >Edit</button>\n\n                </ion-col>\n\n              </ion-row>\n\n            </ion-grid>\n\n           </ion-item>\n\n           <ion-item>\n\n            <ion-grid>\n\n              <ion-row>\n\n                <ion-col style="color:green;">\n\n                  Tony Manuel\n\n                </ion-col>\n\n                <ion-col style="color:lightseagreen;" >\n\n                  Intern\n\n                </ion-col>\n\n                <ion-col >\n\n                <button ion-button round block  (click)="selectedTab(0)" >Edit</button>\n\n                </ion-col>\n\n              </ion-row>\n\n            </ion-grid>\n\n           </ion-item>\n\n            <!-- <ion-item>\n\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n            </ion-item> -->\n\n           \n\n          \n\n        </ion-list>\n\n        \n\n         \n\n    </ion-slide>\n\n    \n\n  </ion-slides>\n\n</ion-content>\n\n\n\n\n\n\n\n\n\n <!-- \n\n\n\n\n\n\n\n\n\n<ion-content padding>\n\n<ion-list style="margin-top: 90px;">\n\n    <ion-item class="iont" > \n\n      <ion-input type="text" placeholder="First Name" name="username" #username class="inp"></ion-input>\n\n      <ion-icon name="person" item-left></ion-icon>\n\n   \n\n   <ion-item>\n\n      <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n    </ion-item> \n\n   \n\n    <ion-input  placeholder="Last Name" name="password" #password class="inp"></ion-input> \n\n  </ion-item>\n\n  <ion-item class="iont" > \n\n      <ion-input type="text" placeholder="Date of Birth" name="username" #username class="inp"></ion-input>\n\n      <ion-icon name="calendar" item-left></ion-icon>\n\n    </ion-item>\n\n    <ion-item class="iont" > \n\n        <ion-input type="text" placeholder="Mobile Number" name="username" #username class="inp"></ion-input>\n\n        <ion-icon name="ios-phone-portrait" item-left></ion-icon>\n\n    </ion-item>\n\n    <ion-item class="iont" > \n\n        <ion-input type="text" placeholder="Email ID" name="username" #username class="inp"></ion-input>\n\n        <ion-icon name="ios-mail-outline" item-left></ion-icon>\n\n    </ion-item>\n\n    <ion-item class="iont" > \n\n        <ion-input type="text" placeholder="Date of Join" name="username" #username class="inp"></ion-input>\n\n        <ion-icon name="calendar" item-left></ion-icon>\n\n    </ion-item>\n\n    <div Class="ALI" >\n\n       \n\n        <button ion-button  round> SAVE</button>\n\n    </div>\n\n</ion-list>\n\n\n\n\n\n\n\n</ion-content>\n\n-->'/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\newuser\newuser.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _f || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], NewuserPage);
     return NewuserPage;
-    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=newuser.js.map
 
 /***/ })
 
-},[285]);
+},[291]);
 //# sourceMappingURL=main.js.map

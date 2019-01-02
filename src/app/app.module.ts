@@ -21,12 +21,12 @@ import {RecruitmentPage} from '../pages/recruitment/recruitment';
 import {AngularFireModule } from 'angularfire2';
 import {AngularFireDatabaseModule } from 'angularfire2/database';
 var config = {
-  apiKey: "AIzaSyDMKLi6y817JKgy6wEGaFKXFq6pjhbEXOs",
-  authDomain: "dddddddddddddddddd-56957.firebaseapp.com",
-  databaseURL: "https://dddddddddddddddddd-56957.firebaseio.com",
-  projectId: "dddddddddddddddddd-56957",
-  storageBucket: "dddddddddddddddddd-56957.appspot.com",
-  messagingSenderId: "511075654805"
+  apiKey: "AIzaSyCRDymxcDEMORc4U1TjW5_SKiB22G45buM",
+  authDomain: "sopaa-b37c1.firebaseapp.com",
+  databaseURL: "https://sopaa-b37c1.firebaseio.com",
+  projectId: "sopaa-b37c1",
+  storageBucket: "",
+  messagingSenderId: "500138839182"
 };
 @NgModule({
   declarations: [
