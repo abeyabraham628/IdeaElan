@@ -37,34 +37,34 @@
         
         <ion-list style="margin-top: 90px;">
             <ion-item class="iont" > 
-              <ion-input type="text" placeholder="First Name" name="username" #ffname class="inp" [(ngModel)]="fname"></ion-input>
+              <ion-input type="text" placeholder="First Name" name="username" #ffname class="inp" [(ngModel)]="userItem.fname"></ion-input>
               <ion-icon name="person" item-left></ion-icon>
            
-           
-           
-            <ion-input  placeholder="Last Name" name="password" #llname class="inp" [(ngModel)]="lname"></ion-input> 
+            </ion-item>
+          <ion-item>
+            <ion-input  placeholder="Last Name" name="password" #llname class="inp" [(ngModel)]="userItem.lname"></ion-input> 
           </ion-item>
           <ion-item class="iont" > 
-              <ion-input type="text" placeholder="Date of Birth" name="username" #ddob class="inp" [(ngModel)]="dob"></ion-input>
+              <ion-input type="text" placeholder="Date of Birth" name="username" #ddob class="inp" [(ngModel)]="userItem.dob"></ion-input>
               <ion-icon name="calendar" item-left></ion-icon>
             </ion-item>
             <ion-item class="iont" > 
-                <ion-input type="text" placeholder="Mobile Number" name="username" #mmobile class="inp" [(ngModel)]="mobile"></ion-input>
+                <ion-input type="text" placeholder="Mobile Number" name="username" #mmobile class="inp" [(ngModel)]="userItem.mobile"></ion-input>
                 <ion-icon name="ios-phone-portrait" item-left></ion-icon>
             </ion-item>
             <ion-item class="iont" > 
-                <ion-input type="text" placeholder="Email ID" name="username" #eemail class="inp" [(ngModel)]="email"></ion-input>
+                <ion-input type="text" placeholder="Email ID" name="username" #eemail class="inp" [(ngModel)]="userItem.email"></ion-input>
                 <ion-icon name="ios-mail-outline" item-left></ion-icon>
             </ion-item>
             <ion-item class="iont" > 
-                <ion-input type="text" placeholder="Date of Join" name="username" #ddoj class="inp" [(ngModel)]="doj"></ion-input>
+                <ion-input type="text" placeholder="Date of Join" name="username" #ddoj class="inp" [(ngModel)]="userItem.doj"></ion-input>
                 <ion-icon name="calendar" item-left></ion-icon>
             </ion-item>
           
             
             <div Class="ALI" >
                
-              <button ion-button  (click)="btn()" round> SAVEe</button>
+              <button ion-button  (click)="btn(userItem)" round> SAVEe</button>
           </div>
            <!--
           <div Class="ALI" >
@@ -100,33 +100,26 @@
               </ion-row>
             </ion-grid>
            </ion-item>
+          
            <ion-item>
             <ion-grid>
-              <ion-row>
-                <ion-col style="color:green;">
-                  Abey Abraham
+              <ion-row *ngFor="let item of items" >
+                <ion-col style="color:green;"  >
+                  
+                    {{ item.fname }}
+                 
                 </ion-col>
-                <ion-col style="color:lightseagreen;" >
-                  Intern
-                </ion-col>
-                <ion-col >
-                <button ion-button round block >Edit</button>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-           </ion-item>
-           <ion-item>
-            <ion-grid>
-              <ion-row>
-                <ion-col style="color:green;">
-                  Tony Manuel
-                </ion-col>
-                <ion-col style="color:lightseagreen;" >
-                  Intern
+                <ion-col style="color:lightseagreen;"  >
+                  {{item.lname}}
                 </ion-col>
                 <ion-col >
-                <button ion-button round block  (click)="selectedTab(0)" >Edit</button>
+                <button ion-button round block  (click)="s(item.key)" >Delete</button>
                 </ion-col>
+                <ion-col >
+                  <button ion-button round block  (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj)" >Edit</button>
+                
+                
+              </ion-col>
               </ion-row>
             </ion-grid>
            </ion-item>

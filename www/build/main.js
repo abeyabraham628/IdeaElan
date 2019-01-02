@@ -1028,37 +1028,34 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-/**
- * Generated class for the NewuserPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 var NewuserPage = /** @class */ (function () {
     function NewuserPage(navCtrl, fdb, navParams, alertCtrl) {
-        var _this = this;
         this.navCtrl = navCtrl;
         this.fdb = fdb;
         this.navParams = navParams;
         this.alertCtrl = alertCtrl;
-        //@ViewChild("fname") ffname;
+        /*trying to display
+        public items: Array<any> = [];
+      public itemRef: firebase.database.Reference = firebase.database().ref('/items');
+        
+        */
+        this.items = [];
+        this.itemRef = __WEBPACK_IMPORTED_MODULE_3_firebase___default.a.database().ref("/users/");
         this.arrData = [];
         this.page = 0;
+        this.userItem = {};
         this.icons = "0";
         this.icons = "0";
-        this.fdb.list("/myitems/items/").valueChanges().subscribe(function (_data) {
-            _this.arrData = _data;
-            console.log(_this.arrData);
-        });
     }
     NewuserPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad RecruitmentPage');
-        this.slides.lockSwipes(true);
-        var reportRef = __WEBPACK_IMPORTED_MODULE_3_firebase___default.a.database().ref("/myitems/").orderByKey();
-        reportRef.on('child_added', function (data) {
-            console.log(data.val().fname, data.val().lname);
-            console.log(data.val().fname);
-            this.fname = data.val().fname;
+        var _this = this;
+        this.itemRef.on('value', function (itemSnapshot) {
+            _this.items = [];
+            itemSnapshot.forEach(function (itemSnap) {
+                _this.items.push(itemSnap.val());
+                console.log(_this.items);
+                return false;
+            });
         });
     };
     NewuserPage.prototype.selectedTab = function (ind) {
@@ -1066,74 +1063,64 @@ var NewuserPage = /** @class */ (function () {
         this.slider.slideTo(ind);
         this.slides.lockSwipes(true);
     };
-    NewuserPage.prototype.sasi = function () {
-        // this.slider.slideTo(0);
-        //this.slider.slideTo(1);
-        //console.log(this.slider.getActiveIndex());
-        //this.slides.slideTo(0);
-        //this.selectedTab(1);
-        //console.log("sasi");
+    NewuserPage.prototype.s = function (keys) {
+        console.log(keys);
+        this.userItemRef$.remove(keys);
     };
-    NewuserPage.prototype.btn = function () {
-        //console.log(this.fname);
-        //var reportRef = firebase.database().ref("/myitems/items").orderByKey();
-        //reportRef.on('child_added', function(data) {
-        // console.log(data.val().fname);  
-        //console.log(data.val().fname);
-        //this.fname=data.val().fname;
-        //});
-        //this.shoppingItemRef$.push({
-        //itemName: this.shoppingItem.itemName,
-        //itemNumber: Number(this.shoppingItem.itemNumber)
-        //});
-        this.fdb.list("/users/").push({
-            fname: this.fname,
-            lname: this.lname,
-            dob: this.dob,
-            mobile: this.mobile,
-            email: this.email,
-            doj: this.doj
+    NewuserPage.prototype.btn = function (userItem) {
+        //this.glu = this.firebaseApp.database().ref().child("/child/").push().key;
+        var ref = this.fdb.list("users").query.ref.push();
+        ref.set({
+            key: ref.key,
+            fname: this.userItem.fname,
+            lname: this.userItem.lname,
+            dob: this.userItem.dob,
+            mobile: this.userItem.mobile,
+            email: this.userItem.email,
+            doj: this.userItem.doj
         });
-        //this.fdb.list("/lname/").push(this.lname);
-        //this.fdb.list("/dob/").push(this.dob);
-        // this.fdb.list("/mobile/").push(this.mobile);
-        //this.fdb.list("/email/").push(this.email);
-        //this.fdb.list("/doj/").push(this.doj);
+        console.log(ref.key);
         var alert = this.alertCtrl.create({
             title: "SUCCESS",
             subTitle: "New User has been added succesfuly ",
             buttons: ['OK']
         });
         alert.present();
-        //this.fname="";
-        this.lname = "";
-        this.mobile = "";
-        this.dob = "";
-        this.doj = "";
-        this.email = "";
+        this.userItem.fname = "";
+        this.userItem.lname = "";
+        this.userItem.mobile = "";
+        this.userItem.dob = "";
+        this.userItem.doj = "";
+        this.userItem.email = "";
     };
-    NewuserPage.prototype.createPerson = function (fname, lname) {
-        var personRef = __WEBPACK_IMPORTED_MODULE_3_firebase___default.a.database().ref("/person1/");
-        personRef.set({
-            fname: fname,
-            lname: lname
-        });
+    NewuserPage.prototype.collect = function (keys, fname, lname, dob, mobile, email, doj) {
+        this.userItem.fname = fname;
+        this.userItem.lname = lname;
+        this.userItem.mobile = mobile;
+        this.userItem.dob = dob;
+        this.userItem.doj = doj;
+        this.userItem.email = email;
+        console.log("hey");
+        this.slides.lockSwipes(false);
+        this.slider.slideTo(0);
+        this.slides.lockSwipes(true);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('slider'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */]) === "function" && _a || Object)
     ], NewuserPage.prototype, "slider", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */])
+        __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */]) === "function" && _b || Object)
     ], NewuserPage.prototype, "slides", void 0);
     NewuserPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-newuser',template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\newuser\newuser.html"*/'<!--\n\n  Generated template for the NewuserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<!--\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Users</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n-->\n\n<!--\n\n\n\n <ion-header>\n\n  <ion-toolbar>-->\n\n   \n\n    <!--\n\n  </ion-toolbar>\n\n</ion-header>-->\n\n<ion-content>\n\n    <ion-segment [(ngModel)]="icons" color="primary">\n\n        <ion-segment-button value="0" placeholder="First Name"(click)="selectedTab(0)"  aria-pressed="true">\n\n         <!-- <ion-icon name="person"></ion-icon> -->\n\n         New User\n\n        </ion-segment-button>\n\n        <ion-segment-button value="1" (click)="selectedTab(1)">\n\n        <!--   <ion-icon name="ios-people"></ion-icon> --> \n\n        All User\n\n        </ion-segment-button>\n\n      </ion-segment>\n\n  <ion-slides #slider>\n\n    <ion-slide>\n\n        \n\n        <ion-list style="margin-top: 90px;">\n\n            <ion-item class="iont" > \n\n              <ion-input type="text" placeholder="First Name" name="username" #ffname class="inp" [(ngModel)]="fname"></ion-input>\n\n              <ion-icon name="person" item-left></ion-icon>\n\n           \n\n           \n\n           \n\n            <ion-input  placeholder="Last Name" name="password" #llname class="inp" [(ngModel)]="lname"></ion-input> \n\n          </ion-item>\n\n          <ion-item class="iont" > \n\n              <ion-input type="text" placeholder="Date of Birth" name="username" #ddob class="inp" [(ngModel)]="dob"></ion-input>\n\n              <ion-icon name="calendar" item-left></ion-icon>\n\n            </ion-item>\n\n            <ion-item class="iont" > \n\n                <ion-input type="text" placeholder="Mobile Number" name="username" #mmobile class="inp" [(ngModel)]="mobile"></ion-input>\n\n                <ion-icon name="ios-phone-portrait" item-left></ion-icon>\n\n            </ion-item>\n\n            <ion-item class="iont" > \n\n                <ion-input type="text" placeholder="Email ID" name="username" #eemail class="inp" [(ngModel)]="email"></ion-input>\n\n                <ion-icon name="ios-mail-outline" item-left></ion-icon>\n\n            </ion-item>\n\n            <ion-item class="iont" > \n\n                <ion-input type="text" placeholder="Date of Join" name="username" #ddoj class="inp" [(ngModel)]="doj"></ion-input>\n\n                <ion-icon name="calendar" item-left></ion-icon>\n\n            </ion-item>\n\n          \n\n            \n\n            <div Class="ALI" >\n\n               \n\n              <button ion-button  (click)="btn()" round> SAVEe</button>\n\n          </div>\n\n           <!--\n\n          <div Class="ALI" >\n\n               \n\n            <button ion-button  (click)= "createPerson(fname, lname)" round> SAVErrrr</button>\n\n        </div>-->\n\n        </ion-list>\n\n        \n\n        \n\n        \n\n       \n\n        \n\n    </ion-slide>\n\n    <ion-slide>\n\n        \n\n        <ion-list >\n\n            <ion-item class="iont" > \n\n              <ion-input type="text" placeholder="Search User" name="username" #username class="inp"></ion-input>\n\n              <ion-icon name="ios-search" item-right></ion-icon>\n\n            </ion-item>\n\n           <ion-item>\n\n            <ion-grid>\n\n              <ion-row>\n\n                <ion-col>\n\n                  Name\n\n                </ion-col>\n\n                <ion-col>\n\n                  Position\n\n                </ion-col>\n\n                <ion-col>\n\n                  Action\n\n                </ion-col>\n\n              </ion-row>\n\n            </ion-grid>\n\n           </ion-item>\n\n           <ion-item>\n\n            <ion-grid>\n\n              <ion-row>\n\n                <ion-col style="color:green;">\n\n                  Abey Abraham\n\n                </ion-col>\n\n                <ion-col style="color:lightseagreen;" >\n\n                  Intern\n\n                </ion-col>\n\n                <ion-col >\n\n                <button ion-button round block >Edit</button>\n\n                </ion-col>\n\n              </ion-row>\n\n            </ion-grid>\n\n           </ion-item>\n\n           <ion-item>\n\n            <ion-grid>\n\n              <ion-row>\n\n                <ion-col style="color:green;">\n\n                  Tony Manuel\n\n                </ion-col>\n\n                <ion-col style="color:lightseagreen;" >\n\n                  Intern\n\n                </ion-col>\n\n                <ion-col >\n\n                <button ion-button round block  (click)="selectedTab(0)" >Edit</button>\n\n                </ion-col>\n\n              </ion-row>\n\n            </ion-grid>\n\n           </ion-item>\n\n            <!-- <ion-item>\n\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n            </ion-item> -->\n\n           \n\n          \n\n        </ion-list>\n\n        \n\n         \n\n    </ion-slide>\n\n    \n\n  </ion-slides>\n\n</ion-content>\n\n\n\n\n\n\n\n\n\n <!-- \n\n\n\n\n\n\n\n\n\n<ion-content padding>\n\n<ion-list style="margin-top: 90px;">\n\n    <ion-item class="iont" > \n\n      <ion-input type="text" placeholder="First Name" name="username" #username class="inp"></ion-input>\n\n      <ion-icon name="person" item-left></ion-icon>\n\n   \n\n   <ion-item>\n\n      <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n    </ion-item> \n\n   \n\n    <ion-input  placeholder="Last Name" name="password" #password class="inp"></ion-input> \n\n  </ion-item>\n\n  <ion-item class="iont" > \n\n      <ion-input type="text" placeholder="Date of Birth" name="username" #username class="inp"></ion-input>\n\n      <ion-icon name="calendar" item-left></ion-icon>\n\n    </ion-item>\n\n    <ion-item class="iont" > \n\n        <ion-input type="text" placeholder="Mobile Number" name="username" #username class="inp"></ion-input>\n\n        <ion-icon name="ios-phone-portrait" item-left></ion-icon>\n\n    </ion-item>\n\n    <ion-item class="iont" > \n\n        <ion-input type="text" placeholder="Email ID" name="username" #username class="inp"></ion-input>\n\n        <ion-icon name="ios-mail-outline" item-left></ion-icon>\n\n    </ion-item>\n\n    <ion-item class="iont" > \n\n        <ion-input type="text" placeholder="Date of Join" name="username" #username class="inp"></ion-input>\n\n        <ion-icon name="calendar" item-left></ion-icon>\n\n    </ion-item>\n\n    <div Class="ALI" >\n\n       \n\n        <button ion-button  round> SAVE</button>\n\n    </div>\n\n</ion-list>\n\n\n\n\n\n\n\n</ion-content>\n\n-->'/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\newuser\newuser.html"*/,
+            selector: 'page-newuser',template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\newuser\newuser.html"*/'<!--\n\n  Generated template for the NewuserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<!--\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>Users</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n-->\n\n<!--\n\n\n\n <ion-header>\n\n  <ion-toolbar>-->\n\n   \n\n    <!--\n\n  </ion-toolbar>\n\n</ion-header>-->\n\n<ion-content>\n\n    <ion-segment [(ngModel)]="icons" color="primary">\n\n        <ion-segment-button value="0" placeholder="First Name"(click)="selectedTab(0)"  aria-pressed="true">\n\n         <!-- <ion-icon name="person"></ion-icon> -->\n\n         New User\n\n        </ion-segment-button>\n\n        <ion-segment-button value="1" (click)="selectedTab(1)">\n\n        <!--   <ion-icon name="ios-people"></ion-icon> --> \n\n        All User\n\n        </ion-segment-button>\n\n      </ion-segment>\n\n  <ion-slides #slider>\n\n    <ion-slide>\n\n        \n\n        <ion-list style="margin-top: 90px;">\n\n            <ion-item class="iont" > \n\n              <ion-input type="text" placeholder="First Name" name="username" #ffname class="inp" [(ngModel)]="userItem.fname"></ion-input>\n\n              <ion-icon name="person" item-left></ion-icon>\n\n           \n\n            </ion-item>\n\n          <ion-item>\n\n            <ion-input  placeholder="Last Name" name="password" #llname class="inp" [(ngModel)]="userItem.lname"></ion-input> \n\n          </ion-item>\n\n          <ion-item class="iont" > \n\n              <ion-input type="text" placeholder="Date of Birth" name="username" #ddob class="inp" [(ngModel)]="userItem.dob"></ion-input>\n\n              <ion-icon name="calendar" item-left></ion-icon>\n\n            </ion-item>\n\n            <ion-item class="iont" > \n\n                <ion-input type="text" placeholder="Mobile Number" name="username" #mmobile class="inp" [(ngModel)]="userItem.mobile"></ion-input>\n\n                <ion-icon name="ios-phone-portrait" item-left></ion-icon>\n\n            </ion-item>\n\n            <ion-item class="iont" > \n\n                <ion-input type="text" placeholder="Email ID" name="username" #eemail class="inp" [(ngModel)]="userItem.email"></ion-input>\n\n                <ion-icon name="ios-mail-outline" item-left></ion-icon>\n\n            </ion-item>\n\n            <ion-item class="iont" > \n\n                <ion-input type="text" placeholder="Date of Join" name="username" #ddoj class="inp" [(ngModel)]="userItem.doj"></ion-input>\n\n                <ion-icon name="calendar" item-left></ion-icon>\n\n            </ion-item>\n\n          \n\n            \n\n            <div Class="ALI" >\n\n               \n\n              <button ion-button  (click)="btn(userItem)" round> SAVEe</button>\n\n          </div>\n\n           <!--\n\n          <div Class="ALI" >\n\n               \n\n            <button ion-button  (click)= "createPerson(fname, lname)" round> SAVErrrr</button>\n\n        </div>-->\n\n        </ion-list>\n\n        \n\n        \n\n        \n\n       \n\n        \n\n    </ion-slide>\n\n    <ion-slide>\n\n        \n\n        <ion-list >\n\n            <ion-item class="iont" > \n\n              <ion-input type="text" placeholder="Search User" name="username" #username class="inp"></ion-input>\n\n              <ion-icon name="ios-search" item-right></ion-icon>\n\n            </ion-item>\n\n           <ion-item>\n\n            <ion-grid>\n\n              <ion-row>\n\n                <ion-col>\n\n                  Name\n\n                </ion-col>\n\n                <ion-col>\n\n                  Position\n\n                </ion-col>\n\n                <ion-col>\n\n                  Action\n\n                </ion-col>\n\n              </ion-row>\n\n            </ion-grid>\n\n           </ion-item>\n\n          \n\n           <ion-item>\n\n            <ion-grid>\n\n              <ion-row *ngFor="let item of items" >\n\n                <ion-col style="color:green;"  >\n\n                  \n\n                    {{ item.fname }}\n\n                 \n\n                </ion-col>\n\n                <ion-col style="color:lightseagreen;"  >\n\n                  {{item.lname}}\n\n                </ion-col>\n\n                <ion-col >\n\n                <button ion-button round block  (click)="s(item.key)" >Delete</button>\n\n                </ion-col>\n\n                <ion-col >\n\n                  <button ion-button round block  (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj)" >Edit</button>\n\n                \n\n                \n\n              </ion-col>\n\n              </ion-row>\n\n            </ion-grid>\n\n           </ion-item>\n\n            <!-- <ion-item>\n\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n            </ion-item> -->\n\n           \n\n          \n\n        </ion-list>\n\n        \n\n         \n\n    </ion-slide>\n\n    \n\n  </ion-slides>\n\n</ion-content>\n\n\n\n\n\n\n\n\n\n <!-- \n\n\n\n\n\n\n\n\n\n<ion-content padding>\n\n<ion-list style="margin-top: 90px;">\n\n    <ion-item class="iont" > \n\n      <ion-input type="text" placeholder="First Name" name="username" #username class="inp"></ion-input>\n\n      <ion-icon name="person" item-left></ion-icon>\n\n   \n\n   <ion-item>\n\n      <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n    </ion-item> \n\n   \n\n    <ion-input  placeholder="Last Name" name="password" #password class="inp"></ion-input> \n\n  </ion-item>\n\n  <ion-item class="iont" > \n\n      <ion-input type="text" placeholder="Date of Birth" name="username" #username class="inp"></ion-input>\n\n      <ion-icon name="calendar" item-left></ion-icon>\n\n    </ion-item>\n\n    <ion-item class="iont" > \n\n        <ion-input type="text" placeholder="Mobile Number" name="username" #username class="inp"></ion-input>\n\n        <ion-icon name="ios-phone-portrait" item-left></ion-icon>\n\n    </ion-item>\n\n    <ion-item class="iont" > \n\n        <ion-input type="text" placeholder="Email ID" name="username" #username class="inp"></ion-input>\n\n        <ion-icon name="ios-mail-outline" item-left></ion-icon>\n\n    </ion-item>\n\n    <ion-item class="iont" > \n\n        <ion-input type="text" placeholder="Date of Join" name="username" #username class="inp"></ion-input>\n\n        <ion-icon name="calendar" item-left></ion-icon>\n\n    </ion-item>\n\n    <div Class="ALI" >\n\n       \n\n        <button ion-button  round> SAVE</button>\n\n    </div>\n\n</ion-list>\n\n\n\n\n\n\n\n</ion-content>\n\n-->'/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\newuser\newuser.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
+        __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _f || Object])
     ], NewuserPage);
     return NewuserPage;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=newuser.js.map
