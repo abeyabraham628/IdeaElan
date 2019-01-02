@@ -10,7 +10,7 @@ webpackJsonp([5],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(47);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_it_add_it__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_it_add_it__ = __webpack_require__(162);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -267,15 +267,15 @@ webpackEmptyAsyncContext.id = 120;
 
 var map = {
 	"../pages/newuser/newuser.module": [
-		288,
+		290,
 		4
 	],
 	"../pages/profile/profile.module": [
-		289,
+		288,
 		3
 	],
 	"../pages/recruitment/recruitment.module": [
-		290,
+		289,
 		2
 	],
 	"../pages/systems/systems.module": [
@@ -303,7 +303,7 @@ module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 164:
+/***/ 162:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -525,12 +525,12 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_common_http__ = __webpack_require__(277);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(41);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_storage__ = __webpack_require__(283);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_date_picker__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_date_picker__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__app_component__ = __webpack_require__(285);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_home_home__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_register_register__ = __webpack_require__(286);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_profile_profile__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_add_it_add_it__ = __webpack_require__(164);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_add_it_add_it__ = __webpack_require__(162);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_tabs_tabs__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_newuser_newuser__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_botabs_botabs__ = __webpack_require__(287);
@@ -581,9 +581,9 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_6__angular_http__["c" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicModule */].forRoot(__WEBPACK_IMPORTED_MODULE_9__app_component__["a" /* MyApp */], {}, {
                     links: [
-                        { loadChildren: '../pages/newuser/newuser.module#NewuserPageModule', name: 'NewuserPage', segment: 'newuser', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/recruitment/recruitment.module#RecruitmentPageModule', name: 'RecruitmentPage', segment: 'recruitment', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/newuser/newuser.module#NewuserPageModule', name: 'NewuserPage', segment: 'newuser', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/systems/systems.module#SystemsPageModule', name: 'SystemsPage', segment: 'systems', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] }
                     ]
@@ -976,7 +976,7 @@ var HomePage = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewuserPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_date_picker__ = __webpack_require__(162);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_date_picker__ = __webpack_require__(163);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(11);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -1024,16 +1024,15 @@ var NewuserPage = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["_8" /* ViewChild */])('slider'),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* Slides */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* Slides */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["j" /* Slides */])
     ], NewuserPage.prototype, "slider", void 0);
     NewuserPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["m" /* Component */])({
-            selector: 'page-newuser',template:/*ion-inline-start:"F:\ionic-app\src\pages\newuser\newuser.html"*/'<!--\n  Generated template for the NewuserPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n\n<ion-content style="margin-top:50px" >\n    <ion-segment [(ngModel)]="users" color="white">\n        <ion-segment-button value="newUser"  >\n         <!-- <ion-icon name="person"></ion-icon> -->\n         New User\n        </ion-segment-button>\n        <ion-segment-button value="allUsers">\n        <!--   <ion-icon name="ios-people"></ion-icon> --> \n        All User\n        </ion-segment-button>\n    </ion-segment>\n     \n      <div [ngSwitch]="users">\n\n          <div *ngSwitchCase="\'newUser\'">\n            <ion-list inset  >\n                  <ion-list-header  text-start no-padding no-margin class="heading1">\n                      User Information\n                    </ion-list-header>\n                \n                 \n                    <ion-row>\n                    <ion-item col-6 > \n                        <ion-label stacked>First Name</ion-label>\n                        <ion-input type="text" name="fName"  ></ion-input>\n                      </ion-item> \n                             \n                     <ion-item col-6  offset-1> \n                        <ion-label stacked>Last Name</ion-label>\n                        <ion-input type="text" name="lName" ></ion-input>\n                      </ion-item>\n                    </ion-row>\n\n                    <ion-row>\n                      <ion-item col-12 > \n                          <ion-label stacked>Date Of Birth</ion-label>\n                          <ion-input type="text"  (ionFocus)="dispdate(\'birth\')" (click)="dispdate(\'birth\')" [(ngModel)]=dob  ></ion-input>\n                        </ion-item> \n                    </ion-row>      \n                    <ion-row>\n                       <ion-item col-12> \n                          <ion-label stacked>Email Id</ion-label>\n                          <ion-input type="text" name="emailId"></ion-input>\n                        </ion-item>\n                      </ion-row>\n                      \n                      <ion-list-header  class="heading1">\n                          Job Details\n                        </ion-list-header>\n\n                        <ion-row>\n                            <ion-item col-6> \n                                <ion-label stacked>Date Of Joining</ion-label>\n                                <ion-input type="text"  (ionFocus)="dispdate(\'join\')" (click)="dispdate(\'join\')" [(ngModel)]=doj></ion-input>\n                              </ion-item>\n                             <ion-item col-6> \n                                <ion-label stacked>Position</ion-label>\n                                <ion-input type="text" name="position"></ion-input>\n                              </ion-item>\n                           </ion-row>  \n                \n\n              </ion-list>\n          </div>\n            \n       <div *ngSwitchCase="\'allUsers\'">\n        <ion-list >\n            <ion-item class="iont" > \n              <ion-input type="text" placeholder="Search User" name="username" #username class="inp"></ion-input>\n              <ion-icon name="ios-search" item-right></ion-icon>\n            </ion-item>\n           <ion-item>\n            <ion-grid>\n              <ion-row>\n                <ion-col>\n                  Name\n                </ion-col>\n                <ion-col>\n                  Position\n                </ion-col>\n                <ion-col>\n                  Action\n                </ion-col>\n              </ion-row>\n            </ion-grid>\n           </ion-item>\n           <ion-item>\n            <ion-grid>\n              <ion-row>\n                <ion-col style="color:green;">\n                  Abey Abraham\n                </ion-col>\n                <ion-col style="color:lightseagreen;" >\n                  Intern\n                </ion-col>\n                <ion-col >\n                <button ion-button round block >Edit</button>\n                </ion-col>\n              </ion-row>\n            </ion-grid>\n           </ion-item>\n           <ion-item>\n            <ion-grid>\n              <ion-row>\n                <ion-col style="color:green;">\n                  Tony Manuel\n                </ion-col>\n                <ion-col style="color:lightseagreen;" >\n                  Intern\n                </ion-col>\n                <ion-col >\n                <button ion-button round block  (click)="selectedTab(0)" >Edit</button>\n                </ion-col>\n              </ion-row>\n            </ion-grid>\n           </ion-item>\n            <!-- <ion-item>\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n            </ion-item> -->\n           \n          \n        </ion-list>\n      </div>\n      </div>\n</ion-content>\n\n \n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\newuser\newuser.html"*/,
+            selector: 'page-newuser',template:/*ion-inline-start:"F:\ionic-app\src\pages\newuser\newuser.html"*/'<!--\n  Generated template for the NewuserPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n\n<ion-content style="margin-top:50px" >\n    <ion-segment [(ngModel)]="users" color="white">\n        <ion-segment-button value="newUser"  >\n         <!-- <ion-icon name="person"></ion-icon> -->\n         New User\n        </ion-segment-button>\n        <ion-segment-button value="allUsers">\n        <!--   <ion-icon name="ios-people"></ion-icon> --> \n        All User\n        </ion-segment-button>\n    </ion-segment>\n     \n      <div [ngSwitch]="users">\n\n          <div *ngSwitchCase="\'newUser\'">\n            <ion-list inset  >\n                  <ion-list-header  text-start no-padding no-margin class="heading1">\n                      User Information\n                    </ion-list-header>\n                \n                 \n                    <ion-row>\n                    <ion-item col-6 > \n                        <ion-label stacked>First Name</ion-label>\n                        <ion-input type="text" [(ngModel)]=fName   ></ion-input>\n                      </ion-item> \n                             \n                     <ion-item col-6  offset-1> \n                        <ion-label stacked>Last Name</ion-label>\n                        <ion-input type="text" [(ngModel)]=lName ></ion-input>\n                      </ion-item>\n                    </ion-row>\n\n                    <ion-row>\n                      <ion-item col-12 > \n                          <ion-label stacked>Date Of Birth</ion-label>\n                          <ion-input type="text"  (ionFocus)="dispdate(\'birth\')" (click)="dispdate(\'birth\')" [(ngModel)]=dob  ></ion-input>\n                        </ion-item> \n                    </ion-row>     \n                    <ion-row>\n                      <ion-item col-12> \n                         <ion-label stacked>Mobile Number</ion-label>\n                         <ion-input type="text" [(ngModel)]=mobile ></ion-input>\n                       </ion-item>\n                     </ion-row> \n                    <ion-row>\n                       <ion-item col-12> \n                          <ion-label stacked>Email Id</ion-label>\n                          <ion-input type="text" [(ngModel)]=emailId ></ion-input>\n                        </ion-item>\n                      </ion-row>\n                      \n                      <ion-list-header  class="heading1">\n                          Job Details\n                        </ion-list-header>\n\n                        <ion-row>\n                            <ion-item col-6> \n                                <ion-label stacked>Date Of Joining</ion-label>\n                                <ion-input type="text"  (ionFocus)="dispdate(\'join\')" (click)="dispdate(\'join\')" [(ngModel)]=doj></ion-input>\n                              </ion-item>\n                             <ion-item col-6> \n                                <ion-label stacked>Position</ion-label>\n                                <ion-input type="text" [(ngModel)]=position ></ion-input>\n                              </ion-item>\n                           </ion-row>  \n                \n\n              </ion-list>\n          </div>\n            \n       <div *ngSwitchCase="\'allUsers\'">\n        <ion-list >\n            <ion-item class="iont" > \n              <ion-input type="text" placeholder="Search User" name="username" #username class="inp"></ion-input>\n              <ion-icon name="ios-search" item-right></ion-icon>\n            </ion-item>\n           <ion-item>\n            <ion-grid>\n              <ion-row>\n                <ion-col>\n                  Name\n                </ion-col>\n                <ion-col>\n                  Position\n                </ion-col>\n                <ion-col>\n                  Action\n                </ion-col>\n              </ion-row>\n            </ion-grid>\n           </ion-item>\n           <ion-item>\n            <ion-grid>\n              <ion-row>\n                <ion-col style="color:green;">\n                  Abey Abraham\n                </ion-col>\n                <ion-col style="color:lightseagreen;" >\n                  Intern\n                </ion-col>\n                <ion-col >\n                <button ion-button round block >Edit</button>\n                </ion-col>\n              </ion-row>\n            </ion-grid>\n           </ion-item>\n           <ion-item>\n            <ion-grid>\n              <ion-row>\n                <ion-col style="color:green;">\n                  Tony Manuel\n                </ion-col>\n                <ion-col style="color:lightseagreen;" >\n                  Intern\n                </ion-col>\n                <ion-col >\n                <button ion-button round block  (click)="selectedTab(0)" >Edit</button>\n                </ion-col>\n              </ion-row>\n            </ion-grid>\n           </ion-item>\n            <!-- <ion-item>\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n            </ion-item> -->\n           \n          \n        </ion-list>\n      </div>\n      </div>\n</ion-content>\n\n \n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\newuser\newuser.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__ionic_native_date_picker__["a" /* DatePicker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__ionic_native_date_picker__["a" /* DatePicker */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_0__ionic_native_date_picker__["a" /* DatePicker */]])
     ], NewuserPage);
     return NewuserPage;
-    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=newuser.js.map

@@ -31,12 +31,12 @@
                     <ion-row>
                     <ion-item col-6 > 
                         <ion-label stacked>First Name</ion-label>
-                        <ion-input type="text" name="fName"  ></ion-input>
+                        <ion-input type="text" [(ngModel)]=fName   ></ion-input>
                       </ion-item> 
                              
                      <ion-item col-6  offset-1> 
                         <ion-label stacked>Last Name</ion-label>
-                        <ion-input type="text" name="lName" ></ion-input>
+                        <ion-input type="text" [(ngModel)]=lName ></ion-input>
                       </ion-item>
                     </ion-row>
 
@@ -45,11 +45,17 @@
                           <ion-label stacked>Date Of Birth</ion-label>
                           <ion-input type="text"  (ionFocus)="dispdate('birth')" (click)="dispdate('birth')" [(ngModel)]=dob  ></ion-input>
                         </ion-item> 
-                    </ion-row>      
+                    </ion-row>     
+                    <ion-row>
+                      <ion-item col-12> 
+                         <ion-label stacked>Mobile Number</ion-label>
+                         <ion-input type="text" [(ngModel)]=mobile ></ion-input>
+                       </ion-item>
+                     </ion-row> 
                     <ion-row>
                        <ion-item col-12> 
                           <ion-label stacked>Email Id</ion-label>
-                          <ion-input type="text" name="emailId"></ion-input>
+                          <ion-input type="text" [(ngModel)]=emailId ></ion-input>
                         </ion-item>
                       </ion-row>
                       
@@ -64,7 +70,7 @@
                               </ion-item>
                              <ion-item col-6> 
                                 <ion-label stacked>Position</ion-label>
-                                <ion-input type="text" name="position"></ion-input>
+                                <ion-input type="text" [(ngModel)]=position ></ion-input>
                               </ion-item>
                            </ion-row>  
                 
