@@ -7,7 +7,7 @@
 
 
 
-<ion-content style="margin-top:50px" >
+<ion-content style="margin-top:50px;" >
     <ion-segment [(ngModel)]="users" color="white">
         <ion-segment-button value="newUser"  >
          <!-- <ion-icon name="person"></ion-icon> -->
@@ -22,13 +22,9 @@
       <div [ngSwitch]="users">
 
           <div *ngSwitchCase="'newUser'">
-            <ion-list inset  >
-                  <ion-list-header  text-start no-padding no-margin class="heading1">
-                      User Information
-                    </ion-list-header>
-                
-                 
-                    <ion-row>
+            <ion-list>
+              <h6 class="title section-title ">User Information</h6>
+                <ion-row>
                     <ion-item col-6 > 
                         <ion-label stacked>First Name</ion-label>
                         <ion-input type="text" [(ngModel)]=fName   ></ion-input>
@@ -59,9 +55,7 @@
                         </ion-item>
                       </ion-row>
                       
-                      <ion-list-header  class="heading1">
-                          Job Details
-                        </ion-list-header>
+                      <h6 class="title section-title">Job Details</h6>
 
                         <ion-row>
                             <ion-item col-6> 
@@ -73,68 +67,44 @@
                                 <ion-input type="text" [(ngModel)]=position ></ion-input>
                               </ion-item>
                            </ion-row>  
-                
-
+                          <ion-row>
+                           <button ion-button icon-end full color=blue >
+                             Save
+                             <ion-icon name="star"></ion-icon>
+                             </button>
+                          </ion-row> 
+                         
               </ion-list>
           </div>
             
        <div *ngSwitchCase="'allUsers'">
         <ion-list >
-            <ion-item class="iont" > 
-              <ion-input type="text" placeholder="Search User" name="username" #username class="inp"></ion-input>
-              <ion-icon name="ios-search" item-right></ion-icon>
-            </ion-item>
+            <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>
+
            <ion-item>
-            <ion-grid>
-              <ion-row>
-                <ion-col>
-                  Name
-                </ion-col>
-                <ion-col>
-                  Position
-                </ion-col>
-                <ion-col>
-                  Action
-                </ion-col>
+           <ion-row no-margin class="table-title" >
+                <ion-col col-6 >Name</ion-col><ion-col col-4>Position </ion-col><ion-col col-2>Action</ion-col>
               </ion-row>
-            </ion-grid>
-           </ion-item>
+          </ion-item>
+           
            <ion-item>
-            <ion-grid>
-              <ion-row>
-                <ion-col style="color:green;">
+            <ion-row  class="col-text row-bottom-border" >
+                <ion-col col-6  style="color: #66887F;">
                   Abey Abraham
                 </ion-col>
-                <ion-col style="color:lightseagreen;" >
+                <ion-col col-4  style="color:#2679B0;" >
                   Intern
                 </ion-col>
-                <ion-col >
-                <button ion-button round block >Edit</button>
+                <ion-col col-2 text-center>
+                <ion-icon name="create"></ion-icon>
                 </ion-col>
               </ion-row>
-            </ion-grid>
            </ion-item>
-           <ion-item>
-            <ion-grid>
-              <ion-row>
-                <ion-col style="color:green;">
-                  Tony Manuel
-                </ion-col>
-                <ion-col style="color:lightseagreen;" >
-                  Intern
-                </ion-col>
-                <ion-col >
-                <button ion-button round block  (click)="selectedTab(0)" >Edit</button>
-                </ion-col>
-              </ion-row>
-            </ion-grid>
-           </ion-item>
+           
             <!-- <ion-item>
               <ion-input type="password" placeholder="Password" name="password" #password></ion-input>
             </ion-item> -->
-           
-          
-        </ion-list>
+         </ion-list>
       </div>
       </div>
 </ion-content>
