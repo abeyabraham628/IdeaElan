@@ -6,6 +6,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
+import { DatePicker } from '@ionic-native/date-picker';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -63,6 +64,7 @@ var config = {
   providers: [
     StatusBar,
     SplashScreen,
+    DatePicker,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
