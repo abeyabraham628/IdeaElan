@@ -12,7 +12,7 @@
          <!-- <ion-icon name="person"></ion-icon> -->
          New User
         </ion-segment-button>
-        <ion-segment-button value="allUsers">
+        <ion-segment-button value="allUsers" (click)="new()">
         <!--   <ion-icon name="ios-people"></ion-icon> --> 
         All User
         </ion-segment-button>
@@ -63,12 +63,12 @@
                               </ion-item>
                              <ion-item col-6> 
                                 <ion-label stacked>Position</ion-label>
-                                <ion-input type="text" hidden [(ngModel)]="position" ></ion-input>
+                                <ion-input type="text" [(ngModel)]="userItem.position" ></ion-input>
                               </ion-item>
                            </ion-row>  
                           <ion-row>
                            <button ion-button icon-end full color=blue (click)="btn(userItem)" >
-                             Save
+                             {{butn}}
                              <ion-icon name="star"></ion-icon>
                              </button>
                           </ion-row> 
@@ -78,7 +78,7 @@
             
        <div *ngSwitchCase="'allUsers'">
         <ion-list >
-            <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>
+            <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>
 
            <ion-item>
            <ion-row no-margin class="table-title" >
@@ -87,15 +87,15 @@
           </ion-item>
            
            <ion-item>
-            <ion-row  class="col-text row-bottom-border" *ngFor="let item of items" >
+            <ion-row  class="col-text row-bottom-border" *ngFor="let item of itemslist" >
                 <ion-col col-6  style="color: #66887F;">
                   {{ item.fname }}
                 </ion-col>
                 <ion-col col-4  style="color:#2679B0;" >
-                  {{ item.lname }}
+                  {{ item.position }}
                 </ion-col>
                 <ion-col col-2 text-center>
-                <ion-icon name="create" (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj)"></ion-icon>
+                <ion-icon name="create" (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position)"></ion-icon>
                 </ion-col>
               </ion-row>
            </ion-item>
