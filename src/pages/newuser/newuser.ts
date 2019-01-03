@@ -44,7 +44,7 @@ export class NewuserPage {
       this.users="newUser";
    }
   
-  ionViewDidLoad() {
+  allUsers() {
   
   this.itemRef.on('value', itemSnapshot => {
     this.items = [];
@@ -77,7 +77,9 @@ export class NewuserPage {
        else{
          this.userItem.dob = new Date(date).toLocaleDateString()
        }
-     }
+     },
+     err => console.log('Error occurred while getting date: ', err)
+
      );
     }
 

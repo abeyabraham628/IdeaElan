@@ -14,25 +14,12 @@ import { IonicPage, NavController, NavParams,Slides } from 'ionic-angular';
   templateUrl: 'systems.html',
 })
 export class SystemsPage {
-  //Systems="hai"; 
- // Headername="Systems";
-  @ViewChild('slider') slider:Slides;
-  @ViewChild(Slides) slides: Slides;
+ 
   page=0;
   icons:string="0";
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.icons="0";
   }
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RecruitmentPage');
-    this.slides.lockSwipes(true);
-  // let  Headername="hello";
-  }
-
-  selectedTab(ind){
-    this.slides.lockSwipes(false);
-    this.slider.slideTo(ind);
-    this.slides.lockSwipes(true);
-  }
+  
 
 }

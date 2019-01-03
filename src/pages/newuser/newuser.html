@@ -12,7 +12,7 @@
          <!-- <ion-icon name="person"></ion-icon> -->
          New User
         </ion-segment-button>
-        <ion-segment-button value="allUsers">
+        <ion-segment-button value="allUsers" (click)="allUsers()">
         <!--   <ion-icon name="ios-people"></ion-icon> --> 
         All User
         </ion-segment-button>
@@ -67,8 +67,7 @@
                               </ion-item>
                            </ion-row>  
                           <ion-row>
-                           <button ion-button icon-end full color=blue (click)="btn(userItem)" >
-                             Save
+                           <button ion-button icon-end full color=blue (click)="btn(userItem)"  >
                              <ion-icon name="star"></ion-icon>
                              </button>
                           </ion-row> 
