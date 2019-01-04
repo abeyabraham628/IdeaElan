@@ -27,10 +27,8 @@ export class TabsPage {
   tab4Root =  SystemsPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TabsPage');
-  }
 
 }

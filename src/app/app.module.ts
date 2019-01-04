@@ -1,3 +1,4 @@
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -21,6 +22,9 @@ import {SystemsPage} from '../pages/systems/systems';
 import {RecruitmentPage} from '../pages/recruitment/recruitment';
 import {AngularFireModule } from 'angularfire2';
 import {AngularFireDatabaseModule } from 'angularfire2/database';
+import { ProvidersProvider } from '../providers/providers/providers';
+import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-service';
+
 var config = {
   apiKey: "AIzaSyCRDymxcDEMORc4U1TjW5_SKiB22G45buM",
   authDomain: "sopaa-b37c1.firebaseapp.com",
@@ -65,7 +69,11 @@ var config = {
     StatusBar,
     SplashScreen,
     DatePicker,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    BarcodeScanner,
+
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    ProvidersProvider,
+    FirebaseServiceProvider
   ]
 })
 export class AppModule {}

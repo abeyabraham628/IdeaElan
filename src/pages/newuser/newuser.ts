@@ -1,7 +1,7 @@
 import { userItem } from './../../models/user-item/user-item.interface';
 
-import { Component,ViewChild} from '@angular/core';
-import { IonicPage, NavController, NavParams ,Slides,AlertController } from 'ionic-angular';
+import { Component} from '@angular/core';
+import { IonicPage, NavController, NavParams ,AlertController } from 'ionic-angular';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database'
 import firebase from 'firebase';
 

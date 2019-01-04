@@ -14,153 +14,94 @@
          </ion-segment-button>
       </ion-segment>
   <div [ngSwitch]="systems">
-    <div *ngSwitchCase='newSystem'>
+    <div *ngSwitchCase="'newSystem'">
       
       <ion-list>
           <h6 class="title">System Information</h6>
-          
+          <ion-row>
             <ion-item col-12>
               <ion-label stacked>System Id</ion-label>
-              <ion-input type="text" ></ion-input>
-                  <button ion-button type="button" color="blue" item-right>
+              <ion-input type="text" [(ngModel)]="systemId" ></ion-input>
+                <button ion-button type="button" color="blue" (click)="scanBarCode('system')" small item-right>
+                  <ion-icon name="barcode"> </ion-icon>
+                </button>
+            </ion-item>
+          </ion-row>
+              <ion-row>
+                <ion-item col-12>
+                  <ion-label stacked>Keyboard</ion-label>
+                  <ion-input type="text" [(ngModel)]="keyboardId" ></ion-input>
+                    <button ion-button small type="button" (click)="scanBarCode('keyboard')" color="blue" item-right>
                       <ion-icon name="barcode"> </ion-icon>
                     </button>
-              </ion-item>
+                  </ion-item>
+              </ion-row>
+              <ion-row>
+                <ion-item col-12>
+                  <ion-label stacked>Mouse</ion-label>
+                  <ion-input type="text" [(ngModel)]="mouseId" ></ion-input>
+                    <button ion-button small type="button" (click)="scanBarCode('mouse')" color="blue" item-right>
+                        <ion-icon name="barcode"> </ion-icon>
+                      </button>
+                  </ion-item>
+                </ion-row>
+
               <ion-item col-12>
                 <ion-label stacked>Processor</ion-label>
                 <ion-input type="text"></ion-input>
               </ion-item>
-             <ion-row radio-group [(ngModel)]="relationship">
+             <ion-row >
               <ion-item  col-6>
                 <ion-label stacked>Primary Memory</ion-label>
                 <ion-input type="text"></ion-input>
               </ion-item>
 
               <ion-item col-6>
-                  <ion-label stacked>Hard Disk</ion-label>
-                  <ion-input type="text"></ion-input>
-                  
+                <ion-label stacked>Hard Disk</ion-label>
+                <ion-input type="text"></ion-input>
               </ion-item>
-              <ion-radio  style="font-size:5px;margin:0px" value="GB"></ion-radio>
-                  <ion-radio style="font-size:5px;margin:0px"  value="TB"></ion-radio>
-           
-          
-                    
-                
+              <ion-col class="col-text radio-combo " hidden style="margin:-25px 0px 0px 280px;">
+                <span class="">GB</span><ion-checkbox [(ngModel)]="gb" ></ion-checkbox>
+                <span >TB</span><ion-checkbox [(ngModel)]="tb" ></ion-checkbox>
+              </ion-col>
+            </ion-row>  
+            
+          <ion-row>
+            <ion-item col-12>
+              <ion-label stacked>Antivirus Expiry</ion-label>
+              <ion-input type="text" [(ngModel)]="avExpiry" (click)="dispdate()" (ionFocus)="dispdate()" ></ion-input>
+            </ion-item>
+          </ion-row>
 
-          </ion-row>  
+              <ion-row>
+                <button ion-button icon-end full color=blue (click)="btn()"  >
+                  Save
+                </button>
+              </ion-row> 
       </ion-list>
     </div>
 
+    <div *ngSwitchCase="'allSystems'">
+      <ion-list>
+        <ion-searchbar placeholder="Find System" showCancelButton="shouldSchowCancel"></ion-searchbar>
+      </ion-list>
+      <ion-item>
+        <ion-row class="table-title">
+          <ion-col col-6 >System Id</ion-col>
+          <ion-col col-4 >Status</ion-col>
+          <ion-col col-2 >Action</ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item>
+        <ion-row class="col-text table-bottom-border">
+            <ion-col col-6>1647249</ion-col><ion-col col-4>Usable</ion-col><ion-col col-2>View</ion-col>
+        </ion-row>
+      </ion-item>
+    </div>
 
 
   </div>
     
   </ion-content>
   
-  <!--<ion-slides #slider>
-      <ion-slide>
-          
-          <ion-list style="margin-top: 90px;">
-              <ion-item class="iont" > 
-                <ion-input type="text" placeholder="SYSTEM ID" name="username" #username class="inp"></ion-input>
-                <ion-icon name="ios-laptop-outline" item-left></ion-icon>
-             
-              </ion-item>
-             <ion-item>
-              <ion-input  placeholder="CPU" name="password" #password class="inp"></ion-input> 
-              <ion-icon name="md-cog" item-left></ion-icon>
-            </ion-item>
-            <ion-item class="iont" > 
-                <ion-input type="text" placeholder="RAM" name="username" #username class="inp"></ion-input>
-                <ion-icon name="md-easel" item-left></ion-icon>
-              </ion-item>
-              <ion-item class="iont" > 
-                  <ion-input type="text" placeholder="HARD DISK" name="username" #username class="inp"></ion-input>
-                  <ion-icon name="ios-analytics-outline" item-left></ion-icon>
-              </ion-item>
-              <ion-item class="iont" > 
-                 
-                  <ion-input type="text" placeholder="KEY BOARD" name="username" #username class="inp"></ion-input>
-                  <ion-icon name="ios-calculator" item-left></ion-icon>
-                </ion-item>
-                <ion-item class="iont" > 
-                  <ion-input type="text" placeholder="MOUSE" name="username" #username class="inp"></ion-input>
-                  <ion-icon name="logo-octocat" item-left></ion-icon>
-               
-              </ion-item>
-            
-              <div Class="ALI" >
-                 
-                  <button ion-button  round> SAVE</button>
-              </div>
-          </ion-list>
-          
-          
-          
-         
-          
-      </ion-slide>
-      <ion-slide>
-          
-          <ion-list >
-              <ion-item class="iont" > 
-                <ion-input type="text" placeholder="Search User" name="username" #username class="inp"></ion-input>
-                <ion-icon name="ios-search" item-right></ion-icon>
-              </ion-item>
-             <ion-item>
-              <ion-grid>
-                <ion-row>
-                  <ion-col>
-                    Name
-                  </ion-col>
-                  <ion-col>
-                    Position
-                  </ion-col>
-                  <ion-col>
-                    Action
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
-             </ion-item>
-             <ion-item>
-              <ion-grid>
-                <ion-row>
-                  <ion-col style="color:green;">
-                    Abey Abraham
-                  </ion-col>
-                  <ion-col style="color:lightseagreen;" >
-                    Intern
-                  </ion-col>
-                  <ion-col >
-                  <button ion-button round block >Edit</button>
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
-             </ion-item>
-             <ion-item>
-              <ion-grid>
-                <ion-row>
-                  <ion-col style="color:green;">
-                    Tony Manuel
-                  </ion-col>
-                  <ion-col style="color:lightseagreen;" >
-                    Intern
-                  </ion-col>
-                  <ion-col >
-                  <button ion-button round block  (click)="selectedTab(0)" >Edit</button>
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
-             </ion-item>
-               <ion-item>
-                <ion-input type="password" placeholder="Password" name="password" #password></ion-input>
-              </ion-item> 
-             
-            
-            </ion-list>
-          
-           
-          </ion-slide>
-          
-        </ion-slides>-->
+ 
