@@ -67,6 +67,12 @@
                               </ion-item>
                            </ion-row>  
                           <ion-row>
+                              <ion-item>
+                                  <ion-label stacked>Set privileges</ion-label>
+                                  <ion-checkbox [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>
+                                </ion-item>
+                              </ion-row> 
+                              <ion-row>
                            <button ion-button icon-end full color=blue (click)="btn(userItem)" >
                              {{butn}}
                              <ion-icon name="star"></ion-icon>
@@ -94,8 +100,8 @@
                 <ion-col col-4  style="color:#2679B0;" >
                   {{ item.position }}
                 </ion-col>
-                <ion-col col-2 text-center>
-                <ion-icon name="create" (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position)"></ion-icon>
+                <ion-col col-2 text-center (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position,item.data)">
+                <ion-icon name="create" ></ion-icon>
                 </ion-col>
               </ion-row>
            </ion-item>

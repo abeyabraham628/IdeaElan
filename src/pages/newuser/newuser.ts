@@ -1,6 +1,6 @@
 import { userItem } from './../../models/user-item/user-item.interface';
 
-import { Component,ViewChild} from '@angular/core';
+import { Component,ViewChild, Input} from '@angular/core';
 import { IonicPage, NavController, NavParams ,Slides,AlertController } from 'ionic-angular';
 import {AngularFireDatabase, AngularFireList} from 'angularfire2/database'
 import firebase from 'firebase';
@@ -30,11 +30,25 @@ export class NewuserPage {
 
   userItemSubscription: Subscription;
   arrData=[];
+  tmp:any;
+  data:any ;
    butn : any= "save";
+   datas:any;
+   sp:any;
   fame:any;
   glu:any;
   page=0;
   sss:any;
+  testCheckboxOpen:any;
+  testCheckboxResult:any;
+  i:number=0
+  v1:any=0
+  v2:any=0
+  v3:any=0
+  v4:any=0
+  v5:any=0
+  v6:any=0
+  v7:any=0
   users:String
    userItem = {} as userItem;
   userItemRef$: AngularFireList<userItem>
@@ -45,7 +59,7 @@ export class NewuserPage {
       this.users="newUser";
       this.itemRef= firebase.database().ref("/users/");
    }
-  
+  /*
   ionViewDidLoad() {
   
   this.itemRef.on('value', itemSnapshot => {
@@ -59,6 +73,10 @@ export class NewuserPage {
     this.itemslist=this.items;
     //this.loaditems=this.items;
   });
+
+
+
+
   //new
   //this.itemslist=this.items;
   //this.loaditems=this.items;
@@ -68,7 +86,7 @@ export class NewuserPage {
   //console.log("START");
  // console.log(this.items);
  // console.log("STOP");
-}
+} */
 //new
 new()
 {
@@ -93,6 +111,8 @@ new()
   console.log(this.itemslist);
   console.log("try1 end");
   console.log(this.loaditems);
+  this.clear();
+  this.butn="save";
 
 }
 
@@ -147,7 +167,8 @@ getItems(searchbar) {
        else{
          this.userItem.dob = new Date(date).toLocaleDateString()
        }
-     }
+     },err => console.log('Error occurred while getting date: ', err)
+
      );
     }
 
@@ -173,8 +194,8 @@ const ref = this.fdb.list("users").query.ref.push(); ref.set({
   mobile:this.userItem.mobile,
   email:this.userItem.email,
   doj:this.userItem.doj,
-  position:this.userItem.position
-  
+  position:this.userItem.position,
+  data:this.userItem.data
 
 }); console.log(ref.key);
 
@@ -198,7 +219,7 @@ else{
     //this.fdb.object("/users/-LVIJAIZlMtJO4GVN1j5" )
   this.fdb.object("/users/"+this.userItem.$key)
 
- .update({ fname:this.userItem.fname, lname:this.userItem.lname,dob:this.userItem.dob,mobile:this.userItem.mobile,email:this.userItem.email,doj:this.userItem.doj,position:this.userItem.position});
+ .update({ fname:this.userItem.fname, lname:this.userItem.lname,dob:this.userItem.dob,mobile:this.userItem.mobile,email:this.userItem.email,doj:this.userItem.doj,position:this.userItem.position,data:this.userItem.data});
  let alert = this.alertCtrl.create({
   title: "SUCCESS",
   subTitle: "Data has been updated succesfuly ",
@@ -211,7 +232,7 @@ this.clear();
 this.butn="save";
 }
 }
-collect(keys:any,fname:any,lname:any,dob:any,mobile:any,email:any,doj:any,position:any){
+collect(keys:any,fname:any,lname:any,dob:any,mobile:any,email:any,doj:any,position:any,data:any){
   this.userItem.fname=fname;
   this.userItem.lname=lname;
   this.userItem.mobile=mobile;
@@ -220,6 +241,7 @@ collect(keys:any,fname:any,lname:any,dob:any,mobile:any,email:any,doj:any,positi
   this.userItem.email=email;
   this.userItem.position=position;
   this.userItem.$key=keys;
+  this.userItem.data=data;
   this.users="newUser";
   this.butn="update";
   /*this.slides.lockSwipes(false);
@@ -235,6 +257,177 @@ clear(){
  this.userItem.doj="";
  this.userItem.email="";
  this.userItem.position="";
+ this.userItem.data=null;
+}
+showCheckbox(e:any,userItem: userItem) {
+  
+
+
+this.datas=['value1'];
+
+this.datas=this.userItem.data;
+for(this.i=0;this.i<7;this.i++)
+{
+  this.datas[this.i]=="value1";
+this.v1=0;
+}
+for(this.i;this.i<7;this.i++)
+{
+  this.datas[this.i]=="value2";
+this.v2=1;
+}
+for(this.i;this.i<7;this.i++)
+{
+  this.datas[this.i]=="value3";
+this.v3=2;
+}
+for(this.i;this.i<7;this.i++)
+{
+  this.datas[this.i]=="value4";
+this.v4=3;
+}
+for(this.i;this.i<7;this.i++)
+{
+  this.datas[this.i]=="value5";
+this.v5=4;
+}
+for(this.i;this.i<7;this.i++)
+{
+  this.datas[this.i]=="value6";
+this.v6=5;
+}
+for(this.i;this.i<7;this.i++)
+{
+  this.datas[this.i]=="value7";
+this.v7=6;
 }
 
+if(this.v1==0)
+{
+  this.datas[this.v1]="null";
+}
+if(this.v2==0)
+{
+  this.datas[this.v2]="null";
+}
+if(this.v3==0)
+{
+  this.datas[this.v3]="null";
+}
+if(this.v4==0)
+{
+  this.datas[this.v4]="null";
+}
+if(this.v5==0)
+{
+  this.datas[this.v5]="null";
+}
+if(this.v6==0)
+{
+  this.datas[this.v6]="null";
+}
+if(this.v7==0)
+{
+  this.datas[this.v7]="null";
+}
+//this.datas=['value1'];
+/*if(this.datas!=null){
+  for(this.i=0;this.i<7;this.i++){
+   if(this.datas[this.i]=="value1"){this.v1=true}
+    if(this.datas[this.i]=="value2"){this.v2=true}
+    if(this.datas[this.i]=="value3"){this.v3=true}
+    if(this.datas[this.i]=="value4"){this.v4=true}
+    if(this.datas[this.i]=="value5"){this.v5=true}
+    if(this.datas[this.i]=="value6"){this.v6=true}
+    if(this.datas[this.i]=="value7"){this.v7=true}
+    
+  }
+  }
+//console.log("c "+this.datas[0]);
+*/
+  if(e.checked)
+{
+ 
+  let alert = this.alertCtrl.create();
+  alert.setTitle('Which are the privileges that you want to set to the user?');
+//
+  alert.addInput({
+    type: 'checkbox',
+    label: 'Admin',
+    value: 'value1',
+   checked:this.datas[0]=="value1"?true:false
+ 
+  });
+ 
+  console.log("hi");
+  
+
+  alert.addInput({
+    type: 'checkbox',
+    label: 'Leave Approvals ',
+    value: 'value2',
+   // checked:this.datas[1]!="null"?this.datas[1]=="value2"?true:false:false
+   checked:this.datas[1]=="value2"?true:false
+  });
+ 
+  alert.addInput({
+    type: 'checkbox',
+    label: 'Holiday List Upload',
+    value: 'value3',
+   // checked:this.datas[2]!="null"?this.datas[2]=="value3"?true:false:false
+   checked:this.datas[2]=="value3"?true:false
+  });
+  
+
+  alert.addInput({
+    type: 'checkbox',
+    label: 'Payslip Upload',
+    value: 'value4',
+    //checked:this.datas[3]!="null"?this.datas[3]=="value4"?true:false:false
+    checked:this.datas[3]=="value4"?true:false
+  });
+ 
+  alert.addInput({
+    type: 'checkbox',
+    label: 'Recruitment',
+    value: 'value5',
+    //checked:this.datas[4]!="null"?this.datas[4]=="value5"?true:false:false
+    checked:this.datas[4]=="value5"?true:false
+  });
+ 
+  alert.addInput({
+    type: 'checkbox',
+    label: 'System',
+    value: 'value6',
+   // checked:this.datas[5]!="null"?this.datas[5]=="value6"?true:false:false
+   checked:this.datas[5]=="value6"?true:false
+  });
+  
+  alert.addInput({
+    type: 'checkbox',
+    label: 'Add Users ',
+    value: 'value7',
+   // checked:this.datas[6]!="null"?this.datas[6]=="value7"?true:false:false
+   checked:this.datas[6]=="value7"?true:false
+  });
+
+  alert.addButton('Cancel');
+  alert.addButton({
+    text: 'Okay',
+    handler: data => {
+      console.log("hui");
+      console.log('data value  :', data);
+      this.userItem.data=data;
+     // this.datas=data;
+    //  console.log(data[0]);
+      this.testCheckboxOpen = true;
+      this.testCheckboxResult = data;
+    }
+  });
+  alert.present();
+  console.log('Cdatas value :', this.datas);
+  
+///
+}
+}
 }

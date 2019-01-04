@@ -6,7 +6,7 @@ export interface userItem {
     mobile:string,
     email:string,
     doj:string,
-    position:string
-
+    position:string,
+data:string
     
 }
