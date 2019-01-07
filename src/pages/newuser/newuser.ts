@@ -6,7 +6,7 @@ import {AngularFireDatabase, AngularFireList} from 'angularfire2/database'
 import firebase from 'firebase';
 
 import { Subscription } from 'rxjs/Subscription';
-import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { analyzeAndValidateNgModules, identifierModuleUrl } from '@angular/compiler';
 import { FirebaseApp } from 'angularfire2';
 import { DatePicker } from '@ionic-native/date-picker';
 
@@ -30,6 +30,7 @@ export class NewuserPage {
 
   userItemSubscription: Subscription;
   arrData=[];
+  dnew=[];
   tmp:any;
   data:any ;
    butn : any= "save";
@@ -42,13 +43,14 @@ export class NewuserPage {
   testCheckboxOpen:any;
   testCheckboxResult:any;
   i:number=0
-  v1:any=0
+  v1:any=-1
   v2:any=0
   v3:any=0
   v4:any=0
   v5:any=0
   v6:any=0
   v7:any=0
+  isCheckeds :boolean
   users:String
    userItem = {} as userItem;
   userItemRef$: AngularFireList<userItem>
@@ -181,9 +183,37 @@ getItems(searchbar) {
 
 
 
-btn( userItem: userItem){
+btn(  userItem: userItem){
   if(this.butn=="save")
   {
+   if(this.userItem.data==null)
+    {//this.datas[0]="null";
+   // this.userItem.data=null;
+    
+    this.dnew[0]="null";
+    this.dnew[1]="null";
+    this.dnew[3]="null";
+    this.dnew[4]="null";
+    this.dnew[5]="null";
+    this.dnew[6]="null";
+    this.dnew[7]="null";
+
+    const ref = this.fdb.list("users").query.ref.push(); ref.set({
+      key : ref.key,
+       
+      fname : this.userItem.fname,
+      lname:this.userItem.lname,
+      dob:this.userItem.dob,
+      mobile:this.userItem.mobile,
+      email:this.userItem.email,
+      doj:this.userItem.doj,
+      position:this.userItem.position,
+      data:this.dnew
+    
+    });
+    //this.userItem.data=null;
+    }
+    else{
 //this.glu = this.firebaseApp.database().ref().child("/child/").push().key;
 const ref = this.fdb.list("users").query.ref.push(); ref.set({
   key : ref.key,
@@ -199,7 +229,7 @@ const ref = this.fdb.list("users").query.ref.push(); ref.set({
 
 }); console.log(ref.key);
 
-
+    }
   let alert = this.alertCtrl.create({
     title: "SUCCESS",
     subTitle: "New User has been added succesfuly ",
@@ -214,7 +244,7 @@ else{
   //this.clear();
   //update code
   console.log("update try 1");
-  console.log(this.userItem.fname);
+  console.log(this.userItem.data);
   //console.log(this.userItem.$key);
     //this.fdb.object("/users/-LVIJAIZlMtJO4GVN1j5" )
   this.fdb.object("/users/"+this.userItem.$key)
@@ -227,8 +257,13 @@ else{
 });
 
 alert.present();
-
+//this.sp.checked=false;
+//this.sp.checked = false;
+this.sp=false;
+console.log("nadakunillaaa");
+//console.log(this.sp.checked);
 this.clear();
+this.userItem.data=null;
 this.butn="save";
 }
 }
@@ -244,6 +279,7 @@ collect(keys:any,fname:any,lname:any,dob:any,mobile:any,email:any,doj:any,positi
   this.userItem.data=data;
   this.users="newUser";
   this.butn="update";
+  console.log("kerunundonn nokitha",this.userItem.data);
   /*this.slides.lockSwipes(false);
   this.slider.slideTo(0);
   this.slides.lockSwipes(true);*/
@@ -257,79 +293,126 @@ clear(){
  this.userItem.doj="";
  this.userItem.email="";
  this.userItem.position="";
- this.userItem.data=null;
+ //this.userItem.data="null";
+
 }
 showCheckbox(e:any,userItem: userItem) {
   
+//console.log(this.datas);
+//e.checked = true;
 
-
-this.datas=['value1'];
-
+ //console.log("kerunillaa")
 this.datas=this.userItem.data;
-for(this.i=0;this.i<7;this.i++)
+console.log(this.datas);
+
+if(this.datas!=null)
 {
-  this.datas[this.i]=="value1";
+  console.log("kerunnuu");
+console.log("what comes in ");
+console.log(this.datas);
+console.log(this.v1);
+for(this.i=0;this.i<=6;this.i++)
+{
+  if(this.datas[this.i]=="value1")
 this.v1=0;
 }
-for(this.i;this.i<7;this.i++)
+console.log("check1",this.v1);
+for(this.i=0;this.i<=6;this.i++)
 {
-  this.datas[this.i]=="value2";
+ if(this.datas[this.i]=="value2")
 this.v2=1;
 }
-for(this.i;this.i<7;this.i++)
+for(this.i=0;this.i<=6;this.i++)
 {
-  this.datas[this.i]=="value3";
+  if(this.datas[this.i]=="value3")
 this.v3=2;
 }
-for(this.i;this.i<7;this.i++)
+for(this.i=0;this.i<=6;this.i++)
 {
-  this.datas[this.i]=="value4";
+ if(this.datas[this.i]=="value4")
 this.v4=3;
 }
-for(this.i;this.i<7;this.i++)
+for(this.i=0;this.i<=6;this.i++)
 {
-  this.datas[this.i]=="value5";
+  if(this.datas[this.i]=="value5")
 this.v5=4;
 }
-for(this.i;this.i<7;this.i++)
+for(this.i=0;this.i<=6;this.i++)
 {
-  this.datas[this.i]=="value6";
+  if(this.datas[this.i]=="value6")
 this.v6=5;
 }
-for(this.i;this.i<7;this.i++)
+for(this.i=0;this.i<=6;this.i++)
 {
-  this.datas[this.i]=="value7";
+  if(this.datas[this.i]=="value7")
 this.v7=6;
 }
-
-if(this.v1==0)
+console.log("after condition check ");
+console.log(this.datas);
+console.log(this.v1,this.v2,this.v3,this.v4,this.v5,this.v6,this.v7);
+//-1 1 2 3 4 5 6 
+//null 
+if(this.v1==-1)
 {
-  this.datas[this.v1]="null";
+  this.datas[0]="null";
+}
+else 
+{
+  this.datas[0]="value1";
 }
 if(this.v2==0)
 {
-  this.datas[this.v2]="null";
+  this.datas[1]="null";
+}
+else 
+{
+  this.datas[1]="value2";
 }
 if(this.v3==0)
 {
-  this.datas[this.v3]="null";
+  this.datas[2]="null";
+}
+else 
+{
+  this.datas[2]="value3";
 }
 if(this.v4==0)
 {
-  this.datas[this.v4]="null";
+  this.datas[3]="null";
+}
+else 
+{
+  this.datas[3]="value4";
 }
 if(this.v5==0)
 {
-  this.datas[this.v5]="null";
+  this.datas[4]="null";
 }
+else 
+{
+  this.datas[4]="value5";
+}9
 if(this.v6==0)
 {
-  this.datas[this.v6]="null";
+  this.datas[5]="null";
+}
+else 
+{
+  this.datas[5]="value6";
 }
 if(this.v7==0)
 {
-  this.datas[this.v7]="null";
+  this.datas[6]="null";
 }
+else 
+{
+  this.datas[6]="value7";
+}
+
+
+console.log(this.v1,this.v2,this.v3,this.v4,this.v5,this.v6,this.v7);
+console.log('Cdatas look like  value :', this.datas);
+//console.log(this.datas[0]=="value1"?false:true);
 //this.datas=['value1'];
 /*if(this.datas!=null){
   for(this.i=0;this.i<7;this.i++){
@@ -345,6 +428,7 @@ if(this.v7==0)
   }
 //console.log("c "+this.datas[0]);
 */
+}
   if(e.checked)
 {
  
@@ -355,7 +439,7 @@ if(this.v7==0)
     type: 'checkbox',
     label: 'Admin',
     value: 'value1',
-   checked:this.datas[0]=="value1"?true:false
+   checked:this.datas==null?false:this.datas[0]=="value1"?true:false
  
   });
  
@@ -367,7 +451,7 @@ if(this.v7==0)
     label: 'Leave Approvals ',
     value: 'value2',
    // checked:this.datas[1]!="null"?this.datas[1]=="value2"?true:false:false
-   checked:this.datas[1]=="value2"?true:false
+   checked:this.datas==null?false:this.datas[1]=="value2"?true:false
   });
  
   alert.addInput({
@@ -375,7 +459,7 @@ if(this.v7==0)
     label: 'Holiday List Upload',
     value: 'value3',
    // checked:this.datas[2]!="null"?this.datas[2]=="value3"?true:false:false
-   checked:this.datas[2]=="value3"?true:false
+   checked:this.datas==null?false:this.datas[2]=="value3"?true:false
   });
   
 
@@ -384,7 +468,7 @@ if(this.v7==0)
     label: 'Payslip Upload',
     value: 'value4',
     //checked:this.datas[3]!="null"?this.datas[3]=="value4"?true:false:false
-    checked:this.datas[3]=="value4"?true:false
+    checked:this.datas==null?false:this.datas[3]=="value4"?true:false
   });
  
   alert.addInput({
@@ -392,7 +476,7 @@ if(this.v7==0)
     label: 'Recruitment',
     value: 'value5',
     //checked:this.datas[4]!="null"?this.datas[4]=="value5"?true:false:false
-    checked:this.datas[4]=="value5"?true:false
+    checked:this.datas==null?false:this.datas[4]=="value5"?true:false
   });
  
   alert.addInput({
@@ -400,7 +484,7 @@ if(this.v7==0)
     label: 'System',
     value: 'value6',
    // checked:this.datas[5]!="null"?this.datas[5]=="value6"?true:false:false
-   checked:this.datas[5]=="value6"?true:false
+   checked:this.datas==null?false:this.datas[5]=="value6"?true:false
   });
   
   alert.addInput({
@@ -408,7 +492,7 @@ if(this.v7==0)
     label: 'Add Users ',
     value: 'value7',
    // checked:this.datas[6]!="null"?this.datas[6]=="value7"?true:false:false
-   checked:this.datas[6]=="value7"?true:false
+   checked:this.datas==null?false:this.datas[6]=="value7"?true:false
   });
 
   alert.addButton('Cancel');
@@ -417,17 +501,153 @@ if(this.v7==0)
     handler: data => {
       console.log("hui");
       console.log('data value  :', data);
-      this.userItem.data=data;
+      //this.userItem.data=this.datas;
+     
      // this.datas=data;
     //  console.log(data[0]);
+    //try1 
+    if(data!=null)
+    {
+      console.log("kerunnuu");
+    console.log("what comes in ");
+    console.log(data[6]);
+    console.log(this.v1);
+    console.log(this.v2);
+    console.log(this.v3);
+    console.log(this.v4);
+    console.log(this.v5);
+    console.log(this.v6);
+    console.log(this.v7);
+   // console.log(this.v7);
+
+    
+    for(this.i=0;this.i<=6;this.i++)
+    {
+      if(data[this.i]=="value1")
+    this.v1=0;
+    }
+    //console.log("check1",this.v1);
+    for(this.i=0;this.i<=6;this.i++)
+    {
+     if(data[this.i]=="value2")
+    this.v2=1;
+    }
+    for(this.i=0;this.i<=6;this.i++)
+    {
+      if(data[this.i]=="value3")
+    this.v3=2;
+    }
+    for(this.i=0;this.i<=6;this.i++)
+    {
+     if(data[this.i]=="value4")
+    this.v4=3;
+    }
+    for(this.i=0;this.i<=6;this.i++)
+    {
+      if(data[this.i]=="value5")
+    this.v5=4;
+    }
+    for(this.i=0;this.i<=6;this.i++)
+    {
+      if(data[this.i]=="value6")
+    this.v6=5;
+    }
+    for(this.i=0;this.i<=6;this.i++)
+    {
+      if(data[this.i]=="value7")
+    this.v7=6;
+    }
+    //console.log("after condition check ");
+    //console.log(this.datas);
+    //console.log(this.v1,this.v2,this.v3,this.v4,this.v5,this.v6,this.v7);
+    //-1 1 2 3 4 5 6 
+    //null 
+    if(this.v1==-1)
+    {
+      data[0]="null";
+    }
+    else 
+    {
+      data[0]="value1";
+    }
+    if(this.v2==0)
+    {
+      data[1]="null";
+    }
+    else 
+    {
+      data[1]="value2";
+    }
+    if(this.v3==0)
+    {
+      data[2]="null";
+    }
+    else 
+    {
+      data[2]="value3";
+    }
+    if(this.v4==0)
+    {
+      data[3]="null";
+    }
+    else 
+    {
+      data[3]="value4";
+    }
+    if(this.v5==0)
+    {
+      data[4]="null";
+    }
+    else 
+    {
+      data[4]="value5";
+    }9
+    if(this.v6==0)
+    {
+      data[5]="null";
+    }
+    else 
+    {
+      data[5]="value6";
+    }
+    if(this.v7==0)
+    {
+      data[6]="null";
+    }
+    else 
+    {
+      data[6]="value7";
+    }
+  }
+  this.userItem.data=data;
+  console.log("database:",data);
+  
+  //console.log("database:",data);
       this.testCheckboxOpen = true;
       this.testCheckboxResult = data;
+      if(data==null)
+      this.sp=false;
+      data=null;
     }
   });
+
   alert.present();
-  console.log('Cdatas value :', this.datas);
   
-///
+  
+  console.log('Cdatas value :', this.datas);
+
+ 
 }
+
+this.v1=-1;
+this.v2=0;
+this.v3=0;
+this.v4=0;
+this.v5=0;
+this.v6=0;
+this.v7=0;
 }
+
+
+
 }

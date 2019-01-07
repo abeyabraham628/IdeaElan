@@ -69,11 +69,12 @@
                           <ion-row>
                               <ion-item>
                                   <ion-label stacked>Set privileges</ion-label>
-                                  <ion-checkbox [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>
+                                  <ion-checkbox  [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>
                                 </ion-item>
                               </ion-row> 
                               <ion-row>
-                           <button ion-button icon-end full color=blue (click)="btn(userItem)" >
+                                  
+                           <button ion-button  icon-end  full color=blue (click)="btn(userItem)" >
                              {{butn}}
                              <ion-icon name="star"></ion-icon>
                              </button>
