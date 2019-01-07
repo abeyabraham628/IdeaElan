@@ -15,13 +15,14 @@
       </ion-segment>
   <div [ngSwitch]="systems">
     <div *ngSwitchCase="'newSystem'">
-      
+      <form [formGroup]="systemsForm" (ngSubmit)="onSubmit()">
       <ion-list>
           <h6 class="title">System Information</h6>
           <ion-row>
             <ion-item col-12>
+              <ion-input hidden formControlName="$key"></ion-input>
               <ion-label stacked>System Id</ion-label>
-              <ion-input type="text" [(ngModel)]="systemId" ></ion-input>
+              <ion-input type="text" formControlName="systemId"></ion-input>
                 <button ion-button type="button" color="blue" (click)="scanBarCode('system')" small item-right>
                   <ion-icon name="barcode"> </ion-icon>
                 </button>
@@ -30,7 +31,7 @@
               <ion-row>
                 <ion-item col-12>
                   <ion-label stacked>Keyboard</ion-label>
-                  <ion-input type="text" [(ngModel)]="keyboardId" ></ion-input>
+                  <ion-input type="text" formControlName="keyboard" ></ion-input>
                     <button ion-button small type="button" (click)="scanBarCode('keyboard')" color="blue" item-right>
                       <ion-icon name="barcode"> </ion-icon>
                     </button>
@@ -39,7 +40,7 @@
               <ion-row>
                 <ion-item col-12>
                   <ion-label stacked>Mouse</ion-label>
-                  <ion-input type="text" [(ngModel)]="mouseId" ></ion-input>
+                  <ion-input type="text" formControlName="mouse"></ion-input>
                     <button ion-button small type="button" (click)="scanBarCode('mouse')" color="blue" item-right>
                         <ion-icon name="barcode"> </ion-icon>
                       </button>
@@ -48,37 +49,35 @@
 
               <ion-item col-12>
                 <ion-label stacked>Processor</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input type="text" formControlName="processor" ></ion-input>
               </ion-item>
              <ion-row >
               <ion-item  col-6>
                 <ion-label stacked>Primary Memory</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input type="text" formControlName="memory" ></ion-input>
               </ion-item>
 
               <ion-item col-6>
                 <ion-label stacked>Hard Disk</ion-label>
-                <ion-input type="text"></ion-input>
+                <ion-input type="text" formControlName="hdd" ></ion-input>
               </ion-item>
-              <ion-col class="col-text radio-combo " hidden style="margin:-25px 0px 0px 280px;">
-                <span class="">GB</span><ion-checkbox [(ngModel)]="gb" ></ion-checkbox>
-                <span >TB</span><ion-checkbox [(ngModel)]="tb" ></ion-checkbox>
-              </ion-col>
+              
             </ion-row>  
             
           <ion-row>
             <ion-item col-12>
               <ion-label stacked>Antivirus Expiry</ion-label>
-              <ion-input type="text" [(ngModel)]="avExpiry" (click)="dispdate()" (ionFocus)="dispdate()" ></ion-input>
+              <ion-input type="text" formControlName="avExpiry" (click)="dispdate()" (ionFocus)="dispdate()" ></ion-input>
             </ion-item>
           </ion-row>
 
               <ion-row>
-                <button ion-button icon-end full color=blue (click)="btn()"  >
+                <button ion-button type="submit" icon-end full color=blue   >
                   Save
                 </button>
               </ion-row> 
       </ion-list>
+    </form>
     </div>
 
     <div *ngSwitchCase="'allSystems'">

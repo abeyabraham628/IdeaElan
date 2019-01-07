@@ -8,6 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { DatePicker } from '@ionic-native/date-picker';
+import {ReactiveFormsModule} from '@angular/forms'
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -22,8 +23,7 @@ import {SystemsPage} from '../pages/systems/systems';
 import {RecruitmentPage} from '../pages/recruitment/recruitment';
 import {AngularFireModule } from 'angularfire2';
 import {AngularFireDatabaseModule } from 'angularfire2/database';
-import { ProvidersProvider } from '../providers/providers/providers';
-import { FirebaseServiceProvider } from '../providers/firebase-service/firebase-service';
+
 
 var config = {
   apiKey: "AIzaSyCRDymxcDEMORc4U1TjW5_SKiB22G45buM",
@@ -41,8 +41,7 @@ var config = {
     ProfilePage,
     AddItPage,RecruitmentPage,
     TabsPage,NewuserPage,
-   
-    BotabsPage,SystemsPage
+   BotabsPage,SystemsPage
   ],
   imports: [
     BrowserModule,
@@ -51,7 +50,8 @@ var config = {
     IonicModule.forRoot(MyApp),
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(config),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -62,18 +62,16 @@ var config = {
     AddItPage,
     TabsPage,
     NewuserPage,
-   BotabsPage,SystemsPage,
-   RecruitmentPage
+    BotabsPage,SystemsPage,
+    RecruitmentPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     DatePicker,
     BarcodeScanner,
-
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ProvidersProvider,
-    FirebaseServiceProvider
+    
+    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}
