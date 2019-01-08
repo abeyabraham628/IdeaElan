@@ -9,6 +9,7 @@ import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { DatePicker } from '@ionic-native/date-picker';
 import {ReactiveFormsModule} from '@angular/forms'
+import { DatePipe } from '@angular/common';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -70,7 +71,7 @@ var config = {
     SplashScreen,
     DatePicker,
     BarcodeScanner,
-    
+    DatePipe,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

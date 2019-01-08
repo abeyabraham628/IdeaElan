@@ -9,7 +9,7 @@
          <ion-segment-button value="newSystem">
             Add System
          </ion-segment-button>
-         <ion-segment-button value="allSystems">
+         <ion-segment-button value="allSystems" (click)="getSystems()">
            All Systems
          </ion-segment-button>
       </ion-segment>
@@ -21,6 +21,7 @@
           <ion-row>
             <ion-item col-12>
               <ion-input hidden formControlName="$key"></ion-input>
+              <ion-input hidden formControlName="avValidity"></ion-input>
               <ion-label stacked>System Id</ion-label>
               <ion-input type="text" formControlName="systemId"></ion-input>
                 <button ion-button type="button" color="blue" (click)="scanBarCode('system')" small item-right>
@@ -72,30 +73,39 @@
           </ion-row>
 
               <ion-row>
-                <button ion-button type="submit" icon-end full color=blue   >
-                  Save
+                <button ion-button type="submit"  icon-end full color=blue   >
+                  {{Save}}
                 </button>
               </ion-row> 
+             
       </ion-list>
     </form>
+
+    
     </div>
 
     <div *ngSwitchCase="'allSystems'">
       <ion-list>
-        <ion-searchbar placeholder="Find System" showCancelButton="shouldSchowCancel"></ion-searchbar>
+        <ion-searchbar placeholder="Find System" showCancelButton="false">
+       
+      </ion-searchbar>
       </ion-list>
       <ion-item>
         <ion-row class="table-title">
-          <ion-col col-6 >System Id</ion-col>
-          <ion-col col-4 >Status</ion-col>
-          <ion-col col-2 >Action</ion-col>
+          <ion-col col-4 >System Id</ion-col>
+          <ion-col col-3 >RAM</ion-col>
+          <ion-col col-3 >HDD</ion-col>
+          <ion-col col-2 >Antivirus</ion-col>
+          <ion-col hidden col-2 >View</ion-col>
         </ion-row>
       </ion-item>
-      <ion-item>
-        <ion-row class="col-text table-bottom-border">
-            <ion-col col-6>1647249</ion-col><ion-col col-4>Usable</ion-col><ion-col col-2>View</ion-col>
+      <ion-item *ngFor="let system of systemArray">
+        <ion-row class="col-text table-bottom-border" (click)="loadForm(system)" >
+            <ion-col col-4>{{system.systemId}}</ion-col><ion-col col-3>{{system.memory}}</ion-col><ion-col col-3>{{system.hdd}}</ion-col><ion-col col-2>{{system.avValidity}} Days</ion-col>
         </ion-row>
       </ion-item>
+
+      
     </div>
 
 
