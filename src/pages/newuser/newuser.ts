@@ -33,6 +33,8 @@ export class NewuserPage {
   dnew=[];
   tmp:any;
   data:any ;
+  chk:any;
+  chk1:any;
    butn : any= "save";
    datas:any;
    sp:any;
@@ -42,6 +44,8 @@ export class NewuserPage {
   sss:any;
   testCheckboxOpen:any;
   testCheckboxResult:any;
+  x:boolean = true;
+  statuss:boolean=false;
   i:number=0
   v1:any=-1
   v2:any=0
@@ -50,6 +54,8 @@ export class NewuserPage {
   v5:any=0
   v6:any=0
   v7:any=0
+  disa:any;
+  status:string="active";
   isCheckeds :boolean
   users:String
    userItem = {} as userItem;
@@ -57,7 +63,9 @@ export class NewuserPage {
 
   icons:string="0";
   constructor(public navCtrl: NavController, private fdb:AngularFireDatabase,public navParams: NavParams,public alertCtrl: AlertController,private datePicker:DatePicker) {
-      this.icons="0";
+    // this.disa=false; 
+    
+    this.icons="0";
       this.users="newUser";
       this.itemRef= firebase.database().ref("/users/");
    }
@@ -92,6 +100,7 @@ export class NewuserPage {
 //new
 new()
 {
+  this.x=true;
   console.log("NEW CALLED ");
   this.itemRef.on('value', itemSnapshot => {
     this.items = [];
@@ -121,6 +130,8 @@ new()
 initializeItems(): void {
   //console.log(this.itemslist);
  this.itemslist = this.loaditems;
+ console.log("reason ",this.itemslist);
+ console.log("reasonssss ",this.items);
 }
 //new
 getItems(searchbar) {
@@ -186,17 +197,20 @@ getItems(searchbar) {
 btn(  userItem: userItem){
   if(this.butn=="save")
   {
+
+    
+    this.sp=false;
    if(this.userItem.data==null)
     {//this.datas[0]="null";
    // this.userItem.data=null;
     
     this.dnew[0]="null";
     this.dnew[1]="null";
+    this.dnew[2]="null";
     this.dnew[3]="null";
     this.dnew[4]="null";
     this.dnew[5]="null";
     this.dnew[6]="null";
-    this.dnew[7]="null";
 
     const ref = this.fdb.list("users").query.ref.push(); ref.set({
       key : ref.key,
@@ -208,7 +222,8 @@ btn(  userItem: userItem){
       email:this.userItem.email,
       doj:this.userItem.doj,
       position:this.userItem.position,
-      data:this.dnew
+      data:this.dnew,
+      status:this.status
     
     });
     //this.userItem.data=null;
@@ -225,7 +240,8 @@ const ref = this.fdb.list("users").query.ref.push(); ref.set({
   email:this.userItem.email,
   doj:this.userItem.doj,
   position:this.userItem.position,
-  data:this.userItem.data
+  data:this.userItem.data,
+  status:this.status
 
 }); console.log(ref.key);
 
@@ -243,13 +259,21 @@ this.clear();
 else{
   //this.clear();
   //update code
+ 
   console.log("update try 1");
   console.log(this.userItem.data);
   //console.log(this.userItem.$key);
+  if(this.statuss==true)
+  {
+    this.status="inactive";
+  }
+  else{
+    this.status="active";
+  }
     //this.fdb.object("/users/-LVIJAIZlMtJO4GVN1j5" )
   this.fdb.object("/users/"+this.userItem.$key)
 
- .update({ fname:this.userItem.fname, lname:this.userItem.lname,dob:this.userItem.dob,mobile:this.userItem.mobile,email:this.userItem.email,doj:this.userItem.doj,position:this.userItem.position,data:this.userItem.data});
+ .update({ fname:this.userItem.fname, lname:this.userItem.lname,dob:this.userItem.dob,mobile:this.userItem.mobile,email:this.userItem.email,doj:this.userItem.doj,position:this.userItem.position,data:this.userItem.data,status:this.status});
  let alert = this.alertCtrl.create({
   title: "SUCCESS",
   subTitle: "Data has been updated succesfuly ",
@@ -265,9 +289,12 @@ console.log("nadakunillaaa");
 this.clear();
 this.userItem.data=null;
 this.butn="save";
+this.x=true;
+this.status="active";
+
 }
 }
-collect(keys:any,fname:any,lname:any,dob:any,mobile:any,email:any,doj:any,position:any,data:any){
+collect(keys:any,fname:any,lname:any,dob:any,mobile:any,email:any,doj:any,position:any,data:any,status:any){
   this.userItem.fname=fname;
   this.userItem.lname=lname;
   this.userItem.mobile=mobile;
@@ -279,7 +306,35 @@ collect(keys:any,fname:any,lname:any,dob:any,mobile:any,email:any,doj:any,positi
   this.userItem.data=data;
   this.users="newUser";
   this.butn="update";
-  console.log("kerunundonn nokitha",this.userItem.data);
+  this.chk=0;
+  this.x=false;
+  this.userItem.status=status;
+  if(status!="active")
+  {
+    //console.log("inaaaaactiveeee",status);
+  this.statuss=true;
+  }
+  else{
+    this.statuss=false;
+  }
+  for( this.i=0;this.i<6;this.i++)
+  {
+    if(this.userItem.data[this.i]!="null")
+    {
+      this.chk=1;
+
+    }
+  }
+  if(this.chk==1)
+  {
+  this.sp=true;
+ // console.log("checkbox validation failed")
+  }
+ // console.log("reason 1",this.items);
+  //console.log("reason 2",data);
+  //console.log("reason",this.itemslist);
+  
+  //console.log("kerunundonn nokitha",this.userItem.data);
   /*this.slides.lockSwipes(false);
   this.slider.slideTo(0);
   this.slides.lockSwipes(true);*/
@@ -303,14 +358,15 @@ showCheckbox(e:any,userItem: userItem) {
 
  //console.log("kerunillaa")
 this.datas=this.userItem.data;
-console.log(this.datas);
+//console.log(this.datas);
 
-if(this.datas!=null)
+
+if(this.datas!=null)//null allaaaaaa
 {
-  console.log("kerunnuu");
-console.log("what comes in ");
-console.log(this.datas);
-console.log(this.v1);
+  //console.log("kerunnuu");
+//console.log("what comes in ");
+//console.log(this.datas);
+//console.log(this.v1);
 for(this.i=0;this.i<=6;this.i++)
 {
   if(this.datas[this.i]=="value1")
@@ -347,8 +403,8 @@ for(this.i=0;this.i<=6;this.i++)
   if(this.datas[this.i]=="value7")
 this.v7=6;
 }
-console.log("after condition check ");
-console.log(this.datas);
+//console.log("after condition check ");
+//console.log(this.datas);
 console.log(this.v1,this.v2,this.v3,this.v4,this.v5,this.v6,this.v7);
 //-1 1 2 3 4 5 6 
 //null 
@@ -410,8 +466,10 @@ else
 }
 
 
-console.log(this.v1,this.v2,this.v3,this.v4,this.v5,this.v6,this.v7);
+//console.log(this.v1,this.v2,this.v3,this.v4,this.v5,this.v6,this.v7);
 console.log('Cdatas look like  value :', this.datas);
+ this.chk1=0;
+
 //console.log(this.datas[0]=="value1"?false:true);
 //this.datas=['value1'];
 /*if(this.datas!=null){
@@ -443,7 +501,7 @@ console.log('Cdatas look like  value :', this.datas);
  
   });
  
-  console.log("hi");
+  //console.log("hi");
   
 
   alert.addInput({
@@ -495,12 +553,62 @@ console.log('Cdatas look like  value :', this.datas);
    checked:this.datas==null?false:this.datas[6]=="value7"?true:false
   });
 
-  alert.addButton('Cancel');
+  alert.addButton({
+    text:"cancel",
+    handler: data => {
+                      if(this.butn=="save"||this.butn=="update")
+                                   {
+                                     this.chk=0;
+                                     this.chk1=0;
+                                     if(this.userItem.data==null)
+                                     {
+                                     this.sp=false;
+                                     console.log(" one ");
+                                     }
+                                     else{
+                                       
+                                       {
+                                         
+                                        for( this.i=0;this.i<6;this.i++)
+                                        {
+                                            if(this.userItem.data[this.i]=="null")
+                                               {
+                                              this.chk1=1;
+
+                                              }
+                                       }
+                                           if(this.chk1==1)
+                                              this.sp=false;
+                                       }
+
+
+
+
+
+                                          for( this.i=0;this.i<6;this.i++)
+                                              {
+                                                  if(this.userItem.data[this.i]!="null")
+                                                     {
+                                                    this.chk=1;
+
+                                                    }
+                                             }
+                         if(this.chk==1)
+                          this.sp=true;
+                                            }
+      }
+      
+    }
+      
+  });
   alert.addButton({
     text: 'Okay',
     handler: data => {
-      console.log("hui");
-      console.log('data value  :', data);
+      
+  
+      
+     // console.log("hui");
+    //  console.log('data value  :', data);
       //this.userItem.data=this.datas;
      
      // this.datas=data;
@@ -508,16 +616,16 @@ console.log('Cdatas look like  value :', this.datas);
     //try1 
     if(data!=null)
     {
-      console.log("kerunnuu");
-    console.log("what comes in ");
-    console.log(data[6]);
-    console.log(this.v1);
-    console.log(this.v2);
-    console.log(this.v3);
-    console.log(this.v4);
-    console.log(this.v5);
-    console.log(this.v6);
-    console.log(this.v7);
+     // console.log("kerunnuu");
+   // console.log("what comes in ");
+   // console.log(data[6]);
+   // console.log(this.v1);
+  //  console.log(this.v2);
+   // console.log(this.v3);
+   // console.log(this.v4);
+   // console.log(this.v5);
+   // console.log(this.v6);
+    //console.log(this.v7);
    // console.log(this.v7);
 
     
@@ -620,14 +728,56 @@ console.log('Cdatas look like  value :', this.datas);
     }
   }
   this.userItem.data=data;
-  console.log("database:",data);
+ // console.log("database:",data);
   
   //console.log("database:",data);
       this.testCheckboxOpen = true;
       this.testCheckboxResult = data;
-      if(data==null)
-      this.sp=false;
-      data=null;
+      if(this.butn=="save"||this.butn=="update")
+                                   {
+                                     this.chk=0;
+                                     this.chk1=0;
+                                     if(this.userItem.data==null)
+                                     {
+                                       console.log("onen");
+                                     this.sp=false;
+                                     }
+                                     else{
+                                       
+                                      {
+                                        
+                                       for( this.i=0;this.i<6;this.i++)
+                                       {
+                                           if(this.userItem.data[this.i]=="null")
+                                              {
+                                             this.chk1=1;
+
+                                             }
+                                      }
+                                          if(this.chk1==1)
+                                             this.sp=false;
+                                             console.log("ones");
+                                      }
+
+                                      for( this.i=0;this.i<6;this.i++)
+                                      {
+                                          if(this.userItem.data[this.i]!="null")
+                                             {
+                                            this.chk=1;
+
+                                            }
+                                     }
+                 if(this.chk==1)
+                  this.sp=true;
+                  console.log("trues");
+
+                                    }
+}
+     // if(this.butn=="save")
+        //  this.sp=false;
+      //if(data==null)
+     // this.sp=false;
+     // data=null;
     }
   });
 
@@ -648,6 +798,11 @@ this.v6=0;
 this.v7=0;
 }
 
-
+new1()
+{
+  this.userItem.data=null;
+  this.sp=false;
+  this.x=true;
+}
 
 }

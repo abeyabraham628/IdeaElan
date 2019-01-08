@@ -7,7 +7,7 @@
 
 
 <ion-content style="margin-top:50px;" >
-    <ion-segment [(ngModel)]="users" color="white">
+    <ion-segment [(ngModel)]="users" color="white" (click)="new1()">
         <ion-segment-button value="newUser"  >
          <!-- <ion-icon name="person"></ion-icon> -->
          New User
@@ -67,10 +67,15 @@
                               </ion-item>
                            </ion-row>  
                           <ion-row>
-                              <ion-item>
-                                  <ion-label stacked>Set privileges</ion-label>
+                              <ion-col col-6>
+                                  <ion-label >Set privileges</ion-label>
                                   <ion-checkbox  [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>
-                                </ion-item>
+                                </ion-col>
+                                <ion-col col-6  [hidden]="x">
+                                  <ion-label>Deactivate user</ion-label>
+                                  <ion-checkbox  [(ngModel)]="statuss" ></ion-checkbox>
+                                </ion-col>
+
                               </ion-row> 
                               <ion-row>
                                   
@@ -101,7 +106,7 @@
                 <ion-col col-4  style="color:#2679B0;" >
                   {{ item.position }}
                 </ion-col>
-                <ion-col col-2 text-center (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position,item.data)">
+                <ion-col col-2 text-center (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position,item.data,item.status)">
                 <ion-icon name="create" ></ion-icon>
                 </ion-col>
               </ion-row>

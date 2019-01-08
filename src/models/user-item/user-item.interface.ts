@@ -7,6 +7,7 @@ export interface userItem {
     email:string,
     doj:string,
     position:string,
-data:string
+data:string,
+status:string,
     
 }

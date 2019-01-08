@@ -1035,6 +1035,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var NewuserPage = /** @class */ (function () {
     function NewuserPage(navCtrl, fdb, navParams, alertCtrl, datePicker) {
+        // this.disa=false; 
         this.navCtrl = navCtrl;
         this.fdb = fdb;
         this.navParams = navParams;
@@ -1047,6 +1048,8 @@ var NewuserPage = /** @class */ (function () {
         this.dnew = [];
         this.butn = "save";
         this.page = 0;
+        this.x = true;
+        this.statuss = false;
         this.i = 0;
         this.v1 = -1;
         this.v2 = 0;
@@ -1055,6 +1058,7 @@ var NewuserPage = /** @class */ (function () {
         this.v5 = 0;
         this.v6 = 0;
         this.v7 = 0;
+        this.status = "active";
         this.userItem = {};
         this.icons = "0";
         this.icons = "0";
@@ -1092,6 +1096,7 @@ var NewuserPage = /** @class */ (function () {
     //new
     NewuserPage.prototype.new = function () {
         var _this = this;
+        this.x = true;
         console.log("NEW CALLED ");
         this.itemRef.on('value', function (itemSnapshot) {
             _this.items = [];
@@ -1118,6 +1123,8 @@ var NewuserPage = /** @class */ (function () {
     NewuserPage.prototype.initializeItems = function () {
         //console.log(this.itemslist);
         this.itemslist = this.loaditems;
+        console.log("reason ", this.itemslist);
+        console.log("reasonssss ", this.items);
     };
     //new
     NewuserPage.prototype.getItems = function (searchbar) {
@@ -1165,15 +1172,16 @@ var NewuserPage = /** @class */ (function () {
     };
     NewuserPage.prototype.btn = function (userItem) {
         if (this.butn == "save") {
+            this.sp = false;
             if (this.userItem.data == null) {
                 // this.userItem.data=null;
                 this.dnew[0] = "null";
                 this.dnew[1] = "null";
+                this.dnew[2] = "null";
                 this.dnew[3] = "null";
                 this.dnew[4] = "null";
                 this.dnew[5] = "null";
                 this.dnew[6] = "null";
-                this.dnew[7] = "null";
                 var ref = this.fdb.list("users").query.ref.push();
                 ref.set({
                     key: ref.key,
@@ -1184,7 +1192,8 @@ var NewuserPage = /** @class */ (function () {
                     email: this.userItem.email,
                     doj: this.userItem.doj,
                     position: this.userItem.position,
-                    data: this.dnew
+                    data: this.dnew,
+                    status: this.status
                 });
                 //this.userItem.data=null;
             }
@@ -1200,7 +1209,8 @@ var NewuserPage = /** @class */ (function () {
                     email: this.userItem.email,
                     doj: this.userItem.doj,
                     position: this.userItem.position,
-                    data: this.userItem.data
+                    data: this.userItem.data,
+                    status: this.status
                 });
                 console.log(ref.key);
             }
@@ -1218,9 +1228,15 @@ var NewuserPage = /** @class */ (function () {
             console.log("update try 1");
             console.log(this.userItem.data);
             //console.log(this.userItem.$key);
+            if (this.statuss == true) {
+                this.status = "inactive";
+            }
+            else {
+                this.status = "active";
+            }
             //this.fdb.object("/users/-LVIJAIZlMtJO4GVN1j5" )
             this.fdb.object("/users/" + this.userItem.$key)
-                .update({ fname: this.userItem.fname, lname: this.userItem.lname, dob: this.userItem.dob, mobile: this.userItem.mobile, email: this.userItem.email, doj: this.userItem.doj, position: this.userItem.position, data: this.userItem.data });
+                .update({ fname: this.userItem.fname, lname: this.userItem.lname, dob: this.userItem.dob, mobile: this.userItem.mobile, email: this.userItem.email, doj: this.userItem.doj, position: this.userItem.position, data: this.userItem.data, status: this.status });
             var alert = this.alertCtrl.create({
                 title: "SUCCESS",
                 subTitle: "Data has been updated succesfuly ",
@@ -1235,9 +1251,11 @@ var NewuserPage = /** @class */ (function () {
             this.clear();
             this.userItem.data = null;
             this.butn = "save";
+            this.x = true;
+            this.status = "active";
         }
     };
-    NewuserPage.prototype.collect = function (keys, fname, lname, dob, mobile, email, doj, position, data) {
+    NewuserPage.prototype.collect = function (keys, fname, lname, dob, mobile, email, doj, position, data, status) {
         this.userItem.fname = fname;
         this.userItem.lname = lname;
         this.userItem.mobile = mobile;
@@ -1249,7 +1267,29 @@ var NewuserPage = /** @class */ (function () {
         this.userItem.data = data;
         this.users = "newUser";
         this.butn = "update";
-        console.log("kerunundonn nokitha", this.userItem.data);
+        this.chk = 0;
+        this.x = false;
+        this.userItem.status = status;
+        if (status != "active") {
+            //console.log("inaaaaactiveeee",status);
+            this.statuss = true;
+        }
+        else {
+            this.statuss = false;
+        }
+        for (this.i = 0; this.i < 6; this.i++) {
+            if (this.userItem.data[this.i] != "null") {
+                this.chk = 1;
+            }
+        }
+        if (this.chk == 1) {
+            this.sp = true;
+            // console.log("checkbox validation failed")
+        }
+        // console.log("reason 1",this.items);
+        //console.log("reason 2",data);
+        //console.log("reason",this.itemslist);
+        //console.log("kerunundonn nokitha",this.userItem.data);
         /*this.slides.lockSwipes(false);
         this.slider.slideTo(0);
         this.slides.lockSwipes(true);*/
@@ -1270,12 +1310,12 @@ var NewuserPage = /** @class */ (function () {
         var _this = this;
         //console.log("kerunillaa")
         this.datas = this.userItem.data;
-        console.log(this.datas);
+        //console.log(this.datas);
         if (this.datas != null) {
-            console.log("kerunnuu");
-            console.log("what comes in ");
-            console.log(this.datas);
-            console.log(this.v1);
+            //console.log("kerunnuu");
+            //console.log("what comes in ");
+            //console.log(this.datas);
+            //console.log(this.v1);
             for (this.i = 0; this.i <= 6; this.i++) {
                 if (this.datas[this.i] == "value1")
                     this.v1 = 0;
@@ -1305,8 +1345,8 @@ var NewuserPage = /** @class */ (function () {
                 if (this.datas[this.i] == "value7")
                     this.v7 = 6;
             }
-            console.log("after condition check ");
-            console.log(this.datas);
+            //console.log("after condition check ");
+            //console.log(this.datas);
             console.log(this.v1, this.v2, this.v3, this.v4, this.v5, this.v6, this.v7);
             //-1 1 2 3 4 5 6 
             //null 
@@ -1353,8 +1393,9 @@ var NewuserPage = /** @class */ (function () {
             else {
                 this.datas[6] = "value7";
             }
-            console.log(this.v1, this.v2, this.v3, this.v4, this.v5, this.v6, this.v7);
+            //console.log(this.v1,this.v2,this.v3,this.v4,this.v5,this.v6,this.v7);
             console.log('Cdatas look like  value :', this.datas);
+            this.chk1 = 0;
             //console.log(this.datas[0]=="value1"?false:true);
             //this.datas=['value1'];
             /*if(this.datas!=null){
@@ -1382,7 +1423,7 @@ var NewuserPage = /** @class */ (function () {
                 value: 'value1',
                 checked: this.datas == null ? false : this.datas[0] == "value1" ? true : false
             });
-            console.log("hi");
+            //console.log("hi");
             alert.addInput({
                 type: 'checkbox',
                 label: 'Leave Approvals ',
@@ -1425,27 +1466,57 @@ var NewuserPage = /** @class */ (function () {
                 // checked:this.datas[6]!="null"?this.datas[6]=="value7"?true:false:false
                 checked: this.datas == null ? false : this.datas[6] == "value7" ? true : false
             });
-            alert.addButton('Cancel');
+            alert.addButton({
+                text: "cancel",
+                handler: function (data) {
+                    if (_this.butn == "save" || _this.butn == "update") {
+                        _this.chk = 0;
+                        _this.chk1 = 0;
+                        if (_this.userItem.data == null) {
+                            _this.sp = false;
+                            console.log(" one ");
+                        }
+                        else {
+                            {
+                                for (_this.i = 0; _this.i < 6; _this.i++) {
+                                    if (_this.userItem.data[_this.i] == "null") {
+                                        _this.chk1 = 1;
+                                    }
+                                }
+                                if (_this.chk1 == 1)
+                                    _this.sp = false;
+                            }
+                            for (_this.i = 0; _this.i < 6; _this.i++) {
+                                if (_this.userItem.data[_this.i] != "null") {
+                                    _this.chk = 1;
+                                }
+                            }
+                            if (_this.chk == 1)
+                                _this.sp = true;
+                        }
+                    }
+                }
+            });
             alert.addButton({
                 text: 'Okay',
                 handler: function (data) {
-                    console.log("hui");
-                    console.log('data value  :', data);
+                    // console.log("hui");
+                    //  console.log('data value  :', data);
                     //this.userItem.data=this.datas;
                     // this.datas=data;
                     //  console.log(data[0]);
                     //try1 
                     if (data != null) {
-                        console.log("kerunnuu");
-                        console.log("what comes in ");
-                        console.log(data[6]);
-                        console.log(_this.v1);
-                        console.log(_this.v2);
-                        console.log(_this.v3);
-                        console.log(_this.v4);
-                        console.log(_this.v5);
-                        console.log(_this.v6);
-                        console.log(_this.v7);
+                        // console.log("kerunnuu");
+                        // console.log("what comes in ");
+                        // console.log(data[6]);
+                        // console.log(this.v1);
+                        //  console.log(this.v2);
+                        // console.log(this.v3);
+                        // console.log(this.v4);
+                        // console.log(this.v5);
+                        // console.log(this.v6);
+                        //console.log(this.v7);
                         // console.log(this.v7);
                         for (_this.i = 0; _this.i <= 6; _this.i++) {
                             if (data[_this.i] == "value1")
@@ -1526,13 +1597,43 @@ var NewuserPage = /** @class */ (function () {
                         }
                     }
                     _this.userItem.data = data;
-                    console.log("database:", data);
+                    // console.log("database:",data);
                     //console.log("database:",data);
                     _this.testCheckboxOpen = true;
                     _this.testCheckboxResult = data;
-                    if (data == null)
-                        _this.sp = false;
-                    data = null;
+                    if (_this.butn == "save" || _this.butn == "update") {
+                        _this.chk = 0;
+                        _this.chk1 = 0;
+                        if (_this.userItem.data == null) {
+                            console.log("onen");
+                            _this.sp = false;
+                        }
+                        else {
+                            {
+                                for (_this.i = 0; _this.i < 6; _this.i++) {
+                                    if (_this.userItem.data[_this.i] == "null") {
+                                        _this.chk1 = 1;
+                                    }
+                                }
+                                if (_this.chk1 == 1)
+                                    _this.sp = false;
+                                console.log("ones");
+                            }
+                            for (_this.i = 0; _this.i < 6; _this.i++) {
+                                if (_this.userItem.data[_this.i] != "null") {
+                                    _this.chk = 1;
+                                }
+                            }
+                            if (_this.chk == 1)
+                                _this.sp = true;
+                            console.log("trues");
+                        }
+                    }
+                    // if(this.butn=="save")
+                    //  this.sp=false;
+                    //if(data==null)
+                    // this.sp=false;
+                    // data=null;
                 }
             });
             alert.present();
@@ -1546,9 +1647,14 @@ var NewuserPage = /** @class */ (function () {
         this.v6 = 0;
         this.v7 = 0;
     };
+    NewuserPage.prototype.new1 = function () {
+        this.userItem.data = null;
+        this.sp = false;
+        this.x = true;
+    };
     NewuserPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-newuser',template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\newuser\newuser.html"*/'<!--\n\n  Generated template for the NewuserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n<ion-content style="margin-top:50px;" >\n\n    <ion-segment [(ngModel)]="users" color="white">\n\n        <ion-segment-button value="newUser"  >\n\n         <!-- <ion-icon name="person"></ion-icon> -->\n\n         New User\n\n        </ion-segment-button>\n\n        <ion-segment-button value="allUsers" (click)="new()">\n\n        <!--   <ion-icon name="ios-people"></ion-icon> --> \n\n        All User\n\n        </ion-segment-button>\n\n    </ion-segment>\n\n     \n\n      <div [ngSwitch]="users">\n\n\n\n          <div *ngSwitchCase="\'newUser\'">\n\n            <ion-list>\n\n              <h6 class="title section-title ">User Information</h6>\n\n                <ion-row>\n\n                    <ion-item col-6 > \n\n                        <ion-label stacked>First Name</ion-label>\n\n                        <ion-input type="text" [(ngModel)]="userItem.fname"></ion-input>\n\n                      </ion-item> \n\n                             \n\n                     <ion-item col-6  offset-1> \n\n                        <ion-label stacked>Last Name</ion-label>\n\n                        <ion-input type="text" [(ngModel)]="userItem.lname" ></ion-input>\n\n                      </ion-item>\n\n                    </ion-row>\n\n\n\n                    <ion-row>\n\n                      <ion-item col-12 > \n\n                          <ion-label stacked>Date Of Birth</ion-label>\n\n                          <ion-input type="text"  (ionFocus)="dispdate(\'birth\')" (click)="dispdate(\'birth\')" [(ngModel)]="userItem.dob"  ></ion-input>\n\n                        </ion-item> \n\n                    </ion-row>     \n\n                    <ion-row>\n\n                      <ion-item col-12> \n\n                         <ion-label stacked>Mobile Number</ion-label>\n\n                         <ion-input type="text" [(ngModel)]="userItem.mobile" ></ion-input>\n\n                       </ion-item>\n\n                     </ion-row> \n\n                    <ion-row>\n\n                       <ion-item col-12> \n\n                          <ion-label stacked>Email Id</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.email" ></ion-input>\n\n                        </ion-item>\n\n                      </ion-row>\n\n                      \n\n                      <h6 class="title section-title">Job Details</h6>\n\n\n\n                        <ion-row>\n\n                            <ion-item col-6> \n\n                                <ion-label stacked>Date Of Joining</ion-label>\n\n                                <ion-input type="text"  (ionFocus)="dispdate(\'join\')" (click)="dispdate(\'join\')" [(ngModel)]="userItem.doj"></ion-input>\n\n                              </ion-item>\n\n                             <ion-item col-6> \n\n                                <ion-label stacked>Position</ion-label>\n\n                                <ion-input type="text" [(ngModel)]="userItem.position" ></ion-input>\n\n                              </ion-item>\n\n                           </ion-row>  \n\n                          <ion-row>\n\n                              <ion-item>\n\n                                  <ion-label stacked>Set privileges</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>\n\n                                </ion-item>\n\n                              </ion-row> \n\n                              <ion-row>\n\n                                  \n\n                           <button ion-button  icon-end  full color=blue (click)="btn(userItem)" >\n\n                             {{butn}}\n\n                             <ion-icon name="star"></ion-icon>\n\n                             </button>\n\n                          </ion-row> \n\n                         \n\n              </ion-list>\n\n          </div>\n\n            \n\n       <div *ngSwitchCase="\'allUsers\'">\n\n        <ion-list >\n\n            <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>\n\n\n\n           <ion-item>\n\n           <ion-row no-margin class="table-title" >\n\n                <ion-col col-6 >Name</ion-col><ion-col col-4>Position </ion-col><ion-col col-2>Action</ion-col>\n\n              </ion-row>\n\n          </ion-item>\n\n           \n\n           <ion-item>\n\n            <ion-row  class="col-text row-bottom-border" *ngFor="let item of itemslist" >\n\n                <ion-col col-6  style="color: #66887F;">\n\n                  {{ item.fname }}\n\n                </ion-col>\n\n                <ion-col col-4  style="color:#2679B0;" >\n\n                  {{ item.position }}\n\n                </ion-col>\n\n                <ion-col col-2 text-center (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position,item.data)">\n\n                <ion-icon name="create" ></ion-icon>\n\n                </ion-col>\n\n              </ion-row>\n\n           </ion-item>\n\n           \n\n            <!-- <ion-item>\n\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n            </ion-item> -->\n\n         </ion-list>\n\n      </div>\n\n      </div>\n\n</ion-content>\n\n\n\n \n\n\n\n\n\n'/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\newuser\newuser.html"*/,
+            selector: 'page-newuser',template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\newuser\newuser.html"*/'<!--\n\n  Generated template for the NewuserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n<ion-content style="margin-top:50px;" >\n\n    <ion-segment [(ngModel)]="users" color="white" (click)="new1()">\n\n        <ion-segment-button value="newUser"  >\n\n         <!-- <ion-icon name="person"></ion-icon> -->\n\n         New User\n\n        </ion-segment-button>\n\n        <ion-segment-button value="allUsers" (click)="new()">\n\n        <!--   <ion-icon name="ios-people"></ion-icon> --> \n\n        All User\n\n        </ion-segment-button>\n\n    </ion-segment>\n\n     \n\n      <div [ngSwitch]="users">\n\n\n\n          <div *ngSwitchCase="\'newUser\'">\n\n            <ion-list>\n\n              <h6 class="title section-title ">User Information</h6>\n\n                <ion-row>\n\n                    <ion-item col-6 > \n\n                        <ion-label stacked>First Name</ion-label>\n\n                        <ion-input type="text" [(ngModel)]="userItem.fname"></ion-input>\n\n                      </ion-item> \n\n                             \n\n                     <ion-item col-6  offset-1> \n\n                        <ion-label stacked>Last Name</ion-label>\n\n                        <ion-input type="text" [(ngModel)]="userItem.lname" ></ion-input>\n\n                      </ion-item>\n\n                    </ion-row>\n\n\n\n                    <ion-row>\n\n                      <ion-item col-12 > \n\n                          <ion-label stacked>Date Of Birth</ion-label>\n\n                          <ion-input type="text"  (ionFocus)="dispdate(\'birth\')" (click)="dispdate(\'birth\')" [(ngModel)]="userItem.dob"  ></ion-input>\n\n                        </ion-item> \n\n                    </ion-row>     \n\n                    <ion-row>\n\n                      <ion-item col-12> \n\n                         <ion-label stacked>Mobile Number</ion-label>\n\n                         <ion-input type="text" [(ngModel)]="userItem.mobile" ></ion-input>\n\n                       </ion-item>\n\n                     </ion-row> \n\n                    <ion-row>\n\n                       <ion-item col-12> \n\n                          <ion-label stacked>Email Id</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.email" ></ion-input>\n\n                        </ion-item>\n\n                      </ion-row>\n\n                      \n\n                      <h6 class="title section-title">Job Details</h6>\n\n\n\n                        <ion-row>\n\n                            <ion-item col-6> \n\n                                <ion-label stacked>Date Of Joining</ion-label>\n\n                                <ion-input type="text"  (ionFocus)="dispdate(\'join\')" (click)="dispdate(\'join\')" [(ngModel)]="userItem.doj"></ion-input>\n\n                              </ion-item>\n\n                             <ion-item col-6> \n\n                                <ion-label stacked>Position</ion-label>\n\n                                <ion-input type="text" [(ngModel)]="userItem.position" ></ion-input>\n\n                              </ion-item>\n\n                           </ion-row>  \n\n                          <ion-row>\n\n                              <ion-col col-6>\n\n                                  <ion-label >Set privileges</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>\n\n                                </ion-col>\n\n                                <ion-col col-6  [hidden]="x">\n\n                                  <ion-label>Deactivate user</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="statuss" ></ion-checkbox>\n\n                                </ion-col>\n\n\n\n                              </ion-row> \n\n                              <ion-row>\n\n                                  \n\n                           <button ion-button  icon-end  full color=blue (click)="btn(userItem)" >\n\n                             {{butn}}\n\n                             <ion-icon name="star"></ion-icon>\n\n                             </button>\n\n                          </ion-row> \n\n                         \n\n              </ion-list>\n\n          </div>\n\n            \n\n       <div *ngSwitchCase="\'allUsers\'">\n\n        <ion-list >\n\n            <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>\n\n\n\n           <ion-item>\n\n           <ion-row no-margin class="table-title" >\n\n                <ion-col col-6 >Name</ion-col><ion-col col-4>Position </ion-col><ion-col col-2>Action</ion-col>\n\n              </ion-row>\n\n          </ion-item>\n\n           \n\n           <ion-item>\n\n            <ion-row  class="col-text row-bottom-border" *ngFor="let item of itemslist" >\n\n                <ion-col col-6  style="color: #66887F;">\n\n                  {{ item.fname }}\n\n                </ion-col>\n\n                <ion-col col-4  style="color:#2679B0;" >\n\n                  {{ item.position }}\n\n                </ion-col>\n\n                <ion-col col-2 text-center (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position,item.data,item.status)">\n\n                <ion-icon name="create" ></ion-icon>\n\n                </ion-col>\n\n              </ion-row>\n\n           </ion-item>\n\n           \n\n            <!-- <ion-item>\n\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n            </ion-item> -->\n\n         </ion-list>\n\n      </div>\n\n      </div>\n\n</ion-content>\n\n\n\n \n\n\n\n\n\n'/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\newuser\newuser.html"*/,
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_angularfire2_database__["a" /* AngularFireDatabase */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_date_picker__["a" /* DatePicker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_date_picker__["a" /* DatePicker */]) === "function" && _e || Object])
     ], NewuserPage);
