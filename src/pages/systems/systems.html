@@ -1,202 +1,116 @@
-<!--
-  Generated template for the SystemsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<!--
-  Generated template for the NewuserPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
-<!--
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>newuser</ion-title>
-  </ion-navbar>
-
-</ion-header>
- -->
- <!--
- <ion-header>
-
-    <ion-navbar>
-      <ion-title>{{Headername}}</ion-title>
-    </ion-navbar>
-  
-  </ion-header>
-  -->
 
   
 
 
 
-  <ion-content>
+  <ion-content style="margin-top:50px;">
  
-      <ion-segment [(ngModel)]="icons" color="primary">
-        <ion-segment-button value="0" placeholder="system"(click)="selectedTab(0)">
-         <!-- <ion-icon name="camera"></ion-icon>-->
-         New System
-        </ion-segment-button>
-        <ion-segment-button value="1" (click)="selectedTab(1)">
-          <!--   <ion-icon name="ios-people"></ion-icon>-->
-          All Systems
-        </ion-segment-button>
+      <ion-segment [(ngModel)]="systems" color="white">
+         <ion-segment-button value="newSystem">
+            Add System
+         </ion-segment-button>
+         <ion-segment-button value="allSystems" (click)="getSystems()">
+           All Systems
+         </ion-segment-button>
       </ion-segment>
-  
-    <ion-slides #slider>
-      <ion-slide>
-          
-          <ion-list style="margin-top: 90px;">
-              <ion-item class="iont" > 
-                <ion-input type="text" placeholder="SYSTEM ID" name="username" #username class="inp"></ion-input>
-                <ion-icon name="ios-laptop-outline" item-left></ion-icon>
-             
-              </ion-item>
-             <ion-item>
-              <ion-input  placeholder="CPU" name="password" #password class="inp"></ion-input> 
-              <ion-icon name="md-cog" item-left></ion-icon>
+  <div [ngSwitch]="systems">
+    <div *ngSwitchCase="'newSystem'">
+      <form [formGroup]="systemsForm" (ngSubmit)="onSubmit()">
+      <ion-list>
+          <h6 class="title">System Information</h6>
+          <ion-row>
+            <ion-item col-12>
+              <ion-input hidden formControlName="$key"></ion-input>
+              <ion-input hidden formControlName="avValidity"></ion-input>
+              <ion-label stacked>System Id</ion-label>
+              <ion-input type="text" formControlName="systemId"></ion-input>
+                <button ion-button type="button" color="blue" (click)="scanBarCode('system')" small item-right>
+                  <ion-icon name="barcode"> </ion-icon>
+                </button>
             </ion-item>
-            <ion-item class="iont" > 
-                <ion-input type="text" placeholder="RAM" name="username" #username class="inp"></ion-input>
-                <ion-icon name="md-easel" item-left></ion-icon>
+          </ion-row>
+              <ion-row>
+                <ion-item col-12>
+                  <ion-label stacked>Keyboard</ion-label>
+                  <ion-input type="text" formControlName="keyboard" ></ion-input>
+                    <button ion-button small type="button" (click)="scanBarCode('keyboard')" color="blue" item-right>
+                      <ion-icon name="barcode"> </ion-icon>
+                    </button>
+                  </ion-item>
+              </ion-row>
+              <ion-row>
+                <ion-item col-12>
+                  <ion-label stacked>Mouse</ion-label>
+                  <ion-input type="text" formControlName="mouse"></ion-input>
+                    <button ion-button small type="button" (click)="scanBarCode('mouse')" color="blue" item-right>
+                        <ion-icon name="barcode"> </ion-icon>
+                      </button>
+                  </ion-item>
+                </ion-row>
+
+              <ion-item col-12>
+                <ion-label stacked>Processor</ion-label>
+                <ion-input type="text" formControlName="processor" ></ion-input>
               </ion-item>
-              <ion-item class="iont" > 
-                  <ion-input type="text" placeholder="HARD DISK" name="username" #username class="inp"></ion-input>
-                  <ion-icon name="ios-analytics-outline" item-left></ion-icon>
+             <ion-row >
+              <ion-item  col-6>
+                <ion-label stacked>Primary Memory</ion-label>
+                <ion-input type="text" formControlName="memory" ></ion-input>
               </ion-item>
-              <ion-item class="iont" > 
-                 
-                  <ion-input type="text" placeholder="KEY BOARD" name="username" #username class="inp"></ion-input>
-                  <ion-icon name="ios-calculator" item-left></ion-icon>
-                </ion-item>
-                <ion-item class="iont" > 
-                  <ion-input type="text" placeholder="MOUSE" name="username" #username class="inp"></ion-input>
-                  <ion-icon name="logo-octocat" item-left></ion-icon>
-               
+
+              <ion-item col-6>
+                <ion-label stacked>Hard Disk</ion-label>
+                <ion-input type="text" formControlName="hdd" ></ion-input>
               </ion-item>
+              
+            </ion-row>  
             
-              <div Class="ALI" >
-                 
-                  <button ion-button  round> SAVE</button>
-              </div>
-          </ion-list>
-          
-          
-          
-         
-          
-      </ion-slide>
-      <ion-slide>
-          
-          <ion-list >
-              <ion-item class="iont" > 
-                <ion-input type="text" placeholder="Search User" name="username" #username class="inp"></ion-input>
-                <ion-icon name="ios-search" item-right></ion-icon>
-              </ion-item>
-             <ion-item>
-              <ion-grid>
-                <ion-row>
-                  <ion-col>
-                    Name
-                  </ion-col>
-                  <ion-col>
-                    Position
-                  </ion-col>
-                  <ion-col>
-                    Action
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
-             </ion-item>
-             <ion-item>
-              <ion-grid>
-                <ion-row>
-                  <ion-col style="color:green;">
-                    Abey Abraham
-                  </ion-col>
-                  <ion-col style="color:lightseagreen;" >
-                    Intern
-                  </ion-col>
-                  <ion-col >
-                  <button ion-button round block >Edit</button>
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
-             </ion-item>
-             <ion-item>
-              <ion-grid>
-                <ion-row>
-                  <ion-col style="color:green;">
-                    Tony Manuel
-                  </ion-col>
-                  <ion-col style="color:lightseagreen;" >
-                    Intern
-                  </ion-col>
-                  <ion-col >
-                  <button ion-button round block  (click)="selectedTab(0)" >Edit</button>
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
-             </ion-item>
-              <!-- <ion-item>
-                <ion-input type="password" placeholder="Password" name="password" #password></ion-input>
-              </ion-item> -->
+          <ion-row>
+            <ion-item col-12>
+              <ion-label stacked>Antivirus Expiry</ion-label>
+              <ion-input type="text" formControlName="avExpiry" (click)="dispdate()" (ionFocus)="dispdate()" ></ion-input>
+            </ion-item>
+          </ion-row>
+
+              <ion-row>
+                <button ion-button type="submit"  icon-end full color=blue   >
+                  Save
+                </button>
+              </ion-row> 
              
-            
-          </ion-list>
-          
-           
-      </ion-slide>
+      </ion-list>
+    </form>
+
+    
+    </div>
+
+    <div *ngSwitchCase="'allSystems'">
+      <ion-list>
+        <ion-searchbar hidden placeholder="Find System" showCancelButton="false">
+       </ion-searchbar>
+       <button type="button"  color="blue" ion-button (click)="scanBarCode('db')">Scanner</button>
+      </ion-list>
+      <ion-item>
+        <ion-row class="table-title">
+          <ion-col col-4 >System Id</ion-col>
+          <ion-col col-3 >RAM</ion-col>
+          <ion-col col-3 >HDD</ion-col>
+          <ion-col col-2 >Antivirus</ion-col>
+          <ion-col hidden col-2 >View</ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item *ngFor="let system of systemArray">
+        <ion-row class="col-text table-bottom-border" (click)="loadForm(system)" >
+            <ion-col col-4>{{system.systemId}}</ion-col><ion-col col-3>{{system.memory}}</ion-col><ion-col col-3>{{system.hdd}}</ion-col><ion-col col-2>{{system.avValidity}} Days</ion-col>
+        </ion-row>
+      </ion-item>
+
       
-    </ion-slides>
+    </div>
+
+
+  </div>
+    
   </ion-content>
   
-  
-  
-  
-   <!-- 
-  
-  
-  
-  
-  <ion-content padding>
-  <ion-list style="margin-top: 90px;">
-      <ion-item class="iont" > 
-        <ion-input type="text" placeholder="First Name" name="username" #username class="inp"></ion-input>
-        <ion-icon name="person" item-left></ion-icon>
-     
-     <ion-item>
-        <ion-input type="password" placeholder="Password" name="password" #password></ion-input>
-      </ion-item> 
-     
-      <ion-input  placeholder="Last Name" name="password" #password class="inp"></ion-input> 
-    </ion-item>
-    <ion-item class="iont" > 
-        <ion-input type="text" placeholder="Date of Birth" name="username" #username class="inp"></ion-input>
-        <ion-icon name="calendar" item-left></ion-icon>
-      </ion-item>
-      <ion-item class="iont" > 
-          <ion-input type="text" placeholder="Mobile Number" name="username" #username class="inp"></ion-input>
-          <ion-icon name="ios-phone-portrait" item-left></ion-icon>
-      </ion-item>
-      <ion-item class="iont" > 
-          <ion-input type="text" placeholder="Email ID" name="username" #username class="inp"></ion-input>
-          <ion-icon name="ios-mail-outline" item-left></ion-icon>
-      </ion-item>
-      <ion-item class="iont" > 
-          <ion-input type="text" placeholder="Date of Join" name="username" #username class="inp"></ion-input>
-          <ion-icon name="calendar" item-left></ion-icon>
-      </ion-item>
-      <div Class="ALI" >
-         
-          <button ion-button  round> SAVE</button>
-      </div>
-  </ion-list>
-  
-  
-  
-  </ion-content>
-  -->
+ 

@@ -1,3 +1,4 @@
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
@@ -7,6 +8,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { DatePicker } from '@ionic-native/date-picker';
+import {ReactiveFormsModule} from '@angular/forms'
+import { DatePipe } from '@angular/common';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -21,6 +24,8 @@ import {SystemsPage} from '../pages/systems/systems';
 import {RecruitmentPage} from '../pages/recruitment/recruitment';
 import {AngularFireModule } from 'angularfire2';
 import {AngularFireDatabaseModule } from 'angularfire2/database';
+
+
 var config = {
   apiKey: "AIzaSyCRDymxcDEMORc4U1TjW5_SKiB22G45buM",
   authDomain: "sopaa-b37c1.firebaseapp.com",
@@ -37,8 +42,7 @@ var config = {
     ProfilePage,
     AddItPage,RecruitmentPage,
     TabsPage,NewuserPage,
-   
-    BotabsPage,SystemsPage
+   BotabsPage,SystemsPage
   ],
   imports: [
     BrowserModule,
@@ -47,7 +51,8 @@ var config = {
     IonicModule.forRoot(MyApp),
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(config),
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    ReactiveFormsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -58,13 +63,15 @@ var config = {
     AddItPage,
     TabsPage,
     NewuserPage,
-   BotabsPage,SystemsPage,
-   RecruitmentPage
+    BotabsPage,SystemsPage,
+    RecruitmentPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     DatePicker,
+    BarcodeScanner,
+    DatePipe,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

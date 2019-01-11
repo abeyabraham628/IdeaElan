@@ -33480,6 +33480,12 @@ ion-navbar.toolbar {
   margin-top: 2px;
 }
 
+ion-col.radio-combo * {
+  float: left;
+  margin-right: 2px;
+  color: #372929;
+}
+
 .tabs .tabbar {
   background-color: #2679b0;
   border-top: 5px solid #f6a253 !important;
