@@ -131,6 +131,12 @@ insertSystems(systems:any){
       else if(type=="mouse"){
         this.systemsForm.controls['mouse'].setValue(barcodeData.text);
       }
+
+      else if(type=="db"){
+        this.findSystem(barcodeData.text)
+      }
+
+
      }).catch(err => {
          console.log('Error', err);
      });
@@ -153,6 +159,27 @@ insertSystems(systems:any){
   }
 
 
+  findSystem(systemId:any){
+    var result=[];
+    this.firebase.database.ref("systems").orderByChild('systemId').equalTo(systemId).on("value",function(snapshot) {
+       
+          snapshot.forEach(function(childSnapshot) {
+          result={
+           $key:childSnapshot.key,
+           ...childSnapshot.val()
+
+            }
+
+         });
+         
+    });
+    this.loadForm(result);
+}//end of function
+
+
+}//end of class
+
+
  
 
-}
+
