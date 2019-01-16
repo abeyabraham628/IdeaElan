@@ -80,7 +80,7 @@ var ChatbotPage = /** @class */ (function () {
     };
     ChatbotPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-chatbot',template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\chatbot\chatbot.html"*/'\n\n<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Ionic API.AI Chatbot\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n  <input ion-text type="text" [(ngModel)]="question">\n\n  <button ion-button (click)="ask(question)">\n    Ask\n  </button>\n\n  <div>\n    {{answer}}\n  </div>\n\n</ion-content>\n'/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\chatbot\chatbot.html"*/,
+            selector: 'page-chatbot',template:/*ion-inline-start:"D:\IdeaElan\src\pages\chatbot\chatbot.html"*/'\n\n\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Ionic API.AI Chatbot\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n  <input ion-text type="text" [(ngModel)]="question">\n\n\n\n  <button ion-button (click)="ask(question)">\n\n    Ask\n\n  </button>\n\n\n\n  <div>\n\n    {{answer}}\n\n  </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\chatbot\chatbot.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgZone */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]])
     ], ChatbotPage);
