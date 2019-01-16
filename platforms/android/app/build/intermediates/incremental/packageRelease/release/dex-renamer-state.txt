@@ -1,4 +1,0 @@
-#Thu Dec 06 11:16:04 IST 2018
-base.0=D\:\\ionic-v3-php-mysql-master\\ionic-app\\platforms\\android\\app\\build\\intermediates\\transforms\\dex\\release\\0
-path.0=classes.dex
-renamed.0=classes.dex

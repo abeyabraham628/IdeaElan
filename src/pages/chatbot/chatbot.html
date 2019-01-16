@@ -1,0 +1,23 @@
+
+
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Ionic API.AI Chatbot
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
+  <input ion-text type="text" [(ngModel)]="question">
+
+  <button ion-button (click)="ask(question)">
+    Ask
+  </button>
+
+  <div>
+    {{answer}}
+  </div>
+
+</ion-content>

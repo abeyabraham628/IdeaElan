@@ -1,10 +1,9 @@
-import { AngularFireDatabase,AngularFireList } from 'angularfire2/database';
+import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 import { DatePicker } from '@ionic-native/date-picker';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Component } from '@angular/core';
 import { IonicPage } from 'ionic-angular';
 import {FormControl, FormGroup,Validators} from '@angular/forms'
-import { createLoweredSymbol } from '@angular/compiler';
 import { DatePipe } from '@angular/common';
 
 
@@ -44,11 +43,11 @@ export class SystemsPage {
  systems:string;
   constructor(private barcode:BarcodeScanner,private datePicker:DatePicker,private firebase:AngularFireDatabase,private datepipe:DatePipe) {
   this.systems="newSystem";
-  this.getSystemList();
+ this.getSystemList();
 }
 
+//systemsList:AngularFireList<any>
 systemsList:AngularFireList<any>
-
 
 getSystemList(){
   this.systemsList=this.firebase.list('systems')
@@ -169,6 +168,7 @@ insertSystems(systems:any){
            ...childSnapshot.val()
 
             }
+            return false;
 
          });
          
