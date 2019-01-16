@@ -10181,6 +10181,7 @@ ion-fab-list[side=right] {
 }
 
 [col-1] {
+  margin-left: -20px;
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 8.33333%;
   -ms-flex: 0 0 8.33333%;
@@ -10393,11 +10394,11 @@ ion-fab-list[side=right] {
 }
 
 [offset-1] {
-  margin-left: 8.33333%;
+  margin-left: 14.33333%;
 }
 
 [offset-2] {
-  margin-left: 16.66667%;
+  margin-left: 10.66667%;
 }
 
 [offset-3] {

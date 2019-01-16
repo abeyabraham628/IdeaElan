@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, OnInit } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { SystemsPage } from './systems';
 
@@ -10,4 +10,6 @@ import { SystemsPage } from './systems';
     IonicPageModule.forChild(SystemsPage),
   ],
 })
-export class SystemsPageModule {}
+export class SystemsPageModule  {
+ }
+

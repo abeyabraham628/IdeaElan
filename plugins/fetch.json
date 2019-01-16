@@ -5,9 +5,7 @@
       "id": "phonegap-plugin-barcodescanner@8.0.1"
     },
     "is_top_level": true,
-    "variables": {
-      "ANDROID_SUPPORT_V4_VERSION": "27.+"
-    }
+    "variables": {}
   },
   "cordova-plugin-splashscreen": {
     "source": {
@@ -55,6 +53,22 @@
     "source": {
       "type": "registry",
       "id": "cordova-plugin-ionic-keyboard@^2.0.5"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-firebase": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-firebase"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "ionic-plugin-keyboard": {
+    "source": {
+      "type": "registry",
+      "id": "ionic-plugin-keyboard"
     },
     "is_top_level": true,
     "variables": {}

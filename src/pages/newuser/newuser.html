@@ -6,14 +6,13 @@
 -->
 
 
-
 <ion-content style="margin-top:50px;" >
-    <ion-segment [(ngModel)]="users" color="white">
+    <ion-segment [(ngModel)]="users" color="white" (click)="new1()">
         <ion-segment-button value="newUser"  >
          <!-- <ion-icon name="person"></ion-icon> -->
          New User
         </ion-segment-button>
-        <ion-segment-button value="allUsers">
+        <ion-segment-button value="allUsers" (click)="new()">
         <!--   <ion-icon name="ios-people"></ion-icon> --> 
         All User
         </ion-segment-button>
@@ -27,31 +26,31 @@
                 <ion-row>
                     <ion-item col-6 > 
                         <ion-label stacked>First Name</ion-label>
-                        <ion-input type="text" [(ngModel)]=fName   ></ion-input>
+                        <ion-input type="text" [(ngModel)]="userItem.fname"></ion-input>
                       </ion-item> 
                              
                      <ion-item col-6  offset-1> 
                         <ion-label stacked>Last Name</ion-label>
-                        <ion-input type="text" [(ngModel)]=lName ></ion-input>
+                        <ion-input type="text" [(ngModel)]="userItem.lname" ></ion-input>
                       </ion-item>
                     </ion-row>
 
                     <ion-row>
                       <ion-item col-12 > 
                           <ion-label stacked>Date Of Birth</ion-label>
-                          <ion-input type="text"  (ionFocus)="dispdate('birth')" (click)="dispdate('birth')" [(ngModel)]=dob  ></ion-input>
+                          <ion-input type="text"  (ionFocus)="dispdate('birth')" (click)="dispdate('birth')" [(ngModel)]="userItem.dob"  ></ion-input>
                         </ion-item> 
                     </ion-row>     
                     <ion-row>
                       <ion-item col-12> 
                          <ion-label stacked>Mobile Number</ion-label>
-                         <ion-input type="text" [(ngModel)]=mobile ></ion-input>
+                         <ion-input type="text" [(ngModel)]="userItem.mobile" ></ion-input>
                        </ion-item>
                      </ion-row> 
                     <ion-row>
                        <ion-item col-12> 
                           <ion-label stacked>Email Id</ion-label>
-                          <ion-input type="text" [(ngModel)]=emailId ></ion-input>
+                          <ion-input type="text" [(ngModel)]="userItem.email" ></ion-input>
                         </ion-item>
                       </ion-row>
                       
@@ -60,16 +59,28 @@
                         <ion-row>
                             <ion-item col-6> 
                                 <ion-label stacked>Date Of Joining</ion-label>
-                                <ion-input type="text"  (ionFocus)="dispdate('join')" (click)="dispdate('join')" [(ngModel)]=doj></ion-input>
+                                <ion-input type="text"  (ionFocus)="dispdate('join')" (click)="dispdate('join')" [(ngModel)]="userItem.doj"></ion-input>
                               </ion-item>
                              <ion-item col-6> 
                                 <ion-label stacked>Position</ion-label>
-                                <ion-input type="text" [(ngModel)]=position ></ion-input>
+                                <ion-input type="text" [(ngModel)]="userItem.position" ></ion-input>
                               </ion-item>
                            </ion-row>  
                           <ion-row>
-                           <button ion-button icon-end full color=blue >
-                             Save
+                              <ion-col col-6>
+                                  <ion-label >Set privileges</ion-label>
+                                  <ion-checkbox  [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>
+                                </ion-col>
+                                <ion-col col-6  [hidden]="x">
+                                  <ion-label>Deactivate user</ion-label>
+                                  <ion-checkbox  [(ngModel)]="statuss" ></ion-checkbox>
+                                </ion-col>
+
+                              </ion-row> 
+                              <ion-row>
+                                  
+                           <button ion-button  icon-end  full color=blue (click)="btn(userItem)" >
+                             {{butn}}
                              <ion-icon name="star"></ion-icon>
                              </button>
                           </ion-row> 
@@ -79,7 +90,7 @@
             
        <div *ngSwitchCase="'allUsers'">
         <ion-list >
-            <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>
+            <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>
 
            <ion-item>
            <ion-row no-margin class="table-title" >
@@ -88,15 +99,15 @@
           </ion-item>
            
            <ion-item>
-            <ion-row  class="col-text row-bottom-border" >
+            <ion-row  class="col-text row-bottom-border" *ngFor="let item of itemslist" >
                 <ion-col col-6  style="color: #66887F;">
-                  Abey Abraham
+                  {{ item.fname }}
                 </ion-col>
                 <ion-col col-4  style="color:#2679B0;" >
-                  Intern
+                  {{ item.position }}
                 </ion-col>
-                <ion-col col-2 text-center>
-                <ion-icon name="create"></ion-icon>
+                <ion-col col-2 text-center (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position,item.data,item.status)">
+                <ion-icon name="create" ></ion-icon>
                 </ion-col>
               </ion-row>
            </ion-item>

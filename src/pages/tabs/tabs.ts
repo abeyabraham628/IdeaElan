@@ -19,16 +19,16 @@ import {SystemsPage} from '../systems/systems'
   templateUrl: 'tabs.html',
 })
 export class TabsPage {
+  //Headername="users";
+  
   tab1Root = NewuserPage;
   tab2Root = SystemsPage ;
   tab3Root = RecruitmentPage;
   tab4Root =  SystemsPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad TabsPage');
-  }
 
 }
