@@ -10,6 +10,9 @@ import { IonicStorageModule } from '@ionic/storage';
 import { DatePicker } from '@ionic-native/date-picker';
 import {ReactiveFormsModule} from '@angular/forms'
 import { DatePipe } from '@angular/common';
+import { Firebase } from '@ionic-native/firebase';
+import { AngularFireDatabaseModule } from '@angular/fire/database';
+import {AngularFireModule } from '@angular/fire';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -22,8 +25,7 @@ import { NewuserPage } from '../pages/newuser/newuser';
 import { BotabsPage } from '../pages/botabs/botabs';
 import {SystemsPage} from '../pages/systems/systems';
 import {RecruitmentPage} from '../pages/recruitment/recruitment';
-import {AngularFireModule } from 'angularfire2';
-import {AngularFireDatabaseModule } from 'angularfire2/database';
+
 
 
 var config = {
@@ -68,6 +70,7 @@ var config = {
   ],
   providers: [
     StatusBar,
+    Firebase,
     SplashScreen,
     DatePicker,
     BarcodeScanner,

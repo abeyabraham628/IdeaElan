@@ -1,14 +1,10 @@
 import { userItem } from './../../models/user-item/user-item.interface';
-
-import { Component,ViewChild, Input} from '@angular/core';
+import { Component,ChangeDetectorRef,ViewChild, Input} from '@angular/core';
 import { IonicPage, NavController, NavParams ,Slides,AlertController } from 'ionic-angular';
-import {AngularFireDatabase, AngularFireList} from 'angularfire2/database'
-import firebase from 'firebase';
-
+import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import { Subscription } from 'rxjs/Subscription';
-import { analyzeAndValidateNgModules, identifierModuleUrl } from '@angular/compiler';
-import { FirebaseApp } from 'angularfire2';
 import { DatePicker } from '@ionic-native/date-picker';
+
 
 
 
@@ -62,12 +58,14 @@ export class NewuserPage {
   userItemRef$: AngularFireList<userItem>
 
   icons:string="0";
-  constructor(public navCtrl: NavController, private fdb:AngularFireDatabase,public navParams: NavParams,public alertCtrl: AlertController,private datePicker:DatePicker) {
+  constructor(public navCtrl: NavController,private ref: ChangeDetectorRef, private fdb:AngularFireDatabase,public navParams: NavParams,public alertCtrl: AlertController,private datePicker:DatePicker) {
     // this.disa=false; 
+   
     
     this.icons="0";
-      this.users="newUser";
-      this.itemRef= firebase.database().ref("/users/");
+    this.users="newUser";
+    this.itemRef= fdb.database.ref("/users/");
+   
    }
   /*
   ionViewDidLoad() {
@@ -112,6 +110,7 @@ new()
     });
     this.itemslist=this.items;
     this.loaditems=this.items;
+    this.ref.detectChanges();
   });
  
   console.log("PRINT ");

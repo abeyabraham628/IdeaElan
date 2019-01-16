@@ -91,7 +91,7 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "../phonegap-plugin-barcodescanner/starter-barcodescanner.gradle"
+apply from: "../cordova-plugin-firebase/starter-build.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()
@@ -266,8 +266,12 @@ dependencies {
     implementation fileTree(dir: 'libs', include: '*.jar')
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
-    compile "com.android.support:support-v4:27.+"
     compile "com.android.support:support-annotations:27.+"
+    compile "com.google.android.gms:play-services-tagmanager:+"
+    compile "com.google.firebase:firebase-core:+"
+    compile "com.google.firebase:firebase-messaging:+"
+    compile "com.google.firebase:firebase-config:+"
+    compile "com.google.firebase:firebase-perf:+"
     // SUB-PROJECT DEPENDENCIES END
 }
 

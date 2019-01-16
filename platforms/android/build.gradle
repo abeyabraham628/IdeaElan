@@ -24,12 +24,15 @@ buildscript {
             url "https://maven.google.com"
         }
         jcenter()
+        maven { url 'https://maven.fabric.io/public' } // Fabrics Maven repository from cordova-plugin-firebase
     }
     dependencies {
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
         classpath 'com.android.tools.build:gradle:3.0.1'
+        classpath 'com.google.gms:google-services:4.1.0' // google-services dependency from cordova-plugin-firebase
+        classpath 'io.fabric.tools:gradle:1.25.4' // fabric dependency from cordova-plugin-firebase
     }
 }
 
@@ -39,6 +42,7 @@ allprojects {
             url "https://maven.google.com"
         }
         jcenter()
+        google() // Google's Maven repository from cordova-plugin-firebase
     }
     //This replaces project.properties w.r.t. build settings
     project.ext {
