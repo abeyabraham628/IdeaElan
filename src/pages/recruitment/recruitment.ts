@@ -15,23 +15,13 @@ import { IonicPage, NavController, NavParams ,Slides} from 'ionic-angular';
 })
 export class RecruitmentPage {
  
-  @ViewChild('slider') slider:Slides;
-  @ViewChild(Slides) slides: Slides;
-  page=0;
-  icons:string="0";
+  recruitment:string;
  
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.icons="0";
+  constructor() {
+    this.recruitment="newApplicant";
+   
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad RecruitmentPage');
-    this.slides.lockSwipes(true);
-  }
-  selectedTab(ind){
-    this.slides.lockSwipes(false);
-    this.slider.slideTo(ind);
-    this.slides.lockSwipes(true);
-  }
+  
   
 }

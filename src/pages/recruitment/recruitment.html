@@ -1,286 +1,129 @@
-<!--
-  Generated template for the RecruitmentPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
---><!--
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>Recruitment</ion-title>
-  </ion-navbar>
-
-</ion-header>
--->
-  <ion-content>
- 
-      <ion-segment [(ngModel)]="icons" color="primary">
-        <ion-segment-button value="0" placeholder="system"(click)="selectedTab(0)">
-         <!-- <ion-icon name="camera"></ion-icon>-->
+<ion-content style="margin-top:50px;" >
+  <ion-segment [(ngModel)]="recruitment" color="white">
+      <ion-segment-button  value="newApplicant" >
          New Applicant
-        </ion-segment-button>
-        <ion-segment-button value="1" (click)="selectedTab(1)">
-          <!--   <ion-icon name="ios-people"></ion-icon>-->
-          Schedules
-        </ion-segment-button>
-        <ion-segment-button value="2" (click)="selectedTab(2)">
-          <!--   <ion-icon name="ios-people"></ion-icon>-->
+      </ion-segment-button>
+
+      <ion-segment-button value="schedules" >
+         Schedules
+      </ion-segment-button>
+
+      <ion-segment-button value="interviews">
           Interviews
-        </ion-segment-button>
-      </ion-segment>
-      
-  
-    <ion-slides #slider>
-      <ion-slide  >
-          
-          <ion-list style="margin-top: 90px;overflow: hidden;">
-            <ion-item>
-              <ion-label>Applicant Information </ion-label>
-            
-            </ion-item>
-            
-              <ion-item class="iont" > 
-                <ion-input type="text" placeholder="First Name " name="username" #username class="inp"></ion-input>
-                
-             
-                <ion-input type="text" placeholder="Last Name " name="username" #username class="inp"></ion-input>
-                
-             
-              </ion-item>
-             <ion-item style = "overflow: hidden;"> 
-              <ion-input  placeholder="Mobile" name="password" #password class="inp"></ion-input> 
-           
-            </ion-item>
-            <ion-item style = "overflow: hidden;"> 
-                <ion-input type="text" placeholder="E-mail" name="username" #username class="inp"></ion-input>
-               
-              </ion-item>
-              <ion-item>
-                <ion-label>Employer and Salary  </ion-label>
-              
-              </ion-item>
-              <ion-item class="iont" > 
-                <ion-input type="text" placeholder="Current Employer " name="username" #username class="inp"></ion-input>
-                
-             
-              </ion-item>
-              <ion-item class="iont" > 
-                <ion-input type="text" placeholder="Notice Period  " name="username" #username class="inp"></ion-input>
-                
-             
-              
-              <ion-input  placeholder="Current CTC" name="Current CTC" #password class="inp"></ion-input> 
-           
-            </ion-item>
-            <ion-item>
-              <ion-label>Experience Details </ion-label>
-            
-            </ion-item>
-              <ion-item style = "overflow: hidden;" > 
-                  <ion-input type="text" placeholder="Total Experience " name="username" #username class="inp"></ion-input>
-                  
-              </ion-item>
-              <ion-item style = "overflow: hidden;" > 
-                 
-                  <ion-input type="text" placeholder="years " name="username" #username class="inp"></ion-input>
-                 
-                
-                  <ion-input type="text" placeholder="months" name="username" #username class="inp"></ion-input>
-            
-               
-              <ion-input type="text" placeholder="Expected CTC" name="username" #username class="inp"></ion-input>
-        
-           
-          </ion-item>
-        
-            
-          <ion-item style = "overflow: hidden;" > 
-                 
-                  <button ion-button  round> SAVE</button>
-            </ion-item>
-          </ion-list>
-          
-          
-          
-         
-          
-      </ion-slide>
-      <ion-slide>
-          
-          <ion-list >
-              <ion-item class="iont" > 
-                <ion-input type="text" placeholder="Search Candidates" name="username" #username class="inp"></ion-input>
-                <ion-icon name="ios-search" item-right></ion-icon>
-              </ion-item>
-             <ion-item>
-             
-             
-              <ion-grid >
-                <ion-row  >
-                  <ion-col col-2 >
-                      <ion-item no-padding no-margin>
-                           
-                          <ion-checkbox [(ngModel)]="mu"></ion-checkbox>
-                        </ion-item>
-                  </ion-col>
-                  <ion-col col-2 >
-                    Name
-                  </ion-col>
-                  <ion-col col-2 offset-2>
-                   Experience 
-                  </ion-col>
-                  <ion-col col-2 offset-1>
-                    Interview Date
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
-             </ion-item>
-             <ion-item>
-              <ion-grid>
-                <ion-row>
-                    <ion-col  col-2  > 
-                     
-                        <ion-item no-padding no-margin>
-                           
-                            <ion-checkbox [(ngModel)]="mup"></ion-checkbox>
-                          </ion-item>
-                       
-                          
-                        
-                        
-                        
+      </ion-segment-button>
+  </ion-segment>
+   
+    <div [ngSwitch]="recruitment">
 
-                      </ion-col>
-                  <ion-col style="color:green;"  col-2 >
-                    Abey Abraham
-                  </ion-col>
-                  <ion-col style="color:lightseagreen;"  col-2 offset-2>
-                    2 years
-                  </ion-col>
-                  <ion-col  col-2 offset-1 >
-                  Not Set 
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
-             </ion-item>
-             <ion-item>
-              <ion-grid>
-                <ion-row>
-                    <ion-col col-2 > 
-                     
-                        <ion-item no-padding no-margin>
-                           
-                            <ion-checkbox [(ngModel)]="mups"></ion-checkbox>
-                          </ion-item>
-     
-
-                      </ion-col>
-                  <ion-col style="color:green;"  col-2>
-                    Tony Manuel
-                  </ion-col>
-                  <ion-col style="color:lightseagreen;"   col-2 offset-2>
-                    2 years
-                  </ion-col>
-                  <ion-col  col-2 offset-1>
-                 Not set 
-                  </ion-col>
-                </ion-row>
-              </ion-grid>
-             </ion-item>
-             <ion-item>
-              <ion-label>Schedule Details</ion-label>
-            
-            </ion-item>
-
-              <!-- <ion-item>
-                <ion-input type="password" placeholder="Password" name="password" #password></ion-input>
-              </ion-item> -->
-             
-            
-          </ion-list>
-          <ion-item style = "overflow: hidden;" > 
-                 
-            <ion-input type="text" placeholder="Interview Date " name="username" #username class="inp"></ion-input>
-           
-          
-            <ion-input type="text" placeholder="Time" name="username" #username class="inp"></ion-input>
-      
-          </ion-item>
-          <ion-item>
-        <ion-input type="text" placeholder="Contact Person " name="username" #username class="inp"></ion-input>
-          </ion-item>
-          <ion-item>
-        <ion-input type="text" placeholder="Contact Number" name="username" #username class="inp"></ion-input>
-  
-     
-    </ion-item>
-          
-           
-      </ion-slide>
-      <ion-slide>
-          
-          <ion-list style="margin-top: 90px;">
-              <ion-item class="iont" > 
-                <ion-input type="text" placeholder="SYSTEM ID" name="username" #username class="inp"></ion-input>
-                <ion-icon name="ios-laptop-outline" item-left></ion-icon>
-             
-              </ion-item>
-             <ion-item>
-              <ion-input  placeholder="CPU" name="password" #password class="inp"></ion-input> 
-              <ion-icon name="md-cog" item-left></ion-icon>
-            </ion-item>
-            <ion-item class="iont" > 
-                <ion-input type="text" placeholder="RAM" name="username" #username class="inp"></ion-input>
-                <ion-icon name="md-easel" item-left></ion-icon>
-              </ion-item>
-              <ion-item class="iont" > 
-                  <ion-input type="text" placeholder="HARD DISK" name="username" #username class="inp"></ion-input>
-                  <ion-icon name="ios-analytics-outline" item-left></ion-icon>
-              </ion-item>
-              <ion-item class="iont" > 
-                 
-                  <ion-input type="text" placeholder="KEY BOARD" name="username" #username class="inp"></ion-input>
-                  <ion-icon name="ios-calculator" item-left></ion-icon>
-                </ion-item>
-                <ion-item class="iont" > 
-                  <ion-input type="text" placeholder="MOUSE" name="username" #username class="inp"></ion-input>
-                  <ion-icon name="logo-octocat" item-left></ion-icon>
-               
-              </ion-item>
-            
-              <div Class="ALI" >
-                 
-                  <button ion-button  round> SAVE</button>
-              </div>
-          </ion-list>
+        <div *ngSwitchCase="'newApplicant'">
           <ion-list>
+            <h6 class="title section-title ">Applicant Information</h6>
+              <ion-row>
+                  <ion-item col-6 > 
+                      <ion-label stacked>First Name</ion-label>
+                      <ion-input type="text" ></ion-input>
+                    </ion-item> 
+                           
+                   <ion-item col-6  offset-1> 
+                      <ion-label stacked>Last Name</ion-label>
+                      <ion-input type="text" ></ion-input>
+                    </ion-item>
+                  </ion-row>
 
-            <ion-item>
-              <ion-label>Pepperoni</ion-label>
-              <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
-            </ion-item>
+                  <ion-row>
+                    <ion-item col-12 > 
+                        <ion-label stacked>Mobile</ion-label>
+                        <ion-input type="text"   ></ion-input>
+                      </ion-item> 
+                  </ion-row>     
+                  <ion-row>
+                    <ion-item col-12> 
+                       <ion-label stacked>Email</ion-label>
+                       <ion-input type="text"  ></ion-input>
+                     </ion-item>
+                   </ion-row> 
+                   <h6 class="title section-title ">Employer And Salary</h6>
+                  <ion-row>
+                     <ion-item col-12> 
+                        <ion-label stacked>Current Employer</ion-label>
+                        <ion-input type="text" ></ion-input>
+                      </ion-item>
+                    </ion-row>
+                    <ion-row>
+                      <ion-item col-6> 
+                          <ion-label stacked>Notice Period</ion-label>
+                          <ion-input type="text"></ion-input>
+                        </ion-item>
+                       <ion-item col-6> 
+                          <ion-label stacked>Current CTC</ion-label>
+                          <ion-input type="text"></ion-input>
+                        </ion-item>
+                     </ion-row> 
+                    
+                    <h6 class="title section-title">Experience Details</h6>
+                   <ion-row>
+                      <ion-col col-6>
+                        <ion-item >
+                          <ion-label stacked>Total Experience</ion-label>
+                          <ion-input placeholder="years" > </ion-input>
+                        </ion-item>
+                      </ion-col>
+                      <ion-col col-6>
+                          <ion-item >
+                            <ion-label stacked>.</ion-label>
+                            <ion-input placeholder="months"> </ion-input>
+                          </ion-item>
+                        </ion-col>
+                     
+                    </ion-row>
+                  <ion-row>
+                    <ion-col col-6>
+                        <ion-item >
+                          <ion-label stacked>Expected CTC</ion-label>
+                          <ion-input> </ion-input>
+                        </ion-item>
+                      </ion-col>
+                   
+                  </ion-row>
+                       
+                       
+                      <ion-row>
+                        <button ion-button  icon-end  full color=blue >
+                           Save
+                         </button>
+                      </ion-row> 
+                       
+            </ion-list>
+        </div>
           
-            <ion-item>
-              <ion-label>Sausage</ion-label>
-              <ion-checkbox [(ngModel)]="sausage" disabled="true"></ion-checkbox>
-            </ion-item>
-          
-            <ion-item>
-              <ion-label>Mushrooms</ion-label>
-              <ion-checkbox [(ngModel)]="mushrooms"></ion-checkbox>
-            </ion-item>
-          
-          </ion-list>
-          
-          
-          
+     <div *ngSwitchCase="'allUsers'">
+      <ion-list >
+          <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>
+
+         <ion-item>
+         <ion-row no-margin class="table-title" >
+              <ion-col col-6 >Name</ion-col><ion-col col-4>Position </ion-col><ion-col col-2>Action</ion-col>
+            </ion-row>
+        </ion-item>
          
-          
-      </ion-slide>
-      
-    </ion-slides>
-
-    
-  </ion-content>
-  
-  
+         <ion-item>
+          <ion-row  class="col-text row-bottom-border" *ngFor="let item of itemslist" >
+              <ion-col col-6  style="color: #66887F;">
+                {{ item.fname }}
+              </ion-col>
+              <ion-col col-4  style="color:#2679B0;" >
+                {{ item.position }}
+              </ion-col>
+              <ion-col col-2 text-center (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position,item.data,item.status)">
+              <ion-icon name="create" ></ion-icon>
+              </ion-col>
+            </ion-row>
+         </ion-item>
+         
+          <!-- <ion-item>
+            <ion-input type="password" placeholder="Password" name="password" #password></ion-input>
+          </ion-item> -->
+       </ion-list>
+    </div>
+    </div>
+</ion-content>
