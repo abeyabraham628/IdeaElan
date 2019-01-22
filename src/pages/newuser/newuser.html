@@ -21,7 +21,7 @@
       <div [ngSwitch]="users">
 
           <div *ngSwitchCase="'newUser'">
-            <ion-list>
+            <ion-list >
               <h6 class="title section-title ">User Information</h6>
                 <ion-row>
                     <ion-item col-6 > 
@@ -29,7 +29,7 @@
                         <ion-input type="text" [(ngModel)]="userItem.fname"></ion-input>
                       </ion-item> 
                              
-                     <ion-item col-6  offset-1> 
+                     <ion-item col-6  > 
                         <ion-label stacked>Last Name</ion-label>
                         <ion-input type="text" [(ngModel)]="userItem.lname" ></ion-input>
                       </ion-item>

@@ -4,7 +4,7 @@
          New Applicant
       </ion-segment-button>
 
-      <ion-segment-button value="schedules" >
+      <ion-segment-button value="schedules" (click)="dispApplicants()">
          Schedules
       </ion-segment-button>
 
@@ -16,114 +16,151 @@
     <div [ngSwitch]="recruitment">
 
         <div *ngSwitchCase="'newApplicant'">
-          <ion-list>
-            <h6 class="title section-title ">Applicant Information</h6>
-              <ion-row>
-                  <ion-item col-6 > 
+          <form [formGroup]="newApplicantForm" (ngSubmit)="onSubmit()">
+          <ion-list >
+              <ion-input hidden formControlName="$key"></ion-input>
+           <ion-row>
+                  <ion-col  col-6 > 
+                    <ion-item   >
                       <ion-label stacked>First Name</ion-label>
-                      <ion-input type="text" ></ion-input>
+                      <ion-input formControlName="fName" ></ion-input>
                     </ion-item> 
-                           
-                   <ion-item col-6  offset-1> 
-                      <ion-label stacked>Last Name</ion-label>
-                      <ion-input type="text" ></ion-input>
-                    </ion-item>
-                  </ion-row>
-
-                  <ion-row>
-                    <ion-item col-12 > 
-                        <ion-label stacked>Mobile</ion-label>
-                        <ion-input type="text"   ></ion-input>
-                      </ion-item> 
-                  </ion-row>     
-                  <ion-row>
-                    <ion-item col-12> 
-                       <ion-label stacked>Email</ion-label>
-                       <ion-input type="text"  ></ion-input>
-                     </ion-item>
-                   </ion-row> 
-                   <h6 class="title section-title ">Employer And Salary</h6>
-                  <ion-row>
-                     <ion-item col-12> 
-                        <ion-label stacked>Current Employer</ion-label>
-                        <ion-input type="text" ></ion-input>
+                    </ion-col>
+                    <ion-col col-6  > 
+                      <ion-item  >
+                        <ion-label stacked>Last Name</ion-label>
+                        <ion-input formControlName="lName" ></ion-input>
                       </ion-item>
-                    </ion-row>
+                      </ion-col>
+             </ion-row>
+               
+                    <ion-item  > 
+                        <ion-label stacked>Mobile</ion-label>
+                        <ion-input formControlName="mobile"></ion-input>
+                    </ion-item> 
+                
+                      
+                  
+                    <ion-item> 
+                       <ion-label stacked>Email</ion-label>
+                       <ion-input type="email" formControlName="email" ></ion-input>
+                     </ion-item>
+                   
+
+                   <h6 class="title section-title ">Employer And Salary</h6>
+                 
+                     <ion-item > 
+                        <ion-label stacked>Current Employer</ion-label>
+                        <ion-input formControlName="employer" ></ion-input>
+                      </ion-item>
+                   
+                    
                     <ion-row>
-                      <ion-item col-6> 
-                          <ion-label stacked>Notice Period</ion-label>
-                          <ion-input type="text"></ion-input>
-                        </ion-item>
-                       <ion-item col-6> 
+                      <ion-col col-6>
+                          <ion-item > 
+                              <ion-label stacked>Notice Period</ion-label>
+                              <ion-input formControlName="noticePeriod"></ion-input>
+                            </ion-item>
+                      </ion-col>
+                    
+                   
+                       <ion-col col-6>
+                         <ion-item>
                           <ion-label stacked>Current CTC</ion-label>
-                          <ion-input type="text"></ion-input>
+                          <ion-input formControlName="currentctc"></ion-input>
                         </ion-item>
+                        </ion-col>
                      </ion-row> 
                     
                     <h6 class="title section-title">Experience Details</h6>
-                   <ion-row>
-                      <ion-col col-6>
-                        <ion-item >
-                          <ion-label stacked>Total Experience</ion-label>
-                          <ion-input placeholder="years" > </ion-input>
-                        </ion-item>
-                      </ion-col>
-                      <ion-col col-6>
-                          <ion-item >
-                            <ion-label stacked>.</ion-label>
-                            <ion-input placeholder="months"> </ion-input>
+                   <ion-row >
+                     <ion-item col-6>
+                            <ion-label stacked>Total Experience</ion-label>
+                            <ion-select  formControlName="experience">
+                              <ion-option value="Below 1 Year">Below 1 Year</ion-option>
+                              <ion-option value="1 - 2 Years">1 - 2 Years</ion-option>
+                              <ion-option value="2 - 3 Years">2 - 3 Years</ion-option>
+                              <ion-option value="3 - 4 Years">3 - 4 Years</ion-option>
+                              <ion-option value="4 - 5 Years">4 - 5 Years</ion-option>
+                              <ion-option value="Above 5 Years">Above 5 Years</ion-option>
+                            </ion-select>
                           </ion-item>
-                        </ion-col>
                      
-                    </ion-row>
-                  <ion-row>
                     <ion-col col-6>
                         <ion-item >
                           <ion-label stacked>Expected CTC</ion-label>
-                          <ion-input> </ion-input>
+                          <ion-input formControlName="expectedctc"> </ion-input>
                         </ion-item>
                       </ion-col>
-                   
                   </ion-row>
                        
-                       
                       <ion-row>
-                        <button ion-button  icon-end  full color=blue >
+                        <button ion-button type="submit" ion-button  icon-end  full color=blue >
                            Save
                          </button>
                       </ion-row> 
                        
             </ion-list>
+          </form>
         </div>
           
-     <div *ngSwitchCase="'allUsers'">
+     <div *ngSwitchCase="'schedules'">
       <ion-list >
-          <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>
+         <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>
+        
+                <ion-row no-margin class="table-title row-bottom-border">
+                   <ion-col col-1 > 
+                     <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+                   </ion-col>
+                   <ion-col col-4>Name</ion-col>
+                    <ion-col col-4>Experience</ion-col>
+                    <ion-col col-3>Interview Date</ion-col>
+                </ion-row>
 
-         <ion-item>
-         <ion-row no-margin class="table-title" >
-              <ion-col col-6 >Name</ion-col><ion-col col-4>Position </ion-col><ion-col col-2>Action</ion-col>
-            </ion-row>
-        </ion-item>
-         
-         <ion-item>
-          <ion-row  class="col-text row-bottom-border" *ngFor="let item of itemslist" >
-              <ion-col col-6  style="color: #66887F;">
-                {{ item.fname }}
-              </ion-col>
-              <ion-col col-4  style="color:#2679B0;" >
-                {{ item.position }}
-              </ion-col>
-              <ion-col col-2 text-center (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position,item.data,item.status)">
-              <ion-icon name="create" ></ion-icon>
-              </ion-col>
-            </ion-row>
-         </ion-item>
-         
-          <!-- <ion-item>
-            <ion-input type="password" placeholder="Password" name="password" #password></ion-input>
-          </ion-item> -->
-       </ion-list>
+                <ion-row no-margin class=" col-text  row-bottom-border" *ngFor="let x of applicantArray" >
+                    <ion-col col-1 > 
+                        <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+                      </ion-col>
+                      <ion-col col-4>{{x.fName}} {{x.lName}}</ion-col>
+                       <ion-col col-4 >{{x.experience}}</ion-col>
+                       <ion-col col-3>Not Set</ion-col>
+                </ion-row>
+
+                <h6 class="title section-title">Schedule Details</h6>
+                <ion-row>
+                    <ion-item col-6>
+                      
+                      <ion-label stacked>Interview Date</ion-label>
+                      
+                      <ion-input type="text"  (click)="dispdate()" (ionFocus)="dispdate()" [(ngModel)]="scheduleDate"></ion-input>
+                    </ion-item>
+                    <ion-item col-6>
+                        <ion-label stacked>Interview Time</ion-label>
+                        <ion-datetime pickerFormat="h:mm A" [(ngModel)]="myDate"></ion-datetime>
+                    </ion-item>
+                  </ion-row>
+                  <ion-row>
+                      <ion-item col-12>
+                        <ion-label stacked>Contact Person</ion-label>
+                        <ion-input  ></ion-input>
+                      </ion-item>
+                    </ion-row>
+                    <ion-row>
+                        <ion-item col-12>
+                          <ion-label stacked>Contact Number</ion-label>
+                          <ion-input  ></ion-input>
+                        </ion-item>
+                      </ion-row>
+
+                      <ion-row>
+                        <button ion-button type="button" ion-button  icon-end  full color=blue >
+                           Send Call Letter
+                         </button>
+                      </ion-row> 
+
+        </ion-list>
+
+
     </div>
     </div>
 </ion-content>

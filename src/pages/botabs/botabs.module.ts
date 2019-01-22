@@ -4,7 +4,7 @@ import { BotabsPage } from './botabs';
 
 @NgModule({
   declarations: [
-    BotabsPage,
+    //BotabsPage,
   ],
   imports: [
     IonicPageModule.forChild(BotabsPage),

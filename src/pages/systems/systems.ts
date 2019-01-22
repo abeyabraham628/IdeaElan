@@ -150,9 +150,7 @@ insertSystems(systems:any){
       date=>{
         this.systemsForm.controls['avExpiry'].setValue((date.toLocaleDateString())),
         this.systemsForm.controls['avValidity'].setValue(Math.ceil((date.getTime()-new Date().getTime())/(1000*3600*24)))
-        
-       
-      },
+       },
       err => console.log('Error occurred while getting date: ', err)
     )
   }

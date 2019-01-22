@@ -4,7 +4,7 @@ import { NewuserPage } from './newuser';
 
 @NgModule({
   declarations: [
-    NewuserPage,
+    //NewuserPage,
   ],
   imports: [
     IonicPageModule.forChild(NewuserPage),
