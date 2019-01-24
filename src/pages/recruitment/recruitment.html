@@ -8,7 +8,7 @@
          Schedules
       </ion-segment-button>
 
-      <ion-segment-button value="interviews">
+      <ion-segment-button value="interviews" (click)="viewInterviewDates()">
           Interviews
       </ion-segment-button>
   </ion-segment>
@@ -152,11 +152,7 @@
                           <ion-label stacked>Contact Number</ion-label>
                           <ion-input formControlName="contactPersonNum" ></ion-input>
                         </ion-item>
-                      </ion-row>
-                      <button ion-button type="button" (click)="trial()" ion-button  icon-end  full color=blue >
-                          Trial
-                        </button>
-                      <ion-row>
+                    
                         <button ion-button type="submit" ion-button  icon-end  full color=blue >
                            Send Call Letter
                          </button>
@@ -167,5 +163,40 @@
 
 
     </div>
+
+    <div *ngSwitchCase="'interviews'" >
+        
+      <ion-list >
+        
+        <ion-item >
+        <button col-6 ion-button (click)="viewInterviewDates()">Past Interviews</button>
+          <button col-6 ion-button>Upcoming Interviews</button>
+          </ion-item>
+
+
+         <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>
+        
+                <ion-row no-margin class="table-title row-bottom-border">
+
+                   <ion-col col-4>Interview Date</ion-col>
+                    <ion-col col-5>Contact Person</ion-col>
+                    <ion-col col-3>Action</ion-col>
+                </ion-row>
+
+                <ion-row no-margin class=" col-text  row-bottom-border" *ngFor="let x of interviewDate" >
+                    
+                      <ion-col col-4>{{x.interviewDate}} </ion-col>
+                       <ion-col col-5 >{{x.interviewDetails.contactPerson}}</ion-col>
+                       <ion-col col-3>View Details</ion-col>
+                </ion-row>
+                
+        </ion-list>
+      
+
+
+    </div>
+
+
+
     </div>
 </ion-content>

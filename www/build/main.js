@@ -980,20 +980,21 @@ var RecruitmentPage = /** @class */ (function () {
             email: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["a" /* FormControl */]('')
         });
         this.applicantKeys = [];
+        this.interviewDate = [];
         this.recruitment = "newApplicant";
-        this.getApplicantRef();
+        //this.dispApplicants();
     }
-    RecruitmentPage.prototype.getApplicantRef = function () {
-        this.applicantRef = this.firebase.list('Applicants');
-        return this.applicantRef.snapshotChanges();
-    };
     RecruitmentPage.prototype.dispApplicants = function () {
-        var _this = this;
-        this.getApplicantRef().subscribe(function (list) {
-            _this.applicantArray = list.map(function (item) {
-                return __assign({ $key: item.key }, item.payload.val());
+        this.applicantRef = this.firebase.list('Applicants');
+        var result = [];
+        this.firebase.database.ref("Applicants").on("value", function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+                if (!childSnapshot.hasChild("interviewDate")) {
+                    result.push(__assign({ $key: childSnapshot.key }, childSnapshot.val()));
+                }
             });
         });
+        this.applicantArray = result;
     };
     RecruitmentPage.prototype.saveApplicant = function (applicantDetails) {
         this.applicantRef.push({
@@ -1007,7 +1008,7 @@ var RecruitmentPage = /** @class */ (function () {
             experience: applicantDetails.experience,
             expectedctc: applicantDetails.expectedctc
         });
-    };
+    }; //end of function
     RecruitmentPage.prototype.onSubmit = function () {
         if (this.newApplicantForm.controls.$key.value == null) {
             this.saveApplicant(this.newApplicantForm.value);
@@ -1023,20 +1024,27 @@ var RecruitmentPage = /** @class */ (function () {
         }).then(function (date) {
             _this.scheduleForm.controls.scheduleDate.setValue(date.toLocaleDateString());
         }, function (err) { return console.log('Error occurred while getting date: ', err); });
-    };
+    }; //end of function
     RecruitmentPage.prototype.saveSchedule = function () {
+        var _this = this;
         var i;
-        var schedule = { interviewDate: this.scheduleForm.controls.scheduleDate.value,
+        var key;
+        var schedule = {
             interviewTime: this.scheduleForm.controls.scheduleTime.value,
             contactPerson: this.scheduleForm.controls.contactPerson.value,
             contactNumber: this.scheduleForm.controls.contactPersonNum.value
         };
-        this.scheduleRef = this.firebase.list('Applicants');
-        for (i = 0; i < this.applicantKeys.length; i++)
-            this.scheduleRef.update(this.applicantKeys[i], {
-                schedule: schedule
-            });
-    };
+        this.scheduleRef = this.firebase.list('Schedules');
+        this.scheduleRef.push({
+            interviewDate: this.scheduleForm.controls.scheduleDate.value,
+            interviewDetails: schedule
+        }).then(function (snap) {
+            for (i = 0; i < _this.applicantKeys.length; i++)
+                _this.applicantRef.update(_this.applicantKeys[i], {
+                    interviewDate: snap.key
+                });
+        });
+    }; //end of save schedule function
     RecruitmentPage.prototype.selectAll = function () {
         this.checked = !this.checked;
     };
@@ -1047,9 +1055,19 @@ var RecruitmentPage = /** @class */ (function () {
         else
             this.applicantKeys.push(itemKey);
     };
+    RecruitmentPage.prototype.viewInterviewDates = function () {
+        var result = [];
+        this.firebase.database.ref("Schedules").on("value", function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+                result.push(__assign({ $key: childSnapshot.key }, childSnapshot.val()));
+                return false;
+            });
+        });
+        this.interviewDate = result;
+    }; //end of function
     RecruitmentPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-recruitment',template:/*ion-inline-start:"F:\ionic-app\src\pages\recruitment\recruitment.html"*/'<ion-content style="margin-top:50px;" >\n\n  <ion-segment [(ngModel)]="recruitment" color="white">\n\n      <ion-segment-button  value="newApplicant" >\n\n         New Applicant\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="schedules" (click)="dispApplicants()">\n\n         Schedules\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="interviews">\n\n          Interviews\n\n      </ion-segment-button>\n\n  </ion-segment>\n\n   \n\n    <div [ngSwitch]="recruitment">\n\n\n\n        <div *ngSwitchCase="\'newApplicant\'">\n\n          <form [formGroup]="newApplicantForm" (ngSubmit)="onSubmit()">\n\n          <ion-list >\n\n              <ion-input hidden formControlName="$key"></ion-input>\n\n           <ion-row>\n\n                  <ion-col  col-6 > \n\n                    <ion-item   >\n\n                      <ion-label stacked>First Name</ion-label>\n\n                      <ion-input formControlName="fName" ></ion-input>\n\n                    </ion-item> \n\n                    </ion-col>\n\n                    <ion-col col-6  > \n\n                      <ion-item  >\n\n                        <ion-label stacked>Last Name</ion-label>\n\n                        <ion-input formControlName="lName" ></ion-input>\n\n                      </ion-item>\n\n                      </ion-col>\n\n             </ion-row>\n\n               \n\n                    <ion-item  > \n\n                        <ion-label stacked>Mobile</ion-label>\n\n                        <ion-input formControlName="mobile"></ion-input>\n\n                    </ion-item> \n\n                \n\n                      \n\n                  \n\n                    <ion-item> \n\n                       <ion-label stacked>Email</ion-label>\n\n                       <ion-input type="email" formControlName="email" ></ion-input>\n\n                     </ion-item>\n\n                   \n\n\n\n                   <h6 class="title section-title ">Employer And Salary</h6>\n\n                 \n\n                     <ion-item > \n\n                        <ion-label stacked>Current Employer</ion-label>\n\n                        <ion-input formControlName="employer" ></ion-input>\n\n                      </ion-item>\n\n                   \n\n                    \n\n                    <ion-row>\n\n                      <ion-col col-6>\n\n                          <ion-item > \n\n                              <ion-label stacked>Notice Period</ion-label>\n\n                              <ion-input formControlName="noticePeriod"></ion-input>\n\n                            </ion-item>\n\n                      </ion-col>\n\n                    \n\n                   \n\n                       <ion-col col-6>\n\n                         <ion-item>\n\n                          <ion-label stacked>Current CTC</ion-label>\n\n                          <ion-input formControlName="currentctc"></ion-input>\n\n                        </ion-item>\n\n                        </ion-col>\n\n                     </ion-row> \n\n                    \n\n                    <h6 class="title section-title">Experience Details</h6>\n\n                   <ion-row >\n\n                     <ion-item col-6>\n\n                            <ion-label stacked>Total Experience</ion-label>\n\n                            <ion-select  formControlName="experience">\n\n                              <ion-option value="Below 1 Year">Below 1 Year</ion-option>\n\n                              <ion-option value="1 - 2 Years">1 - 2 Years</ion-option>\n\n                              <ion-option value="2 - 3 Years">2 - 3 Years</ion-option>\n\n                              <ion-option value="3 - 4 Years">3 - 4 Years</ion-option>\n\n                              <ion-option value="4 - 5 Years">4 - 5 Years</ion-option>\n\n                              <ion-option value="Above 5 Years">Above 5 Years</ion-option>\n\n                            </ion-select>\n\n                          </ion-item>\n\n                     \n\n                    <ion-col col-6>\n\n                        <ion-item >\n\n                          <ion-label stacked>Expected CTC</ion-label>\n\n                          <ion-input formControlName="expectedctc"> </ion-input>\n\n                        </ion-item>\n\n                      </ion-col>\n\n                  </ion-row>\n\n                       \n\n                      <ion-row>\n\n                        <button ion-button type="submit" ion-button  icon-end  full color=blue >\n\n                           Save\n\n                         </button>\n\n                      </ion-row> \n\n                       \n\n            </ion-list>\n\n          </form>\n\n        </div>\n\n          \n\n     <div *ngSwitchCase="\'schedules\'">\n\n        \n\n      <ion-list >\n\n        \n\n         <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>\n\n        \n\n                <ion-row no-margin class="table-title row-bottom-border">\n\n                   <ion-col col-1 > \n\n                     <ion-checkbox (ionChange)=\'selectAll()\'></ion-checkbox>\n\n                   </ion-col>\n\n                   <ion-col col-4>Name</ion-col>\n\n                    <ion-col col-4>Experience</ion-col>\n\n                    <ion-col col-3>Interview Date</ion-col>\n\n                </ion-row>\n\n\n\n                <ion-row no-margin class=" col-text  row-bottom-border" *ngFor="let x of applicantArray" >\n\n                    <ion-col col-1 > \n\n                        <ion-checkbox [checked]="checked"  (ionChange)="clickSelectBox(x.$key)"></ion-checkbox>\n\n                      </ion-col>\n\n                      <ion-col col-4>{{x.fName}} {{x.lName}}</ion-col>\n\n                       <ion-col col-4 >{{x.experience}}</ion-col>\n\n                       <ion-col col-3>Not Set</ion-col>\n\n                </ion-row>\n\n                <form [formGroup]="scheduleForm" (ngSubmit)="saveSchedule()">\n\n                <h6 class="title section-title">Schedule Details</h6>\n\n                <ion-row>\n\n                    <ion-item col-6>\n\n                      \n\n                      <ion-label stacked>Interview Date</ion-label>\n\n                      \n\n                      <ion-input type="text"  (click)="dispdate()" (ionFocus)="dispdate()" formControlName="scheduleDate"></ion-input>\n\n                    </ion-item>\n\n                    <ion-item col-6>\n\n                        <ion-label stacked>Interview Time</ion-label>\n\n                        <ion-datetime pickerFormat="h:mm A" formControlName="scheduleTime"></ion-datetime>\n\n                    </ion-item>\n\n                  </ion-row>\n\n                  <ion-row>\n\n                      <ion-item col-12>\n\n                        <ion-label stacked>Contact Person</ion-label>\n\n                        <ion-input formControlName="contactPerson" ></ion-input>\n\n                      </ion-item>\n\n                    </ion-row>\n\n                    <ion-row>\n\n                        <ion-item col-12>\n\n                          <ion-label stacked>Contact Number</ion-label>\n\n                          <ion-input formControlName="contactPersonNum" ></ion-input>\n\n                        </ion-item>\n\n                      </ion-row>\n\n                      <button ion-button type="button" (click)="trial()" ion-button  icon-end  full color=blue >\n\n                          Trial\n\n                        </button>\n\n                      <ion-row>\n\n                        <button ion-button type="submit" ion-button  icon-end  full color=blue >\n\n                           Send Call Letter\n\n                         </button>\n\n                      </ion-row> \n\n                    </form>\n\n        </ion-list>\n\n      \n\n\n\n\n\n    </div>\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"F:\ionic-app\src\pages\recruitment\recruitment.html"*/,
+            selector: 'page-recruitment',template:/*ion-inline-start:"F:\ionic-app\src\pages\recruitment\recruitment.html"*/'<ion-content style="margin-top:50px;" >\n\n  <ion-segment [(ngModel)]="recruitment" color="white">\n\n      <ion-segment-button  value="newApplicant" >\n\n         New Applicant\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="schedules" (click)="dispApplicants()">\n\n         Schedules\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="interviews" (click)="viewInterviewDates()">\n\n          Interviews\n\n      </ion-segment-button>\n\n  </ion-segment>\n\n   \n\n    <div [ngSwitch]="recruitment">\n\n\n\n        <div *ngSwitchCase="\'newApplicant\'">\n\n          <form [formGroup]="newApplicantForm" (ngSubmit)="onSubmit()">\n\n          <ion-list >\n\n              <ion-input hidden formControlName="$key"></ion-input>\n\n           <ion-row>\n\n                  <ion-col  col-6 > \n\n                    <ion-item   >\n\n                      <ion-label stacked>First Name</ion-label>\n\n                      <ion-input formControlName="fName" ></ion-input>\n\n                    </ion-item> \n\n                    </ion-col>\n\n                    <ion-col col-6  > \n\n                      <ion-item  >\n\n                        <ion-label stacked>Last Name</ion-label>\n\n                        <ion-input formControlName="lName" ></ion-input>\n\n                      </ion-item>\n\n                      </ion-col>\n\n             </ion-row>\n\n               \n\n                    <ion-item  > \n\n                        <ion-label stacked>Mobile</ion-label>\n\n                        <ion-input formControlName="mobile"></ion-input>\n\n                    </ion-item> \n\n                \n\n                      \n\n                  \n\n                    <ion-item> \n\n                       <ion-label stacked>Email</ion-label>\n\n                       <ion-input type="email" formControlName="email" ></ion-input>\n\n                     </ion-item>\n\n                   \n\n\n\n                   <h6 class="title section-title ">Employer And Salary</h6>\n\n                 \n\n                     <ion-item > \n\n                        <ion-label stacked>Current Employer</ion-label>\n\n                        <ion-input formControlName="employer" ></ion-input>\n\n                      </ion-item>\n\n                   \n\n                    \n\n                    <ion-row>\n\n                      <ion-col col-6>\n\n                          <ion-item > \n\n                              <ion-label stacked>Notice Period</ion-label>\n\n                              <ion-input formControlName="noticePeriod"></ion-input>\n\n                            </ion-item>\n\n                      </ion-col>\n\n                    \n\n                   \n\n                       <ion-col col-6>\n\n                         <ion-item>\n\n                          <ion-label stacked>Current CTC</ion-label>\n\n                          <ion-input formControlName="currentctc"></ion-input>\n\n                        </ion-item>\n\n                        </ion-col>\n\n                     </ion-row> \n\n                    \n\n                    <h6 class="title section-title">Experience Details</h6>\n\n                   <ion-row >\n\n                     <ion-item col-6>\n\n                            <ion-label stacked>Total Experience</ion-label>\n\n                            <ion-select  formControlName="experience">\n\n                              <ion-option value="Below 1 Year">Below 1 Year</ion-option>\n\n                              <ion-option value="1 - 2 Years">1 - 2 Years</ion-option>\n\n                              <ion-option value="2 - 3 Years">2 - 3 Years</ion-option>\n\n                              <ion-option value="3 - 4 Years">3 - 4 Years</ion-option>\n\n                              <ion-option value="4 - 5 Years">4 - 5 Years</ion-option>\n\n                              <ion-option value="Above 5 Years">Above 5 Years</ion-option>\n\n                            </ion-select>\n\n                          </ion-item>\n\n                     \n\n                    <ion-col col-6>\n\n                        <ion-item >\n\n                          <ion-label stacked>Expected CTC</ion-label>\n\n                          <ion-input formControlName="expectedctc"> </ion-input>\n\n                        </ion-item>\n\n                      </ion-col>\n\n                  </ion-row>\n\n                       \n\n                      <ion-row>\n\n                        <button ion-button type="submit" ion-button  icon-end  full color=blue >\n\n                           Save\n\n                         </button>\n\n                      </ion-row> \n\n                       \n\n            </ion-list>\n\n          </form>\n\n        </div>\n\n          \n\n     <div *ngSwitchCase="\'schedules\'">\n\n        \n\n      <ion-list >\n\n        \n\n         <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>\n\n        \n\n                <ion-row no-margin class="table-title row-bottom-border">\n\n                   <ion-col col-1 > \n\n                     <ion-checkbox (ionChange)=\'selectAll()\'></ion-checkbox>\n\n                   </ion-col>\n\n                   <ion-col col-4>Name</ion-col>\n\n                    <ion-col col-4>Experience</ion-col>\n\n                    <ion-col col-3>Interview Date</ion-col>\n\n                </ion-row>\n\n\n\n                <ion-row no-margin class=" col-text  row-bottom-border" *ngFor="let x of applicantArray" >\n\n                    <ion-col col-1 > \n\n                        <ion-checkbox [checked]="checked"  (ionChange)="clickSelectBox(x.$key)"></ion-checkbox>\n\n                      </ion-col>\n\n                      <ion-col col-4>{{x.fName}} {{x.lName}}</ion-col>\n\n                       <ion-col col-4 >{{x.experience}}</ion-col>\n\n                       <ion-col col-3>Not Set</ion-col>\n\n                </ion-row>\n\n                <form [formGroup]="scheduleForm" (ngSubmit)="saveSchedule()">\n\n                <h6 class="title section-title">Schedule Details</h6>\n\n                <ion-row>\n\n                    <ion-item col-6>\n\n                      \n\n                      <ion-label stacked>Interview Date</ion-label>\n\n                      \n\n                      <ion-input type="text"  (click)="dispdate()" (ionFocus)="dispdate()" formControlName="scheduleDate"></ion-input>\n\n                    </ion-item>\n\n                    <ion-item col-6>\n\n                        <ion-label stacked>Interview Time</ion-label>\n\n                        <ion-datetime pickerFormat="h:mm A" formControlName="scheduleTime"></ion-datetime>\n\n                    </ion-item>\n\n                  </ion-row>\n\n                  <ion-row>\n\n                      <ion-item col-12>\n\n                        <ion-label stacked>Contact Person</ion-label>\n\n                        <ion-input formControlName="contactPerson" ></ion-input>\n\n                      </ion-item>\n\n                    </ion-row>\n\n                    <ion-row>\n\n                        <ion-item col-12>\n\n                          <ion-label stacked>Contact Number</ion-label>\n\n                          <ion-input formControlName="contactPersonNum" ></ion-input>\n\n                        </ion-item>\n\n                    \n\n                        <button ion-button type="submit" ion-button  icon-end  full color=blue >\n\n                           Send Call Letter\n\n                         </button>\n\n                      </ion-row> \n\n                    </form>\n\n        </ion-list>\n\n      \n\n\n\n\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'interviews\'" >\n\n        \n\n      <ion-list >\n\n        \n\n        <ion-item >\n\n        <button col-6 ion-button (click)="viewInterviewDates()">Past Interviews</button>\n\n          <button col-6 ion-button>Upcoming Interviews</button>\n\n          </ion-item>\n\n\n\n\n\n         <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>\n\n        \n\n                <ion-row no-margin class="table-title row-bottom-border">\n\n\n\n                   <ion-col col-4>Interview Date</ion-col>\n\n                    <ion-col col-5>Contact Person</ion-col>\n\n                    <ion-col col-3>Action</ion-col>\n\n                </ion-row>\n\n\n\n                <ion-row no-margin class=" col-text  row-bottom-border" *ngFor="let x of interviewDate" >\n\n                    \n\n                      <ion-col col-4>{{x.interviewDate}} </ion-col>\n\n                       <ion-col col-5 >{{x.interviewDetails.contactPerson}}</ion-col>\n\n                       <ion-col col-3>View Details</ion-col>\n\n                </ion-row>\n\n                \n\n        </ion-list>\n\n      \n\n\n\n\n\n    </div>\n\n\n\n\n\n\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"F:\ionic-app\src\pages\recruitment\recruitment.html"*/,
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__["a" /* AngularFireDatabase */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_date_picker__["a" /* DatePicker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_date_picker__["a" /* DatePicker */]) === "function" && _b || Object])
     ], RecruitmentPage);
@@ -1250,27 +1268,31 @@ webpackEmptyAsyncContext.id = 232;
 var map = {
 	"../pages/chatbot/chatbot.module": [
 		592,
-		0
+		9
+	],
+	"../pages/interview-details/interview-details.module": [
+		599,
+		8
 	],
 	"../pages/newuser/newuser.module": [
 		597,
-		5
+		14
 	],
 	"../pages/profile/profile.module": [
 		593,
-		4
+		13
 	],
 	"../pages/recruitment/recruitment.module": [
 		594,
-		3
+		12
 	],
 	"../pages/systems/systems.module": [
 		595,
-		2
+		11
 	],
 	"../pages/tabs/tabs.module": [
 		596,
-		1
+		10
 	]
 };
 function webpackAsyncContext(req) {

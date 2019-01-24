@@ -3,7 +3,6 @@ import { IonicPage, NavController, NavParams ,Slides, Form} from 'ionic-angular'
 import {AngularFireDatabase,AngularFireList} from '@angular/fire/database';
 import {FormControl,FormGroup}from '@angular/forms';
 import { DatePicker } from '@ionic-native/date-picker';
-import { from } from 'rxjs';
 
 /**
  * Generated class for the RecruitmentPage page.
@@ -25,28 +24,37 @@ export class RecruitmentPage {
  
   constructor(private firebase:AngularFireDatabase, private datePicker:DatePicker) {
     this.recruitment="newApplicant";
-    this.getApplicantRef();
+    //this.dispApplicants();
   }
 
 applicantRef:AngularFireList<any>;
 scheduleRef:AngularFireList<any>;
-getApplicantRef(){
-  this.applicantRef=this.firebase.list('Applicants');
-  return this.applicantRef.snapshotChanges();
 
-}
-applicantArray=[];
+
 dispApplicants(){
-  this.getApplicantRef().subscribe(
-    list=>{
-      this.applicantArray=list.map(item=>{
-        return{
-          $key:item.key,
-          ...item.payload.val()
-        };
+  this.applicantRef=this.firebase.list('Applicants');
+  var result=[]
+   this.firebase.database.ref("Applicants").on("value",function(snapshot) {
+     snapshot.forEach(function(childSnapshot) {
+          if(!childSnapshot.hasChild("interviewDate")) {
+              result.push({
+                  $key:childSnapshot.key,
+                ...childSnapshot.val()
+              })
+          }
+          
+      })
+       
+     
       });
-    });
+    
+   this.applicantArray=result;
+    
 }
+
+
+applicantArray=[];
+
 
 newApplicantForm=new FormGroup({
   $key:new FormControl(null),
@@ -62,6 +70,7 @@ newApplicantForm=new FormGroup({
 })
   
   saveApplicant(applicantDetails:any){
+      
     this.applicantRef.push({
         fName:applicantDetails.fName,
         lName:applicantDetails.lName,
@@ -73,7 +82,7 @@ newApplicantForm=new FormGroup({
         experience:applicantDetails.experience,
         expectedctc:applicantDetails.expectedctc
     })
-  }
+  }//end of function
 
   onSubmit(){
     if(this.newApplicantForm.controls.$key.value==null){
@@ -94,7 +103,7 @@ newApplicantForm=new FormGroup({
        },
       err => console.log('Error occurred while getting date: ', err)
     )
-  }
+  }//end of function
 
 
 
@@ -109,22 +118,29 @@ newApplicantForm=new FormGroup({
  
   
   saveSchedule(){
-    var i:number
-    var schedule={  interviewDate:this.scheduleForm.controls.scheduleDate.value,
+    var i;
+    var key;
+    var schedule={  
                     interviewTime:this.scheduleForm.controls.scheduleTime.value, 
                     contactPerson:this.scheduleForm.controls.contactPerson.value,
                     contactNumber:this.scheduleForm.controls.contactPersonNum.value
                   }
       
-
-      this.scheduleRef=this.firebase.list('Applicants');
+                  
+      this.scheduleRef=this.firebase.list('Schedules');
+      this.scheduleRef.push({
+        interviewDate:this.scheduleForm.controls.scheduleDate.value,
+        interviewDetails:schedule
+      }).then((snap) => {
+        for(i=0;i<this.applicantKeys.length;i++)
+        this.applicantRef.update(this.applicantKeys[i],{
+            interviewDate:snap.key
+            
+        });
         
-      for(i=0;i<this.applicantKeys.length;i++)
-      this.scheduleRef.update(this.applicantKeys[i],{
-          schedule:schedule
-          
-      });
-  }
+     });
+     
+   }//end of save schedule function
  
     
   
@@ -135,17 +151,31 @@ newApplicantForm=new FormGroup({
 applicantKeys:string[] = [];
 
   clickSelectBox(itemKey){
-    const foundAt = this.applicantKeys.indexOf(itemKey);
+  const foundAt = this.applicantKeys.indexOf(itemKey);
     if (foundAt >= 0) 
       this.applicantKeys.splice(foundAt, 1);
     else 
       this.applicantKeys.push(itemKey);
-    
-      
   }
 
  
+interviewDate=[]
+viewInterviewDates(){
+    var result=[];
+    this.firebase.database.ref("Schedules").on("value",function(snapshot) {
+      snapshot.forEach(function(childSnapshot) {
+            
+                result.push({
+                 $key:childSnapshot.key,
+                 ...childSnapshot.val()
+                });
 
+                return false;
+        });
+   });
+         this.interviewDate=result;
+        
+}//end of function
   
   
 }

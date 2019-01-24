@@ -1,0 +1,103 @@
+<ion-content style="margin-top:50px;" >
+  
+   
+    <div [ngSwitch]="recruitment">
+
+        
+          
+     <div>
+        
+      <ion-list >
+        
+         <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>
+        
+                <ion-row no-margin class="table-title row-bottom-border">
+                   <ion-col col-1 > 
+                     <ion-checkbox (ionChange)='selectAll()'></ion-checkbox>
+                   </ion-col>
+                   <ion-col col-4>Name</ion-col>
+                    <ion-col col-4>Phone</ion-col>
+                    <ion-col col-3>Interview Time</ion-col>
+                </ion-row>
+
+                <ion-row no-margin class=" col-text  row-bottom-border" *ngFor="let x of applicantArray" >
+                    <ion-col col-1 > 
+                        <ion-checkbox [checked]="checked"  (ionChange)="clickSelectBox(x.$key)"></ion-checkbox>
+                      </ion-col>
+                      <ion-col col-4>{{x.fName}} {{x.lName}}</ion-col>
+                       <ion-col col-4 >{{x.experience}}</ion-col>
+                       <ion-col col-3>Not Set</ion-col>
+                </ion-row>
+                <form [formGroup]="scheduleForm" (ngSubmit)="saveSchedule()">
+                <h6 class="title section-title">Schedule Details</h6>
+                <ion-row>
+                    <ion-item col-6>
+                      
+                      <ion-label stacked>Interview Date</ion-label>
+                      
+                      <ion-input type="text"  (click)="dispdate()" (ionFocus)="dispdate()" formControlName="scheduleDate"></ion-input>
+                    </ion-item>
+                    <ion-item col-6>
+                        <ion-label stacked>Interview Time</ion-label>
+                        <ion-datetime pickerFormat="h:mm A" formControlName="scheduleTime"></ion-datetime>
+                    </ion-item>
+                  </ion-row>
+                  <ion-row>
+                      <ion-item col-12>
+                        <ion-label stacked>Contact Person</ion-label>
+                        <ion-input formControlName="contactPerson" ></ion-input>
+                      </ion-item>
+                    </ion-row>
+                    <ion-row>
+                        <ion-item col-12>
+                          <ion-label stacked>Contact Number</ion-label>
+                          <ion-input formControlName="contactPersonNum" ></ion-input>
+                        </ion-item>
+                    
+                        <button ion-button type="submit" ion-button  icon-end  full color=blue >
+                           Send Call Letter
+                         </button>
+                      </ion-row> 
+                    </form>
+        </ion-list>
+      
+
+
+    </div>
+
+    <div *ngSwitchCase="'interviews'" >
+        
+      <ion-list >
+        
+        <ion-item >
+        <button col-6 ion-button (click)="viewInterviewDates()">Past Interviews</button>
+          <button col-6 ion-button>Upcoming Interviews</button>
+          </ion-item>
+
+
+         <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>
+        
+                <ion-row no-margin class="table-title row-bottom-border">
+
+                   <ion-col col-4>Interview Date</ion-col>
+                    <ion-col col-5>Contact Person</ion-col>
+                    <ion-col col-3>Action</ion-col>
+                </ion-row>
+
+                <ion-row no-margin class=" col-text  row-bottom-border" *ngFor="let x of interviewDate" >
+                    
+                      <ion-col col-4>{{x.interviewDate}} </ion-col>
+                       <ion-col col-5 >{{x.interviewDetails.contactPerson}}</ion-col>
+                       <ion-col col-3>View Details</ion-col>
+                </ion-row>
+                
+        </ion-list>
+      
+
+
+    </div>
+
+
+
+    </div>
+</ion-content>
