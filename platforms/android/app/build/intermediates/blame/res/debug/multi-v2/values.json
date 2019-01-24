@@ -1,0 +1,177 @@
+{
+    "logs": [
+        {
+            "outputFile": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values\\values.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-26.1.0.aar\\4f942ab1e1705293f316a6bc1a434bf7\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "13,16,18,83,128,130,131,136,138",
+                        "startColumns": "4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "996,1178,1307,4652,9188,9364,9486,9748,9943",
+                        "endColumns": "88,70,72,59,65,121,60,65,66",
+                        "endOffsets": "1080,1244,1375,4707,9249,9481,9542,9809,10005"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "3,4,5,6,7,8,9,10,89,90,91,92,93,94,95,96,98,99,100,101,102,103,104,105,106",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "193,283,363,453,543,623,704,784,5127,5232,5413,5538,5645,5825,5948,6064,6334,6522,6627,6808,6933,7108,7256,7319,7381",
+                        "endColumns": "89,79,89,89,79,80,79,79,104,180,124,106,179,122,115,102,187,104,180,124,174,147,62,61,78",
+                        "endOffsets": "278,358,448,538,618,699,779,859,5227,5408,5533,5640,5820,5943,6059,6162,6517,6622,6803,6928,7103,7251,7314,7376,7455"
+                    }
+                },
+                {
+                    "source": "F:\\ionic-app\\platforms\\android\\app\\build\\generated\\fabric\\res\\debug\\values\\com_crashlytics_build_id.xml",
+                    "from": {
+                        "startLines": "8",
+                        "startColumns": "0",
+                        "startOffsets": "311",
+                        "endColumns": "162",
+                        "endOffsets": "473"
+                    },
+                    "to": {
+                        "startLines": "88",
+                        "startColumns": "4",
+                        "startOffsets": "4962",
+                        "endColumns": "164",
+                        "endOffsets": "5122"
+                    }
+                },
+                {
+                    "source": "F:\\ionic-app\\platforms\\android\\app\\build\\generated\\res\\google-services\\debug\\values\\values.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "109,111,112,113,114,115,116,118",
+                        "startColumns": "4,4,4,4,4,4,4,4",
+                        "startOffsets": "7610,7836,7942,8024,8128,8231,8351,8505",
+                        "endColumns": "143,105,81,103,102,119,94,71",
+                        "endOffsets": "7749,7937,8019,8123,8226,8346,8441,8572"
+                    }
+                },
+                {
+                    "source": "F:\\ionic-app\\platforms\\android\\app\\src\\main\\res\\values\\strings.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1",
+                        "startColumns": "-1,-1,-1",
+                        "startOffsets": "-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "86,87,117",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "4850,4914,8446",
+                        "endColumns": "63,47,58",
+                        "endOffsets": "4909,4957,8500"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-tagmanager-16.0.6.aar\\f59b9b871776e22a85fc57abb588d7a2\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1",
+                        "startColumns": "-1,-1,-1",
+                        "startOffsets": "-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "120,121,122",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "8648,8718,8802",
+                        "endColumns": "69,83,67",
+                        "endOffsets": "8713,8797,8865"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-basement-16.1.0.aar\\116feb331a70860f5d478484c23e27f1\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "-1,-1",
+                        "startColumns": "-1,-1",
+                        "startOffsets": "-1,-1"
+                    },
+                    "to": {
+                        "startLines": "84,97",
+                        "startColumns": "4,4",
+                        "startOffsets": "4712,6167",
+                        "endColumns": "67,166",
+                        "endOffsets": "4775,6329"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\firebase-messaging-17.3.4.aar\\feaf000387e23518dda066d88f6467b8\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "-1",
+                        "startColumns": "-1",
+                        "startOffsets": "-1"
+                    },
+                    "to": {
+                        "startLines": "110",
+                        "startColumns": "4",
+                        "startOffsets": "7754",
+                        "endColumns": "81",
+                        "endOffsets": "7831"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\d4ece003a72dffd1a21658b16b03d3b1\\res\\values\\values.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startColumns": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1",
+                        "startOffsets": "-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "11,12,17,19,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,85,119,123,124,129,132,137,139,140",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "864,933,1249,1380,3011,3081,3149,3221,3291,3352,3413,3474,3536,3600,3662,3723,3791,3891,3951,4017,4090,4159,4216,4268,4330,4402,4478,4513,4548,4582,4617,4780,8577,8870,8987,9254,9547,9814,10010,10082",
+                        "endLines": "11,12,17,19,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,85,119,123,127,129,135,137,139,140",
+                        "endColumns": "68,62,57,73,69,67,71,69,60,60,60,61,63,61,60,67,99,59,65,72,68,56,51,61,71,75,34,34,33,34,34,69,70,116,12,109,12,128,71,66",
+                        "endOffsets": "928,991,1302,1449,3076,3144,3216,3286,3347,3408,3469,3531,3595,3657,3718,3786,3886,3946,4012,4085,4154,4211,4263,4325,4397,4473,4508,4543,4577,4612,4647,4845,8643,8982,9183,9359,9743,9938,10077,10144"
+                    }
+                },
+                {
+                    "source": "F:\\ionic-app\\platforms\\android\\app\\src\\main\\res\\values\\cordova-plugin-firebase-strings.xml",
+                    "from": {
+                        "startLines": "-1,-1",
+                        "startColumns": "-1,-1",
+                        "startOffsets": "-1,-1"
+                    },
+                    "to": {
+                        "startLines": "107,108",
+                        "startColumns": "4,4",
+                        "startOffsets": "7460,7540",
+                        "endColumns": "79,69",
+                        "endOffsets": "7535,7605"
+                    }
+                },
+                {
+                    "source": "F:\\ionic-app\\platforms\\android\\app\\src\\main\\res\\values\\colors.xml",
+                    "from": {
+                        "startLines": "-1,-1,-1",
+                        "startColumns": "-1,-1,-1",
+                        "startOffsets": "-1,-1,-1"
+                    },
+                    "to": {
+                        "startLines": "2,14,15",
+                        "startColumns": "4,4,4",
+                        "startOffsets": "150,1085,1129",
+                        "endColumns": "42,43,48",
+                        "endOffsets": "188,1124,1173"
+                    }
+                }
+            ]
+        }
+    ]
+}

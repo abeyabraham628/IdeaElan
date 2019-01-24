@@ -1,8 +1,9 @@
-import { Component,ViewChild } from '@angular/core';
+import { Component, ViewChild, KeyValueDiffers } from '@angular/core';
 import { IonicPage, NavController, NavParams ,Slides, Form} from 'ionic-angular';
 import {AngularFireDatabase,AngularFireList} from '@angular/fire/database';
 import {FormControl,FormGroup}from '@angular/forms';
 import { DatePicker } from '@ionic-native/date-picker';
+import { from } from 'rxjs';
 
 /**
  * Generated class for the RecruitmentPage page.
@@ -20,7 +21,7 @@ export class RecruitmentPage {
  
   recruitment:string;
   scheduleDate: String
- 
+  checked:boolean=false
  
   constructor(private firebase:AngularFireDatabase, private datePicker:DatePicker) {
     this.recruitment="newApplicant";
@@ -28,6 +29,7 @@ export class RecruitmentPage {
   }
 
 applicantRef:AngularFireList<any>;
+scheduleRef:AngularFireList<any>;
 getApplicantRef(){
   this.applicantRef=this.firebase.list('Applicants');
   return this.applicantRef.snapshotChanges();
@@ -87,16 +89,62 @@ newApplicantForm=new FormGroup({
       androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_LIGHT
     }).then(
       date=>{
-        this.scheduleDate=date.toLocaleDateString()
+        this.scheduleForm.controls.scheduleDate.setValue(date.toLocaleDateString())
        
        },
       err => console.log('Error occurred while getting date: ', err)
     )
   }
 
-  sendEmail(){
 
+
+  scheduleForm=new FormGroup({
+      scheduleDate:new FormControl(''),
+      scheduleTime:new FormControl(''),
+      contactPerson:new FormControl(''),
+      contactPersonNum: new FormControl(''),
+      email: new FormControl('')
+  });
+
+ 
+  
+  saveSchedule(){
+    var i:number
+    var schedule={  interviewDate:this.scheduleForm.controls.scheduleDate.value,
+                    interviewTime:this.scheduleForm.controls.scheduleTime.value, 
+                    contactPerson:this.scheduleForm.controls.contactPerson.value,
+                    contactNumber:this.scheduleForm.controls.contactPersonNum.value
+                  }
+      
+
+      this.scheduleRef=this.firebase.list('Applicants');
+        
+      for(i=0;i<this.applicantKeys.length;i++)
+      this.scheduleRef.update(this.applicantKeys[i],{
+          schedule:schedule
+          
+      });
   }
+ 
+    
+  
+  selectAll(){
+    this.checked=!this.checked;
+  }
+
+applicantKeys:string[] = [];
+
+  clickSelectBox(itemKey){
+    const foundAt = this.applicantKeys.indexOf(itemKey);
+    if (foundAt >= 0) 
+      this.applicantKeys.splice(foundAt, 1);
+    else 
+      this.applicantKeys.push(itemKey);
+    
+      
+  }
+
+ 
 
   
   

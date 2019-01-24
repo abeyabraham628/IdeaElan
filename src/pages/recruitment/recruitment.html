@@ -105,12 +105,14 @@
         </div>
           
      <div *ngSwitchCase="'schedules'">
+        
       <ion-list >
+        
          <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>
         
                 <ion-row no-margin class="table-title row-bottom-border">
                    <ion-col col-1 > 
-                     <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+                     <ion-checkbox (ionChange)='selectAll()'></ion-checkbox>
                    </ion-col>
                    <ion-col col-4>Name</ion-col>
                     <ion-col col-4>Experience</ion-col>
@@ -119,46 +121,49 @@
 
                 <ion-row no-margin class=" col-text  row-bottom-border" *ngFor="let x of applicantArray" >
                     <ion-col col-1 > 
-                        <ion-checkbox [(ngModel)]="pepperoni"></ion-checkbox>
+                        <ion-checkbox [checked]="checked"  (ionChange)="clickSelectBox(x.$key)"></ion-checkbox>
                       </ion-col>
                       <ion-col col-4>{{x.fName}} {{x.lName}}</ion-col>
                        <ion-col col-4 >{{x.experience}}</ion-col>
                        <ion-col col-3>Not Set</ion-col>
                 </ion-row>
-
+                <form [formGroup]="scheduleForm" (ngSubmit)="saveSchedule()">
                 <h6 class="title section-title">Schedule Details</h6>
                 <ion-row>
                     <ion-item col-6>
                       
                       <ion-label stacked>Interview Date</ion-label>
                       
-                      <ion-input type="text"  (click)="dispdate()" (ionFocus)="dispdate()" [(ngModel)]="scheduleDate"></ion-input>
+                      <ion-input type="text"  (click)="dispdate()" (ionFocus)="dispdate()" formControlName="scheduleDate"></ion-input>
                     </ion-item>
                     <ion-item col-6>
                         <ion-label stacked>Interview Time</ion-label>
-                        <ion-datetime pickerFormat="h:mm A" [(ngModel)]="myDate"></ion-datetime>
+                        <ion-datetime pickerFormat="h:mm A" formControlName="scheduleTime"></ion-datetime>
                     </ion-item>
                   </ion-row>
                   <ion-row>
                       <ion-item col-12>
                         <ion-label stacked>Contact Person</ion-label>
-                        <ion-input  ></ion-input>
+                        <ion-input formControlName="contactPerson" ></ion-input>
                       </ion-item>
                     </ion-row>
                     <ion-row>
                         <ion-item col-12>
                           <ion-label stacked>Contact Number</ion-label>
-                          <ion-input  ></ion-input>
+                          <ion-input formControlName="contactPersonNum" ></ion-input>
                         </ion-item>
                       </ion-row>
-
+                      <button ion-button type="button" (click)="trial()" ion-button  icon-end  full color=blue >
+                          Trial
+                        </button>
                       <ion-row>
-                        <button ion-button type="button" ion-button  icon-end  full color=blue >
+                        <button ion-button type="submit" ion-button  icon-end  full color=blue >
                            Send Call Letter
                          </button>
                       </ion-row> 
-
+                    </form>
         </ion-list>
+      
 
 
     </div>
