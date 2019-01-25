@@ -4,6 +4,7 @@ import {AngularFireDatabase,AngularFireList} from '@angular/fire/database';
 import {FormControl,FormGroup}from '@angular/forms';
 import { DatePicker } from '@ionic-native/date-picker';
 
+import { InterviewDetailsPage } from '../interview-details/interview-details';
 /**
  * Generated class for the RecruitmentPage page.
  *
@@ -22,7 +23,7 @@ export class RecruitmentPage {
   scheduleDate: String
   checked:boolean=false
  
-  constructor(private firebase:AngularFireDatabase, private datePicker:DatePicker) {
+  constructor(private firebase:AngularFireDatabase, private datePicker:DatePicker,public navCtrl: NavController) {
     this.recruitment="newApplicant";
     //this.dispApplicants();
   }
@@ -149,14 +150,13 @@ newApplicantForm=new FormGroup({
   }
 
 applicantKeys:string[] = [];
-
   clickSelectBox(itemKey){
-  const foundAt = this.applicantKeys.indexOf(itemKey);
-    if (foundAt >= 0) 
-      this.applicantKeys.splice(foundAt, 1);
-    else 
-      this.applicantKeys.push(itemKey);
-  }
+    const foundAt = this.applicantKeys.indexOf(itemKey);
+      if (foundAt >= 0) 
+        this.applicantKeys.splice(foundAt, 1);
+      else 
+        this.applicantKeys.push(itemKey);
+    }
 
  
 interviewDate=[]
@@ -177,5 +177,10 @@ viewInterviewDates(){
         
 }//end of function
   
+
+otherPage(interviewDate){
+  this.navCtrl.push(InterviewDetailsPage,{date:interviewDate});
+}
+
   
 }

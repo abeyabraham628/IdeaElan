@@ -1,3 +1,4 @@
+
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -25,6 +26,7 @@ import { NewuserPage } from '../pages/newuser/newuser';
 import { BotabsPage } from '../pages/botabs/botabs';
 import {SystemsPage} from '../pages/systems/systems';
 import {RecruitmentPage} from '../pages/recruitment/recruitment';
+import { InterviewDetailsPage } from '../pages/interview-details/interview-details';
 
 
 
@@ -42,9 +44,14 @@ var config = {
     HomePage,
     RegisterPage,
     ProfilePage,
-    AddItPage,RecruitmentPage,
-    TabsPage,NewuserPage,
-   BotabsPage,SystemsPage
+    AddItPage,
+    RecruitmentPage,
+    TabsPage,
+    NewuserPage,
+    BotabsPage,
+    SystemsPage,
+    InterviewDetailsPage,
+  
   ],
   imports: [
     BrowserModule,
@@ -66,7 +73,9 @@ var config = {
     TabsPage,
     NewuserPage,
     BotabsPage,SystemsPage,
-    RecruitmentPage
+    RecruitmentPage,
+    InterviewDetailsPage,
+   
   ],
   providers: [
     StatusBar,

@@ -168,17 +168,10 @@
         
       <ion-list >
         
-        <ion-item >
-        <button col-6 ion-button (click)="viewInterviewDates()">Past Interviews</button>
-          <button col-6 ion-button>Upcoming Interviews</button>
-          </ion-item>
-
-
-         <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>
+       <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>
         
                 <ion-row no-margin class="table-title row-bottom-border">
-
-                   <ion-col col-4>Interview Date</ion-col>
+                <ion-col col-4>Interview Date</ion-col>
                     <ion-col col-5>Contact Person</ion-col>
                     <ion-col col-3>Action</ion-col>
                 </ion-row>
@@ -187,7 +180,7 @@
                     
                       <ion-col col-4>{{x.interviewDate}} </ion-col>
                        <ion-col col-5 >{{x.interviewDetails.contactPerson}}</ion-col>
-                       <ion-col col-3>View Details</ion-col>
+                       <ion-col col-3 (click)="otherPage(x.interviewDate)">View Details</ion-col>
                 </ion-row>
                 
         </ion-list>
