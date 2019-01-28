@@ -1,4 +1,4 @@
-import { Component, ViewChild, KeyValueDiffers } from '@angular/core';
+import { Component, ViewChild, KeyValueDiffers,ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams ,Slides, Form} from 'ionic-angular';
 import {AngularFireDatabase,AngularFireList} from '@angular/fire/database';
 import {FormControl,FormGroup}from '@angular/forms';
@@ -23,7 +23,7 @@ export class RecruitmentPage {
   scheduleDate: String
   checked:boolean=false
  
-  constructor(private firebase:AngularFireDatabase, private datePicker:DatePicker,public navCtrl: NavController) {
+  constructor(private firebase:AngularFireDatabase, private datePicker:DatePicker,public navCtrl: NavController,private ref: ChangeDetectorRef) {
     this.recruitment="newApplicant";
     //this.dispApplicants();
   }
@@ -50,7 +50,7 @@ dispApplicants(){
       });
     
    this.applicantArray=result;
-    
+    this.ref.detectChanges()
 }
 
 
@@ -83,6 +83,7 @@ newApplicantForm=new FormGroup({
         experience:applicantDetails.experience,
         expectedctc:applicantDetails.expectedctc
     })
+    this.ref.detectChanges()
   }//end of function
 
   onSubmit(){
@@ -119,8 +120,8 @@ newApplicantForm=new FormGroup({
  
   
   saveSchedule(){
-    var i;
-    var key;
+    var i:number;
+    
     var schedule={  
                     interviewTime:this.scheduleForm.controls.scheduleTime.value, 
                     contactPerson:this.scheduleForm.controls.contactPerson.value,
@@ -140,7 +141,7 @@ newApplicantForm=new FormGroup({
         });
         
      });
-     
+     this.ref.detectChanges()
    }//end of save schedule function
  
     
@@ -174,7 +175,7 @@ viewInterviewDates(){
         });
    });
          this.interviewDate=result;
-        
+         this.ref.detectChanges()
 }//end of function
   
 

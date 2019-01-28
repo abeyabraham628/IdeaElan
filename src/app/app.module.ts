@@ -27,6 +27,7 @@ import { BotabsPage } from '../pages/botabs/botabs';
 import {SystemsPage} from '../pages/systems/systems';
 import {RecruitmentPage} from '../pages/recruitment/recruitment';
 import { InterviewDetailsPage } from '../pages/interview-details/interview-details';
+import { InterviewSummaryPage } from '../pages/interview-summary/interview-summary';
 
 
 
@@ -51,6 +52,7 @@ var config = {
     BotabsPage,
     SystemsPage,
     InterviewDetailsPage,
+    InterviewSummaryPage
   
   ],
   imports: [
@@ -75,6 +77,7 @@ var config = {
     BotabsPage,SystemsPage,
     RecruitmentPage,
     InterviewDetailsPage,
+    InterviewSummaryPage
    
   ],
   providers: [

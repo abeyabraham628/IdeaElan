@@ -1,3 +1,4 @@
+import { InterviewSummaryPage } from './../interview-summary/interview-summary';
 
 
 //import { Firebase } from '@ionic-native/firebase';
@@ -5,6 +6,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController,AlertController, Alert } from 'ionic-angular';
 import{AngularFireDatabase,AngularFireList} from '@angular/fire/database'
 import { FormsModule } from '@angular/forms';
+
 
 /**
  * Generated class for the InterviewDetailsPage page.
@@ -64,8 +66,7 @@ export class InterviewDetailsPage {
 
 status:any
 changeStatus(data:any){
-  /*let statusModal=this.modalCtrl.create(ApplicantStatusModalPage,{data:data})
-  statusModal.present();*/
+ 
 
   let statusAlert=this.alertCtrl.create()
       statusAlert.addInput({
@@ -92,6 +93,12 @@ changeStatus(data:any){
       statusAlert.setTitle(data.fName+" "+ data.lName);
       statusAlert.addButton('Cancel');
       statusAlert.present()
+}
+
+
+interviewSummary(eventDate:any){
+       let summaryModal=this.modalCtrl.create(InterviewSummaryPage,{eventDate:eventDate})
+       summaryModal.present();
 }
 
 }

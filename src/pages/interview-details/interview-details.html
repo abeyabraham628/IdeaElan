@@ -5,11 +5,12 @@
         
       <ion-list >
        {{eventDate}}  <button item-right ion-button (click)="goBack()">Back</button>
+       <button item-right ion-button (click)="interviewSummary(eventDate)">Summary</button>
          <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>
         
                 <ion-row no-margin class="table-title row-bottom-border"> 
                    
-                   <ion-col col-4>Name</ion-col>
+                   <ion-col col-4>Applicant Name</ion-col>
                     <ion-col col-3>Phone</ion-col>
                     <ion-col col-3>Status</ion-col>
                 </ion-row>

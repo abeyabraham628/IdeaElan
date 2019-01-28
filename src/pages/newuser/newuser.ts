@@ -1,10 +1,10 @@
+import { HeaderName } from './../../models/header';
 import { userItem } from './../../models/user-item/user-item.interface';
 import { Component,ChangeDetectorRef,ViewChild, Input} from '@angular/core';
 import { IonicPage, NavController, NavParams ,Slides,AlertController } from 'ionic-angular';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import { Subscription } from 'rxjs/Subscription';
 import { DatePicker } from '@ionic-native/date-picker';
-
 
 
 
@@ -15,6 +15,9 @@ import { DatePicker } from '@ionic-native/date-picker';
 })
 
 export class NewuserPage {
+  
+  
+  
   public itemslist: Array<any> = [];
  
  public items: Array<any> = [];
