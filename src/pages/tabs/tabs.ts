@@ -25,7 +25,7 @@ export class TabsPage {
   tab2Root = SystemsPage ;
   tab3Root = RecruitmentPage;
   tab4Root =  SystemsPage;
-
+  
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     
   }

@@ -63,7 +63,6 @@ this.getSystemList().subscribe(
         $key:item.key,
         ...item.payload.val()
       };
-
     });
   });
 }
