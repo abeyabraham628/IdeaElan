@@ -1,8 +1,9 @@
 import { Component, ViewChild, KeyValueDiffers,ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, NavParams ,Slides, Form} from 'ionic-angular';
+import { IonicPage, NavController, NavParams ,Slides, Form, Item} from 'ionic-angular';
 import {AngularFireDatabase,AngularFireList} from '@angular/fire/database';
 import {FormControl,FormGroup}from '@angular/forms';
 import { DatePicker } from '@ionic-native/date-picker';
+import {Observable} from 'rxjs/observable'
 
 import { InterviewDetailsPage } from '../interview-details/interview-details';
 /**
@@ -25,38 +26,44 @@ export class RecruitmentPage {
  
   constructor(private firebase:AngularFireDatabase, private datePicker:DatePicker,public navCtrl: NavController,private ref: ChangeDetectorRef) {
     this.recruitment="newApplicant";
-    //this.dispApplicants();
+    this.getApplicants();
   }
 
-applicantRef:AngularFireList<any>;
-scheduleRef:AngularFireList<any>;
+
+applicantList:AngularFireList<any>;
+scheduleList:AngularFireList<any>;
 
 
-dispApplicants(){
-  this.applicantRef=this.firebase.list('Applicants');
-  var result=[]
-   this.firebase.database.ref("Applicants").on("value",function(snapshot) {
-     snapshot.forEach(function(childSnapshot) {
-          if(!childSnapshot.hasChild("interviewDate")) {
-              result.push({
-                  $key:childSnapshot.key,
-                ...childSnapshot.val()
-              })
-          }
-          
-      })
-       
-     
-      });
-    
-   this.applicantArray=result;
-    this.ref.detectChanges()
-}
+getApplicants(){
+  this.applicantList=this.firebase.list('Applicants');
+  return this.applicantList.snapshotChanges();
+  };
 
+  //
+  getSchedules(){
+    this.scheduleList=this.firebase.list('Schedules');
+    return this.scheduleList.snapshotChanges();
+    };
+  
+ 
+  applicantDetails=[];// for storing the applciants retrieved from db
+  
+  showApplicants(){
+   this.getApplicants().subscribe(
+     res=>{ 
+       this.applicantDetails=res.map(item=>{
+        if(!item.payload.hasChild('interviewDate'))//  retrieve the applicants who are not scheduled for an interview
+         return {
+          $key:item.key,
+          ...item.payload.val()
+         }
+        else
+         return null
+      }).filter(Boolean);//end of map
+ });//end of subscribe
+}//end of show applicant function
 
-applicantArray=[];
-
-
+//Initialising new applicant form
 newApplicantForm=new FormGroup({
   $key:new FormControl(null),
   fName:new FormControl(''),
@@ -70,9 +77,9 @@ newApplicantForm=new FormGroup({
   expectedctc: new FormControl('')
 })
   
+//Function for saving a new applicant to the database
   saveApplicant(applicantDetails:any){
-      
-    this.applicantRef.push({
+    this.applicantList.push({
         fName:applicantDetails.fName,
         lName:applicantDetails.lName,
         mobile:applicantDetails.mobile,
@@ -82,18 +89,18 @@ newApplicantForm=new FormGroup({
         currentctc:applicantDetails.currentctc,
         experience:applicantDetails.experience,
         expectedctc:applicantDetails.expectedctc
-    })
-    this.ref.detectChanges()
+    });
   }//end of function
 
-  onSubmit(){
+
+  onSubmit(){//submit function of save applicant form 
     if(this.newApplicantForm.controls.$key.value==null){
-      this.saveApplicant(this.newApplicantForm.value);
-      this.newApplicantForm.reset();
+      this.saveApplicant(this.newApplicantForm.value);// function for saving the form data to the database
+      this.newApplicantForm.reset();// reset applicant form after saving
     }
   }
 
-  dispdate(){
+  dispdate(){// Funciton for displaying the date picker for selecting interview date
     this.datePicker.show({
       date:new Date(),
       mode:'date',
@@ -101,14 +108,13 @@ newApplicantForm=new FormGroup({
     }).then(
       date=>{
         this.scheduleForm.controls.scheduleDate.setValue(date.toLocaleDateString())
-       
        },
       err => console.log('Error occurred while getting date: ', err)
     )
   }//end of function
 
 
-
+  //Initialising schedule form
   scheduleForm=new FormGroup({
       scheduleDate:new FormControl(''),
       scheduleTime:new FormControl(''),
@@ -118,38 +124,40 @@ newApplicantForm=new FormGroup({
   });
 
  
-  
+  //Funtion for saving interview schedules for the respective applicants
   saveSchedule(){
-    var i:number;
-    
-    var schedule={  
+    let schedule={  
                     interviewTime:this.scheduleForm.controls.scheduleTime.value, 
                     contactPerson:this.scheduleForm.controls.contactPerson.value,
                     contactNumber:this.scheduleForm.controls.contactPersonNum.value
                   }
       
                   
-      this.scheduleRef=this.firebase.list('Schedules');
-      this.scheduleRef.push({
+      //Schedule details is pushed first to the db and then the key of that particular record is retrieved
+      //Once the key is retrieved,that key is add as a reference to the interviewDate field for the selected candidated record. 
+      
+      this.scheduleList.push({//New schedule is created
         interviewDate:this.scheduleForm.controls.scheduleDate.value,
         interviewDetails:schedule
-      }).then((snap) => {
-        for(i=0;i<this.applicantKeys.length;i++)
-        this.applicantRef.update(this.applicantKeys[i],{
+      }).then((snap) => {// call back function
+        // Save the interviewDate for the candidates who are scheduled for interiew
+        for(let i=0;i<this.applicantKeys.length;i++)
+        this.applicantList.update(this.applicantKeys[i],{
             interviewDate:snap.key
             
         });
         
      });
-     this.ref.detectChanges()
+    
    }//end of save schedule function
  
     
-  
+  // fucntion for toggling check all or uncheck all applicants
   selectAll(){
     this.checked=!this.checked;
   }
 
+// Function for selecting multiple applincants before assigning a interview schedule
 applicantKeys:string[] = [];
   clickSelectBox(itemKey){
     const foundAt = this.applicantKeys.indexOf(itemKey);
@@ -159,23 +167,17 @@ applicantKeys:string[] = [];
         this.applicantKeys.push(itemKey);
     }
 
- 
+// function for retrieving the history of schedules
 interviewDate=[]
 viewInterviewDates(){
-    var result=[];
-    this.firebase.database.ref("Schedules").on("value",function(snapshot) {
-      snapshot.forEach(function(childSnapshot) {
-            
-                result.push({
-                 $key:childSnapshot.key,
-                 ...childSnapshot.val()
-                });
-
-                return false;
-        });
-   });
-         this.interviewDate=result;
-         this.ref.detectChanges()
+    this.getSchedules().subscribe(
+      res=>{
+       this.interviewDate= res.map(item=>{
+         return{ 
+            $key:item.key,
+            ...item.payload.val()}
+        });//end of map
+      });//end of subscribe
 }//end of function
   
 

@@ -46,8 +46,6 @@ export class InterviewDetailsPage {
     });//end of Schedules reference
 
     this.firebase.database.ref("Applicants").orderByChild('interviewDate').equalTo(x).on("value",function(snapshot){
-      
-
       snapshot.forEach(function(childSnapshot) {
         result.push({
          $key:childSnapshot.key,
@@ -59,16 +57,13 @@ export class InterviewDetailsPage {
        
        
   });//end of Applicants reference
-
-
-  this.applcantsData=result
+  this.applcantsData=[]
+this.applcantsData=result
 }//end of function
 
 status:any
 changeStatus(data:any){
- 
-
-  let statusAlert=this.alertCtrl.create()
+ let statusAlert=this.alertCtrl.create()
       statusAlert.addInput({
         type: 'radio',
         label: 'Reported',

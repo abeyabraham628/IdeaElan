@@ -4,7 +4,7 @@
          New Applicant
       </ion-segment-button>
 
-      <ion-segment-button value="schedules" (click)="dispApplicants()">
+      <ion-segment-button value="schedules" (click)="showApplicants()">
          Schedules
       </ion-segment-button>
 
@@ -119,7 +119,7 @@
                     <ion-col col-3>Interview Date</ion-col>
                 </ion-row>
 
-                <ion-row no-margin class=" col-text  row-bottom-border" *ngFor="let x of applicantArray" >
+                <ion-row no-margin class=" col-text  row-bottom-border" *ngFor="let x of applicantDetails " >
                     <ion-col col-1 > 
                         <ion-checkbox [checked]="checked"  (ionChange)="clickSelectBox(x.$key)"></ion-checkbox>
                       </ion-col>
