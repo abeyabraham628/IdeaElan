@@ -55,6 +55,14 @@ module.exports = [
     "clobbers": [
       "FirebasePlugin"
     ]
+  },
+  {
+    "id": "cordova-plugin-email-composer.EmailComposer",
+    "file": "plugins/cordova-plugin-email-composer/www/email_composer.js",
+    "pluginId": "cordova-plugin-email-composer",
+    "clobbers": [
+      "cordova.plugins.email"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -67,7 +75,8 @@ module.exports.metadata =
   "cordova-plugin-splashscreen": "5.0.2",
   "cordova-plugin-statusbar": "2.4.2",
   "cordova-plugin-whitelist": "1.3.3",
-  "cordova-plugin-firebase": "2.0.5"
+  "cordova-plugin-firebase": "2.0.5",
+  "cordova-plugin-email-composer": "0.9.2"
 };
 // BOTTOM OF METADATA
 });

@@ -52,10 +52,7 @@ export class InterviewDetailsPage {
          ...childSnapshot.val()
           })
           return false;
-
-       });
-       
-       
+     });
   });//end of Applicants reference
   this.applcantsData=[]
 this.applcantsData=result

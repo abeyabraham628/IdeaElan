@@ -1,5 +1,21 @@
-<ion-content style="margin-top:50px;" >
-  <ion-segment [(ngModel)]="recruitment" color="white">
+<ion-header no-border>
+  <ion-toolbar color="blue" hideBackButton="true">
+    <button ion-button  menuToggle="left" start>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    
+    <ion-title text-center>RECRUITMENT</ion-title>
+
+    <ion-buttons end>
+      <button ion-button >
+        <ion-icon name="notifications"></ion-icon> 
+      </button> 
+    </ion-buttons>
+</ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-segment [(ngModel)]="recruitment" color="white" >
       <ion-segment-button  value="newApplicant" >
          New Applicant
       </ion-segment-button>

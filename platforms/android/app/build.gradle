@@ -272,6 +272,7 @@ dependencies {
     compile "com.google.firebase:firebase-messaging:+"
     compile "com.google.firebase:firebase-config:+"
     compile "com.google.firebase:firebase-perf:+"
+    compile "com.android.support:support-v4:27.+"
     // SUB-PROJECT DEPENDENCIES END
 }
 

@@ -85,4 +85,7 @@
     <plugin name="cordova-plugin-datepicker" spec="0.9.3" />
     <plugin name="phonegap-plugin-barcodescanner" spec="8.0.1" />
     <plugin name="cordova-plugin-firebase" spec="2.0.5" />
+    <plugin name="cordova-plugin-email-composer" spec="0.9.2">
+        <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
+    </plugin>
 </widget>

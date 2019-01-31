@@ -1,9 +1,24 @@
 
-<ion-content style="margin-top:75px;" >
- 
-   
-        
-      <ion-list >
+<ion-header no-border>
+  <ion-toolbar color="blue" hideBackButton="true">
+    <button ion-button  menuToggle="left" start>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    
+    <ion-title text-center>Recruitments</ion-title>
+
+    <ion-buttons end>
+      <button ion-button >
+        <ion-icon name="notifications"></ion-icon> 
+      </button> 
+    </ion-buttons>
+    
+</ion-toolbar>
+
+</ion-header>
+
+<ion-content  >
+ <ion-list >
        {{eventDate}}  <button item-right ion-button (click)="goBack()">Back</button>
        <button item-right ion-button (click)="interviewSummary(eventDate)">Summary</button>
          <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>

@@ -18,6 +18,7 @@ import { InterviewDetailsPage } from '../interview-details/interview-details';
   selector: 'page-recruitment',                          
   templateUrl: 'recruitment.html',
 })
+
 export class RecruitmentPage {
  
   recruitment:string;
@@ -184,6 +185,7 @@ viewInterviewDates(){
 otherPage(interviewDate){
   this.navCtrl.push(InterviewDetailsPage,{date:interviewDate});
 }
+
 
   
 }

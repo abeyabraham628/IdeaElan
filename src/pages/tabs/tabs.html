@@ -5,30 +5,15 @@
   Ionic pages and navigation.
 -->
 
-<ion-header no-border>
-  <ion-toolbar color="blue" hideBackButton="true">
-    <button ion-button  menuToggle="left" start>
-        <ion-icon name="menu"></ion-icon>
-    </button>
-    
-    <ion-title text-center>{{Header}}</ion-title>
 
-    <ion-buttons end>
-      <button ion-button >
-        <ion-icon name="notifications"></ion-icon> 
-      </button> 
-    </ion-buttons>
-</ion-toolbar>
-</ion-header>
 
-    <ion-tabs>
-            <ion-tab [root]="tab1Root"   tabTitle="User" tabIcon="person"></ion-tab>
-            <ion-tab [root]="tab2Root"  tabTitle="Systems" tabIcon="desktop"></ion-tab>
-            <ion-tab [root]="tab3Root"  tabTitle="Recruitment" tabIcon="people"></ion-tab>
-        </ion-tabs>
-    
+
  
 
-   
+<ion-tabs>
+  <ion-tab [root]="tab1Root"   tabTitle="User" tabIcon="person"></ion-tab>
+  <ion-tab [root]="tab2Root"  tabTitle="Systems" tabIcon="desktop"></ion-tab>
+  <ion-tab [root]="tab3Root"  tabTitle="Recruitment" tabIcon="people"></ion-tab>
+</ion-tabs>
 
 
