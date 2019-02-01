@@ -35,6 +35,12 @@
     "cordova-plugin-email-composer": {
       "ANDROID_SUPPORT_V4_VERSION": "27.+",
       "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-telerik-imagepicker": {
+      "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "idea.elan"
     }
   },
   "dependent_plugins": {}

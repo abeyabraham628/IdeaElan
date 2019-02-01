@@ -33390,6 +33390,23 @@ ion-navbar.toolbar {
   padding-top: 10px;
 }
 
+.justified {
+  text-align: justify;
+}
+
+.rowHeading {
+  font-size: 8px;
+}
+
+.border {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
 .logo {
   display: block;
   margin-left: auto;

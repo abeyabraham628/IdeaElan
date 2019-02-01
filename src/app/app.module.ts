@@ -1,3 +1,4 @@
+import { CompanyPolicyComponent } from './../components/company-policy/company-policy';
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { BrowserModule } from '@angular/platform-browser';
@@ -52,7 +53,8 @@ var config = {
     BotabsPage,
     SystemsPage,
     InterviewDetailsPage,
-    InterviewSummaryPage
+    InterviewSummaryPage,
+    CompanyPolicyComponent
   
   ],
   imports: [
@@ -77,7 +79,8 @@ var config = {
     BotabsPage,SystemsPage,
     RecruitmentPage,
     InterviewDetailsPage,
-    InterviewSummaryPage
+    InterviewSummaryPage,
+    CompanyPolicyComponent
    
   ],
   providers: [
@@ -87,6 +90,8 @@ var config = {
     DatePicker,
     BarcodeScanner,
     DatePipe,
+    
+   
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

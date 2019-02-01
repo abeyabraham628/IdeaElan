@@ -92,6 +92,8 @@ ext {
 
 // PLUGIN GRADLE EXTENSIONS START
 apply from: "../cordova-plugin-firebase/starter-build.gradle"
+apply from: "../cordova-plugin-telerik-imagepicker/elan-ignorelinterrors.gradle"
+apply from: "../cordova-plugin-telerik-imagepicker/elan-androidtarget.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()
@@ -273,6 +275,8 @@ dependencies {
     compile "com.google.firebase:firebase-config:+"
     compile "com.google.firebase:firebase-perf:+"
     compile "com.android.support:support-v4:27.+"
+    compile "com.android.support:appcompat-v7:23+"
+    compile "com.android.support:support-v4:24.1.1+"
     // SUB-PROJECT DEPENDENCIES END
 }
 
