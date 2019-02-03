@@ -29,6 +29,7 @@ import {SystemsPage} from '../pages/systems/systems';
 import {RecruitmentPage} from '../pages/recruitment/recruitment';
 import { InterviewDetailsPage } from '../pages/interview-details/interview-details';
 import { InterviewSummaryPage } from '../pages/interview-summary/interview-summary';
+import { LoginPage } from '../pages/login/login';
 
 
 
@@ -54,7 +55,8 @@ var config = {
     SystemsPage,
     InterviewDetailsPage,
     InterviewSummaryPage,
-    CompanyPolicyComponent
+    CompanyPolicyComponent,
+    LoginPage
   
   ],
   imports: [
@@ -80,7 +82,8 @@ var config = {
     RecruitmentPage,
     InterviewDetailsPage,
     InterviewSummaryPage,
-    CompanyPolicyComponent
+    CompanyPolicyComponent,
+    LoginPage
    
   ],
   providers: [

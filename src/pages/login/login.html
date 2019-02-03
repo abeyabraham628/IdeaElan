@@ -1,0 +1,28 @@
+
+<ion-content padding>
+  <ion-thumbnail >
+    <ion-img class="logo"  [src]="companyLogo"></ion-img>
+  </ion-thumbnail>
+
+<ion-list>
+  
+  <ion-item no-lines> 
+    <ion-input text-center type="email"   #userName class="input-border" placeholder="USER NAME"></ion-input>
+   </ion-item>
+  
+  <ion-item no-lines    >
+    <ion-input text-center type="password" class="input-border" #password placeholder="PASSWORD"></ion-input>
+   </ion-item>
+
+   
+      <button  full default ion-button color="blue" style="height:40px; border-radius:5px;" (click)="signUp()">Sign In</button>
+   
+   
+  
+
+</ion-list>
+
+   
+   <ion-label color="orange"  text-right>Forgot Password</ion-label>
+  
+</ion-content>

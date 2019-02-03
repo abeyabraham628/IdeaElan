@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rIN\\values-en-rIN.xml",
+            "outputFile": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-en-rIN\\values-en-rIN.xml",
             "map": [
                 {
-                    "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\d4ece003a72dffd1a21658b16b03d3b1\\res\\values-en-rIN\\values-en-rIN.xml",
+                    "source": "C:\\Users\\Tony\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\aac860c777d335c41d25e060003041f4\\res\\values-en-rIN\\values-en-rIN.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

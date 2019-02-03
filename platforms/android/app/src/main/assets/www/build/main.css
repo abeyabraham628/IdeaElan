@@ -33390,6 +33390,42 @@ ion-navbar.toolbar {
   padding-top: 10px;
 }
 
+.splash {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 999;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.justified {
+  text-align: justify;
+}
+
+.rowHeading {
+  font-size: 8px;
+}
+
+.border {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
 .logo {
   display: block;
   margin-left: auto;
@@ -33398,76 +33434,12 @@ ion-navbar.toolbar {
   width: 200px;
 }
 
-.content_1 {
-  margin-top: -1px;
-}
-
-.content_2 {
-  opacity: 1.5;
-  background: #488aff;
-  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#488aff));
-  background: linear-gradient(to right, #ffffff, #488aff);
-}
-
-.transparent {
-  background: #488aff;
-  background: -webkit-gradient(linear, left top, right top, from(#ffffff), to(#488aff));
-  background: linear-gradient(to right, #ffffff, #488aff);
-}
-
-.inp {
-  color: black;
-  border-radius: 5px;
-}
-
-.iont {
-  background: transparent;
-}
-
-.height1 {
-  margin-top: 60px;
-  border-radius: 5px;
-}
-
-::-webkit-input-placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: red;
-}
-
-::-ms-input-placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: red;
-}
-
-::placeholder {
-  /* Chrome, Firefox, Opera, Safari 10.1+ */
-  color: red;
-}
-
-.click_down {
-  margin-top: 50px;
-}
-
-.fp {
-  color: #F6A253;
-}
-
 .segment {
   background-color: #2679b0;
 }
 
 .segment-activated {
   border-bottom: solid 5px #F6A253 !important;
-}
-
-.slide-zoom {
-  height: 100%;
-}
-
-.heading1 {
-  background-color: #2679b0 !important;
-  color: #FFF;
-  height: 5px;
 }
 
 .hi {

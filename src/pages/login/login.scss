@@ -1,0 +1,27 @@
+ion-content{
+    border-top: 5px solid #2679b0;
+    border-bottom: 5px solid #f6a253;
+}
+
+.logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    //margin-top: 110px;
+    width: 200px;
+    height: 200px;
+}
+
+.input-border{
+   
+   border:1px solid gray;
+   border-radius:5px;
+   margin-bottom: 10px;
+   
+}
+ion-input {
+    
+    ::placeholder{
+        text-align: center
+    }
+}

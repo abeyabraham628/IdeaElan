@@ -91,9 +91,7 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "../cordova-plugin-firebase/starter-build.gradle"
-apply from: "../cordova-plugin-telerik-imagepicker/elan-ignorelinterrors.gradle"
-apply from: "../cordova-plugin-telerik-imagepicker/elan-androidtarget.gradle"
+apply from: "../phonegap-plugin-barcodescanner/elan-barcodescanner.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()
@@ -268,15 +266,7 @@ dependencies {
     implementation fileTree(dir: 'libs', include: '*.jar')
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
-    compile "com.android.support:support-annotations:27.+"
-    compile "com.google.android.gms:play-services-tagmanager:+"
-    compile "com.google.firebase:firebase-core:+"
-    compile "com.google.firebase:firebase-messaging:+"
-    compile "com.google.firebase:firebase-config:+"
-    compile "com.google.firebase:firebase-perf:+"
     compile "com.android.support:support-v4:27.+"
-    compile "com.android.support:appcompat-v7:23+"
-    compile "com.android.support:support-v4:24.1.1+"
     // SUB-PROJECT DEPENDENCIES END
 }
 
