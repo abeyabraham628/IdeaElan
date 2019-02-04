@@ -1,5 +1,5 @@
 
-<ion-content padding>
+<ion-content padding class="top-botton-border">
   <ion-thumbnail >
     <ion-img class="logo"  [src]="companyLogo"></ion-img>
   </ion-thumbnail>
@@ -7,15 +7,15 @@
 <ion-list>
   
   <ion-item no-lines> 
-    <ion-input text-center type="email"   #userName class="input-border" placeholder="USER NAME"></ion-input>
+    <ion-input text-center type="email" [(ngModel)]="credentials.emailId" class="input-border" placeholder="USER NAME"></ion-input>
    </ion-item>
   
   <ion-item no-lines    >
-    <ion-input text-center type="password" class="input-border" #password placeholder="PASSWORD"></ion-input>
+    <ion-input text-center type="password" class="input-border" [(ngModel)]="credentials.password" placeholder="PASSWORD"></ion-input>
    </ion-item>
 
    
-      <button  full default ion-button color="blue" style="height:40px; border-radius:5px;" (click)="signUp()">Sign In</button>
+      <button  full default ion-button color="blue" style="height:40px; border-radius:5px;" (click)="signIn(credentials)">Sign In</button>
    
    
   

@@ -33414,23 +33414,6 @@ ion-navbar.toolbar {
   justify-content: center;
 }
 
-.justified {
-  text-align: justify;
-}
-
-.rowHeading {
-  font-size: 8px;
-}
-
-.border {
-  border: 1px solid black;
-  border-collapse: collapse;
-}
-
-.text-center {
-  text-align: center !important;
-}
-
 .logo {
   display: block;
   margin-left: auto;
@@ -33439,7 +33422,7 @@ ion-navbar.toolbar {
   width: 200px;
 }
 
-ion-content {
+.top-botton-border {
   border-top: 5px solid #2679b0;
   border-bottom: 5px solid #f6a253;
 }

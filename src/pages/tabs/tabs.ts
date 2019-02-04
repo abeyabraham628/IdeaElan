@@ -1,10 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import {HomePage} from '../home/home'
-import {AddItPage} from '../add-it/add-it'
-import {NewuserPage} from '../newuser/newuser'
-import {RecruitmentPage} from '../recruitment/recruitment'
-import {SystemsPage} from '../systems/systems'
+
 
 /**
  * Generated class for the TabsPage page.
@@ -21,10 +17,10 @@ import {SystemsPage} from '../systems/systems'
 export class TabsPage {
   //Headername="users";
   
-  tab1Root = NewuserPage;
-  tab2Root = SystemsPage ;
-  tab3Root = RecruitmentPage;
-  tab4Root =  SystemsPage;
+  tab1Root = 'NewuserPage';
+  tab2Root = 'SystemsPage' ;
+  tab3Root = 'RecruitmentPage';
+  
   
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     

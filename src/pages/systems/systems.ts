@@ -24,8 +24,7 @@ import { DatePipe } from '@angular/common';
 export class SystemsPage {
 
   Save="Save"
- 
-
+    
     systemsForm= new FormGroup({
     $key      :new FormControl(null),
     systemId  :new FormControl(''),

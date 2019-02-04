@@ -4,7 +4,7 @@ import { SystemsPage } from './systems';
 
 @NgModule({
   declarations: [
-   // SystemsPage,
+   SystemsPage,
   ],
   imports: [
     IonicPageModule.forChild(SystemsPage),

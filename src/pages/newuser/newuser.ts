@@ -1,3 +1,6 @@
+import { AngularFireAuth} from '@angular/fire/auth';
+
+
 import { HeaderName } from './../../models/header';
 import { userItem } from './../../models/user-item/user-item.interface';
 import { Component,ChangeDetectorRef,ViewChild, Input} from '@angular/core';
@@ -61,10 +64,10 @@ export class NewuserPage {
   userItemRef$: AngularFireList<userItem>
 
   icons:string="0";
-  constructor(public navCtrl: NavController,private ref: ChangeDetectorRef, private fdb:AngularFireDatabase,public navParams: NavParams,public alertCtrl: AlertController,private datePicker:DatePicker) {
+  constructor(public navCtrl: NavController,private ref: ChangeDetectorRef, private fdb:AngularFireDatabase,public navParams: NavParams,public alertCtrl: AlertController,private datePicker:DatePicker,private afAuth:AngularFireAuth) {
     // this.disa=false; 
    
-    
+   
     this.icons="0";
     this.users="newUser";
     this.itemRef= fdb.database.ref("/users/");
@@ -196,7 +199,7 @@ getItems(searchbar) {
 
 
 
-btn(  userItem: userItem){
+async btn(  userItem: userItem){
   if(this.butn=="save")
   {
 
@@ -213,7 +216,14 @@ btn(  userItem: userItem){
     this.dnew[4]="null";
     this.dnew[5]="null";
     this.dnew[6]="null";
+    try{
+    const result= await this.afAuth.auth.createUserWithEmailAndPassword(this.userItem.email,this.userItem.password)
+    console.log(result)
+    }catch(e){
+      console.error(e)
+    }
 
+    
     const ref = this.fdb.list("users").query.ref.push(); ref.set({
       key : ref.key,
        
@@ -234,7 +244,6 @@ btn(  userItem: userItem){
 //this.glu = this.firebaseApp.database().ref().child("/child/").push().key;
 const ref = this.fdb.list("users").query.ref.push(); ref.set({
   key : ref.key,
-   
   fname : this.userItem.fname,
   lname:this.userItem.lname,
   dob:this.userItem.dob,

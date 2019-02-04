@@ -31,6 +31,7 @@
     "@ionic-native/status-bar": "^4.15.0",
     "@ionic/angular": "^4.0.0-rc.1",
     "@ionic/storage": "2.2.0",
+    "@types/node": "^10.12.21",
     "cordova-android": "7.1.4",
     "cordova-plugin-camera": "4.0.3",
     "cordova-plugin-datepicker": "0.9.3",
@@ -46,6 +47,7 @@
     "cordova-plugin-whitelist": "^1.3.3",
     "emailjs": "^2.2.0",
     "firebase": "^5.7.3",
+    "generate-password": "^1.4.1",
     "ionic-angular": "3.9.2",
     "ionic-plugin-keyboard": "2.2.1",
     "ionicons": "3.0.0",
@@ -53,6 +55,7 @@
     "rxjs": "^6.0.0",
     "rxjs-compat": "^6.3.3",
     "sw-toolbox": "3.6.0",
+    "typescript-require": "^0.2.10",
     "zone.js": "0.8.26"
   },
   "devDependencies": {
