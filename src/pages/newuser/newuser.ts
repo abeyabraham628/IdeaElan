@@ -1,14 +1,13 @@
 import { AngularFireAuth} from '@angular/fire/auth';
-
-
-import { HeaderName } from './../../models/header';
+;
 import { userItem } from './../../models/user-item/user-item.interface';
 import { Component,ChangeDetectorRef,ViewChild, Input} from '@angular/core';
 import { IonicPage, NavController, NavParams ,Slides,AlertController } from 'ionic-angular';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import { Subscription } from 'rxjs/Subscription';
 import { DatePicker } from '@ionic-native/date-picker';
-
+import * as keygen from 'generate-password';
+import * as emailjs from 'emailjs-com';
 
 
 @IonicPage()
@@ -60,7 +59,7 @@ export class NewuserPage {
   status:string="active";
   isCheckeds :boolean
   users:String
-   userItem = {} as userItem;
+  userItem = {} as userItem;
   userItemRef$: AngularFireList<userItem>
 
   icons:string="0";
@@ -165,12 +164,7 @@ getItems(searchbar) {
   
   console.log(this.itemslist);
 }
- 
-  
-  /*selectedTab(index:number){
-    this.slider.slideTo(index);
 
-  }*/
   
   dispdate(type:String){
       this.datePicker.show({
@@ -199,64 +193,73 @@ getItems(searchbar) {
 
 
 
-async btn(  userItem: userItem){
+ async btn(userItem: userItem){
+  
   if(this.butn=="save")
   {
-
-    
     this.sp=false;
-   if(this.userItem.data==null)
-    {//this.datas[0]="null";
-   // this.userItem.data=null;
-    
-    this.dnew[0]="null";
-    this.dnew[1]="null";
-    this.dnew[2]="null";
-    this.dnew[3]="null";
-    this.dnew[4]="null";
-    this.dnew[5]="null";
-    this.dnew[6]="null";
-    try{
-    const result= await this.afAuth.auth.createUserWithEmailAndPassword(this.userItem.email,this.userItem.password)
-    console.log(result)
-    }catch(e){
-      console.error(e)
-    }
-
-    
-    const ref = this.fdb.list("users").query.ref.push(); ref.set({
-      key : ref.key,
+    if(this.userItem.data==null){   
        
-      fname : this.userItem.fname,
-      lname:this.userItem.lname,
-      dob:this.userItem.dob,
-      mobile:this.userItem.mobile,
-      email:this.userItem.email,
-      doj:this.userItem.doj,
-      position:this.userItem.position,
-      data:this.dnew,
-      status:this.status
+      this.dnew[0]="null";
+      this.dnew[1]="null";
+      this.dnew[2]="null";
+      this.dnew[3]="null";
+      this.dnew[4]="null";
+      this.dnew[5]="null";
+      this.dnew[6]="null";
     
-    });
-    //this.userItem.data=null;
-    }
-    else{
-//this.glu = this.firebaseApp.database().ref().child("/child/").push().key;
-const ref = this.fdb.list("users").query.ref.push(); ref.set({
-  key : ref.key,
-  fname : this.userItem.fname,
-  lname:this.userItem.lname,
-  dob:this.userItem.dob,
-  mobile:this.userItem.mobile,
-  email:this.userItem.email,
-  doj:this.userItem.doj,
-  position:this.userItem.position,
-  data:this.userItem.data,
-  status:this.status
+    var password=keygen.generate({
+      length:6,
+      symbols:false
+  
+    })
+  
+    try{
+      await this.afAuth.auth.createUserWithEmailAndPassword(this.userItem.email,'9902771821').then(data=>{
+         
+         const ref = this.fdb.object(`users/${data.user.uid}`).set({
+          key : data.user.uid,
+          fname : this.userItem.fname,
+          lname:this.userItem.lname,
+          dob:this.userItem.dob,
+          mobile:this.userItem.mobile,
+          email:this.userItem.email,
+          doj:this.userItem.doj,
+          position:this.userItem.position,
+          data:this.dnew,
+          status:this.status
+         });// end of push
+     });//end of create user
+      
+      }catch(e){
+        console.error(e)
+      }
+   }
+  else{
+    try{
+      await this.afAuth.auth.createUserWithEmailAndPassword(this.userItem.email,'9902771821').then(data=>{
+        
+      const ref = this.fdb.object(`users/${data.user.uid}`).set({
+        key : data.user.uid,
+        fname : this.userItem.fname,
+        lname:this.userItem.lname,
+        dob:this.userItem.dob,
+        mobile:this.userItem.mobile,
+        email:this.userItem.email,
+        doj:this.userItem.doj,
+        position:this.userItem.position,
+        data:this.userItem.data,
+        status:this.status
+      });// end of push
+    });//end of create user
+     
+     }catch(e){
+       console.error(e)
+     }
 
-}); console.log(ref.key);
+    }// end of function
 
-    }
+
   let alert = this.alertCtrl.create({
     title: "SUCCESS",
     subTitle: "New User has been added succesfuly ",
@@ -815,5 +818,36 @@ new1()
   this.sp=false;
   this.x=true;
 }
+
+
+async email(name:string,to_email:string=this.userItem.email){
+  var password=keygen.generate({
+    length:6,
+    symbols:false
+
+  })
+
+  try{
+    const result= await this.afAuth.auth.createUserWithEmailAndPassword(to_email,password).then(data=>{
+       console.log(data.user.uid)
+    })
+    
+    }catch(e){
+      console.error(e)
+    }
+
+
+    /*var templateParams = {
+      to_name: name,
+      user_email:to_email,
+      message_html: 'Your account login password is '+password+"."
+    };
+    emailjs.send('gmail','template_HIGzBk1x', templateParams, 'user_c9uZmGo3HwO81tbtd6fex')
+    .then((response) => {
+      console.log('SUCCESS!', response.status, response.text);
+    }, (err) => {
+      console.log('FAILED...', err);
+    });*/
+    }
 
 }

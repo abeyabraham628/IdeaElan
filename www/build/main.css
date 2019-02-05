@@ -33414,17 +33414,29 @@ ion-navbar.toolbar {
   justify-content: center;
 }
 
+.top-botton-border {
+  border-top: 5px solid #2679b0;
+  border-bottom: 5px solid #f6a253;
+}
+
+.card-md .item-inner {
+  border-bottom: 1px solid #dedede !important;
+}
+
+.logo1 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  height: 50%;
+}
+
 .logo {
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 110px;
   width: 200px;
-}
-
-.top-botton-border {
-  border-top: 5px solid #2679b0;
-  border-bottom: 5px solid #f6a253;
 }
 
 .logo {
