@@ -10,7 +10,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   templateUrl: 'app.html'
 })
 export class MyApp {
-  rootPage:string = 'LoginPage';//CompanyPolicyComponent;//HomePage
+  rootPage:string = 'ApplyLeavePage';//CompanyPolicyComponent;//HomePage
   
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
   platform.ready().then(() => {

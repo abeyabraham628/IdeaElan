@@ -33419,6 +33419,18 @@ ion-navbar.toolbar {
   border-bottom: 5px solid #f6a253;
 }
 
+.pending {
+  color: orange;
+}
+
+.approved {
+  color: green;
+}
+
+.rejected {
+  color: red;
+}
+
 .card-md .item-inner {
   border-bottom: 1px solid #dedede !important;
 }

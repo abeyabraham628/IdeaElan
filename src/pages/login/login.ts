@@ -37,23 +37,30 @@ export class LoginPage {
   async signIn(user:credentials){
    
     try{
-      const result=await this.afAuth.auth.signInWithEmailAndPassword('tony@gmail.com','9902771821');
-      let navCtrl= this.navCtrl;
-      if(result){
-          await this.firebase.database.ref('TempLogin').orderByChild(result.user.uid).on("value",function(snapshot) {
-            if(snapshot.val()==null)
-              navCtrl.setRoot('ChangepasswordPage');
-            else
-              navCtrl.setRoot('TabsPage');
-       });
+      const result=await this.afAuth.auth.signInWithEmailAndPassword('abey@gmail.com','123456');
+      let x:Promise<boolean>
+      let y;
       
-    }
+    this.navCtrl.setRoot('TabsPage')
+      /*if(result){
+          
+           
+            this.firebase.database.ref('TempLogin').orderByChild(result.user.uid).once("value",(snapshot)=> {
+            y=snapshot.val();
+            Promise.resolve(true).then(()=>{
+              if(y==null)
+              this.navCtrl.setRoot('ChangepasswordPage')
+             else
+            this.navCtrl.setRoot('TabsPage')
+          
+            });
+            })
 
+           */ 
     }catch(e){
       console.error(e);
-    }
-
-
+       }
    }
+     //end of sign in function
   
 }

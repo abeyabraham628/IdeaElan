@@ -58,9 +58,7 @@ getSystems(){
   
 this.getSystemList().subscribe(
   list=>{
-    
     this.systemArray=list.map(item=>{
-      
       return{
         $key:item.key,
         ...item.payload.val()

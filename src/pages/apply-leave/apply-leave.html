@@ -1,0 +1,111 @@
+<!--
+  Generated template for the ApplyLeavePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+
+<ion-header no-border>
+  <ion-toolbar color="blue" hideBackButton="true">
+    <button ion-button  menuToggle="left" start>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    
+    <ion-title text-center>Leaves</ion-title>
+
+    <ion-buttons end>
+      <button ion-button >
+        <ion-icon name="notifications"></ion-icon> 
+      </button> 
+    </ion-buttons>
+    
+</ion-toolbar>
+
+</ion-header>
+
+
+<ion-content>
+
+  <button ion-button (click)="find()">DD</button>
+    <ion-segment [(ngModel)]="leaves" color="white" >
+        <ion-segment-button value="applyLeave">
+           Apply Leave
+        </ion-segment-button>
+        <ion-segment-button value="leaveHistory" (click)="getPastLeaves()">
+          History
+        </ion-segment-button>
+     </ion-segment>
+
+<div [ngSwitch]="leaves">
+  <div *ngSwitchCase="'applyLeave'">
+  
+    <ion-card>
+      <ion-card-content>
+         <ion-row>
+            <ion-col col-6>This month leaves</ion-col>
+            <ion-col col-6>Remaining Leaves</ion-col>
+         </ion-row>
+         
+        <ion-row >
+           <ion-col col-6>5</ion-col><ion-col col-4>Casual</ion-col><ion-col col-2>{{casualRemaining}}</ion-col>
+        </ion-row>
+        <ion-row>
+            <ion-col col-6>5</ion-col><ion-col col-4>Sick</ion-col><ion-col col-2>{{sickRemaining}}</ion-col>
+         </ion-row>
+      </ion-card-content>
+  </ion-card>
+  <h6 text-center class="title section-title">Leave Details</h6>
+    <ion-list radio-group [(ngModel)]="leave.leaveType">
+      <ion-row>
+        <ion-item col-6>
+            <ion-label>Casual Leave</ion-label>
+            <ion-radio  value="casual"></ion-radio>
+        </ion-item>
+        
+        <ion-item col-6>
+          <ion-label>Sick Leave</ion-label>
+          <ion-radio value="sick"></ion-radio>
+        </ion-item>
+      </ion-row>
+    
+  <ion-row>
+    <ion-item col-6>
+      <ion-label stacked>From</ion-label>
+      <ion-input  type="text" (click)="dispdate('from')" [(ngModel)]="leave.dateFrom" (ionFocus)="dispdate('from')" ></ion-input>
+    </ion-item>
+    <ion-item col-6>
+      <ion-label stacked>To</ion-label>
+      <ion-input  type="text" (click)="dispdate('to')" [(ngModel)]="leave.dateTo" (ionFocus)="dispdate('to')" ></ion-input>
+    </ion-item>
+  </ion-row>
+  <ion-row>
+    <button ion-button full color="blue" (click)="submitLeaveRequest()">Submit</button>
+  </ion-row>
+</ion-list>
+
+</div>
+
+    <div *ngSwitchCase="'leaveHistory'">
+        <ion-list>
+        <h6 text-center class="title section-title">Recent Request</h6>
+          <ion-item>
+              <ion-row class="table-title" >
+                <ion-col col-3 >Leave Type</ion-col>
+                <ion-col col-3 >From</ion-col>
+                <ion-col col-3 >To</ion-col>
+                <ion-col col-2 >Status</ion-col>
+                <ion-col hidden col-2>View</ion-col>
+              </ion-row>
+            </ion-item>
+            <ion-item >
+              <ion-row *ngFor="let x of pastLeaves" class="col-text row-bottom-border" [ngClass]='x.status'>
+                  <ion-col col-3>{{x.leaveType}}</ion-col><ion-col col-3>{{x.dateFrom}}</ion-col><ion-col col-3>{{x.dateTo}}</ion-col><ion-col col-2>{{x.status}}</ion-col>
+              </ion-row>
+            </ion-item>
+        </ion-list>
+    </div>
+</div>
+
+
+</ion-content>

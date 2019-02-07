@@ -38,12 +38,18 @@ export class ChangepasswordPage {
         status : "Set",
      }
     ).then(function(){
+      navCtrl.popToRoot()
       navCtrl.setRoot('TabsPage');
     });// end of push
       
     }).catch(function(error) {
       console.error(error)
     });
+  }
+
+
+  cancel(){
+    this.navCtrl.pop()
   }
 
 }
