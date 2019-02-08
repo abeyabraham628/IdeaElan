@@ -38,7 +38,8 @@ import { FIREBASE_CONFIG } from '../providers/firebase-service'
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     IonicStorageModule.forRoot(),
     ReactiveFormsModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    
   ],
   bootstrap: [IonicApp],
   entryComponents: [

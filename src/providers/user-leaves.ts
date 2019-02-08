@@ -4,5 +4,11 @@ export interface leaves{
     dateFrom:string,
     dateTo:string,
     status:string,
-    message:string
+    message:string,
+    count:number
+}
+
+export interface leaveCounter{
+    sick:number,
+    casual:number
 }

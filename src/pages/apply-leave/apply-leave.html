@@ -26,8 +26,8 @@
 
 
 <ion-content>
-
-  <button ion-button (click)="find()">DD</button>
+ 
+  <button ion-button (click)="x()">DD</button>
     <ion-segment [(ngModel)]="leaves" color="white" >
         <ion-segment-button value="applyLeave">
            Apply Leave
@@ -48,10 +48,10 @@
          </ion-row>
          
         <ion-row >
-           <ion-col col-6>5</ion-col><ion-col col-4>Casual</ion-col><ion-col col-2>{{casualRemaining}}</ion-col>
+           <ion-col col-6>{{currentMonthLeave}}</ion-col><ion-col col-4>Casual</ion-col><ion-col col-2>{{casualRemaining}}</ion-col>
         </ion-row>
         <ion-row>
-            <ion-col col-6>5</ion-col><ion-col col-4>Sick</ion-col><ion-col col-2>{{sickRemaining}}</ion-col>
+            <ion-col col-6></ion-col><ion-col col-4>Sick</ion-col><ion-col col-2>{{sickRemaining}}</ion-col>
          </ion-row>
       </ion-card-content>
   </ion-card>
