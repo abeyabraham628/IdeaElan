@@ -3820,6 +3820,2296 @@ $text-input-md-highlight-color-valid: transparent;
 $text-input-md-show-invalid-highlight: transparent;
 $text-input-md-highlight-color: transparent;
 $text-input-md-show-valid-highlight: transparent;*/
+ion-calendar-month {
+  display: inline-block;
+  width: 100%;
+}
+
+ion-calendar-month .days-box {
+  padding: 0.5rem;
+}
+
+ion-calendar-month .days:nth-of-type(7n),
+ion-calendar-month .days:nth-of-type(7n+1) {
+  width: 15%;
+}
+
+ion-calendar-month .days {
+  width: 14%;
+  float: left;
+  text-align: center;
+  height: 36px;
+  margin-bottom: 5px;
+}
+
+ion-calendar-month .days .marked p {
+  font-weight: 500;
+}
+
+ion-calendar-month .days .on-selected {
+  border: none;
+}
+
+ion-calendar-month .days .on-selected p {
+  font-size: 1.3em;
+}
+
+ion-calendar-month button.days-btn {
+  border-radius: 36px;
+  width: 36px;
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  height: 36px;
+  background-color: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+ion-calendar-month button.days-btn p {
+  margin: 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+ion-calendar-month button.days-btn.on-selected small {
+  -webkit-transition: bottom .3s;
+  transition: bottom .3s;
+  bottom: -14px;
+}
+
+ion-calendar-month button.days-btn small {
+  overflow: hidden;
+  display: block;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  font-weight: 200;
+}
+
+ion-calendar-month .primary button.days-btn small,
+ion-calendar-month .primary .days .marked p,
+ion-calendar-month .primary .days .today p {
+  color: #488aff;
+}
+
+ion-calendar-month .primary .days .today p {
+  font-weight: 700;
+}
+
+ion-calendar-month .primary .days .last-month-day p,
+ion-calendar-month .primary .days .next-month-day p {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+ion-calendar-month .primary .days .today.on-selected p,
+ion-calendar-month .primary .days .marked.on-selected p {
+  color: #fff;
+}
+
+ion-calendar-month .primary .days .on-selected,
+ion-calendar-month .primary .startSelection button.days-btn,
+ion-calendar-month .primary .endSelection button.days-btn {
+  background-color: #488aff;
+  color: #fff;
+}
+
+ion-calendar-month .primary .startSelection {
+  position: relative;
+}
+
+ion-calendar-month .primary .startSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background-color: #85b1ff;
+}
+
+ion-calendar-month .primary .endSelection {
+  position: relative;
+}
+
+ion-calendar-month .primary .endSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: #85b1ff;
+}
+
+ion-calendar-month .primary .startSelection.endSelection:after {
+  background-color: transparent;
+}
+
+ion-calendar-month .primary .startSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .primary .between button.days-btn {
+  background-color: #85b1ff;
+  width: 100%;
+  border-radius: 0;
+}
+
+ion-calendar-month .primary .between button.days-btn p {
+  color: #fff;
+}
+
+ion-calendar-month .primary .endSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .primary .endSelection button.days-btn p {
+  color: #fff;
+}
+
+ion-calendar-month .primary .days.startSelection:nth-child(7n):after,
+ion-calendar-month .primary .days.between:nth-child(7n) button.days-btn,
+ion-calendar-month .primary button.days-btn.is-last {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .primary .days.startSelection:nth-child(7n):after.on-selected,
+ion-calendar-month .primary .days.between:nth-child(7n) button.days-btn.on-selected,
+ion-calendar-month .primary button.days-btn.is-last.on-selected {
+  border-radius: 50%;
+}
+
+ion-calendar-month .primary .days.endSelection:nth-child(7n+1):after,
+ion-calendar-month .primary .days.between:nth-child(7n+1) button.days-btn,
+ion-calendar-month .primary button.days-btn.is-first {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .primary .startSelection button.days-btn.is-first,
+ion-calendar-month .primary .endSelection button.days-btn.is-first,
+ion-calendar-month .primary button.days-btn.is-first.on-selected,
+ion-calendar-month .primary button.days-btn.is-last.on-selected,
+ion-calendar-month .primary .startSelection button.days-btn.is-last,
+ion-calendar-month .primary .endSelection button.days-btn.is-last {
+  border-radius: 50%;
+}
+
+ion-calendar-month .primary .startSelection.is-last-wrap::after {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .primary .endSelection.is-first-wrap::after {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .primary .days .on-selected p {
+  color: #fff;
+}
+
+ion-calendar-month .primary .startSelection button.days-btn,
+ion-calendar-month .primary .endSelection button.days-btn,
+ion-calendar-month .primary .between button.days-btn {
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 180ms;
+  transition-duration: 180ms;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+ion-calendar-month .secondary button.days-btn small,
+ion-calendar-month .secondary .days .marked p,
+ion-calendar-month .secondary .days .today p {
+  color: #32db64;
+}
+
+ion-calendar-month .secondary .days .today p {
+  font-weight: 700;
+}
+
+ion-calendar-month .secondary .days .last-month-day p,
+ion-calendar-month .secondary .days .next-month-day p {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+ion-calendar-month .secondary .days .today.on-selected p,
+ion-calendar-month .secondary .days .marked.on-selected p {
+  color: #fff;
+}
+
+ion-calendar-month .secondary .days .on-selected,
+ion-calendar-month .secondary .startSelection button.days-btn,
+ion-calendar-month .secondary .endSelection button.days-btn {
+  background-color: #32db64;
+  color: #fff;
+}
+
+ion-calendar-month .secondary .startSelection {
+  position: relative;
+}
+
+ion-calendar-month .secondary .startSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background-color: #66e48b;
+}
+
+ion-calendar-month .secondary .endSelection {
+  position: relative;
+}
+
+ion-calendar-month .secondary .endSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: #66e48b;
+}
+
+ion-calendar-month .secondary .startSelection.endSelection:after {
+  background-color: transparent;
+}
+
+ion-calendar-month .secondary .startSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .secondary .between button.days-btn {
+  background-color: #66e48b;
+  width: 100%;
+  border-radius: 0;
+}
+
+ion-calendar-month .secondary .between button.days-btn p {
+  color: #fff;
+}
+
+ion-calendar-month .secondary .endSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .secondary .endSelection button.days-btn p {
+  color: #fff;
+}
+
+ion-calendar-month .secondary .days.startSelection:nth-child(7n):after,
+ion-calendar-month .secondary .days.between:nth-child(7n) button.days-btn,
+ion-calendar-month .secondary button.days-btn.is-last {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .secondary .days.startSelection:nth-child(7n):after.on-selected,
+ion-calendar-month .secondary .days.between:nth-child(7n) button.days-btn.on-selected,
+ion-calendar-month .secondary button.days-btn.is-last.on-selected {
+  border-radius: 50%;
+}
+
+ion-calendar-month .secondary .days.endSelection:nth-child(7n+1):after,
+ion-calendar-month .secondary .days.between:nth-child(7n+1) button.days-btn,
+ion-calendar-month .secondary button.days-btn.is-first {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .secondary .startSelection button.days-btn.is-first,
+ion-calendar-month .secondary .endSelection button.days-btn.is-first,
+ion-calendar-month .secondary button.days-btn.is-first.on-selected,
+ion-calendar-month .secondary button.days-btn.is-last.on-selected,
+ion-calendar-month .secondary .startSelection button.days-btn.is-last,
+ion-calendar-month .secondary .endSelection button.days-btn.is-last {
+  border-radius: 50%;
+}
+
+ion-calendar-month .secondary .startSelection.is-last-wrap::after {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .secondary .endSelection.is-first-wrap::after {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .secondary .days .on-selected p {
+  color: #fff;
+}
+
+ion-calendar-month .secondary .startSelection button.days-btn,
+ion-calendar-month .secondary .endSelection button.days-btn,
+ion-calendar-month .secondary .between button.days-btn {
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 180ms;
+  transition-duration: 180ms;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+ion-calendar-month .danger button.days-btn small,
+ion-calendar-month .danger .days .marked p,
+ion-calendar-month .danger .days .today p {
+  color: #f53d3d;
+}
+
+ion-calendar-month .danger .days .today p {
+  font-weight: 700;
+}
+
+ion-calendar-month .danger .days .last-month-day p,
+ion-calendar-month .danger .days .next-month-day p {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+ion-calendar-month .danger .days .today.on-selected p,
+ion-calendar-month .danger .days .marked.on-selected p {
+  color: #fff;
+}
+
+ion-calendar-month .danger .days .on-selected,
+ion-calendar-month .danger .startSelection button.days-btn,
+ion-calendar-month .danger .endSelection button.days-btn {
+  background-color: #f53d3d;
+  color: #fff;
+}
+
+ion-calendar-month .danger .startSelection {
+  position: relative;
+}
+
+ion-calendar-month .danger .startSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background-color: #f87777;
+}
+
+ion-calendar-month .danger .endSelection {
+  position: relative;
+}
+
+ion-calendar-month .danger .endSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: #f87777;
+}
+
+ion-calendar-month .danger .startSelection.endSelection:after {
+  background-color: transparent;
+}
+
+ion-calendar-month .danger .startSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .danger .between button.days-btn {
+  background-color: #f87777;
+  width: 100%;
+  border-radius: 0;
+}
+
+ion-calendar-month .danger .between button.days-btn p {
+  color: #fff;
+}
+
+ion-calendar-month .danger .endSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .danger .endSelection button.days-btn p {
+  color: #fff;
+}
+
+ion-calendar-month .danger .days.startSelection:nth-child(7n):after,
+ion-calendar-month .danger .days.between:nth-child(7n) button.days-btn,
+ion-calendar-month .danger button.days-btn.is-last {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .danger .days.startSelection:nth-child(7n):after.on-selected,
+ion-calendar-month .danger .days.between:nth-child(7n) button.days-btn.on-selected,
+ion-calendar-month .danger button.days-btn.is-last.on-selected {
+  border-radius: 50%;
+}
+
+ion-calendar-month .danger .days.endSelection:nth-child(7n+1):after,
+ion-calendar-month .danger .days.between:nth-child(7n+1) button.days-btn,
+ion-calendar-month .danger button.days-btn.is-first {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .danger .startSelection button.days-btn.is-first,
+ion-calendar-month .danger .endSelection button.days-btn.is-first,
+ion-calendar-month .danger button.days-btn.is-first.on-selected,
+ion-calendar-month .danger button.days-btn.is-last.on-selected,
+ion-calendar-month .danger .startSelection button.days-btn.is-last,
+ion-calendar-month .danger .endSelection button.days-btn.is-last {
+  border-radius: 50%;
+}
+
+ion-calendar-month .danger .startSelection.is-last-wrap::after {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .danger .endSelection.is-first-wrap::after {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .danger .days .on-selected p {
+  color: #fff;
+}
+
+ion-calendar-month .danger .startSelection button.days-btn,
+ion-calendar-month .danger .endSelection button.days-btn,
+ion-calendar-month .danger .between button.days-btn {
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 180ms;
+  transition-duration: 180ms;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+ion-calendar-month .dark button.days-btn small,
+ion-calendar-month .dark .days .marked p,
+ion-calendar-month .dark .days .today p {
+  color: #222;
+}
+
+ion-calendar-month .dark .days .today p {
+  font-weight: 700;
+}
+
+ion-calendar-month .dark .days .last-month-day p,
+ion-calendar-month .dark .days .next-month-day p {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+ion-calendar-month .dark .days .today.on-selected p,
+ion-calendar-month .dark .days .marked.on-selected p {
+  color: #fff;
+}
+
+ion-calendar-month .dark .days .on-selected,
+ion-calendar-month .dark .startSelection button.days-btn,
+ion-calendar-month .dark .endSelection button.days-btn {
+  background-color: #222;
+  color: #fff;
+}
+
+ion-calendar-month .dark .startSelection {
+  position: relative;
+}
+
+ion-calendar-month .dark .startSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background-color: #414141;
+}
+
+ion-calendar-month .dark .endSelection {
+  position: relative;
+}
+
+ion-calendar-month .dark .endSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: #414141;
+}
+
+ion-calendar-month .dark .startSelection.endSelection:after {
+  background-color: transparent;
+}
+
+ion-calendar-month .dark .startSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .dark .between button.days-btn {
+  background-color: #414141;
+  width: 100%;
+  border-radius: 0;
+}
+
+ion-calendar-month .dark .between button.days-btn p {
+  color: #fff;
+}
+
+ion-calendar-month .dark .endSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .dark .endSelection button.days-btn p {
+  color: #fff;
+}
+
+ion-calendar-month .dark .days.startSelection:nth-child(7n):after,
+ion-calendar-month .dark .days.between:nth-child(7n) button.days-btn,
+ion-calendar-month .dark button.days-btn.is-last {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .dark .days.startSelection:nth-child(7n):after.on-selected,
+ion-calendar-month .dark .days.between:nth-child(7n) button.days-btn.on-selected,
+ion-calendar-month .dark button.days-btn.is-last.on-selected {
+  border-radius: 50%;
+}
+
+ion-calendar-month .dark .days.endSelection:nth-child(7n+1):after,
+ion-calendar-month .dark .days.between:nth-child(7n+1) button.days-btn,
+ion-calendar-month .dark button.days-btn.is-first {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .dark .startSelection button.days-btn.is-first,
+ion-calendar-month .dark .endSelection button.days-btn.is-first,
+ion-calendar-month .dark button.days-btn.is-first.on-selected,
+ion-calendar-month .dark button.days-btn.is-last.on-selected,
+ion-calendar-month .dark .startSelection button.days-btn.is-last,
+ion-calendar-month .dark .endSelection button.days-btn.is-last {
+  border-radius: 50%;
+}
+
+ion-calendar-month .dark .startSelection.is-last-wrap::after {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .dark .endSelection.is-first-wrap::after {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .dark .days .on-selected p {
+  color: #fff;
+}
+
+ion-calendar-month .dark .startSelection button.days-btn,
+ion-calendar-month .dark .endSelection button.days-btn,
+ion-calendar-month .dark .between button.days-btn {
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 180ms;
+  transition-duration: 180ms;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+ion-calendar-month .light button.days-btn small,
+ion-calendar-month .light .days .marked p,
+ion-calendar-month .light .days .today p {
+  color: #f4f4f4;
+}
+
+ion-calendar-month .light .days .today p {
+  font-weight: 700;
+}
+
+ion-calendar-month .light .days .last-month-day p,
+ion-calendar-month .light .days .next-month-day p {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+ion-calendar-month .light .days .today.on-selected p,
+ion-calendar-month .light .days .marked.on-selected p {
+  color: #a0a0a0;
+}
+
+ion-calendar-month .light .days .on-selected,
+ion-calendar-month .light .startSelection button.days-btn,
+ion-calendar-month .light .endSelection button.days-btn {
+  background-color: #f4f4f4;
+  color: #a0a0a0;
+}
+
+ion-calendar-month .light .startSelection {
+  position: relative;
+}
+
+ion-calendar-month .light .startSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background-color: white;
+}
+
+ion-calendar-month .light .endSelection {
+  position: relative;
+}
+
+ion-calendar-month .light .endSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: white;
+}
+
+ion-calendar-month .light .startSelection.endSelection:after {
+  background-color: transparent;
+}
+
+ion-calendar-month .light .startSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .light .between button.days-btn {
+  background-color: white;
+  width: 100%;
+  border-radius: 0;
+}
+
+ion-calendar-month .light .between button.days-btn p {
+  color: #a0a0a0;
+}
+
+ion-calendar-month .light .endSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .light .endSelection button.days-btn p {
+  color: #a0a0a0;
+}
+
+ion-calendar-month .light .days.startSelection:nth-child(7n):after,
+ion-calendar-month .light .days.between:nth-child(7n) button.days-btn,
+ion-calendar-month .light button.days-btn.is-last {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .light .days.startSelection:nth-child(7n):after.on-selected,
+ion-calendar-month .light .days.between:nth-child(7n) button.days-btn.on-selected,
+ion-calendar-month .light button.days-btn.is-last.on-selected {
+  border-radius: 50%;
+}
+
+ion-calendar-month .light .days.endSelection:nth-child(7n+1):after,
+ion-calendar-month .light .days.between:nth-child(7n+1) button.days-btn,
+ion-calendar-month .light button.days-btn.is-first {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .light .startSelection button.days-btn.is-first,
+ion-calendar-month .light .endSelection button.days-btn.is-first,
+ion-calendar-month .light button.days-btn.is-first.on-selected,
+ion-calendar-month .light button.days-btn.is-last.on-selected,
+ion-calendar-month .light .startSelection button.days-btn.is-last,
+ion-calendar-month .light .endSelection button.days-btn.is-last {
+  border-radius: 50%;
+}
+
+ion-calendar-month .light .startSelection.is-last-wrap::after {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .light .endSelection.is-first-wrap::after {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .light .days .on-selected p {
+  color: #a0a0a0;
+}
+
+ion-calendar-month .light .startSelection button.days-btn,
+ion-calendar-month .light .endSelection button.days-btn,
+ion-calendar-month .light .between button.days-btn {
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 180ms;
+  transition-duration: 180ms;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+ion-calendar-month .light .days .today p {
+  color: #565656;
+}
+
+ion-calendar-month .cal-color button.days-btn small,
+ion-calendar-month .cal-color .days .marked p,
+ion-calendar-month .cal-color .days .today p {
+  color: #488aff;
+}
+
+ion-calendar-month .cal-color .days .today p {
+  font-weight: 700;
+}
+
+ion-calendar-month .cal-color .days .last-month-day p,
+ion-calendar-month .cal-color .days .next-month-day p {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+ion-calendar-month .cal-color .days .today.on-selected p,
+ion-calendar-month .cal-color .days .marked.on-selected p {
+  color: #fff;
+}
+
+ion-calendar-month .cal-color .days .on-selected,
+ion-calendar-month .cal-color .startSelection button.days-btn,
+ion-calendar-month .cal-color .endSelection button.days-btn {
+  background-color: #488aff;
+  color: #fff;
+}
+
+ion-calendar-month .cal-color .startSelection {
+  position: relative;
+}
+
+ion-calendar-month .cal-color .startSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background-color: #85b1ff;
+}
+
+ion-calendar-month .cal-color .endSelection {
+  position: relative;
+}
+
+ion-calendar-month .cal-color .endSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: #85b1ff;
+}
+
+ion-calendar-month .cal-color .startSelection.endSelection:after {
+  background-color: transparent;
+}
+
+ion-calendar-month .cal-color .startSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .cal-color .between button.days-btn {
+  background-color: #85b1ff;
+  width: 100%;
+  border-radius: 0;
+}
+
+ion-calendar-month .cal-color .between button.days-btn p {
+  color: #fff;
+}
+
+ion-calendar-month .cal-color .endSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .cal-color .endSelection button.days-btn p {
+  color: #fff;
+}
+
+ion-calendar-month .cal-color .days.startSelection:nth-child(7n):after,
+ion-calendar-month .cal-color .days.between:nth-child(7n) button.days-btn,
+ion-calendar-month .cal-color button.days-btn.is-last {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .cal-color .days.startSelection:nth-child(7n):after.on-selected,
+ion-calendar-month .cal-color .days.between:nth-child(7n) button.days-btn.on-selected,
+ion-calendar-month .cal-color button.days-btn.is-last.on-selected {
+  border-radius: 50%;
+}
+
+ion-calendar-month .cal-color .days.endSelection:nth-child(7n+1):after,
+ion-calendar-month .cal-color .days.between:nth-child(7n+1) button.days-btn,
+ion-calendar-month .cal-color button.days-btn.is-first {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .cal-color .startSelection button.days-btn.is-first,
+ion-calendar-month .cal-color .endSelection button.days-btn.is-first,
+ion-calendar-month .cal-color button.days-btn.is-first.on-selected,
+ion-calendar-month .cal-color button.days-btn.is-last.on-selected,
+ion-calendar-month .cal-color .startSelection button.days-btn.is-last,
+ion-calendar-month .cal-color .endSelection button.days-btn.is-last {
+  border-radius: 50%;
+}
+
+ion-calendar-month .cal-color .startSelection.is-last-wrap::after {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .cal-color .endSelection.is-first-wrap::after {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .cal-color .days .on-selected p {
+  color: #fff;
+}
+
+ion-calendar-month .cal-color .startSelection button.days-btn,
+ion-calendar-month .cal-color .endSelection button.days-btn,
+ion-calendar-month .cal-color .between button.days-btn {
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 180ms;
+  transition-duration: 180ms;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+ion-calendar-month-picker .month-picker {
+  margin: 20px 0;
+  display: inline-block;
+  width: 100%;
+}
+
+ion-calendar-month-picker .month-packer-item {
+  width: 25%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  height: 50px;
+  padding: 5px;
+}
+
+ion-calendar-month-picker .month-packer-item button {
+  border-radius: 32px;
+  width: 100%;
+  height: 100%;
+  font-size: 1em;
+  background-color: transparent;
+}
+
+ion-calendar-month-picker .month-picker.primary .month-packer-item.this-month button {
+  border: 1px solid #488aff;
+}
+
+ion-calendar-month-picker .month-picker.primary .month-packer-item.active button {
+  background-color: #488aff;
+  color: #fff;
+}
+
+ion-calendar-month-picker .month-picker.secondary .month-packer-item.this-month button {
+  border: 1px solid #32db64;
+}
+
+ion-calendar-month-picker .month-picker.secondary .month-packer-item.active button {
+  background-color: #32db64;
+  color: #fff;
+}
+
+ion-calendar-month-picker .month-picker.danger .month-packer-item.this-month button {
+  border: 1px solid #f53d3d;
+}
+
+ion-calendar-month-picker .month-picker.danger .month-packer-item.active button {
+  background-color: #f53d3d;
+  color: #fff;
+}
+
+ion-calendar-month-picker .month-picker.dark .month-packer-item.this-month button {
+  border: 1px solid #222;
+}
+
+ion-calendar-month-picker .month-picker.dark .month-packer-item.active button {
+  background-color: #222;
+  color: #fff;
+}
+
+ion-calendar-month-picker .month-picker.light .month-packer-item.this-month button {
+  border: 1px solid #f4f4f4;
+}
+
+ion-calendar-month-picker .month-picker.light .month-packer-item.active button {
+  background-color: #f4f4f4;
+  color: #9e9e9e;
+}
+
+ion-calendar-month-picker .month-picker.transparent {
+  background-color: transparent;
+}
+
+ion-calendar-month-picker .month-picker.transparent .month-packer-item.this-month button {
+  border: 1px solid #f4f4f4;
+}
+
+ion-calendar-month-picker .month-picker.transparent .month-packer-item.active button {
+  background-color: #f4f4f4;
+  color: #9e9e9e;
+}
+
+ion-calendar-month-picker .month-picker.cal-color .month-packer-item.this-month button {
+  border: 1px solid #488aff;
+}
+
+ion-calendar-month-picker .month-picker.cal-color .month-packer-item.active button {
+  background-color: #488aff;
+  color: #fff;
+}
+
+ion-calendar-week .toolbar-background-md, ion-calendar-week .toolbar-background-ios {
+  background: transparent;
+}
+
+ion-calendar-week .week-toolbar {
+  padding: 0;
+}
+
+ion-calendar-week .week-toolbar.toolbar-md {
+  min-height: 44px;
+}
+
+ion-calendar-week .week-title.primary {
+  margin: 0;
+  color: #fff;
+  height: 44px;
+  width: 100%;
+  background-color: #488aff;
+  padding: 15px 0;
+}
+
+ion-calendar-week .week-title.secondary {
+  margin: 0;
+  color: #fff;
+  height: 44px;
+  width: 100%;
+  background-color: #32db64;
+  padding: 15px 0;
+}
+
+ion-calendar-week .week-title.danger {
+  margin: 0;
+  color: #fff;
+  height: 44px;
+  width: 100%;
+  background-color: #f53d3d;
+  padding: 15px 0;
+}
+
+ion-calendar-week .week-title.dark {
+  margin: 0;
+  color: #fff;
+  height: 44px;
+  width: 100%;
+  background-color: #222;
+  padding: 15px 0;
+}
+
+ion-calendar-week .week-title.light {
+  margin: 0;
+  color: #9e9e9e;
+  height: 44px;
+  width: 100%;
+  background-color: #f4f4f4;
+  padding: 15px 0;
+}
+
+ion-calendar-week .week-title.transparent {
+  margin: 0;
+  color: #9e9e9e;
+  height: 44px;
+  width: 100%;
+  background-color: #f4f4f4;
+  padding: 15px 0;
+  background-color: transparent;
+}
+
+ion-calendar-week .week-title.cal-color {
+  margin: 0;
+  color: #fff;
+  height: 44px;
+  width: 100%;
+  background-color: #488aff;
+  padding: 15px 0;
+}
+
+ion-calendar-week .week-title li {
+  list-style-type: none;
+  display: block;
+  float: left;
+  width: 14%;
+  text-align: center;
+}
+
+ion-calendar-week .week-title li:nth-of-type(7n), ion-calendar-week .week-title li:nth-of-type(7n+1) {
+  width: 15%;
+}
+
+ion-calendar-modal ion-select {
+  max-width: unset;
+}
+
+ion-calendar-modal ion-select .select-icon > .select-icon-inner, ion-calendar-modal ion-select .select-text {
+  color: #fff !important;
+}
+
+ion-calendar-modal ion-select.select-ios {
+  max-width: unset;
+}
+
+ion-calendar-modal .calendar-page {
+  background-color: #fbfbfb;
+}
+
+ion-calendar-modal .month-box {
+  display: inline-block;
+  width: 100%;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+ion-calendar-modal h4 {
+  font-weight: 400;
+  font-size: 1.8rem;
+  display: block;
+  text-align: center;
+  margin: 1rem 0 0;
+  color: #929292;
+}
+
+ion-calendar {
+  padding: 10px 20px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  background-color: #fff;
+  width: 100%;
+}
+
+ion-calendar .title {
+  padding: 0 40px 0 40px;
+  overflow: hidden;
+}
+
+ion-calendar .title .back, ion-calendar .title .forward, ion-calendar .title .switch-btn {
+  display: block;
+  position: relative;
+  float: left;
+  min-height: 32px;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+}
+
+ion-calendar .title .back, ion-calendar .title .forward {
+  color: #757575;
+}
+
+ion-calendar .title .back {
+  margin-left: -100%;
+  left: -40px;
+  width: 40px;
+}
+
+ion-calendar .title .forward {
+  margin-left: -40px;
+  right: -40px;
+  width: 40px;
+}
+
+ion-calendar .title .switch-btn {
+  width: 100%;
+  text-align: center;
+  line-height: 32px;
+  color: #757575;
+}
+
+ion-calendar .title .switch-btn .arrow-dropdown {
+  margin-left: 5px;
+}
+
+ion-calendar .days.between .days-btn.is-last, ion-calendar .days.between .days-btn.is-first {
+  border-radius: 0;
+}
+
+ion-calendar .component-mode .days.startSelection.is-last-wrap::after {
+  border-radius: 0;
+}
+
+ion-calendar .component-mode .days.endSelection.is-first-wrap::after {
+  border-radius: 0;
+}
+
+ion-calendar {
+  padding: 10px 20px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: inline-block;
+  background-color: #fff;
+  width: 100%;
+}
+
+ion-calendar .title {
+  padding: 0 40px 0 40px;
+  overflow: hidden;
+}
+
+ion-calendar .title .back, ion-calendar .title .forward, ion-calendar .title .switch-btn {
+  display: block;
+  position: relative;
+  float: left;
+  min-height: 32px;
+  margin: 0;
+  padding: 0;
+  font-size: 15px;
+}
+
+ion-calendar .title .back, ion-calendar .title .forward {
+  color: #757575;
+}
+
+ion-calendar .title .back {
+  margin-left: -100%;
+  left: -40px;
+  width: 40px;
+}
+
+ion-calendar .title .forward {
+  margin-left: -40px;
+  right: -40px;
+  width: 40px;
+}
+
+ion-calendar .title .switch-btn {
+  width: 100%;
+  text-align: center;
+  line-height: 32px;
+  color: #757575;
+}
+
+ion-calendar .title .switch-btn .arrow-dropdown {
+  margin-left: 5px;
+}
+
+ion-calendar .days.between .days-btn.is-last, ion-calendar .days.between .days-btn.is-first {
+  border-radius: 0;
+}
+
+ion-calendar .component-mode .days.startSelection.is-last-wrap::after {
+  border-radius: 0;
+}
+
+ion-calendar .component-mode .days.endSelection.is-first-wrap::after {
+  border-radius: 0;
+}
+
+ion-calendar-modal ion-select {
+  max-width: unset;
+}
+
+ion-calendar-modal ion-select .select-icon > .select-icon-inner, ion-calendar-modal ion-select .select-text {
+  color: #fff !important;
+}
+
+ion-calendar-modal ion-select.select-ios {
+  max-width: unset;
+}
+
+ion-calendar-modal .calendar-page {
+  background-color: #fbfbfb;
+}
+
+ion-calendar-modal .month-box {
+  display: inline-block;
+  width: 100%;
+  padding-bottom: 1em;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+ion-calendar-modal h4 {
+  font-weight: 400;
+  font-size: 1.8rem;
+  display: block;
+  text-align: center;
+  margin: 1rem 0 0;
+  color: #929292;
+}
+
+ion-calendar-month {
+  display: inline-block;
+  width: 100%;
+}
+
+ion-calendar-month .days-box {
+  padding: 0.5rem;
+}
+
+ion-calendar-month .days:nth-of-type(7n),
+ion-calendar-month .days:nth-of-type(7n+1) {
+  width: 15%;
+}
+
+ion-calendar-month .days {
+  width: 14%;
+  float: left;
+  text-align: center;
+  height: 36px;
+  margin-bottom: 5px;
+}
+
+ion-calendar-month .days .marked p {
+  font-weight: 500;
+}
+
+ion-calendar-month .days .on-selected {
+  border: none;
+}
+
+ion-calendar-month .days .on-selected p {
+  font-size: 1.3em;
+}
+
+ion-calendar-month button.days-btn {
+  border-radius: 36px;
+  width: 36px;
+  display: block;
+  margin: 0 auto;
+  padding: 0;
+  height: 36px;
+  background-color: transparent;
+  position: relative;
+  z-index: 2;
+}
+
+ion-calendar-month button.days-btn p {
+  margin: 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+ion-calendar-month button.days-btn.on-selected small {
+  -webkit-transition: bottom .3s;
+  transition: bottom .3s;
+  bottom: -14px;
+}
+
+ion-calendar-month button.days-btn small {
+  overflow: hidden;
+  display: block;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  font-weight: 200;
+}
+
+ion-calendar-month .primary button.days-btn small,
+ion-calendar-month .primary .days .marked p,
+ion-calendar-month .primary .days .today p {
+  color: #488aff;
+}
+
+ion-calendar-month .primary .days .today p {
+  font-weight: 700;
+}
+
+ion-calendar-month .primary .days .last-month-day p,
+ion-calendar-month .primary .days .next-month-day p {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+ion-calendar-month .primary .days .today.on-selected p,
+ion-calendar-month .primary .days .marked.on-selected p {
+  color: #fff;
+}
+
+ion-calendar-month .primary .days .on-selected,
+ion-calendar-month .primary .startSelection button.days-btn,
+ion-calendar-month .primary .endSelection button.days-btn {
+  background-color: #488aff;
+  color: #fff;
+}
+
+ion-calendar-month .primary .startSelection {
+  position: relative;
+}
+
+ion-calendar-month .primary .startSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background-color: #85b1ff;
+}
+
+ion-calendar-month .primary .endSelection {
+  position: relative;
+}
+
+ion-calendar-month .primary .endSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: #85b1ff;
+}
+
+ion-calendar-month .primary .startSelection.endSelection:after {
+  background-color: transparent;
+}
+
+ion-calendar-month .primary .startSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .primary .between button.days-btn {
+  background-color: #85b1ff;
+  width: 100%;
+  border-radius: 0;
+}
+
+ion-calendar-month .primary .between button.days-btn p {
+  color: #fff;
+}
+
+ion-calendar-month .primary .endSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .primary .endSelection button.days-btn p {
+  color: #fff;
+}
+
+ion-calendar-month .primary .days.startSelection:nth-child(7n):after,
+ion-calendar-month .primary .days.between:nth-child(7n) button.days-btn,
+ion-calendar-month .primary button.days-btn.is-last {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .primary .days.startSelection:nth-child(7n):after.on-selected,
+ion-calendar-month .primary .days.between:nth-child(7n) button.days-btn.on-selected,
+ion-calendar-month .primary button.days-btn.is-last.on-selected {
+  border-radius: 50%;
+}
+
+ion-calendar-month .primary .days.endSelection:nth-child(7n+1):after,
+ion-calendar-month .primary .days.between:nth-child(7n+1) button.days-btn,
+ion-calendar-month .primary button.days-btn.is-first {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .primary .startSelection button.days-btn.is-first,
+ion-calendar-month .primary .endSelection button.days-btn.is-first,
+ion-calendar-month .primary button.days-btn.is-first.on-selected,
+ion-calendar-month .primary button.days-btn.is-last.on-selected,
+ion-calendar-month .primary .startSelection button.days-btn.is-last,
+ion-calendar-month .primary .endSelection button.days-btn.is-last {
+  border-radius: 50%;
+}
+
+ion-calendar-month .primary .startSelection.is-last-wrap::after {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .primary .endSelection.is-first-wrap::after {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .primary .days .on-selected p {
+  color: #fff;
+}
+
+ion-calendar-month .primary .startSelection button.days-btn,
+ion-calendar-month .primary .endSelection button.days-btn,
+ion-calendar-month .primary .between button.days-btn {
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 180ms;
+  transition-duration: 180ms;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+ion-calendar-month .secondary button.days-btn small,
+ion-calendar-month .secondary .days .marked p,
+ion-calendar-month .secondary .days .today p {
+  color: #32db64;
+}
+
+ion-calendar-month .secondary .days .today p {
+  font-weight: 700;
+}
+
+ion-calendar-month .secondary .days .last-month-day p,
+ion-calendar-month .secondary .days .next-month-day p {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+ion-calendar-month .secondary .days .today.on-selected p,
+ion-calendar-month .secondary .days .marked.on-selected p {
+  color: #fff;
+}
+
+ion-calendar-month .secondary .days .on-selected,
+ion-calendar-month .secondary .startSelection button.days-btn,
+ion-calendar-month .secondary .endSelection button.days-btn {
+  background-color: #32db64;
+  color: #fff;
+}
+
+ion-calendar-month .secondary .startSelection {
+  position: relative;
+}
+
+ion-calendar-month .secondary .startSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background-color: #66e48b;
+}
+
+ion-calendar-month .secondary .endSelection {
+  position: relative;
+}
+
+ion-calendar-month .secondary .endSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: #66e48b;
+}
+
+ion-calendar-month .secondary .startSelection.endSelection:after {
+  background-color: transparent;
+}
+
+ion-calendar-month .secondary .startSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .secondary .between button.days-btn {
+  background-color: #66e48b;
+  width: 100%;
+  border-radius: 0;
+}
+
+ion-calendar-month .secondary .between button.days-btn p {
+  color: #fff;
+}
+
+ion-calendar-month .secondary .endSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .secondary .endSelection button.days-btn p {
+  color: #fff;
+}
+
+ion-calendar-month .secondary .days.startSelection:nth-child(7n):after,
+ion-calendar-month .secondary .days.between:nth-child(7n) button.days-btn,
+ion-calendar-month .secondary button.days-btn.is-last {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .secondary .days.startSelection:nth-child(7n):after.on-selected,
+ion-calendar-month .secondary .days.between:nth-child(7n) button.days-btn.on-selected,
+ion-calendar-month .secondary button.days-btn.is-last.on-selected {
+  border-radius: 50%;
+}
+
+ion-calendar-month .secondary .days.endSelection:nth-child(7n+1):after,
+ion-calendar-month .secondary .days.between:nth-child(7n+1) button.days-btn,
+ion-calendar-month .secondary button.days-btn.is-first {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .secondary .startSelection button.days-btn.is-first,
+ion-calendar-month .secondary .endSelection button.days-btn.is-first,
+ion-calendar-month .secondary button.days-btn.is-first.on-selected,
+ion-calendar-month .secondary button.days-btn.is-last.on-selected,
+ion-calendar-month .secondary .startSelection button.days-btn.is-last,
+ion-calendar-month .secondary .endSelection button.days-btn.is-last {
+  border-radius: 50%;
+}
+
+ion-calendar-month .secondary .startSelection.is-last-wrap::after {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .secondary .endSelection.is-first-wrap::after {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .secondary .days .on-selected p {
+  color: #fff;
+}
+
+ion-calendar-month .secondary .startSelection button.days-btn,
+ion-calendar-month .secondary .endSelection button.days-btn,
+ion-calendar-month .secondary .between button.days-btn {
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 180ms;
+  transition-duration: 180ms;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+ion-calendar-month .danger button.days-btn small,
+ion-calendar-month .danger .days .marked p,
+ion-calendar-month .danger .days .today p {
+  color: #f53d3d;
+}
+
+ion-calendar-month .danger .days .today p {
+  font-weight: 700;
+}
+
+ion-calendar-month .danger .days .last-month-day p,
+ion-calendar-month .danger .days .next-month-day p {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+ion-calendar-month .danger .days .today.on-selected p,
+ion-calendar-month .danger .days .marked.on-selected p {
+  color: #fff;
+}
+
+ion-calendar-month .danger .days .on-selected,
+ion-calendar-month .danger .startSelection button.days-btn,
+ion-calendar-month .danger .endSelection button.days-btn {
+  background-color: #f53d3d;
+  color: #fff;
+}
+
+ion-calendar-month .danger .startSelection {
+  position: relative;
+}
+
+ion-calendar-month .danger .startSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background-color: #f87777;
+}
+
+ion-calendar-month .danger .endSelection {
+  position: relative;
+}
+
+ion-calendar-month .danger .endSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: #f87777;
+}
+
+ion-calendar-month .danger .startSelection.endSelection:after {
+  background-color: transparent;
+}
+
+ion-calendar-month .danger .startSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .danger .between button.days-btn {
+  background-color: #f87777;
+  width: 100%;
+  border-radius: 0;
+}
+
+ion-calendar-month .danger .between button.days-btn p {
+  color: #fff;
+}
+
+ion-calendar-month .danger .endSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .danger .endSelection button.days-btn p {
+  color: #fff;
+}
+
+ion-calendar-month .danger .days.startSelection:nth-child(7n):after,
+ion-calendar-month .danger .days.between:nth-child(7n) button.days-btn,
+ion-calendar-month .danger button.days-btn.is-last {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .danger .days.startSelection:nth-child(7n):after.on-selected,
+ion-calendar-month .danger .days.between:nth-child(7n) button.days-btn.on-selected,
+ion-calendar-month .danger button.days-btn.is-last.on-selected {
+  border-radius: 50%;
+}
+
+ion-calendar-month .danger .days.endSelection:nth-child(7n+1):after,
+ion-calendar-month .danger .days.between:nth-child(7n+1) button.days-btn,
+ion-calendar-month .danger button.days-btn.is-first {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .danger .startSelection button.days-btn.is-first,
+ion-calendar-month .danger .endSelection button.days-btn.is-first,
+ion-calendar-month .danger button.days-btn.is-first.on-selected,
+ion-calendar-month .danger button.days-btn.is-last.on-selected,
+ion-calendar-month .danger .startSelection button.days-btn.is-last,
+ion-calendar-month .danger .endSelection button.days-btn.is-last {
+  border-radius: 50%;
+}
+
+ion-calendar-month .danger .startSelection.is-last-wrap::after {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .danger .endSelection.is-first-wrap::after {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .danger .days .on-selected p {
+  color: #fff;
+}
+
+ion-calendar-month .danger .startSelection button.days-btn,
+ion-calendar-month .danger .endSelection button.days-btn,
+ion-calendar-month .danger .between button.days-btn {
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 180ms;
+  transition-duration: 180ms;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+ion-calendar-month .dark button.days-btn small,
+ion-calendar-month .dark .days .marked p,
+ion-calendar-month .dark .days .today p {
+  color: #222;
+}
+
+ion-calendar-month .dark .days .today p {
+  font-weight: 700;
+}
+
+ion-calendar-month .dark .days .last-month-day p,
+ion-calendar-month .dark .days .next-month-day p {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+ion-calendar-month .dark .days .today.on-selected p,
+ion-calendar-month .dark .days .marked.on-selected p {
+  color: #fff;
+}
+
+ion-calendar-month .dark .days .on-selected,
+ion-calendar-month .dark .startSelection button.days-btn,
+ion-calendar-month .dark .endSelection button.days-btn {
+  background-color: #222;
+  color: #fff;
+}
+
+ion-calendar-month .dark .startSelection {
+  position: relative;
+}
+
+ion-calendar-month .dark .startSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background-color: #414141;
+}
+
+ion-calendar-month .dark .endSelection {
+  position: relative;
+}
+
+ion-calendar-month .dark .endSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: #414141;
+}
+
+ion-calendar-month .dark .startSelection.endSelection:after {
+  background-color: transparent;
+}
+
+ion-calendar-month .dark .startSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .dark .between button.days-btn {
+  background-color: #414141;
+  width: 100%;
+  border-radius: 0;
+}
+
+ion-calendar-month .dark .between button.days-btn p {
+  color: #fff;
+}
+
+ion-calendar-month .dark .endSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .dark .endSelection button.days-btn p {
+  color: #fff;
+}
+
+ion-calendar-month .dark .days.startSelection:nth-child(7n):after,
+ion-calendar-month .dark .days.between:nth-child(7n) button.days-btn,
+ion-calendar-month .dark button.days-btn.is-last {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .dark .days.startSelection:nth-child(7n):after.on-selected,
+ion-calendar-month .dark .days.between:nth-child(7n) button.days-btn.on-selected,
+ion-calendar-month .dark button.days-btn.is-last.on-selected {
+  border-radius: 50%;
+}
+
+ion-calendar-month .dark .days.endSelection:nth-child(7n+1):after,
+ion-calendar-month .dark .days.between:nth-child(7n+1) button.days-btn,
+ion-calendar-month .dark button.days-btn.is-first {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .dark .startSelection button.days-btn.is-first,
+ion-calendar-month .dark .endSelection button.days-btn.is-first,
+ion-calendar-month .dark button.days-btn.is-first.on-selected,
+ion-calendar-month .dark button.days-btn.is-last.on-selected,
+ion-calendar-month .dark .startSelection button.days-btn.is-last,
+ion-calendar-month .dark .endSelection button.days-btn.is-last {
+  border-radius: 50%;
+}
+
+ion-calendar-month .dark .startSelection.is-last-wrap::after {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .dark .endSelection.is-first-wrap::after {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .dark .days .on-selected p {
+  color: #fff;
+}
+
+ion-calendar-month .dark .startSelection button.days-btn,
+ion-calendar-month .dark .endSelection button.days-btn,
+ion-calendar-month .dark .between button.days-btn {
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 180ms;
+  transition-duration: 180ms;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+ion-calendar-month .light button.days-btn small,
+ion-calendar-month .light .days .marked p,
+ion-calendar-month .light .days .today p {
+  color: #f4f4f4;
+}
+
+ion-calendar-month .light .days .today p {
+  font-weight: 700;
+}
+
+ion-calendar-month .light .days .last-month-day p,
+ion-calendar-month .light .days .next-month-day p {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+ion-calendar-month .light .days .today.on-selected p,
+ion-calendar-month .light .days .marked.on-selected p {
+  color: #a0a0a0;
+}
+
+ion-calendar-month .light .days .on-selected,
+ion-calendar-month .light .startSelection button.days-btn,
+ion-calendar-month .light .endSelection button.days-btn {
+  background-color: #f4f4f4;
+  color: #a0a0a0;
+}
+
+ion-calendar-month .light .startSelection {
+  position: relative;
+}
+
+ion-calendar-month .light .startSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background-color: white;
+}
+
+ion-calendar-month .light .endSelection {
+  position: relative;
+}
+
+ion-calendar-month .light .endSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: white;
+}
+
+ion-calendar-month .light .startSelection.endSelection:after {
+  background-color: transparent;
+}
+
+ion-calendar-month .light .startSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .light .between button.days-btn {
+  background-color: white;
+  width: 100%;
+  border-radius: 0;
+}
+
+ion-calendar-month .light .between button.days-btn p {
+  color: #a0a0a0;
+}
+
+ion-calendar-month .light .endSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .light .endSelection button.days-btn p {
+  color: #a0a0a0;
+}
+
+ion-calendar-month .light .days.startSelection:nth-child(7n):after,
+ion-calendar-month .light .days.between:nth-child(7n) button.days-btn,
+ion-calendar-month .light button.days-btn.is-last {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .light .days.startSelection:nth-child(7n):after.on-selected,
+ion-calendar-month .light .days.between:nth-child(7n) button.days-btn.on-selected,
+ion-calendar-month .light button.days-btn.is-last.on-selected {
+  border-radius: 50%;
+}
+
+ion-calendar-month .light .days.endSelection:nth-child(7n+1):after,
+ion-calendar-month .light .days.between:nth-child(7n+1) button.days-btn,
+ion-calendar-month .light button.days-btn.is-first {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .light .startSelection button.days-btn.is-first,
+ion-calendar-month .light .endSelection button.days-btn.is-first,
+ion-calendar-month .light button.days-btn.is-first.on-selected,
+ion-calendar-month .light button.days-btn.is-last.on-selected,
+ion-calendar-month .light .startSelection button.days-btn.is-last,
+ion-calendar-month .light .endSelection button.days-btn.is-last {
+  border-radius: 50%;
+}
+
+ion-calendar-month .light .startSelection.is-last-wrap::after {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .light .endSelection.is-first-wrap::after {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .light .days .on-selected p {
+  color: #a0a0a0;
+}
+
+ion-calendar-month .light .startSelection button.days-btn,
+ion-calendar-month .light .endSelection button.days-btn,
+ion-calendar-month .light .between button.days-btn {
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 180ms;
+  transition-duration: 180ms;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+ion-calendar-month .light .days .today p {
+  color: #565656;
+}
+
+ion-calendar-month .cal-color button.days-btn small,
+ion-calendar-month .cal-color .days .marked p,
+ion-calendar-month .cal-color .days .today p {
+  color: #488aff;
+}
+
+ion-calendar-month .cal-color .days .today p {
+  font-weight: 700;
+}
+
+ion-calendar-month .cal-color .days .last-month-day p,
+ion-calendar-month .cal-color .days .next-month-day p {
+  color: rgba(0, 0, 0, 0.25);
+}
+
+ion-calendar-month .cal-color .days .today.on-selected p,
+ion-calendar-month .cal-color .days .marked.on-selected p {
+  color: #fff;
+}
+
+ion-calendar-month .cal-color .days .on-selected,
+ion-calendar-month .cal-color .startSelection button.days-btn,
+ion-calendar-month .cal-color .endSelection button.days-btn {
+  background-color: #488aff;
+  color: #fff;
+}
+
+ion-calendar-month .cal-color .startSelection {
+  position: relative;
+}
+
+ion-calendar-month .cal-color .startSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background-color: #85b1ff;
+}
+
+ion-calendar-month .cal-color .endSelection {
+  position: relative;
+}
+
+ion-calendar-month .cal-color .endSelection:after {
+  height: 36px;
+  width: 50%;
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  background-color: #85b1ff;
+}
+
+ion-calendar-month .cal-color .startSelection.endSelection:after {
+  background-color: transparent;
+}
+
+ion-calendar-month .cal-color .startSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .cal-color .between button.days-btn {
+  background-color: #85b1ff;
+  width: 100%;
+  border-radius: 0;
+}
+
+ion-calendar-month .cal-color .between button.days-btn p {
+  color: #fff;
+}
+
+ion-calendar-month .cal-color .endSelection button.days-btn {
+  border-radius: 50%;
+}
+
+ion-calendar-month .cal-color .endSelection button.days-btn p {
+  color: #fff;
+}
+
+ion-calendar-month .cal-color .days.startSelection:nth-child(7n):after,
+ion-calendar-month .cal-color .days.between:nth-child(7n) button.days-btn,
+ion-calendar-month .cal-color button.days-btn.is-last {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .cal-color .days.startSelection:nth-child(7n):after.on-selected,
+ion-calendar-month .cal-color .days.between:nth-child(7n) button.days-btn.on-selected,
+ion-calendar-month .cal-color button.days-btn.is-last.on-selected {
+  border-radius: 50%;
+}
+
+ion-calendar-month .cal-color .days.endSelection:nth-child(7n+1):after,
+ion-calendar-month .cal-color .days.between:nth-child(7n+1) button.days-btn,
+ion-calendar-month .cal-color button.days-btn.is-first {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .cal-color .startSelection button.days-btn.is-first,
+ion-calendar-month .cal-color .endSelection button.days-btn.is-first,
+ion-calendar-month .cal-color button.days-btn.is-first.on-selected,
+ion-calendar-month .cal-color button.days-btn.is-last.on-selected,
+ion-calendar-month .cal-color .startSelection button.days-btn.is-last,
+ion-calendar-month .cal-color .endSelection button.days-btn.is-last {
+  border-radius: 50%;
+}
+
+ion-calendar-month .cal-color .startSelection.is-last-wrap::after {
+  border-radius: 0 36px 36px 0;
+}
+
+ion-calendar-month .cal-color .endSelection.is-first-wrap::after {
+  border-radius: 36px 0 0 36px;
+}
+
+ion-calendar-month .cal-color .days .on-selected p {
+  color: #fff;
+}
+
+ion-calendar-month .cal-color .startSelection button.days-btn,
+ion-calendar-month .cal-color .endSelection button.days-btn,
+ion-calendar-month .cal-color .between button.days-btn {
+  -webkit-transition-property: background-color;
+  transition-property: background-color;
+  -webkit-transition-duration: 180ms;
+  transition-duration: 180ms;
+  -webkit-transition-timing-function: ease-out;
+  transition-timing-function: ease-out;
+}
+
+ion-calendar-week .toolbar-background-md, ion-calendar-week .toolbar-background-ios {
+  background: transparent;
+}
+
+ion-calendar-week .week-toolbar {
+  padding: 0;
+}
+
+ion-calendar-week .week-toolbar.toolbar-md {
+  min-height: 44px;
+}
+
+ion-calendar-week .week-title.primary {
+  margin: 0;
+  color: #fff;
+  height: 44px;
+  width: 100%;
+  background-color: #488aff;
+  padding: 15px 0;
+}
+
+ion-calendar-week .week-title.secondary {
+  margin: 0;
+  color: #fff;
+  height: 44px;
+  width: 100%;
+  background-color: #32db64;
+  padding: 15px 0;
+}
+
+ion-calendar-week .week-title.danger {
+  margin: 0;
+  color: #fff;
+  height: 44px;
+  width: 100%;
+  background-color: #f53d3d;
+  padding: 15px 0;
+}
+
+ion-calendar-week .week-title.dark {
+  margin: 0;
+  color: #fff;
+  height: 44px;
+  width: 100%;
+  background-color: #222;
+  padding: 15px 0;
+}
+
+ion-calendar-week .week-title.light {
+  margin: 0;
+  color: #9e9e9e;
+  height: 44px;
+  width: 100%;
+  background-color: #f4f4f4;
+  padding: 15px 0;
+}
+
+ion-calendar-week .week-title.transparent {
+  margin: 0;
+  color: #9e9e9e;
+  height: 44px;
+  width: 100%;
+  background-color: #f4f4f4;
+  padding: 15px 0;
+  background-color: transparent;
+}
+
+ion-calendar-week .week-title.cal-color {
+  margin: 0;
+  color: #fff;
+  height: 44px;
+  width: 100%;
+  background-color: #488aff;
+  padding: 15px 0;
+}
+
+ion-calendar-week .week-title li {
+  list-style-type: none;
+  display: block;
+  float: left;
+  width: 14%;
+  text-align: center;
+}
+
+ion-calendar-week .week-title li:nth-of-type(7n), ion-calendar-week .week-title li:nth-of-type(7n+1) {
+  width: 15%;
+}
+
+ion-calendar-month-picker .month-picker {
+  margin: 20px 0;
+  display: inline-block;
+  width: 100%;
+}
+
+ion-calendar-month-picker .month-packer-item {
+  width: 25%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  float: left;
+  height: 50px;
+  padding: 5px;
+}
+
+ion-calendar-month-picker .month-packer-item button {
+  border-radius: 32px;
+  width: 100%;
+  height: 100%;
+  font-size: 1em;
+  background-color: transparent;
+}
+
+ion-calendar-month-picker .month-picker.primary .month-packer-item.this-month button {
+  border: 1px solid #488aff;
+}
+
+ion-calendar-month-picker .month-picker.primary .month-packer-item.active button {
+  background-color: #488aff;
+  color: #fff;
+}
+
+ion-calendar-month-picker .month-picker.secondary .month-packer-item.this-month button {
+  border: 1px solid #32db64;
+}
+
+ion-calendar-month-picker .month-picker.secondary .month-packer-item.active button {
+  background-color: #32db64;
+  color: #fff;
+}
+
+ion-calendar-month-picker .month-picker.danger .month-packer-item.this-month button {
+  border: 1px solid #f53d3d;
+}
+
+ion-calendar-month-picker .month-picker.danger .month-packer-item.active button {
+  background-color: #f53d3d;
+  color: #fff;
+}
+
+ion-calendar-month-picker .month-picker.dark .month-packer-item.this-month button {
+  border: 1px solid #222;
+}
+
+ion-calendar-month-picker .month-picker.dark .month-packer-item.active button {
+  background-color: #222;
+  color: #fff;
+}
+
+ion-calendar-month-picker .month-picker.light .month-packer-item.this-month button {
+  border: 1px solid #f4f4f4;
+}
+
+ion-calendar-month-picker .month-picker.light .month-packer-item.active button {
+  background-color: #f4f4f4;
+  color: #9e9e9e;
+}
+
+ion-calendar-month-picker .month-picker.transparent {
+  background-color: transparent;
+}
+
+ion-calendar-month-picker .month-picker.transparent .month-packer-item.this-month button {
+  border: 1px solid #f4f4f4;
+}
+
+ion-calendar-month-picker .month-picker.transparent .month-packer-item.active button {
+  background-color: #f4f4f4;
+  color: #9e9e9e;
+}
+
+ion-calendar-month-picker .month-picker.cal-color .month-packer-item.this-month button {
+  border: 1px solid #488aff;
+}
+
+ion-calendar-month-picker .month-picker.cal-color .month-packer-item.active button {
+  background-color: #488aff;
+  color: #fff;
+}
+
 ion-action-sheet {
   left: 0;
   top: 0;

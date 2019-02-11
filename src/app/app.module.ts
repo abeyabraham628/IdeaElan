@@ -1,6 +1,3 @@
-
-
-
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -17,16 +14,15 @@ import { Firebase } from '@ionic-native/firebase';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
-
+import { CalendarModule } from "ion2-calendar";
 import { MyApp } from './app.component';
-
 
 import { FIREBASE_CONFIG } from '../providers/firebase-service'
 
-
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+ 
     
   ],
   imports: [
@@ -39,13 +35,16 @@ import { FIREBASE_CONFIG } from '../providers/firebase-service'
     IonicStorageModule.forRoot(),
     ReactiveFormsModule,
     AngularFireAuthModule,
+    CalendarModule
+
+    
+    
     
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     
-   
   ],
   providers: [
     StatusBar,

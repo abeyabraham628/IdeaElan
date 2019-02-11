@@ -1,12 +1,19 @@
+
+
+
+
 import { leaves } from './../../providers/user-leaves';
 import { Component, Type } from '@angular/core';
-import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,AlertController,ModalController } from 'ionic-angular';
 import { DatePicker } from '@ionic-native/date-picker';
 import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 import { DatePipe } from '@angular/common';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { CalendarComponentOptions } from 'ion2-calendar';
-const nodemailer = require("../../assets/nodemailer");
+
+import { CalendarModal, CalendarModalOptions, DayConfig, CalendarResult,CalendarComponentOptions } from "ion2-calendar";
+
+
+
 /**
  * Generated class for the ApplyLeavePage page.
  *
@@ -19,7 +26,8 @@ const nodemailer = require("../../assets/nodemailer");
   selector: 'page-apply-leave',
   templateUrl: 'apply-leave.html',
 })
-export class ApplyLeavePage {
+export class ApplyLeavePage{
+ 
 fromDate:string;
 toDate:string;
 leaveList:AngularFireList<any>
@@ -27,13 +35,76 @@ leave={} as leaves
 sickRemaining:number;
 casualRemaining:number;
 currentMonthLeave:number=0;
-  constructor(public navCtrl: NavController, public navParams: NavParams,private datePicker:DatePicker, private firebase:AngularFireDatabase,private datepipe:DatePipe,private afauth:AngularFireAuth,private alert:AlertController) {
-   
-    
-  }
-  
- 
 
+dateMulti: string[];
+type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
+
+
+
+
+
+  constructor(public navCtrl: NavController, 
+            public navParams: NavParams,
+            private datePicker:DatePicker, 
+            private firebase:AngularFireDatabase,
+            private datepipe:DatePipe,
+            private afauth:AngularFireAuth,
+            private alert:AlertController,
+            private modalCtrl:ModalController,
+           ) {}
+
+          
+           openCalendar() {
+           
+            const options: CalendarComponentOptions = {
+              pickMode: 'multi',
+              showAdjacentMonthDay:false,
+               disableWeeks: [0, 6],
+             };
+
+            let myCalendar =  this.modalCtrl.create(CalendarModal, {
+              options: options,
+            });
+         
+            myCalendar.present();
+            
+              myCalendar.onDidDismiss((date: CalendarResult[], type: string) => {
+                
+                date.sort(function (a, b) {
+                return a.time - b.time;
+                
+              });
+                
+              let month=[]
+                date.forEach(function(value){
+                 month.push(value.months)
+              })
+              
+              const uniqeMonths = month.filter((elem, i, arr) => {
+                if (arr.indexOf(elem) === i) {
+                  return elem
+                }
+              })
+              let month1=[]
+              let month2=[];
+             let flag:boolean=true
+             
+              for(let i=0;i<uniqeMonths.length;i++){
+                date.forEach(function(value){
+                  if(value.months==uniqeMonths[i]){
+                    if(flag)
+                    month1.push({'date':value.string})
+                    else
+                    month2.push({'date':value.string})
+                  }
+                })// end of for each
+                  flag=false
+              }//end of loop
+                console.log(month1)
+             })//end of calendar dismiss
+            
+          }//end of open calendar function
+        
   ionViewDidLoad() {
     this.getRamainingLeaves()
   }
@@ -151,31 +222,7 @@ async getRamainingLeaves(){
  }
 
 
- async x(){
-  let account = await nodemailer.createTestAccount();
-  let transporter = nodemailer.createTransport({
-    host: "smtp.ethereal.email",
-    port: 587,
-    secure: false, // true for 465, false for other ports
-    auth: {
-      user: 'zyop7y7jri6xbk4v@ethereal.email', // generated ethereal user
-      pass: 'PbcuwdFYetDz4vEK6C' // generated ethereal password
-    }
-  });
-
-  // setup email data with unicode symbols
-  let mailOptions = {
-    from: '"tonymanuel@ideaelan.com', // sender address
-    to: "tonymanuel@ideaelan.com", // list of receivers
-    subject: "Hello ✔", // Subject line
-    text: "Hello world?", // plain text body
-    html: "<b>Hello world?</b>" // html body
-  };
-
-  // send mail with defined transport object
-  let info = await transporter.sendMail(mailOptions)
-
- }
+ 
     
 
   
