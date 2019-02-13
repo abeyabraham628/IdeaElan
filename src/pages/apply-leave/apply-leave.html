@@ -42,7 +42,14 @@
 
 <div [ngSwitch]="leaves">
   <div *ngSwitchCase="'applyLeave'">
-  
+    
+   
+
+
+
+
+
+
     <ion-card>
       <ion-card-content>
          <ion-row>
@@ -59,6 +66,22 @@
          
       </ion-card-content>
   </ion-card>
+
+  <ion-card>
+      <ion-card-header>
+          Recent Requests
+        </ion-card-header>
+    <ion-card-content>
+      
+      <ion-row >
+         <ion-col col-4>Date</ion-col><ion-col col-4>Leave Type</ion-col><ion-col col-4>Status</ion-col>
+      </ion-row>
+      <ion-row>
+          <ion-col col-4>25/05/2018</ion-col><ion-col col-4>Sick</ion-col><ion-col col-4>Pending</ion-col>
+       </ion-row>
+       
+    </ion-card-content>
+</ion-card>
   <h6 text-center class="title section-title">Leave Details</h6>
     <ion-list radio-group [(ngModel)]="leave.leaveType">
       <ion-row>
@@ -75,13 +98,10 @@
     
   <ion-row>
     <ion-item col-12>
-      <ion-label stacked>From</ion-label>
-      <ion-input  type="text" (click)="openCalendar() " [(ngModel)]="leave.dateFrom"  ></ion-input>
+      <ion-label stacked>Select Dates</ion-label>
+      <ion-input  type="text" (click)="openCalendar() " [(ngModel)]="leave.date"  ></ion-input>
     </ion-item>
-    <ion-item hidden col-6>
-      <ion-label stacked>To</ion-label>
-      <ion-input  type="text" (click)="dispdate('to')" [(ngModel)]="leave.dateTo" (ionFocus)="dispdate('to')" ></ion-input>
-    </ion-item>
+    
   </ion-row>
   <ion-row>
     <button ion-button full color="blue" (click)="submitLeaveRequest()">Submit</button>
@@ -93,7 +113,9 @@
     <div *ngSwitchCase="'leaveHistory'">
         <ion-list>
         <h6 text-center class="title section-title">Recent Request</h6>
-          <ion-item>
+         
+        
+        <ion-item>
               <ion-row class="table-title" >
                 <ion-col col-3 >Leave Type</ion-col>
                 <ion-col col-3 >From</ion-col>
@@ -102,7 +124,7 @@
                 <ion-col hidden col-2>View</ion-col>
               </ion-row>
             </ion-item>
-            <ion-item >
+            <ion-item>
               <ion-row *ngFor="let x of pastLeaves" class="col-text row-bottom-border" [ngClass]='x.status'>
                   <ion-col col-3>{{x.leaveType}}</ion-col><ion-col col-3>{{x.dateFrom}}</ion-col><ion-col col-3>{{x.dateTo}}</ion-col><ion-col col-2>{{x.status}}</ion-col>
               </ion-row>

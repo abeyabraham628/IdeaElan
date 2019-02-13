@@ -1,16 +1,13 @@
-
-
-
-
-import { leaves } from './../../providers/user-leaves';
+import { leaves, DayMonthYear } from './../../providers/user-leaves';
 import { Component, Type } from '@angular/core';
-import { IonicPage, NavController, NavParams,AlertController,ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ModalController, List } from 'ionic-angular';
 import { DatePicker } from '@ionic-native/date-picker';
 import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 import { DatePipe } from '@angular/common';
 import { AngularFireAuth } from '@angular/fire/auth';
-
 import { CalendarModal, CalendarModalOptions, DayConfig, CalendarResult,CalendarComponentOptions } from "ion2-calendar";
+
+
 
 
 
@@ -32,11 +29,15 @@ fromDate:string;
 toDate:string;
 leaveList:AngularFireList<any>
 leave={} as leaves
+
+months={} as DayMonthYear
 sickRemaining:number;
 casualRemaining:number;
 currentMonthLeave:number=0;
+$key1:any;
+$key2:any;
+multiKey:boolean=false
 
-dateMulti: string[];
 type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
 
 
@@ -59,7 +60,9 @@ type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
             const options: CalendarComponentOptions = {
               pickMode: 'multi',
               showAdjacentMonthDay:false,
-               disableWeeks: [0, 6],
+              disableWeeks: [0, 6],
+              from:new Date(),
+              to: new Date().setDate(new Date().getDate()+45)
              };
 
             let myCalendar =  this.modalCtrl.create(CalendarModal, {
@@ -71,61 +74,24 @@ type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
               myCalendar.onDidDismiss((date: CalendarResult[], type: string) => {
                 
                 date.sort(function (a, b) {
-                return a.time - b.time;
-                
+                  return a.time - b.time;
+
               });
-                
-              let month=[]
-                date.forEach(function(value){
-                 month.push(value.months)
-              })
               
-              const uniqeMonths = month.filter((elem, i, arr) => {
-                if (arr.indexOf(elem) === i) {
-                  return elem
-                }
-              })
-              let month1=[]
-              let month2=[];
-             let flag:boolean=true
-             
-              for(let i=0;i<uniqeMonths.length;i++){
-                date.forEach(function(value){
-                  if(value.months==uniqeMonths[i]){
-                    if(flag)
-                    month1.push({'date':value.string})
-                    else
-                    month2.push({'date':value.string})
-                  }
-                })// end of for each
-                  flag=false
-              }//end of loop
-                console.log(month1)
+            
+             this.leave=this.tony(date)
+              
+              
              })//end of calendar dismiss
             
           }//end of open calendar function
+     
         
   ionViewDidLoad() {
     this.getRamainingLeaves()
   }
 
-  dispdate(type:String){
-    this.datePicker.show({
-    date: new Date(),
-    mode: 'date',
-    androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_LIGHT
-  }).then(
-    date=>{
-     if(type==="from"){
-       this.leave.dateFrom = new Date(date).toLocaleDateString()
-     }
-     else{
-       this.leave.dateTo= new Date(date).toLocaleDateString()
-     }
-   },err => console.log('Error occurred while getting date: ', err)
-
-   );
-  }//end of date function
+  
 
  
 
@@ -133,6 +99,7 @@ type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
   submitLeaveRequest(){
       let uid=this.afauth.auth.currentUser.uid;
       this.leave.status="pending";
+      
       
      if(new Date().getHours()<9){
         const alert = this.alert.create({
@@ -144,9 +111,24 @@ type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
     }
       
     else{
-      let $key=this.generateKey(this.leave.dateFrom)
-      this.leave.count=this.find(this.leave.dateFrom,this.leave.dateTo)
-      this.firebase.list(`EmployeeLeaves/${uid}/Leaves/${$key}`).push(this.leave);//inserting the details of leaves
+      if(this.multiKey){
+        this.firebase.list(`EmployeeLeaves/${uid}/Leaves/${this.$key1}`).push({
+          'leaveType':this.leave.leaveType,
+          'date':this.leave.date,
+          'status':this.leave.status,
+          'count':this.leave.count
+
+        }).then(()=>{
+          this.firebase.list(`EmployeeLeaves/${uid}/Leaves/${this.$key2}`).push({
+            'leaveType':this.leave.leaveType,
+            'date':this.leave.date2,
+            'status':this.leave.status,
+            'count':this.leave.count2
+        });//inserting the details of leaves
+      });
+    }
+      else
+      this.firebase.list(`EmployeeLeaves/${uid}/Leaves/${this.$key1}`).push(this.leave);//inserting the details of leaves
      
     }//end of if else 
         
@@ -159,6 +141,7 @@ type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
    getPastLeaves(){
     
     this.firebase.list(`EmployeeLeaves/${this.afauth.auth.currentUser.uid}/Leaves`).snapshotChanges().subscribe(
+        
       list=>{
         this.pastLeaves=list.map(item=>{
           return{
@@ -167,6 +150,7 @@ type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
           };
           });
       }); 
+      console.log(this.pastLeaves)
 }//end of function
 
 async getRamainingLeaves(){
@@ -179,7 +163,9 @@ async getRamainingLeaves(){
     else{ 
       date=new Date().getMonth()+1+""+new Date().getFullYear()
     }
-    await firebase.database.ref(`EmployeeLeaves/FcXUquFxnfalG9DzoNi4X0CnRoG2/AvailableLeaves/${year}`).on('value',(snapshot)=>{
+
+
+      await firebase.database.ref(`EmployeeLeaves/FcXUquFxnfalG9DzoNi4X0CnRoG2/AvailableLeaves/${year}`).on('value',(snapshot)=>{
       this.sickRemaining=snapshot.child('sick').val()
       this.casualRemaining=snapshot.child('casual').val()
       firebase.database.ref(`EmployeeLeaves/FcXUquFxnfalG9DzoNi4X0CnRoG2/MonthlyLeaves/${date}`).on('value',(snapshot)=>{
@@ -191,39 +177,89 @@ async getRamainingLeaves(){
 
 }
     
-  find(from?,to?){
   
+
+tony(data){
+ 
+  
+ this.months.month=[]
+ this.months.day=[]
+ this.months.year=[]
+ this.leave.date=[]
+ this.leave.date2=[]
+ let selectedDates=[]
+
+  data.forEach((values)=>{
+
+    selectedDates.push(new Date(values.time).toLocaleDateString())
+      this.months.month.push(values.months)
+      this.months.year.push(values.years)
+
+   })   
+  
+    this.months.month = this.months.month.filter((elem, i, arr) => {
+      if (arr.indexOf(elem) === i) {
+        return elem
+      }
+    })
     
-    let dateFrom:any =from.split('/');
-    let dateTo:any=to.split('/');
-    let x=dateFrom[1]+dateFrom[2]
-    let y=dateTo[1]+dateTo[2]
+    this.months.year = this.months.year.filter((elem, i, arr) => {
+      if (arr.indexOf(elem) === i) {
+        return elem
+      }
+    })
+  
 
 
-    if(dateFrom[1]!=dateTo[1]){
-        
 
-      let lastDayMonth1=new Date(dateFrom[2],dateFrom[1],0).getDate()// gethte last day of the month
-      let x=lastDayMonth1+dateFrom[0]
-      let monthOneCount=lastDayMonth1-dateFrom[0]+1
-      let firstDayMonth2=new Date(dateTo[2],dateTo[1],1).getDate()
-      let monthTwoCount=firstDayMonth2-dateTo[0]+1
-        
-     
-      return(monthOneCount+this.currentMonthLeave)
+
+if(this.months.month.length===1 && this.months.year.length===1){
+    this.$key1="0"+this.months.month[0]+""+this.months.year[0]
+    
+    for(let i=0;i<selectedDates.length;i++){
+      this.leave.date.push(selectedDates[i]);
     }
-    else
-        return ((dateTo[0] - dateFrom[0]+1)+ this.currentMonthLeave)
- }
- 
- generateKey(date:string){
-    let key=date.split('/');
-   return(key[1]+key[2])
- }
+    this.leave.count=this.leave.date.length
+  }
+  
+  else if(this.months.month.length===2 && this.months.year.length===1){
+    this.multiKey=true
+    this.$key1="0"+this.months.month[0]+""+this.months.year[0]
+    this.$key2="0"+this.months.month[1]+""+this.months.year[0]
+      
+    for(let i=0;i<selectedDates.length;i++){
+      if((new Date(selectedDates[i]).getMonth()+1).toString()===this.months.month[0].toString())
+      this.leave.date.push(selectedDates[i]);
+     if((new Date(selectedDates[i]).getMonth()+1).toString()===this.months.month[1].toString())
+     this.leave.date2.push(selectedDates[i]);
+    }
+    this.leave.count=this.leave.date.length
+    this.leave.count2=this.leave.date2.length
+  }
 
-
- 
+else if(this.months.month.length===2 && this.months.year.length===2){
+  this.multiKey=true
+    this.$key1="0"+this.months.month[0]+""+this.months.year[0]
+    this.$key2="0"+this.months.month[1]+""+this.months.year[1]
     
+    for(let i=0;i<selectedDates.length;i++){
+      if((new Date(selectedDates[i]).getMonth()+1).toString()===this.months.month[0].toString())
+      this.leave.date.push(selectedDates[i]);
+     if((new Date(selectedDates[i]).getMonth()+1).toString()===this.months.month[1].toString())
+     this.leave.date2.push(selectedDates[i]);
+    }
+    this.leave.count=this.leave.date.length
+    this.leave.count2=this.leave.date2.length
+  }
+  
+  
+ 
+  return this.leave
+
+
+
+ 
+}
 
   
 

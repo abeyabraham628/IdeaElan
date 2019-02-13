@@ -127,13 +127,18 @@ var ApplyLeavePage = /** @class */ (function () {
         this.alert = alert;
         this.modalCtrl = modalCtrl;
         this.leave = {};
+        this.months = {};
         this.currentMonthLeave = 0;
+        this.multiKey = false;
     }
     ApplyLeavePage.prototype.openCalendar = function () {
+        var _this = this;
         var options = {
             pickMode: 'multi',
             showAdjacentMonthDay: false,
             disableWeeks: [0, 6],
+            from: new Date(),
+            to: new Date().setDate(new Date().getDate() + 45)
         };
         var myCalendar = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_6_ion2_calendar__["CalendarModal"], {
             options: options,
@@ -143,54 +148,14 @@ var ApplyLeavePage = /** @class */ (function () {
             date.sort(function (a, b) {
                 return a.time - b.time;
             });
-            var month = [];
-            date.forEach(function (value) {
-                month.push(value.months);
-            });
-            var uniqeMonths = month.filter(function (elem, i, arr) {
-                if (arr.indexOf(elem) === i) {
-                    return elem;
-                }
-            });
-            var month1 = [];
-            var month2 = [];
-            var flag = true;
-            var _loop_1 = function (i) {
-                date.forEach(function (value) {
-                    if (value.months == uniqeMonths[i]) {
-                        if (flag)
-                            month1.push({ 'date': value.string });
-                        else
-                            month2.push({ 'date': value.string });
-                    }
-                }); // end of for each
-                flag = false;
-            };
-            for (var i = 0; i < uniqeMonths.length; i++) {
-                _loop_1(i);
-            } //end of loop
-            console.log(month1);
+            _this.leave = _this.tony(date);
         }); //end of calendar dismiss
     }; //end of open calendar function
     ApplyLeavePage.prototype.ionViewDidLoad = function () {
         this.getRamainingLeaves();
     };
-    ApplyLeavePage.prototype.dispdate = function (type) {
-        var _this = this;
-        this.datePicker.show({
-            date: new Date(),
-            mode: 'date',
-            androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_LIGHT
-        }).then(function (date) {
-            if (type === "from") {
-                _this.leave.dateFrom = new Date(date).toLocaleDateString();
-            }
-            else {
-                _this.leave.dateTo = new Date(date).toLocaleDateString();
-            }
-        }, function (err) { return console.log('Error occurred while getting date: ', err); });
-    }; //end of date function
     ApplyLeavePage.prototype.submitLeaveRequest = function () {
+        var _this = this;
         var uid = this.afauth.auth.currentUser.uid;
         this.leave.status = "pending";
         if (new Date().getHours() < 9) {
@@ -202,9 +167,23 @@ var ApplyLeavePage = /** @class */ (function () {
             alert.present();
         }
         else {
-            var $key = this.generateKey(this.leave.dateFrom);
-            this.leave.count = this.find(this.leave.dateFrom, this.leave.dateTo);
-            this.firebase.list("EmployeeLeaves/" + uid + "/Leaves/" + $key).push(this.leave); //inserting the details of leaves
+            if (this.multiKey) {
+                this.firebase.list("EmployeeLeaves/" + uid + "/Leaves/" + this.$key1).push({
+                    'leaveType': this.leave.leaveType,
+                    'date': this.leave.date,
+                    'status': this.leave.status,
+                    'count': this.leave.count
+                }).then(function () {
+                    _this.firebase.list("EmployeeLeaves/" + uid + "/Leaves/" + _this.$key2).push({
+                        'leaveType': _this.leave.leaveType,
+                        'date': _this.leave.date2,
+                        'status': _this.leave.status,
+                        'count': _this.leave.count2
+                    }); //inserting the details of leaves
+                });
+            }
+            else
+                this.firebase.list("EmployeeLeaves/" + uid + "/Leaves/" + this.$key1).push(this.leave); //inserting the details of leaves
         } //end of if else 
     }; //end os submit leave request function
     ApplyLeavePage.prototype.getPastLeaves = function () {
@@ -214,6 +193,7 @@ var ApplyLeavePage = /** @class */ (function () {
                 return __assign({ $key: item.key }, item.payload.val());
             });
         });
+        console.log(this.pastLeaves);
     }; //end of function
     ApplyLeavePage.prototype.getRamainingLeaves = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -244,30 +224,68 @@ var ApplyLeavePage = /** @class */ (function () {
             });
         });
     };
-    ApplyLeavePage.prototype.find = function (from, to) {
-        var dateFrom = from.split('/');
-        var dateTo = to.split('/');
-        var x = dateFrom[1] + dateFrom[2];
-        var y = dateTo[1] + dateTo[2];
-        if (dateFrom[1] != dateTo[1]) {
-            var lastDayMonth1 = new Date(dateFrom[2], dateFrom[1], 0).getDate(); // gethte last day of the month
-            var x_1 = lastDayMonth1 + dateFrom[0];
-            var monthOneCount = lastDayMonth1 - dateFrom[0] + 1;
-            var firstDayMonth2 = new Date(dateTo[2], dateTo[1], 1).getDate();
-            var monthTwoCount = firstDayMonth2 - dateTo[0] + 1;
-            return (monthOneCount + this.currentMonthLeave);
+    ApplyLeavePage.prototype.tony = function (data) {
+        var _this = this;
+        this.months.month = [];
+        this.months.day = [];
+        this.months.year = [];
+        this.leave.date = [];
+        this.leave.date2 = [];
+        var selectedDates = [];
+        data.forEach(function (values) {
+            selectedDates.push(new Date(values.time).toLocaleDateString());
+            _this.months.month.push(values.months);
+            _this.months.year.push(values.years);
+        });
+        this.months.month = this.months.month.filter(function (elem, i, arr) {
+            if (arr.indexOf(elem) === i) {
+                return elem;
+            }
+        });
+        this.months.year = this.months.year.filter(function (elem, i, arr) {
+            if (arr.indexOf(elem) === i) {
+                return elem;
+            }
+        });
+        if (this.months.month.length === 1 && this.months.year.length === 1) {
+            this.$key1 = "0" + this.months.month[0] + "" + this.months.year[0];
+            for (var i = 0; i < selectedDates.length; i++) {
+                this.leave.date.push(selectedDates[i]);
+            }
+            this.leave.count = this.leave.date.length;
         }
-        else
-            return ((dateTo[0] - dateFrom[0] + 1) + this.currentMonthLeave);
-    };
-    ApplyLeavePage.prototype.generateKey = function (date) {
-        var key = date.split('/');
-        return (key[1] + key[2]);
+        else if (this.months.month.length === 2 && this.months.year.length === 1) {
+            this.multiKey = true;
+            this.$key1 = "0" + this.months.month[0] + "" + this.months.year[0];
+            this.$key2 = "0" + this.months.month[1] + "" + this.months.year[0];
+            for (var i = 0; i < selectedDates.length; i++) {
+                if ((new Date(selectedDates[i]).getMonth() + 1).toString() === this.months.month[0].toString())
+                    this.leave.date.push(selectedDates[i]);
+                if ((new Date(selectedDates[i]).getMonth() + 1).toString() === this.months.month[1].toString())
+                    this.leave.date2.push(selectedDates[i]);
+            }
+            this.leave.count = this.leave.date.length;
+            this.leave.count2 = this.leave.date2.length;
+        }
+        else if (this.months.month.length === 2 && this.months.year.length === 2) {
+            this.multiKey = true;
+            this.$key1 = "0" + this.months.month[0] + "" + this.months.year[0];
+            this.$key2 = "0" + this.months.month[1] + "" + this.months.year[1];
+            for (var i = 0; i < selectedDates.length; i++) {
+                if ((new Date(selectedDates[i]).getMonth() + 1).toString() === this.months.month[0].toString())
+                    this.leave.date.push(selectedDates[i]);
+                if ((new Date(selectedDates[i]).getMonth() + 1).toString() === this.months.month[1].toString())
+                    this.leave.date2.push(selectedDates[i]);
+            }
+            this.leave.count = this.leave.date.length;
+            this.leave.count2 = this.leave.date2.length;
+        }
+        return this.leave;
     };
     var _a, _b, _c, _d, _e, _f, _g, _h;
     ApplyLeavePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-apply-leave',template:/*ion-inline-start:"F:\ionic-app\src\pages\apply-leave\apply-leave.html"*/'<!--\n  Generated template for the ApplyLeavePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n<ion-header no-border>\n  <ion-toolbar color="blue" hideBackButton="true">\n    <button ion-button  menuToggle="left" start>\n        <ion-icon name="menu"></ion-icon>\n    </button>\n    \n    <ion-title text-center>Leaves</ion-title>\n\n    <ion-buttons end>\n      <button ion-button >\n        <ion-icon name="notifications"></ion-icon> \n      </button> \n    </ion-buttons>\n    \n</ion-toolbar>\n\n</ion-header>\n\n\n<ion-content>\n\n\n  \n  \n    <ion-segment [(ngModel)]="leaves" color="white" >\n        <ion-segment-button value="applyLeave">\n           Apply Leave\n        </ion-segment-button>\n        <ion-segment-button value="leaveHistory" (click)="getPastLeaves()">\n          History\n        </ion-segment-button>\n     </ion-segment>\n\n\n<div [ngSwitch]="leaves">\n  <div *ngSwitchCase="\'applyLeave\'">\n  \n    <ion-card>\n      <ion-card-content>\n         <ion-row>\n            <ion-col col-6>This month leaves</ion-col>\n            <ion-col col-6>Remaining Leaves</ion-col>\n         </ion-row>\n         \n        <ion-row >\n           <ion-col col-6>{{currentMonthLeave}}</ion-col><ion-col col-4>Casual</ion-col><ion-col col-2>{{casualRemaining}}</ion-col>\n        </ion-row>\n        <ion-row>\n            <ion-col col-6></ion-col><ion-col col-4>Sick</ion-col><ion-col col-2>{{sickRemaining}}</ion-col>\n         </ion-row>\n         \n      </ion-card-content>\n  </ion-card>\n  <h6 text-center class="title section-title">Leave Details</h6>\n    <ion-list radio-group [(ngModel)]="leave.leaveType">\n      <ion-row>\n        <ion-item col-6>\n            <ion-label>Casual Leave</ion-label>\n            <ion-radio  value="casual"></ion-radio>\n        </ion-item>\n        \n        <ion-item col-6>\n          <ion-label>Sick Leave</ion-label>\n          <ion-radio value="sick"></ion-radio>\n        </ion-item>\n      </ion-row>\n    \n  <ion-row>\n    <ion-item col-12>\n      <ion-label stacked>From</ion-label>\n      <ion-input  type="text" (click)="openCalendar() " [(ngModel)]="leave.dateFrom"  ></ion-input>\n    </ion-item>\n    <ion-item hidden col-6>\n      <ion-label stacked>To</ion-label>\n      <ion-input  type="text" (click)="dispdate(\'to\')" [(ngModel)]="leave.dateTo" (ionFocus)="dispdate(\'to\')" ></ion-input>\n    </ion-item>\n  </ion-row>\n  <ion-row>\n    <button ion-button full color="blue" (click)="submitLeaveRequest()">Submit</button>\n  </ion-row>\n</ion-list>\n\n</div>\n\n    <div *ngSwitchCase="\'leaveHistory\'">\n        <ion-list>\n        <h6 text-center class="title section-title">Recent Request</h6>\n          <ion-item>\n              <ion-row class="table-title" >\n                <ion-col col-3 >Leave Type</ion-col>\n                <ion-col col-3 >From</ion-col>\n                <ion-col col-3 >To</ion-col>\n                <ion-col col-2 >Status</ion-col>\n                <ion-col hidden col-2>View</ion-col>\n              </ion-row>\n            </ion-item>\n            <ion-item >\n              <ion-row *ngFor="let x of pastLeaves" class="col-text row-bottom-border" [ngClass]=\'x.status\'>\n                  <ion-col col-3>{{x.leaveType}}</ion-col><ion-col col-3>{{x.dateFrom}}</ion-col><ion-col col-3>{{x.dateTo}}</ion-col><ion-col col-2>{{x.status}}</ion-col>\n              </ion-row>\n            </ion-item>\n        </ion-list>\n    </div>\n</div>\n\n\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\apply-leave\apply-leave.html"*/,
+            selector: 'page-apply-leave',template:/*ion-inline-start:"F:\ionic-app\src\pages\apply-leave\apply-leave.html"*/'<!--\n  Generated template for the ApplyLeavePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n<ion-header no-border>\n  <ion-toolbar color="blue" hideBackButton="true">\n    <button ion-button  menuToggle="left" start>\n        <ion-icon name="menu"></ion-icon>\n    </button>\n    \n    <ion-title text-center>Leaves</ion-title>\n\n    <ion-buttons end>\n      <button ion-button >\n        <ion-icon name="notifications"></ion-icon> \n      </button> \n    </ion-buttons>\n    \n</ion-toolbar>\n\n</ion-header>\n\n\n<ion-content>\n\n\n  \n  \n    <ion-segment [(ngModel)]="leaves" color="white" >\n        <ion-segment-button value="applyLeave">\n           Apply Leave\n        </ion-segment-button>\n        <ion-segment-button value="leaveHistory" (click)="getPastLeaves()">\n          History\n        </ion-segment-button>\n     </ion-segment>\n\n\n<div [ngSwitch]="leaves">\n  <div *ngSwitchCase="\'applyLeave\'">\n    \n   \n\n\n\n\n\n\n    <ion-card>\n      <ion-card-content>\n         <ion-row>\n            <ion-col col-6>This month leaves</ion-col>\n            <ion-col col-6>Remaining Leaves</ion-col>\n         </ion-row>\n         \n        <ion-row >\n           <ion-col col-6>{{currentMonthLeave}}</ion-col><ion-col col-4>Casual</ion-col><ion-col col-2>{{casualRemaining}}</ion-col>\n        </ion-row>\n        <ion-row>\n            <ion-col col-6></ion-col><ion-col col-4>Sick</ion-col><ion-col col-2>{{sickRemaining}}</ion-col>\n         </ion-row>\n         \n      </ion-card-content>\n  </ion-card>\n\n  <ion-card>\n      <ion-card-header>\n          Recent Requests\n        </ion-card-header>\n    <ion-card-content>\n      \n      <ion-row >\n         <ion-col col-4>Date</ion-col><ion-col col-4>Leave Type</ion-col><ion-col col-4>Status</ion-col>\n      </ion-row>\n      <ion-row>\n          <ion-col col-4>25/05/2018</ion-col><ion-col col-4>Sick</ion-col><ion-col col-4>Pending</ion-col>\n       </ion-row>\n       \n    </ion-card-content>\n</ion-card>\n  <h6 text-center class="title section-title">Leave Details</h6>\n    <ion-list radio-group [(ngModel)]="leave.leaveType">\n      <ion-row>\n        <ion-item col-6>\n            <ion-label>Casual Leave</ion-label>\n            <ion-radio  value="casual"></ion-radio>\n        </ion-item>\n        \n        <ion-item col-6>\n          <ion-label>Sick Leave</ion-label>\n          <ion-radio value="sick"></ion-radio>\n        </ion-item>\n      </ion-row>\n    \n  <ion-row>\n    <ion-item col-12>\n      <ion-label stacked>Select Dates</ion-label>\n      <ion-input  type="text" (click)="openCalendar() " [(ngModel)]="leave.date"  ></ion-input>\n    </ion-item>\n    \n  </ion-row>\n  <ion-row>\n    <button ion-button full color="blue" (click)="submitLeaveRequest()">Submit</button>\n  </ion-row>\n</ion-list>\n\n</div>\n\n    <div *ngSwitchCase="\'leaveHistory\'">\n        <ion-list>\n        <h6 text-center class="title section-title">Recent Request</h6>\n         \n        \n        <ion-item>\n              <ion-row class="table-title" >\n                <ion-col col-3 >Leave Type</ion-col>\n                <ion-col col-3 >From</ion-col>\n                <ion-col col-3 >To</ion-col>\n                <ion-col col-2 >Status</ion-col>\n                <ion-col hidden col-2>View</ion-col>\n              </ion-row>\n            </ion-item>\n            <ion-item>\n              <ion-row *ngFor="let x of pastLeaves" class="col-text row-bottom-border" [ngClass]=\'x.status\'>\n                  <ion-col col-3>{{x.leaveType}}</ion-col><ion-col col-3>{{x.dateFrom}}</ion-col><ion-col col-3>{{x.dateTo}}</ion-col><ion-col col-2>{{x.status}}</ion-col>\n              </ion-row>\n            </ion-item>\n        </ion-list>\n    </div>\n</div>\n\n\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\apply-leave\apply-leave.html"*/,
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_date_picker__["a" /* DatePicker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_date_picker__["a" /* DatePicker */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_common__["d" /* DatePipe */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_common__["d" /* DatePipe */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_5__angular_fire_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_fire_auth__["a" /* AngularFireAuth */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"]) === "function" && _g || Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"]) === "function" && _h || Object])
     ], ApplyLeavePage);
