@@ -1,6 +1,6 @@
 import { leaves, DayMonthYear } from './../../providers/user-leaves';
 import { Component, Type } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ModalController, List } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ModalController, List, ItemContent } from 'ionic-angular';
 import { DatePicker } from '@ionic-native/date-picker';
 import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 import { DatePipe } from '@angular/common';
@@ -41,6 +41,18 @@ multiKey:boolean=false
 type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
 
 
+ monthName=[{'monthName':'January','value':'01'},
+            {'monthName':'February','value':'02'},  
+            {'monthName':'March','value':'03'},
+            {'monthName':'April','value':'04'},  
+            {'monthName':'May','value':'05'},  
+            {'monthName':'June','value':'06'},  
+            {'monthName':'July','value':'07'}, 
+            {'monthName':'August','value':'08'},  
+            {'monthName':'September','value':'09'},  
+            {'monthName':'October','value':'10'},  
+            {'monthName':'November','value':'11'},  
+            {'monthName':'December','value':'12'}]
 
 
 
@@ -129,19 +141,29 @@ type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
     }
       else
       this.firebase.list(`EmployeeLeaves/${uid}/Leaves/${this.$key1}`).push(this.leave);//inserting the details of leaves
-     
+      //this.firebase.list(`EmployeeLeaves/${uid}/MonthlyLeaves/${this.$key1}`).push(dayCounter)
     }//end of if else 
-        
+         
        
     }//end os submit leave request function
 
 
-  pastLeaves:any[]
+  pastLeaves=[]
   
-   getPastLeaves(){
-    
-    this.firebase.list(`EmployeeLeaves/${this.afauth.auth.currentUser.uid}/Leaves`).snapshotChanges().subscribe(
-        
+   getPastLeaves(month?,year?){
+    var $month:any
+     if(month!=null && year!=null){
+       $month=month+""+year
+     }
+     else{
+     var $month:any
+     if(new Date().getMonth()+1<10)
+      $month="0"+(new Date().getMonth()+1)+""+new Date().getFullYear();
+     else
+      $month=(new Date().getMonth()+1)+""+new Date().getFullYear();
+     }
+    this.firebase.list(`EmployeeLeaves/${this.afauth.auth.currentUser.uid}/Leaves/${$month}`).snapshotChanges().subscribe(
+       
       list=>{
         this.pastLeaves=list.map(item=>{
           return{
@@ -150,7 +172,8 @@ type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
           };
           });
       }); 
-      console.log(this.pastLeaves)
+         
+     
 }//end of function
 
 async getRamainingLeaves(){
@@ -261,6 +284,12 @@ else if(this.months.month.length===2 && this.months.year.length===2){
  
 }
 
+showYear:boolean=true
+enableYear(){
+  this.months.year=null
+  this.showYear=false;
+  console.log("fasd")
+}
   
 
 }// end of class

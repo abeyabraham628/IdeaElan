@@ -67,7 +67,7 @@
       </ion-card-content>
   </ion-card>
 
-  <ion-card>
+  <ion-card hidden>
       <ion-card-header>
           Recent Requests
         </ion-card-header>
@@ -111,22 +111,35 @@
 </div>
 
     <div *ngSwitchCase="'leaveHistory'">
-        <ion-list>
+      <ion-item>
+          <ion-label>Calendar</ion-label>
+      <ion-select [(ngModel)]="months.month" (ionChange)="enableYear()">
+    
+    <ion-option *ngFor="let x of monthName" value="{{x.value}}">{{x.monthName}}</ion-option>
+    </ion-select>
+    <ion-select [(ngModel)]="months.year" [hidden]=showYear (ionChange)="getPastLeaves(months.month,months.year)">
+        
+        <ion-option value="2019">2019</ion-option>
+     </ion-select>
+
+     
+  </ion-item>
+  
+      <ion-list>
         <h6 text-center class="title section-title">Recent Request</h6>
          
         
         <ion-item>
               <ion-row class="table-title" >
                 <ion-col col-3 >Leave Type</ion-col>
-                <ion-col col-3 >From</ion-col>
-                <ion-col col-3 >To</ion-col>
+                <ion-col col-7 >Date</ion-col>
                 <ion-col col-2 >Status</ion-col>
                 <ion-col hidden col-2>View</ion-col>
               </ion-row>
             </ion-item>
             <ion-item>
               <ion-row *ngFor="let x of pastLeaves" class="col-text row-bottom-border" [ngClass]='x.status'>
-                  <ion-col col-3>{{x.leaveType}}</ion-col><ion-col col-3>{{x.dateFrom}}</ion-col><ion-col col-3>{{x.dateTo}}</ion-col><ion-col col-2>{{x.status}}</ion-col>
+                  <ion-col col-3>{{x.leaveType}}</ion-col><ion-col col-7 text-wrap>{{x.date}}</ion-col><ion-col col-2>{{x.status}}</ion-col>
               </ion-row>
             </ion-item>
         </ion-list>

@@ -9,12 +9,6 @@ export interface leaves{
     count:number;
     count2?:number;
 }
-
-
-
-
-
-
 export interface leaveCounter{
     sick:number;
     casual:number;
