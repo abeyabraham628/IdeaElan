@@ -1,4 +1,4 @@
-#Sun Feb 03 17:47:41 IST 2019
-base.0=D\:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+#Fri Feb 15 18:00:21 IST 2019
+base.0=F\:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
 path.0=classes.dex
 renamed.0=classes.dex

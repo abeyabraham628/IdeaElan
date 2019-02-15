@@ -80,49 +80,38 @@ var HomePage = /** @class */ (function () {
         this.uploadPaySlip = true;
         this.leaveRequest = true;
         this.uploadEvent = true;
+        this.roles = navParams.get('roles');
+        if (this.roles[0] != "null") {
+            this.users = false;
+            this.recruitment = false;
+            this.systems = false;
+            this.uploadPaySlip = false;
+            this.leaveRequest = false;
+            this.uploadEvent = false;
+        }
+        if (this.roles[1] != "null")
+            this.leaveRequest = false;
+        // if(this.roles[2]!=null)
+        //this.leaveRequest=false
+        if (this.roles[3] != "null")
+            this.uploadPaySlip = false;
+        if (this.roles[4] != "null")
+            this.recruitment = false;
+        if (this.roles[5] != "null")
+            this.systems = false;
+        if (this.roles[6] != "null")
+            this.users = false;
     }
-    HomePage.prototype.asyncionViewDidLoad = function () {
-        this.loader = this.loadingCtrl.create({
-            content: "Please wait...",
-            duration: 5000
-        });
-        this.loader.present();
-        /*this.roles=privilleges
-          
-            if(this.roles[0]!=null){
-              console.log(true)
-            this.users=false
-            this.recruitment=false
-            this.systems=false
-            this.uploadPaySlip=false
-            this.leaveRequest=false
-            this.uploadEvent=false
-          }
-      
-          /*if(this.roles[1]!=null)
-            this.leaveRequest=false
-      
-           // if(this.roles[2]!=null)
-            //this.leaveRequest=false
-            if(this.roles[3]!=null)
-            this.uploadPaySlip=false
-            if(this.roles[4]!=null)
-            this.recruitment=false
-            if(this.roles[5]!=null)
-            this.systems=false
-            if(this.roles[6]!=null)
-            this.users=false*/
+    HomePage.prototype.ionViewDidLoad = function () {
     };
     HomePage.prototype.goto = function (page) {
-        console.log(page);
         this.navCtrl.push(page);
     };
-    var _a, _b, _c, _d, _e;
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-home',template:/*ion-inline-start:"F:\ionic-app\src\pages\home\home.html"*/'<!--\n  Generated template for the HomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n    <ion-toolbar color="blue" hideBackButton="true">\n      <button ion-button  menuToggle="left" start>\n          <ion-icon name="menu"></ion-icon>\n      </button>\n      \n      <ion-title text-center>Home</ion-title>\n  \n      <ion-buttons end>\n        <button ion-button >\n          <ion-icon name="notifications"></ion-icon> \n        </button> \n      </ion-buttons>\n      \n  </ion-toolbar>\n  \n  </ion-header>\n\n\n<ion-content>\n  <div class="box-events">\nHello\n  </div>\n  <div class="box-controllers">\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'NewuserPage\')" [hidden]=users>Users</button>\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'SystemsPage\')" [hidden]=systems>System</button>\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'RecruitmentPage\')" [hidden]=recruitment>Recruitment</button>\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'HomePage\')" [hidden]=uploadPaySlip>Upload Payslip</button>\n      <button ion-button color="blue" class="home-buttons"  (click)="goto(\'HomePage\')" [hidden]=leaveRequest>Leave Requests</button>\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'HomePage\')" [hidden]=uploadEvent>Upload Events</button>\n  </div>\n  \n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\home\home.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]])
     ], HomePage);
     return HomePage;
 }());

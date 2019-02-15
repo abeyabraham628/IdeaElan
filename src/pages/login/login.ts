@@ -5,6 +5,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ToastController } from 'ionic-angular';
 import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 
+
  
 
 /**
@@ -24,6 +25,7 @@ export class LoginPage {
 
   credentials={} as credentials
 
+
   companyLogo:string="assets/imgs/companylogo.png"
   constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth:AngularFireAuth,private firebase:AngularFireDatabase) {
   }
@@ -35,39 +37,43 @@ export class LoginPage {
  
 
   async signIn(user:credentials){
+   
    try{
-      const result=await this.afAuth.auth.signInWithEmailAndPassword('tony@gmail.com','123456');
+      const result=await this.afAuth.auth.signInWithEmailAndPassword(user.emailId,user.password);
       let x:Promise<boolean>
       let y;
+      var privilleges=[]
+      
+      const priv=await this.firebase.database.ref(`users/${result.user.uid}`).child('data').once('value',(snapshot)=>{
+       privilleges=snapshot.val()
+      })
+     console.log("resule",result.user.uid)
+  
+       
+      if(result){
+            await this.firebase.database.ref('TempLogin').orderByChild(result.user.uid).once("value",(snapshot)=> {
+              y=snapshot.val();
+              console.log(y)
+            });
 
-
-
-      /*if(result){
-          
-           
-            this.firebase.database.ref('TempLogin').orderByChild(result.user.uid).once("value",(snapshot)=> {
-            y=snapshot.val();
-            Promise.resolve(true).then(()=>{
               if(y==null)
               this.navCtrl.setRoot('ChangepasswordPage')
-             else
-            this.navCtrl.setRoot('TabsPage')
+              else
+               this.navCtrl.setRoot('TabsPage',{'roles': privilleges})
+               this.navCtrl.popToRoot();
           
-            });
-            })
+            }
+          
 
-           */ 
+          
     }catch(e){
       console.error(e);
        }
+      }
 
-       
-   }
-   
-   signIn().then(()=.{
-     
-   })
-  
+
+ 
+ 
      //end of sign in function
   
 }

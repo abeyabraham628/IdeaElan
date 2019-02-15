@@ -118,41 +118,50 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage.prototype.signIn = function (user) {
         return __awaiter(this, void 0, void 0, function () {
-            var result, x, y, privilleges, userId, priv, e_1;
+            var result, x, y_1, privilleges, priv, e_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        _a.trys.push([0, 3, , 4]);
-                        return [4 /*yield*/, this.afAuth.auth.signInWithEmailAndPassword('tony@gmail.com', '123456')];
+                        _a.trys.push([0, 5, , 6]);
+                        return [4 /*yield*/, this.afAuth.auth.signInWithEmailAndPassword(user.emailId, user.password)];
                     case 1:
                         result = _a.sent();
                         x = void 0;
-                        y = void 0;
                         privilleges = [];
-                        userId = this.afAuth.auth.currentUser.uid;
-                        return [4 /*yield*/, this.firebase.database.ref("users/" + userId).child('data').on('value', function (snapshot) {
+                        return [4 /*yield*/, this.firebase.database.ref("users/" + result.user.uid).child('data').once('value', function (snapshot) {
                                 privilleges = snapshot.val();
-                                console.log("d", privilleges);
                             })];
                     case 2:
                         priv = _a.sent();
-                        this.navCtrl.setRoot('TabsPage', { roles: privilleges });
-                        return [3 /*break*/, 4];
+                        console.log("resule", result.user.uid);
+                        if (!result) return [3 /*break*/, 4];
+                        return [4 /*yield*/, this.firebase.database.ref('TempLogin').orderByChild(result.user.uid).once("value", function (snapshot) {
+                                y_1 = snapshot.val();
+                                console.log(y_1);
+                            })];
                     case 3:
+                        _a.sent();
+                        if (y_1 == null)
+                            this.navCtrl.setRoot('ChangepasswordPage');
+                        else
+                            this.navCtrl.setRoot('TabsPage', { 'roles': privilleges });
+                        this.navCtrl.popToRoot();
+                        _a.label = 4;
+                    case 4: return [3 /*break*/, 6];
+                    case 5:
                         e_1 = _a.sent();
                         console.error(e_1);
-                        return [3 /*break*/, 4];
-                    case 4: return [2 /*return*/];
+                        return [3 /*break*/, 6];
+                    case 6: return [2 /*return*/];
                 }
             });
         });
     };
-    var _a, _b, _c, _d;
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
             selector: 'page-login',template:/*ion-inline-start:"F:\ionic-app\src\pages\login\login.html"*/'\n\n<ion-content padding class="top-botton-border">\n\n  <ion-thumbnail >\n\n    <ion-img class="logo"  [src]="companyLogo"></ion-img>\n\n  </ion-thumbnail>\n\n\n\n<ion-list>\n\n  \n\n  <ion-item no-lines> \n\n    <ion-input text-center type="email" [(ngModel)]="credentials.emailId" class="input-border" placeholder="USER NAME"></ion-input>\n\n   </ion-item>\n\n  \n\n  <ion-item no-lines    >\n\n    <ion-input text-center type="password" class="input-border" [(ngModel)]="credentials.password" placeholder="PASSWORD"></ion-input>\n\n   </ion-item>\n\n\n\n   \n\n      <button  full default ion-button color="blue" style="height:40px; border-radius:5px;" (click)="signIn(credentials)">Sign In</button>\n\n   \n\n   \n\n  \n\n\n\n</ion-list>\n\n\n\n   \n\n   <ion-label color="orange"  text-right>Forgot Password</ion-label>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\login\login.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */]) === "function" && _d || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */]])
     ], LoginPage);
     return LoginPage;
 }());

@@ -27,7 +27,7 @@ export class ChangepasswordPage {
   }
 
 
-  updatePassword(){
+  async updatePassword(){
     var user = this.afAuth.auth.currentUser;
     var newPassword = this.password;
     var firebase=this.firebase;
@@ -37,9 +37,18 @@ export class ChangepasswordPage {
      firebase.object(`TempLogin/${user.uid}`).set({
         status : "Set",
      }
-    ).then(function(){
-      navCtrl.popToRoot()
-      navCtrl.setRoot('TabsPage');
+    ).then(async function(){
+        
+          var privilleges=[]
+          
+          const priv= await firebase.database.ref(`users/${user.uid}`).child('data').once('value',(snapshot)=>{
+           privilleges=snapshot.val()
+          })
+          navCtrl.push('TabsPage',{'roles': privilleges})
+
+
+
+
     });// end of push
       
     }).catch(function(error) {

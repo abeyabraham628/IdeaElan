@@ -27,25 +27,9 @@ uploadEvent:boolean=true
 loader:any
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
-   
-  
-  
-  }
-  
-  
-   asyncionViewDidLoad() {
-
-   this.loader = this.loadingCtrl.create({
-      content: "Please wait...",
-      duration:5000
-    });
-    this.loader.present();
-    
-    
-  /*this.roles=privilleges
-    
-      if(this.roles[0]!=null){
-        console.log(true)
+    this.roles=navParams.get('roles')
+     if(this.roles[0]!="null"){
+        
       this.users=false
       this.recruitment=false
       this.systems=false
@@ -54,23 +38,32 @@ loader:any
       this.uploadEvent=false
     }
 
-    /*if(this.roles[1]!=null)
+    if(this.roles[1]!="null")
       this.leaveRequest=false
 
      // if(this.roles[2]!=null)
       //this.leaveRequest=false
-      if(this.roles[3]!=null)
+      if(this.roles[3]!="null")
       this.uploadPaySlip=false
-      if(this.roles[4]!=null)
+      if(this.roles[4]!="null")
       this.recruitment=false
-      if(this.roles[5]!=null)
+      if(this.roles[5]!="null")
       this.systems=false
-      if(this.roles[6]!=null)
-      this.users=false*/
+      if(this.roles[6]!="null")
+      this.users=false
      
   }
+
+  
+  
+  
+  
+   ionViewDidLoad() {
+
+    
+   }
+
   goto(page:string){
-    console.log(page)
     this.navCtrl.push(page);
   }
 

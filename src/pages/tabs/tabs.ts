@@ -25,14 +25,15 @@ export class TabsPage {
   tab1Root='ApplyLeavePage';
   tab2Root='PayslipPage';
   tab3Root='InboxPage';
-  
-userId:any
-
+  tab0Params:any
+  userId:any
+ 
   constructor(public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth) {
-    let x= navParams.get('roles');
-    console.log(x)
+    this.tab0Params=this.navParams.data
+    
   }
-
+  
+  
 
   logout(){
     this.afAuth.auth.signOut()

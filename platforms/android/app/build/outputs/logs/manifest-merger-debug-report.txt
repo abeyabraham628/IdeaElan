@@ -1,161 +1,161 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
-INJECTED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
-INJECTED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
-INJECTED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
-MERGED from [:barcodescanner-release-2.1.5:] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\barcodescanner-release-2.1.5.aar\4c0211dcb9baa237991ccfe0f5748068\AndroidManifest.xml:2:1-14:12
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\9d6f1616a41b40fe407f494da3994e8f\AndroidManifest.xml:17:1-22:12
-MERGED from [:CordovaLib] D:\IdeaElan\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-27:12
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\d7f0aa9e6c695a3e50eec5db01feca9f\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\fbf3784c1681045c0698d33c9ff6f390\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\9d9ad0394e30ec9075dd4ac43b9444b2\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\3f122e1fea2a047ab71af5f9155f3c29\AndroidManifest.xml:17:1-22:12
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\aac860c777d335c41d25e060003041f4\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\dfdfd3e328857f751c2d47307d1c8e78\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\e155f97ea336a729a5dea2692b2ee85b\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\d94c83732ecef546c5b3cb8de82debcc\AndroidManifest.xml:17:1-22:12
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\9bedc7438b7ebc3f746b33fd68ca5205\AndroidManifest.xml:17:1-22:12
-INJECTED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
-INJECTED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
-INJECTED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+MERGED from [:barcodescanner-release-2.1.5:] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\barcodescanner-release-2.1.5.aar\be51807e8ab930d937e83a4a77956bea\AndroidManifest.xml:2:1-14:12
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\db0402d8d6ae2308fd6cbe5c6d2a8159\AndroidManifest.xml:17:1-22:12
+MERGED from [:CordovaLib] F:\ionic-app\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-27:12
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\5cbac25f7dbb75a01f0e56776e0645cb\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\7ee5b59715fb21794b7eaa46fdc4005b\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\69bef958a9dc7bfb8ba2da85f2dad08e\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\e832a3a933f89c40cf7ceed6106b9fee\AndroidManifest.xml:17:1-22:12
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\5d9e55cb82d37ed7387288d0f1dc660a\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\4bd81ec057fc75b3a8c75213867c6022\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\3d7a9109c9ee1b96e255335521000f2b\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\4fcc85d2f1664dd40ea5363b0f6435eb\AndroidManifest.xml:17:1-22:12
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\baf9087cb685a57bf3a124b0979660da\AndroidManifest.xml:17:1-22:12
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
 	package
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:2:98-117
-		INJECTED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml
-		INJECTED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:98-117
+		INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml
+		INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml
 	android:versionName
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:2:70-97
-		INJECTED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml
-		INJECTED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:70-97
+		INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml
+		INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml
 	android:hardwareAccelerated
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:2:11-45
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:11-45
 	xmlns:android
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:2:118-176
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:118-176
 	android:versionCode
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:2:46-69
-		INJECTED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml
-		INJECTED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:46-69
+		INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml
+		INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml
 supports-screens
-ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:3:5-191
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:3:5-191
 	android:largeScreens
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:3:49-76
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:3:49-76
 	android:smallScreens
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:3:132-159
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:3:132-159
 	android:normalScreens
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:3:77-105
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:3:77-105
 	android:xlargeScreens
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:3:160-188
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:3:160-188
 	android:resizeable
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:3:106-131
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:3:106-131
 	android:anyDensity
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:3:23-48
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:3:23-48
 uses-permission#android.permission.INTERNET
-ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:4:5-67
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:4:5-67
 	android:name
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:4:22-64
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:4:22-64
 application
-ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:5:5-14:19
-MERGED from [:barcodescanner-release-2.1.5:] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\barcodescanner-release-2.1.5.aar\4c0211dcb9baa237991ccfe0f5748068\AndroidManifest.xml:11:5-12:19
-MERGED from [:barcodescanner-release-2.1.5:] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\barcodescanner-release-2.1.5.aar\4c0211dcb9baa237991ccfe0f5748068\AndroidManifest.xml:11:5-12:19
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:5:5-14:19
+MERGED from [:barcodescanner-release-2.1.5:] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\barcodescanner-release-2.1.5.aar\be51807e8ab930d937e83a4a77956bea\AndroidManifest.xml:11:5-12:19
+MERGED from [:barcodescanner-release-2.1.5:] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\barcodescanner-release-2.1.5.aar\be51807e8ab930d937e83a4a77956bea\AndroidManifest.xml:11:5-12:19
 	android:supportsRtl
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:5:114-140
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:5:114-140
 	android:label
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:5:81-113
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:5:81-113
 	android:hardwareAccelerated
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:5:18-52
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:5:18-52
 	android:icon
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:5:53-80
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:5:53-80
 activity#idea.elan.MainActivity
-ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:6:9-11:20
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:6:9-11:20
 	android:label
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:6:97-134
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:6:97-134
 	android:launchMode
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:6:135-165
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:6:135-165
 	android:windowSoftInputMode
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:6:257-299
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:6:257-299
 	android:configChanges
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:6:19-96
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:6:19-96
 	android:theme
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:6:194-256
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:6:194-256
 	android:name
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:6:166-193
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:6:166-193
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:7:13-10:29
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:7:13-10:29
 	android:label
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:7:28-65
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:7:28-65
 action#android.intent.action.MAIN
-ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:8:17-69
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:8:17-69
 	android:name
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:8:25-66
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:8:25-66
 category#android.intent.category.LAUNCHER
-ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:9:17-77
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:9:17-77
 	android:name
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:9:27-74
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:9:27-74
 activity#com.google.zxing.client.android.CaptureActivity
-ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:12:9-311
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:12:9-311
 	android:clearTaskOnLaunch
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:12:19-51
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:12:19-51
 	android:windowSoftInputMode
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:12:261-308
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:12:261-308
 	android:exported
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:12:114-138
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:12:114-138
 	android:configChanges
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:12:52-113
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:12:52-113
 	android:theme
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:12:202-260
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:12:202-260
 	android:name
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:12:139-201
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:12:139-201
 activity#com.google.zxing.client.android.encode.EncodeActivity
-ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:13:9-112
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:13:9-112
 	android:label
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:13:19-40
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:13:19-40
 	android:name
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:13:41-109
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:13:41-109
 uses-sdk
-ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:15:5-74
-INJECTED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:15:5-74
-MERGED from [:barcodescanner-release-2.1.5:] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\barcodescanner-release-2.1.5.aar\4c0211dcb9baa237991ccfe0f5748068\AndroidManifest.xml:7:5-9:41
-MERGED from [:barcodescanner-release-2.1.5:] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\barcodescanner-release-2.1.5.aar\4c0211dcb9baa237991ccfe0f5748068\AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\9d6f1616a41b40fe407f494da3994e8f\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\9d6f1616a41b40fe407f494da3994e8f\AndroidManifest.xml:20:5-44
-MERGED from [:CordovaLib] D:\IdeaElan\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
-MERGED from [:CordovaLib] D:\IdeaElan\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\d7f0aa9e6c695a3e50eec5db01feca9f\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\d7f0aa9e6c695a3e50eec5db01feca9f\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\fbf3784c1681045c0698d33c9ff6f390\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\fbf3784c1681045c0698d33c9ff6f390\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\9d9ad0394e30ec9075dd4ac43b9444b2\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\9d9ad0394e30ec9075dd4ac43b9444b2\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\3f122e1fea2a047ab71af5f9155f3c29\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\3f122e1fea2a047ab71af5f9155f3c29\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\aac860c777d335c41d25e060003041f4\AndroidManifest.xml:20:5-44
-MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\aac860c777d335c41d25e060003041f4\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\dfdfd3e328857f751c2d47307d1c8e78\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\dfdfd3e328857f751c2d47307d1c8e78\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\e155f97ea336a729a5dea2692b2ee85b\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\e155f97ea336a729a5dea2692b2ee85b\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\d94c83732ecef546c5b3cb8de82debcc\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\d94c83732ecef546c5b3cb8de82debcc\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\9bedc7438b7ebc3f746b33fd68ca5205\AndroidManifest.xml:20:5-44
-MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Tony\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\9bedc7438b7ebc3f746b33fd68ca5205\AndroidManifest.xml:20:5-44
-INJECTED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:15:5-74
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:15:5-74
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:15:5-74
+MERGED from [:barcodescanner-release-2.1.5:] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\barcodescanner-release-2.1.5.aar\be51807e8ab930d937e83a4a77956bea\AndroidManifest.xml:7:5-9:41
+MERGED from [:barcodescanner-release-2.1.5:] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\barcodescanner-release-2.1.5.aar\be51807e8ab930d937e83a4a77956bea\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\db0402d8d6ae2308fd6cbe5c6d2a8159\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\db0402d8d6ae2308fd6cbe5c6d2a8159\AndroidManifest.xml:20:5-44
+MERGED from [:CordovaLib] F:\ionic-app\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
+MERGED from [:CordovaLib] F:\ionic-app\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:25:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\5cbac25f7dbb75a01f0e56776e0645cb\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-media-compat:27.1.1] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\support-media-compat-27.1.1.aar\5cbac25f7dbb75a01f0e56776e0645cb\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\7ee5b59715fb21794b7eaa46fdc4005b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-fragment:27.1.1] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\support-fragment-27.1.1.aar\7ee5b59715fb21794b7eaa46fdc4005b\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\69bef958a9dc7bfb8ba2da85f2dad08e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-ui:27.1.1] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\support-core-ui-27.1.1.aar\69bef958a9dc7bfb8ba2da85f2dad08e\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\e832a3a933f89c40cf7ceed6106b9fee\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-core-utils:27.1.1] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\support-core-utils-27.1.1.aar\e832a3a933f89c40cf7ceed6106b9fee\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\5d9e55cb82d37ed7387288d0f1dc660a\AndroidManifest.xml:20:5-44
+MERGED from [com.android.support:support-compat:27.1.1] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\support-compat-27.1.1.aar\5d9e55cb82d37ed7387288d0f1dc660a\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\4bd81ec057fc75b3a8c75213867c6022\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\4bd81ec057fc75b3a8c75213867c6022\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\3d7a9109c9ee1b96e255335521000f2b\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\3d7a9109c9ee1b96e255335521000f2b\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\4fcc85d2f1664dd40ea5363b0f6435eb\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\4fcc85d2f1664dd40ea5363b0f6435eb\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\baf9087cb685a57bf3a124b0979660da\AndroidManifest.xml:20:5-44
+MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\baf9087cb685a57bf3a124b0979660da\AndroidManifest.xml:20:5-44
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:15:5-74
 	android:targetSdkVersion
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:15:42-71
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:15:42-71
 	android:minSdkVersion
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:15:15-41
-		INJECTED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml
-		INJECTED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:15:15-41
+		INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml
+		INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.CAMERA
-ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:16:5-65
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:16:5-65
 	android:name
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:16:22-62
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:16:22-62
 uses-permission#android.permission.FLASHLIGHT
-ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:17:5-69
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:17:5-69
 	android:name
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:17:22-66
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:17:22-66
 uses-feature#android.hardware.camera
-ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:18:5-84
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:18:5-84
 	android:required
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:18:58-81
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:18:58-81
 	android:name
-		ADDED from D:\IdeaElan\platforms\android\app\src\main\AndroidManifest.xml:18:19-57
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:18:19-57

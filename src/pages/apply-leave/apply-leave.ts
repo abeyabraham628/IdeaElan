@@ -29,7 +29,7 @@ fromDate:string;
 toDate:string;
 leaveList:AngularFireList<any>
 leave={} as leaves
-
+leaves:string
 months={} as DayMonthYear
 sickRemaining:number;
 casualRemaining:number;
@@ -64,7 +64,9 @@ type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
             private afauth:AngularFireAuth,
             private alert:AlertController,
             private modalCtrl:ModalController,
-           ) {}
+           ) {
+            this.leaves="applyLeave";
+           }
 
           
            openCalendar() {

@@ -197,6 +197,11 @@ getItems(searchbar) {
   
   if(this.butn=="save")
   {
+    var password=keygen.generate({
+      length:6,
+      symbols:false
+  
+    })
     this.sp=false;
     if(this.userItem.data==null){   
        
@@ -208,16 +213,12 @@ getItems(searchbar) {
       this.dnew[5]="null";
       this.dnew[6]="null";
     
-    var password=keygen.generate({
-      length:6,
-      symbols:false
-  
-    })
+    
   
     try{
-      await this.afAuth.auth.createUserWithEmailAndPassword(this.userItem.email,'9902771821').then(data=>{
+      await this.afAuth.auth.createUserWithEmailAndPassword(this.userItem.email,password).then(data=>{
          
-         const ref = this.fdb.object(`users/${data.user.uid}`).set({
+          const ref =  this.fdb.object(`users/${data.user.uid}`).set({
           key : data.user.uid,
           fname : this.userItem.fname,
           lname:this.userItem.lname,
@@ -230,14 +231,14 @@ getItems(searchbar) {
           status:this.status
          });// end of push
      });//end of create user
-      
+      this.email(this.userItem.fname, this.userItem.email,password)
       }catch(e){
         console.error(e)
       }
    }
   else{
     try{
-      await this.afAuth.auth.createUserWithEmailAndPassword(this.userItem.email,'9902771821').then(data=>{
+      await this.afAuth.auth.createUserWithEmailAndPassword(this.userItem.email,password).then(data=>{
         
       const ref = this.fdb.object(`users/${data.user.uid}`).set({
         key : data.user.uid,
@@ -252,7 +253,8 @@ getItems(searchbar) {
         status:this.status
       });// end of push
     });//end of create user
-     
+
+    this.email(this.userItem.fname, this.userItem.email,password);
      }catch(e){
        console.error(e)
      }
@@ -820,24 +822,9 @@ new1()
 }
 
 
-async email(name:string,to_email:string=this.userItem.email){
-  var password=keygen.generate({
-    length:6,
-    symbols:false
-
-  })
-
-  try{
-    const result= await this.afAuth.auth.createUserWithEmailAndPassword(to_email,password).then(data=>{
-       console.log(data.user.uid)
-    })
-    
-    }catch(e){
-      console.error(e)
-    }
-
-
-    /*var templateParams = {
+email(name:string,to_email:string,password:any){
+console.log(name)
+     var templateParams = {
       to_name: name,
       user_email:to_email,
       message_html: 'Your account login password is '+password+"."
@@ -847,7 +834,7 @@ async email(name:string,to_email:string=this.userItem.email){
       console.log('SUCCESS!', response.status, response.text);
     }, (err) => {
       console.log('FAILED...', err);
-    });*/
+    });
     }
 
 }
