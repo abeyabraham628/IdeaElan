@@ -21,14 +21,18 @@ export class TabsPage {
  /* tab1Root = 'NewuserPage';
   tab2Root = 'SystemsPage' ;
   tab3Root = 'RecruitmentPage';*/
-
+  tab0Root='HomePage';
   tab1Root='ApplyLeavePage';
   tab2Root='PayslipPage';
   tab3Root='InboxPage';
   
+userId:any
+
   constructor(public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth) {
-   
+    let x= navParams.get('roles');
+    console.log(x)
   }
+
 
   logout(){
     this.afAuth.auth.signOut()

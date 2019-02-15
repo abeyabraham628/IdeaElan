@@ -1,4 +1,4 @@
-webpackJsonp([13],{
+webpackJsonp([14],{
 
 /***/ 224:
 /***/ (function(module, exports) {
@@ -22,55 +22,59 @@ webpackEmptyAsyncContext.id = 224;
 
 var map = {
 	"../pages/apply-leave/apply-leave.module": [
-		725,
-		12
+		726,
+		13
 	],
 	"../pages/changepassword/changepassword.module": [
 		714,
-		11
+		12
 	],
 	"../pages/chatbot/chatbot.module": [
 		715,
+		11
+	],
+	"../pages/home/home.module": [
+		716,
 		10
 	],
 	"../pages/inbox/inbox.module": [
-		716,
+		717,
 		9
 	],
 	"../pages/interview-details/interview-details.module": [
-		717,
+		718,
 		3
 	],
 	"../pages/interview-summary/interview-summary.module": [
-		718,
+		719,
 		8
 	],
 	"../pages/login/login.module": [
-		719,
+		720,
 		7
 	],
 	"../pages/newuser/newuser.module": [
-		726,
+		727,
 		0
 	],
 	"../pages/payslip/payslip.module": [
-		720,
+		721,
 		6
 	],
 	"../pages/profile/profile.module": [
-		721,
+		722,
 		1
 	],
 	"../pages/recruitment/recruitment.module": [
-		722,
+		723,
 		2
 	],
 	"../pages/systems/systems.module": [
-		723,
+		724,
 		5
 	],
 	"../pages/tabs/tabs.module": [
-		724,
+		725,
 		4
 	]
 };
@@ -170,6 +174,7 @@ var AppModule = /** @class */ (function () {
                     links: [
                         { loadChildren: '../pages/changepassword/changepassword.module#ChangepasswordPageModule', name: 'ChangepasswordPage', segment: 'changepassword', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/chatbot/chatbot.module#ChatbotPageModule', name: 'ChatbotPage', segment: 'chatbot', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/inbox/inbox.module#InboxPageModule', name: 'InboxPage', segment: 'inbox', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/interview-details/interview-details.module#InterviewDetailsPageModule', name: 'InterviewDetailsPage', segment: 'interview-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/interview-summary/interview-summary.module#InterviewSummaryPageModule', name: 'InterviewSummaryPage', segment: 'interview-summary', priority: 'low', defaultHistory: [] },
@@ -513,7 +518,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var MyApp = /** @class */ (function () {
     function MyApp(platform, statusBar, splashScreen) {
-        this.rootPage = 'ApplyLeavePage'; //CompanyPolicyComponent;//HomePage
+        this.rootPage = 'LoginPage'; //'ApplyLeavePage';//CompanyPolicyComponent;//HomePage
         platform.ready().then(function () {
             statusBar.styleDefault();
             splashScreen.hide();

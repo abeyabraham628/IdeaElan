@@ -35,13 +35,13 @@ export class LoginPage {
  
 
   async signIn(user:credentials){
-   
-    try{
-      const result=await this.afAuth.auth.signInWithEmailAndPassword('abey@gmail.com','123456');
+   try{
+      const result=await this.afAuth.auth.signInWithEmailAndPassword('tony@gmail.com','123456');
       let x:Promise<boolean>
       let y;
-      
-    this.navCtrl.setRoot('TabsPage')
+
+
+
       /*if(result){
           
            
@@ -60,7 +60,14 @@ export class LoginPage {
     }catch(e){
       console.error(e);
        }
+
+       
    }
+   
+   signIn().then(()=.{
+     
+   })
+  
      //end of sign in function
   
 }

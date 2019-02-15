@@ -35733,12 +35733,37 @@ ion-navbar.toolbar {
   height: 50%;
 }
 
-.logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 110px;
-  width: 200px;
+.home-buttons {
+  border-radius: 5px;
+  height: 60px !important;
+  width: 100px !important;
+  margin: 5px;
+  font-size: 10px;
+}
+
+.box-events {
+  text-align: center;
+  width: 100%;
+  min-height: 330px;
+  border-top: 1px solid #f6a253;
+  border-bottom: 1px solid #f6a253;
+  border-radius: 10px;
+  position: fixed;
+  left: 0;
+  top: 5px;
+  right: 0;
+}
+
+.box-controllers {
+  text-align: center;
+  width: 100%;
+  height: 150px;
+  border-top: 1px solid #f6a253;
+  border-radius: 10px;
+  position: fixed;
+  left: 0;
+  bottom: 5px;
+  right: 0;
 }
 
 .logo {
