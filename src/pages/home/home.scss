@@ -32,3 +32,14 @@
     bottom: 5px;
     right: 0;
 }
+
+button {
+	ion-badge {
+		position: absolute;
+		top: -0.2rem;
+		right: -0.2rem;
+		opacity: 0.9;
+
+		
+	}
+}

@@ -1,0 +1,74 @@
+<ion-header no-border>
+  <ion-toolbar color="blue" hideBackButton="true">
+    <button ion-button  menuToggle="left" start>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    
+    <ion-title text-center>Leave</ion-title>
+
+    <ion-buttons end>
+      <button ion-button >
+        <ion-icon name="notifications"></ion-icon> 
+      </button> 
+    </ion-buttons>
+</ion-toolbar>
+</ion-header>
+  
+
+
+
+  <ion-content>
+ 
+      <ion-segment [(ngModel)]="leaves" color="white" >
+         <ion-segment-button value="leaveRequests">
+            Leave Requests
+         </ion-segment-button>
+         <ion-segment-button value="leaveHistory" >
+          History
+         </ion-segment-button>
+      </ion-segment>
+  <div [ngSwitch]="leaves">
+    <div *ngSwitchCase="'leaveRequests'">
+    
+      <ion-card (click)="openModal('ApproveLeavePage')">
+        <ion-item>
+          <ion-avatar item-start>
+            <img src="assets/imgs/companylogo.png">
+          </ion-avatar>
+          <h2>Tony Manuel</h2>
+          <p>Sick Leave</p>
+        </ion-item>
+        
+        
+      </ion-card>
+    
+
+    
+    </div>
+
+    <div *ngSwitchCase="'leaveHistory'">
+     
+      <ion-item>
+        <ion-row class="table-title">
+          <ion-col col-4 >System Id</ion-col>
+          <ion-col col-3 >RAM</ion-col>
+          <ion-col col-3 >HDD</ion-col>
+          <ion-col col-2 >Antivirus</ion-col>
+          <ion-col hidden col-2 >View</ion-col>
+        </ion-row>
+      </ion-item>
+      <ion-item *ngFor="let system of systemArray">
+        <ion-row class="col-text table-bottom-border" (click)="loadForm(system)" >
+            <ion-col col-4>{{system.systemId}}</ion-col><ion-col col-3>{{system.memory}}</ion-col><ion-col col-3>{{system.hdd}}</ion-col><ion-col col-2>{{system.avValidity}} Days</ion-col>
+        </ion-row>
+      </ion-item>
+
+      
+    </div>
+
+
+  </div>
+    
+  </ion-content>
+  
+ 

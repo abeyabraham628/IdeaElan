@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,ModalController} from 'ionic-angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 import { LoadingController } from 'ionic-angular';
@@ -26,7 +26,7 @@ leaveRequest:boolean=true
 uploadEvent:boolean=true
 loader:any
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
+  constructor(public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
     this.roles=navParams.get('roles')
      if(this.roles[0]!="null"){
         
@@ -67,6 +67,10 @@ loader:any
     this.navCtrl.push(page);
   }
 
+  presentModal(page:string) {
+    const modal = this.modalCtrl.create(page);
+    modal.present();
+  }
  
 
 }

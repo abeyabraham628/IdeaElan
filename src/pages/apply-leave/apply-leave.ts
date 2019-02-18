@@ -126,14 +126,14 @@ type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
       
     else{
       if(this.multiKey){
-        this.firebase.list(`EmployeeLeaves/${uid}/Leaves/${this.$key1}`).push({
+        this.firebase.list(`EmployeeLeaves/${uid}/${this.$key1}`).push({
           'leaveType':this.leave.leaveType,
           'date':this.leave.date,
           'status':this.leave.status,
           'count':this.leave.count
 
         }).then(()=>{
-          this.firebase.list(`EmployeeLeaves/${uid}/Leaves/${this.$key2}`).push({
+          this.firebase.list(`EmployeeLeaves/${uid}/${this.$key2}`).push({
             'leaveType':this.leave.leaveType,
             'date':this.leave.date2,
             'status':this.leave.status,
@@ -142,7 +142,7 @@ type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
       });
     }
       else
-      this.firebase.list(`EmployeeLeaves/${uid}/Leaves/${this.$key1}`).push(this.leave);//inserting the details of leaves
+      this.firebase.list(`EmployeeLeaves/${uid}/${this.$key1}`).push(this.leave);//inserting the details of leaves
       //this.firebase.list(`EmployeeLeaves/${uid}/MonthlyLeaves/${this.$key1}`).push(dayCounter)
     }//end of if else 
          
@@ -164,7 +164,7 @@ type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
      else
       $month=(new Date().getMonth()+1)+""+new Date().getFullYear();
      }
-    this.firebase.list(`EmployeeLeaves/${this.afauth.auth.currentUser.uid}/Leaves/${$month}`).snapshotChanges().subscribe(
+    this.firebase.list(`EmployeeLeaves/${this.afauth.auth.currentUser.uid}/${$month}`).snapshotChanges().subscribe(
        
       list=>{
         this.pastLeaves=list.map(item=>{
