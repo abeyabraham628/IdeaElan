@@ -1,4 +1,4 @@
-webpackJsonp([16],{
+webpackJsonp([17],{
 
 /***/ 224:
 /***/ (function(module, exports) {
@@ -22,8 +22,8 @@ webpackEmptyAsyncContext.id = 224;
 
 var map = {
 	"../pages/apply-leave/apply-leave.module": [
-		728,
-		15
+		729,
+		16
 	],
 	"../pages/approve-leave/approve-leave.module": [
 		714,
@@ -31,19 +31,19 @@ var map = {
 	],
 	"../pages/changepassword/changepassword.module": [
 		715,
-		14
+		15
 	],
 	"../pages/chatbot/chatbot.module": [
 		716,
-		13
+		14
 	],
 	"../pages/home/home.module": [
 		717,
-		12
+		13
 	],
 	"../pages/inbox/inbox.module": [
 		718,
-		11
+		12
 	],
 	"../pages/interview-details/interview-details.module": [
 		719,
@@ -51,23 +51,23 @@ var map = {
 	],
 	"../pages/interview-summary/interview-summary.module": [
 		720,
-		10
+		11
 	],
 	"../pages/leaves-admin/leaves-admin.module": [
 		721,
-		9
+		10
 	],
 	"../pages/login/login.module": [
 		722,
-		8
+		9
 	],
 	"../pages/newuser/newuser.module": [
-		729,
+		730,
 		0
 	],
 	"../pages/payslip/payslip.module": [
 		723,
-		7
+		8
 	],
 	"../pages/profile/profile.module": [
 		724,
@@ -79,10 +79,14 @@ var map = {
 	],
 	"../pages/systems/systems.module": [
 		726,
-		6
+		7
 	],
 	"../pages/tabs/tabs.module": [
 		727,
+		6
+	],
+	"../pages/upload-events/upload-events.module": [
+		728,
 		5
 	]
 };
@@ -194,6 +198,7 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/recruitment/recruitment.module#RecruitmentPageModule', name: 'RecruitmentPage', segment: 'recruitment', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/systems/systems.module#SystemsPageModule', name: 'SystemsPage', segment: 'systems', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/upload-events/upload-events.module#UploadEventsPageModule', name: 'UploadEventsPage', segment: 'upload-events', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/apply-leave/apply-leave.module#ApplyLeavePageModule', name: 'ApplyLeavePage', segment: 'apply-leave', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/newuser/newuser.module#NewuserPageModule', name: 'NewuserPage', segment: 'newuser', priority: 'low', defaultHistory: [] }
                     ]

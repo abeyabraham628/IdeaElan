@@ -1,7 +1,7 @@
 import { Component, ViewChild, KeyValueDiffers,ChangeDetectorRef } from '@angular/core';
 import { IonicPage, NavController, NavParams ,Slides, Form, Item} from 'ionic-angular';
 import {AngularFireDatabase,AngularFireList} from '@angular/fire/database';
-import {FormControl,FormGroup}from '@angular/forms';
+import {FormControl,FormGroup,Validators}from '@angular/forms';
 import { DatePicker } from '@ionic-native/date-picker';
 import {Observable} from 'rxjs/observable'
 
@@ -24,6 +24,7 @@ export class RecruitmentPage {
   recruitment:string;
   scheduleDate: String
   checked:boolean=false
+  candidateSelected=true
  
   constructor(private firebase:AngularFireDatabase, private datePicker:DatePicker,public navCtrl: NavController,private ref: ChangeDetectorRef) {
     this.recruitment="newApplicant";
@@ -48,7 +49,7 @@ getApplicants(){
   
  
   applicantDetails=[];// for storing the applciants retrieved from db
-  
+  x:boolean=true
   showApplicants(){
    this.getApplicants().subscribe(
      res=>{ 
@@ -62,20 +63,22 @@ getApplicants(){
          return null
       }).filter(Boolean);//end of map
  });//end of subscribe
+
+
 }//end of show applicant function
 
 //Initialising new applicant form
 newApplicantForm=new FormGroup({
   $key:new FormControl(null),
-  fName:new FormControl(''),
-  lName:new FormControl(''),
-  mobile:new FormControl(''),
-  email:new FormControl(''),
-  employer:new FormControl(''),
-  noticePeriod:new FormControl(''),
-  currentctc:new FormControl(''),
-  experience:new FormControl(''),
-  expectedctc: new FormControl('')
+  fName:new FormControl('',[Validators.required,Validators.minLength(2)]),
+  lName:new FormControl('',Validators.required),
+  mobile:new FormControl('',[Validators.required,Validators.minLength(10)]),
+  email:new FormControl('',[Validators.required,Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
+  employer:new FormControl('',[Validators.required,Validators.minLength(3)]),
+  noticePeriod:new FormControl('',[Validators.required,Validators.minLength(5)]),
+  currentctc:new FormControl('',[Validators.required,Validators.minLength(4)]),
+  experience:new FormControl('',Validators.required),
+  expectedctc: new FormControl('',[Validators.required,Validators.minLength(4)]),
 })
   
 //Function for saving a new applicant to the database
@@ -117,16 +120,18 @@ newApplicantForm=new FormGroup({
 
   //Initialising schedule form
   scheduleForm=new FormGroup({
-      scheduleDate:new FormControl(''),
-      scheduleTime:new FormControl(''),
-      contactPerson:new FormControl(''),
-      contactPersonNum: new FormControl(''),
-      email: new FormControl('')
+      scheduleDate:new FormControl('',Validators.required),
+      scheduleTime:new FormControl('',[Validators.required]),
+      contactPerson:new FormControl('',[Validators.required,Validators.minLength(4)]),
+      contactPersonNum: new FormControl('',[Validators.required,Validators.minLength(10)]),
+      applicants: new FormControl(null, Validators.required),
+     
   });
 
  
   //Funtion for saving interview schedules for the respective applicants
   saveSchedule(){
+    
     let schedule={  
                     interviewTime:this.scheduleForm.controls.scheduleTime.value, 
                     contactPerson:this.scheduleForm.controls.contactPerson.value,
@@ -137,6 +142,9 @@ newApplicantForm=new FormGroup({
       //Schedule details is pushed first to the db and then the key of that particular record is retrieved
       //Once the key is retrieved,that key is add as a reference to the interviewDate field for the selected candidated record. 
       
+      
+
+
       this.scheduleList.push({//New schedule is created
         interviewDate:this.scheduleForm.controls.scheduleDate.value,
         interviewDetails:schedule
@@ -156,17 +164,26 @@ newApplicantForm=new FormGroup({
   // fucntion for toggling check all or uncheck all applicants
   selectAll(){
     this.checked=!this.checked;
+    
   }
 
 // Function for selecting multiple applincants before assigning a interview schedule
 applicantKeys:string[] = [];
   clickSelectBox(itemKey){
+    
     const foundAt = this.applicantKeys.indexOf(itemKey);
       if (foundAt >= 0) 
         this.applicantKeys.splice(foundAt, 1);
       else 
         this.applicantKeys.push(itemKey);
-    }
+       
+        if(this.applicantKeys.length>0){
+          this.candidateSelected=false
+        }
+}
+
+
+  
 
 // function for retrieving the history of schedules
 interviewDate=[]

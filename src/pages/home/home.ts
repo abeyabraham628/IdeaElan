@@ -60,7 +60,7 @@ loader:any
   
    ionViewDidLoad() {
 
-    
+    this.getMessages()
    }
 
   goto(page:string){
@@ -72,5 +72,29 @@ loader:any
     modal.present();
   }
  
+  messages=[]
+  getMessages(){
+    this.firebase.list('messages').snapshotChanges().subscribe(snap=>{
+      this.messages=snap.map(item=>{
+        return{
+          $key:item.key,
+          ...item.payload.val()
+        }
+  
+      })
+    })
+    
+  }
+  
+  viewMessages(x){
+      let modal=this.modalCtrl.create({
+        title:x.subject,
+        
+  
+      })
+      modal.present()
+  }
+
+
 
 }

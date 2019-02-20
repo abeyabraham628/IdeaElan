@@ -1,0 +1,50 @@
+<!--
+  Generated template for the UploadEventsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+    <ion-toolbar color="blue" hideBackButton="true">
+      <button ion-button  menuToggle="left" start>
+          <ion-icon name="menu"></ion-icon>
+      </button>
+      
+      <ion-title text-center>Events</ion-title>
+  
+      <ion-buttons end>
+        <button ion-button >
+          <ion-icon name="notifications"></ion-icon> 
+        </button> 
+      </ion-buttons>
+      
+  </ion-toolbar>
+  
+  </ion-header>
+
+<ion-content>
+    <form [formGroup]="PublishMessageForm" (ngSubmit)="publishMessage()">
+    <ion-item>
+      <ion-label floating>Subject</ion-label>
+        <ion-input type="text" formControlName="subject"></ion-input>
+    </ion-item>
+    <ion-item  no-lines *ngIf=" PublishMessageForm.get('subject').hasError('required')  && PublishMessageForm.get('subject').touched">
+        <ion-label stacked  color="danger">
+          Subject Is Required
+        </ion-label>
+      </ion-item>
+    <ion-item>
+        <ion-label floating>Message</ion-label>
+          <ion-textarea rows="15" formControlName="message"></ion-textarea>
+      </ion-item>
+      <ion-item  no-lines *ngIf=" PublishMessageForm.get('message').hasError('required')  && PublishMessageForm.get('message').touched">
+          <ion-label stacked  color="danger">
+            Message Is Required
+          </ion-label>
+        </ion-item>
+
+      <ion-item>
+            <button type="submit"  [disabled]="PublishMessageForm.invalid" color="blue" full ion-button>Send Message</button>
+         </ion-item>
+         </form>
+</ion-content>
