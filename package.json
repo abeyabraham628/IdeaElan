@@ -25,6 +25,7 @@
     "@ionic-native/camera": "^4.20.0",
     "@ionic-native/core": "^4.20.0",
     "@ionic-native/date-picker": "^4.20.0",
+    "@ionic-native/email-composer": "^4.20.0",
     "@ionic-native/firebase": "^4.20.0",
     "@ionic-native/image-picker": "^4.20.0",
     "@ionic-native/splash-screen": "^4.20.0",

@@ -22,72 +22,72 @@ webpackEmptyAsyncContext.id = 224;
 
 var map = {
 	"../pages/apply-leave/apply-leave.module": [
-		729,
+		730,
 		16
 	],
 	"../pages/approve-leave/approve-leave.module": [
-		714,
-		4
+		715,
+		5
 	],
 	"../pages/changepassword/changepassword.module": [
-		715,
+		716,
 		15
 	],
 	"../pages/chatbot/chatbot.module": [
-		716,
+		717,
 		14
 	],
 	"../pages/home/home.module": [
-		717,
+		718,
 		13
 	],
 	"../pages/inbox/inbox.module": [
-		718,
+		719,
 		12
 	],
 	"../pages/interview-details/interview-details.module": [
-		719,
-		3
+		720,
+		4
 	],
 	"../pages/interview-summary/interview-summary.module": [
-		720,
+		721,
 		11
 	],
 	"../pages/leaves-admin/leaves-admin.module": [
-		721,
+		722,
 		10
 	],
 	"../pages/login/login.module": [
-		722,
+		723,
 		9
 	],
 	"../pages/newuser/newuser.module": [
-		730,
+		731,
 		0
 	],
 	"../pages/payslip/payslip.module": [
-		723,
+		724,
 		8
 	],
 	"../pages/profile/profile.module": [
-		724,
+		725,
 		1
 	],
 	"../pages/recruitment/recruitment.module": [
-		725,
+		726,
 		2
 	],
 	"../pages/systems/systems.module": [
-		726,
+		727,
 		7
 	],
 	"../pages/tabs/tabs.module": [
-		727,
+		728,
 		6
 	],
 	"../pages/upload-events/upload-events.module": [
-		728,
-		5
+		729,
+		3
 	]
 };
 function webpackAsyncContext(req) {
@@ -128,7 +128,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_barcode_scanner__ = __webpack_require__(462);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(45);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_splash_screen__ = __webpack_require__(455);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_status_bar__ = __webpack_require__(456);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common_http__ = __webpack_require__(702);
@@ -145,12 +145,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16_ion2_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_16_ion2_calendar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__app_component__ = __webpack_require__(712);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__providers_firebase_service__ = __webpack_require__(713);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_email_composer__ = __webpack_require__(714);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -221,6 +223,7 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_9__ionic_native_date_picker__["a" /* DatePicker */],
                 __WEBPACK_IMPORTED_MODULE_0__ionic_native_barcode_scanner__["a" /* BarcodeScanner */],
                 __WEBPACK_IMPORTED_MODULE_11__angular_common__["d" /* DatePipe */],
+                __WEBPACK_IMPORTED_MODULE_19__ionic_native_email_composer__["a" /* EmailComposer */],
                 { provide: __WEBPACK_IMPORTED_MODULE_2__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["IonicErrorHandler"] }
             ]
         })
@@ -515,7 +518,7 @@ webpackContext.id = 681;
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(456);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(455);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {

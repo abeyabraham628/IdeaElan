@@ -44,6 +44,22 @@
               "xml": "<uses-feature android:name=\"android.hardware.camera\" android:required=\"true\" />",
               "count": 1
             }
+          ],
+          "application": [
+            {
+              "xml": "<provider android:authorities=\"${applicationId}.emailcomposer.provider\" android:exported=\"false\" android:grantUriPermissions=\"true\" android:name=\"de.appplant.cordova.emailcomposer.Provider\"><meta-data android:name=\"android.support.FILE_PROVIDER_PATHS\" android:resource=\"@xml/emailcomposer_provider_paths\" /></provider>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"EmailComposer\"><param name=\"android-package\" value=\"de.appplant.cordova.emailcomposer.EmailComposer\" /></feature>",
+              "count": 1
+            }
           ]
         }
       }
@@ -54,6 +70,10 @@
       "PACKAGE_NAME": "idea.elan"
     },
     "phonegap-plugin-barcodescanner": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-email-composer": {
       "ANDROID_SUPPORT_V4_VERSION": "27.+",
       "PACKAGE_NAME": "idea.elan"
     }
@@ -75,10 +95,19 @@
       "clobbers": [
         "cordova.plugins.barcodeScanner"
       ]
+    },
+    {
+      "id": "cordova-plugin-email-composer.EmailComposer",
+      "file": "plugins/cordova-plugin-email-composer/www/email_composer.js",
+      "pluginId": "cordova-plugin-email-composer",
+      "clobbers": [
+        "cordova.plugins.email"
+      ]
     }
   ],
   "plugin_metadata": {
     "cordova-plugin-splashscreen": "5.0.2",
-    "phonegap-plugin-barcodescanner": "8.0.1"
+    "phonegap-plugin-barcodescanner": "8.0.1",
+    "cordova-plugin-email-composer": "0.9.2"
   }
 }

@@ -5,6 +5,7 @@ import { UploadEventsPage } from './upload-events';
 @NgModule({
   declarations: [
     UploadEventsPage,
+    
   ],
   imports: [
     IonicPageModule.forChild(UploadEventsPage),

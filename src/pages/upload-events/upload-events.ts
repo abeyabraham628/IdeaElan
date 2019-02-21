@@ -1,9 +1,12 @@
+import { map } from 'rxjs/operators';
 import { Firebase } from '@ionic-native/firebase';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
 import {FormControl,FormGroup,Validators}from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { Designations } from '../../providers/designations';
+
 /**
  * Generated class for the UploadEventsPage page.
  *
@@ -18,27 +21,134 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class UploadEventsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public afauth:AngularFireAuth) {
+
+  designations=new Designations().designations
+  messages:string
+
+
+  constructor(public alert:AlertController,public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public afauth:AngularFireAuth) {
+    this.messages="compose"
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad UploadEventsPage');
-  }
+ 
 
   PublishMessageForm=new FormGroup({
-    subject:new FormControl('',[Validators.required,Validators.minLength(5)]),
-    message:new FormControl('',[Validators.required,Validators.minLength(5)]),
-    postedBy:new FormControl(this.afauth.auth.currentUser.uid),
+    subject:new FormControl('',[Validators.required]),
+    message:new FormControl('',[Validators.required]),
+    recipients:new FormControl('',[Validators.required]),
+    postedBy:new FormControl(''),
     time:new FormControl(''),
     date:new FormControl(''),
 
 });
 
-publishMessage(){
+async publishMessage(){
+ let sentTo=this.recipients
+  let users=[]
+  let sender:string
+  await this.firebase.database.ref(`users/${this.afauth.auth.currentUser.uid}`).once('value',(snap)=>{
+         sender=(snap.child('fname').val()+" "+snap.child('lname').val())
+  })
+
+  await this.firebase.database.ref(`users`).once('value',(snap)=>{
+    
+     snap.forEach(function(childSnapshot) {
+      if(childSnapshot.child('status').val()==="active"){
+        for(let i=0;i<sentTo.length;i++)
+          if(sentTo[i]=="All"){
+            users.push(childSnapshot.key)
+          }
+        else{
+          if(childSnapshot.child('position').val()===sentTo[i])
+              users.push(childSnapshot.key)
+          }
+        }
+      });
+})
+
   this.PublishMessageForm.controls['date'].setValue(new Date().toLocaleDateString())
   this.PublishMessageForm.controls['time'].setValue(new Date().toLocaleTimeString())
-  this.firebase.list('messages').push(this.PublishMessageForm.value)
+  this.PublishMessageForm.controls['postedBy'].setValue(sender)
+ 
+  for(let i=0;i<users.length;i++)
+   this.firebase.list(`messages/${users[i]}`).push({
+     'date':this.PublishMessageForm.controls['date'].value,
+     'message':this.PublishMessageForm.controls['message'].value,
+     'postedBy':this.PublishMessageForm.controls['postedBy'].value,
+     'subject':this.PublishMessageForm.controls['subject'].value,
+     'time':this.PublishMessageForm.controls['time'].value
+   })
+
+    this.firebase.list(`sentmessages/${this.afauth.auth.currentUser.uid}`).push({
+      'recipients':this.recipients,
+      'date':this.PublishMessageForm.controls['date'].value,
+     'message':this.PublishMessageForm.controls['message'].value,
+     'subject':this.PublishMessageForm.controls['subject'].value,
+     'time':this.PublishMessageForm.controls['time'].value
+    })
+ 
+  }
+
+
+
+
+
+ recipients=[]
+ addRecipients(){
+   
+  let alert = this.alert.create();
+  alert.setTitle('Choose Recipients');
+  alert.addInput({
+    type: 'checkbox',
+    label: "All",
+    value: "All"
+});
+  for (let i=0;i<this.designations.length;i++) {
+        alert.addInput({
+         type: 'checkbox',
+         label: this.designations[i],
+         value: this.designations[i]
+    });
+ }
+ alert.addButton('Cancel');
+ alert.addButton({
+   text: 'OK',
+   handler: data => {
+    this.recipients = data;
+    this.PublishMessageForm.controls['recipients'].setValue(data);
+   }
+ });
+
+ alert.present();
+ 
+ }
+
+
+sentItems=[]
+ getSentItems(){
+    this.firebase.list(`sentmessages/${this.afauth.auth.currentUser.uid}`).snapshotChanges().subscribe(snap=>{
+        this.sentItems=snap.map(items=>{
+          return{
+            $key:items.key,
+            ...items.payload.val()
+          }
+        }).reverse()
+    })
+        
+ }
+
+
+ viewMessage(message) {
+  const alert = this.alert.create({
+    title: "Subject: "+message.subject,
+    subTitle:"Recipients: "+message.recipients,
+    message:"Message: "+message.message,
+    buttons: ['OK']
+  });
+  alert.present();
 }
+ 
+
 
 
 

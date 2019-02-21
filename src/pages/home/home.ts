@@ -28,6 +28,7 @@ loader:any
 
   constructor(public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
     this.roles=navParams.get('roles')
+    console.log(this.roles)
      if(this.roles[0]!="null"){
         
       this.users=false
@@ -53,14 +54,11 @@ loader:any
       this.users=false
      
   }
-
-  
-  
-  
-  
+ 
    ionViewDidLoad() {
 
     this.getMessages()
+    this.getUpComingEvents()
    }
 
   goto(page:string){
@@ -95,6 +93,44 @@ loader:any
       modal.present()
   }
 
+  events=[]
+  async getUpComingEvents(){
+  let events=[]
+   let bday:any
+   let anniversary:any
+   let org:any
+   let diffDays:number
+   let timeDiff:number
+    await this.firebase.database.ref(`users`).once('value',function(snap){
+      
+      snap.forEach(snap=>{
+        bday=snap.child('dob').val().split('/')
+        anniversary=snap.child('doj').val().split('/')
+        if(new Date().getMonth()+1===parseInt(bday[1],10) && new Date().getDate()<=parseInt(bday[0],10) ){
+          events.push({
+            'title':'Birthday',
+            'user':snap.child('fname').val()+" "+snap.child('lname').val(),
+            'date':parseInt(bday[0],10)+"/"+parseInt(bday[1],10)+"/"+new Date().getFullYear()
+          })
+        }
+
+        if(new Date().getMonth()+1===parseInt(anniversary[1],10) && new Date().getDate()<=parseInt(anniversary[0],10) ){
+          events.push({
+            'title':'Work Anniversary',
+            'user':snap.child('fname').val()+" "+snap.child('lname').val(),
+            'date':parseInt(anniversary[0],10)+"/"+parseInt(anniversary[1],10)+"/"+new Date().getFullYear()
+          })
+        }
+      })
+     
+
+          
+    }) ;
+     this.events=events;
+     
+  }
+  
 
 
 }
+

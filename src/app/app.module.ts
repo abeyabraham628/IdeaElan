@@ -15,9 +15,11 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { CalendarModule } from "ion2-calendar";
+
 import { MyApp } from './app.component';
 
 import { FIREBASE_CONFIG } from '../providers/firebase-service'
+import { EmailComposer } from '@ionic-native/email-composer';
 
 @NgModule({
   declarations: [
@@ -53,6 +55,7 @@ import { FIREBASE_CONFIG } from '../providers/firebase-service'
     DatePicker,
     BarcodeScanner,
     DatePipe,
+    EmailComposer,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

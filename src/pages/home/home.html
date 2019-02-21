@@ -27,33 +27,26 @@
 
   <div class="box-events">
    
-      <ion-card *ngFor="let x of messages">
-          <ion-card-header (click)="viewMessage(x)">
-          <ion-item>
-              <ion-avatar item-start>
-                <img src="assets/imgs/companylogo.png">
-              </ion-avatar>
-              <h4>{{x.subject}}</h4>
-              <p>{{x.postedBy}}</p>
-              <p>{{x.date}} {{x.time}}</p>
-            </ion-item>
-          </ion-card-header>
-         
-          </ion-card>
-      
-  </div>
+      <ion-card *ngFor="let event of events">
+        <ion-card-header>
+            {{event.title}}<br/>
+            {{event.user}}<br/>
+            {{event.date}}
+         </ion-card-header>
+      </ion-card>
+              
+       
+   </div>
   <div class="box-controllers">
       <button ion-button color="blue" class="home-buttons" (click)="goto('NewuserPage')" [hidden]=users>Users</button>
       <button ion-button color="blue" class="home-buttons" (click)="goto('SystemsPage')" [hidden]=systems>System</button>
       <button ion-button color="blue" class="home-buttons" (click)="goto('RecruitmentPage')" [hidden]=recruitment>Recruitment</button>
       <button ion-button color="blue" class="home-buttons" (click)="goto('HomePage')" [hidden]=uploadPaySlip>Upload Payslip</button>
      
-      
       <button ion-button color="blue" class="home-buttons"  (click)="presentModal('LeavesAdminPage')" [hidden]=leaveRequest>Leave Requests
           <ion-badge color="danger">2</ion-badge>
-          
       </button>
-      <button ion-button color="blue" class="home-buttons" (click)="goto('UploadEventsPage')" [hidden]=uploadEvent>Upload Events</button>
+      <button ion-button color="blue" class="home-buttons" (click)="goto('UploadEventsPage')" [hidden]=uploadEvent>Send Message</button>
   </div>
   
 </ion-content>

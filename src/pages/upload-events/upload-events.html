@@ -10,7 +10,7 @@
           <ion-icon name="menu"></ion-icon>
       </button>
       
-      <ion-title text-center>Events</ion-title>
+      <ion-title text-center>Sent Message</ion-title>
   
       <ion-buttons end>
         <button ion-button >
@@ -23,7 +23,25 @@
   </ion-header>
 
 <ion-content>
+    <ion-segment [(ngModel)]="messages" color="white" >
+        <ion-segment-button value="compose">
+           Compose
+        </ion-segment-button>
+        <ion-segment-button value="sentItems" (click)="getSentItems()">
+          Sent Items
+        </ion-segment-button>
+     </ion-segment>
+
+     <div [ngSwitch]="messages">
+        <div *ngSwitchCase="'compose'">
     <form [formGroup]="PublishMessageForm" (ngSubmit)="publishMessage()">
+        
+       
+          <ion-item>
+                <ion-label floating>Recipients</ion-label>
+                <ion-input type="text" formControlName="recipients" readonly (click)="addRecipients()" (ionFocus)="addRecipients()"></ion-input>
+           </ion-item>    
+
     <ion-item>
       <ion-label floating>Subject</ion-label>
         <ion-input type="text" formControlName="subject"></ion-input>
@@ -35,7 +53,7 @@
       </ion-item>
     <ion-item>
         <ion-label floating>Message</ion-label>
-          <ion-textarea rows="15" formControlName="message"></ion-textarea>
+          <ion-textarea rows="10" formControlName="message"></ion-textarea>
       </ion-item>
       <ion-item  no-lines *ngIf=" PublishMessageForm.get('message').hasError('required')  && PublishMessageForm.get('message').touched">
           <ion-label stacked  color="danger">
@@ -47,4 +65,24 @@
             <button type="submit"  [disabled]="PublishMessageForm.invalid" color="blue" full ion-button>Send Message</button>
          </ion-item>
          </form>
+  </div>
+
+  <div *ngSwitchCase="'sentItems'" >
+      <ion-item>
+          <ion-row class="table-title">
+            <ion-col col-7 >Recipients</ion-col>
+            <ion-col col-3 >Subject</ion-col>
+            <ion-col col-2 >Date</ion-col>
+            
+          </ion-row>
+        </ion-item>
+        <ion-item *ngFor="let message of sentItems">
+          <ion-row class="col-text table-bottom-border" (click)="viewMessage(message)" >
+              <ion-col col-7 text-wrap>{{message.recipients}}</ion-col><ion-col col-3>{{message.subject}}</ion-col><ion-col col-2>{{message.date}}</ion-col>
+          </ion-row>
+        </ion-item>
+    </div>
+
+
+         </div>
 </ion-content>
