@@ -1,3 +1,4 @@
+import { Chain } from '@angular/compiler';
 import { Firebase } from '@ionic-native/firebase';
 
 import { AngularFireDatabase } from '@angular/fire/database';
@@ -23,29 +24,35 @@ export class LeavesAdminPage {
   leaves:string
   constructor(public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase) {
     this.leaves='leaveRequests';
-this.notify()
+this.viewLeaveRequest()
    
 } 
 
-async notify(){
+
+
+aby=[]
+async viewLeaveRequest(){
   var x=[]
     var counter=0
-     await this.firebase.database.ref('EmployeeLeaves').once('value', function(snapshot){
-        
-       snapshot.forEach(child=>{
-        child.forEach(c=>{
-          c.forEach(x=>{
-            
-            if(x.child('status').val()==="pending")
-            counter=counter+1
-            
+    var leave
+    var tony=[]
+     /*await this.firebase.database.ref('LeaveRequests').once ('child_added', function(snapshot){
+        leave=snapshot.val();
+        tony=snapshot.val().split('/')
+             
+    })*/
 
-          })
-        })
-       })
 
+    this.firebase.database.ref(`EmployeeLeaves`).orderByChild('status').equalTo('pending').on("value", function(snapshot) {
+      console.log(snapshot.child('status').val());
+      
   })
-  console.log(counter)
+
+  
+  /* await this.firebase.database.ref(`users/${tony[0]}`).once('value',(snap)=>{
+        console.log(snap.child('fname').val())
+   })*/
+ 
 }
 
   openModal(page:string){
@@ -53,6 +60,7 @@ async notify(){
         modal.present();
 
   }
+
 
 
   

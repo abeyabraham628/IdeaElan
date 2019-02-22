@@ -6,6 +6,7 @@ import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 import { DatePipe } from '@angular/common';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { CalendarModal, CalendarModalOptions, DayConfig, CalendarResult,CalendarComponentOptions } from "ion2-calendar";
+import { P } from '@angular/core/src/render3';
 
 
 
@@ -112,6 +113,12 @@ type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
   
   submitLeaveRequest(){
       let uid=this.afauth.auth.currentUser.uid;
+      var userName:any
+      this.firebase.database.ref(`users/${uid}`).once('value',(snap)=>{
+        console.log(snap.val())
+        userName=snap.child('fname').val()+" "+snap.child('lname').val()
+      })
+
       this.leave.status="pending";
       
       
@@ -126,23 +133,35 @@ type: 'string'; // 'string' | 'js-date' | 'moment' | 'time' | 'object'
       
     else{
       if(this.multiKey){
-        this.firebase.list(`EmployeeLeaves/${uid}/${this.$key1}`).push({
+        var x=this.firebase.list(`EmployeeLeaves`).push({
+          'name':userName,
           'leaveType':this.leave.leaveType,
           'date':this.leave.date,
           'status':this.leave.status,
-          'count':this.leave.count
-
-        }).then(()=>{
-          this.firebase.list(`EmployeeLeaves/${uid}/${this.$key2}`).push({
+          'userId':uid
+          //'count':this.leave.count
+         }).then(()=>{
+          var y=this.firebase.list(`EmployeeLeaves`).push({
+            'name':userName,
             'leaveType':this.leave.leaveType,
-            'date':this.leave.date2,
+            'date':this.leave.date,
             'status':this.leave.status,
-            'count':this.leave.count2
-        });//inserting the details of leaves
-      });
-    }
+            'userId':uid
+        })
+         
+        })//inserting the details of leaves
+        
+      }
       else
-      this.firebase.list(`EmployeeLeaves/${uid}/${this.$key1}`).push(this.leave);//inserting the details of leaves
+          this.firebase.list(`EmployeeLeaves`).push({
+            'name':userName,
+            'leaveType':this.leave.leaveType,
+            'date':this.leave.date,
+            'status':this.leave.status,
+            'userId':uid
+          });
+    
+
       //this.firebase.list(`EmployeeLeaves/${uid}/MonthlyLeaves/${this.$key1}`).push(dayCounter)
     }//end of if else 
          

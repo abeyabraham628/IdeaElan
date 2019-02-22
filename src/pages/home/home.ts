@@ -92,7 +92,7 @@ loader:any
       })
       modal.present()
   }
-
+  
   events=[]
   async getUpComingEvents(){
   let events=[]

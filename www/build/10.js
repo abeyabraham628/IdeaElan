@@ -105,32 +105,26 @@ var LeavesAdminPage = /** @class */ (function () {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.firebase = firebase;
+        this.aby = [];
         this.leaves = 'leaveRequests';
-        this.notify();
+        this.viewLeaveRequest();
     }
-    LeavesAdminPage.prototype.notify = function () {
+    LeavesAdminPage.prototype.viewLeaveRequest = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var x, counter;
+            var x, counter, leave, tony;
             return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        x = [];
-                        counter = 0;
-                        return [4 /*yield*/, this.firebase.database.ref('EmployeeLeaves').once('value', function (snapshot) {
-                                snapshot.forEach(function (child) {
-                                    child.forEach(function (c) {
-                                        c.forEach(function (x) {
-                                            if (x.child('status').val() === "pending")
-                                                counter = counter + 1;
-                                        });
-                                    });
-                                });
-                            })];
-                    case 1:
-                        _a.sent();
-                        console.log(counter);
-                        return [2 /*return*/];
-                }
+                x = [];
+                counter = 0;
+                tony = [];
+                /*await this.firebase.database.ref('LeaveRequests').once ('child_added', function(snapshot){
+                   leave=snapshot.val();
+                   tony=snapshot.val().split('/')
+                        
+               })*/
+                this.firebase.database.ref("EmployeeLeaves").orderByChild('status').equalTo('pending').on("value", function (snapshot) {
+                    console.log(snapshot.child('status').val());
+                });
+                return [2 /*return*/];
             });
         });
     };
@@ -138,11 +132,12 @@ var LeavesAdminPage = /** @class */ (function () {
         var modal = this.modalCtrl.create(page);
         modal.present();
     };
+    var _a, _b, _c, _d;
     LeavesAdminPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
             selector: 'page-leaves-admin',template:/*ion-inline-start:"F:\ionic-app\src\pages\leaves-admin\leaves-admin.html"*/'<ion-header no-border>\n  <ion-toolbar color="blue" hideBackButton="true">\n    <button ion-button  menuToggle="left" start>\n        <ion-icon name="menu"></ion-icon>\n    </button>\n    \n    <ion-title text-center>Leave</ion-title>\n\n    <ion-buttons end>\n      <button ion-button >\n        <ion-icon name="notifications"></ion-icon> \n      </button> \n    </ion-buttons>\n</ion-toolbar>\n</ion-header>\n  \n\n\n\n  <ion-content>\n \n      <ion-segment [(ngModel)]="leaves" color="white" >\n         <ion-segment-button value="leaveRequests">\n            Leave Requests\n         </ion-segment-button>\n         <ion-segment-button value="leaveHistory" >\n          History\n         </ion-segment-button>\n      </ion-segment>\n  <div [ngSwitch]="leaves">\n    <div *ngSwitchCase="\'leaveRequests\'">\n    \n      <ion-card (click)="openModal(\'ApproveLeavePage\')">\n        <ion-item>\n          <ion-avatar item-start>\n            <img src="assets/imgs/companylogo.png">\n          </ion-avatar>\n          <h2>Tony Manuel</h2>\n          <p>Sick Leave</p>\n        </ion-item>\n        \n        \n      </ion-card>\n    \n\n    \n    </div>\n\n    <div *ngSwitchCase="\'leaveHistory\'">\n     \n      <ion-item>\n        <ion-row class="table-title">\n          <ion-col col-4 >System Id</ion-col>\n          <ion-col col-3 >RAM</ion-col>\n          <ion-col col-3 >HDD</ion-col>\n          <ion-col col-2 >Antivirus</ion-col>\n          <ion-col hidden col-2 >View</ion-col>\n        </ion-row>\n      </ion-item>\n      <ion-item *ngFor="let system of systemArray">\n        <ion-row class="col-text table-bottom-border" (click)="loadForm(system)" >\n            <ion-col col-4>{{system.systemId}}</ion-col><ion-col col-3>{{system.memory}}</ion-col><ion-col col-3>{{system.hdd}}</ion-col><ion-col col-2>{{system.avValidity}} Days</ion-col>\n        </ion-row>\n      </ion-item>\n\n      \n    </div>\n\n\n  </div>\n    \n  </ion-content>\n  \n '/*ion-inline-end:"F:\ionic-app\src\pages\leaves-admin\leaves-admin.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ModalController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ModalController"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */]) === "function" && _d || Object])
     ], LeavesAdminPage);
     return LeavesAdminPage;
 }());

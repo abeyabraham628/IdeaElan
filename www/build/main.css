@@ -35839,3 +35839,10 @@ ion-col.radio-combo * {
 .tabs .tabbar .tab-button-icon, .tabs .tabbar a.tab-button {
   color: #FFF;
 }
+
+tabBadge {
+  position: absolute;
+  top: -0.2rem;
+  right: -0.2rem;
+  opacity: 0.9;
+}
