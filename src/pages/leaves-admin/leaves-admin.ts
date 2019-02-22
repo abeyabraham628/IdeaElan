@@ -1,3 +1,4 @@
+import { leaveCounter } from './../../providers/user-leaves';
 import { Chain } from '@angular/compiler';
 import { Firebase } from '@ionic-native/firebase';
 
@@ -30,33 +31,26 @@ this.viewLeaveRequest()
 
 
 
-aby=[]
-async viewLeaveRequest(){
-  var x=[]
-    var counter=0
-    var leave
-    var tony=[]
-     /*await this.firebase.database.ref('LeaveRequests').once ('child_added', function(snapshot){
-        leave=snapshot.val();
-        tony=snapshot.val().split('/')
-             
-    })*/
-
-
-    this.firebase.database.ref(`EmployeeLeaves`).orderByChild('status').equalTo('pending').on("value", function(snapshot) {
-      console.log(snapshot.child('status').val());
+leaveRequests=[]
+ viewLeaveRequest(){
+ let leaveRequests=[]
+   
+this.firebase.database.ref(`EmployeeLeaves`).orderByChild('status').equalTo('pending').on("value", (snap)=> {
+      snap.forEach((child)=>{
+        leaveRequests.push({
+          $key:child.key,
+          ...child.val()
+        })
+      })
       
   })
 
-  
-  /* await this.firebase.database.ref(`users/${tony[0]}`).once('value',(snap)=>{
-        console.log(snap.child('fname').val())
-   })*/
+  this.leaveRequests=leaveRequests.reverse()
  
 }
 
-  openModal(page:string){
-        const modal=this.modalCtrl.create(page);
+  openModal(page:string,data?:object){
+        const modal=this.modalCtrl.create(page,{"userDetails":data});
         modal.present();
 
   }

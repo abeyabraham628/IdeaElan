@@ -30,13 +30,13 @@
   <div [ngSwitch]="leaves">
     <div *ngSwitchCase="'leaveRequests'">
     
-      <ion-card (click)="openModal('ApproveLeavePage')">
+      <ion-card (click)="openModal('ApproveLeavePage',user)" *ngFor="let user of leaveRequests">
         <ion-item>
           <ion-avatar item-start>
             <img src="assets/imgs/companylogo.png">
           </ion-avatar>
-          <h2>Tony Manuel</h2>
-          <p>Sick Leave</p>
+          <h2>{{user.name}}</h2>
+          <p>{{user.leaveType}}</p>
         </ion-item>
         
         

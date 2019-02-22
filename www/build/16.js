@@ -170,79 +170,92 @@ var ApplyLeavePage = /** @class */ (function () {
         this.getRamainingLeaves();
     };
     ApplyLeavePage.prototype.submitLeaveRequest = function () {
-        var _this = this;
-        var uid = this.afauth.auth.currentUser.uid;
-        var userName;
-        this.firebase.database.ref("users/" + uid).once('value', function (snap) {
-            console.log(snap.val());
-            userName = snap.child('fname').val() + " " + snap.child('lname').val();
-        });
-        this.leave.status = "pending";
-        if (new Date().getHours() < 9) {
-            var alert = this.alert.create({
-                title: 'Restricted',
-                subTitle: 'Unable to process your request at this moment. Please contact your team leader.!',
-                buttons: ['OK']
+        return __awaiter(this, void 0, void 0, function () {
+            var uid, userName, alert, x;
+            var _this = this;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        uid = this.afauth.auth.currentUser.uid;
+                        return [4 /*yield*/, this.firebase.database.ref("users/" + uid).once('value', function (snap) {
+                                console.log(snap.val());
+                                userName = snap.child('fname').val() + " " + snap.child('lname').val();
+                            })];
+                    case 1:
+                        _a.sent();
+                        this.leave.status = "pending";
+                        if (new Date().getHours() < 9) {
+                            alert = this.alert.create({
+                                title: 'Restricted',
+                                subTitle: 'Unable to process your request at this moment. Please contact your team leader.!',
+                                buttons: ['OK']
+                            });
+                            alert.present();
+                        }
+                        else {
+                            if (this.multiKey) {
+                                x = this.firebase.list("EmployeeLeaves").push({
+                                    'name': userName,
+                                    'leaveType': this.leave.leaveType,
+                                    'date': this.leave.date,
+                                    'status': this.leave.status,
+                                    'userId': uid
+                                    //'count':this.leave.count
+                                }).then(function () {
+                                    var y = _this.firebase.list("EmployeeLeaves").push({
+                                        'name': userName,
+                                        'leaveType': _this.leave.leaveType,
+                                        'date': _this.leave.date2,
+                                        'status': _this.leave.status,
+                                        'userId': uid
+                                    });
+                                }) //inserting the details of leaves
+                                ;
+                            }
+                            else
+                                this.firebase.list("EmployeeLeaves").push({
+                                    'name': userName,
+                                    'leaveType': this.leave.leaveType,
+                                    'date': this.leave.date,
+                                    'status': this.leave.status,
+                                    'userId': uid
+                                });
+                            //this.firebase.list(`EmployeeLeaves/${uid}/MonthlyLeaves/${this.$key1}`).push(dayCounter)
+                        } //end of if else 
+                        return [2 /*return*/];
+                }
             });
-            alert.present();
-        }
-        else {
-            if (this.multiKey) {
-                var x = this.firebase.list("EmployeeLeaves").push({
-                    'name': userName,
-                    'leaveType': this.leave.leaveType,
-                    'date': this.leave.date,
-                    'status': this.leave.status,
-                    'userId': uid
-                    //'count':this.leave.count
-                }).then(function () {
-                    var y = _this.firebase.list("EmployeeLeaves").push({
-                        'name': userName,
-                        'leaveType': _this.leave.leaveType,
-                        'date': _this.leave.date,
-                        'status': _this.leave.status,
-                        'userId': uid
-                    });
-                }); //inserting the details of leaves
-            }
-            else
-                this.firebase.list("EmployeeLeaves").push({
-                    'name': userName,
-                    'leaveType': this.leave.leaveType,
-                    'date': this.leave.date,
-                    'status': this.leave.status,
-                    'userId': uid
-                });
-            //this.firebase.list(`EmployeeLeaves/${uid}/MonthlyLeaves/${this.$key1}`).push(dayCounter)
-        } //end of if else 
+        });
     }; //end os submit leave request function
     ApplyLeavePage.prototype.getPastLeaves = function (month, year) {
-        var _this = this;
-        var $month;
-        if (month != null && year != null) {
-            $month = month + "" + year;
-        }
-        else {
-            var $month;
-            if (new Date().getMonth() + 1 < 10)
-                $month = "0" + (new Date().getMonth() + 1) + "" + new Date().getFullYear();
-            else
-                $month = (new Date().getMonth() + 1) + "" + new Date().getFullYear();
-        }
-        this.firebase.list("EmployeeLeaves/" + this.afauth.auth.currentUser.uid + "/" + $month).snapshotChanges().subscribe(function (list) {
-            _this.pastLeaves = list.map(function (item) {
-                return __assign({ $key: item.key }, item.payload.val());
+        return __awaiter(this, void 0, void 0, function () {
+            var pastLeaves;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        pastLeaves = [];
+                        return [4 /*yield*/, this.firebase.database.ref("EmployeeLeaves").orderByChild("userId").equalTo("" + this.afauth.auth.currentUser.uid).once('value', function (snap) {
+                                snap.forEach(function (child) {
+                                    pastLeaves.push(__assign({ $key: child.key }, child.val()));
+                                });
+                            })];
+                    case 1:
+                        _a.sent();
+                        this.pastLeaves = pastLeaves.reverse();
+                        return [2 /*return*/];
+                }
             });
         });
     }; //end of function
     ApplyLeavePage.prototype.getRamainingLeaves = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var firebase, date, year;
+            var tony, count, date, year;
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        firebase = this.firebase;
+                        tony = [];
+                        count = 0;
                         year = new Date().getFullYear();
                         if (new Date().getMonth() + 1 < 10) {
                             date = "0" + (new Date().getMonth() + 1) + "" + new Date().getFullYear();
@@ -250,15 +263,33 @@ var ApplyLeavePage = /** @class */ (function () {
                         else {
                             date = new Date().getMonth() + 1 + "" + new Date().getFullYear();
                         }
-                        return [4 /*yield*/, firebase.database.ref("EmployeeLeaves/FcXUquFxnfalG9DzoNi4X0CnRoG2/AvailableLeaves/" + year).on('value', function (snapshot) {
+                        return [4 /*yield*/, this.firebase.database.ref("AvailableLeaves/" + new Date().getFullYear() + "/" + this.afauth.auth.currentUser.uid).once('value', function (snapshot) {
                                 _this.sickRemaining = snapshot.child('sick').val();
                                 _this.casualRemaining = snapshot.child('casual').val();
-                                firebase.database.ref("EmployeeLeaves/FcXUquFxnfalG9DzoNi4X0CnRoG2/MonthlyLeaves/" + date).on('value', function (snapshot) {
-                                    _this.currentMonthLeave = snapshot.val();
+                            }).then(function () {
+                                _this.firebase.database.ref("EmployeeLeaves").orderByChild("userId").equalTo("" + _this.afauth.auth.currentUser.uid).on('value', function (snap) {
+                                    snap.forEach(function (child) {
+                                        tony.push(child.child('date').val());
+                                    });
+                                    tony.forEach(function (x) {
+                                        if (x.length > 1) {
+                                            x.forEach(function (x) {
+                                                if (new Date(x).getMonth() + 1 === new Date().getMonth() + 1 && new Date(x).getFullYear() === new Date().getFullYear()) {
+                                                    count += 1;
+                                                }
+                                            });
+                                        }
+                                        else {
+                                            if (new Date(x).getMonth() + 1 === new Date().getMonth() + 1 && new Date(x).getFullYear() === new Date().getFullYear()) {
+                                                count += 1;
+                                            }
+                                        }
+                                    });
                                 });
-                            })]; //end of database ref*/
+                                _this.currentMonthLeave = count;
+                            })];
                     case 1:
-                        _a.sent(); //end of database ref*/
+                        _a.sent();
                         return [2 /*return*/];
                 }
             });
