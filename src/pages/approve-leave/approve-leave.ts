@@ -1,7 +1,7 @@
 import { AngularFireAuth } from '@angular/fire/auth';
 import { filter } from 'rxjs/operators';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { Calendar } from './../../providers/calendar';
+
 
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
@@ -20,7 +20,7 @@ import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angul
 })
 export class ApproveLeavePage {
 
-  months=new Calendar()
+  
   userLeaveDetails:any
  
   constructor(public alertCtrl:AlertController,public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public afauth:AngularFireAuth) {

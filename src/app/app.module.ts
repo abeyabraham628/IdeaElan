@@ -19,7 +19,8 @@ import { CalendarModule } from "ion2-calendar";
 import { MyApp } from './app.component';
 
 import { FIREBASE_CONFIG } from '../providers/firebase-service'
-import { EmailComposer } from '@ionic-native/email-composer';
+
+
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { EmailComposer } from '@ionic-native/email-composer';
     DatePicker,
     BarcodeScanner,
     DatePipe,
-    EmailComposer,
+    
+    
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

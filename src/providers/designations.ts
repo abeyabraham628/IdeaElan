@@ -1,8 +1,6 @@
 export class Designations{
-
     
-
-    designations=[
+ designations=[
         'HR Execuitive',
         'Intern',
         'Jr.Software Engineer',
