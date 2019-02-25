@@ -16,9 +16,12 @@ import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { CalendarModule } from "ion2-calendar";
 import { MyApp } from './app.component';
-
+import { Camera, CameraOptions } from '@ionic-native/camera';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { FIREBASE_CONFIG } from '../providers/firebase-service'
-
+import {  AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
+import { FCM } from '@ionic-native/fcm';
+import { Push } from '@ionic-native/push';
 @NgModule({
   declarations: [
     MyApp,
@@ -32,6 +35,7 @@ import { FIREBASE_CONFIG } from '../providers/firebase-service'
     IonicModule.forRoot(MyApp),
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
+    
     IonicStorageModule.forRoot(),
     ReactiveFormsModule,
     AngularFireAuthModule,
@@ -47,12 +51,17 @@ import { FIREBASE_CONFIG } from '../providers/firebase-service'
     
   ],
   providers: [
+    Push,
+    FCM,
     StatusBar,
     Firebase,
     SplashScreen,
     DatePicker,
     BarcodeScanner,
     DatePipe,
+    Camera,
+    AngularFirestore,
+    AngularFireStorage,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

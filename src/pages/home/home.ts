@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams,Platform } from 'ionic-angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 import { LoadingController } from 'ionic-angular';
@@ -15,7 +15,10 @@ import { LoadingController } from 'ionic-angular';
   selector: 'page-home',
   templateUrl: 'home.html',
 })
+
+
 export class HomePage {
+  FirebasePlugin: any;
 userId:any
 roles:any[]
 users:boolean=true
@@ -26,7 +29,8 @@ leaveRequest:boolean=true
 uploadEvent:boolean=true
 loader:any
 
-  constructor(public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
+  constructor(platform: Platform,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
+   
     this.roles=navParams.get('roles')
      if(this.roles[0]!="null"){
         
@@ -52,7 +56,10 @@ loader:any
       if(this.roles[6]!="null")
       this.users=false
      
-  }
+
+      
+    }
+  
 
   
   

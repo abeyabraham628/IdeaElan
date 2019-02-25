@@ -1,14 +1,14 @@
 webpackJsonp([10],{
 
-/***/ 717:
+/***/ 739:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(751);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(774);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,15 +38,15 @@ var HomePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 751:
+/***/ 774:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(458);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(64);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__ = __webpack_require__(470);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(469);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -109,7 +109,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"F:\ionic-app\src\pages\home\home.html"*/'<!--\n  Generated template for the HomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n    <ion-toolbar color="blue" hideBackButton="true">\n      <button ion-button  menuToggle="left" start>\n          <ion-icon name="menu"></ion-icon>\n      </button>\n      \n      <ion-title text-center>Home</ion-title>\n  \n      <ion-buttons end>\n        <button ion-button >\n          <ion-icon name="notifications"></ion-icon> \n        </button> \n      </ion-buttons>\n      \n  </ion-toolbar>\n  \n  </ion-header>\n\n\n<ion-content>\n  <div class="box-events">\nHello\n  </div>\n  <div class="box-controllers">\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'NewuserPage\')" [hidden]=users>Users</button>\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'SystemsPage\')" [hidden]=systems>System</button>\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'RecruitmentPage\')" [hidden]=recruitment>Recruitment</button>\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'HomePage\')" [hidden]=uploadPaySlip>Upload Payslip</button>\n      <button ion-button color="blue" class="home-buttons"  (click)="goto(\'HomePage\')" [hidden]=leaveRequest>Leave Requests</button>\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'HomePage\')" [hidden]=uploadEvent>Upload Events</button>\n  </div>\n  \n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\home\home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\home\home.html"*/'<!--\n\n  Generated template for the HomePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n    <ion-toolbar color="blue" hideBackButton="true">\n\n      <button ion-button  menuToggle="left" start>\n\n          <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      \n\n      <ion-title text-center>Home</ion-title>\n\n  \n\n      <ion-buttons end>\n\n        <button ion-button >\n\n          <ion-icon name="notifications"></ion-icon> \n\n        </button> \n\n      </ion-buttons>\n\n      \n\n  </ion-toolbar>\n\n  \n\n  </ion-header>\n\n\n\n\n\n<ion-content>\n\n  <div class="box-events">\n\nHello\n\n  </div>\n\n  <div class="box-controllers">\n\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'NewuserPage\')" [hidden]=users>Users</button>\n\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'SystemsPage\')" [hidden]=systems>System</button>\n\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'RecruitmentPage\')" [hidden]=recruitment>Recruitment</button>\n\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'HomePage\')" [hidden]=uploadPaySlip>Upload Payslip</button>\n\n      <button ion-button color="blue" class="home-buttons"  (click)="goto(\'HomePage\')" [hidden]=leaveRequest>Leave Requests</button>\n\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'HomePage\')" [hidden]=uploadEvent>Upload Events</button>\n\n  </div>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\home\home.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]])
     ], HomePage);
