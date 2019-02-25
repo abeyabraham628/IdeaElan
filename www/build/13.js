@@ -1,14 +1,14 @@
 webpackJsonp([13],{
 
-/***/ 718:
+/***/ 719:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InboxPageModule", function() { return InboxPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(754);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__inbox__ = __webpack_require__(811);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,35 +18,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HomePageModule = /** @class */ (function () {
-    function HomePageModule() {
+var InboxPageModule = /** @class */ (function () {
+    function InboxPageModule() {
     }
-    HomePageModule = __decorate([
+    InboxPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_2__inbox__["a" /* InboxPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__inbox__["a" /* InboxPage */]),
             ],
         })
-    ], HomePageModule);
-    return HomePageModule;
+    ], InboxPageModule);
+    return InboxPageModule;
 }());
 
-//# sourceMappingURL=home.module.js.map
+//# sourceMappingURL=inbox.module.js.map
 
 /***/ }),
 
-/***/ 754:
+/***/ 811:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(458);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InboxPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__ = __webpack_require__(459);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__ = __webpack_require__(458);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(62);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -64,161 +64,55 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
 
 
 
 
 /**
- * Generated class for the HomePage page.
+ * Generated class for the InboxPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var HomePage = /** @class */ (function () {
-    function HomePage(modalCtrl, navCtrl, navParams, afAuth, firebase, loadingCtrl) {
-        this.modalCtrl = modalCtrl;
+var InboxPage = /** @class */ (function () {
+    function InboxPage(afauth, alertCtrl, navCtrl, navParams, firebase, modalCtrl) {
+        this.afauth = afauth;
+        this.alertCtrl = alertCtrl;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.afAuth = afAuth;
         this.firebase = firebase;
-        this.loadingCtrl = loadingCtrl;
-        this.users = true;
-        this.recruitment = true;
-        this.systems = true;
-        this.uploadPaySlip = true;
-        this.leaveRequest = true;
-        this.uploadEvent = true;
+        this.modalCtrl = modalCtrl;
         this.messages = [];
-        this.events = [];
-        this.roles = navParams.get('roles');
-        console.log(this.roles);
-        if (this.roles[0] != "null") {
-            this.users = false;
-            this.recruitment = false;
-            this.systems = false;
-            this.uploadPaySlip = false;
-            this.leaveRequest = false;
-            this.uploadEvent = false;
-        }
-        if (this.roles[1] != "null")
-            this.leaveRequest = false;
-        // if(this.roles[2]!=null)
-        //this.leaveRequest=false
-        if (this.roles[3] != "null")
-            this.uploadPaySlip = false;
-        if (this.roles[4] != "null")
-            this.recruitment = false;
-        if (this.roles[5] != "null")
-            this.systems = false;
-        if (this.roles[6] != "null")
-            this.users = false;
     }
-    HomePage.prototype.ionViewDidLoad = function () {
+    InboxPage.prototype.ionViewDidLoad = function () {
         this.getMessages();
-        this.getUpComingEvents();
     };
-    HomePage.prototype.goto = function (page) {
-        this.navCtrl.push(page);
-    };
-    HomePage.prototype.presentModal = function (page) {
-        var modal = this.modalCtrl.create(page);
-        modal.present();
-    };
-    HomePage.prototype.getMessages = function () {
+    InboxPage.prototype.getMessages = function () {
         var _this = this;
-        this.firebase.list('messages').snapshotChanges().subscribe(function (snap) {
+        this.firebase.list("messages/" + this.afauth.auth.currentUser.uid).snapshotChanges().subscribe(function (snap) {
             _this.messages = snap.map(function (item) {
                 return __assign({ $key: item.key }, item.payload.val());
             });
         });
     };
-    HomePage.prototype.viewMessages = function (x) {
-        var modal = this.modalCtrl.create({
+    InboxPage.prototype.viewMessage = function (x) {
+        var alert = this.alertCtrl.create({
             title: x.subject,
+            message: x.message,
+            buttons: ['OK']
         });
-        modal.present();
+        alert.present();
     };
-    HomePage.prototype.getUpComingEvents = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var events, bday, anniversary, org, diffDays, timeDiff;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        events = [];
-                        return [4 /*yield*/, this.firebase.database.ref("users").once('value', function (snap) {
-                                snap.forEach(function (snap) {
-                                    bday = snap.child('dob').val().split('/');
-                                    anniversary = snap.child('doj').val().split('/');
-                                    if (new Date().getMonth() + 1 === parseInt(bday[1], 10) && new Date().getDate() <= parseInt(bday[0], 10)) {
-                                        events.push({
-                                            'title': 'Birthday',
-                                            'user': snap.child('fname').val() + " " + snap.child('lname').val(),
-                                            'date': parseInt(bday[0], 10) + "/" + parseInt(bday[1], 10) + "/" + new Date().getFullYear()
-                                        });
-                                    }
-                                    if (new Date().getMonth() + 1 === parseInt(anniversary[1], 10) && new Date().getDate() <= parseInt(anniversary[0], 10)) {
-                                        events.push({
-                                            'title': 'Work Anniversary',
-                                            'user': snap.child('fname').val() + " " + snap.child('lname').val(),
-                                            'date': parseInt(anniversary[0], 10) + "/" + parseInt(anniversary[1], 10) + "/" + new Date().getFullYear()
-                                        });
-                                    }
-                                });
-                            })];
-                    case 1:
-                        _a.sent();
-                        this.events = events;
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    HomePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"D:\IdeaElan\src\pages\home\home.html"*/'<!--\n\n  Generated template for the HomePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n    <ion-toolbar color="blue" hideBackButton="true">\n\n      <button ion-button  menuToggle="left" start>\n\n          <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      \n\n      <ion-title text-center>Home</ion-title>\n\n  \n\n      <ion-buttons end>\n\n        <button ion-button >\n\n          <ion-icon name="notifications"></ion-icon> \n\n        </button> \n\n      </ion-buttons>\n\n      \n\n  </ion-toolbar>\n\n  \n\n  </ion-header>\n\n\n\n\n\n<ion-content>\n\n\n\n  <div class="box-events">\n\n   \n\n      <ion-card *ngFor="let event of events">\n\n        <ion-card-header>\n\n            {{event.title}}<br/>\n\n            {{event.user}}<br/>\n\n            {{event.date}}\n\n         </ion-card-header>\n\n      </ion-card>\n\n              \n\n       \n\n   </div>\n\n  <div class="box-controllers">\n\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'NewuserPage\')" [hidden]=users>Users</button>\n\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'SystemsPage\')" [hidden]=systems>System</button>\n\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'RecruitmentPage\')" [hidden]=recruitment>Recruitment</button>\n\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'HomePage\')" [hidden]=uploadPaySlip>Upload Payslip</button>\n\n     \n\n      <button ion-button color="blue" class="home-buttons"  (click)="presentModal(\'LeavesAdminPage\')" [hidden]=leaveRequest>Leave Requests\n\n          <ion-badge color="danger">2</ion-badge>\n\n      </button>\n\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'UploadEventsPage\')" [hidden]=uploadEvent>Send Message</button>\n\n  </div>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\home\home.html"*/,
+    InboxPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
+            selector: 'page-inbox',template:/*ion-inline-start:"F:\ionic-app\src\pages\inbox\inbox.html"*/'<!--\n  Generated template for the InboxPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n    <ion-toolbar color="blue" hideBackButton="true">\n      <button ion-button  menuToggle="left" start>\n          <ion-icon name="menu"></ion-icon>\n      </button>\n      \n      <ion-title text-center>Inbox</ion-title>\n  \n      <ion-buttons end>\n        <button ion-button >\n          <ion-icon name="notifications"></ion-icon> \n        </button> \n      </ion-buttons>\n      \n  </ion-toolbar>\n  \n  </ion-header>\n\n<ion-content >\n    <ion-card *ngFor="let x of messages" >\n      <ion-card-header (click)="viewMessage(x)">\n      <ion-item>\n          <ion-avatar item-start>\n            <img src="assets/imgs/companylogo.png">\n          </ion-avatar>\n          <h4 style="text-transform:capitalize">{{x.postedBy}}</h4>\n          <p >{{x.subject}}</p>\n          <p>{{x.date}} {{x.time}}</p>\n        </ion-item>\n      </ion-card-header>\n     \n      </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\inbox\inbox.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]])
-    ], HomePage);
-    return HomePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ModalController"]])
+    ], InboxPage);
+    return InboxPage;
 }());
 
-//# sourceMappingURL=home.js.map
+//# sourceMappingURL=inbox.js.map
 
 /***/ })
 

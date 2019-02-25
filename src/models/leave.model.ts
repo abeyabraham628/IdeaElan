@@ -1,11 +1,13 @@
 
 
+
 import { leaves,leaveCount } from '../providers/user-leaves';
 
 import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Injectable } from '@angular/core';
-import { AlertController } from 'ionic-angular';
+import { AlertController,NavController } from 'ionic-angular';
+
 
 @Injectable()
 export class LeaveModel{
@@ -19,8 +21,9 @@ leaveCount={} as leaveCount
    arrangeDates(date:any){
         
         let selectedDates=[]
-        this.leave.date=[]
-        this.leave.date2=[]
+        let date1=[]
+        let date2=[]
+
          date.forEach((values)=>{
              selectedDates.push(new Date(values.time).toLocaleDateString())// Converting the time property returned from date pikcer to  dates .
              this.monthNumber.push(values.months)//Taking the month number which user has selected for  leave
@@ -35,7 +38,7 @@ leaveCount={} as leaveCount
         
         if(this.monthNumber.length===1){
            selectedDates.forEach(date=>{
-             this.leave.date.push(date);
+             date1.push(date);
            });
           
          }
@@ -43,20 +46,21 @@ leaveCount={} as leaveCount
          else if(this.monthNumber.length===2){
           selectedDates.forEach(date=>{
              if((new Date(date).getMonth()+1).toString()===this.monthNumber[0].toString())
-             this.leave.date.push(date);
+             date1.push(date);
             if((new Date(date).getMonth()+1).toString()==this.monthNumber[1].toString())
-            this.leave.date2.push(date);
+            date2.push(date);
            });
         }
-           return this.leave
+           return ({date1,date2})
        }
 
 
        async submitLeaveRequest(leaveInfo){
-        let userId=this.afauth.auth.currentUser.uid;
+         
+        
         var userName:any
-       await this.firebase.database.ref(`users/${userId}`).once('value',(snap)=>{
-          console.log(snap.val())
+        await this.firebase.database.ref(`users/${leaveInfo.userId}`).once('value',(snap)=>{
+          
           userName=snap.child('fname').val()+" "+snap.child('lname').val()
         })
   
@@ -79,7 +83,7 @@ leaveCount={} as leaveCount
             'leaveType':leaveInfo.leaveType,
             'date':leaveInfo.date,
             'status':leaveInfo.status,
-            'userId':userId
+            'userId':leaveInfo.userId
             //'count':this.leave.count
            }).then(()=>{
             var y=this.firebase.list(`EmployeeLeaves`).push({
@@ -87,7 +91,7 @@ leaveCount={} as leaveCount
               'leaveType':leaveInfo.leaveType,
               'date':leaveInfo.date2,
               'status':leaveInfo.status,
-              'userId':userId
+              'userId':leaveInfo.userId
           })
            
           })//inserting the details of leaves
@@ -99,7 +103,7 @@ leaveCount={} as leaveCount
               'leaveType':leaveInfo.leaveType,
               'date':leaveInfo.date,
               'status':leaveInfo.status,
-              'userId':userId
+              'userId':leaveInfo.userId
             });
       
   
@@ -113,9 +117,13 @@ leaveCount={} as leaveCount
 
       pastLeaves=[]
   
-      async getPastLeaves(month?,year?){
+       getPastLeaves(userId,month?,year?){
+        if(month !=null && year !=null) 
+        {
+
+        }
        let pastLeaves=[]
-       await this.firebase.database.ref(`EmployeeLeaves`).orderByChild(`userId`).equalTo(`${this.afauth.auth.currentUser.uid}`).once('value',(snap)=>{
+       this.firebase.database.ref(`EmployeeLeaves`).orderByChild(`userId`).equalTo(`${userId}`).once('value',(snap)=>{
              snap.forEach(function(child){
                  pastLeaves.push({
                    $key:child.key,
@@ -124,28 +132,30 @@ leaveCount={} as leaveCount
                })
              
        })
-       this.pastLeaves=pastLeaves.reverse()
+       return this.pastLeaves=pastLeaves.reverse()
          
         
             
         
    }//end of function
-   
-    async getRemainingLeaves(userId){
-      let remaininingLeaves=[]
+    
+     async getRemainingLeaves(userId){
      
+     let remaininingLeaves=[]
      let count:number=0
+     let casual:any
+     let sick:any
      
-     
-         await  this.firebase.database.ref(`AvailableLeaves/${new Date().getFullYear()}/${userId}`).once('value',(snapshot)=>{
-            remaininingLeaves.push({'casual':snapshot.child('casual').val(),
-                                    'sick':snapshot.child('sick').val(),})
+         await this.firebase.database.ref(`AvailableLeaves/${new Date().getFullYear()}/${userId}`).once('value',(snapshot)=>{
+            casual=snapshot.child('casual').val()
+            sick=snapshot.child('sick').val()
             
         
-       }).then(async ()=>{ await this.firebase.database.ref(`EmployeeLeaves`).orderByChild(`userId`).equalTo(`${this.afauth.auth.currentUser.uid}`).once('value',(snap)=>{
+       }) 
+       await this.firebase.database.ref(`EmployeeLeaves`).orderByChild(`userId`).equalTo(`${userId}`).once('value',(snap)=>{
              snap.forEach((child)=>{
-               
-                   if(child.child('date').val().length>1){
+               if(child.child('status').val()==="approved")
+                  if(child.child('date').val().length>1){
                      child.child('date').forEach(data=>{
                        if(new Date(data.val()).getMonth()+1===new Date().getMonth()+1 && new Date(data.val()).getFullYear()===new Date().getFullYear())
                        count+=1
@@ -156,26 +166,58 @@ leaveCount={} as leaveCount
                          count+=1;
                      }
                      
-                     });
-                     remaininingLeaves.push({'currentMonthLeave':count})
+                     });// ed of for each
                      
-                     
-                   })
-                   console.log(remaininingLeaves)
-                   return Promise.resolve(remaininingLeaves)
-                                   
-                });
+                      remaininingLeaves.push({'casual':casual,'sick':sick,'currentMonthLeave':count})
+                      
+                     })//end of snap
+                  
+                      
+                //})//end of then
+                return (remaininingLeaves)
                 
-             
-         
-       
-         
-         
-         
-       
-       
    }
 
+   
+   viewLeaveRequest(){
+    let leaveRequests=[]
+      
+   this.firebase.database.ref(`EmployeeLeaves`).orderByChild('status').equalTo('pending').on("value", (snap)=> {
+         snap.forEach((child)=>{
+           leaveRequests.push({
+             $key:child.key,
+             ...child.val()
+           })
+         })
+         
+     })
+   
+     return leaveRequests.reverse()
+    
+   }
+
+
+
+   
+saveLeaveStatus(data,leaveCount,status:string,reason?:any){
+  
+  if(status=="approved"){
+  let count:number
+ 
+  if(data.leaveType=="casual")
+    count=leaveCount.casualRemaining-data.date.length;
+  else
+    count=leaveCount-data.date.length;
+
+  this.firebase.database.ref(`EmployeeLeaves/${data.$key}/status`).set(`${status}`).then(()=>{
+  this.firebase.database.ref(`AvailableLeaves/${new Date().getFullYear()}/${data.userId}/${data.leaveType}`).set(count)
+  })
+  }
+  else{
+    this.firebase.database.ref(`EmployeeLeaves/${data.$key}`).update({'status':`${status}`,'reason':`${reason}`})
+  }
+  
+}
 
 
 

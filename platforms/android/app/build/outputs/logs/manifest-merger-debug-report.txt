@@ -1,9 +1,20 @@
 -- Merging decision tree log ---
+provider#de.appplant.cordova.emailcomposer.Provider
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:14:9-16:20
+	android:grantUriPermissions
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:14:106-140
+	android:authorities
+		INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:14:19-80
+	android:exported
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:14:81-105
+	android:name
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:14:141-198
 manifest
-ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
-INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
-INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
-INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-22:12
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-22:12
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-22:12
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-22:12
 MERGED from [:barcodescanner-release-2.1.5:] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\barcodescanner-release-2.1.5.aar\be51807e8ab930d937e83a4a77956bea\AndroidManifest.xml:2:1-14:12
 MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\db0402d8d6ae2308fd6cbe5c6d2a8159\AndroidManifest.xml:17:1-22:12
 MERGED from [:CordovaLib] F:\ionic-app\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-27:12
@@ -16,9 +27,9 @@ MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Admin\.gradle\caches
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\3d7a9109c9ee1b96e255335521000f2b\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\4fcc85d2f1664dd40ea5363b0f6435eb\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\baf9087cb685a57bf3a124b0979660da\AndroidManifest.xml:17:1-22:12
-INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
-INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
-INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-19:12
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-22:12
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-22:12
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-22:12
 	package
 		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:98-117
 		INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml
@@ -54,7 +65,7 @@ ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:4:5-6
 	android:name
 		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:4:22-64
 application
-ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:5:5-14:19
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:5:5-17:19
 MERGED from [:barcodescanner-release-2.1.5:] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\barcodescanner-release-2.1.5.aar\be51807e8ab930d937e83a4a77956bea\AndroidManifest.xml:11:5-12:19
 MERGED from [:barcodescanner-release-2.1.5:] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\barcodescanner-release-2.1.5.aar\be51807e8ab930d937e83a4a77956bea\AndroidManifest.xml:11:5-12:19
 	android:supportsRtl
@@ -112,8 +123,8 @@ ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:13:9-
 	android:name
 		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:13:41-109
 uses-sdk
-ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:15:5-74
-INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:15:5-74
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:18:5-74
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:18:5-74
 MERGED from [:barcodescanner-release-2.1.5:] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\barcodescanner-release-2.1.5.aar\be51807e8ab930d937e83a4a77956bea\AndroidManifest.xml:7:5-9:41
 MERGED from [:barcodescanner-release-2.1.5:] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\barcodescanner-release-2.1.5.aar\be51807e8ab930d937e83a4a77956bea\AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:support-v4:27.1.1] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\support-v4-27.1.1.aar\db0402d8d6ae2308fd6cbe5c6d2a8159\AndroidManifest.xml:20:5-44
@@ -138,24 +149,30 @@ MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Admin\.gradle\cach
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\4fcc85d2f1664dd40ea5363b0f6435eb\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\baf9087cb685a57bf3a124b0979660da\AndroidManifest.xml:20:5-44
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\baf9087cb685a57bf3a124b0979660da\AndroidManifest.xml:20:5-44
-INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:15:5-74
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:18:5-74
 	android:targetSdkVersion
-		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:15:42-71
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:18:42-71
 	android:minSdkVersion
-		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:15:15-41
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:18:15-41
 		INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml
 		INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml
 uses-permission#android.permission.CAMERA
-ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:16:5-65
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:19:5-65
 	android:name
-		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:16:22-62
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:19:22-62
 uses-permission#android.permission.FLASHLIGHT
-ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:17:5-69
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:20:5-69
 	android:name
-		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:17:22-66
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:20:22-66
 uses-feature#android.hardware.camera
-ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:18:5-84
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:21:5-84
 	android:required
-		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:18:58-81
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:21:58-81
 	android:name
-		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:18:19-57
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:21:19-57
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:15:13-130
+	android:resource
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:15:75-127
+	android:name
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:15:24-74

@@ -1,14 +1,16 @@
 webpackJsonp([4],{
 
-/***/ 729:
+/***/ 715:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UploadEventsPageModule", function() { return UploadEventsPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__upload_events__ = __webpack_require__(821);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApproveLeavePageModule", function() { return ApproveLeavePageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_leave_model__ = __webpack_require__(738);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_datepicker__ = __webpack_require__(740);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__approve_leave__ = __webpack_require__(808);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,37 +20,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var UploadEventsPageModule = /** @class */ (function () {
-    function UploadEventsPageModule() {
+
+
+var ApproveLeavePageModule = /** @class */ (function () {
+    function ApproveLeavePageModule() {
     }
-    UploadEventsPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    ApproveLeavePageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__upload_events__["a" /* UploadEventsPage */],
+                __WEBPACK_IMPORTED_MODULE_4__approve_leave__["a" /* ApproveLeavePage */],
             ],
+            providers: [__WEBPACK_IMPORTED_MODULE_1__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_0__models_leave_model__["a" /* LeaveModel */]],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__upload_events__["a" /* UploadEventsPage */]),
+                __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_4__approve_leave__["a" /* ApproveLeavePage */]),
             ],
         })
-    ], UploadEventsPageModule);
-    return UploadEventsPageModule;
+    ], ApproveLeavePageModule);
+    return ApproveLeavePageModule;
 }());
 
-//# sourceMappingURL=upload-events.module.js.map
+//# sourceMappingURL=approve-leave.module.js.map
 
 /***/ }),
 
-/***/ 821:
+/***/ 738:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UploadEventsPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LeaveModel; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__ = __webpack_require__(458);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_designations__ = __webpack_require__(822);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__ = __webpack_require__(459);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(62);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -105,170 +108,361 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-
-
-/**
- * Generated class for the UploadEventsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var UploadEventsPage = /** @class */ (function () {
-    function UploadEventsPage(alert, navCtrl, navParams, firebase, afauth) {
-        this.alert = alert;
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.firebase = firebase;
+var LeaveModel = /** @class */ (function () {
+    function LeaveModel(afauth, firebase, alert) {
         this.afauth = afauth;
-        this.designations = new __WEBPACK_IMPORTED_MODULE_5__providers_designations__["a" /* Designations */]().designations;
-        this.PublishMessageForm = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormGroup"]({
-            subject: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required]),
-            message: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required]),
-            recipients: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required]),
-            postedBy: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"](''),
-            time: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"](''),
-            date: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"](''),
-        });
-        this.recipients = [];
-        this.sentItems = [];
-        this.messages = "compose";
+        this.firebase = firebase;
+        this.alert = alert;
+        this.monthNumber = [];
+        this.leave = {};
+        this.leaveCount = {};
+        this.pastLeaves = [];
     }
-    UploadEventsPage.prototype.publishMessage = function () {
+    LeaveModel.prototype.arrangeDates = function (date) {
+        var _this = this;
+        var selectedDates = [];
+        var date1 = [];
+        var date2 = [];
+        date.forEach(function (values) {
+            selectedDates.push(new Date(values.time).toLocaleDateString()); // Converting the time property returned from date pikcer to  dates .
+            _this.monthNumber.push(values.months); //Taking the month number which user has selected for  leave
+        });
+        this.monthNumber = this.monthNumber.filter(function (elem, i, arr) {
+            if (arr.indexOf(elem) === i) {
+                return elem;
+            }
+        });
+        if (this.monthNumber.length === 1) {
+            selectedDates.forEach(function (date) {
+                date1.push(date);
+            });
+        }
+        else if (this.monthNumber.length === 2) {
+            selectedDates.forEach(function (date) {
+                if ((new Date(date).getMonth() + 1).toString() === _this.monthNumber[0].toString())
+                    date1.push(date);
+                if ((new Date(date).getMonth() + 1).toString() == _this.monthNumber[1].toString())
+                    date2.push(date);
+            });
+        }
+        return ({ date1: date1, date2: date2 });
+    };
+    LeaveModel.prototype.submitLeaveRequest = function (leaveInfo) {
         return __awaiter(this, void 0, void 0, function () {
-            var sentTo, users, sender, i;
+            var userName, alert_1, x;
+            var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        sentTo = this.recipients;
-                        users = [];
-                        return [4 /*yield*/, this.firebase.database.ref("users/" + this.afauth.auth.currentUser.uid).once('value', function (snap) {
-                                sender = (snap.child('fname').val() + " " + snap.child('lname').val());
-                            })];
+                    case 0: return [4 /*yield*/, this.firebase.database.ref("users/" + leaveInfo.userId).once('value', function (snap) {
+                            userName = snap.child('fname').val() + " " + snap.child('lname').val();
+                        })];
                     case 1:
                         _a.sent();
-                        return [4 /*yield*/, this.firebase.database.ref("users").once('value', function (snap) {
-                                snap.forEach(function (childSnapshot) {
-                                    if (childSnapshot.child('status').val() === "active") {
-                                        for (var i = 0; i < sentTo.length; i++)
-                                            if (sentTo[i] == "All") {
-                                                users.push(childSnapshot.key);
-                                            }
-                                            else {
-                                                if (childSnapshot.child('position').val() === sentTo[i])
-                                                    users.push(childSnapshot.key);
-                                            }
-                                    }
-                                });
-                            })];
-                    case 2:
-                        _a.sent();
-                        this.PublishMessageForm.controls['date'].setValue(new Date().toLocaleDateString());
-                        this.PublishMessageForm.controls['time'].setValue(new Date().toLocaleTimeString());
-                        this.PublishMessageForm.controls['postedBy'].setValue(sender);
-                        for (i = 0; i < users.length; i++)
-                            this.firebase.list("messages/" + users[i]).push({
-                                'date': this.PublishMessageForm.controls['date'].value,
-                                'message': this.PublishMessageForm.controls['message'].value,
-                                'postedBy': this.PublishMessageForm.controls['postedBy'].value,
-                                'subject': this.PublishMessageForm.controls['subject'].value,
-                                'time': this.PublishMessageForm.controls['time'].value
+                        this.leave.status = "pending";
+                        if (new Date().getHours() < 9) {
+                            alert_1 = this.alert.create({
+                                title: 'Restricted',
+                                subTitle: 'Unable to process your request at this moment. Please contact your team leader.!',
+                                buttons: ['OK']
                             });
-                        this.firebase.list("sentmessages/" + this.afauth.auth.currentUser.uid).push({
-                            'recipients': this.recipients,
-                            'date': this.PublishMessageForm.controls['date'].value,
-                            'message': this.PublishMessageForm.controls['message'].value,
-                            'subject': this.PublishMessageForm.controls['subject'].value,
-                            'time': this.PublishMessageForm.controls['time'].value
-                        });
+                            alert_1.present();
+                        }
+                        else {
+                            if (leaveInfo.date2) {
+                                x = this.firebase.list("EmployeeLeaves").push({
+                                    'name': userName,
+                                    'leaveType': leaveInfo.leaveType,
+                                    'date': leaveInfo.date,
+                                    'status': leaveInfo.status,
+                                    'userId': leaveInfo.userId
+                                    //'count':this.leave.count
+                                }).then(function () {
+                                    var y = _this.firebase.list("EmployeeLeaves").push({
+                                        'name': userName,
+                                        'leaveType': leaveInfo.leaveType,
+                                        'date': leaveInfo.date2,
+                                        'status': leaveInfo.status,
+                                        'userId': leaveInfo.userId
+                                    });
+                                }) //inserting the details of leaves
+                                ;
+                            }
+                            else
+                                this.firebase.list("EmployeeLeaves").push({
+                                    'name': userName,
+                                    'leaveType': leaveInfo.leaveType,
+                                    'date': leaveInfo.date,
+                                    'status': leaveInfo.status,
+                                    'userId': leaveInfo.userId
+                                });
+                        } //end of if else 
                         return [2 /*return*/];
                 }
             });
         });
-    };
-    UploadEventsPage.prototype.addRecipients = function () {
-        var _this = this;
-        var alert = this.alert.create();
-        alert.setTitle('Choose Recipients');
-        alert.addInput({
-            type: 'checkbox',
-            label: "All",
-            value: "All"
+    }; //end os submit leave request function
+    LeaveModel.prototype.getPastLeaves = function (userId, month, year) {
+        if (month != null && year != null) {
+        }
+        var pastLeaves = [];
+        this.firebase.database.ref("EmployeeLeaves").orderByChild("userId").equalTo("" + userId).once('value', function (snap) {
+            snap.forEach(function (child) {
+                pastLeaves.push(__assign({ $key: child.key }, child.val()));
+            });
         });
-        for (var i = 0; i < this.designations.length; i++) {
-            alert.addInput({
-                type: 'checkbox',
-                label: this.designations[i],
-                value: this.designations[i]
+        return this.pastLeaves = pastLeaves.reverse();
+    }; //end of function
+    LeaveModel.prototype.getRemainingLeaves = function (userId) {
+        return __awaiter(this, void 0, void 0, function () {
+            var remaininingLeaves, count, casual, sick;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        remaininingLeaves = [];
+                        count = 0;
+                        return [4 /*yield*/, this.firebase.database.ref("AvailableLeaves/" + new Date().getFullYear() + "/" + userId).once('value', function (snapshot) {
+                                casual = snapshot.child('casual').val();
+                                sick = snapshot.child('sick').val();
+                            })];
+                    case 1:
+                        _a.sent();
+                        return [4 /*yield*/, this.firebase.database.ref("EmployeeLeaves").orderByChild("userId").equalTo("" + userId).once('value', function (snap) {
+                                snap.forEach(function (child) {
+                                    if (child.child('status').val() === "approved")
+                                        if (child.child('date').val().length > 1) {
+                                            child.child('date').forEach(function (data) {
+                                                if (new Date(data.val()).getMonth() + 1 === new Date().getMonth() + 1 && new Date(data.val()).getFullYear() === new Date().getFullYear())
+                                                    count += 1;
+                                            });
+                                        }
+                                        else {
+                                            if (new Date(child.child('date').val()).getMonth() + 1 === new Date().getMonth() + 1 && new Date(child.child('date').val()).getFullYear() === new Date().getFullYear())
+                                                count += 1;
+                                        }
+                                }); // ed of for each
+                                remaininingLeaves.push({ 'casual': casual, 'sick': sick, 'currentMonthLeave': count });
+                            })
+                            //})//end of then
+                        ]; //end of snap
+                    case 2:
+                        _a.sent(); //end of snap
+                        //})//end of then
+                        return [2 /*return*/, (remaininingLeaves)];
+                }
+            });
+        });
+    };
+    LeaveModel.prototype.viewLeaveRequest = function () {
+        var leaveRequests = [];
+        this.firebase.database.ref("EmployeeLeaves").orderByChild('status').equalTo('pending').on("value", function (snap) {
+            snap.forEach(function (child) {
+                leaveRequests.push(__assign({ $key: child.key }, child.val()));
+            });
+        });
+        return leaveRequests.reverse();
+    };
+    LeaveModel.prototype.saveLeaveStatus = function (data, leaveCount, status, reason) {
+        var _this = this;
+        if (status == "approved") {
+            var count_1;
+            if (data.leaveType == "casual")
+                count_1 = leaveCount.casualRemaining - data.date.length;
+            else
+                count_1 = leaveCount - data.date.length;
+            this.firebase.database.ref("EmployeeLeaves/" + data.$key + "/status").set("" + status).then(function () {
+                _this.firebase.database.ref("AvailableLeaves/" + new Date().getFullYear() + "/" + data.userId + "/" + data.leaveType).set(count_1);
             });
         }
-        alert.addButton('Cancel');
-        alert.addButton({
-            text: 'OK',
-            handler: function (data) {
-                _this.recipients = data;
-                _this.PublishMessageForm.controls['recipients'].setValue(data);
-            }
-        });
-        alert.present();
+        else {
+            this.firebase.database.ref("EmployeeLeaves/" + data.$key).update({ 'status': "" + status, 'reason': "" + reason });
+        }
     };
-    UploadEventsPage.prototype.getSentItems = function () {
-        var _this = this;
-        this.firebase.list("sentmessages/" + this.afauth.auth.currentUser.uid).snapshotChanges().subscribe(function (snap) {
-            _this.sentItems = snap.map(function (items) {
-                return __assign({ $key: items.key }, items.payload.val());
-            }).reverse();
-        });
-    };
-    UploadEventsPage.prototype.viewMessage = function (message) {
-        var alert = this.alert.create({
-            title: "Subject: " + message.subject,
-            subTitle: "Recipients: " + message.recipients,
-            message: "Message: " + message.message,
-            buttons: ['OK']
-        });
-        alert.present();
-    };
-    UploadEventsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-upload-events',template:/*ion-inline-start:"D:\IdeaElan\src\pages\upload-events\upload-events.html"*/'<!--\n\n  Generated template for the UploadEventsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n    <ion-toolbar color="blue" hideBackButton="true">\n\n      <button ion-button  menuToggle="left" start>\n\n          <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      \n\n      <ion-title text-center>Sent Message</ion-title>\n\n  \n\n      <ion-buttons end>\n\n        <button ion-button >\n\n          <ion-icon name="notifications"></ion-icon> \n\n        </button> \n\n      </ion-buttons>\n\n      \n\n  </ion-toolbar>\n\n  \n\n  </ion-header>\n\n\n\n<ion-content>\n\n    <ion-segment [(ngModel)]="messages" color="white" >\n\n        <ion-segment-button value="compose">\n\n           Compose\n\n        </ion-segment-button>\n\n        <ion-segment-button value="sentItems" (click)="getSentItems()">\n\n          Sent Items\n\n        </ion-segment-button>\n\n     </ion-segment>\n\n\n\n     <div [ngSwitch]="messages">\n\n        <div *ngSwitchCase="\'compose\'">\n\n    <form [formGroup]="PublishMessageForm" (ngSubmit)="publishMessage()">\n\n        \n\n       \n\n          <ion-item>\n\n                <ion-label floating>Recipients</ion-label>\n\n                <ion-input type="text" formControlName="recipients" readonly (click)="addRecipients()" (ionFocus)="addRecipients()"></ion-input>\n\n           </ion-item>    \n\n\n\n    <ion-item>\n\n      <ion-label floating>Subject</ion-label>\n\n        <ion-input type="text" formControlName="subject"></ion-input>\n\n    </ion-item>\n\n    <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'subject\').hasError(\'required\')  && PublishMessageForm.get(\'subject\').touched">\n\n        <ion-label stacked  color="danger">\n\n          Subject Is Required\n\n        </ion-label>\n\n      </ion-item>\n\n    <ion-item>\n\n        <ion-label floating>Message</ion-label>\n\n          <ion-textarea rows="10" formControlName="message"></ion-textarea>\n\n      </ion-item>\n\n      <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'message\').hasError(\'required\')  && PublishMessageForm.get(\'message\').touched">\n\n          <ion-label stacked  color="danger">\n\n            Message Is Required\n\n          </ion-label>\n\n        </ion-item>\n\n\n\n      <ion-item>\n\n            <button type="submit"  [disabled]="PublishMessageForm.invalid" color="blue" full ion-button>Send Message</button>\n\n         </ion-item>\n\n         </form>\n\n  </div>\n\n\n\n  <div *ngSwitchCase="\'sentItems\'" >\n\n      <ion-item>\n\n          <ion-row class="table-title">\n\n            <ion-col col-7 >Recipients</ion-col>\n\n            <ion-col col-3 >Subject</ion-col>\n\n            <ion-col col-2 >Date</ion-col>\n\n            \n\n          </ion-row>\n\n        </ion-item>\n\n        <ion-item *ngFor="let message of sentItems">\n\n          <ion-row class="col-text table-bottom-border" (click)="viewMessage(message)" >\n\n              <ion-col col-7 text-wrap>{{message.recipients}}</ion-col><ion-col col-3>{{message.subject}}</ion-col><ion-col col-2>{{message.date}}</ion-col>\n\n          </ion-row>\n\n        </ion-item>\n\n    </div>\n\n\n\n\n\n         </div>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\upload-events\upload-events.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__["a" /* AngularFireAuth */]])
-    ], UploadEventsPage);
-    return UploadEventsPage;
-}());
+    LeaveModel = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["AlertController"]])
+    ], LeaveModel);
+    return LeaveModel;
+}()); // end of class
 
-//# sourceMappingURL=upload-events.js.map
+//# sourceMappingURL=leave.model.js.map
 
 /***/ }),
 
-/***/ 822:
+/***/ 740:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Designations; });
-var Designations = /** @class */ (function () {
-    function Designations() {
-        this.designations = [
-            'HR Execuitive',
-            'Intern',
-            'Jr.Software Engineer',
-            'Product Manager',
-            'Project Manager',
-            'QA Manager',
-            'Sr.Software Engineer',
-            'Sr.Software Developer',
-            'Support Specialist',
-            'Sales Support Manager',
-            'Software Developer',
-            'Software Test Engineer',
-            'Sr.Support Specialist',
-            'Team Lead'
-        ];
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomDatePicker; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(62);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var CustomDatePicker = /** @class */ (function () {
+    function CustomDatePicker(modalCtrl) {
+        this.modalCtrl = modalCtrl;
     }
-    return Designations;
+    CustomDatePicker.prototype.datePickerOptions = function (pickMode, defaultScrollTo, from, dateLimitTo, disableWeeks) {
+        var options = {
+            pickMode: pickMode,
+            showAdjacentMonthDay: false,
+            disableWeeks: disableWeeks,
+            from: from,
+            to: dateLimitTo,
+            defaultScrollTo: defaultScrollTo,
+            showMonthPicker: true,
+            showToggleButtons: true
+        };
+        return options;
+    };
+    CustomDatePicker.prototype.getMonths = function () {
+        return [{ 'monthName': 'January', 'value': '01' },
+            { 'monthName': 'February', 'value': '02' },
+            { 'monthName': 'March', 'value': '03' },
+            { 'monthName': 'April', 'value': '04' },
+            { 'monthName': 'May', 'value': '05' },
+            { 'monthName': 'June', 'value': '06' },
+            { 'monthName': 'July', 'value': '07' },
+            { 'monthName': 'August', 'value': '08' },
+            { 'monthName': 'September', 'value': '09' },
+            { 'monthName': 'October', 'value': '10' },
+            { 'monthName': 'November', 'value': '11' },
+            { 'monthName': 'December', 'value': '12' }];
+    };
+    CustomDatePicker = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"]])
+    ], CustomDatePicker);
+    return CustomDatePicker;
 }());
 
-//# sourceMappingURL=designations.js.map
+//# sourceMappingURL=datepicker.js.map
+
+/***/ }),
+
+/***/ 808:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApproveLeavePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_leave_model__ = __webpack_require__(738);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_datepicker__ = __webpack_require__(740);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__ = __webpack_require__(459);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(458);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(62);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+/**
+ * Generated class for the ApproveLeavePage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ApproveLeavePage = /** @class */ (function () {
+    function ApproveLeavePage(userLeave, datepicker, alertCtrl, navCtrl, navParams, firebase, afauth) {
+        this.userLeave = userLeave;
+        this.datepicker = datepicker;
+        this.alertCtrl = alertCtrl;
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.firebase = firebase;
+        this.afauth = afauth;
+        this.leaveCount = {};
+        this.months = this.datepicker.getMonths();
+        this.userLeaveDetails = this.navParams.get('userDetails');
+        this.userRemainingLeaves(this.userLeaveDetails.userId);
+        this.leaveRecords = this.userLeave.getPastLeaves(this.userLeaveDetails.userId);
+    }
+    ApproveLeavePage.prototype.userRemainingLeaves = function (userId) {
+        var _this = this;
+        {
+            this.userLeave.getRemainingLeaves(userId).then(function (item) {
+                _this.leaveCount.sickRemaining = item[0].sick;
+                _this.leaveCount.casualRemaining = item[0].casual;
+                _this.leaveCount.currentMonthLeave = item[0].currentMonthLeave;
+            });
+        }
+    };
+    ApproveLeavePage.prototype.showConfirm = function (data, status) {
+        var _this = this;
+        var confirm = this.alertCtrl.create({
+            title: 'Confirm',
+            message: 'Do you want to approve this leave request',
+            buttons: [
+                {
+                    text: 'Yes',
+                    handler: function () {
+                        _this.userLeave.saveLeaveStatus(data, _this.leaveCount, status);
+                    }
+                },
+                {
+                    text: 'No',
+                    handler: function () {
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
+    ApproveLeavePage.prototype.rejectConfirm = function (data, status) {
+        var _this = this;
+        var confirm = this.alertCtrl.create({
+            title: 'Reject',
+            message: 'Provide the reason for rejection',
+            inputs: [
+                {
+                    name: 'reason',
+                    placeholder: 'Reason'
+                },
+            ],
+            buttons: [
+                {
+                    text: 'Yes',
+                    handler: function (reject) {
+                        _this.userLeave.saveLeaveStatus(data, _this.leaveCount, status, reject.reason);
+                    }
+                },
+                {
+                    text: 'No',
+                    handler: function () {
+                    }
+                }
+            ]
+        });
+        confirm.present();
+    };
+    ApproveLeavePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["Component"])({
+            selector: 'page-approve-leave',template:/*ion-inline-start:"F:\ionic-app\src\pages\approve-leave\approve-leave.html"*/'<ion-header no-border>\n    <ion-toolbar color="blue" >\n      <button ion-button  menuToggle="left" start>\n          <ion-icon name="menu"></ion-icon>\n      </button>\n      \n      <ion-title text-center>Approve Leaves</ion-title>\n  \n      <ion-buttons end>\n        <button ion-button >\n          <ion-icon name="notifications"></ion-icon> \n        </button> \n      </ion-buttons>\n  </ion-toolbar>\n  </ion-header>\n\n\n<ion-content>\n    <ion-card>\n        <ion-item>\n          <ion-avatar item-start>\n            <img src="assets/imgs/companylogo.png">\n          </ion-avatar>\n          <h2>{{userLeaveDetails.name}}</h2>\n          <p>Leave Type:{{userLeaveDetails.leaveType}}</p>\n          <p>Date: [ {{userLeaveDetails.date}}]</p>\n        </ion-item>\n        <ion-row>\n            <ion-col col-6>This month leaves</ion-col>\n            <ion-col col-6>Remaining Leaves</ion-col>\n         </ion-row>\n         \n        <ion-row >\n           <ion-col col-6>{{leaveCount.currentMonthLeave}}</ion-col><ion-col col-4>Casual</ion-col><ion-col col-2>{{leaveCount.casualRemaining}}</ion-col>\n        </ion-row>\n        <ion-row>\n            <ion-col col-6></ion-col><ion-col col-4>Sick</ion-col><ion-col col-2>{{leaveCount.sickRemaining}}</ion-col>\n         </ion-row>\n \n         <ion-row>\n           <ion-col col-6><button ion-button color="secondary" (click)="showConfirm(userLeaveDetails,\'approved\')"  >Approve</button></ion-col>\n           <ion-col col-6><button ion-button color="danger" (click)="rejectConfirm(userLeaveDetails,\'rejected\')" >Reject</button></ion-col>\n        </ion-row>\n      </ion-card>\n\n    \n    \n      \n  <ion-card>\n      <ion-list>\n        <h6 text-center class="title section-title">Past Leaves</h6>\n        <ion-item>\n            <ion-label>Calendar</ion-label>\n            <ion-select [(ngModel)]="month" (ionChange)="enableYear()">\n              <ion-option *ngFor="let x of months" value="{{x.value}}">{{x.monthName}}</ion-option>\n            </ion-select>\n            <ion-select [(ngModel)]="year" [hidden]=showYear >\n              <ion-option value="2019">2019</ion-option>\n          </ion-select>\n        </ion-item>\n        \n        <ion-item>\n              <ion-row class="table-title" >\n                <ion-col col-3 >Leave Type</ion-col>\n                <ion-col col-7 >Date</ion-col>\n                <ion-col col-2 >Status</ion-col>\n                <ion-col hidden col-2>View</ion-col>\n              </ion-row>\n            </ion-item>\n            <ion-item>\n              <ion-row *ngFor="let x of leaveRecords" class="col-text row-bottom-border" [ngClass]=\'x.status\'>\n                  <ion-col col-3>{{x.leaveType}}</ion-col><ion-col col-7 text-wrap>{{x.date}}</ion-col><ion-col col-2>{{x.status}}</ion-col>\n              </ion-row>\n            </ion-item>\n        </ion-list>\n      </ion-card>\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\approve-leave\approve-leave.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__models_leave_model__["a" /* LeaveModel */], __WEBPACK_IMPORTED_MODULE_1__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */]])
+    ], ApproveLeavePage);
+    return ApproveLeavePage;
+}());
+
+//# sourceMappingURL=approve-leave.js.map
 
 /***/ })
 

@@ -23,43 +23,43 @@ webpackEmptyAsyncContext.id = 224;
 var map = {
 	"../pages/apply-leave/apply-leave.module": [
 		714,
-		3
+		5
 	],
 	"../pages/approve-leave/approve-leave.module": [
 		715,
-		16
+		4
 	],
 	"../pages/changepassword/changepassword.module": [
 		716,
-		15
+		16
 	],
 	"../pages/chatbot/chatbot.module": [
 		717,
-		14
+		15
 	],
 	"../pages/home/home.module": [
 		718,
-		13
+		14
 	],
 	"../pages/inbox/inbox.module": [
 		719,
-		12
+		13
 	],
 	"../pages/interview-details/interview-details.module": [
 		720,
-		5
+		7
 	],
 	"../pages/interview-summary/interview-summary.module": [
 		721,
-		11
+		12
 	],
 	"../pages/leaves-admin/leaves-admin.module": [
 		722,
-		10
+		3
 	],
 	"../pages/login/login.module": [
 		723,
-		9
+		11
 	],
 	"../pages/newuser/newuser.module": [
 		730,
@@ -67,7 +67,7 @@ var map = {
 	],
 	"../pages/payslip/payslip.module": [
 		724,
-		8
+		10
 	],
 	"../pages/profile/profile.module": [
 		725,
@@ -79,15 +79,15 @@ var map = {
 	],
 	"../pages/systems/systems.module": [
 		727,
-		7
+		9
 	],
 	"../pages/tabs/tabs.module": [
 		728,
-		6
+		8
 	],
 	"../pages/upload-events/upload-events.module": [
 		729,
-		4
+		6
 	]
 };
 function webpackAsyncContext(req) {
@@ -540,7 +540,7 @@ var MyApp = /** @class */ (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"D:\IdeaElan\src\app\app.html"*/'\n\n  <ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"D:\IdeaElan\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"F:\ionic-app\src\app\app.html"*/'\n\n  <ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"F:\ionic-app\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Platform"], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);

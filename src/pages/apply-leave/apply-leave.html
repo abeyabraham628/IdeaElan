@@ -34,7 +34,7 @@
         <ion-segment-button value="applyLeave">
            Apply Leave
         </ion-segment-button>
-        <ion-segment-button value="leaveHistory" >
+        <ion-segment-button value="leaveHistory" (click)="leaveHistory()" >
           History
         </ion-segment-button>
      </ion-segment>
@@ -82,8 +82,8 @@
        
     </ion-card-content>
 </ion-card>
- <!-- <h6 text-center class="title section-title">Leave Details</h6>
-    <ion-list radio-group [(ngModel)]="leave.leaveType">
+  <h6 text-center class="title section-title">Leave Details</h6>
+    <ion-list radio-group [(ngModel)]="leaveInfo.leaveType">
       <ion-row>
         <ion-item col-6>
             <ion-label>Casual Leave</ion-label>
@@ -99,12 +99,12 @@
   <ion-row>
     <ion-item col-12>
       <ion-label stacked>Select Dates</ion-label>
-      <ion-input  type="text" (click)="datePicker() " [(ngModel)]="userLeave.leave.date"  ></ion-input>
+      <ion-input  type="readonly" (click)="datePicker('multi') " [(ngModel)]="leaveDates" readonly  ></ion-input>
     </ion-item>
     
   </ion-row>
   <ion-row>
-    <button ion-button full color="blue" (click)="applyForLeave()">Submit</button>
+    <button ion-button full color="blue" (click)="applyForLeave(leaveInfo)">Submit</button>
   </ion-row>
 </ion-list>
 
@@ -112,19 +112,18 @@
 
     <div *ngSwitchCase="'leaveHistory'">
       
-      <ion-item>
-          <ion-label>Calendar</ion-label>
-      <ion-select [(ngModel)]="tony">
-    
-    <ion-option *ngFor="let x of months" value="{{x.value}}">{{x.monthName}}</ion-option>
-    </ion-select>
-    <ion-select [(ngModel)]="months.year" [hidden]=showYear (ionChange)="getPastLeaves(months.month,months.year)">
+      <ion-row>
+       
+        <ion-item col-12>
+          <ion-label stacked>Date Range</ion-label>
+          <ion-input   (click)="datePicker('range') "    ></ion-input>
+        </ion-item>
         
-        <ion-option value="2019">2019</ion-option>
-     </ion-select>
-
+      </ion-row>
+    
+  
      
-  </ion-item>
+  
   
   
       <ion-list>
@@ -140,12 +139,12 @@
               </ion-row>
             </ion-item>
             <ion-item>
-              <ion-row *ngFor="let x of pastLeaves" class="col-text row-bottom-border" [ngClass]='x.status'>
+              <ion-row *ngFor="let x of leaveRecords " class="col-text row-bottom-border" [ngClass]='x.status'>
                   <ion-col col-3>{{x.leaveType}}</ion-col><ion-col col-7 text-wrap>{{x.date}}</ion-col><ion-col col-2>{{x.status}}</ion-col>
               </ion-row>
             </ion-item>
         </ion-list>
-        -->
+        
     </div>
 </div>
 

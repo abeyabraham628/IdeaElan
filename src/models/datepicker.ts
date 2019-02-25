@@ -1,5 +1,5 @@
 
-import {CalendarComponentOptions } from "ion2-calendar";
+import {CalendarComponentOptions,CalendarModalOptions } from "ion2-calendar";
 
 import { Component, Injectable } from '@angular/core'; 
 import { ModalController, ViewController } from 'ionic-angular';
@@ -12,14 +12,18 @@ export class CustomDatePicker{
 constructor(public modalCtrl:ModalController){}
 tony:any
 
- datePickerOptions(dateLimitTo?,disableWeeks?)  {
+ datePickerOptions(pickMode,defaultScrollTo,from,dateLimitTo?,disableWeeks?)  {
  
-    const options: CalendarComponentOptions = {
-        pickMode: 'multi',
+    const options: CalendarModalOptions = {
+        pickMode: pickMode,
         showAdjacentMonthDay:false,
         disableWeeks: disableWeeks,
-        from:new Date(),
-        to: dateLimitTo
+        from:from,
+        to: dateLimitTo,
+        defaultScrollTo:defaultScrollTo,
+        showMonthPicker: true,
+        showToggleButtons:true
+        
     }
     return options
         

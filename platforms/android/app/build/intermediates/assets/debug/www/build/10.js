@@ -1,14 +1,14 @@
 webpackJsonp([10],{
 
-/***/ 715:
+/***/ 724:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PayslipPageModule", function() { return PayslipPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(751);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__payslip__ = __webpack_require__(814);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,35 +18,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HomePageModule = /** @class */ (function () {
-    function HomePageModule() {
+var PayslipPageModule = /** @class */ (function () {
+    function PayslipPageModule() {
     }
-    HomePageModule = __decorate([
+    PayslipPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_2__payslip__["a" /* PayslipPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__payslip__["a" /* PayslipPage */]),
             ],
         })
-    ], HomePageModule);
-    return HomePageModule;
+    ], PayslipPageModule);
+    return PayslipPageModule;
 }());
 
-//# sourceMappingURL=home.module.js.map
+//# sourceMappingURL=payslip.module.js.map
 
 /***/ }),
 
-/***/ 751:
+/***/ 814:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PayslipPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(458);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -58,65 +56,30 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-
-
-
 /**
- * Generated class for the HomePage page.
+ * Generated class for the PayslipPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var HomePage = /** @class */ (function () {
-    function HomePage(navCtrl, navParams, afAuth, firebase, loadingCtrl) {
+var PayslipPage = /** @class */ (function () {
+    function PayslipPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.afAuth = afAuth;
-        this.firebase = firebase;
-        this.loadingCtrl = loadingCtrl;
-        this.users = true;
-        this.recruitment = true;
-        this.systems = true;
-        this.uploadPaySlip = true;
-        this.leaveRequest = true;
-        this.uploadEvent = true;
-        this.roles = navParams.get('roles');
-        if (this.roles[0] != "null") {
-            this.users = false;
-            this.recruitment = false;
-            this.systems = false;
-            this.uploadPaySlip = false;
-            this.leaveRequest = false;
-            this.uploadEvent = false;
-        }
-        if (this.roles[1] != "null")
-            this.leaveRequest = false;
-        // if(this.roles[2]!=null)
-        //this.leaveRequest=false
-        if (this.roles[3] != "null")
-            this.uploadPaySlip = false;
-        if (this.roles[4] != "null")
-            this.recruitment = false;
-        if (this.roles[5] != "null")
-            this.systems = false;
-        if (this.roles[6] != "null")
-            this.users = false;
     }
-    HomePage.prototype.ionViewDidLoad = function () {
+    PayslipPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad PayslipPage');
     };
-    HomePage.prototype.goto = function (page) {
-        this.navCtrl.push(page);
-    };
-    HomePage = __decorate([
+    PayslipPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"F:\ionic-app\src\pages\home\home.html"*/'<!--\n  Generated template for the HomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n    <ion-toolbar color="blue" hideBackButton="true">\n      <button ion-button  menuToggle="left" start>\n          <ion-icon name="menu"></ion-icon>\n      </button>\n      \n      <ion-title text-center>Home</ion-title>\n  \n      <ion-buttons end>\n        <button ion-button >\n          <ion-icon name="notifications"></ion-icon> \n        </button> \n      </ion-buttons>\n      \n  </ion-toolbar>\n  \n  </ion-header>\n\n\n<ion-content>\n  <div class="box-events">\nHello\n  </div>\n  <div class="box-controllers">\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'NewuserPage\')" [hidden]=users>Users</button>\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'SystemsPage\')" [hidden]=systems>System</button>\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'RecruitmentPage\')" [hidden]=recruitment>Recruitment</button>\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'HomePage\')" [hidden]=uploadPaySlip>Upload Payslip</button>\n      <button ion-button color="blue" class="home-buttons"  (click)="goto(\'HomePage\')" [hidden]=leaveRequest>Leave Requests</button>\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'HomePage\')" [hidden]=uploadEvent>Upload Events</button>\n  </div>\n  \n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\home\home.html"*/,
+            selector: 'page-payslip',template:/*ion-inline-start:"F:\ionic-app\src\pages\payslip\payslip.html"*/'<!--\n  Generated template for the PayslipPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>payslip</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\payslip\payslip.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]])
-    ], HomePage);
-    return HomePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"]])
+    ], PayslipPage);
+    return PayslipPage;
 }());
 
-//# sourceMappingURL=home.js.map
+//# sourceMappingURL=payslip.js.map
 
 /***/ })
 

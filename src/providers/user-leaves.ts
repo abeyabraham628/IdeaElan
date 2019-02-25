@@ -1,11 +1,10 @@
-
-
 export interface leaves{
     leaveType:string;
     date:any[];
     date2?:any[];
     status:string;
     message?:string;
+    userId:string;
     
 }
 

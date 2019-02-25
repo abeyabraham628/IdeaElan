@@ -1,12 +1,8 @@
-import { leaveCounter } from './../../providers/user-leaves';
-import { Chain } from '@angular/compiler';
-import { Firebase } from '@ionic-native/firebase';
-
-import { AngularFireDatabase } from '@angular/fire/database';
-import { Calendar } from './../../providers/calendar';
+import { LeaveModel } from './../../models/leave.model';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, List } from 'ionic-angular';
-import { P } from '@angular/core/src/render3';
+import { IonicPage, NavParams, ModalController } from 'ionic-angular';
+
+
 
 /**
  * Generated class for the LeavesAdminPage page.
@@ -23,31 +19,14 @@ import { P } from '@angular/core/src/render3';
 export class LeavesAdminPage {
 
   leaves:string
-  constructor(public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase) {
+  leaveRequests:any
+
+  constructor(private userLeave:LeaveModel,public modalCtrl:ModalController,public navParams: NavParams) {
     this.leaves='leaveRequests';
-this.viewLeaveRequest()
-   
+    this.leaveRequests=this.userLeave.viewLeaveRequest()
+    
 } 
 
-
-
-leaveRequests=[]
- viewLeaveRequest(){
- let leaveRequests=[]
-   
-this.firebase.database.ref(`EmployeeLeaves`).orderByChild('status').equalTo('pending').on("value", (snap)=> {
-      snap.forEach((child)=>{
-        leaveRequests.push({
-          $key:child.key,
-          ...child.val()
-        })
-      })
-      
-  })
-
-  this.leaveRequests=leaveRequests.reverse()
- 
-}
 
   openModal(page:string,data?:object){
         const modal=this.modalCtrl.create(page,{"userDetails":data});

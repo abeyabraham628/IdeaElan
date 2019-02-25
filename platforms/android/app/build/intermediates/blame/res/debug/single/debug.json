@@ -1,11 +1,11 @@
 [
     {
-        "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_action_tombstone.xml.flat",
-        "source": "C:\\Users\\Tony\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\aac860c777d335c41d25e060003041f4\\res\\layout-v21\\notification_action_tombstone.xml"
-    },
-    {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\menu_capture.xml.flat",
         "source": "C:\\Users\\Tony\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\4c0211dcb9baa237991ccfe0f5748068\\res\\menu\\capture.xml"
+    },
+    {
+        "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_action_tombstone.xml.flat",
+        "source": "C:\\Users\\Tony\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\aac860c777d335c41d25e060003041f4\\res\\layout-v21\\notification_action_tombstone.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-mdpi_screen.png.flat",
@@ -28,12 +28,12 @@
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\layout\\notification_template_part_chronometer.xml"
     },
     {
-        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_notification_action_background.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable-v21\\notification_action_background.xml"
-    },
-    {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_action_tombstone.xml.flat",
         "source": "C:\\Users\\Tony\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\aac860c777d335c41d25e060003041f4\\res\\layout\\notification_action_tombstone.xml"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_notification_action_background.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable-v21\\notification_action_background.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_media_cancel_action.xml.flat",
@@ -170,6 +170,10 @@
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml_emailcomposer_provider_paths.xml.flat",
+        "source": "F:\\ionic-app\\platforms\\android\\app\\src\\main\\res\\xml\\emailcomposer_provider_paths.xml"
     },
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",

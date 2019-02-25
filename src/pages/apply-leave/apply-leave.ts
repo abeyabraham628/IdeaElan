@@ -1,17 +1,13 @@
-
-
+import { leaveCount,leaves } from './../../providers/user-leaves';
 import { Component} from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ModalController, LoadingController } from 'ionic-angular';
-
-
-import { DatePipe } from '@angular/common';
-
-import { CalendarModal,CalendarResult,CalendarComponentOptions } from "ion2-calendar";
+import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { CalendarModal,CalendarResult} from "ion2-calendar";
 
 import { LeaveModel } from '../../models/leave.model';
 import { CustomDatePicker } from '../../models/datepicker';
-import {leaveCount} from '../../providers/user-leaves'
+
 import { AngularFireAuth } from '@angular/fire/auth';
+
 
 
 
@@ -35,46 +31,40 @@ export  class ApplyLeavePage{
  
 
 leaveCount={} as leaveCount
+leaveInfo={} as leaves
 ionSegmentDefaultValue:string
+leaveRecords:any
+leaveDates:any
+months=this.customDatePicker.getMonths()
 
-
-
-
-
-
-
-
-
-
- 
-
- 
-   
-   constructor(private afauth:AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,private modalCtrl:ModalController,private customDatePicker:CustomDatePicker,private userLeave:LeaveModel) {
+ constructor(private afauth:AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,private modalCtrl:ModalController,private customDatePicker:CustomDatePicker,private userLeave:LeaveModel) {
             this.ionSegmentDefaultValue="applyLeave";
-            this.remaining()
+            this.viewRemainingLeaves();
             
             
      }
 
-  months=this.customDatePicker.getMonths()
+  
 
-       
-          
-     
-        
   ionViewDidLoad() {
     
   }
 
-  leaveDates:any=[]
-   datePicker(){
-   
-    let dateLimit=new Date().setDate(new Date().getDate()+45)// Display  45 days from today
-    let disableWeek=[0,6]// disable Sunday-0 and Saturday-6
-    let options=this.customDatePicker.datePickerOptions(dateLimit,disableWeek)
+  
+   datePicker(pickMode){
     
-     
+   let dateLimit=new Date().setDate(new Date().getDate()+45)// Display  45 days from today
+   var defaultScrollTo=new Date()
+    let disableWeek=[0,6]// disable Sunday-0 and Saturday-6
+    if(pickMode=='multi'){
+      let from=new Date()
+    var options=this.customDatePicker.datePickerOptions(pickMode,defaultScrollTo,from,dateLimit,disableWeek,)
+    }
+    else{
+      let from=new Date('2/1/2018')
+      
+      var options=this.customDatePicker.datePickerOptions(pickMode,defaultScrollTo,from)
+    }
     let myCalendar =  this.modalCtrl.create(CalendarModal, {
       options: options,
       });
@@ -82,52 +72,46 @@ ionSegmentDefaultValue:string
       myCalendar.present();
        
       myCalendar.onDidDismiss((date: CalendarResult[]) => {
+        if(pickMode==='multi'){
         date.sort(function (a, b) { // sorting the dates in ascending order with the time property
           return a.time - b.time;
         });
+            
+          let selectedDates=this.userLeave.arrangeDates(date)
+            this.leaveDates=selectedDates.date1+","+selectedDates.date2
+              this.leaveInfo.date=selectedDates.date1;
+              if(selectedDates.date2.length>0)
+                this.leaveInfo.date2=selectedDates.date2;
+      }
+      else{
 
-            this.userLeave.arrangeDates(date)
-          
-      
-      })//end of displayCalendar function
- }// end of datepicker function
+      }
 
- applyForLeave(leaveDates){
-   this.userLeave.submitLeaveRequest(leaveDates)
+     })//end of displayCalendar function
+    }// end of datepicker function
+
+
+    
+ applyForLeave(leaveInfo){
+   leaveInfo.userId=this.afauth.auth.currentUser.uid
+   leaveInfo.status="pending"
+   this.userLeave.submitLeaveRequest(leaveInfo)
  }
 
- pastLeave(){
-   this.userLeave.getPastLeaves()
- }
-
-   async remaining(){
-     
-    let x=await this.userLeave.getRemainingLeaves(this.afauth.auth.currentUser.uid).then(x => console.log(x))
-     
-    
-    
-  
- }
-    
-    
-  
  
+  leaveHistory(from?,to?){
+   this.leaveRecords=this.userLeave.getPastLeaves(this.afauth.auth.currentUser.uid,from,to)
+   
+ }
 
-
-
-
-
-
-
-
+    viewRemainingLeaves(){
+        this.userLeave.getRemainingLeaves(this.afauth.auth.currentUser.uid).then((item)=>{
+        this.leaveCount.sickRemaining=item[0].sick;
+        this.leaveCount.casualRemaining=item[0].casual;
+        this.leaveCount.currentMonthLeave=item[0].currentMonthLeave
+      })
+    }
+    
+    
   
-
-  
-
-
-
-
-
-  
-
 }// end of class

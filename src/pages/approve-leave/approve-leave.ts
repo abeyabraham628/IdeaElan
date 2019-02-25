@@ -1,3 +1,7 @@
+import { leaveCount } from './../../providers/user-leaves';
+import { LeaveModel } from './../../models/leave.model';
+
+import { CustomDatePicker } from './../../models/datepicker';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { filter } from 'rxjs/operators';
 import { AngularFireDatabase } from '@angular/fire/database';
@@ -20,25 +24,30 @@ import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angul
 })
 export class ApproveLeavePage {
 
-  
-  userLeaveDetails:any
- 
-  constructor(public alertCtrl:AlertController,public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public afauth:AngularFireAuth) {
+leaveCount={} as leaveCount 
+userLeaveDetails:any
+months=this.datepicker.getMonths()
+leaveRecords:any
+  constructor(private userLeave:LeaveModel,private datepicker:CustomDatePicker,public alertCtrl:AlertController,public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public afauth:AngularFireAuth) {
      this.userLeaveDetails=this.navParams.get('userDetails')
      this.userRemainingLeaves(this.userLeaveDetails.userId) 
+     this.leaveRecords=this.userLeave.getPastLeaves(this.userLeaveDetails.userId)
      
   }
-
-  sickRemaining:number
-  casualRemaining:number
-
-   userRemainingLeaves(userId){
-    
-     this.firebase.database.ref(`AvailableLeaves/${new Date().getFullYear()}/${userId}`).on('value',(snapshot)=>{
+  
+    userRemainingLeaves(userId){
+    {
+      this.userLeave.getRemainingLeaves(userId).then((item)=>{
+      this.leaveCount.sickRemaining=item[0].sick;
+      this.leaveCount.casualRemaining=item[0].casual;
+      this.leaveCount.currentMonthLeave=item[0].currentMonthLeave;
       
-      this.sickRemaining=snapshot.child('sick').val();
-      this.casualRemaining=snapshot.child('casual').val();
+
+      
+      
     })
+  }
+    
   }
 
   showConfirm(data,status:string) {
@@ -49,7 +58,7 @@ export class ApproveLeavePage {
         {
           text: 'Yes',
           handler: () => {
-            this.saveLeaveStatus(data,status)
+            this.userLeave.saveLeaveStatus(data,this.leaveCount,status)
           }
         },
         {
@@ -79,7 +88,7 @@ export class ApproveLeavePage {
           text: 'Yes',
           handler: (reject) => {
            
-            this.saveLeaveStatus(data,status,reject.reason)
+            this.userLeave.saveLeaveStatus(data,this.leaveCount,status,reject.reason)
 
           }
         },
@@ -96,25 +105,6 @@ export class ApproveLeavePage {
   }
   
 
-saveLeaveStatus(data,status:string,reason?:any){
-  console.log(data.leaveType)
-  if(status=="approved"){
-  let count:number
- 
-  if(data.leaveType=="casual")
-    count=this.casualRemaining-data.date.length;
-  else
-    count=this.sickRemaining-data.date.length;
-
-  this.firebase.database.ref(`EmployeeLeaves/${data.$key}/status`).set(`${status}`).then(()=>{
-  this.firebase.database.ref(`AvailableLeaves/${new Date().getFullYear()}/${data.userId}/${data.leaveType}`).set(count)
-  })
-  }
-  else{
-    this.firebase.database.ref(`EmployeeLeaves/${data.$key}`).update({'status':`${status}`,'reason':`${reason}`})
-  }
-
-}
 
 
 
