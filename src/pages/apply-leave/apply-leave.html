@@ -67,21 +67,7 @@
       </ion-card-content>
   </ion-card>
 
-  <ion-card hidden>
-      <ion-card-header>
-          Recent Requests
-        </ion-card-header>
-    <ion-card-content>
-      
-      <ion-row >
-         <ion-col col-4>Date</ion-col><ion-col col-4>Leave Type</ion-col><ion-col col-4>Status</ion-col>
-      </ion-row>
-      <ion-row>
-          <ion-col col-4>25/05/2018</ion-col><ion-col col-4>Sick</ion-col><ion-col col-4>Pending</ion-col>
-       </ion-row>
-       
-    </ion-card-content>
-</ion-card>
+ 
   <h6 text-center class="title section-title">Leave Details</h6>
     <ion-list radio-group [(ngModel)]="leaveInfo.leaveType">
       <ion-row>
@@ -113,13 +99,10 @@
     <div *ngSwitchCase="'leaveHistory'">
       
       <ion-row>
-       
-        <ion-item col-12>
-          <ion-label stacked>Date Range</ion-label>
-          <ion-input   (click)="datePicker('range') "    ></ion-input>
-        </ion-item>
-        
-      </ion-row>
+       <ion-item col-12>
+              <button ion-button (click)="datePicker('range')" full color="blue">Open calendar</button>
+            </ion-item>
+        </ion-row>
     
   
      
@@ -127,22 +110,24 @@
   
   
       <ion-list>
-        <h6 text-center class="title section-title">Recent Request</h6>
+        <h6 text-center class="title section-title">{{dateRange}}</h6>
          
-        
-        <ion-item>
-              <ion-row class="table-title" >
-                <ion-col col-3 >Leave Type</ion-col>
-                <ion-col col-7 >Date</ion-col>
-                <ion-col col-2 >Status</ion-col>
-                <ion-col hidden col-2>View</ion-col>
-              </ion-row>
-            </ion-item>
-            <ion-item>
-              <ion-row *ngFor="let x of leaveRecords " class="col-text row-bottom-border" [ngClass]='x.status'>
-                  <ion-col col-3>{{x.leaveType}}</ion-col><ion-col col-7 text-wrap>{{x.date}}</ion-col><ion-col col-2>{{x.status}}</ion-col>
-              </ion-row>
-            </ion-item>
+        <ion-card *ngFor="let x of leaveRecords " class="col-text row-bottom-border" >
+                  <ion-card-header>
+                  {{x.leaveType}} Leave<br/> 
+                  
+                  </ion-card-header>
+                  
+                  <ion-card-content  [ngClass]='x.status'>
+                      {{x.date}} <br/>
+                      {{x.status}} 
+                      <div *ngIf="(x.reason!=null)">
+                      Comments: {{x.reason}}
+                    </div>
+                  </ion-card-content>
+                </ion-card>
+
+           
         </ion-list>
         
     </div>

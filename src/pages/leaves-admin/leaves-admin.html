@@ -20,17 +20,20 @@
   <ion-content>
  
       <ion-segment [(ngModel)]="leaves" color="white" >
-         <ion-segment-button value="leaveRequests">
+         <ion-segment-button value="viewLeaveRequests">
             Leave Requests
          </ion-segment-button>
-         <ion-segment-button value="leaveHistory" >
+         <ion-segment-button value="leaveHistory" (click)="getEmployee()" >
           History
          </ion-segment-button>
       </ion-segment>
   <div [ngSwitch]="leaves">
-    <div *ngSwitchCase="'leaveRequests'">
+    <div *ngSwitchCase="'viewLeaveRequests'">
     
+        
+
       <ion-card (click)="openModal('ApproveLeavePage',user)" *ngFor="let user of leaveRequests">
+         
         <ion-item>
           <ion-avatar item-start>
             <img src="assets/imgs/companylogo.png">
@@ -49,19 +52,41 @@
     <div *ngSwitchCase="'leaveHistory'">
      
       <ion-item>
-        <ion-row class="table-title">
-          <ion-col col-4 >System Id</ion-col>
-          <ion-col col-3 >RAM</ion-col>
-          <ion-col col-3 >HDD</ion-col>
-          <ion-col col-2 >Antivirus</ion-col>
-          <ion-col hidden col-2 >View</ion-col>
-        </ion-row>
+          <ion-label>Employee Name</ion-label>
+        <ion-select [(ngModel)]="employeeKey">
+                 <ion-option *ngFor="let emp of employeeName" value="{{emp.$key}}">{{emp.fname}}</ion-option>
+        </ion-select>
       </ion-item>
-      <ion-item *ngFor="let system of systemArray">
-        <ion-row class="col-text table-bottom-border" (click)="loadForm(system)" >
-            <ion-col col-4>{{system.systemId}}</ion-col><ion-col col-3>{{system.memory}}</ion-col><ion-col col-3>{{system.hdd}}</ion-col><ion-col col-2>{{system.avValidity}} Days</ion-col>
-        </ion-row>
+      
+          <ion-item col-12>
+                 <button ion-button (click)="datePicker('range')" full color="blue">Open calendar</button>
+               </ion-item>
+           
+      <ion-item>
+        <button ion-button (click)="leaveHistory()" >Show</button>
       </ion-item>
+
+      
+      <ion-list>
+          <h6 text-center class="title section-title">{{dateRange}}</h6>
+           
+          <ion-card *ngFor="let x of leaveRecords " class="col-text row-bottom-border" >
+                    <ion-card-header>
+                    {{x.leaveType}} Leave<br/> 
+                    
+                    </ion-card-header>
+                    
+                    <ion-card-content  [ngClass]='x.status'>
+                        {{x.date}} <br/>
+                        {{x.status}} 
+                        <div *ngIf="(x.reason!=null)">
+                        Comments: {{x.reason}}
+                      </div>
+                    </ion-card-content>
+                  </ion-card>
+  
+             
+          </ion-list>
 
       
     </div>

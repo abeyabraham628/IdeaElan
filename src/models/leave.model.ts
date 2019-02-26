@@ -117,21 +117,64 @@ leaveCount={} as leaveCount
 
       pastLeaves=[]
   
-       getPastLeaves(userId,month?,year?){
-        if(month !=null && year !=null) 
-        {
+       getPastLeaves(userId,dateFrom?,dateTo?){
+       
+            var pastLeaves=[]
+            var flag:boolean=false
+            this.firebase.database.ref(`EmployeeLeaves`).orderByChild(`userId`).equalTo(`${userId}`).once('value',(snap)=>{
+              if(dateFrom !=null && dateTo !=null) 
+              {
+                  snap.forEach(function(child){
 
-        }
-       let pastLeaves=[]
-       this.firebase.database.ref(`EmployeeLeaves`).orderByChild(`userId`).equalTo(`${userId}`).once('value',(snap)=>{
-             snap.forEach(function(child){
-                 pastLeaves.push({
-                   $key:child.key,
-                   ...child.val()
-                 })
-               })
-             
-       })
+                    if(child.child('date').val().length>1){
+                      child.child('date').forEach(data=>{
+                        
+                        if(new Date(data.val()).getTime()>=dateFrom && new Date(data.val()).getTime()<=dateTo)
+                            flag=true
+                          else
+                            flag=false
+                        });
+                        if(flag)
+                        pastLeaves.push(child.val())
+
+                      }
+                      else{
+                        if(new Date(child.child('date').val()).getTime()>=dateFrom && new Date(child.child('date').val()).getTime()<=dateTo)
+                        pastLeaves.push(child.val());
+                      }
+                     
+                    })
+              }
+              else{
+                snap.forEach(function(child){
+
+                  if(child.child('date').val().length>1){
+                    child.child('date').forEach(data=>{
+                      
+                      if(new Date(data.val()).getMonth()+1===new Date().getMonth()+1 && new Date(data.val()).getFullYear()===new Date().getFullYear())
+                      flag=true
+                        else
+                          flag=false
+                      });
+                      if(flag)
+                      pastLeaves.push(child.val())
+
+                    }
+                    else{
+                      if(new Date(child.child('date').val()).getMonth()+1===new Date().getMonth()+1 && new Date(child.child('date').val()).getFullYear()===new Date().getFullYear())
+                      pastLeaves.push(child.val());
+                    }
+                   
+                  })
+
+              }
+              
+       })//end of database ref
+      
+     
+
+      
+
        return this.pastLeaves=pastLeaves.reverse()
          
         

@@ -1,6 +1,6 @@
 import { leaveCount,leaves } from './../../providers/user-leaves';
 import { Component} from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, Form } from 'ionic-angular';
 import { CalendarModal,CalendarResult} from "ion2-calendar";
 
 import { LeaveModel } from '../../models/leave.model';
@@ -35,6 +35,7 @@ leaveInfo={} as leaves
 ionSegmentDefaultValue:string
 leaveRecords:any
 leaveDates:any
+dateRange:any="This Month Leave"
 months=this.customDatePicker.getMonths()
 
  constructor(private afauth:AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,private modalCtrl:ModalController,private customDatePicker:CustomDatePicker,private userLeave:LeaveModel) {
@@ -58,11 +59,10 @@ months=this.customDatePicker.getMonths()
     let disableWeek=[0,6]// disable Sunday-0 and Saturday-6
     if(pickMode=='multi'){
       let from=new Date()
-    var options=this.customDatePicker.datePickerOptions(pickMode,defaultScrollTo,from,dateLimit,disableWeek,)
+    var options=this.customDatePicker.datePickerOptions(pickMode,defaultScrollTo,from,dateLimit,disableWeek)
     }
     else{
       let from=new Date('2/1/2018')
-      
       var options=this.customDatePicker.datePickerOptions(pickMode,defaultScrollTo,from)
     }
     let myCalendar =  this.modalCtrl.create(CalendarModal, {
@@ -84,7 +84,10 @@ months=this.customDatePicker.getMonths()
                 this.leaveInfo.date2=selectedDates.date2;
       }
       else{
-
+        let from=date['from'].string.split('-')
+        let to=date['to'].string.split('-')
+        this.dateRange=from[2]+"-"+from[1]+"-"+from[0]+" to "+to[2]+"-"+to[1]+"-"+to[0]
+        this.leaveHistory(date['from'].time,date['to'].time)
       }
 
      })//end of displayCalendar function
@@ -100,6 +103,7 @@ months=this.customDatePicker.getMonths()
 
  
   leaveHistory(from?,to?){
+   
    this.leaveRecords=this.userLeave.getPastLeaves(this.afauth.auth.currentUser.uid,from,to)
    
  }

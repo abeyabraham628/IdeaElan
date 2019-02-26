@@ -1,3 +1,4 @@
+import { Employee } from './../../models/employee.model';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { LeavesAdminPage } from './leaves-admin';
@@ -7,7 +8,7 @@ import { CustomDatePicker } from '../../models/datepicker';
   declarations: [
     LeavesAdminPage,
   ],
-  providers:[LeaveModel,CustomDatePicker],
+  providers:[LeaveModel,CustomDatePicker,Employee],
   imports: [
     IonicPageModule.forChild(LeavesAdminPage),
   ],

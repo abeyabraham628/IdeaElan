@@ -5,8 +5,6 @@ import { CustomDatePicker } from '../../models/datepicker';
 import { LeaveModel } from '../../models/leave.model';
 
 
-
-
 @NgModule({
   declarations: [
     ApplyLeavePage,

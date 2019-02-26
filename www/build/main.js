@@ -23,11 +23,11 @@ webpackEmptyAsyncContext.id = 224;
 var map = {
 	"../pages/apply-leave/apply-leave.module": [
 		714,
-		5
+		3
 	],
 	"../pages/approve-leave/approve-leave.module": [
 		715,
-		4
+		5
 	],
 	"../pages/changepassword/changepassword.module": [
 		716,
@@ -55,7 +55,7 @@ var map = {
 	],
 	"../pages/leaves-admin/leaves-admin.module": [
 		722,
-		3
+		2
 	],
 	"../pages/login/login.module": [
 		723,
@@ -75,7 +75,7 @@ var map = {
 	],
 	"../pages/recruitment/recruitment.module": [
 		726,
-		2
+		4
 	],
 	"../pages/systems/systems.module": [
 		727,
