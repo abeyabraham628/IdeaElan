@@ -85,7 +85,7 @@ datePicker(pickMode){
       alert("Select and Employee")
     else{
       this.leaveRecords=this.userLeave.getPastLeaves(this.employeeKey,this.from,this.to)
-      console.log(this.leaveRecords)
+      
     }
   }
 

@@ -1,14 +1,14 @@
 webpackJsonp([16],{
 
-/***/ 716:
+/***/ 717:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChangepasswordPageModule", function() { return ChangepasswordPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__changepassword__ = __webpack_require__(810);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__changepassword__ = __webpack_require__(817);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,13 +38,13 @@ var ChangepasswordPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 810:
+/***/ 817:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChangepasswordPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__ = __webpack_require__(459);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(458);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -153,7 +153,7 @@ var ChangepasswordPage = /** @class */ (function () {
     };
     ChangepasswordPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-changepassword',template:/*ion-inline-start:"D:\IdeaElan\src\pages\changepassword\changepassword.html"*/'<!--\n\n  Generated template for the ChangepasswordPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-header no-border>\n\n    <ion-toolbar color="blue">\n\n     <ion-title text-center>IdeaElan</ion-title>\n\n   </ion-toolbar>\n\n  </ion-header>\n\n\n\n<ion-content padding class="top-botton-border" style="margin-top:auto;margin-bottom:auto">\n\n   \n\n       \n\n      \n\n      \n\n  <ion-card>\n\n    <ion-card-header text-center>\n\n        <ion-thumbnail >\n\n            <img [src]="companyLogo" class="logo1" />\n\n          </ion-thumbnail>\n\n          <br/>CHANGE PASSWORD\n\n    </ion-card-header>\n\n    <ion-card-content>\n\n      \n\n        \n\n        <ion-list>\n\n            <ion-item>\n\n              <ion-label floating>New Password</ion-label>\n\n              <ion-input type="password" [(ngModel)]="password" ></ion-input>\n\n            </ion-item>\n\n          </ion-list>\n\n          <ion-list>\n\n            <ion-item>\n\n              <ion-label floating>Confirm Password</ion-label>\n\n              <ion-input type="password"></ion-input>\n\n            </ion-item>\n\n          \n\n          </ion-list>\n\n          \n\n\n\n    </ion-card-content>\n\n    <ion-row class="cardfooter">\n\n        <ion-col col-6>\n\n            <button ion-button full  color="blue" (click)="updatePassword()">Save</button>\n\n           \n\n        </ion-col>\n\n        <ion-col col-6>\n\n        \n\n            <button ion-button full  color="blue" (click)="cancel()">Cancel</button>\n\n        </ion-col>\n\n      </ion-row>\n\n  </ion-card>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\changepassword\changepassword.html"*/,
+            selector: 'page-changepassword',template:/*ion-inline-start:"F:\ionic-app\src\pages\changepassword\changepassword.html"*/'<!--\n  Generated template for the ChangepasswordPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n<ion-header no-border>\n    <ion-toolbar color="blue">\n     <ion-title text-center>IdeaElan</ion-title>\n   </ion-toolbar>\n  </ion-header>\n\n<ion-content padding class="top-botton-border" style="margin-top:auto;margin-bottom:auto">\n   \n       \n      \n      \n  <ion-card>\n    <ion-card-header text-center>\n        <ion-thumbnail >\n            <img [src]="companyLogo" class="logo1" />\n          </ion-thumbnail>\n          <br/>CHANGE PASSWORD\n    </ion-card-header>\n    <ion-card-content>\n      \n        \n        <ion-list>\n            <ion-item>\n              <ion-label floating>New Password</ion-label>\n              <ion-input type="password" [(ngModel)]="password" ></ion-input>\n            </ion-item>\n          </ion-list>\n          <ion-list>\n            <ion-item>\n              <ion-label floating>Confirm Password</ion-label>\n              <ion-input type="password"></ion-input>\n            </ion-item>\n          \n          </ion-list>\n          \n\n    </ion-card-content>\n    <ion-row class="cardfooter">\n        <ion-col col-6>\n            <button ion-button full  color="blue" (click)="updatePassword()">Save</button>\n           \n        </ion-col>\n        <ion-col col-6>\n        \n            <button ion-button full  color="blue" (click)="cancel()">Cancel</button>\n        </ion-col>\n      </ion-row>\n  </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\changepassword\changepassword.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */]])
     ], ChangepasswordPage);

@@ -1,5 +1,5 @@
-import { Component , NgZone } from '@angular/core';
-import { IonicPage, NavController, NavParams, Platform  } from 'ionic-angular';
+import { Component , NgZone  } from '@angular/core';
+import { IonicPage, NavController, NavParams , Platform } from 'ionic-angular';
 
 /**
  * Generated class for the ChatbotPage page.
@@ -7,7 +7,8 @@ import { IonicPage, NavController, NavParams, Platform  } from 'ionic-angular';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-declare var ApiAIPromises: any; 
+declare var ApiAIPromises: any;
+
 @IonicPage()
 @Component({
   selector: 'page-chatbot',
@@ -15,14 +16,20 @@ declare var ApiAIPromises: any;
 })
 export class ChatbotPage {
   answer;
-  constructor(public platform: Platform, public ngZone: NgZone,public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams , public platform: Platform, public ngZone: NgZone) {
     platform.ready().then(() => {
       ApiAIPromises.init({
-        clientAccessToken: "26950d7a838f45e0b584e39ef33c7c47"
+        clientAccessToken: "eefd359fd25447899a07c6e5404be212"
       }).then(result => console.log(result));
     });
   }
+
+  ionViewDidLoad() {
+    console.log('ionViewDidLoad ChatbotPage');
+  }
+
   ask(question) {
+    console.log(question)
     ApiAIPromises.requestText({
       query: question
     })
@@ -32,8 +39,13 @@ export class ChatbotPage {
        });
     })
   }
-  }
-
-  
 
 
+questions=[]
+tony(question){
+  this.questions.push({'question':question})
+}
+
+
+
+}

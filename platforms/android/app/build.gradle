@@ -92,6 +92,7 @@ ext {
 
 // PLUGIN GRADLE EXTENSIONS START
 apply from: "../phonegap-plugin-barcodescanner/elan-barcodescanner.gradle"
+apply from: "../cordova-plugin-fcm-with-dependecy-updated/elan-FCMPlugin.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()
@@ -267,6 +268,8 @@ dependencies {
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
     compile "com.android.support:support-v4:27.+"
+    compile "com.google.firebase:firebase-core:10.+"
+    compile "com.google.firebase:firebase-messaging:10.+"
     // SUB-PROJECT DEPENDENCIES END
 }
 

@@ -26,7 +26,7 @@
   "cordova-plugin-whitelist": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-whitelist@1.3.3"
+      "id": "cordova-plugin-whitelist@^1.3.3"
     },
     "is_top_level": true,
     "variables": {}
@@ -111,6 +111,14 @@
     "source": {
       "type": "registry",
       "id": "cordova-plugin-image-picker"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-fcm-with-dependecy-updated": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-fcm-with-dependecy-updated"
     },
     "is_top_level": true,
     "variables": {}

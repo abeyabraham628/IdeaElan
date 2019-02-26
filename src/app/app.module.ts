@@ -19,7 +19,7 @@ import { CalendarModule } from "ion2-calendar";
 import { MyApp } from './app.component';
 
 import { FIREBASE_CONFIG } from '../providers/firebase-service'
-
+import {FCM} from '@ionic-native/fcm'
 
 
 @NgModule({
@@ -38,7 +38,8 @@ import { FIREBASE_CONFIG } from '../providers/firebase-service'
     IonicStorageModule.forRoot(),
     ReactiveFormsModule,
     AngularFireAuthModule,
-    CalendarModule
+    CalendarModule,
+   
 
     
     
@@ -56,6 +57,8 @@ import { FIREBASE_CONFIG } from '../providers/firebase-service'
     DatePicker,
     BarcodeScanner,
     DatePipe,
+    FCM,
+    
     
     
     {provide: ErrorHandler, useClass: IonicErrorHandler}

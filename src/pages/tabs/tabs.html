@@ -11,12 +11,13 @@
      <ion-list>
       <ion-item style="text-align:center;">
           <ion-thumbnail style="border:1px solid black; height:100px;width:100px;border-radius:50%;margin: auto">
+            <img [hidden]="this.hid" src="{{uri}}" style="border:1px solid black; height:100px;width:100px;border-radius:50%;margin: auto"/>
           </ion-thumbnail>
-          <h2>Tony Manuel</h2>
-          <h6>Intern</h6>
+          <h2>{{this.uname | uppercase }}</h2>
+          <h6>{{this.position | uppercase }}</h6>
       </ion-item>
 
-      <ion-item>
+      <ion-item (click)="uploadHandler()">
           <ion-icon name="images" item-end></ion-icon>
           Change Image
       </ion-item>
@@ -30,7 +31,11 @@
           <ion-icon name="power" item-end></ion-icon>
            Logout
       </ion-item>
+      <ng-container *ngIf="progress | async as percent">
 
+        <progress [value]="percent" max="100"></progress>
+      
+      </ng-container>
     </ion-list>
 
 
@@ -42,7 +47,7 @@
 <ion-tabs>
   <ion-tab [root]="tab0Root"   tabTitle="Home" tabIcon="home" [rootParams]="tab0Params"></ion-tab>
   <ion-tab [root]="tab1Root"   tabTitle="Leave" tabIcon="person"></ion-tab>
-  <ion-tab [root]="tab2Root"  tabTitle="Payslip" tabIcon="document"></ion-tab>
+  <ion-tab [root]="tab2Root"  tabTitle="Chatbot" tabIcon="document"></ion-tab>
  
   <ion-tab [root]="tab3Root"  tabTitle="Inbox" tabIcon="chatboxes" tabBadge='2' tabBadgeStyle="danger"></ion-tab>
 </ion-tabs>

@@ -1,14 +1,14 @@
 webpackJsonp([14],{
 
-/***/ 718:
+/***/ 719:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(756);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(757);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,15 +38,16 @@ var HomePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 756:
+/***/ 757:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__ = __webpack_require__(459);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(458);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_fcm__ = __webpack_require__(462);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -104,6 +105,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
 /**
  * Generated class for the HomePage page.
  *
@@ -111,7 +113,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
  * Ionic pages and navigation.
  */
 var HomePage = /** @class */ (function () {
-    function HomePage(modalCtrl, navCtrl, navParams, afAuth, firebase, loadingCtrl) {
+    function HomePage(fcm, modalCtrl, navCtrl, navParams, afAuth, firebase, loadingCtrl) {
+        var _this = this;
+        this.fcm = fcm;
         this.modalCtrl = modalCtrl;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
@@ -126,6 +130,17 @@ var HomePage = /** @class */ (function () {
         this.uploadEvent = true;
         this.messages = [];
         this.events = [];
+        console.log(this.afAuth.auth.currentUser.uid);
+        this.fcm.getToken().then(function (token) {
+            //backend.registerToken(token);
+            _this.devicetoken = token;
+            alert(token);
+        });
+        this.fcm.onTokenRefresh().subscribe(function (token) {
+            _this.devicetoken = token;
+            alert("updated");
+        });
+        this.checks();
         this.roles = navParams.get('roles');
         console.log(this.roles);
         if (this.roles[0] != "null") {
@@ -149,6 +164,23 @@ var HomePage = /** @class */ (function () {
         if (this.roles[6] != "null")
             this.users = false;
     }
+    HomePage.prototype.checks = function () {
+        var _this = this;
+        var idOftoken, tokenStatus;
+        this.firebase.database.ref('tokensNotificationId').orderByChild('userIdTocken').equalTo("" + this.afAuth.auth.currentUser.uid).once("value", function (snap) {
+            // console.log(snap.val())
+            snap.forEach(function (child) {
+                if (child.child('tokenid').val() == "null") {
+                    console.log("if yes update it with device token");
+                    _this.firebase.object("/tokensNotificationId/" + child.key)
+                        .update({ tokenid: _this.devicetoken, userIdTocken: _this.afAuth.auth.currentUser.uid });
+                }
+                console.log(child.child('userIdTocken').val());
+                console.log(child.key);
+            });
+            //if not exsist , needed to be added , but already user will have an entry to token list as it is added in newuser.ts file 
+        });
+    };
     HomePage.prototype.ionViewDidLoad = function () {
         this.getMessages();
         this.getUpComingEvents();
@@ -213,7 +245,7 @@ var HomePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-home',template:/*ion-inline-start:"F:\ionic-app\src\pages\home\home.html"*/'<!--\n  Generated template for the HomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n    <ion-toolbar color="blue" hideBackButton="true">\n      <button ion-button  menuToggle="left" start>\n          <ion-icon name="menu"></ion-icon>\n      </button>\n      \n      <ion-title text-center>Home</ion-title>\n  \n      <ion-buttons end>\n        <button ion-button >\n          <ion-icon name="notifications"></ion-icon> \n        </button> \n      </ion-buttons>\n      \n  </ion-toolbar>\n  \n  </ion-header>\n\n\n<ion-content>\n\n  <div class="box-events">\n   \n      <ion-card *ngFor="let event of events">\n        <ion-card-header>\n            {{event.title}}<br/>\n            {{event.user}}<br/>\n            {{event.date}}\n         </ion-card-header>\n      </ion-card>\n              \n       \n   </div>\n  <div class="box-controllers">\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'NewuserPage\')" [hidden]=users>Users</button>\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'SystemsPage\')" [hidden]=systems>System</button>\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'RecruitmentPage\')" [hidden]=recruitment>Recruitment</button>\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'HomePage\')" [hidden]=uploadPaySlip>Upload Payslip</button>\n     \n      <button ion-button color="blue" class="home-buttons"  (click)="presentModal(\'LeavesAdminPage\')" [hidden]=leaveRequest>Leave Requests\n          <ion-badge color="danger">2</ion-badge>\n      </button>\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'UploadEventsPage\')" [hidden]=uploadEvent>Send Message</button>\n  </div>\n  \n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\home\home.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_fcm__["a" /* FCM */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]])
     ], HomePage);
     return HomePage;
 }());

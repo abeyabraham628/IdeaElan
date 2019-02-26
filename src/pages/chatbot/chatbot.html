@@ -1,23 +1,55 @@
 
 
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic API.AI Chatbot
-    </ion-title>
-  </ion-navbar>
+
+<ion-header no-border>
+  <ion-toolbar color="blue" hideBackButton="true">
+    <button ion-button  menuToggle="left" start>
+        <ion-icon name="menu"></ion-icon>
+    </button>
+    
+    <ion-title text-center>Chat</ion-title>
+
+    <ion-buttons end>
+      <button ion-button >
+        <ion-icon name="notifications"></ion-icon> 
+      </button> 
+    </ion-buttons>
+    
+</ion-toolbar>
+
 </ion-header>
 
-<ion-content padding>
+<ion-content padding >
 
-  <input ion-text type="text" [(ngModel)]="question">
+  <ion-input type="text" [(ngModel)]="question" hidden=true></ion-input>
 
-  <button ion-button (click)="ask(question)">
-    Ask
-  </button>
+  <button ion-button (click)="ask(question)" hidden=true>Ask</button>
 
-  <div>
-    {{answer}}
+  <div>{{answer}}</div>
+
+
+
+
+  <p text-center *ngIf="sending">sending...</p>
+  <div *ngFor="let q of questions" style="left:0px" >
+    <p name="title" style="height:30px; border-radius:5px; background-color:#E0F5E4; padding:10px">{{q.question}}</p>
+     <!-- your elements-->
   </div>
 
+<div *ngFor="let q of questions" style="right:0px; width: 50px;position: relative" >
+  <p name="title" style="height:30px; border-radius:5px; background-color:#E6ECD7; padding:10px;position:absolute;">{{q.question}}</p>
+   <!-- your elements-->
+</div>
+
+  <ion-footer>
+      <ion-item>
+      <ion-input [(ngModel)]="question" name="message" class="input_message" placeholder="Ask me anything"></ion-input>
+      <button ion-button (click)="tony(question)" item-right  color="orange"> <ion-icon  name="send" ></ion-icon></button>
+     
+    </ion-item>
+  </ion-footer>
+ 
 </ion-content>
+
+
+

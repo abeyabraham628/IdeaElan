@@ -3,6 +3,8 @@ import { IonicPage, NavController, NavParams,ModalController} from 'ionic-angula
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 import { LoadingController } from 'ionic-angular';
+import {FCM} from '@ionic-native/fcm'
+
 /**
  * Generated class for the HomePage page.
  *
@@ -25,10 +27,23 @@ uploadPaySlip:boolean=true
 leaveRequest:boolean=true
 uploadEvent:boolean=true
 loader:any
-
-  constructor(public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
+devicetoken:any
+  constructor(private fcm:FCM,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
+   
+    /*this.fcm.getToken().then(token => {
+      //backend.registerToken(token);
+      this.devicetoken=token;
+      alert(token);
+    });
+    this.fcm.onTokenRefresh().subscribe(token => {
+      this.devicetoken=token;
+      alert("updated");
+    });
+    this.checks();*/
+    
+    
     this.roles=navParams.get('roles')
-    console.log(this.roles)
+    
      if(this.roles[0]!="null"){
         
       this.users=false
@@ -54,6 +69,28 @@ loader:any
       this.users=false
      
   }
+
+  checks(){
+    var idOftoken , tokenStatus;
+    this.firebase.database.ref('tokensNotificationId').orderByChild('userIdTocken').equalTo(`${this.afAuth.auth.currentUser.uid}`).once("value",(snap)=>{
+     // console.log(snap.val())
+     snap.forEach((child) => {
+       if(child.child('tokenid').val()=="null")
+       {
+         console.log("if yes update it with device token");
+         this.firebase.object("/tokensNotificationId/"+child.key)
+
+            .update({ tokenid:this.devicetoken,userIdTocken : this.afAuth.auth.currentUser.uid});
+       }
+       console.log(child.child('userIdTocken').val());
+      console.log(child.key);
+     })
+
+//if not exsist , needed to be added , but already user will have an entry to token list as it is added in newuser.ts file 
+  
+      
+      });
+    }
  
    ionViewDidLoad() {
 

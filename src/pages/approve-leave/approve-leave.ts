@@ -2,13 +2,11 @@ import { leaveCount } from './../../providers/user-leaves';
 import { LeaveModel } from './../../models/leave.model';
 
 import { CustomDatePicker } from './../../models/datepicker';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { filter } from 'rxjs/operators';
-import { AngularFireDatabase } from '@angular/fire/database';
 
+import { CalendarModal,CalendarResult} from "ion2-calendar";
 
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
+import { IonicPage, NavParams,AlertController,ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the ApproveLeavePage page.
@@ -28,12 +26,42 @@ leaveCount={} as leaveCount
 userLeaveDetails:any
 months=this.datepicker.getMonths()
 leaveRecords:any
-  constructor(private userLeave:LeaveModel,private datepicker:CustomDatePicker,public alertCtrl:AlertController,public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public afauth:AngularFireAuth) {
+from:any
+to:any
+dateRange:any
+
+  constructor( public modalCtrl:ModalController,private userLeave:LeaveModel,private datepicker:CustomDatePicker,public alertCtrl:AlertController, public navParams: NavParams) {
      this.userLeaveDetails=this.navParams.get('userDetails')
      this.userRemainingLeaves(this.userLeaveDetails.userId) 
      this.leaveRecords=this.userLeave.getPastLeaves(this.userLeaveDetails.userId)
      
   }
+
+  datePicker(pickMode){
+    
+  
+    var defaultScrollTo=new Date()
+        let from=new Date('2/1/2018')
+       var options=this.datepicker.datePickerOptions(pickMode,defaultScrollTo,from)
+    
+     let myCalendar =  this.modalCtrl.create(CalendarModal, {
+       options: options,
+       });
+          
+       myCalendar.present();
+        
+       myCalendar.onDidDismiss((date: CalendarResult[]) => {
+         let from=date['from'].string.split('-')
+         let to=date['to'].string.split('-')
+  
+         this.from=date['from'].time
+         this.to=date['to'].time
+         this.dateRange=from[2]+"-"+from[1]+"-"+from[0]+" to "+to[2]+"-"+to[1]+"-"+to[0]
+        
+       })
+  
+      }// end of datepicker function
+     
   
     userRemainingLeaves(userId){
     {
@@ -104,7 +132,14 @@ leaveRecords:any
     confirm.present();
   }
   
-
+  leaveHistory(){
+    if(this.userLeaveDetails.userId===null)
+      alert("Select and Employee")
+    else{
+      this.leaveRecords=this.userLeave.getPastLeaves(this.userLeaveDetails.userId,this.from,this.to)
+      console.log(this.leaveRecords)
+    }
+  }
 
 
 

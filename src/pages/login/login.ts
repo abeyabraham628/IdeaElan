@@ -39,8 +39,8 @@ export class LoginPage {
   async signIn(user:credentials){
    
    try{
-      //const result=await this.afAuth.auth.signInWithEmailAndPassword(user.emailId,user.password);
-      const result=await this.afAuth.auth.signInWithEmailAndPassword('tony.manuel@mca.christuniversity.in','RzqLCZ');
+     // const result=await this.afAuth.auth.signInWithEmailAndPassword(user.emailId,user.password);
+      const result=await this.afAuth.auth.signInWithEmailAndPassword('tony.manuel@mca.christuniversity.in','123456');
       let x:Promise<boolean>
       let y;
       var privilleges=[]
@@ -53,7 +53,7 @@ export class LoginPage {
   
        
       if(result){
-            await this.firebase.database.ref('TempLogin').orderByChild(`${result.user.uid}`).once("value",(snapshot)=> {
+            await this.firebase.database.ref(`TempLogin/${result.user.uid}`).once("value",(snapshot)=> {
               y=snapshot.val();
               
             });
@@ -69,7 +69,7 @@ export class LoginPage {
 
           
     }catch(e){
-      console.error(e);
+      alert(e);
        }
       }
 

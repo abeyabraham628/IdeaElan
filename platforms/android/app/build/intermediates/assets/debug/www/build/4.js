@@ -1,16 +1,16 @@
 webpackJsonp([4],{
 
-/***/ 715:
+/***/ 716:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApproveLeavePageModule", function() { return ApproveLeavePageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_leave_model__ = __webpack_require__(738);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_leave_model__ = __webpack_require__(739);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_datepicker__ = __webpack_require__(740);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__approve_leave__ = __webpack_require__(808);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__approve_leave__ = __webpack_require__(810);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -43,7 +43,7 @@ var ApproveLeavePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 738:
+/***/ 739:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51,7 +51,7 @@ var ApproveLeavePageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__ = __webpack_require__(458);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__ = __webpack_require__(459);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(63);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -201,13 +201,47 @@ var LeaveModel = /** @class */ (function () {
             });
         });
     }; //end os submit leave request function
-    LeaveModel.prototype.getPastLeaves = function (userId, month, year) {
+    LeaveModel.prototype.getPastLeaves = function (userId, dateFrom, dateTo) {
         var pastLeaves = [];
+        var flag = false;
         this.firebase.database.ref("EmployeeLeaves").orderByChild("userId").equalTo("" + userId).once('value', function (snap) {
-            snap.forEach(function (child) {
-                pastLeaves.push(__assign({ $key: child.key }, child.val()));
-            });
-        });
+            if (dateFrom != null && dateTo != null) {
+                snap.forEach(function (child) {
+                    if (child.child('date').val().length > 1) {
+                        child.child('date').forEach(function (data) {
+                            if (new Date(data.val()).getTime() >= dateFrom && new Date(data.val()).getTime() <= dateTo)
+                                flag = true;
+                            else
+                                flag = false;
+                        });
+                        if (flag)
+                            pastLeaves.push(child.val());
+                    }
+                    else {
+                        if (new Date(child.child('date').val()).getTime() >= dateFrom && new Date(child.child('date').val()).getTime() <= dateTo)
+                            pastLeaves.push(child.val());
+                    }
+                });
+            }
+            else {
+                snap.forEach(function (child) {
+                    if (child.child('date').val().length > 1) {
+                        child.child('date').forEach(function (data) {
+                            if (new Date(data.val()).getMonth() + 1 === new Date().getMonth() + 1 && new Date(data.val()).getFullYear() === new Date().getFullYear())
+                                flag = true;
+                            else
+                                flag = false;
+                        });
+                        if (flag)
+                            pastLeaves.push(child.val());
+                    }
+                    else {
+                        if (new Date(child.child('date').val()).getMonth() + 1 === new Date().getMonth() + 1 && new Date(child.child('date').val()).getFullYear() === new Date().getFullYear())
+                            pastLeaves.push(child.val());
+                    }
+                });
+            }
+        }); //end of database ref
         return this.pastLeaves = pastLeaves.reverse();
     }; //end of function
     LeaveModel.prototype.getRemainingLeaves = function (userId) {
@@ -292,7 +326,7 @@ var LeaveModel = /** @class */ (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomDatePicker; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -308,13 +342,16 @@ var CustomDatePicker = /** @class */ (function () {
     function CustomDatePicker(modalCtrl) {
         this.modalCtrl = modalCtrl;
     }
-    CustomDatePicker.prototype.datePickerOptions = function (dateLimitTo, disableWeeks) {
+    CustomDatePicker.prototype.datePickerOptions = function (pickMode, defaultScrollTo, from, dateLimitTo, disableWeeks) {
         var options = {
-            pickMode: 'multi',
+            pickMode: pickMode,
             showAdjacentMonthDay: false,
             disableWeeks: disableWeeks,
-            from: new Date(),
-            to: dateLimitTo
+            from: from,
+            to: dateLimitTo,
+            defaultScrollTo: defaultScrollTo,
+            showMonthPicker: true,
+            showToggleButtons: true
         };
         return options;
     };
@@ -343,17 +380,17 @@ var CustomDatePicker = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 808:
+/***/ 810:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApproveLeavePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_leave_model__ = __webpack_require__(738);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_leave_model__ = __webpack_require__(739);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_datepicker__ = __webpack_require__(740);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__ = __webpack_require__(459);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(458);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(62);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(63);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);

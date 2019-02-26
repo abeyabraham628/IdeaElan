@@ -17,6 +17,12 @@
     "cordova-plugin-email-composer": {
       "ANDROID_SUPPORT_V4_VERSION": "27.+",
       "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-fcm-with-dependecy-updated": {
+      "PACKAGE_NAME": "idea.elan"
     }
   },
   "dependent_plugins": {}

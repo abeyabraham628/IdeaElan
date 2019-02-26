@@ -108,7 +108,7 @@ public final class R {
         public static final int top = 0x7f07005a;
     }
     public static final class integer {
-        public static final int status_bar_notification_info_maxnum = 0x7f080001;
+        public static final int status_bar_notification_info_maxnum = 0x7f080002;
     }
     public static final class layout {
         public static final int notification_action = 0x7f090006;
@@ -119,7 +119,7 @@ public final class R {
         public static final int notification_template_part_time = 0x7f090014;
     }
     public static final class string {
-        public static final int status_bar_notification_info_overflow = 0x7f0d007e;
+        public static final int status_bar_notification_info_overflow = 0x7f0d0088;
     }
     public static final class style {
         public static final int TextAppearance_Compat_Notification = 0x7f0e0003;

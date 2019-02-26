@@ -23,6 +23,14 @@ module.exports = [
     "clobbers": [
       "cordova.plugins.email"
     ]
+  },
+  {
+    "id": "cordova-plugin-fcm-with-dependecy-updated.FCMPlugin",
+    "file": "plugins/cordova-plugin-fcm-with-dependecy-updated/www/FCMPlugin.js",
+    "pluginId": "cordova-plugin-fcm-with-dependecy-updated",
+    "clobbers": [
+      "FCMPlugin"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -30,7 +38,9 @@ module.exports.metadata =
 {
   "cordova-plugin-splashscreen": "5.0.2",
   "phonegap-plugin-barcodescanner": "8.0.1",
-  "cordova-plugin-email-composer": "0.9.2"
+  "cordova-plugin-email-composer": "0.9.2",
+  "cordova-plugin-whitelist": "1.3.3",
+  "cordova-plugin-fcm-with-dependecy-updated": "2.4.0"
 };
 // BOTTOM OF METADATA
 });
