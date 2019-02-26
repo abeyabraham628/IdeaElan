@@ -5695,12 +5695,12 @@ exports.shr64_lo = shr64_lo;
 
 /***/ }),
 
-/***/ 739:
+/***/ 740:
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(732).Buffer
-var Transform = __webpack_require__(760).Transform
-var StringDecoder = __webpack_require__(764).StringDecoder
+var Transform = __webpack_require__(759).Transform
+var StringDecoder = __webpack_require__(763).StringDecoder
 var inherits = __webpack_require__(731)
 
 function CipherBase (hashMode) {
@@ -5855,7 +5855,7 @@ util.inherits = __webpack_require__(731);
 /*</replacement>*/
 
 var Readable = __webpack_require__(775);
-var Writable = __webpack_require__(763);
+var Writable = __webpack_require__(762);
 
 util.inherits(Duplex, Readable);
 
@@ -6080,10 +6080,10 @@ module.exports = Hash
 "use strict";
 
 var inherits = __webpack_require__(731)
-var MD5 = __webpack_require__(759)
-var RIPEMD160 = __webpack_require__(765)
-var sha = __webpack_require__(766)
-var Base = __webpack_require__(739)
+var MD5 = __webpack_require__(758)
+var RIPEMD160 = __webpack_require__(764)
+var sha = __webpack_require__(765)
+var Base = __webpack_require__(740)
 
 function Hash (hash) {
   Base.call(this, 'digest')
@@ -6666,7 +6666,7 @@ module.exports.AES = AES
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(732).Buffer
-var MD5 = __webpack_require__(759)
+var MD5 = __webpack_require__(758)
 
 /* eslint-disable camelcase */
 function EVP_BytesToKey (password, salt, keyBits, ivLen) {
@@ -6736,7 +6736,7 @@ curve.edwards = __webpack_require__(875);
 /* WEBPACK VAR INJECTION */(function(Buffer) {var asn1 = __webpack_require__(891)
 var aesid = __webpack_require__(903)
 var fixProc = __webpack_require__(904)
-var ciphers = __webpack_require__(768)
+var ciphers = __webpack_require__(767)
 var compat = __webpack_require__(784)
 module.exports = parseKeys
 
@@ -6844,7 +6844,7 @@ function decrypt (data, password) {
 
 /***/ }),
 
-/***/ 759:
+/***/ 758:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6998,7 +6998,7 @@ module.exports = MD5
 
 /***/ }),
 
-/***/ 760:
+/***/ 759:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -7024,11 +7024,11 @@ module.exports = MD5
 
 module.exports = Stream;
 
-var EE = __webpack_require__(761).EventEmitter;
+var EE = __webpack_require__(760).EventEmitter;
 var inherits = __webpack_require__(731);
 
 inherits(Stream, EE);
-Stream.Readable = __webpack_require__(762);
+Stream.Readable = __webpack_require__(761);
 Stream.Writable = __webpack_require__(835);
 Stream.Duplex = __webpack_require__(836);
 Stream.Transform = __webpack_require__(837);
@@ -7132,7 +7132,7 @@ Stream.prototype.pipe = function(dest, options) {
 
 /***/ }),
 
-/***/ 761:
+/***/ 760:
 /***/ (function(module, exports) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -7441,13 +7441,13 @@ function isUndefined(arg) {
 
 /***/ }),
 
-/***/ 762:
+/***/ 761:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(775);
 exports.Stream = exports;
 exports.Readable = exports;
-exports.Writable = __webpack_require__(763);
+exports.Writable = __webpack_require__(762);
 exports.Duplex = __webpack_require__(741);
 exports.Transform = __webpack_require__(778);
 exports.PassThrough = __webpack_require__(834);
@@ -7455,7 +7455,7 @@ exports.PassThrough = __webpack_require__(834);
 
 /***/ }),
 
-/***/ 763:
+/***/ 762:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8150,7 +8150,7 @@ Writable.prototype._destroy = function (err, cb) {
 
 /***/ }),
 
-/***/ 764:
+/***/ 763:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8453,7 +8453,7 @@ function simpleEnd(buf) {
 
 /***/ }),
 
-/***/ 765:
+/***/ 764:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8624,7 +8624,7 @@ module.exports = RIPEMD160
 
 /***/ }),
 
-/***/ 766:
+/***/ 765:
 /***/ (function(module, exports, __webpack_require__) {
 
 var exports = module.exports = function SHA (algorithm) {
@@ -8646,7 +8646,7 @@ exports.sha512 = __webpack_require__(780)
 
 /***/ }),
 
-/***/ 767:
+/***/ 766:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8661,7 +8661,7 @@ exports.EDE = __webpack_require__(852);
 
 /***/ }),
 
-/***/ 768:
+/***/ 767:
 /***/ (function(module, exports, __webpack_require__) {
 
 var ciphers = __webpack_require__(853)
@@ -8681,7 +8681,7 @@ exports.listCiphers = exports.getCiphers = getCiphers
 
 /***/ }),
 
-/***/ 769:
+/***/ 768:
 /***/ (function(module, exports, __webpack_require__) {
 
 var modeModules = {
@@ -8706,7 +8706,7 @@ module.exports = modes
 
 /***/ }),
 
-/***/ 770:
+/***/ 769:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var bn = __webpack_require__(733);
@@ -8754,7 +8754,7 @@ function getr(priv) {
 
 /***/ }),
 
-/***/ 771:
+/***/ 770:
 /***/ (function(module, exports, __webpack_require__) {
 
 var hash = exports;
@@ -8794,7 +8794,7 @@ module.exports = Array.isArray || function (arr) {
 "use strict";
 
 var Buffer = __webpack_require__(732).Buffer
-var Transform = __webpack_require__(760).Transform
+var Transform = __webpack_require__(759).Transform
 var inherits = __webpack_require__(731)
 
 function throwIfNotStringOrBuffer (val, prefix) {
@@ -8936,7 +8936,7 @@ var Duplex;
 Readable.ReadableState = ReadableState;
 
 /*<replacement>*/
-var EE = __webpack_require__(761).EventEmitter;
+var EE = __webpack_require__(760).EventEmitter;
 
 var EElistenerCount = function (emitter, type) {
   return emitter.listeners(type).length;
@@ -9066,7 +9066,7 @@ function ReadableState(options, stream) {
   this.decoder = null;
   this.encoding = null;
   if (options.encoding) {
-    if (!StringDecoder) StringDecoder = __webpack_require__(764).StringDecoder;
+    if (!StringDecoder) StringDecoder = __webpack_require__(763).StringDecoder;
     this.decoder = new StringDecoder(options.encoding);
     this.encoding = options.encoding;
   }
@@ -9222,7 +9222,7 @@ Readable.prototype.isPaused = function () {
 
 // backwards compatibility.
 Readable.prototype.setEncoding = function (enc) {
-  if (!StringDecoder) StringDecoder = __webpack_require__(764).StringDecoder;
+  if (!StringDecoder) StringDecoder = __webpack_require__(763).StringDecoder;
   this._readableState.decoder = new StringDecoder(enc);
   this._readableState.encoding = enc;
   return this;
@@ -9921,7 +9921,7 @@ function indexOf(xs, x) {
 /***/ 776:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(761).EventEmitter;
+module.exports = __webpack_require__(760).EventEmitter;
 
 
 /***/ }),
@@ -10644,12 +10644,12 @@ module.exports = Sha512
 
 var inherits = __webpack_require__(731)
 var Legacy = __webpack_require__(843)
-var Base = __webpack_require__(739)
+var Base = __webpack_require__(740)
 var Buffer = __webpack_require__(732).Buffer
 var md5 = __webpack_require__(782)
-var RIPEMD160 = __webpack_require__(765)
+var RIPEMD160 = __webpack_require__(764)
 
-var sha = __webpack_require__(766)
+var sha = __webpack_require__(765)
 
 var ZEROS = Buffer.alloc(128)
 
@@ -10710,7 +10710,7 @@ module.exports = function createHmac (alg, key) {
 /***/ 782:
 /***/ (function(module, exports, __webpack_require__) {
 
-var MD5 = __webpack_require__(759)
+var MD5 = __webpack_require__(758)
 
 module.exports = function (buffer) {
   return new MD5().update(buffer).digest()
@@ -10793,8 +10793,8 @@ module.exports = defaultEncoding
 /***/ (function(module, exports, __webpack_require__) {
 
 var md5 = __webpack_require__(782)
-var RIPEMD160 = __webpack_require__(765)
-var sha = __webpack_require__(766)
+var RIPEMD160 = __webpack_require__(764)
+var sha = __webpack_require__(765)
 
 var checkParameters = __webpack_require__(785)
 var defaultEncoding = __webpack_require__(786)
@@ -10971,7 +10971,7 @@ module.exports = {"aes-128-ecb":{"cipher":"AES","key":128,"iv":0,"mode":"ECB","t
 
 var aes = __webpack_require__(752)
 var Buffer = __webpack_require__(732).Buffer
-var Transform = __webpack_require__(739)
+var Transform = __webpack_require__(740)
 var inherits = __webpack_require__(731)
 var GHASH = __webpack_require__(860)
 var xor = __webpack_require__(747)
@@ -11095,7 +11095,7 @@ module.exports = StreamCipher
 
 var aes = __webpack_require__(752)
 var Buffer = __webpack_require__(732).Buffer
-var Transform = __webpack_require__(739)
+var Transform = __webpack_require__(740)
 var inherits = __webpack_require__(731)
 
 function StreamCipher (mode, key, iv, decrypt) {
@@ -13586,7 +13586,7 @@ var NewuserPage = /** @class */ (function () {
     };
     NewuserPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-newuser',template:/*ion-inline-start:"F:\ionic-app\src\pages\newuser\newuser.html"*/'<!--\n\n  Generated template for the NewuserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n  <ion-toolbar color="blue" hideBackButton="true">\n\n    <button ion-button  menuToggle="left" start>\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    \n\n    <ion-title text-center>USERS</ion-title>\n\n\n\n    <ion-buttons end>\n\n      <button ion-button >\n\n        <ion-icon name="notifications"></ion-icon> \n\n      </button> \n\n    </ion-buttons>\n\n    \n\n</ion-toolbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content  >\n\n  <ion-segment [(ngModel)]="users" color="white" (click)="new1()">\n\n    <ion-segment-button value="newUser"  >\n\n    \n\n     New User\n\n    </ion-segment-button>\n\n    <ion-segment-button value="allUsers" (click)="new()">\n\n   \n\n    All User\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n     \n\n      <div [ngSwitch]="users">\n\n\n\n          <div *ngSwitchCase="\'newUser\'">\n\n            <ion-list >\n\n              <h6 class="title section-title ">User Information</h6>\n\n                <ion-row>\n\n                   \n\n                    <ion-item col-6 > \n\n                        <ion-label stacked>First Name</ion-label>\n\n                        <ion-input type="text" [(ngModel)]="userItem.fname"></ion-input>\n\n                      </ion-item> \n\n                             \n\n                     <ion-item col-6  > \n\n                        <ion-label stacked>Last Name</ion-label>\n\n                        <ion-input type="text" [(ngModel)]="userItem.lname" ></ion-input>\n\n                      </ion-item>\n\n                    </ion-row>\n\n\n\n                    <ion-row>\n\n                      <ion-item col-12 > \n\n                          <ion-label stacked>Date Of Birth</ion-label>\n\n                          <ion-input type="text"  (ionFocus)="dispdate(\'birth\')" (click)="dispdate(\'birth\')" [(ngModel)]="userItem.dob"  ></ion-input>\n\n                        </ion-item> \n\n                    </ion-row>     \n\n                    <ion-row>\n\n                      <ion-item col-12> \n\n                         <ion-label stacked>Mobile Number</ion-label>\n\n                         <ion-input type="text" [(ngModel)]="userItem.mobile" ></ion-input>\n\n                       </ion-item>\n\n                     </ion-row> \n\n                    <ion-row>\n\n                       <ion-item col-12> \n\n                          <ion-label stacked>Email Id</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.email" ></ion-input>\n\n                        </ion-item>\n\n                      </ion-row>\n\n                      \n\n                      \n\n                      <h6 class="title section-title">Job Details</h6>\n\n\n\n                        <ion-row>\n\n                            <ion-item col-6> \n\n                                <ion-label stacked>Date Of Joining</ion-label>\n\n                                <ion-input type="text"  (ionFocus)="dispdate(\'join\')" (click)="dispdate(\'join\')" [(ngModel)]="userItem.doj"></ion-input>\n\n                              </ion-item>\n\n                             <ion-item col-6> \n\n                                <ion-label stacked>Position</ion-label>\n\n                                <ion-input type="text" [(ngModel)]="userItem.position" ></ion-input>\n\n                              </ion-item>\n\n                           </ion-row>  \n\n                          <ion-row>\n\n                              <ion-col col-6>\n\n                                  <ion-label >Set privileges</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>\n\n                                </ion-col>\n\n                                <ion-col col-6  [hidden]="x">\n\n                                  <ion-label>Deactivate user</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="statuss" ></ion-checkbox>\n\n                                </ion-col>\n\n\n\n                              </ion-row> \n\n                              <ion-row>\n\n                                  \n\n                           <button ion-button  icon-end  full color=blue (click)="btn(userItem)" >\n\n                             {{butn}}\n\n                             <ion-icon name="star"></ion-icon>\n\n                             </button>\n\n                          </ion-row> \n\n                         \n\n              </ion-list>\n\n          </div>\n\n            \n\n       <div *ngSwitchCase="\'allUsers\'">\n\n        <ion-list >\n\n            <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>\n\n\n\n           <ion-item>\n\n           <ion-row no-margin class="table-title" >\n\n                <ion-col col-6 >Name</ion-col><ion-col col-4>Position </ion-col><ion-col col-2>Action</ion-col>\n\n              </ion-row>\n\n          </ion-item>\n\n           \n\n           <ion-item>\n\n            <ion-row  class="col-text row-bottom-border" *ngFor="let item of itemslist" >\n\n                <ion-col col-6  style="color: #66887F;">\n\n                  {{ item.fname }}\n\n                </ion-col>\n\n                <ion-col col-4  style="color:#2679B0;" >\n\n                  {{ item.position }}\n\n                </ion-col>\n\n                <ion-col col-2 text-center (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position,item.data,item.status)">\n\n                <ion-icon name="create" ></ion-icon>\n\n                </ion-col>\n\n              </ion-row>\n\n           </ion-item>\n\n           \n\n            <!-- <ion-item>\n\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n            </ion-item> -->\n\n         </ion-list>\n\n      </div>\n\n      </div>\n\n</ion-content>\n\n\n\n \n\n\n\n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\newuser\newuser.html"*/,
+            selector: 'page-newuser',template:/*ion-inline-start:"D:\IdeaElan\src\pages\newuser\newuser.html"*/'<!--\n\n  Generated template for the NewuserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n  <ion-toolbar color="blue" hideBackButton="true">\n\n    <button ion-button  menuToggle="left" start>\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    \n\n    <ion-title text-center>USERS</ion-title>\n\n\n\n    <ion-buttons end>\n\n      <button ion-button >\n\n        <ion-icon name="notifications"></ion-icon> \n\n      </button> \n\n    </ion-buttons>\n\n    \n\n</ion-toolbar>\n\n\n\n</ion-header>\n\n\n\n<ion-content  >\n\n  <ion-segment [(ngModel)]="users" color="white" (click)="new1()">\n\n    <ion-segment-button value="newUser"  >\n\n    \n\n     New User\n\n    </ion-segment-button>\n\n    <ion-segment-button value="allUsers" (click)="new()">\n\n   \n\n    All User\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n     \n\n      <div [ngSwitch]="users">\n\n\n\n          <div *ngSwitchCase="\'newUser\'">\n\n            <ion-list >\n\n              <h6 class="title section-title ">User Information</h6>\n\n                <ion-row>\n\n                   \n\n                    <ion-item col-6 > \n\n                        <ion-label stacked>First Name</ion-label>\n\n                        <ion-input type="text" [(ngModel)]="userItem.fname"></ion-input>\n\n                      </ion-item> \n\n                             \n\n                     <ion-item col-6  > \n\n                        <ion-label stacked>Last Name</ion-label>\n\n                        <ion-input type="text" [(ngModel)]="userItem.lname" ></ion-input>\n\n                      </ion-item>\n\n                    </ion-row>\n\n\n\n                    <ion-row>\n\n                      <ion-item col-12 > \n\n                          <ion-label stacked>Date Of Birth</ion-label>\n\n                          <ion-input type="text"  (ionFocus)="dispdate(\'birth\')" (click)="dispdate(\'birth\')" [(ngModel)]="userItem.dob"  ></ion-input>\n\n                        </ion-item> \n\n                    </ion-row>     \n\n                    <ion-row>\n\n                      <ion-item col-12> \n\n                         <ion-label stacked>Mobile Number</ion-label>\n\n                         <ion-input type="text" [(ngModel)]="userItem.mobile" ></ion-input>\n\n                       </ion-item>\n\n                     </ion-row> \n\n                    <ion-row>\n\n                       <ion-item col-12> \n\n                          <ion-label stacked>Email Id</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.email" ></ion-input>\n\n                        </ion-item>\n\n                      </ion-row>\n\n                      \n\n                      \n\n                      <h6 class="title section-title">Job Details</h6>\n\n\n\n                        <ion-row>\n\n                            <ion-item col-6> \n\n                                <ion-label stacked>Date Of Joining</ion-label>\n\n                                <ion-input type="text"  (ionFocus)="dispdate(\'join\')" (click)="dispdate(\'join\')" [(ngModel)]="userItem.doj"></ion-input>\n\n                              </ion-item>\n\n                             <ion-item col-6> \n\n                                <ion-label stacked>Position</ion-label>\n\n                                <ion-input type="text" [(ngModel)]="userItem.position" ></ion-input>\n\n                              </ion-item>\n\n                           </ion-row>  \n\n                          <ion-row>\n\n                              <ion-col col-6>\n\n                                  <ion-label >Set privileges</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>\n\n                                </ion-col>\n\n                                <ion-col col-6  [hidden]="x">\n\n                                  <ion-label>Deactivate user</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="statuss" ></ion-checkbox>\n\n                                </ion-col>\n\n\n\n                              </ion-row> \n\n                              <ion-row>\n\n                                  \n\n                           <button ion-button  icon-end  full color=blue (click)="btn(userItem)" >\n\n                             {{butn}}\n\n                             <ion-icon name="star"></ion-icon>\n\n                             </button>\n\n                          </ion-row> \n\n                         \n\n              </ion-list>\n\n          </div>\n\n            \n\n       <div *ngSwitchCase="\'allUsers\'">\n\n        <ion-list >\n\n            <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>\n\n\n\n           <ion-item>\n\n           <ion-row no-margin class="table-title" >\n\n                <ion-col col-6 >Name</ion-col><ion-col col-4>Position </ion-col><ion-col col-2>Action</ion-col>\n\n              </ion-row>\n\n          </ion-item>\n\n           \n\n           <ion-item>\n\n            <ion-row  class="col-text row-bottom-border" *ngFor="let item of itemslist" >\n\n                <ion-col col-6  style="color: #66887F;">\n\n                  {{ item.fname }}\n\n                </ion-col>\n\n                <ion-col col-4  style="color:#2679B0;" >\n\n                  {{ item.position }}\n\n                </ion-col>\n\n                <ion-col col-2 text-center (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position,item.data,item.status)">\n\n                <ion-icon name="create" ></ion-icon>\n\n                </ion-col>\n\n              </ion-row>\n\n           </ion-item>\n\n           \n\n            <!-- <ion-item>\n\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n            </ion-item> -->\n\n         </ion-list>\n\n      </div>\n\n      </div>\n\n</ion-content>\n\n\n\n \n\n\n\n\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\newuser\newuser.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1__angular_core__["ChangeDetectorRef"], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_4__ionic_native_date_picker__["a" /* DatePicker */], __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */]])
     ], NewuserPage);
@@ -14317,7 +14317,7 @@ PassThrough.prototype._transform = function (chunk, encoding, cb) {
 /***/ 835:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(763);
+module.exports = __webpack_require__(762);
 
 
 /***/ }),
@@ -14333,7 +14333,7 @@ module.exports = __webpack_require__(741);
 /***/ 837:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(762).Transform
+module.exports = __webpack_require__(761).Transform
 
 
 /***/ }),
@@ -14341,7 +14341,7 @@ module.exports = __webpack_require__(762).Transform
 /***/ 838:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(762).PassThrough
+module.exports = __webpack_require__(761).PassThrough
 
 
 /***/ }),
@@ -14685,7 +14685,7 @@ module.exports = Sha384
 var inherits = __webpack_require__(731)
 var Buffer = __webpack_require__(732).Buffer
 
-var Base = __webpack_require__(739)
+var Base = __webpack_require__(740)
 
 var ZEROS = Buffer.alloc(128)
 var blocksize = 64
@@ -14851,8 +14851,8 @@ module.exports = function (password, salt, iterations, keylen, digest, callback)
 /***/ (function(module, exports, __webpack_require__) {
 
 var DES = __webpack_require__(847)
-var aes = __webpack_require__(768)
-var aesModes = __webpack_require__(769)
+var aes = __webpack_require__(767)
+var aesModes = __webpack_require__(768)
 var desModes = __webpack_require__(862)
 var ebtk = __webpack_require__(753)
 
@@ -14924,8 +14924,8 @@ exports.listCiphers = exports.getCiphers = getCiphers
 /***/ 847:
 /***/ (function(module, exports, __webpack_require__) {
 
-var CipherBase = __webpack_require__(739)
-var des = __webpack_require__(767)
+var CipherBase = __webpack_require__(740)
+var des = __webpack_require__(766)
 var inherits = __webpack_require__(731)
 var Buffer = __webpack_require__(732).Buffer
 
@@ -15400,7 +15400,7 @@ Cipher.prototype._finalDecrypt = function _finalDecrypt() {
 var assert = __webpack_require__(736);
 var inherits = __webpack_require__(731);
 
-var des = __webpack_require__(767);
+var des = __webpack_require__(766);
 var utils = des.utils;
 var Cipher = des.Cipher;
 
@@ -15624,7 +15624,7 @@ proto._update = function _update(inp, inOff, out, outOff) {
 var assert = __webpack_require__(736);
 var inherits = __webpack_require__(731);
 
-var des = __webpack_require__(767);
+var des = __webpack_require__(766);
 var Cipher = des.Cipher;
 var DES = des.DES;
 
@@ -15681,11 +15681,11 @@ EDE.prototype._unpad = DES.prototype._unpad;
 /***/ 853:
 /***/ (function(module, exports, __webpack_require__) {
 
-var MODES = __webpack_require__(769)
+var MODES = __webpack_require__(768)
 var AuthCipher = __webpack_require__(791)
 var Buffer = __webpack_require__(732).Buffer
 var StreamCipher = __webpack_require__(792)
-var Transform = __webpack_require__(739)
+var Transform = __webpack_require__(740)
 var aes = __webpack_require__(752)
 var ebtk = __webpack_require__(753)
 var inherits = __webpack_require__(731)
@@ -16083,9 +16083,9 @@ module.exports = GHASH
 
 var AuthCipher = __webpack_require__(791)
 var Buffer = __webpack_require__(732).Buffer
-var MODES = __webpack_require__(769)
+var MODES = __webpack_require__(768)
 var StreamCipher = __webpack_require__(792)
-var Transform = __webpack_require__(739)
+var Transform = __webpack_require__(740)
 var aes = __webpack_require__(752)
 var ebtk = __webpack_require__(753)
 var inherits = __webpack_require__(731)
@@ -16487,7 +16487,7 @@ function formatReturnValue(bn, enc) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(745)
-var stream = __webpack_require__(760)
+var stream = __webpack_require__(759)
 var inherits = __webpack_require__(731)
 var sign = __webpack_require__(869)
 var verify = __webpack_require__(905)
@@ -16587,7 +16587,7 @@ module.exports = {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
 var createHmac = __webpack_require__(781)
-var crt = __webpack_require__(770)
+var crt = __webpack_require__(769)
 var EC = __webpack_require__(735).ec
 var BN = __webpack_require__(733)
 var parseKeys = __webpack_require__(755)
@@ -16738,7 +16738,7 @@ module.exports.makeKey = makeKey
 /***/ 870:
 /***/ (function(module, exports) {
 
-module.exports = {"_from":"elliptic@^6.0.0","_id":"elliptic@6.4.1","_inBundle":false,"_integrity":"sha512-BsXLz5sqX8OHcsh7CqBMztyXARmGQ3LWPtGjJi6DiJHq5C/qvi9P3OqgswKSDftbu8+IoI/QDTAm2fFnQ9SZSQ==","_location":"/elliptic","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"elliptic@^6.0.0","name":"elliptic","escapedName":"elliptic","rawSpec":"^6.0.0","saveSpec":null,"fetchSpec":"^6.0.0"},"_requiredBy":["/browserify-sign","/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.1.tgz","_shasum":"c2d0b7776911b86722c632c3c06c60f2f819939a","_spec":"elliptic@^6.0.0","_where":"D:\\blankproject\\node_modules\\browserify-sign","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"bundleDependencies":false,"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"deprecated":false,"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.1"}
+module.exports = {"_from":"elliptic@^6.0.0","_id":"elliptic@6.4.1","_inBundle":false,"_integrity":"sha512-BsXLz5sqX8OHcsh7CqBMztyXARmGQ3LWPtGjJi6DiJHq5C/qvi9P3OqgswKSDftbu8+IoI/QDTAm2fFnQ9SZSQ==","_location":"/elliptic","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"elliptic@^6.0.0","name":"elliptic","escapedName":"elliptic","rawSpec":"^6.0.0","saveSpec":null,"fetchSpec":"^6.0.0"},"_requiredBy":["/browserify-sign","/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.1.tgz","_shasum":"c2d0b7776911b86722c632c3c06c60f2f819939a","_spec":"elliptic@^6.0.0","_where":"D:\\IdeaElan\\node_modules\\browserify-sign","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"bundleDependencies":false,"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"deprecated":false,"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.1"}
 
 /***/ }),
 
@@ -18835,7 +18835,7 @@ Point.prototype.mixedAdd = Point.prototype.add;
 
 var curves = exports;
 
-var hash = __webpack_require__(771);
+var hash = __webpack_require__(770);
 var elliptic = __webpack_require__(735);
 
 var assert = elliptic.utils.assert;
@@ -20468,7 +20468,7 @@ EC.prototype.getKeyRecoveryParam = function(e, signature, Q, enc) {
 "use strict";
 
 
-var hash = __webpack_require__(771);
+var hash = __webpack_require__(770);
 var utils = __webpack_require__(796);
 var assert = __webpack_require__(736);
 
@@ -20859,7 +20859,7 @@ Signature.prototype.toDER = function toDER(enc) {
 "use strict";
 
 
-var hash = __webpack_require__(771);
+var hash = __webpack_require__(770);
 var elliptic = __webpack_require__(735);
 var utils = elliptic.utils;
 var assert = utils.assert;
@@ -22551,7 +22551,7 @@ var findProc = /Proc-Type: 4,ENCRYPTED[\n\r]+DEK-Info: AES-((?:128)|(?:192)|(?:2
 var startRegex = /^-----BEGIN ((?:.* KEY)|CERTIFICATE)-----/m
 var fullRegex = /^-----BEGIN ((?:.* KEY)|CERTIFICATE)-----([0-9A-z\n\r\+\/\=]+)-----END \1-----$/m
 var evp = __webpack_require__(753)
-var ciphers = __webpack_require__(768)
+var ciphers = __webpack_require__(767)
 module.exports = function (okey, password) {
   var key = okey.toString()
   var match = key.match(findProc)
@@ -22831,7 +22831,7 @@ var mgf = __webpack_require__(805)
 var xor = __webpack_require__(806)
 var BN = __webpack_require__(733)
 var withPublic = __webpack_require__(807)
-var crt = __webpack_require__(770)
+var crt = __webpack_require__(769)
 var Buffer = __webpack_require__(732).Buffer
 
 module.exports = function publicEncrypt (publicKey, msg, reverse) {
@@ -22923,7 +22923,7 @@ var parseKeys = __webpack_require__(755)
 var mgf = __webpack_require__(805)
 var xor = __webpack_require__(806)
 var BN = __webpack_require__(733)
-var crt = __webpack_require__(770)
+var crt = __webpack_require__(769)
 var createHash = __webpack_require__(745)
 var withPublic = __webpack_require__(807)
 var Buffer = __webpack_require__(732).Buffer

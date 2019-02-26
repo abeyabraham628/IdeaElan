@@ -53,9 +53,9 @@ datePicker(pickMode){
        let from=date['from'].string.split('-')
        let to=date['to'].string.split('-')
 
-       this.from=from[2]+"-"+from[1]+"-"+from[0]
-       this.to=to[2]+"-"+to[1]+"-"+to[0]
-       
+       this.from=date['from'].time
+       this.to=date['to'].time
+       this.dateRange=from[2]+"-"+from[1]+"-"+from[0]+" to "+to[2]+"-"+to[1]+"-"+to[0]
       
      })
 
@@ -76,16 +76,17 @@ datePicker(pickMode){
       })
       
     })
-    console.log(this.employeeName )
+    
     
   }
 
   leaveHistory(){
     if(this.employeeKey===null)
       alert("Select and Employee")
-    else
+    else{
       this.leaveRecords=this.userLeave.getPastLeaves(this.employeeKey,this.from,this.to)
       console.log(this.leaveRecords)
+    }
   }
 
 
