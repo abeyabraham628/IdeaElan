@@ -7,6 +7,7 @@ import { LeaveModel } from '../../models/leave.model';
 import { CustomDatePicker } from '../../models/datepicker';
 
 import { AngularFireAuth } from '@angular/fire/auth';
+import {FormControl, FormGroup,Validators, FormBuilder} from '@angular/forms'
 
 
 
@@ -38,7 +39,7 @@ leaveDates:any
 dateRange:any="This Month Leave"
 months=this.customDatePicker.getMonths()
 
- constructor(private afauth:AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,private modalCtrl:ModalController,private customDatePicker:CustomDatePicker,private userLeave:LeaveModel) {
+ constructor(private formBuilder:FormBuilder,private afauth:AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,private modalCtrl:ModalController,private customDatePicker:CustomDatePicker,private userLeave:LeaveModel) {
             this.ionSegmentDefaultValue="applyLeave";
             this.viewRemainingLeaves();
             
@@ -51,7 +52,17 @@ months=this.customDatePicker.getMonths()
     
   }
 
-  
+  leaveForm= this.formBuilder.group({
+    
+    leaveType  :['',Validators.required],
+    date  :['',Validators.requiredTrue],
+    
+      
+   
+});
+
+
+
    datePicker(pickMode){
     
    let dateLimit=new Date().setDate(new Date().getDate()+45)// Display  45 days from today
@@ -72,6 +83,7 @@ months=this.customDatePicker.getMonths()
       myCalendar.present();
        
       myCalendar.onDidDismiss((date: CalendarResult[]) => {
+        if(date!=null){
         if(pickMode==='multi'){
         date.sort(function (a, b) { // sorting the dates in ascending order with the time property
           return a.time - b.time;
@@ -89,6 +101,7 @@ months=this.customDatePicker.getMonths()
         this.dateRange=from[2]+"-"+from[1]+"-"+from[0]+" to "+to[2]+"-"+to[1]+"-"+to[0]
         this.leaveHistory(date['from'].time,date['to'].time)
       }
+    }
 
      })//end of displayCalendar function
     }// end of datepicker function

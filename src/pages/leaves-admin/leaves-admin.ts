@@ -50,13 +50,15 @@ datePicker(pickMode){
      myCalendar.present();
       
      myCalendar.onDidDismiss((date: CalendarResult[]) => {
+       
+       if(date!=null){
        let from=date['from'].string.split('-')
        let to=date['to'].string.split('-')
 
        this.from=date['from'].time
        this.to=date['to'].time
        this.dateRange=from[2]+"-"+from[1]+"-"+from[0]+" to "+to[2]+"-"+to[1]+"-"+to[0]
-      
+      }
      })
 
     }// end of datepicker function

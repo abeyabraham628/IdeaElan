@@ -392,6 +392,7 @@ var CustomDatePicker = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_leave_model__ = __webpack_require__(739);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_datepicker__ = __webpack_require__(740);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_fire_auth__ = __webpack_require__(459);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_forms__ = __webpack_require__(23);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -407,6 +408,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the ApplyLeavePage page.
  *
@@ -414,7 +416,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var ApplyLeavePage = /** @class */ (function () {
-    function ApplyLeavePage(afauth, navCtrl, navParams, modalCtrl, customDatePicker, userLeave) {
+    function ApplyLeavePage(formBuilder, afauth, navCtrl, navParams, modalCtrl, customDatePicker, userLeave) {
+        this.formBuilder = formBuilder;
         this.afauth = afauth;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
@@ -425,6 +428,10 @@ var ApplyLeavePage = /** @class */ (function () {
         this.leaveInfo = {};
         this.dateRange = "This Month Leave";
         this.months = this.customDatePicker.getMonths();
+        this.leaveForm = this.formBuilder.group({
+            leaveType: ['', __WEBPACK_IMPORTED_MODULE_6__angular_forms__["Validators"].required],
+            date: ['', __WEBPACK_IMPORTED_MODULE_6__angular_forms__["Validators"].requiredTrue],
+        });
         this.ionSegmentDefaultValue = "applyLeave";
         this.viewRemainingLeaves();
     }
@@ -448,21 +455,23 @@ var ApplyLeavePage = /** @class */ (function () {
         });
         myCalendar.present();
         myCalendar.onDidDismiss(function (date) {
-            if (pickMode === 'multi') {
-                date.sort(function (a, b) {
-                    return a.time - b.time;
-                });
-                var selectedDates = _this.userLeave.arrangeDates(date);
-                _this.leaveDates = selectedDates.date1 + "," + selectedDates.date2;
-                _this.leaveInfo.date = selectedDates.date1;
-                if (selectedDates.date2.length > 0)
-                    _this.leaveInfo.date2 = selectedDates.date2;
-            }
-            else {
-                var from = date['from'].string.split('-');
-                var to = date['to'].string.split('-');
-                _this.dateRange = from[2] + "-" + from[1] + "-" + from[0] + " to " + to[2] + "-" + to[1] + "-" + to[0];
-                _this.leaveHistory(date['from'].time, date['to'].time);
+            if (date != null) {
+                if (pickMode === 'multi') {
+                    date.sort(function (a, b) {
+                        return a.time - b.time;
+                    });
+                    var selectedDates = _this.userLeave.arrangeDates(date);
+                    _this.leaveDates = selectedDates.date1 + "," + selectedDates.date2;
+                    _this.leaveInfo.date = selectedDates.date1;
+                    if (selectedDates.date2.length > 0)
+                        _this.leaveInfo.date2 = selectedDates.date2;
+                }
+                else {
+                    var from = date['from'].string.split('-');
+                    var to = date['to'].string.split('-');
+                    _this.dateRange = from[2] + "-" + from[1] + "-" + from[0] + " to " + to[2] + "-" + to[1] + "-" + to[0];
+                    _this.leaveHistory(date['from'].time, date['to'].time);
+                }
             }
         }); //end of displayCalendar function
     }; // end of datepicker function
@@ -482,11 +491,12 @@ var ApplyLeavePage = /** @class */ (function () {
             _this.leaveCount.currentMonthLeave = item[0].currentMonthLeave;
         });
     };
+    var _a, _b, _c, _d, _e, _f, _g;
     ApplyLeavePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-apply-leave',template:/*ion-inline-start:"F:\ionic-app\src\pages\apply-leave\apply-leave.html"*/'<!--\n\n  Generated template for the ApplyLeavePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n<ion-header no-border>\n\n  <ion-toolbar color="blue" hideBackButton="true">\n\n    <button ion-button  menuToggle="left" start>\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    \n\n    <ion-title text-center>Leaves</ion-title>\n\n\n\n    <ion-buttons end>\n\n      <button ion-button >\n\n        <ion-icon name="notifications"></ion-icon> \n\n      </button> \n\n    </ion-buttons>\n\n    \n\n</ion-toolbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n\n\n\n\n  \n\n  \n\n    <ion-segment [(ngModel)]="ionSegmentDefaultValue" color="white" >\n\n        <ion-segment-button value="applyLeave">\n\n           Apply Leave\n\n        </ion-segment-button>\n\n        <ion-segment-button value="leaveHistory" (click)="leaveHistory()" >\n\n          History\n\n        </ion-segment-button>\n\n     </ion-segment>\n\n\n\n\n\n<div [ngSwitch]="ionSegmentDefaultValue">\n\n  <div *ngSwitchCase="\'applyLeave\'">\n\n    \n\n   \n\n\n\n\n\n\n\n\n\n\n\n\n\n    <ion-card>\n\n      <ion-card-content>\n\n         <ion-row (click)="remaining()">\n\n            <ion-col col-6>This month leaves</ion-col>\n\n            <ion-col col-6>Remaining Leaves</ion-col>\n\n         </ion-row>\n\n         \n\n        <ion-row >\n\n           <ion-col col-6>{{leaveCount.currentMonthLeave}}</ion-col><ion-col col-4>Casual</ion-col><ion-col col-2>{{leaveCount.casualRemaining}}</ion-col>\n\n        </ion-row>\n\n        <ion-row>\n\n            <ion-col col-6></ion-col><ion-col col-4>Sick</ion-col><ion-col col-2>{{leaveCount.sickRemaining}}</ion-col>\n\n         </ion-row>\n\n         \n\n      </ion-card-content>\n\n  </ion-card>\n\n\n\n \n\n  <h6 text-center class="title section-title">Leave Details</h6>\n\n    <ion-list radio-group [(ngModel)]="leaveInfo.leaveType">\n\n      <ion-row>\n\n        <ion-item col-6>\n\n            <ion-label>Casual Leave</ion-label>\n\n            <ion-radio  value="casual"></ion-radio>\n\n        </ion-item>\n\n        \n\n        <ion-item col-6>\n\n          <ion-label>Sick Leave</ion-label>\n\n          <ion-radio value="sick"></ion-radio>\n\n        </ion-item>\n\n      </ion-row>\n\n    \n\n  <ion-row>\n\n    <ion-item col-12>\n\n      <ion-label stacked>Select Dates</ion-label>\n\n      <ion-input  type="readonly" (click)="datePicker(\'multi\') " [(ngModel)]="leaveDates" readonly  ></ion-input>\n\n    </ion-item>\n\n    \n\n  </ion-row>\n\n  <ion-row>\n\n    <button ion-button full color="blue" (click)="applyForLeave(leaveInfo)">Submit</button>\n\n  </ion-row>\n\n</ion-list>\n\n\n\n</div>\n\n\n\n    <div *ngSwitchCase="\'leaveHistory\'">\n\n      \n\n      <ion-row>\n\n       <ion-item col-12>\n\n              <button ion-button (click)="datePicker(\'range\')" full color="blue">Open calendar</button>\n\n            </ion-item>\n\n        </ion-row>\n\n    \n\n  \n\n     \n\n  \n\n  \n\n  \n\n      <ion-list>\n\n        <h6 text-center class="title section-title">{{dateRange}}</h6>\n\n         \n\n        <ion-card *ngFor="let x of leaveRecords " class="col-text row-bottom-border" >\n\n                  <ion-card-header>\n\n                  {{x.leaveType}} Leave<br/> \n\n                  \n\n                  </ion-card-header>\n\n                  \n\n                  <ion-card-content  [ngClass]=\'x.status\'>\n\n                      {{x.date}} <br/>\n\n                      {{x.status}} \n\n                      <div *ngIf="(x.reason!=null)">\n\n                      Comments: {{x.reason}}\n\n                    </div>\n\n                  </ion-card-content>\n\n                </ion-card>\n\n\n\n           \n\n        </ion-list>\n\n        \n\n    </div>\n\n</div>\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\apply-leave\apply-leave.html"*/,
+            selector: 'page-apply-leave',template:/*ion-inline-start:"D:\IdeaElan\src\pages\apply-leave\apply-leave.html"*/'<!--\n\n  Generated template for the ApplyLeavePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n<ion-header no-border>\n\n  <ion-toolbar color="blue" hideBackButton="true">\n\n    <button ion-button  menuToggle="left" start>\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    \n\n    <ion-title text-center>Leaves</ion-title>\n\n\n\n    <ion-buttons end>\n\n      <button ion-button >\n\n        <ion-icon name="notifications"></ion-icon> \n\n      </button> \n\n    </ion-buttons>\n\n    \n\n</ion-toolbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n\n\n\n\n  \n\n  \n\n    <ion-segment [(ngModel)]="ionSegmentDefaultValue" color="white" >\n\n        <ion-segment-button value="applyLeave">\n\n           Apply Leave\n\n        </ion-segment-button>\n\n        <ion-segment-button value="leaveHistory" (click)="leaveHistory()" >\n\n          History\n\n        </ion-segment-button>\n\n     </ion-segment>\n\n\n\n\n\n<div [ngSwitch]="ionSegmentDefaultValue">\n\n  <div *ngSwitchCase="\'applyLeave\'">\n\n    \n\n   \n\n\n\n\n\n\n\n\n\n\n\n\n\n    <ion-card>\n\n      <ion-card-content>\n\n         <ion-row (click)="remaining()">\n\n            <ion-col col-6>This month leaves</ion-col>\n\n            <ion-col col-6>Remaining Leaves</ion-col>\n\n         </ion-row>\n\n         \n\n        <ion-row >\n\n           <ion-col col-6>{{leaveCount.currentMonthLeave}}</ion-col><ion-col col-4>Casual</ion-col><ion-col col-2>{{leaveCount.casualRemaining}}</ion-col>\n\n        </ion-row>\n\n        <ion-row>\n\n            <ion-col col-6></ion-col><ion-col col-4>Sick</ion-col><ion-col col-2>{{leaveCount.sickRemaining}}</ion-col>\n\n         </ion-row>\n\n         \n\n      </ion-card-content>\n\n  </ion-card>\n\n\n\n  <form [formGroup]="leaveForm"   (ngSubmit)="applyForLeave(leaveInfo)">\n\n  <h6 text-center class="title section-title">Leave Details</h6>\n\n    <ion-list>\n\n      \n\n      <div radio-group [(ngModel)]="leaveInfo.leaveType"  formControlName="leaveType">\n\n          <ion-row>\n\n              <ion-item col-6>\n\n                  <ion-radio  value="casual"></ion-radio>\n\n                  <ion-label>Casual Leave</ion-label>\n\n              </ion-item>\n\n              \n\n              <ion-item col-6>\n\n                  <ion-radio value="sick"></ion-radio>\n\n                <ion-label>Sick Leave</ion-label>\n\n              </ion-item>\n\n\n\n              <ion-item no-lines *ngIf="leaveForm.get(\'leaveType\').hasError(\'requiredTrue\') && leaveForm.get(\'leaveType\').touched">\n\n                  <ion-label stacked  color="danger" >\n\n                   Leave type is required\n\n                </ion-label>\n\n                </ion-item>\n\n            </ion-row>\n\n       </div>\n\n    \n\n    \n\n  \n\n    <ion-item col-12>\n\n      <ion-label stacked>Select Dates</ion-label>\n\n      <ion-input  type="readonly" (click)="datePicker(\'multi\') " [(ngModel)]="leaveDates" readonly formControlName="date"  ></ion-input>\n\n    </ion-item>\n\n    <ion-item no-lines *ngIf="leaveForm.get(\'date\').hasError(\'required\') && leaveForm.get(\'date\').touched">\n\n        <ion-label stacked  color="danger" >\n\n         Leave date is required\n\n      </ion-label>\n\n      </ion-item>\n\n    \n\n  \n\n  <ion-item>\n\n    <button type="submit"  ion-button full color="blue" >Submit</button>\n\n  </ion-item>\n\n</ion-list>\n\n</form>\n\n</div>\n\n\n\n    <div *ngSwitchCase="\'leaveHistory\'">\n\n      \n\n      <ion-row>\n\n       <ion-item col-12>\n\n              <button ion-button (click)="datePicker(\'range\')" full color="blue">Open calendar</button>\n\n            </ion-item>\n\n        </ion-row>\n\n    \n\n  \n\n     \n\n  \n\n  \n\n  \n\n      <ion-list>\n\n        <h6 text-center class="title section-title">{{dateRange}}</h6>\n\n         \n\n        <ion-card *ngFor="let x of leaveRecords " class="col-text row-bottom-border" >\n\n                  <ion-card-header>\n\n                  {{x.leaveType}} Leave<br/> \n\n                  \n\n                  </ion-card-header>\n\n                  \n\n                  <ion-card-content  [ngClass]=\'x.status\'>\n\n                      {{x.date}} <br/>\n\n                      {{x.status}} \n\n                      <div *ngIf="(x.reason!=null)">\n\n                      Comments: {{x.reason}}\n\n                    </div>\n\n                  </ion-card-content>\n\n                </ion-card>\n\n\n\n           \n\n        </ion-list>\n\n        \n\n    </div>\n\n</div>\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\apply-leave\apply-leave.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_4__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_3__models_leave_model__["a" /* LeaveModel */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_6__angular_forms__["FormBuilder"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__angular_forms__["FormBuilder"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_5__angular_fire_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_fire_auth__["a" /* AngularFireAuth */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__models_datepicker__["a" /* CustomDatePicker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__models_datepicker__["a" /* CustomDatePicker */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__models_leave_model__["a" /* LeaveModel */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__models_leave_model__["a" /* LeaveModel */]) === "function" && _g || Object])
     ], ApplyLeavePage);
     return ApplyLeavePage;
 }()); // end of class
