@@ -2,7 +2,7 @@ import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 import { DatePicker } from '@ionic-native/date-picker';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Component } from '@angular/core';
-import { IonicPage } from 'ionic-angular';
+import { IonicPage, AlertController } from 'ionic-angular';
 import {FormControl, FormGroup,Validators} from '@angular/forms'
 import { DatePipe } from '@angular/common';
 
@@ -43,7 +43,7 @@ export class SystemsPage {
   
 
  systems:string;
-  constructor(private barcode:BarcodeScanner,private datePicker:DatePicker,private firebase:AngularFireDatabase,private datepipe:DatePipe) {
+  constructor(public alertCtrl:AlertController,private barcode:BarcodeScanner,private datePicker:DatePicker,private firebase:AngularFireDatabase,private datepipe:DatePipe) {
   this.systems="newSystem";
  this.getSystemList();
 }
@@ -58,7 +58,7 @@ getSystemList(){
 
 systemArray=[];
 getSystems(){
-  
+  this.systemsForm.reset();
 this.getSystemList().subscribe(
   list=>{
     this.systemArray=list.map(item=>{
@@ -91,7 +91,15 @@ updateSystems(systems:any){
       avExpiry  :systems.avExpiry,
       avValidity:systems.avValidity
     }
-    )
+    ).then(()=>{
+      let alert = this.alertCtrl.create({
+        title: "Success",
+        subTitle: "System updated succesfuly ",
+        buttons: ['OK']
+      });
+      
+      alert.present();
+    })
 }
 
 
@@ -105,6 +113,14 @@ insertSystems(systems:any){
     hdd:systems.hdd,
     avExpiry:systems.avExpiry,
     avValidity: systems.avValidity
+}).then(()=>{
+  let alert = this.alertCtrl.create({
+    title: "Success",
+    subTitle: "System added succesfuly ",
+    buttons: ['OK']
+  });
+  
+  alert.present();
 })
 }
 
@@ -120,6 +136,7 @@ insertSystems(systems:any){
     }
     
   }
+  
 
  scanBarCode(type:string){
     this.barcode.scan().then(barcodeData => {

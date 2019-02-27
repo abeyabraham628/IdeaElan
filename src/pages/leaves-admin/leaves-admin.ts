@@ -1,7 +1,7 @@
 import { CustomDatePicker } from './../../models/datepicker';
 import { LeaveModel } from './../../models/leave.model';
 import { Component } from '@angular/core';
-import { IonicPage, NavParams, ModalController } from 'ionic-angular';
+import { IonicPage, NavParams, ModalController, NavController } from 'ionic-angular';
 import { Employee } from '../../models/employee.model';
 import { CalendarModal,CalendarResult} from "ion2-calendar";
 
@@ -28,7 +28,7 @@ export class LeavesAdminPage {
   from:any
   to:any
   leaveRecords:any
-  constructor(private userLeave:LeaveModel,public modalCtrl:ModalController,public navParams: NavParams,private empDetails:Employee,private customDatePicker: CustomDatePicker) {
+  constructor(public navCtrl:NavController,private userLeave:LeaveModel,public modalCtrl:ModalController,public navParams: NavParams,private empDetails:Employee,private customDatePicker: CustomDatePicker) {
     this.leaves='viewLeaveRequests';
     this.leaveRequests=this.userLeave.viewLeaveRequest()
     
@@ -61,12 +61,11 @@ datePicker(pickMode){
 
     }// end of datepicker function
    
+    goto(page:string,data?:object){
+      this.navCtrl.push(page,{"userDetails":data});
+    }
 
-  openModal(page:string,data?:object){
-        const modal=this.modalCtrl.create(page,{"userDetails":data});
-        modal.present();
-
-  }
+  
 
   async getEmployee(){
     this.employeeName=[]

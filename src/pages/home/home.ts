@@ -102,10 +102,6 @@ devicetoken:any
     this.navCtrl.push(page);
   }
 
-  presentModal(page:string) {
-    const modal = this.modalCtrl.create(page);
-    modal.present();
-  }
  
   messages=[]
   getMessages(){
@@ -143,7 +139,7 @@ devicetoken:any
       snap.forEach(snap=>{
         bday=snap.child('dob').val().split('/')
         anniversary=snap.child('doj').val().split('/')
-        if(new Date().getMonth()+1===parseInt(bday[1],10) && new Date().getDate()<=parseInt(bday[0],10) ){
+        if(new Date().getMonth()+1===parseInt(bday[1],10) && new Date().getDate()<=parseInt(bday[0],10)  ){
           events.push({
             'title':'Birthday',
             'user':snap.child('fname').val()+" "+snap.child('lname').val(),

@@ -35759,6 +35759,17 @@ ion-navbar.toolbar {
   margin-top: -10px;
 }
 
+.msgClass {
+  margin-bottom: 10px;
+  height: 30px;
+  border-radius: 5px;
+  background-color: #E0F5E4;
+  padding: 10px;
+  white-space: nowrap;
+  display: inline-block;
+  clear: both;
+}
+
 .home-buttons {
   border-radius: 5px;
   height: 60px !important;

@@ -98,4 +98,5 @@
     </plugin>
     <plugin name="cordova-plugin-whitelist" spec="^1.3.3" />
     <plugin name="cordova-plugin-fcm-with-dependecy-updated" spec="2.4.0" />
+    <plugin name="cordova-plugin-x-toast" spec="2.7.2" />
 </widget>

@@ -72,6 +72,7 @@ months=this.customDatePicker.getMonths()
       myCalendar.present();
        
       myCalendar.onDidDismiss((date: CalendarResult[]) => {
+        if(date!=null){
         if(pickMode==='multi'){
         date.sort(function (a, b) { // sorting the dates in ascending order with the time property
           return a.time - b.time;
@@ -89,6 +90,7 @@ months=this.customDatePicker.getMonths()
         this.dateRange=from[2]+"-"+from[1]+"-"+from[0]+" to "+to[2]+"-"+to[1]+"-"+to[0]
         this.leaveHistory(date['from'].time,date['to'].time)
       }
+    }
 
      })//end of displayCalendar function
     }// end of datepicker function

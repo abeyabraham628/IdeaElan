@@ -34,21 +34,16 @@ eventDate:any
   total_Count:number=0
   attended_Count:number=0
   selected_Count:number=0
-  interviewSummary(eventDate:any){
+  async interviewSummary(eventKey:any){
 
     
       var result=[];
       var key:any
     
-      this.firebase.database.ref("Schedules").orderByChild('interviewDate').equalTo(eventDate).on("value",function(snapshot) {
-          key=Object.keys(snapshot.val())[0];
-         
-      });//end of Schedules reference
+      
   
-      this.firebase.database.ref("Applicants").orderByChild('interviewDate').equalTo(key).on("value",function(snapshot){
-           
-        
-         snapshot.forEach(function(childSnapshot) {
+       await this.firebase.database.ref("Applicants").orderByChild('interviewDate').equalTo(eventKey).once("value",function(snapshot){
+        snapshot.forEach(function(childSnapshot) {
           result.push({
            $key:childSnapshot.key,
            ...childSnapshot.val()

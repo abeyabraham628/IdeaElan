@@ -40,6 +40,7 @@ import {FCM} from '@ionic-native/fcm'
     AngularFireAuthModule,
     CalendarModule,
    
+   
 
     
     
@@ -59,9 +60,7 @@ import {FCM} from '@ionic-native/fcm'
     DatePipe,
     FCM,
     
-    
-    
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+   {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

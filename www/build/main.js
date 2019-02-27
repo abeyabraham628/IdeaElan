@@ -1,4 +1,4 @@
-webpackJsonp([17],{
+webpackJsonp([18],{
 
 /***/ 224:
 /***/ (function(module, exports) {
@@ -23,71 +23,75 @@ webpackEmptyAsyncContext.id = 224;
 var map = {
 	"../pages/apply-leave/apply-leave.module": [
 		715,
-		6
+		5
 	],
 	"../pages/approve-leave/approve-leave.module": [
 		716,
-		5
+		4
 	],
 	"../pages/changepassword/changepassword.module": [
 		717,
-		16
+		17
 	],
 	"../pages/chatbot/chatbot.module": [
 		718,
+		16
+	],
+	"../pages/forgotpassword/forgotpassword.module": [
+		719,
 		15
 	],
 	"../pages/home/home.module": [
-		719,
+		720,
 		14
 	],
 	"../pages/inbox/inbox.module": [
-		720,
+		721,
 		13
 	],
 	"../pages/interview-details/interview-details.module": [
-		721,
-		8
-	],
-	"../pages/interview-summary/interview-summary.module": [
 		722,
 		12
 	],
-	"../pages/leaves-admin/leaves-admin.module": [
+	"../pages/interview-summary/interview-summary.module": [
 		723,
+		11
+	],
+	"../pages/leaves-admin/leaves-admin.module": [
+		725,
 		3
 	],
 	"../pages/login/login.module": [
 		724,
-		11
+		10
 	],
 	"../pages/newuser/newuser.module": [
-		731,
+		732,
 		0
 	],
 	"../pages/payslip/payslip.module": [
-		725,
-		10
+		726,
+		9
 	],
 	"../pages/profile/profile.module": [
-		726,
+		727,
 		2
 	],
 	"../pages/recruitment/recruitment.module": [
-		727,
-		4
+		728,
+		8
 	],
 	"../pages/systems/systems.module": [
-		728,
-		9
+		729,
+		7
 	],
 	"../pages/tabs/tabs.module": [
-		729,
+		730,
 		1
 	],
 	"../pages/upload-events/upload-events.module": [
-		730,
-		7
+		731,
+		6
 	]
 };
 function webpackAsyncContext(req) {
@@ -190,12 +194,13 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/approve-leave/approve-leave.module#ApproveLeavePageModule', name: 'ApproveLeavePage', segment: 'approve-leave', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/changepassword/changepassword.module#ChangepasswordPageModule', name: 'ChangepasswordPage', segment: 'changepassword', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/chatbot/chatbot.module#ChatbotPageModule', name: 'ChatbotPage', segment: 'chatbot', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/forgotpassword/forgotpassword.module#ForgotpasswordPageModule', name: 'ForgotpasswordPage', segment: 'forgotpassword', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/inbox/inbox.module#InboxPageModule', name: 'InboxPage', segment: 'inbox', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/interview-details/interview-details.module#InterviewDetailsPageModule', name: 'InterviewDetailsPage', segment: 'interview-details', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/interview-summary/interview-summary.module#InterviewSummaryPageModule', name: 'InterviewSummaryPage', segment: 'interview-summary', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/leaves-admin/leaves-admin.module#LeavesAdminPageModule', name: 'LeavesAdminPage', segment: 'leaves-admin', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/leaves-admin/leaves-admin.module#LeavesAdminPageModule', name: 'LeavesAdminPage', segment: 'leaves-admin', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/payslip/payslip.module#PayslipPageModule', name: 'PayslipPage', segment: 'payslip', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/profile/profile.module#ProfilePageModule', name: 'ProfilePage', segment: 'profile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/recruitment/recruitment.module#RecruitmentPageModule', name: 'RecruitmentPage', segment: 'recruitment', priority: 'low', defaultHistory: [] },
@@ -535,17 +540,61 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var MyApp = /** @class */ (function () {
-    function MyApp(platform, statusBar, splashScreen) {
+    function MyApp(app, platform, statusBar, splashScreen, alertCtrl) {
+        this.app = app;
+        this.platform = platform;
+        this.alertCtrl = alertCtrl;
         this.rootPage = 'LoginPage'; //'ApplyLeavePage';//CompanyPolicyComponent;//HomePage
         platform.ready().then(function () {
             statusBar.styleDefault();
             splashScreen.hide();
         });
+        this.ngOnInit();
     }
+    MyApp.prototype.ngOnInit = function () {
+        var _this = this;
+        this.platform.registerBackButtonAction(function () {
+            var activeNav = _this.app.getActiveNav();
+            if (activeNav.canGoBack()) {
+                _this.navCtrl.pop();
+            }
+            else {
+                // Currently on root page
+                _this.appClosePromt();
+            }
+        }, 1);
+    };
+    MyApp.prototype.appClosePromt = function () {
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: '',
+            message: 'Do you want to close the application?',
+            buttons: [
+                {
+                    text: 'No',
+                    role: 'cancel',
+                    handler: function () {
+                        // Dismiss
+                    }
+                },
+                {
+                    text: 'Yes',
+                    handler: function () {
+                        _this.platform.exitApp();
+                    }
+                }
+            ]
+        });
+        alert.present();
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('nav'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"])
+    ], MyApp.prototype, "navCtrl", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"F:\ionic-app\src\app\app.html"*/'\n\n  <ion-nav [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"F:\ionic-app\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Platform"], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["App"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Platform"], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"]])
     ], MyApp);
     return MyApp;
 }());

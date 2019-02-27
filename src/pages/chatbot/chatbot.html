@@ -32,24 +32,25 @@
 
   <p text-center *ngIf="sending">sending...</p>
   <div *ngFor="let q of questions" style="left:0px" >
-    <p name="title" style="height:30px; border-radius:5px; background-color:#E0F5E4; padding:10px">{{q.question}}</p>
+    <label name="title" class="msgClass">{{q.question}}</label>
      <!-- your elements-->
   </div>
 
-<div *ngFor="let q of questions" style="right:0px; width: 50px;position: relative" >
-  <p name="title" style="height:30px; border-radius:5px; background-color:#E6ECD7; padding:10px;position:absolute;">{{q.question}}</p>
+<div *ngFor="let q of questions" style="right:0px;position: absolute;">
+  
+    <label name="title">{{q.question}}</label>
    <!-- your elements-->
 </div>
 
-  <ion-footer>
-      <ion-item>
-      <ion-input [(ngModel)]="question" name="message" class="input_message" placeholder="Ask me anything"></ion-input>
-      <button ion-button (click)="tony(question)" item-right  color="orange"> <ion-icon  name="send" ></ion-icon></button>
-     
-    </ion-item>
-  </ion-footer>
+ 
  
 </ion-content>
 
-
+<ion-footer>
+    <ion-item>
+    <ion-input [(ngModel)]="question" name="message" class="input_message" placeholder="Ask me anything"></ion-input>
+    <button ion-button (click)="tony(question)" item-right  color="orange"> <ion-icon  name="send" ></ion-icon></button>
+   
+  </ion-item>
+</ion-footer>
 
