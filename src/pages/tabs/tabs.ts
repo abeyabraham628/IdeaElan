@@ -96,10 +96,8 @@ export class TabsPage {
 createUploadTask(file: string): void {
 this.hid=false;
   const filePath = `${this.afAuth.auth.currentUser.uid}.jpg`;
-
   this.image = 'data:image/jpg;base64,' + file;
   this.uri=this.image;
-  
   this.task = this.storage.ref(filePath).putString(this.image, 'data_url');
 
   this.progress = this.task.percentageChanges();

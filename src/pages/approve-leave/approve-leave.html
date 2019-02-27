@@ -18,11 +18,8 @@
 <ion-content>
     <ion-card>
         <ion-item>
-          <ion-avatar item-start>
-            <img src="assets/imgs/companylogo.png">
-          </ion-avatar>
-          <h2>{{userLeaveDetails.name}}</h2>
-          <p>Leave Type:{{userLeaveDetails.leaveType}}</p>
+          <h2>{{userLeaveDetails.name | titlecase}}</h2>
+          <p>Leave Type:{{userLeaveDetails.leaveType | titlecase}}</p>
           <p>Date: [ {{userLeaveDetails.date}}]</p>
         </ion-item>
         <ion-row>

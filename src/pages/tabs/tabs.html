@@ -7,36 +7,37 @@
 
 
 <ion-menu [content]="mycontent" persistent="true">
-  <ion-content>
-     <ion-list>
-      <ion-item style="text-align:center;">
-          <ion-thumbnail style="border:1px solid black; height:100px;width:100px;border-radius:50%;margin: auto">
-            <img [hidden]="this.hid" src="{{uri}}" style="border:1px solid black; height:100px;width:100px;border-radius:50%;margin: auto"/>
+  <ion-content class="sideMenuList" >
+     
+      <ion-item no-lines style="text-align:center;background-color: #2679b0">
+          <ion-thumbnail style="height:100px;width:100px;border-radius:50%;margin: auto">
+            <img [hidden]="this.hid" src="{{uri}}" style="border:4px solid #ffffff; height:100px;width:100px;border-radius:50%;margin: auto"/>
           </ion-thumbnail>
-          <h2>{{this.uname | uppercase }}</h2>
-          <h6>{{this.position | uppercase }}</h6>
+          <h2 style="color:#ffffff">{{this.uname | titlecase }}</h2>
+          <h6 style="color:#ffffff">{{this.position | titlecase }}</h6>
       </ion-item>
 
-      <ion-item (click)="uploadHandler()">
+      <ion-item (click)="uploadHandler()" class="sideMenuList">
           <ion-icon name="images" item-end></ion-icon>
           Change Image
       </ion-item>
      
-      <ion-item (click)="changepassword()">
+      <ion-item (click)="changepassword()" class="sideMenuList">
           <ion-icon name="lock" item-end></ion-icon>
           Change Password
       </ion-item>
       
-      <ion-item (click)="logout()">
+      <ion-item (click)="logout()" class="sideMenuList">
           <ion-icon name="power" item-end></ion-icon>
            Logout
       </ion-item>
+
       <ng-container *ngIf="progress | async as percent">
 
         <progress [value]="percent" max="100"></progress>
       
       </ng-container>
-    </ion-list>
+   
 
 
   </ion-content>

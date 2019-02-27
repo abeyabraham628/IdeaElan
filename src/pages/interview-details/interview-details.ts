@@ -22,9 +22,11 @@ import { FormsModule } from '@angular/forms';
 })
 export class InterviewDetailsPage {
   eventDate:any
+  eventKey:any
   constructor(public navCtrl: NavController, public navParams: NavParams, private firebase:AngularFireDatabase,public modalCtrl: ModalController,public alertCtrl:AlertController) {
     this.eventDate=navParams.get('date')
-    this.loadApplicants(this.eventDate)
+    this.eventKey=navParams.get('key')
+    this.loadApplicants(this.eventKey)
   }
   
 
@@ -37,25 +39,30 @@ export class InterviewDetailsPage {
     this.navCtrl.pop();
   }
 
-  applcantsData=[]
-  loadApplicants(date:any){
-    var result=[];
+  applicantsData:any
+ async loadApplicants(key:any){
+    this.applicantsData=[]
+    var result=[]
     var x:any
-    this.firebase.database.ref("Schedules").orderByChild('interviewDate').equalTo(date).on("value",function(snapshot) {
+    /*this.firebase.database.ref("Schedules").orderByChild('interviewDate').equalTo(date).on("value",function(snapshot) {
         x=Object.keys(snapshot.val())[0];
-    });//end of Schedules reference
+    });//end of Schedules reference*/
 
-    this.firebase.database.ref("Applicants").orderByChild('interviewDate').equalTo(x).on("value",function(snapshot){
+     await this.firebase.database.ref("Applicants").orderByChild('interviewDate').equalTo(key).once("value",function(snapshot){
+     
+    
       snapshot.forEach(function(childSnapshot) {
-        result.push({
+         result.push({
          $key:childSnapshot.key,
+
          ...childSnapshot.val()
           })
           return false;
      });
-  });//end of Applicants reference
-  this.applcantsData=[]
-this.applcantsData=result
+ });//end of Applicants reference
+
+this.applicantsData=result
+
 }//end of function
 
 status:any
@@ -78,7 +85,7 @@ changeStatus(data:any){
         text: 'OK',
         handler: status => {
          this.firebase.list('Applicants').update(data.$key,{interviewStatus:status})
-           
+          this.loadApplicants(this.eventKey)
         }
       });
      
@@ -89,7 +96,7 @@ changeStatus(data:any){
 
 
 interviewSummary(eventDate:any){
-       let summaryModal=this.modalCtrl.create(InterviewSummaryPage,{eventDate:eventDate})
+       let summaryModal=this.modalCtrl.create('InterviewSummaryPage',{eventDate:eventDate})
        summaryModal.present();
 }
 

@@ -2,7 +2,7 @@ import { async } from 'rxjs/scheduler/async';
 import { credentials } from './../../providers/login';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, ModalController } from 'ionic-angular';
 import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 
 
@@ -27,12 +27,10 @@ export class LoginPage {
 
 
   companyLogo:string="assets/imgs/companylogo.png"
-  constructor(public navCtrl: NavController, public navParams: NavParams, private afAuth:AngularFireAuth,private firebase:AngularFireDatabase) {
+  constructor(public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams, private afAuth:AngularFireAuth,private firebase:AngularFireDatabase) {
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
-  }
+  
 
  
 
@@ -77,5 +75,12 @@ export class LoginPage {
  
  
      //end of sign in function
+
+     forgotPassword(){
+     const modal = this.modalCtrl.create('ForgotpasswordPage');
+        modal.present();
+     
+
+     }
   
 }

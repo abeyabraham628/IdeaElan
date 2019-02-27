@@ -1,5 +1,5 @@
 import { Component, ViewChild, KeyValueDiffers,ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, NavParams ,Slides, Form, Item} from 'ionic-angular';
+import { IonicPage, NavController, NavParams ,Slides, Form, Item, AlertController} from 'ionic-angular';
 import {AngularFireDatabase,AngularFireList} from '@angular/fire/database';
 import {FormControl,FormGroup,Validators}from '@angular/forms';
 import { DatePicker } from '@ionic-native/date-picker';
@@ -26,7 +26,7 @@ export class RecruitmentPage {
   checked:boolean=false
   candidateSelected=true
  
-  constructor(private firebase:AngularFireDatabase, private datePicker:DatePicker,public navCtrl: NavController,private ref: ChangeDetectorRef) {
+  constructor(public alertCtrl:AlertController,private firebase:AngularFireDatabase, private datePicker:DatePicker,public navCtrl: NavController,private ref: ChangeDetectorRef) {
     this.recruitment="newApplicant";
     this.getApplicants();
   }
@@ -51,6 +51,7 @@ getApplicants(){
   applicantDetails=[];// for storing the applciants retrieved from db
   x:boolean=true
   showApplicants(){
+    this.newApplicantForm.reset();
    this.getApplicants().subscribe(
      res=>{ 
        this.applicantDetails=res.map(item=>{
@@ -79,6 +80,7 @@ newApplicantForm=new FormGroup({
   currentctc:new FormControl('',[Validators.required,Validators.minLength(4)]),
   experience:new FormControl('',Validators.required),
   expectedctc: new FormControl('',[Validators.required,Validators.minLength(4)]),
+  
 })
   
 //Function for saving a new applicant to the database
@@ -93,6 +95,14 @@ newApplicantForm=new FormGroup({
         currentctc:applicantDetails.currentctc,
         experience:applicantDetails.experience,
         expectedctc:applicantDetails.expectedctc
+    }).then(()=>{
+      let alert = this.alertCtrl.create({
+        title: "Success",
+        subTitle: "Applicant added succesfuly ",
+        buttons: ['OK']
+      });
+      
+      alert.present();
     });
   }//end of function
 
@@ -124,13 +134,14 @@ newApplicantForm=new FormGroup({
       scheduleTime:new FormControl('',[Validators.required]),
       contactPerson:new FormControl('',[Validators.required,Validators.minLength(4)]),
       contactPersonNum: new FormControl('',[Validators.required,Validators.minLength(10)]),
-      applicants: new FormControl(null, Validators.required),
+      applicants: new FormControl('', Validators.required)
      
   });
 
  
   //Funtion for saving interview schedules for the respective applicants
   saveSchedule(){
+    
     
     let schedule={  
                     interviewTime:this.scheduleForm.controls.scheduleTime.value, 
@@ -154,10 +165,22 @@ newApplicantForm=new FormGroup({
         this.applicantList.update(this.applicantKeys[i],{
             interviewDate:snap.key
             
+        }).then(()=>{
+          let alert = this.alertCtrl.create({
+            title: "Success",
+            subTitle: "Schedule created succesfuly ",
+            buttons: ['OK']
+          });
+          
+          alert.present();
+          this.scheduleForm.reset()
+        this.applicantKeys=[]
+          
+
         });
         
      });
-    
+     
    }//end of save schedule function
  
     
@@ -170,7 +193,7 @@ newApplicantForm=new FormGroup({
 // Function for selecting multiple applincants before assigning a interview schedule
 applicantKeys:string[] = [];
   clickSelectBox(itemKey){
-    
+    this.scheduleForm.controls['applicants'].setValue('')
     const foundAt = this.applicantKeys.indexOf(itemKey);
       if (foundAt >= 0) 
         this.applicantKeys.splice(foundAt, 1);
@@ -180,6 +203,7 @@ applicantKeys:string[] = [];
         if(this.applicantKeys.length>0){
           this.candidateSelected=false
         }
+        this.scheduleForm.controls['applicants'].setValue(this.applicantKeys)
 }
 
 
@@ -188,6 +212,7 @@ applicantKeys:string[] = [];
 // function for retrieving the history of schedules
 interviewDate=[]
 viewInterviewDates(){
+  this.scheduleForm.reset()
     this.getSchedules().subscribe(
       res=>{
        this.interviewDate= res.map(item=>{
@@ -199,8 +224,9 @@ viewInterviewDates(){
 }//end of function
   
 
-otherPage(interviewDate){
-  this.navCtrl.push(InterviewDetailsPage,{date:interviewDate});
+interviewDetailsPage(interviewKey,interviewDate,){
+  
+  this.navCtrl.push('InterviewDetailsPage',{'key':interviewKey,'date':interviewDate});
 }
 
 

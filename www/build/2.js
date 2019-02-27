@@ -1,6 +1,6 @@
 webpackJsonp([2],{
 
-/***/ 726:
+/***/ 727:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ProfilePageModule", function() { return ProfilePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile__ = __webpack_require__(823);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__profile__ = __webpack_require__(825);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -185,10 +185,6 @@ var HomePage = /** @class */ (function () {
     HomePage.prototype.goto = function (page) {
         this.navCtrl.push(page);
     };
-    HomePage.prototype.presentModal = function (page) {
-        var modal = this.modalCtrl.create(page);
-        modal.present();
-    };
     HomePage.prototype.getMessages = function () {
         var _this = this;
         this.firebase.list('messages').snapshotChanges().subscribe(function (snap) {
@@ -240,7 +236,7 @@ var HomePage = /** @class */ (function () {
     };
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"D:\IdeaElan\src\pages\home\home.html"*/'<!--\n\n  Generated template for the HomePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n    <ion-toolbar color="blue" hideBackButton="true">\n\n      <button ion-button  menuToggle="left" start>\n\n          <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      \n\n      <ion-title text-center>Home</ion-title>\n\n  \n\n      <ion-buttons end>\n\n        <button ion-button >\n\n          <ion-icon name="notifications"></ion-icon> \n\n        </button> \n\n      </ion-buttons>\n\n      \n\n  </ion-toolbar>\n\n  \n\n  </ion-header>\n\n\n\n\n\n<ion-content>\n\n\n\n  <div class="box-events">\n\n   \n\n      <ion-card *ngFor="let event of events">\n\n        <ion-card-header>\n\n            {{event.title}}<br/>\n\n            {{event.user}}<br/>\n\n            {{event.date}}\n\n         </ion-card-header>\n\n      </ion-card>\n\n              \n\n       \n\n   </div>\n\n  <div class="box-controllers">\n\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'NewuserPage\')" [hidden]=users>Users</button>\n\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'SystemsPage\')" [hidden]=systems>System</button>\n\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'RecruitmentPage\')" [hidden]=recruitment>Recruitment</button>\n\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'HomePage\')" [hidden]=uploadPaySlip>Upload Payslip</button>\n\n     \n\n      <button ion-button color="blue" class="home-buttons"  (click)="presentModal(\'LeavesAdminPage\')" [hidden]=leaveRequest>Leave Requests\n\n          <ion-badge color="danger">2</ion-badge>\n\n      </button>\n\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'UploadEventsPage\')" [hidden]=uploadEvent>Send Message</button>\n\n  </div>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\home\home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"D:\IdeaElan\src\pages\home\home.html"*/'<!--\n\n  Generated template for the HomePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n    <ion-toolbar color="blue" hideBackButton="true">\n\n      <button ion-button  menuToggle="left" start>\n\n          <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      \n\n      <ion-title text-center>Home</ion-title>\n\n  \n\n      <ion-buttons end>\n\n        <button ion-button >\n\n          <ion-icon name="notifications"></ion-icon> \n\n        </button> \n\n      </ion-buttons>\n\n      \n\n  </ion-toolbar>\n\n  \n\n  </ion-header>\n\n\n\n\n\n<ion-content padding >\n\n    <h5>Upcoming Events ({{events.length}})</h5>\n\n    <ion-list  >\n\n      <ion-item *ngFor="let event of events">\n\n        <ion-avatar item-start>\n\n            <img src="https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/{{event.userId}}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b" onerror="this.src=\'assets/imgs/companylogo.png\'"> \n\n\n\n        </ion-avatar>\n\n        <h5> {{event.title}}</h5>\n\n        <p>{{event.user}}</p>\n\n        <p>{{event.date}}</p>\n\n      </ion-item>\n\n    </ion-list>\n\n    \n\n\n\n \n\n  \n\n</ion-content>\n\n<ion-footer padding class="privilleges" >\n\n  <h5>Control Panel</h5>\n\n  <ion-list no-lines>\n\n    <button ion-item  (click)="goto(\'NewuserPage\')" [hidden]=users >\n\n        Users\n\n        \n\n    </button>\n\n    \n\n \n\n      <button ion-item  (click)="goto(\'SystemsPage\')" [hidden]=systems >\n\n          Systems\n\n      </button>\n\n    \n\n      <button ion-item (click)="goto(\'RecruitmentPage\')" [hidden]=recruitment>\n\n        Recruitment\n\n     </button>\n\n   \n\n       <!-- <button ion-item  (click)="goto(\'HomePage\')" [hidden]=uploadPaySlip>\n\n            Upload Payslip\n\n        </button>\n\n      -->\n\n          <button ion-item  (click)="goto(\'LeavesAdminPage\')" [hidden]=leaveRequest>\n\n             Leave Request\n\n                  <ion-badge color="danger">2</ion-badge>\n\n          </button>\n\n       \n\n            <button ion-item   (click)="goto(\'UploadEventsPage\')" [hidden]=uploadEvent>\n\n                Send Message\n\n            </button>\n\n          </ion-list>\n\n          \n\n  \n\n</ion-footer>\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\home\home.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_fcm__["a" /* FCM */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]])
     ], HomePage);
@@ -251,18 +247,18 @@ var HomePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 773:
+/***/ 772:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-__webpack_require__(824);
+__webpack_require__(826);
 //# sourceMappingURL=map.js.map
 
 /***/ }),
 
-/***/ 823:
+/***/ 825:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -270,9 +266,9 @@ __webpack_require__(824);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(463);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(773);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(772);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_it_add_it__ = __webpack_require__(825);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__add_it_add_it__ = __webpack_require__(827);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -349,7 +345,7 @@ var ProfilePage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 824:
+/***/ 826:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -362,7 +358,7 @@ rxjs_1.Observable.prototype.map = map_1.map;
 
 /***/ }),
 
-/***/ 825:
+/***/ 827:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -370,7 +366,7 @@ rxjs_1.Observable.prototype.map = map_1.map;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(463);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(773);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__ = __webpack_require__(772);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__home_home__ = __webpack_require__(757);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {

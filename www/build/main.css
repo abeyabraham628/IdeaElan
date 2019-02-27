@@ -35759,12 +35759,15 @@ ion-navbar.toolbar {
   margin-top: -10px;
 }
 
-.home-buttons {
+.msgClass {
+  margin-bottom: 10px;
+  height: 30px;
   border-radius: 5px;
-  height: 60px !important;
-  width: 100px !important;
-  margin: 5px;
-  font-size: 10px;
+  background-color: #E0F5E4;
+  padding: 10px;
+  white-space: nowrap;
+  display: inline-block;
+  clear: both;
 }
 
 .box-events {
@@ -35780,23 +35783,22 @@ ion-navbar.toolbar {
   right: 0;
 }
 
-.box-controllers {
-  text-align: center;
-  width: 100%;
-  height: 150px;
-  border-top: 1px solid #f6a253;
-  border-radius: 10px;
-  position: fixed;
-  left: 0;
-  bottom: 5px;
-  right: 0;
-}
-
 button ion-badge {
   position: absolute;
   top: -0.2rem;
   right: -0.2rem;
   opacity: 0.9;
+}
+
+.privilleges button {
+  background-color: #2679b0;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.privilleges p {
+  color: #ffffff;
 }
 
 .alert-title {
@@ -35871,4 +35873,11 @@ tabBadge {
   top: -0.2rem;
   right: -0.2rem;
   opacity: 0.9;
+}
+
+.sideMenuList {
+  color: #FFF;
+  background-color: #f6a253;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 12px;
 }

@@ -18,7 +18,7 @@
 
 
   <ion-content>
- 
+
       <ion-segment [(ngModel)]="leaves" color="white" >
          <ion-segment-button value="viewLeaveRequests">
             Leave Requests
@@ -32,14 +32,16 @@
     
         
 
-      <ion-card (click)="openModal('ApproveLeavePage',user)" *ngFor="let user of leaveRequests">
+      <ion-card (click)="goto('ApproveLeavePage',user)" *ngFor="let user of leaveRequests">
          
         <ion-item>
           <ion-avatar item-start>
-            <img src="assets/imgs/companylogo.png">
+              <img src="https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/{{user.userId}}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b" onerror="this.src='assets/imgs/companylogo.png'"> 
+           <!-- <img src="assets/imgs/companylogo.png">-->
           </ion-avatar>
-          <h2>{{user.name}}</h2>
-          <p>{{user.leaveType}}</p>
+          <h2>{{user.name |  titlecase}}</h2>
+          <p>{{user.leaveType | titlecase}}</p>
+          <p>{{user.date}}</p>
         </ion-item>
         
         

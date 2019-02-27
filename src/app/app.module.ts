@@ -32,13 +32,16 @@ import {FCM} from '@ionic-native/fcm'
     BrowserModule,
     HttpClientModule,
     HttpModule,
-    IonicModule.forRoot(MyApp),
+    IonicModule.forRoot(MyApp, {
+      navExitApp: false
+    }),
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     IonicStorageModule.forRoot(),
     ReactiveFormsModule,
     AngularFireAuthModule,
     CalendarModule,
+   
    
 
     
@@ -59,9 +62,7 @@ import {FCM} from '@ionic-native/fcm'
     DatePipe,
     FCM,
     
-    
-    
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+   {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
 export class AppModule {}

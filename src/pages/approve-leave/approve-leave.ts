@@ -34,7 +34,6 @@ dateRange:any
      this.userLeaveDetails=this.navParams.get('userDetails')
      this.userRemainingLeaves(this.userLeaveDetails.userId) 
      this.leaveRecords=this.userLeave.getPastLeaves(this.userLeaveDetails.userId)
-     
   }
 
   datePicker(pickMode){
@@ -46,7 +45,7 @@ dateRange:any
     
      let myCalendar =  this.modalCtrl.create(CalendarModal, {
        options: options,
-       });
+      });
           
        myCalendar.present();
         

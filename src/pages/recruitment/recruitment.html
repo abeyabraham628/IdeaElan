@@ -161,9 +161,16 @@
                   </ion-row>
                        
                       <ion-row>
+                        <ion-col col-6>
                         <button ion-button type="submit" [disabled]="newApplicantForm.invalid" ion-button  icon-end  full color=blue >
                            Save
                          </button>
+                        </ion-col>
+                        <ion-col col-6>
+                            <button ion-button type="reset"  icon-end full color=blue   >
+                              Cancel
+                            </button>
+                            </ion-col>
                       </ion-row> 
                        
             </ion-list>
@@ -198,7 +205,10 @@
                             <ion-col col-4 >{{x.experience}}</ion-col>
                             <ion-col col-3>Not Set</ion-col>
                       </ion-row>
-                      <ion-item  no-lines *ngIf=" scheduleForm.get('applicants').hasError('required')">
+                      <ion-item hidden >
+                        <ion-input type="text" formControlName="applicants" ></ion-input>
+                      </ion-item>
+                      <ion-item  no-lines *ngIf=" scheduleForm.get('applicants').hasError('required') && scheduleForm.get('applicants').touched">
                           <ion-label stacked  color="danger" *ngIf=" scheduleForm.get('applicants').hasError('required')" >
                             Select Candidate
                           </ion-label>
@@ -259,10 +269,18 @@
                             </ion-label>
                           </ion-item>
 
-                    
+                    <ion-row>
+                      <ion-col col-6>
                         <button ion-button type="submit" [disabled]="scheduleForm.invalid" ion-button  icon-end  full color=blue >
-                           Send Call Letter
+                           Save
                          </button>
+                      </ion-col>
+                         <ion-col col-6>
+                          <button ion-button type="reset"  icon-end full color=blue   >
+                            Cancel
+                          </button>
+                        </ion-col>
+                      </ion-row>
                      
                     </form>
         </ion-list>
@@ -287,7 +305,7 @@
                     
                       <ion-col col-4>{{x.interviewDate}} </ion-col>
                        <ion-col col-5 >{{x.interviewDetails.contactPerson}}</ion-col>
-                       <ion-col col-3 (click)="otherPage(x.interviewDate)">View Details</ion-col>
+                       <ion-col col-3 (click)="interviewDetailsPage(x.$key,x.interviewDate)">View Details</ion-col>
                 </ion-row>
                 
         </ion-list>

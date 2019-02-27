@@ -1,12 +1,4 @@
-.home-buttons{
-   border-radius: 5px;
-   height: 60px !important;
-   width:100px !important; 
-   margin: 5px;
-   font-size: 10px;
-   
-   
-}
+
 
 .box-events{
     text-align: center;
@@ -21,17 +13,7 @@
     right: 0;
 }
 
-.box-controllers{
-    text-align: center;
-    width:100%;
-    height:150px;
-    border-top:1px solid #f6a253;
-    border-radius: 10px;
-    position: fixed;
-    left: 0;
-    bottom: 5px;
-    right: 0;
-}
+
 
 button {
 	ion-badge {
@@ -42,4 +24,16 @@ button {
 
 		
 	}
+}
+
+.privilleges button{
+    background-color: #2679b0;
+    text-align: center;
+    color: #ffffff;
+    margin-bottom:5px;
+   
+}
+
+.privilleges  p{
+    color: #ffffff;
 }

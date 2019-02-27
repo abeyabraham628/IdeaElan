@@ -23,30 +23,54 @@
   </ion-header>
 
 
-<ion-content>
+<ion-content padding >
+    <h5>Upcoming Events ({{events.length}})</h5>
+    <ion-list  >
+      <ion-item *ngFor="let event of events">
+        <ion-avatar item-start>
+            <img src="https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/{{event.userId}}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b" onerror="this.src='assets/imgs/companylogo.png'"> 
 
-  <div class="box-events">
-   
-      <ion-card *ngFor="let event of events">
-        <ion-card-header>
-            {{event.title}}<br/>
-            {{event.user}}<br/>
-            {{event.date}}
-         </ion-card-header>
-      </ion-card>
-              
-       
-   </div>
-  <div class="box-controllers">
-      <button ion-button color="blue" class="home-buttons" (click)="goto('NewuserPage')" [hidden]=users>Users</button>
-      <button ion-button color="blue" class="home-buttons" (click)="goto('SystemsPage')" [hidden]=systems>System</button>
-      <button ion-button color="blue" class="home-buttons" (click)="goto('RecruitmentPage')" [hidden]=recruitment>Recruitment</button>
-      <button ion-button color="blue" class="home-buttons" (click)="goto('HomePage')" [hidden]=uploadPaySlip>Upload Payslip</button>
-     
-      <button ion-button color="blue" class="home-buttons"  (click)="presentModal('LeavesAdminPage')" [hidden]=leaveRequest>Leave Requests
-          <ion-badge color="danger">2</ion-badge>
-      </button>
-      <button ion-button color="blue" class="home-buttons" (click)="goto('UploadEventsPage')" [hidden]=uploadEvent>Send Message</button>
-  </div>
+        </ion-avatar>
+        <h5> {{event.title}}</h5>
+        <p>{{event.user}}</p>
+        <p>{{event.date}}</p>
+      </ion-item>
+    </ion-list>
+    
+
+ 
   
 </ion-content>
+<ion-footer padding class="privilleges" >
+  <h5>Control Panel</h5>
+  <ion-list no-lines>
+    <button ion-item  (click)="goto('NewuserPage')" [hidden]=users >
+        Users
+        
+    </button>
+    
+ 
+      <button ion-item  (click)="goto('SystemsPage')" [hidden]=systems >
+          Systems
+      </button>
+    
+      <button ion-item (click)="goto('RecruitmentPage')" [hidden]=recruitment>
+        Recruitment
+     </button>
+   
+       <!-- <button ion-item  (click)="goto('HomePage')" [hidden]=uploadPaySlip>
+            Upload Payslip
+        </button>
+      -->
+          <button ion-item  (click)="goto('LeavesAdminPage')" [hidden]=leaveRequest>
+             Leave Request
+                  <ion-badge color="danger">2</ion-badge>
+          </button>
+       
+            <button ion-item   (click)="goto('UploadEventsPage')" [hidden]=uploadEvent>
+                Send Message
+            </button>
+          </ion-list>
+          
+  
+</ion-footer>
