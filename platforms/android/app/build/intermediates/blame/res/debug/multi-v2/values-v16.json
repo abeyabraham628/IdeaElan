@@ -16,6 +16,21 @@
             ]
         },
         {
+            "outputFile": "D:\\ionic-v3-php-mysql-master\\ionic-app git\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\admin1\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\4a04070efda8d8aea2c837829d81105d\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-v16\\values-v16.xml",
             "map": [
                 {

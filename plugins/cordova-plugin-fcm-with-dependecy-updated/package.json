@@ -1,19 +1,19 @@
 {
-  "_from": "cordova-plugin-fcm-with-dependecy-updated",
+  "_from": "cordova-plugin-fcm-with-dependecy-updated@^2.4.0",
   "_id": "cordova-plugin-fcm-with-dependecy-updated@2.4.0",
   "_inBundle": false,
   "_integrity": "sha512-L199FSZBdCwBPND+eemN44MRDTqsOJA05/hmUmjMRN6Z4HoEn//x8PwphIovvQyDscW4Hrc6fRlHQBvVzFIQrQ==",
   "_location": "/cordova-plugin-fcm-with-dependecy-updated",
   "_phantomChildren": {},
   "_requested": {
-    "type": "tag",
+    "type": "range",
     "registry": true,
-    "raw": "cordova-plugin-fcm-with-dependecy-updated",
+    "raw": "cordova-plugin-fcm-with-dependecy-updated@^2.4.0",
     "name": "cordova-plugin-fcm-with-dependecy-updated",
     "escapedName": "cordova-plugin-fcm-with-dependecy-updated",
-    "rawSpec": "",
+    "rawSpec": "^2.4.0",
     "saveSpec": null,
-    "fetchSpec": "latest"
+    "fetchSpec": "^2.4.0"
   },
   "_requiredBy": [
     "#USER",
@@ -21,7 +21,7 @@
   ],
   "_resolved": "https://registry.npmjs.org/cordova-plugin-fcm-with-dependecy-updated/-/cordova-plugin-fcm-with-dependecy-updated-2.4.0.tgz",
   "_shasum": "675408e44793d5f5ee899f263a0c3b2a79363455",
-  "_spec": "cordova-plugin-fcm-with-dependecy-updated",
+  "_spec": "cordova-plugin-fcm-with-dependecy-updated@^2.4.0",
   "_where": "D:\\ionic-v3-php-mysql-master\\ionic-app git",
   "author": {
     "name": "André Augusto Tissot"

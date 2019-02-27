@@ -1,14 +1,14 @@
 webpackJsonp([10],{
 
-/***/ 717:
+/***/ 731:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InterviewSummaryPageModule", function() { return InterviewSummaryPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(751);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__interview_summary__ = __webpack_require__(752);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,35 +18,42 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HomePageModule = /** @class */ (function () {
-    function HomePageModule() {
+var InterviewSummaryPageModule = /** @class */ (function () {
+    function InterviewSummaryPageModule() {
     }
-    HomePageModule = __decorate([
+    InterviewSummaryPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_2__interview_summary__["a" /* InterviewSummaryPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__interview_summary__["a" /* InterviewSummaryPage */]),
             ],
         })
-    ], HomePageModule);
-    return HomePageModule;
+    ], InterviewSummaryPageModule);
+    return InterviewSummaryPageModule;
 }());
 
-//# sourceMappingURL=home.module.js.map
+//# sourceMappingURL=interview-summary.module.js.map
 
 /***/ }),
 
-/***/ 751:
+/***/ 752:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InterviewSummaryPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(62);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(458);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__ = __webpack_require__(462);
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,64 +66,64 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
 /**
- * Generated class for the HomePage page.
+ * Generated class for the InterviewSummaryPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var HomePage = /** @class */ (function () {
-    function HomePage(navCtrl, navParams, afAuth, firebase, loadingCtrl) {
+var InterviewSummaryPage = /** @class */ (function () {
+    function InterviewSummaryPage(navCtrl, navParams, firebase) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.afAuth = afAuth;
         this.firebase = firebase;
-        this.loadingCtrl = loadingCtrl;
-        this.users = true;
-        this.recruitment = true;
-        this.systems = true;
-        this.uploadPaySlip = true;
-        this.leaveRequest = true;
-        this.uploadEvent = true;
-        this.roles = navParams.get('roles');
-        if (this.roles[0] != "null") {
-            this.users = false;
-            this.recruitment = false;
-            this.systems = false;
-            this.uploadPaySlip = false;
-            this.leaveRequest = false;
-            this.uploadEvent = false;
-        }
-        if (this.roles[1] != "null")
-            this.leaveRequest = false;
-        // if(this.roles[2]!=null)
-        //this.leaveRequest=false
-        if (this.roles[3] != "null")
-            this.uploadPaySlip = false;
-        if (this.roles[4] != "null")
-            this.recruitment = false;
-        if (this.roles[5] != "null")
-            this.systems = false;
-        if (this.roles[6] != "null")
-            this.users = false;
+        this.selectedList = [];
+        this.total_Count = 0;
+        this.attended_Count = 0;
+        this.selected_Count = 0;
+        this.eventDate = navParams.get('eventDate');
+        this.interviewSummary(this.eventDate);
     }
-    HomePage.prototype.ionViewDidLoad = function () {
+    InterviewSummaryPage.prototype.ionViewDidLoad = function () {
+        //console.log('tony');
     };
-    HomePage.prototype.goto = function (page) {
-        this.navCtrl.push(page);
+    InterviewSummaryPage.prototype.goBack = function () {
+        this.navCtrl.pop();
     };
-    HomePage = __decorate([
+    InterviewSummaryPage.prototype.interviewSummary = function (eventDate) {
+        var _this = this;
+        var result = [];
+        var key;
+        this.firebase.database.ref("Schedules").orderByChild('interviewDate').equalTo(eventDate).on("value", function (snapshot) {
+            key = Object.keys(snapshot.val())[0];
+        }); //end of Schedules reference
+        this.firebase.database.ref("Applicants").orderByChild('interviewDate').equalTo(key).on("value", function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+                result.push(__assign({ $key: childSnapshot.key }, childSnapshot.val()));
+                return false;
+            });
+        }); //end of Applicants reference
+        this.total_Count = result.length;
+        result.forEach(function (element) {
+            if (element.interviewStatus == "selected") {
+                _this.selectedList.push(element);
+                _this.attended_Count += 1;
+            }
+            else if (element.interviewStatus == "reported")
+                _this.attended_Count += 1;
+        });
+        //this.applcantsData=result
+    }; //end of function
+    InterviewSummaryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"F:\ionic-app\src\pages\home\home.html"*/'<!--\n  Generated template for the HomePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n    <ion-toolbar color="blue" hideBackButton="true">\n      <button ion-button  menuToggle="left" start>\n          <ion-icon name="menu"></ion-icon>\n      </button>\n      \n      <ion-title text-center>Home</ion-title>\n  \n      <ion-buttons end>\n        <button ion-button >\n          <ion-icon name="notifications"></ion-icon> \n        </button> \n      </ion-buttons>\n      \n  </ion-toolbar>\n  \n  </ion-header>\n\n\n<ion-content>\n  <div class="box-events">\nHello\n  </div>\n  <div class="box-controllers">\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'NewuserPage\')" [hidden]=users>Users</button>\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'SystemsPage\')" [hidden]=systems>System</button>\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'RecruitmentPage\')" [hidden]=recruitment>Recruitment</button>\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'HomePage\')" [hidden]=uploadPaySlip>Upload Payslip</button>\n      <button ion-button color="blue" class="home-buttons"  (click)="goto(\'HomePage\')" [hidden]=leaveRequest>Leave Requests</button>\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'HomePage\')" [hidden]=uploadEvent>Upload Events</button>\n  </div>\n  \n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\home\home.html"*/,
+            selector: 'page-interview-summary',template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\interview-summary\interview-summary.html"*/'<!--\n\n  Generated template for the InterviewSummaryPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n\n\n<ion-content style="margin-top:55px;" >\n\n  <ion-card>\n\n    <ion-card-header>\n\n     <ion-row> Interview Summary</ion-row>\n\n     \n\n     <ion-row>26/05/2019</ion-row>\n\n     <ion-row><ion-col col-6>Total Candidates:{{total_Count}}</ion-col><ion-col col-6 ><ion-icon  name="arrow-back" (click)="goBack()"></ion-icon></ion-col></ion-row>\n\n     <ion-row> Attended:{{attended_Count}}</ion-row>\n\n     <ion-row> Selected:{{selectedList.length}}</ion-row>\n\n    </ion-card-header>\n\n  </ion-card>\n\n  \n\n      <ion-list >\n\n    <h6 class="title section-title">Selected Candidates</h6>\n\n    <ion-item>\n\n      <ion-row class="table-title">\n\n        <ion-col col-4 >Name</ion-col>\n\n      </ion-row>\n\n    </ion-item>\n\n    <div *ngFor="let x of selectedList">\n\n    <ion-item no-lines  >\n\n      <ion-row  class="col-text" >\n\n          <ion-col col-6  style="color: #66887F;">\n\n           {{x.fName}} {{x.lName}}\n\n          </ion-col>\n\n          <ion-col col-4  style="color:#2679B0;" >\n\n           Notice Period:{{x.noticePeriod}}\n\n          </ion-col><br/>\n\n        \n\n       \n\n          <ion-col col-6  style="color: #66887F;">\n\n           {{x.employer}}\n\n          </ion-col>\n\n          <ion-col col-6  style="color:#2679B0;" >\n\n           Current CTC:{{x.currentctc}}\n\n          </ion-col><br/>\n\n        \n\n          <ion-col col-6  style="color: #66887F;">\n\n           {{x.mobile}}\n\n          </ion-col>\n\n          <ion-col col-6  style="color:#2679B0;" >\n\n           Expected CTC:{{x.expectedctc}}\n\n          </ion-col><br/>\n\n        <ion-col col-12  class="row-bottom-border" style="color: #66887F;">\n\n          {{x.email}}\n\n          </ion-col>\n\n         </ion-row >\n\n     </ion-item>\n\n    </div>\n\n    </ion-list>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\interview-summary\interview-summary.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]])
-    ], HomePage);
-    return HomePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__["a" /* AngularFireDatabase */]])
+    ], InterviewSummaryPage);
+    return InterviewSummaryPage;
 }());
 
-//# sourceMappingURL=home.js.map
+//# sourceMappingURL=interview-summary.js.map
 
 /***/ })
 

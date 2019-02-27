@@ -45,12 +45,15 @@
     <item>OFF</item>
   </string-array>
     <attr format="reference" name="coordinatorLayoutStyle"/>
+    <color name="accent">#FF00FFFF</color>
     <color name="contents_text">#ff000000</color>
     <color name="encode_view">#ffffffff</color>
     <color name="notification_action_color_filter">#ffffffff</color>
     <color name="notification_icon_bg_color">#ff9e9e9e</color>
     <color name="notification_material_background_media_default_color">#ff424242</color>
     <color name="possible_result_points">#c0ffbd21</color>
+    <color name="primary">#FFFFFF00</color>
+    <color name="primary_dark">#FF220022</color>
     <color name="primary_text_default_material_dark">#ffffffff</color>
     <color name="result_minor_text">#ffc0c0c0</color>
     <color name="result_points">#c099cc00</color>
@@ -211,6 +214,8 @@
     <string name="contents_phone">Phone number</string>
     <string name="contents_sms">SMS address</string>
     <string name="contents_text">Plain text</string>
+    <string name="default_notification_channel_id">fcm_default_channel</string>
+    <string name="default_notification_channel_name">Default</string>
     <string name="history_clear_one_history_text">Clear</string>
     <string name="history_clear_text">Clear history</string>
     <string name="history_email_title">Barcode Scanner history</string>

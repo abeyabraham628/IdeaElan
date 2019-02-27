@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "500138839182",
+    "firebase_url": "https://sopaa-b37c1.firebaseio.com",
+    "project_id": "sopaa-b37c1",
+    "storage_bucket": "sopaa-b37c1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500138839182:android:e7f99f4c4fb0c83d",
+        "android_client_info": {
+          "package_name": "idea.elan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "500138839182-u98g81sitpb91ui4k4alm5u1rlubodpp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCc8dv7-X0UWASsDhWwKGpapanBQncn7L8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:500138839182:android:c027de96d062725f",
+        "android_client_info": {
+          "package_name": "io.ideaelan.login"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "500138839182-u98g81sitpb91ui4k4alm5u1rlubodpp.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCc8dv7-X0UWASsDhWwKGpapanBQncn7L8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

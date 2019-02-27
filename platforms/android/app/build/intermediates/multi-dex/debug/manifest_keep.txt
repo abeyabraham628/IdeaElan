@@ -1,0 +1,2 @@
+# Referenced at D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\manifests\full\debug\AndroidManifest.xml:32
+-keep class android.support.multidex.MultiDexApplication { <init>(...); }

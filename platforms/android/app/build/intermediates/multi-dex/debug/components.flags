@@ -1,0 +1,58 @@
+-injars 'D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\transforms\desugar\debug\17'(**.class)
+-injars 'D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\transforms\desugar\debug\0.jar'(**.class)
+-injars 'D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\transforms\desugar\debug\2.jar'(**.class)
+-injars 'D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\transforms\desugar\debug\3.jar'(**.class)
+-injars 'D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\transforms\desugar\debug\4.jar'(**.class)
+-injars 'D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\transforms\desugar\debug\5.jar'(**.class)
+-injars 'D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\transforms\desugar\debug\6.jar'(**.class)
+-injars 'D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\transforms\desugar\debug\7.jar'(**.class)
+-injars 'D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\transforms\desugar\debug\8.jar'(**.class)
+-injars 'D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\transforms\desugar\debug\9.jar'(**.class)
+-injars 'D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\transforms\desugar\debug\10.jar'(**.class)
+-injars 'D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\transforms\desugar\debug\11.jar'(**.class)
+-injars 'D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\transforms\desugar\debug\12.jar'(**.class)
+-injars 'D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\transforms\desugar\debug\13.jar'(**.class)
+-injars 'D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\transforms\desugar\debug\14.jar'(**.class)
+-injars 'D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\transforms\desugar\debug\15.jar'(**.class)
+-injars 'D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\transforms\desugar\debug\18.jar'(**.class)
+-outjars 'D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\multi-dex\debug\componentClasses.jar'
+
+-libraryjars 'C:\Users\admin1\AppData\Local\Android\sdk\build-tools\28.0.3\lib\shrinkedAndroid.jar'
+
+-forceprocessing
+-dontoptimize
+-dontobfuscate
+-dontusemixedcaseclassnames
+-dontpreverify
+-dontnote **
+-dontwarn **
+-printconfiguration 'D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\multi-dex\debug\components.flags'
+
+
+# Referenced at D:\ionic-v3-php-mysql-master\ionic-app git\platforms\android\app\build\intermediates\manifests\full\debug\AndroidManifest.xml:32
+-keep class android.support.multidex.MultiDexApplication {
+    <init>(...);
+}
+
+-keep public class * extends android.app.Instrumentation {
+    <init>();
+}
+
+-keep public class * extends android.app.Application {
+    <init>();
+    void attachBaseContext(android.content.Context);
+}
+
+-keep public class * extends android.app.backup.BackupAgent {
+    <init>();
+}
+
+-keep public class * extends java.lang.annotation.Annotation {
+    <fields>;
+    <methods>;
+}
+
+-keep class com.android.tools.ir.** {
+    <fields>;
+    <methods>;
+}

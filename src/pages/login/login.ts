@@ -39,22 +39,23 @@ export class LoginPage {
   async signIn(user:credentials){
    
    try{
-     //const result=await this.afAuth.auth.signInWithEmailAndPassword(user.emailId,user.password);
-     const result=await this.afAuth.auth.signInWithEmailAndPassword('tony.manuel@mca.christuniversity.in','RzqLCZ');
+     // const result=await this.afAuth.auth.signInWithEmailAndPassword(user.emailId,user.password);
+      const result=await this.afAuth.auth.signInWithEmailAndPassword('tony.manuel@mca.christuniversity.in','123456');
       let x:Promise<boolean>
       let y;
       var privilleges=[]
       
       const priv=await this.firebase.database.ref(`users/${result.user.uid}`).child('data').once('value',(snapshot)=>{
        privilleges=snapshot.val()
+      
       })
-     console.log("resule",result.user.uid)
+     //console.log("resule",result.user.uid)
   
        
       if(result){
             await this.firebase.database.ref('TempLogin').orderByChild(`${result.user.uid}`).once("value",(snapshot)=> {
               y=snapshot.val();
-              console.log(y)
+              
             });
 
               if(y==null)

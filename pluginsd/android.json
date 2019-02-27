@@ -1,0 +1,30 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-splashscreen": {
+      "PACKAGE_NAME": "idea.elan"
+    },
+    "phonegap-plugin-barcodescanner": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-email-composer": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
+      "PACKAGE_NAME": "idea.elan"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-support-google-services": {
+      "PACKAGE_NAME": "idea.elan"
+    },
+    "phonegap-plugin-multidex": {
+      "PACKAGE_NAME": "idea.elan"
+    }
+  }
+}

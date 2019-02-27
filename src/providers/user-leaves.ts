@@ -1,24 +1,25 @@
-import {CalendarResult } from "ion2-calendar";
+
 
 export interface leaves{
     leaveType:string;
     date:any[];
-    date2?:any[]
+    date2?:any[];
     status:string;
-    message:string;
-    count:number;
-    count2?:number;
+    message?:string;
+    
 }
-export interface leaveCounter{
-    sick:number;
-    casual:number;
+
+export interface leaveCount{
+    sickRemaining:number;
+    casualRemaining:number;
+    currentMonthLeave:number;
 }
 
 
 export interface DayMonthYear{
     day: string[];
     month:string[];
-    year?:string[];
+  
 
 }
 

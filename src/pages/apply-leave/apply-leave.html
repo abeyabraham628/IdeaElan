@@ -30,17 +30,17 @@
 
   
   
-    <ion-segment [(ngModel)]="leaves" color="white" >
+    <ion-segment [(ngModel)]="ionSegmentDefaultValue" color="white" >
         <ion-segment-button value="applyLeave">
            Apply Leave
         </ion-segment-button>
-        <ion-segment-button value="leaveHistory" (click)="getPastLeaves()">
+        <ion-segment-button value="leaveHistory" >
           History
         </ion-segment-button>
      </ion-segment>
 
 
-<div [ngSwitch]="leaves">
+<div [ngSwitch]="ionSegmentDefaultValue">
   <div *ngSwitchCase="'applyLeave'">
     
    
@@ -52,16 +52,16 @@
 
     <ion-card>
       <ion-card-content>
-         <ion-row>
+         <ion-row (click)="remaining()">
             <ion-col col-6>This month leaves</ion-col>
             <ion-col col-6>Remaining Leaves</ion-col>
          </ion-row>
          
         <ion-row >
-           <ion-col col-6>{{currentMonthLeave}}</ion-col><ion-col col-4>Casual</ion-col><ion-col col-2>{{casualRemaining}}</ion-col>
+           <ion-col col-6>{{leaveCount.currentMonthLeave}}</ion-col><ion-col col-4>Casual</ion-col><ion-col col-2>{{leaveCount.casualRemaining}}</ion-col>
         </ion-row>
         <ion-row>
-            <ion-col col-6></ion-col><ion-col col-4>Sick</ion-col><ion-col col-2>{{sickRemaining}}</ion-col>
+            <ion-col col-6></ion-col><ion-col col-4>Sick</ion-col><ion-col col-2>{{leaveCount.sickRemaining}}</ion-col>
          </ion-row>
          
       </ion-card-content>
@@ -82,7 +82,7 @@
        
     </ion-card-content>
 </ion-card>
-  <h6 text-center class="title section-title">Leave Details</h6>
+ <!-- <h6 text-center class="title section-title">Leave Details</h6>
     <ion-list radio-group [(ngModel)]="leave.leaveType">
       <ion-row>
         <ion-item col-6>
@@ -99,23 +99,24 @@
   <ion-row>
     <ion-item col-12>
       <ion-label stacked>Select Dates</ion-label>
-      <ion-input  type="text" (click)="openCalendar() " [(ngModel)]="leave.date"  ></ion-input>
+      <ion-input  type="text" (click)="datePicker() " [(ngModel)]="userLeave.leave.date"  ></ion-input>
     </ion-item>
     
   </ion-row>
   <ion-row>
-    <button ion-button full color="blue" (click)="submitLeaveRequest()">Submit</button>
+    <button ion-button full color="blue" (click)="applyForLeave()">Submit</button>
   </ion-row>
 </ion-list>
 
 </div>
 
     <div *ngSwitchCase="'leaveHistory'">
+      
       <ion-item>
           <ion-label>Calendar</ion-label>
-      <ion-select [(ngModel)]="months.month" (ionChange)="enableYear()">
+      <ion-select [(ngModel)]="tony">
     
-    <ion-option *ngFor="let x of monthName" value="{{x.value}}">{{x.monthName}}</ion-option>
+    <ion-option *ngFor="let x of months" value="{{x.value}}">{{x.monthName}}</ion-option>
     </ion-select>
     <ion-select [(ngModel)]="months.year" [hidden]=showYear (ionChange)="getPastLeaves(months.month,months.year)">
         
@@ -124,6 +125,7 @@
 
      
   </ion-item>
+  
   
       <ion-list>
         <h6 text-center class="title section-title">Recent Request</h6>
@@ -143,6 +145,7 @@
               </ion-row>
             </ion-item>
         </ion-list>
+        -->
     </div>
 </div>
 

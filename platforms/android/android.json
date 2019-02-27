@@ -25,10 +25,6 @@
               "count": 1
             },
             {
-              "xml": "<feature name=\"PushNotification\"><param name=\"android-package\" value=\"com.adobe.phonegap.push.PushPlugin\" /></feature>",
-              "count": 1
-            },
-            {
               "xml": "<feature name=\"FirebasePlugin\"><param name=\"android-package\" value=\"org.apache.cordova.firebase.FirebasePlugin\" /><param name=\"onload\" value=\"true\" /></feature>",
               "count": 1
             }
@@ -56,26 +52,6 @@
             },
             {
               "xml": "<service android:name=\"com.gae.scaffolder.plugin.MyFirebaseInstanceIDService\"><intent-filter><action android:name=\"com.google.firebase.INSTANCE_ID_EVENT\" /></intent-filter></service>",
-              "count": 1
-            },
-            {
-              "xml": "<activity android:exported=\"true\" android:name=\"com.adobe.phonegap.push.PushHandlerActivity\" android:permission=\"${applicationId}.permission.PushHandlerActivity\" />",
-              "count": 1
-            },
-            {
-              "xml": "<receiver android:name=\"com.adobe.phonegap.push.BackgroundActionButtonHandler\" />",
-              "count": 1
-            },
-            {
-              "xml": "<receiver android:name=\"com.adobe.phonegap.push.PushDismissedHandler\" />",
-              "count": 1
-            },
-            {
-              "xml": "<service android:name=\"com.adobe.phonegap.push.FCMService\"><intent-filter><action android:name=\"com.google.firebase.MESSAGING_EVENT\" /></intent-filter></service>",
-              "count": 1
-            },
-            {
-              "xml": "<service android:name=\"com.adobe.phonegap.push.PushInstanceIDListenerService\"><intent-filter><action android:name=\"com.google.firebase.INSTANCE_ID_EVENT\" /></intent-filter></service>",
               "count": 1
             },
             {
@@ -107,22 +83,6 @@
             {
               "xml": "<uses-feature android:name=\"android.hardware.camera\" android:required=\"true\" />",
               "count": 1
-            },
-            {
-              "xml": "<uses-permission android:name=\"android.permission.INTERNET\" />",
-              "count": 1
-            },
-            {
-              "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
-              "count": 1
-            },
-            {
-              "xml": "<uses-permission android:name=\"android.permission.WAKE_LOCK\" />",
-              "count": 1
-            },
-            {
-              "xml": "<uses-permission android:name=\"android.permission.VIBRATE\" />",
-              "count": 1
             }
           ],
           "/*": [
@@ -145,7 +105,17 @@
           ],
           "application": [
             {
-              "xml": "<provider android:authorities=\"${applicationId}.provider\" android:exported=\"false\" android:grantUriPermissions=\"true\" android:name=\"org.apache.cordova.camera.FileProvider\"><meta-data android:name=\"android.support.FILE_PROVIDER_PATHS\" android:resource=\"@xml/camera_provider_paths\" /></provider>",
+              "xml": "<provider android:authorities=\"${applicationId}.emailcomposer.provider\" android:exported=\"false\" android:grantUriPermissions=\"true\" android:name=\"de.appplant.cordova.emailcomposer.Provider\"><meta-data android:name=\"android.support.FILE_PROVIDER_PATHS\" android:resource=\"@xml/emailcomposer_provider_paths\" /></provider>",
+              "count": 1
+            }
+          ]
+        }
+      },
+      "config.xml": {
+        "parents": {
+          "/*": [
+            {
+              "xml": "<feature name=\"EmailComposer\"><param name=\"android-package\" value=\"de.appplant.cordova.emailcomposer.EmailComposer\" /></feature>",
               "count": 1
             }
           ]
@@ -161,24 +131,11 @@
       "ANDROID_SUPPORT_V4_VERSION": "27.+",
       "PACKAGE_NAME": "idea.elan"
     },
-    "cordova-plugin-camera": {
-      "PACKAGE_NAME": "idea.elan"
-    },
-    "cordova-plugin-fcm": {
-      "PACKAGE_NAME": "idea.elan"
-    },
-    "cordova-support-google-services": {
+    "cordova-plugin-email-composer": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
       "PACKAGE_NAME": "idea.elan"
     },
     "phonegap-plugin-multidex": {
-      "PACKAGE_NAME": "idea.elan"
-    },
-    "phonegap-plugin-push": {
-      "ANDROID_SUPPORT_V13_VERSION": "27.+",
-      "FCM_VERSION": "11.6.2",
-      "PACKAGE_NAME": "idea.elan"
-    },
-    "cordova-plugin-firebase": {
       "PACKAGE_NAME": "idea.elan"
     }
   },
@@ -201,70 +158,18 @@
       ]
     },
     {
-      "id": "cordova-plugin-camera.Camera",
-      "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
-      "pluginId": "cordova-plugin-camera",
+      "id": "cordova-plugin-email-composer.EmailComposer",
+      "file": "plugins/cordova-plugin-email-composer/www/email_composer.js",
+      "pluginId": "cordova-plugin-email-composer",
       "clobbers": [
-        "Camera"
-      ]
-    },
-    {
-      "id": "cordova-plugin-camera.CameraPopoverOptions",
-      "file": "plugins/cordova-plugin-camera/www/CameraPopoverOptions.js",
-      "pluginId": "cordova-plugin-camera",
-      "clobbers": [
-        "CameraPopoverOptions"
-      ]
-    },
-    {
-      "id": "cordova-plugin-camera.camera",
-      "file": "plugins/cordova-plugin-camera/www/Camera.js",
-      "pluginId": "cordova-plugin-camera",
-      "clobbers": [
-        "navigator.camera"
-      ]
-    },
-    {
-      "id": "cordova-plugin-camera.CameraPopoverHandle",
-      "file": "plugins/cordova-plugin-camera/www/CameraPopoverHandle.js",
-      "pluginId": "cordova-plugin-camera",
-      "clobbers": [
-        "CameraPopoverHandle"
-      ]
-    },
-    {
-      "id": "cordova-plugin-fcm.FCMPlugin",
-      "file": "plugins/cordova-plugin-fcm/www/FCMPlugin.js",
-      "pluginId": "cordova-plugin-fcm",
-      "clobbers": [
-        "FCMPlugin"
-      ]
-    },
-    {
-      "id": "phonegap-plugin-push.PushNotification",
-      "file": "plugins/phonegap-plugin-push/www/push.js",
-      "pluginId": "phonegap-plugin-push",
-      "clobbers": [
-        "PushNotification"
-      ]
-    },
-    {
-      "id": "cordova-plugin-firebase.FirebasePlugin",
-      "file": "plugins/cordova-plugin-firebase/www/firebase.js",
-      "pluginId": "cordova-plugin-firebase",
-      "clobbers": [
-        "FirebasePlugin"
+        "cordova.plugins.email"
       ]
     }
   ],
   "plugin_metadata": {
     "cordova-plugin-splashscreen": "5.0.2",
     "phonegap-plugin-barcodescanner": "8.0.1",
-    "cordova-plugin-camera": "4.0.3",
-    "cordova-plugin-fcm": "2.1.2",
-    "cordova-support-google-services": "1.1.0",
-    "phonegap-plugin-multidex": "1.0.0",
-    "phonegap-plugin-push": "2.2.3",
-    "cordova-plugin-firebase": "2.0.5"
+    "cordova-plugin-email-composer": "0.9.2",
+    "phonegap-plugin-multidex": "1.0.0"
   }
 }

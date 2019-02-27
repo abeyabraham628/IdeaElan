@@ -14,27 +14,10 @@
       "ANDROID_SUPPORT_V4_VERSION": "27.+",
       "PACKAGE_NAME": "idea.elan"
     },
-    "cordova-plugin-camera": {
-      "PACKAGE_NAME": "idea.elan"
-    },
-    "cordova-plugin-fcm": {
-      "PACKAGE_NAME": "idea.elan"
-    },
-    "phonegap-plugin-push": {
-      "ANDROID_SUPPORT_V13_VERSION": "27.+",
-      "FCM_VERSION": "11.6.2",
-      "PACKAGE_NAME": "idea.elan"
-    },
-    "cordova-plugin-firebase": {
+    "cordova-plugin-email-composer": {
+      "ANDROID_SUPPORT_V4_VERSION": "27.+",
       "PACKAGE_NAME": "idea.elan"
     }
   },
-  "dependent_plugins": {
-    "cordova-support-google-services": {
-      "PACKAGE_NAME": "idea.elan"
-    },
-    "phonegap-plugin-multidex": {
-      "PACKAGE_NAME": "idea.elan"
-    }
-  }
+  "dependent_plugins": {}
 }

@@ -34,7 +34,7 @@ export class TabsPage {
   tab3Root = 'RecruitmentPage';*/
   tab0Root='HomePage';
   tab1Root='ApplyLeavePage';
-  tab2Root='PayslipPage';
+  tab2Root='ChatbotPage';
   tab3Root='InboxPage';
   tab0Params:any
   userId:any

@@ -27,14 +27,17 @@ export class SystemsPage {
     
     systemsForm= new FormGroup({
     $key      :new FormControl(null),
-    systemId  :new FormControl(''),
-    keyboard  :new FormControl(''),
-    mouse     :new FormControl(''),
-    processor :new FormControl(''),
-    memory    :new FormControl(''),
-    hdd       :new FormControl(''),
-    avExpiry  :new FormControl(''),
-    avValidity:new FormControl('')
+    systemId  :new FormControl('',[Validators.required,Validators.minLength(5)]),
+    keyboard  :new FormControl('',[Validators.required,Validators.minLength(4)]),
+    mouse     :new FormControl('',[Validators.required,Validators.minLength(4)]),
+
+    processor :new FormControl('',[Validators.required,Validators.minLength(4)]),
+    memory    :new FormControl('',[Validators.required,Validators.minLength(3)]),
+    hdd       :new FormControl('',[Validators.required,Validators.minLength(3)]),
+    avExpiry  :new FormControl('',[Validators.required,Validators.minLength(4)]),
+    avValidity:new FormControl('',[Validators.required,Validators.minLength(4)]),
+      
+   
 });
 
   

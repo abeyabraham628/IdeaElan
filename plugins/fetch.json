@@ -76,7 +76,7 @@
   "cordova-plugin-firebase": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-firebase@2.0.5"
+      "id": "cordova-plugin-firebase"
     },
     "is_top_level": true,
     "variables": {}
@@ -84,7 +84,7 @@
   "cordova-plugin-email-composer": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-email-composer"
+      "id": "cordova-plugin-email-composer@0.9.2"
     },
     "is_top_level": true,
     "variables": {}
@@ -115,48 +115,12 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-fcm": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-fcm@^2.1.2"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-fcm-with-dependecy-updated": {
     "source": {
       "type": "registry",
-      "id": "cordova-plugin-fcm-with-dependecy-updated"
+      "id": "cordova-plugin-fcm-with-dependecy-updated@^2.4.0"
     },
     "is_top_level": true,
-    "variables": {}
-  },
-  "phonegap-plugin-push": {
-    "source": {
-      "type": "registry",
-      "id": "phonegap-plugin-push@2.2.3"
-    },
-    "is_top_level": true,
-    "variables": {
-      "SENDER_ID": "500138839182",
-      "ANDROID_SUPPORT_V13_VERSION": "27.+",
-      "FCM_VERSION": "11.6.2"
-    }
-  },
-  "cordova-support-google-services": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-support-google-services@~1.1.0"
-    },
-    "is_top_level": false,
-    "variables": {}
-  },
-  "phonegap-plugin-multidex": {
-    "source": {
-      "type": "registry",
-      "id": "phonegap-plugin-multidex@~1.0.0"
-    },
-    "is_top_level": false,
     "variables": {}
   }
 }

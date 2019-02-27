@@ -1,5 +1,10 @@
+import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+
+import { IonicPage, NavController, NavParams, ModalController,AlertController } from 'ionic-angular';
+import { messaging } from 'firebase';
+
 
 /**
  * Generated class for the InboxPage page.
@@ -15,11 +20,43 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class InboxPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  
+
+  constructor(public afauth:AngularFireAuth,public alertCtrl:AlertController, public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public modalCtrl:ModalController) {
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad InboxPage');
+    this.getMessages()
   }
 
+messages=[]
+getMessages(){
+  this.firebase.list(`messages/${this.afauth.auth.currentUser.uid}`).snapshotChanges().subscribe(snap=>{
+    this.messages=snap.map(item=>{
+      return{
+        $key:item.key,
+        ...item.payload.val()
+      }
+
+    })
+  })
+
+  
 }
+
+viewMessage(x) {
+  const alert = this.alertCtrl.create({
+    title: x.subject,
+    message:x.message,
+    buttons: ['OK']
+  });
+  alert.present();
+}
+
+
+
+}
+
+
+

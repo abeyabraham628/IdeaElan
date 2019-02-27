@@ -229,7 +229,18 @@ getItems(searchbar) {
           position:this.userItem.position,
           data:this.dnew,
           status:this.status
+         }).then(()=>{
+          
+           this.fdb.list(`tokensNotificationId`).push({
+           'userIdTocken': data.user.uid,
+           'tokenid': "null"
+           
+           })
+
+
          });// end of push
+
+
      });//end of create user
       this.email(this.userItem.fname, this.userItem.email,password)
       }catch(e){

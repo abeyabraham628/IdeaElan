@@ -1,18 +1,19 @@
 
 
+
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic API.AI Chatbot
+      Idea Elan Chatbot Without UI
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
-  <input ion-text type="text" [(ngModel)]="question">
+  <input ion-text type="text" [(ngModel)]="question" hidden=true>
 
-  <button ion-button (click)="ask(question)">
+  <button ion-button (click)="ask(question)" hidden=true>
     Ask
   </button>
 
@@ -20,4 +21,17 @@
     {{answer}}
   </div>
 
+
+
+<ion-footer>
+  <p text-center *ngIf="sending" >sending...</p>
+  <div class="flex-items" padding>
+
+      <ion-input [(ngModel)]="question" name="message" class="input_message" placeholder="send message ..."></ion-input>
+      <ion-icon (click)="ask(question)" class="send" name="send"></ion-icon>
+    </div>
+</ion-footer>
 </ion-content>
+
+
+

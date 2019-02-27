@@ -1,14 +1,14 @@
 webpackJsonp([12],{
 
-/***/ 737:
+/***/ 729:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChangepasswordPageModule", function() { return ChangepasswordPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__changepassword__ = __webpack_require__(825);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(764);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,35 +18,44 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ChangepasswordPageModule = /** @class */ (function () {
-    function ChangepasswordPageModule() {
+var HomePageModule = /** @class */ (function () {
+    function HomePageModule() {
     }
-    ChangepasswordPageModule = __decorate([
+    HomePageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__changepassword__["a" /* ChangepasswordPage */],
+                __WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__changepassword__["a" /* ChangepasswordPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]),
             ],
         })
-    ], ChangepasswordPageModule);
-    return ChangepasswordPageModule;
+    ], HomePageModule);
+    return HomePageModule;
 }());
 
-//# sourceMappingURL=changepassword.module.js.map
+//# sourceMappingURL=home.module.js.map
 
 /***/ }),
 
-/***/ 825:
+/***/ 764:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChangepasswordPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(64);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__ = __webpack_require__(470);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(469);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_fcm__ = __webpack_require__(465);
+var __assign = (this && this.__assign) || Object.assign || function(t) {
+    for (var s, i = 1, n = arguments.length; i < n; i++) {
+        s = arguments[i];
+        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+            t[p] = s[p];
+    }
+    return t;
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -95,72 +104,161 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
+
 /**
- * Generated class for the ChangepasswordPage page.
+ * Generated class for the HomePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var ChangepasswordPage = /** @class */ (function () {
-    function ChangepasswordPage(navCtrl, navParams, afAuth, firebase) {
+var HomePage = /** @class */ (function () {
+    function HomePage(modalCtrl, fcm, navCtrl, navParams, afAuth, firebase, loadingCtrl) {
+        var _this = this;
+        this.modalCtrl = modalCtrl;
+        this.fcm = fcm;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.afAuth = afAuth;
         this.firebase = firebase;
-        this.companyLogo = "assets/imgs/26053.png";
+        this.loadingCtrl = loadingCtrl;
+        this.users = true;
+        this.recruitment = true;
+        this.systems = true;
+        this.uploadPaySlip = true;
+        this.leaveRequest = true;
+        this.uploadEvent = true;
+        this.devicetoken = "abc";
+        this.messages = [];
+        this.events = [];
+        console.log(this.afAuth.auth.currentUser.uid);
+        this.fcm.getToken().then(function (token) {
+            //backend.registerToken(token);
+            _this.devicetoken = token;
+            alert(token);
+        });
+        this.fcm.onTokenRefresh().subscribe(function (token) {
+            _this.devicetoken = token;
+            alert("updated");
+        });
+        this.checks();
+        /*
+          this.firebase.list(`tokens`).push({
+            ' uid': "try",
+            'tokenid': "null"
+            
+            })
+            */
+        this.roles = navParams.get('roles');
+        console.log(this.roles);
+        if (this.roles[0] != "null") {
+            this.users = false;
+            this.recruitment = false;
+            this.systems = false;
+            this.uploadPaySlip = false;
+            this.leaveRequest = false;
+            this.uploadEvent = false;
+        }
+        if (this.roles[1] != "null")
+            this.leaveRequest = false;
+        // if(this.roles[2]!=null)
+        //this.leaveRequest=false
+        if (this.roles[3] != "null")
+            this.uploadPaySlip = false;
+        if (this.roles[4] != "null")
+            this.recruitment = false;
+        if (this.roles[5] != "null")
+            this.systems = false;
+        if (this.roles[6] != "null")
+            this.users = false;
     }
-    ChangepasswordPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ChangepasswordPage');
+    HomePage.prototype.checks = function () {
+        var _this = this;
+        var idOftoken, tokenStatus;
+        this.firebase.database.ref('tokensNotificationId').orderByChild('userIdTocken').equalTo("" + this.afAuth.auth.currentUser.uid).once("value", function (snap) {
+            // console.log(snap.val())
+            snap.forEach(function (child) {
+                if (child.child('tokenid').val() == "null") {
+                    console.log("if yes update it with device token");
+                    _this.firebase.object("/tokensNotificationId/" + child.key)
+                        .update({ tokenid: _this.devicetoken, userIdTocken: _this.afAuth.auth.currentUser.uid });
+                }
+                console.log(child.child('userIdTocken').val());
+                console.log(child.key);
+            });
+            //if not exsist , needed to be added , but already user will have an entry to token list as it is added in newuser.ts file 
+        });
     };
-    ChangepasswordPage.prototype.updatePassword = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var user, newPassword, firebase, navCtrl;
-            return __generator(this, function (_a) {
-                user = this.afAuth.auth.currentUser;
-                newPassword = this.password;
-                firebase = this.firebase;
-                navCtrl = this.navCtrl;
-                user.updatePassword(newPassword).then(function () {
-                    firebase.object("TempLogin/" + user.uid).set({
-                        status: "Set",
-                    }).then(function () {
-                        return __awaiter(this, void 0, void 0, function () {
-                            var privilleges, priv;
-                            return __generator(this, function (_a) {
-                                switch (_a.label) {
-                                    case 0:
-                                        privilleges = [];
-                                        return [4 /*yield*/, firebase.database.ref("users/" + user.uid).child('data').once('value', function (snapshot) {
-                                                privilleges = snapshot.val();
-                                            })];
-                                    case 1:
-                                        priv = _a.sent();
-                                        navCtrl.push('TabsPage', { 'roles': privilleges });
-                                        return [2 /*return*/];
-                                }
-                            });
-                        });
-                    }); // end of push
-                }).catch(function (error) {
-                    console.error(error);
-                });
-                return [2 /*return*/];
+    HomePage.prototype.ionViewDidLoad = function () {
+        this.getMessages();
+        this.getUpComingEvents();
+    };
+    HomePage.prototype.goto = function (page) {
+        this.navCtrl.push(page);
+    };
+    HomePage.prototype.presentModal = function (page) {
+        var modal = this.modalCtrl.create(page);
+        modal.present();
+    };
+    HomePage.prototype.getMessages = function () {
+        var _this = this;
+        this.firebase.list('messages').snapshotChanges().subscribe(function (snap) {
+            _this.messages = snap.map(function (item) {
+                return __assign({ $key: item.key }, item.payload.val());
             });
         });
     };
-    ChangepasswordPage.prototype.cancel = function () {
-        this.navCtrl.pop();
+    HomePage.prototype.viewMessages = function (x) {
+        var modal = this.modalCtrl.create({
+            title: x.subject,
+        });
+        modal.present();
     };
-    ChangepasswordPage = __decorate([
+    HomePage.prototype.getUpComingEvents = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var events, bday, anniversary, org, diffDays, timeDiff;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        events = [];
+                        return [4 /*yield*/, this.firebase.database.ref("users").once('value', function (snap) {
+                                snap.forEach(function (snap) {
+                                    bday = snap.child('dob').val().split('/');
+                                    anniversary = snap.child('doj').val().split('/');
+                                    if (new Date().getMonth() + 1 === parseInt(bday[1], 10) && new Date().getDate() <= parseInt(bday[0], 10)) {
+                                        events.push({
+                                            'title': 'Birthday',
+                                            'user': snap.child('fname').val() + " " + snap.child('lname').val(),
+                                            'date': parseInt(bday[0], 10) + "/" + parseInt(bday[1], 10) + "/" + new Date().getFullYear()
+                                        });
+                                    }
+                                    if (new Date().getMonth() + 1 === parseInt(anniversary[1], 10) && new Date().getDate() <= parseInt(anniversary[0], 10)) {
+                                        events.push({
+                                            'title': 'Work Anniversary',
+                                            'user': snap.child('fname').val() + " " + snap.child('lname').val(),
+                                            'date': parseInt(anniversary[0], 10) + "/" + parseInt(anniversary[1], 10) + "/" + new Date().getFullYear()
+                                        });
+                                    }
+                                });
+                            })];
+                    case 1:
+                        _a.sent();
+                        this.events = events;
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-changepassword',template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\changepassword\changepassword.html"*/'<!--\n\n  Generated template for the ChangepasswordPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n<ion-header no-border>\n\n    <ion-toolbar color="blue">\n\n     <ion-title text-center>IdeaElan</ion-title>\n\n   </ion-toolbar>\n\n  </ion-header>\n\n\n\n<ion-content padding class="top-botton-border" style="margin-top:auto;margin-bottom:auto">\n\n   \n\n       \n\n      \n\n      \n\n  <ion-card>\n\n    <ion-card-header text-center>\n\n        <ion-thumbnail >\n\n            <img [src]="companyLogo" class="logo1" />\n\n          </ion-thumbnail>\n\n          <br/>CHANGE PASSWORD\n\n    </ion-card-header>\n\n    <ion-card-content>\n\n      \n\n        \n\n        <ion-list>\n\n            <ion-item>\n\n              <ion-label floating>New Password</ion-label>\n\n              <ion-input type="password" [(ngModel)]="password" ></ion-input>\n\n            </ion-item>\n\n          </ion-list>\n\n          <ion-list>\n\n            <ion-item>\n\n              <ion-label floating>Confirm Password</ion-label>\n\n              <ion-input type="password"></ion-input>\n\n            </ion-item>\n\n          \n\n          </ion-list>\n\n          \n\n\n\n    </ion-card-content>\n\n    <ion-row class="cardfooter">\n\n        <ion-col col-6>\n\n            <button ion-button full  color="blue" (click)="updatePassword()">Save</button>\n\n           \n\n        </ion-col>\n\n        <ion-col col-6>\n\n        \n\n            <button ion-button full  color="blue" (click)="cancel()">Cancel</button>\n\n        </ion-col>\n\n      </ion-row>\n\n  </ion-card>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\changepassword\changepassword.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\home\home.html"*/'<!--\n\n  Generated template for the HomePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n    <ion-toolbar color="blue" hideBackButton="true">\n\n      <button ion-button  menuToggle="left" start>\n\n          <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      \n\n      <ion-title text-center>Home</ion-title>\n\n  \n\n      <ion-buttons end>\n\n        <button ion-button >\n\n          <ion-icon name="notifications"></ion-icon> \n\n        </button> \n\n      </ion-buttons>\n\n      \n\n  </ion-toolbar>\n\n  \n\n  </ion-header>\n\n\n\n\n\n<ion-content>\n\n\n\n  <div class="box-events">\n\n   \n\n      <ion-card *ngFor="let event of events">\n\n        <ion-card-header>\n\n            {{event.title}}<br/>\n\n            {{event.user}}<br/>\n\n            {{event.date}}\n\n         </ion-card-header>\n\n      </ion-card>\n\n              \n\n       \n\n   </div>\n\n  <div class="box-controllers">\n\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'NewuserPage\')" [hidden]=users>Users</button>\n\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'SystemsPage\')" [hidden]=systems>System</button>\n\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'RecruitmentPage\')" [hidden]=recruitment>Recruitment</button>\n\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'HomePage\')" [hidden]=uploadPaySlip>Upload Payslip</button>\n\n     \n\n      <button ion-button color="blue" class="home-buttons"  (click)="presentModal(\'LeavesAdminPage\')" [hidden]=leaveRequest>Leave Requests\n\n          <ion-badge color="danger">2</ion-badge>\n\n      </button>\n\n      <button ion-button color="blue" class="home-buttons" (click)="goto(\'UploadEventsPage\')" [hidden]=uploadEvent>Send Message</button>\n\n  </div>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"D:\ionic-v3-php-mysql-master\ionic-app git\src\pages\home\home.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */]])
-    ], ChangepasswordPage);
-    return ChangepasswordPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_4__ionic_native_fcm__["a" /* FCM */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]])
+    ], HomePage);
+    return HomePage;
 }());
 
-//# sourceMappingURL=changepassword.js.map
+//# sourceMappingURL=home.js.map
 
 /***/ })
 

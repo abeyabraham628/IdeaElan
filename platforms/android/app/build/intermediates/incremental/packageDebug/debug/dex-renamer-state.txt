@@ -1,4 +1,7 @@
-#Mon Feb 18 10:17:29 IST 2019
-base.0=F\:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+#Tue Feb 26 11:45:45 IST 2019
+base.0=D\:\\ionic-v3-php-mysql-master\\ionic-app git\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
+path.1=classes2.dex
+renamed.1=classes2.dex
 path.0=classes.dex
 renamed.0=classes.dex
+base.1=D\:\\ionic-v3-php-mysql-master\\ionic-app git\\platforms\\android\\app\\build\\intermediates\\transforms\\dexMerger\\debug\\0
