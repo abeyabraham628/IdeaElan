@@ -11,8 +11,8 @@
      
       <ion-item no-lines style="text-align:center;background-color: #2679b0">
           <ion-thumbnail style="height:100px;width:100px;border-radius:50%;margin: auto">
-            <img [hidden]="this.hid" src="{{uri}}" style="border:4px solid #ffffff; height:100px;width:100px;border-radius:50%;margin: auto"/>
-          </ion-thumbnail>
+              <img src="https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/{{uri}}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b" onerror="this.src='assets/imgs/companylogo.png'"> 
+            </ion-thumbnail>
           <h2 style="color:#ffffff">{{this.uname | titlecase }}</h2>
           <h6 style="color:#ffffff">{{this.position | titlecase }}</h6>
       </ion-item>
