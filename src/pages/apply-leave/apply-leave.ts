@@ -118,7 +118,7 @@ months=this.customDatePicker.getMonths()
   leaveHistory(from?,to?){
    
    this.leaveRecords=this.userLeave.getPastLeaves(this.afauth.auth.currentUser.uid,from,to)
-   
+   console.log(this.leaveRecords)
  }
 
     viewRemainingLeaves(){

@@ -55,7 +55,7 @@
                     <ion-row>
                       <ion-item col-12 > 
                           <ion-label stacked>Date Of Birth</ion-label>
-                          <ion-input type="text"  (ionFocus)="dispdate('birth')" (click)="dispdate('birth')" [(ngModel)]="userItem.dob"  ></ion-input>
+                          <ion-input type="text" readonly (ionFocus)="dispdate('birth')" (click)="dispdate('birth')" [(ngModel)]="userItem.dob"  ></ion-input>
                         </ion-item> 
                     </ion-row>     
                     <ion-row>
@@ -77,11 +77,11 @@
                         <ion-row>
                             <ion-item col-6> 
                                 <ion-label stacked>Date Of Joining</ion-label>
-                                <ion-input type="text"  (ionFocus)="dispdate('join')" (click)="dispdate('join')" [(ngModel)]="userItem.doj"></ion-input>
+                                <ion-input type="text" readonly (ionFocus)="dispdate('join')"  (click)="dispdate('join')" [(ngModel)]="userItem.doj"></ion-input>
                               </ion-item>
                              <ion-item col-6> 
                                 <ion-label stacked>Position</ion-label>
-                                <ion-input type="text" [(ngModel)]="userItem.position" ></ion-input>
+                                <ion-input type="text" [(ngModel)]="userItem.position" (click)="selectPosition()" readonly ></ion-input>
                               </ion-item>
                            </ion-row>  
                           <ion-row>

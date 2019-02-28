@@ -1,15 +1,17 @@
 import { AngularFireAuth} from '@angular/fire/auth';
-;
+
 import { userItem } from './../../models/user-item/user-item.interface';
 import { Component,ChangeDetectorRef,ViewChild, Input} from '@angular/core';
-import { IonicPage, NavController, NavParams ,Slides,AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams ,Slides,AlertController, ModalController } from 'ionic-angular';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import { Subscription } from 'rxjs/Subscription';
-import { DatePicker } from '@ionic-native/date-picker';
+
 import * as keygen from 'generate-password';
 import * as emailjs from 'emailjs-com';
-
-
+import { CustomDatePicker } from '../../models/datepicker';
+import { CalendarModal,CalendarResult, MonthComponent} from "ion2-calendar";
+import * as moment from 'moment'
+import { Designations } from '../../providers/designations';
 @IonicPage()
 @Component({
   selector: 'page-newuser',
@@ -19,7 +21,7 @@ import * as emailjs from 'emailjs-com';
 export class NewuserPage {
   
   
-  
+  designations=new Designations().designations
   public itemslist: Array<any> = [];
  
  public items: Array<any> = [];
@@ -63,7 +65,7 @@ export class NewuserPage {
   userItemRef$: AngularFireList<userItem>
 
   icons:string="0";
-  constructor(public navCtrl: NavController,private ref: ChangeDetectorRef, private fdb:AngularFireDatabase,public navParams: NavParams,public alertCtrl: AlertController,private datePicker:DatePicker,private afAuth:AngularFireAuth) {
+  constructor(public navCtrl: NavController,private ref: ChangeDetectorRef, private fdb:AngularFireDatabase,public navParams: NavParams,public alertCtrl: AlertController,private customDatePicker:CustomDatePicker,private afAuth:AngularFireAuth,private modalCtrl:ModalController) {
     // this.disa=false; 
    
    
@@ -166,22 +168,37 @@ getItems(searchbar) {
 }
 
   
-  dispdate(type:String){
-      this.datePicker.show({
-      date: new Date(),
-      mode: 'date',
-      androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_LIGHT
-    }).then(
-      date=>{
-       if(type==="join"){
-         this.userItem.doj = new Date(date).toLocaleDateString()
-       }
-       else{
-         this.userItem.dob = new Date(date).toLocaleDateString()
-       }
-     },err => console.log('Error occurred while getting date: ', err)
+  dispdate(type){
+    let pickMode='single'
+    let dateLimit=new Date().setDate(new Date().getDate()+45)// Display  45 days from today
+    var defaultScrollTo=new Date()
+     let disableWeek=[0,6]// disable Sunday-0 and Saturday-6
+     
+       let from=new Date('2/1/2019')
+       var options=this.customDatePicker.datePickerOptions(pickMode,defaultScrollTo,from)
+       
+      let myCalendar =  this.modalCtrl.create(CalendarModal, {
+       options: options,
+       });
+          
+       myCalendar.present();
+        
+       myCalendar.onDidDismiss((date: CalendarResult[]) => {
+        
+         
+         if(date!=null){
+           if(type=="birth"){
 
-     );
+
+             this.userItem.dob=moment(date['time']).format('D/M/YYYY')
+           }
+           else if(type=="join"){
+             this.userItem.doj=moment(date['time']).format('D/M/YYYY')
+           }
+         
+       }
+      
+      })//end of displayCalendar function
     }
 
 
@@ -837,4 +854,31 @@ console.log(name)
     });
     }
 
+    recipients=[]
+    selectPosition(){
+      
+     let alert = this.alertCtrl.create();
+     alert.setTitle('Select Title');
+    
+     for (let i=0;i<this.designations.length;i++) {
+           alert.addInput({
+            type: 'radio',
+            label: this.designations[i],
+            value: this.designations[i],
+            checked: false
+       });
+    }
+    alert.addButton('Cancel');
+    alert.addButton({
+      text: 'OK',
+      handler: data => {
+      // this.recipients = data;
+       this.userItem.position=data
+      }
+    });
+   
+    alert.present();
+    
+    }
+    
 }

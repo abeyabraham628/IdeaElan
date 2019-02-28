@@ -2,10 +2,10 @@ export interface userItem {
     $key: string,
     fname:string,
     lname:string,
-    dob:string,
+    dob:any,
     mobile:string,
     email:string,
-    doj:string,
+    doj:any,
     position:string,
     data:string,
     status:string

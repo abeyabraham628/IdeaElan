@@ -39,6 +39,14 @@ module.exports = [
     "clobbers": [
       "window.plugins.toast"
     ]
+  },
+  {
+    "id": "cordova-sqlite-storage.SQLitePlugin",
+    "file": "plugins/cordova-sqlite-storage/www/SQLitePlugin.js",
+    "pluginId": "cordova-sqlite-storage",
+    "clobbers": [
+      "SQLitePlugin"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -49,7 +57,8 @@ module.exports.metadata =
   "cordova-plugin-email-composer": "0.9.2",
   "cordova-plugin-whitelist": "1.3.3",
   "cordova-plugin-fcm-with-dependecy-updated": "2.4.0",
-  "cordova-plugin-x-toast": "2.7.2"
+  "cordova-plugin-x-toast": "2.7.2",
+  "cordova-sqlite-storage": "3.1.0"
 };
 // BOTTOM OF METADATA
 });

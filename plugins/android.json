@@ -26,6 +26,9 @@
     },
     "cordova-plugin-x-toast": {
       "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-sqlite-storage": {
+      "PACKAGE_NAME": "idea.elan"
     }
   },
   "dependent_plugins": {}
