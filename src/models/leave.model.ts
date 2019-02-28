@@ -7,6 +7,7 @@ import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Injectable } from '@angular/core';
 import { AlertController,NavController } from 'ionic-angular';
+import { leave } from '@angular/core/src/profile/wtf_impl';
 
 
 @Injectable()
@@ -27,13 +28,16 @@ leaveCount={} as leaveCount
          date.forEach((values)=>{
              selectedDates.push(new Date(values.time).toLocaleDateString())// Converting the time property returned from date pikcer to  dates .
              this.monthNumber.push(values.months)//Taking the month number which user has selected for  leave
+
           })   
+          
          
           this.monthNumber = this.monthNumber.filter((elem, i, arr) => {
              if (arr.indexOf(elem) === i) {
                return elem
              }
            })
+           
            
         
         if(this.monthNumber.length===1){
@@ -57,7 +61,7 @@ leaveCount={} as leaveCount
 
        async submitLeaveRequest(leaveInfo){
          
-        
+      
         var userName:any
         await this.firebase.database.ref(`users/${leaveInfo.userId}`).once('value',(snap)=>{
           
@@ -135,12 +139,18 @@ leaveCount={} as leaveCount
                             flag=false
                         });
                         if(flag)
-                        pastLeaves.push(child.val())
+                        pastLeaves.push({
+                          $recKey:child.key,
+                          ...child.val()
+                        })
 
                       }
                       else{
                         if(new Date(child.child('date').val()).getTime()>=dateFrom && new Date(child.child('date').val()).getTime()<=dateTo)
-                        pastLeaves.push(child.val());
+                        pastLeaves.push({
+                          $recKey:child.key,
+                          ...child.val()
+                        })
                       }
                      
                     })
@@ -157,12 +167,18 @@ leaveCount={} as leaveCount
                           flag=false
                       });
                       if(flag)
-                      pastLeaves.push(child.val())
+                      pastLeaves.push({
+                        $recKey:child.key,
+                        ...child.val()
+                      })
 
                     }
                     else{
                       if(new Date(child.child('date').val()).getMonth()+1===new Date().getMonth()+1 && new Date(child.child('date').val()).getFullYear()===new Date().getFullYear())
-                      pastLeaves.push(child.val());
+                      pastLeaves.push({
+                        $recKey:child.key,
+                        ...child.val()
+                      })
                     }
                    
                   })

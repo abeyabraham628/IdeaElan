@@ -9,13 +9,13 @@ import { IonicPage, NavController, NavParams , Platform } from 'ionic-angular';
  */
 declare var ApiAIPromises: any;
 
-@IonicPage()
+
 @Component({
   selector: 'page-chatbot',
   templateUrl: 'chatbot.html',
 })
 export class ChatbotPage {
-  answer;
+ 
   constructor(public navCtrl: NavController, public navParams: NavParams , public platform: Platform, public ngZone: NgZone) {
     platform.ready().then(() => {
       ApiAIPromises.init({
@@ -28,23 +28,25 @@ export class ChatbotPage {
     console.log('ionViewDidLoad ChatbotPage');
   }
 
+  questions=[]
+  answer:any=[];
   ask(question) {
-    console.log(question)
+    this.questions.push({'question':question})
+  
+    
     ApiAIPromises.requestText({
       query: question
-    })
-    .then(({result: {fulfillment: {speech}}}) => {
+    }).then(({result: {fulfillment: {speech}}}) => {
        this.ngZone.run(()=> {
-         this.answer = speech;
+         this.answer.push({'answer':speech});
+        
        });
+
     })
   }
 
 
-questions=[]
-tony(question){
-  this.questions.push({'question':question})
-}
+
 
 
 

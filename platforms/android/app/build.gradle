@@ -270,6 +270,10 @@ dependencies {
     compile "com.android.support:support-v4:27.+"
     compile "com.google.firebase:firebase-core:10.+"
     compile "com.google.firebase:firebase-messaging:10.+"
+    compile "com.android.support:support-v4:24.1.1+"
+    compile "com.android.support:support-v4:23.2.1"
+    compile "com.google.code.gson:gson:2.3"
+    compile "commons-io:commons-io:2.4"
     // SUB-PROJECT DEPENDENCIES END
 }
 

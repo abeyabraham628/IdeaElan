@@ -106,7 +106,7 @@
   
   <ion-row>
       <ion-col col-6>
-    <button ion-button full color="blue" (click)="applyForLeave(leaveInfo)">Submit</button>
+    <button ion-button full color="blue" type="submit">Submit</button>
   </ion-col>
     <ion-col col-6>
         <button ion-button type="button"  icon-end full color=blue (click)="resetForm()"   >
@@ -138,6 +138,7 @@
         <h6 text-center class="title section-title">{{dateRange}}</h6>
         
         <ion-list >
+            <div *ngIf="(leaveRecords.length==0)">No Record Found</div>
           <ion-item *ngFor="let x of leaveRecords" style="background-color:honeydew">
             <h3>{{x.leaveType | titlecase}} Leave</h3>
             <h5> {{x.date}}</h5>
@@ -145,7 +146,9 @@
             <div *ngIf="(x.reason!=null)">
                 Comments: {{x.reason}}
               </div>
-              <button ion-button item-right color="blue">Cancel</button>
+              
+              <button *ngIf="(x.status=='pending')" ion-button item-right color="blue" (click)="deleteLeave(x.$recKey)">Cancel</button>
+                
           </ion-item>
         </ion-list>
 

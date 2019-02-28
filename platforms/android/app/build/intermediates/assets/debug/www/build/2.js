@@ -1,17 +1,17 @@
 webpackJsonp([2],{
 
-/***/ 723:
+/***/ 724:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LeavesAdminPageModule", function() { return LeavesAdminPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_employee_model__ = __webpack_require__(772);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_employee_model__ = __webpack_require__(771);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__leaves_admin__ = __webpack_require__(814);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_leave_model__ = __webpack_require__(739);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_datepicker__ = __webpack_require__(740);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__leaves_admin__ = __webpack_require__(821);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_leave_model__ = __webpack_require__(741);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_datepicker__ = __webpack_require__(739);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -49,11 +49,71 @@ var LeavesAdminPageModule = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomDatePicker; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(53);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var CustomDatePicker = /** @class */ (function () {
+    function CustomDatePicker(modalCtrl) {
+        this.modalCtrl = modalCtrl;
+    }
+    CustomDatePicker.prototype.datePickerOptions = function (pickMode, defaultScrollTo, from, dateLimitTo, disableWeeks) {
+        var options = {
+            pickMode: pickMode,
+            showAdjacentMonthDay: false,
+            disableWeeks: disableWeeks,
+            from: from,
+            to: dateLimitTo,
+            defaultScrollTo: defaultScrollTo,
+            showMonthPicker: true,
+            showToggleButtons: true
+        };
+        return options;
+    };
+    CustomDatePicker.prototype.getMonths = function () {
+        return [{ 'monthName': 'January', 'value': '01' },
+            { 'monthName': 'February', 'value': '02' },
+            { 'monthName': 'March', 'value': '03' },
+            { 'monthName': 'April', 'value': '04' },
+            { 'monthName': 'May', 'value': '05' },
+            { 'monthName': 'June', 'value': '06' },
+            { 'monthName': 'July', 'value': '07' },
+            { 'monthName': 'August', 'value': '08' },
+            { 'monthName': 'September', 'value': '09' },
+            { 'monthName': 'October', 'value': '10' },
+            { 'monthName': 'November', 'value': '11' },
+            { 'monthName': 'December', 'value': '12' }];
+    };
+    CustomDatePicker = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"]])
+    ], CustomDatePicker);
+    return CustomDatePicker;
+}());
+
+//# sourceMappingURL=datepicker.js.map
+
+/***/ }),
+
+/***/ 741:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LeaveModel; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__ = __webpack_require__(458);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__ = __webpack_require__(459);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(53);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -217,11 +277,11 @@ var LeaveModel = /** @class */ (function () {
                                 flag = false;
                         });
                         if (flag)
-                            pastLeaves.push(child.val());
+                            pastLeaves.push(__assign({ $recKey: child.key }, child.val()));
                     }
                     else {
                         if (new Date(child.child('date').val()).getTime() >= dateFrom && new Date(child.child('date').val()).getTime() <= dateTo)
-                            pastLeaves.push(child.val());
+                            pastLeaves.push(__assign({ $recKey: child.key }, child.val()));
                     }
                 });
             }
@@ -235,11 +295,11 @@ var LeaveModel = /** @class */ (function () {
                                 flag = false;
                         });
                         if (flag)
-                            pastLeaves.push(child.val());
+                            pastLeaves.push(__assign({ $recKey: child.key }, child.val()));
                     }
                     else {
                         if (new Date(child.child('date').val()).getMonth() + 1 === new Date().getMonth() + 1 && new Date(child.child('date').val()).getFullYear() === new Date().getFullYear())
-                            pastLeaves.push(child.val());
+                            pastLeaves.push(__assign({ $recKey: child.key }, child.val()));
                     }
                 });
             }
@@ -322,67 +382,7 @@ var LeaveModel = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 740:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomDatePicker; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var CustomDatePicker = /** @class */ (function () {
-    function CustomDatePicker(modalCtrl) {
-        this.modalCtrl = modalCtrl;
-    }
-    CustomDatePicker.prototype.datePickerOptions = function (pickMode, defaultScrollTo, from, dateLimitTo, disableWeeks) {
-        var options = {
-            pickMode: pickMode,
-            showAdjacentMonthDay: false,
-            disableWeeks: disableWeeks,
-            from: from,
-            to: dateLimitTo,
-            defaultScrollTo: defaultScrollTo,
-            showMonthPicker: true,
-            showToggleButtons: true
-        };
-        return options;
-    };
-    CustomDatePicker.prototype.getMonths = function () {
-        return [{ 'monthName': 'January', 'value': '01' },
-            { 'monthName': 'February', 'value': '02' },
-            { 'monthName': 'March', 'value': '03' },
-            { 'monthName': 'April', 'value': '04' },
-            { 'monthName': 'May', 'value': '05' },
-            { 'monthName': 'June', 'value': '06' },
-            { 'monthName': 'July', 'value': '07' },
-            { 'monthName': 'August', 'value': '08' },
-            { 'monthName': 'September', 'value': '09' },
-            { 'monthName': 'October', 'value': '10' },
-            { 'monthName': 'November', 'value': '11' },
-            { 'monthName': 'December', 'value': '12' }];
-    };
-    CustomDatePicker = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"]])
-    ], CustomDatePicker);
-    return CustomDatePicker;
-}());
-
-//# sourceMappingURL=datepicker.js.map
-
-/***/ }),
-
-/***/ 772:
+/***/ 771:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -480,17 +480,17 @@ var Employee = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 814:
+/***/ 821:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LeavesAdminPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_datepicker__ = __webpack_require__(740);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_leave_model__ = __webpack_require__(739);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_datepicker__ = __webpack_require__(739);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_leave_model__ = __webpack_require__(741);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_employee_model__ = __webpack_require__(772);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ion2_calendar__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_employee_model__ = __webpack_require__(771);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ion2_calendar__ = __webpack_require__(460);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ion2_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_ion2_calendar__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -549,12 +549,15 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
  * Ionic pages and navigation.
  */
 var LeavesAdminPage = /** @class */ (function () {
-    function LeavesAdminPage(userLeave, modalCtrl, navParams, empDetails, customDatePicker) {
+    function LeavesAdminPage(navCtrl, userLeave, modalCtrl, navParams, empDetails, customDatePicker) {
+        this.navCtrl = navCtrl;
         this.userLeave = userLeave;
         this.modalCtrl = modalCtrl;
         this.navParams = navParams;
         this.empDetails = empDetails;
         this.customDatePicker = customDatePicker;
+        this.dateRange = "Select Date";
+        this.leaveRecords = [];
         this.leaves = 'viewLeaveRequests';
         this.leaveRequests = this.userLeave.viewLeaveRequest();
     }
@@ -568,16 +571,18 @@ var LeavesAdminPage = /** @class */ (function () {
         });
         myCalendar.present();
         myCalendar.onDidDismiss(function (date) {
-            var from = date['from'].string.split('-');
-            var to = date['to'].string.split('-');
-            _this.from = date['from'].time;
-            _this.to = date['to'].time;
-            _this.dateRange = from[2] + "-" + from[1] + "-" + from[0] + " to " + to[2] + "-" + to[1] + "-" + to[0];
+            if (date != null) {
+                var from_1 = date['from'].string.split('-');
+                var to = date['to'].string.split('-');
+                _this.from = date['from'].time;
+                _this.to = date['to'].time;
+                _this.dateRange = from_1[2] + "-" + from_1[1] + "-" + from_1[0] + " to " + to[2] + "-" + to[1] + "-" + to[0];
+                _this.leaveHistory();
+            }
         });
     }; // end of datepicker function
-    LeavesAdminPage.prototype.openModal = function (page, data) {
-        var modal = this.modalCtrl.create(page, { "userDetails": data });
-        modal.present();
+    LeavesAdminPage.prototype.goto = function (page, data) {
+        this.navCtrl.push(page, { "userDetails": data });
     };
     LeavesAdminPage.prototype.getEmployee = function () {
         return __awaiter(this, void 0, void 0, function () {
@@ -594,18 +599,13 @@ var LeavesAdminPage = /** @class */ (function () {
         });
     };
     LeavesAdminPage.prototype.leaveHistory = function () {
-        if (this.employeeKey === null)
-            alert("Select and Employee");
-        else {
-            this.leaveRecords = this.userLeave.getPastLeaves(this.employeeKey, this.from, this.to);
-            console.log(this.leaveRecords);
-        }
+        this.leaveRecords = this.userLeave.getPastLeaves(this.employeeKey, this.from, this.to);
     };
     LeavesAdminPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
-            selector: 'page-leaves-admin',template:/*ion-inline-start:"F:\ionic-app\src\pages\leaves-admin\leaves-admin.html"*/'<ion-header no-border>\n\n  <ion-toolbar color="blue" hideBackButton="true">\n\n    <button ion-button  menuToggle="left" start>\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    \n\n    <ion-title text-center>Leave</ion-title>\n\n\n\n    <ion-buttons end>\n\n      <button ion-button >\n\n        <ion-icon name="notifications"></ion-icon> \n\n      </button> \n\n    </ion-buttons>\n\n</ion-toolbar>\n\n</ion-header>\n\n  \n\n\n\n\n\n\n\n  <ion-content>\n\n \n\n      <ion-segment [(ngModel)]="leaves" color="white" >\n\n         <ion-segment-button value="viewLeaveRequests">\n\n            Leave Requests\n\n         </ion-segment-button>\n\n         <ion-segment-button value="leaveHistory" (click)="getEmployee()" >\n\n          History\n\n         </ion-segment-button>\n\n      </ion-segment>\n\n  <div [ngSwitch]="leaves">\n\n    <div *ngSwitchCase="\'viewLeaveRequests\'">\n\n    \n\n        \n\n\n\n      <ion-card (click)="openModal(\'ApproveLeavePage\',user)" *ngFor="let user of leaveRequests">\n\n         \n\n        <ion-item>\n\n          <ion-avatar item-start>\n\n            <img src="assets/imgs/companylogo.png">\n\n          </ion-avatar>\n\n          <h2>{{user.name}}</h2>\n\n          <p>{{user.leaveType}}</p>\n\n        </ion-item>\n\n        \n\n        \n\n      </ion-card>\n\n    \n\n\n\n    \n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'leaveHistory\'">\n\n     \n\n      <ion-item>\n\n          <ion-label>Employee Name</ion-label>\n\n        <ion-select [(ngModel)]="employeeKey">\n\n                 <ion-option *ngFor="let emp of employeeName" value="{{emp.$key}}">{{emp.fname}}</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n      \n\n          <ion-item col-12>\n\n              <ion-label floating>Select Date</ion-label>\n\n                 <ion-input type="text" [(ngModel)]="dateRange" (click)="datePicker(\'range\')" readonly></ion-input>\n\n                 <ion-icon name="calendar" item-right></ion-icon>\n\n               </ion-item>\n\n           \n\n      <ion-item>\n\n        <button ion-button (click)="leaveHistory()" >Show</button>\n\n      </ion-item>\n\n\n\n      \n\n      <ion-list>\n\n          <h6 text-center class="title section-title">{{dateRange}}</h6>\n\n           \n\n          <ion-card *ngFor="let x of leaveRecords " class="col-text row-bottom-border" >\n\n                    <ion-card-header>\n\n                    {{x.leaveType}} Leave<br/> \n\n                    \n\n                    </ion-card-header>\n\n                    \n\n                    <ion-card-content  [ngClass]=\'x.status\'>\n\n                        {{x.date}} <br/>\n\n                        {{x.status}} \n\n                        <div *ngIf="(x.reason!=null)">\n\n                        Comments: {{x.reason}}\n\n                      </div>\n\n                    </ion-card-content>\n\n                  </ion-card>\n\n  \n\n             \n\n          </ion-list>\n\n\n\n      \n\n    </div>\n\n\n\n\n\n  </div>\n\n    \n\n  </ion-content>\n\n  \n\n '/*ion-inline-end:"F:\ionic-app\src\pages\leaves-admin\leaves-admin.html"*/,
+            selector: 'page-leaves-admin',template:/*ion-inline-start:"F:\ionic-app\src\pages\leaves-admin\leaves-admin.html"*/'<ion-header no-border>\n\n  <ion-toolbar color="blue" hideBackButton="true">\n\n    <button ion-button  menuToggle="left" start>\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    \n\n    <ion-title text-center>Leave</ion-title>\n\n\n\n    <ion-buttons end>\n\n      <button ion-button >\n\n        <ion-icon name="notifications"></ion-icon> \n\n      </button> \n\n    </ion-buttons>\n\n</ion-toolbar>\n\n</ion-header>\n\n  \n\n\n\n\n\n\n\n  <ion-content>\n\n\n\n      <ion-segment [(ngModel)]="leaves" color="white" >\n\n         <ion-segment-button value="viewLeaveRequests">\n\n            Leave Requests\n\n         </ion-segment-button>\n\n         <ion-segment-button value="leaveHistory" (click)="getEmployee()" >\n\n          History\n\n         </ion-segment-button>\n\n      </ion-segment>\n\n  <div [ngSwitch]="leaves">\n\n    <div *ngSwitchCase="\'viewLeaveRequests\'">\n\n    \n\n        \n\n        <div *ngIf="(leaveRequests.length==0)" style="text-align:center">No Leave Requests</div>\n\n      <ion-card (click)="goto(\'ApproveLeavePage\',user)" *ngFor="let user of leaveRequests">\n\n         \n\n        <ion-item>\n\n          <ion-avatar item-start>\n\n              <img src="https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/{{user.userId}}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b" onerror="this.src=\'assets/imgs/companylogo.png\'"> \n\n           <!-- <img src="assets/imgs/companylogo.png">-->\n\n          </ion-avatar>\n\n          <h2>{{user.name |  titlecase}}</h2>\n\n          <p>{{user.leaveType | titlecase}}</p>\n\n          <p>{{user.date}}</p>\n\n        </ion-item>\n\n        \n\n        \n\n      </ion-card>\n\n    \n\n\n\n    \n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'leaveHistory\'">\n\n       \n\n      <ion-item>\n\n          <ion-label>Employee Name</ion-label>\n\n        <ion-select [(ngModel)]="employeeKey">\n\n                 <ion-option *ngFor="let emp of employeeName" value="{{emp.$key}}">{{emp.fname | titlecase}} {{emp.lname | titlecase}}</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n      \n\n              <ion-item col-12>\n\n                 <ion-label floating>Select Date</ion-label>\n\n                 <ion-input type="text" [(ngModel)]="dateRange" (click)="datePicker(\'range\')" readonly></ion-input>\n\n                 <ion-icon name="calendar" item-right></ion-icon>\n\n               </ion-item>\n\n           \n\n      \n\n\n\n      \n\n      <ion-list>\n\n        \n\n          <h6 text-center class="title section-title">{{dateRange}}</h6>\n\n          <div *ngIf="(leaveRecords.length==0)" style="text-align:center">No record found</div>\n\n          <ion-list >\n\n            <ion-item *ngFor="let x of leaveRecords" style="background-color:honeydew">\n\n              <h3>{{x.leaveType | titlecase}} Leave</h3>\n\n              <h5> {{x.date}}</h5>\n\n              <h5 [ngClass]=\'x.status\'>{{x.status}}</h5>\n\n              <div *ngIf="(x.reason!=null)">\n\n                  Comments: {{x.reason}}\n\n                </div>\n\n                \n\n            </ion-item>\n\n          </ion-list>\n\n  \n\n             \n\n          </ion-list>\n\n\n\n      \n\n    </div>\n\n\n\n\n\n  </div>\n\n    \n\n  </ion-content>\n\n  \n\n '/*ion-inline-end:"F:\ionic-app\src\pages\leaves-admin\leaves-admin.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__models_leave_model__["a" /* LeaveModel */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_4__models_employee_model__["a" /* Employee */], __WEBPACK_IMPORTED_MODULE_0__models_datepicker__["a" /* CustomDatePicker */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1__models_leave_model__["a" /* LeaveModel */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_4__models_employee_model__["a" /* Employee */], __WEBPACK_IMPORTED_MODULE_0__models_datepicker__["a" /* CustomDatePicker */]])
     ], LeavesAdminPage);
     return LeavesAdminPage;
 }());

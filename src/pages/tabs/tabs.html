@@ -11,7 +11,7 @@
      
       <ion-item no-lines style="text-align:center;background-color: #2679b0">
           <ion-thumbnail style="height:100px;width:100px;border-radius:50%;margin: auto">
-              <img src="https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/{{uri}}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b" onerror="this.src='assets/imgs/companylogo.png'"> 
+              <img src="{{uri}}" onerror="this.src='assets/imgs/companylogo.png'" style="height:100px;width:100px;border-radius:50%;margin: auto"> 
             </ion-thumbnail>
           <h2 style="color:#ffffff">{{this.uname | titlecase }}</h2>
           <h6 style="color:#ffffff">{{this.position | titlecase }}</h6>
@@ -26,11 +26,18 @@
           <ion-icon name="lock" item-end></ion-icon>
           Change Password
       </ion-item>
+
+      <ion-item (click)="policy()" class="sideMenuList">
+          <ion-icon name="document" item-end></ion-icon>
+           Company Policy
+      </ion-item>
       
       <ion-item (click)="logout()" class="sideMenuList">
           <ion-icon name="power" item-end></ion-icon>
            Logout
       </ion-item>
+
+     
 
       <ng-container *ngIf="progress | async as percent">
 
@@ -48,9 +55,9 @@
 <ion-tabs>
   <ion-tab [root]="tab0Root"   tabTitle="Home" tabIcon="home" [rootParams]="tab0Params"></ion-tab>
   <ion-tab [root]="tab1Root"   tabTitle="Leave" tabIcon="person"></ion-tab>
-  <ion-tab [root]="tab2Root"  tabTitle="Chatbot" tabIcon="document"></ion-tab>
+  <ion-tab [root]="tab2Root"   tabTitle="Chatbot" tabIcon="document"></ion-tab>
  
-  <ion-tab [root]="tab3Root"  tabTitle="Inbox" tabIcon="chatboxes" tabBadge='2' tabBadgeStyle="danger"></ion-tab>
+  <ion-tab [root]="tab3Root"  tabTitle="Inbox" tabIcon="chatboxes" tabBadge='{{this.messages.length}}' tabBadgeStyle="danger"></ion-tab>
 </ion-tabs>
 
 

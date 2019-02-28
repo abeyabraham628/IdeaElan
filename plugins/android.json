@@ -29,6 +29,12 @@
     },
     "cordova-sqlite-storage": {
       "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-camera": {
+      "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-apiai": {
+      "PACKAGE_NAME": "idea.elan"
     }
   },
   "dependent_plugins": {}

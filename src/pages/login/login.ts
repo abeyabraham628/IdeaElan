@@ -37,14 +37,15 @@ export class LoginPage {
   async signIn(user:credentials){
    
    try{
-     // const result=await this.afAuth.auth.signInWithEmailAndPassword(user.emailId,user.password);
-      const result=await this.afAuth.auth.signInWithEmailAndPassword('tony.manuel@mca.christuniversity.in','123456');
+      const result=await this.afAuth.auth.signInWithEmailAndPassword(user.emailId,user.password);
+      //const result=await this.afAuth.auth.signInWithEmailAndPassword('tony.manuel@mca.christuniversity.in','123456');
       let x:Promise<boolean>
       let y;
       var privilleges=[]
       
       const priv=await this.firebase.database.ref(`users/${result.user.uid}`).child('data').once('value',(snapshot)=>{
        privilleges=snapshot.val()
+       
       
       })
      //console.log("resule",result.user.uid)
@@ -53,11 +54,11 @@ export class LoginPage {
       if(result){
             await this.firebase.database.ref(`TempLogin/${result.user.uid}`).once("value",(snapshot)=> {
               y=snapshot.val();
-              
+              console.log(y)
             });
 
               if(y==null)
-              this.navCtrl.setRoot('ChangepasswordPage')
+              this.navCtrl.setRoot('ChangepasswordPage',{'existingUser':false})
               else
                this.navCtrl.setRoot('TabsPage',{'roles': privilleges})
                this.navCtrl.popToRoot();

@@ -246,7 +246,13 @@ getItems(searchbar) {
           position:this.userItem.position,
           data:this.dnew,
           status:this.status
-         });// end of push
+         }).then(()=>{
+          
+          this.fdb.list(`tokensNotificationId`).push({
+          'userIdTocken': data.user.uid,
+          'tokenid': "null"
+          })
+          });// end of push;// end of push
      });//end of create user
       this.email(this.userItem.fname, this.userItem.email,password)
       }catch(e){
@@ -268,7 +274,16 @@ getItems(searchbar) {
         position:this.userItem.position,
         data:this.userItem.data,
         status:this.status
-      });// end of push
+      }).then(()=>{
+          
+        this.fdb.list(`tokensNotificationId`).push({
+        'userIdTocken': data.user.uid,
+        'tokenid': "null"
+        
+        })
+
+
+      });// end of push;// end of push
     });//end of create user
 
     this.email(this.userItem.fname, this.userItem.email,password);
@@ -539,7 +554,7 @@ console.log('Cdatas look like  value :', this.datas);
 
   alert.addInput({
     type: 'checkbox',
-    label: 'Leave Approvals ',
+    label: 'Leave Approvals',
     value: 'value2',
    // checked:this.datas[1]!="null"?this.datas[1]=="value2"?true:false:false
    checked:this.datas==null?false:this.datas[1]=="value2"?true:false
@@ -547,7 +562,7 @@ console.log('Cdatas look like  value :', this.datas);
  
   alert.addInput({
     type: 'checkbox',
-    label: 'Holiday List Upload',
+    label: 'View Policy',
     value: 'value3',
    // checked:this.datas[2]!="null"?this.datas[2]=="value3"?true:false:false
    checked:this.datas==null?false:this.datas[2]=="value3"?true:false
@@ -556,7 +571,7 @@ console.log('Cdatas look like  value :', this.datas);
 
   alert.addInput({
     type: 'checkbox',
-    label: 'Payslip Upload',
+    label: 'Send Message',
     value: 'value4',
     //checked:this.datas[3]!="null"?this.datas[3]=="value4"?true:false:false
     checked:this.datas==null?false:this.datas[3]=="value4"?true:false

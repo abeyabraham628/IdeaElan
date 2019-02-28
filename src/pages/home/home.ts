@@ -5,6 +5,8 @@ import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 import { LoadingController } from 'ionic-angular';
 import {FCM} from '@ionic-native/fcm'
 
+
+
 /**
  * Generated class for the HomePage page.
  *
@@ -23,23 +25,42 @@ roles:any[]
 users:boolean=true
 recruitment:boolean=true
 systems:boolean=true
-uploadPaySlip:boolean=true
+policy:boolean=true
 leaveRequest:boolean=true
-uploadEvent:boolean=true
+sendMessage:boolean=true
 loader:any
-devicetoken:any
+
+FirebasePlugin: any;
+
+blength:any=0;
+wlength:any=0;
+//lrcount:any=0;
+
+devicetoken : any ="abc";
   constructor(private fcm:FCM,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
-   
-    /*this.fcm.getToken().then(token => {
+    this.lrcountcheck();
+    console.log(this.afAuth.auth.currentUser.uid);
+    this.fcm.getToken().then(token => {
       //backend.registerToken(token);
       this.devicetoken=token;
-      alert(token);
+      this.checks();
+      //alert(token);
     });
     this.fcm.onTokenRefresh().subscribe(token => {
       this.devicetoken=token;
-      alert("updated");
+      this.checks();
+      //alert("updated");
     });
-    this.checks();*/
+    this.fcm.onNotification().subscribe(data => {
+      if(data.wasTapped){
+        this.navCtrl.push(HomePage);
+        console.log("Received in background");
+      } else {
+        this.navCtrl.push(HomePage);
+        console.log("Received in foreground");
+      };
+    });
+    
     
     
     this.roles=navParams.get('roles')
@@ -49,18 +70,18 @@ devicetoken:any
       this.users=false
       this.recruitment=false
       this.systems=false
-      this.uploadPaySlip=false
+      this.policy=false
       this.leaveRequest=false
-      this.uploadEvent=false
+      this.sendMessage=false
     }
 
     if(this.roles[1]!="null")
       this.leaveRequest=false
 
-     // if(this.roles[2]!=null)
-      //this.leaveRequest=false
+     if(this.roles[2]!=null)
+      this.policy=false
       if(this.roles[3]!="null")
-      this.uploadPaySlip=false
+      this.sendMessage=false
       if(this.roles[4]!="null")
       this.recruitment=false
       if(this.roles[5]!="null")
@@ -69,19 +90,44 @@ devicetoken:any
       this.users=false
      
   }
+  lrstatus=[]
+  async lrcountcheck(){
+    let lrstatus=[];
+     await this.firebase.database.ref(`EmployeeLeaves`).once('value',function(snap){
+     
+      
+   
+     
+      snap.forEach(snap=>{
+     if(snap.child('status').val()=="pending")
+     // lrstatus.push(snap.child('status').val());
+       // this.lrcount++;{}
+       {
+       //console.log(snap.child('status').val());
+       lrstatus.push(snap.child('status').val());
+      
+       }
+        }) ;
+        console.log(lrstatus);
+        console.log(lrstatus.length)
+  
+
+    
+      });
+      this.lrstatus=lrstatus
+  }
 
   checks(){
     var idOftoken , tokenStatus;
     this.firebase.database.ref('tokensNotificationId').orderByChild('userIdTocken').equalTo(`${this.afAuth.auth.currentUser.uid}`).once("value",(snap)=>{
      // console.log(snap.val())
      snap.forEach((child) => {
-       if(child.child('tokenid').val()=="null")
-       {
-         console.log("if yes update it with device token");
+       
+         
          this.firebase.object("/tokensNotificationId/"+child.key)
 
-            .update({ tokenid:this.devicetoken,userIdTocken : this.afAuth.auth.currentUser.uid});
-       }
+ .update({ tokenid:this.devicetoken,userIdTocken : this.afAuth.auth.currentUser.uid});
+       
        console.log(child.child('userIdTocken').val());
       console.log(child.key);
      })
@@ -90,12 +136,14 @@ devicetoken:any
   
       
       });
-    }
+   }
+ 
  
    ionViewDidLoad() {
 
     this.getMessages()
     this.getUpComingEvents()
+    this.getUpComingEventsNotification()
    }
 
   goto(page:string){
@@ -128,7 +176,7 @@ devicetoken:any
   
   events=[]
   async getUpComingEvents(){
-  let events=[]
+    let events=[]
    let bday:any
    let anniversary:any
    let org:any
@@ -164,6 +212,57 @@ devicetoken:any
      this.events=events;
      
   }
+  bevents=[]
+  wevents=[]
+  async getUpComingEventsNotification(){
+    let bevents=[]
+    let wevents=[]
+     let bday:any
+     let anniversary:any
+     let org:any
+     let diffDays:number
+     let timeDiff:number
+      await this.firebase.database.ref(`users`).once('value',function(snap){
+        
+        snap.forEach(snap=>{
+          bday=snap.child('dob').val().split('/')
+          anniversary=snap.child('doj').val().split('/')
+          if(new Date().getMonth()+1===parseInt(bday[1],10) && new Date().getDate()<=parseInt(bday[0],10) ){
+            bevents.push({
+              'title':'Birthday',
+              'user':snap.child('fname').val()+" "+snap.child('lname').val(),
+              'date':parseInt(bday[0],10)+"/"+parseInt(bday[1],10)+"/"+new Date().getFullYear()
+            })
+          }
+  
+          if(new Date().getMonth()+1===parseInt(anniversary[1],10) && new Date().getDate()<=parseInt(anniversary[0],10) ){
+            wevents.push({
+              'title':'Work Anniversary',
+              'user':snap.child('fname').val()+" "+snap.child('lname').val(),
+              'date':parseInt(anniversary[0],10)+"/"+parseInt(anniversary[1],10)+"/"+new Date().getFullYear()
+            })
+          }
+        })
+       
+  
+            
+      }) ;
+       this.bevents=bevents;
+       this.wevents=wevents;
+       this.blength=bevents.length;
+       this.wlength=wevents.length;
+       console.log (" birthday event length",this.blength);
+       console.log (" work annivessary  event length",this.wlength);
+    await  this.firebase.database.ref(`eventTrigger/WorkEvents`).update({
+        length : this.wlength,
+        
+       })
+       await  this.firebase.database.ref(`eventTrigger/birthdayEvents`).update({
+        length : this.blength,
+        
+       })
+
+    }
   
 
 

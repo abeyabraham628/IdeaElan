@@ -89,32 +89,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-telerik-imagepicker": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-telerik-imagepicker"
-    },
-    "is_top_level": true,
-    "variables": {
-      "PHOTO_LIBRARY_USAGE_DESCRIPTION": "your usage message"
-    }
-  },
-  "cordova-plugin-camera": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-camera@4.0.3"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
-  "cordova-plugin-image-picker": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-image-picker"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-fcm-with-dependecy-updated": {
     "source": {
       "type": "registry",
@@ -135,6 +109,22 @@
     "source": {
       "type": "registry",
       "id": "cordova-sqlite-storage"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-camera": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-camera@4.0.3"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-apiai": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-apiai@^1.7.4"
     },
     "is_top_level": true,
     "variables": {}

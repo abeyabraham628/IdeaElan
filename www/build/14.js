@@ -7,8 +7,8 @@ webpackJsonp([14],{
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(757);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(817);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,16 +38,16 @@ var HomePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 757:
+/***/ 817:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(53);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__ = __webpack_require__(459);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(458);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_fcm__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_fcm__ = __webpack_require__(465);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -114,16 +114,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
  */
 var HomePage = /** @class */ (function () {
     function HomePage(fcm, modalCtrl, navCtrl, navParams, afAuth, firebase, loadingCtrl) {
-        /*this.fcm.getToken().then(token => {
-          //backend.registerToken(token);
-          this.devicetoken=token;
-          alert(token);
-        });
-        this.fcm.onTokenRefresh().subscribe(token => {
-          this.devicetoken=token;
-          alert("updated");
-        });
-        this.checks();*/
+        var _this = this;
         this.fcm = fcm;
         this.modalCtrl = modalCtrl;
         this.navCtrl = navCtrl;
@@ -134,26 +125,57 @@ var HomePage = /** @class */ (function () {
         this.users = true;
         this.recruitment = true;
         this.systems = true;
-        this.uploadPaySlip = true;
+        this.policy = true;
         this.leaveRequest = true;
-        this.uploadEvent = true;
+        this.sendMessage = true;
+        this.blength = 0;
+        this.wlength = 0;
+        //lrcount:any=0;
+        this.devicetoken = "abc";
+        this.lrstatus = [];
         this.messages = [];
         this.events = [];
+        this.bevents = [];
+        this.wevents = [];
+        this.lrcountcheck();
+        console.log(this.afAuth.auth.currentUser.uid);
+        this.fcm.getToken().then(function (token) {
+            //backend.registerToken(token);
+            _this.devicetoken = token;
+            _this.checks();
+            //alert(token);
+        });
+        this.fcm.onTokenRefresh().subscribe(function (token) {
+            _this.devicetoken = token;
+            _this.checks();
+            //alert("updated");
+        });
+        this.fcm.onNotification().subscribe(function (data) {
+            if (data.wasTapped) {
+                _this.navCtrl.push(HomePage_1);
+                console.log("Received in background");
+            }
+            else {
+                _this.navCtrl.push(HomePage_1);
+                console.log("Received in foreground");
+            }
+            ;
+        });
         this.roles = navParams.get('roles');
         if (this.roles[0] != "null") {
             this.users = false;
             this.recruitment = false;
             this.systems = false;
-            this.uploadPaySlip = false;
+            this.policy = false;
             this.leaveRequest = false;
-            this.uploadEvent = false;
+            this.sendMessage = false;
         }
         if (this.roles[1] != "null")
             this.leaveRequest = false;
-        // if(this.roles[2]!=null)
-        //this.leaveRequest=false
+        if (this.roles[2] != null)
+            this.policy = false;
         if (this.roles[3] != "null")
-            this.uploadPaySlip = false;
+            this.sendMessage = false;
         if (this.roles[4] != "null")
             this.recruitment = false;
         if (this.roles[5] != "null")
@@ -161,17 +183,43 @@ var HomePage = /** @class */ (function () {
         if (this.roles[6] != "null")
             this.users = false;
     }
+    HomePage_1 = HomePage;
+    HomePage.prototype.lrcountcheck = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var lrstatus;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        lrstatus = [];
+                        return [4 /*yield*/, this.firebase.database.ref("EmployeeLeaves").once('value', function (snap) {
+                                snap.forEach(function (snap) {
+                                    if (snap.child('status').val() == "pending") 
+                                    // lrstatus.push(snap.child('status').val());
+                                    // this.lrcount++;{}
+                                    {
+                                        //console.log(snap.child('status').val());
+                                        lrstatus.push(snap.child('status').val());
+                                    }
+                                });
+                                console.log(lrstatus);
+                                console.log(lrstatus.length);
+                            })];
+                    case 1:
+                        _a.sent();
+                        this.lrstatus = lrstatus;
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
     HomePage.prototype.checks = function () {
         var _this = this;
         var idOftoken, tokenStatus;
         this.firebase.database.ref('tokensNotificationId').orderByChild('userIdTocken').equalTo("" + this.afAuth.auth.currentUser.uid).once("value", function (snap) {
             // console.log(snap.val())
             snap.forEach(function (child) {
-                if (child.child('tokenid').val() == "null") {
-                    console.log("if yes update it with device token");
-                    _this.firebase.object("/tokensNotificationId/" + child.key)
-                        .update({ tokenid: _this.devicetoken, userIdTocken: _this.afAuth.auth.currentUser.uid });
-                }
+                _this.firebase.object("/tokensNotificationId/" + child.key)
+                    .update({ tokenid: _this.devicetoken, userIdTocken: _this.afAuth.auth.currentUser.uid });
                 console.log(child.child('userIdTocken').val());
                 console.log(child.key);
             });
@@ -181,6 +229,7 @@ var HomePage = /** @class */ (function () {
     HomePage.prototype.ionViewDidLoad = function () {
         this.getMessages();
         this.getUpComingEvents();
+        this.getUpComingEventsNotification();
     };
     HomePage.prototype.goto = function (page) {
         this.navCtrl.push(page);
@@ -236,9 +285,61 @@ var HomePage = /** @class */ (function () {
             });
         });
     };
-    HomePage = __decorate([
+    HomePage.prototype.getUpComingEventsNotification = function () {
+        return __awaiter(this, void 0, void 0, function () {
+            var bevents, wevents, bday, anniversary, org, diffDays, timeDiff;
+            return __generator(this, function (_a) {
+                switch (_a.label) {
+                    case 0:
+                        bevents = [];
+                        wevents = [];
+                        return [4 /*yield*/, this.firebase.database.ref("users").once('value', function (snap) {
+                                snap.forEach(function (snap) {
+                                    bday = snap.child('dob').val().split('/');
+                                    anniversary = snap.child('doj').val().split('/');
+                                    if (new Date().getMonth() + 1 === parseInt(bday[1], 10) && new Date().getDate() <= parseInt(bday[0], 10)) {
+                                        bevents.push({
+                                            'title': 'Birthday',
+                                            'user': snap.child('fname').val() + " " + snap.child('lname').val(),
+                                            'date': parseInt(bday[0], 10) + "/" + parseInt(bday[1], 10) + "/" + new Date().getFullYear()
+                                        });
+                                    }
+                                    if (new Date().getMonth() + 1 === parseInt(anniversary[1], 10) && new Date().getDate() <= parseInt(anniversary[0], 10)) {
+                                        wevents.push({
+                                            'title': 'Work Anniversary',
+                                            'user': snap.child('fname').val() + " " + snap.child('lname').val(),
+                                            'date': parseInt(anniversary[0], 10) + "/" + parseInt(anniversary[1], 10) + "/" + new Date().getFullYear()
+                                        });
+                                    }
+                                });
+                            })];
+                    case 1:
+                        _a.sent();
+                        this.bevents = bevents;
+                        this.wevents = wevents;
+                        this.blength = bevents.length;
+                        this.wlength = wevents.length;
+                        console.log(" birthday event length", this.blength);
+                        console.log(" work annivessary  event length", this.wlength);
+                        return [4 /*yield*/, this.firebase.database.ref("eventTrigger/WorkEvents").update({
+                                length: this.wlength,
+                            })];
+                    case 2:
+                        _a.sent();
+                        return [4 /*yield*/, this.firebase.database.ref("eventTrigger/birthdayEvents").update({
+                                length: this.blength,
+                            })];
+                    case 3:
+                        _a.sent();
+                        return [2 /*return*/];
+                }
+            });
+        });
+    };
+    var HomePage_1;
+    HomePage = HomePage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"D:\IdeaElan\src\pages\home\home.html"*/'<!--\n\n  Generated template for the HomePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n    <ion-toolbar color="blue" hideBackButton="true">\n\n      <button ion-button  menuToggle="left" start>\n\n          <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      \n\n      <ion-title text-center>Home</ion-title>\n\n  \n\n      <ion-buttons end>\n\n        <button ion-button >\n\n          <ion-icon name="notifications"></ion-icon> \n\n        </button> \n\n      </ion-buttons>\n\n      \n\n  </ion-toolbar>\n\n  \n\n  </ion-header>\n\n\n\n\n\n<ion-content padding >\n\n    <h5>Upcoming Events ({{events.length}})</h5>\n\n    <ion-list  >\n\n      <ion-item *ngFor="let event of events">\n\n        <ion-avatar item-start>\n\n            <img src="https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/{{event.userId}}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b" onerror="this.src=\'assets/imgs/companylogo.png\'"> \n\n\n\n        </ion-avatar>\n\n        <h5> {{event.title}}</h5>\n\n        <p>{{event.user}}</p>\n\n        <p>{{event.date}}</p>\n\n      </ion-item>\n\n    </ion-list>\n\n    \n\n\n\n \n\n  \n\n</ion-content>\n\n<ion-footer padding class="privilleges" >\n\n  <h5>Control Panel</h5>\n\n  <ion-list no-lines>\n\n    <button ion-item  (click)="goto(\'NewuserPage\')" [hidden]=users >\n\n        Users\n\n        \n\n    </button>\n\n    \n\n \n\n      <button ion-item  (click)="goto(\'SystemsPage\')" [hidden]=systems >\n\n          Systems\n\n      </button>\n\n    \n\n      <button ion-item (click)="goto(\'RecruitmentPage\')" [hidden]=recruitment>\n\n        Recruitment\n\n     </button>\n\n   \n\n       <!-- <button ion-item  (click)="goto(\'HomePage\')" [hidden]=uploadPaySlip>\n\n            Upload Payslip\n\n        </button>\n\n      -->\n\n          <button ion-item  (click)="goto(\'LeavesAdminPage\')" [hidden]=leaveRequest>\n\n             Leave Request\n\n                  <ion-badge color="danger">2</ion-badge>\n\n          </button>\n\n       \n\n            <button ion-item   (click)="goto(\'UploadEventsPage\')" [hidden]=uploadEvent>\n\n                Send Message\n\n            </button>\n\n          </ion-list>\n\n          \n\n  \n\n</ion-footer>\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\home\home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"F:\ionic-app\src\pages\home\home.html"*/'<!--\n\n  Generated template for the HomePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n    <ion-toolbar color="blue" hideBackButton="true">\n\n      <button ion-button  menuToggle="left" start>\n\n          <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      \n\n      <ion-title text-center>Home</ion-title>\n\n  \n\n      <ion-buttons end>\n\n        <button ion-button >\n\n          <ion-icon name="notifications"></ion-icon> \n\n        </button> \n\n      </ion-buttons>\n\n      \n\n  </ion-toolbar>\n\n  \n\n  </ion-header>\n\n\n\n\n\n<ion-content padding >\n\n    <div *ngIf="(events.length==0)">No Upcoming Events</div>\n\n  <h5  *ngIf="(events.length!=0)">Upcoming Events ({{events.length}})</h5>\n\n  \n\n \n\n    <ion-list >\n\n      <ion-item *ngFor="let event of events">\n\n        <ion-avatar item-start>\n\n            <img src="https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/{{event.userId}}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b" onerror="this.src=\'assets/imgs/companylogo.png\'"> \n\n\n\n        </ion-avatar>\n\n        <h5> {{event.title}}</h5>\n\n        <p>{{event.user}}</p>\n\n        <p>{{event.date}}</p>\n\n      </ion-item>\n\n    </ion-list>\n\n    \n\n\n\n \n\n  \n\n</ion-content>\n\n<ion-footer padding class="privilleges" >\n\n  <h5>Control Panel</h5>\n\n  <ion-list no-lines>\n\n    <button ion-item  (click)="goto(\'NewuserPage\')" [hidden]=users >\n\n        Users\n\n        \n\n    </button>\n\n    \n\n \n\n      <button ion-item  (click)="goto(\'SystemsPage\')" [hidden]=systems >\n\n          Systems\n\n      </button>\n\n    \n\n      <button ion-item (click)="goto(\'RecruitmentPage\')" [hidden]=recruitment>\n\n        Recruitment\n\n     </button>\n\n   \n\n     \n\n          <button ion-item  (click)="goto(\'LeavesAdminPage\')" [hidden]=leaveRequest>\n\n             Leave Request\n\n             <ion-badge color="danger">{{lrstatus.length}}</ion-badge>\n\n          </button>\n\n       \n\n            <button ion-item   (click)="goto(\'UploadEventsPage\')" [hidden]="sendMessage">\n\n                Send Message\n\n            </button>\n\n          </ion-list>\n\n          \n\n  \n\n</ion-footer>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\home\home.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_fcm__["a" /* FCM */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]])
     ], HomePage);

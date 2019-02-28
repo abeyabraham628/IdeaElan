@@ -1,0 +1,63 @@
+{
+  "_from": "cordova-plugin-apiai@^1.7.4",
+  "_id": "cordova-plugin-apiai@1.7.4",
+  "_inBundle": false,
+  "_integrity": "sha1-VtgUEJTGmsVywbQ9BtOUe1podUw=",
+  "_location": "/cordova-plugin-apiai",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "cordova-plugin-apiai@^1.7.4",
+    "name": "cordova-plugin-apiai",
+    "escapedName": "cordova-plugin-apiai",
+    "rawSpec": "^1.7.4",
+    "saveSpec": null,
+    "fetchSpec": "^1.7.4"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/cordova-plugin-apiai/-/cordova-plugin-apiai-1.7.4.tgz",
+  "_shasum": "56d8141094c69ac572c1b43d06d3947b5a68754c",
+  "_spec": "cordova-plugin-apiai@^1.7.4",
+  "_where": "F:\\ionic-app",
+  "author": {
+    "name": "api.ai"
+  },
+  "bugs": {
+    "url": "https://github.com/api-ai/api-ai-cordova/issues"
+  },
+  "bundleDependencies": false,
+  "cordova": {
+    "id": "cordova-plugin-apiai",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "deprecated": false,
+  "description": "Plugin makes it easy to integrate your Cordova application with https://api.ai natural language processing service.",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=5.0.0"
+    }
+  ],
+  "homepage": "https://github.com/api-ai/api-ai-cordova#readme",
+  "keywords": [
+    "language processing",
+    "voice recognition",
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "license": "Apache 2.0 License",
+  "name": "cordova-plugin-apiai",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/api-ai/api-ai-cordova.git"
+  },
+  "version": "1.7.4"
+}

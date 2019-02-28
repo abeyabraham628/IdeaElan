@@ -1,3 +1,4 @@
+import { ChatbotPage } from './../pages/chatbot/chatbot';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
@@ -25,6 +26,7 @@ import {FCM} from '@ionic-native/fcm'
 @NgModule({
   declarations: [
     MyApp,
+    ChatbotPage
  
     
   ],
@@ -41,6 +43,7 @@ import {FCM} from '@ionic-native/fcm'
     ReactiveFormsModule,
     AngularFireAuthModule,
     CalendarModule,
+    
    
    
 
@@ -51,6 +54,8 @@ import {FCM} from '@ionic-native/fcm'
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
+    ChatbotPage
+    
     
   ],
   providers: [
@@ -61,6 +66,7 @@ import {FCM} from '@ionic-native/fcm'
     BarcodeScanner,
     DatePipe,
     FCM,
+    
     
    {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

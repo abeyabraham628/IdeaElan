@@ -24,8 +24,11 @@
 
 
 <ion-content padding >
-    <h5>Upcoming Events ({{events.length}})</h5>
-    <ion-list  >
+    <div *ngIf="(events.length==0)">No Upcoming Events</div>
+  <h5  *ngIf="(events.length!=0)">Upcoming Events ({{events.length}})</h5>
+  
+ 
+    <ion-list >
       <ion-item *ngFor="let event of events">
         <ion-avatar item-start>
             <img src="https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/{{event.userId}}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b" onerror="this.src='assets/imgs/companylogo.png'"> 
@@ -58,16 +61,13 @@
         Recruitment
      </button>
    
-       <!-- <button ion-item  (click)="goto('HomePage')" [hidden]=uploadPaySlip>
-            Upload Payslip
-        </button>
-      -->
+     
           <button ion-item  (click)="goto('LeavesAdminPage')" [hidden]=leaveRequest>
              Leave Request
-                  <ion-badge color="danger">2</ion-badge>
+             <ion-badge color="danger">{{lrstatus.length}}</ion-badge>
           </button>
        
-            <button ion-item   (click)="goto('UploadEventsPage')" [hidden]=uploadEvent>
+            <button ion-item   (click)="goto('UploadEventsPage')" [hidden]="sendMessage">
                 Send Message
             </button>
           </ion-list>

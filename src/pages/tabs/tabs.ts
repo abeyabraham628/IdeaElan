@@ -1,3 +1,4 @@
+import { ChatbotPage } from './../chatbot/chatbot';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -31,7 +32,7 @@ export class TabsPage {
   tab3Root = 'RecruitmentPage';*/
   tab0Root='HomePage';
   tab1Root='ApplyLeavePage';
-  tab2Root='ChatbotPage';
+  tab2Root=ChatbotPage;
   tab3Root='InboxPage';
   tab0Params:any
   userId:any
@@ -45,7 +46,8 @@ export class TabsPage {
    // alert(this.afAuth.idTokenResult);
     this.tab0Params=this.navParams.data
     this.getusername();
-   this.hid=false;
+    this.getMessages()
+    this.hid=false;
    //this.uname=this.afAuth.auth.currentUser.email
    //console.log(this.uname);
    
@@ -55,7 +57,7 @@ export class TabsPage {
   var uname:any
   var position:any
     await this.fdb.database.ref(`/users/${this.afAuth.auth.currentUser.uid}`).once('value',function(snap){
-      uname=snap.child('fname').val()
+      uname=snap.child('fname').val() +" "+snap.child('lname').val()
       
    
      });
@@ -92,6 +94,12 @@ export class TabsPage {
    
     this.navCtrl.push('ChangepasswordPage');
   }
+
+  policy(){
+    this.navCtrl.push('PolicyPage');
+    
+  }
+ 
   
 createUploadTask(file: string): void {
 this.hid=false;
@@ -107,6 +115,21 @@ async uploadHandler() {
  const base64 = await this.changeimage();
  this.createUploadTask(base64);
 
+}
+
+messages=[]
+getMessages(){
+  this.fdb.list(`messages/${this.afAuth.auth.currentUser.uid}`).snapshotChanges().subscribe(snap=>{
+    this.messages=snap.map(item=>{
+      return{
+        $key:item.key,
+        ...item.payload.val()
+      }
+
+    })
+    
+  })
+  
 }
 
 

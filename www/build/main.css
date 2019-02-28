@@ -35839,6 +35839,14 @@ ion-input ::placeholder {
   border-bottom: solid 5px #F6A253 !important;
 }
 
+.justified {
+  text-align: justify;
+}
+
+.text-center {
+  text-align: center;
+}
+
 .hi {
   width: 90%;
   color: red;
@@ -35873,11 +35881,4 @@ tabBadge {
   top: -0.2rem;
   right: -0.2rem;
   opacity: 0.9;
-}
-
-.sideMenuList {
-  color: #FFF;
-  background-color: #f6a253;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 12px;
 }

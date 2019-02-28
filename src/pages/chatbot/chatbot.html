@@ -25,23 +25,22 @@
 
   <button ion-button (click)="ask(question)" hidden=true>Ask</button>
 
-  <div>{{answer}}</div>
+  
 
 
+ 
 
 
   <p text-center *ngIf="sending">sending...</p>
   <div *ngFor="let q of questions" style="left:0px" >
     <label name="title" class="msgClass">{{q.question}}</label>
-     <!-- your elements-->
+     
   </div>
 
-<div *ngFor="let q of questions" style="right:0px;position: absolute;">
+  <div *ngFor="let q of answer"  class="msgClass" style="right:0px;position: relative; text-align: right; background-color: honeydew ">
+      <label name="title" style="display:inline-flex">{{q.answer}}</label>
   
-    <label name="title">{{q.question}}</label>
-   <!-- your elements-->
 </div>
-
  
  
 </ion-content>
@@ -49,7 +48,7 @@
 <ion-footer>
     <ion-item>
     <ion-input [(ngModel)]="question" name="message" class="input_message" placeholder="Ask me anything"></ion-input>
-    <button ion-button (click)="tony(question)" item-right  color="orange"> <ion-icon  name="send" ></ion-icon></button>
+    <button ion-button (click)="ask(question)" item-right  color="orange"> <ion-icon  name="send" ></ion-icon></button>
    
   </ion-item>
 </ion-footer>

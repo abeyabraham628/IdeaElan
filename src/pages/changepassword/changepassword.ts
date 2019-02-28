@@ -19,8 +19,11 @@ import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 
 export class ChangepasswordPage {
   private password:string;
+  existingUser:any
   companyLogo:string="assets/imgs/26053.png"
   constructor(public toast:ToastController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase) {
+    this.existingUser=this.navParams.get('existingUser')
+    
   }
 
   ionViewDidLoad() {
@@ -29,6 +32,7 @@ export class ChangepasswordPage {
 
 
   changePasswordForm=new FormGroup({
+   
     password: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(15)]),
     confirmPassword: new FormControl('', [Validators.required, Validators.minLength(6), Validators.maxLength(15), this.equalto('password')])
 
@@ -46,14 +50,15 @@ export class ChangepasswordPage {
 }
 
 
-  async updatePassword(formValue,existingUser?){
-
+  async updatePassword(formValue){
+ 
+   
     var user = this.afAuth.auth.currentUser;
     var newPassword = formValue.password;
     var firebase=this.firebase;
     var navCtrl=this.navCtrl;
     var toastCtrl= this.toast
-    if(existingUser){
+    if(this.existingUser==null){
       user.updatePassword(newPassword).then(()=>{
         this.afAuth.auth.signOut()
             .then(() => {
@@ -68,7 +73,7 @@ export class ChangepasswordPage {
     })
   }
   
-    else
+    else if(!this.existingUser){
     user.updatePassword(newPassword).then(function() {
 
      firebase.object(`TempLogin/${user.uid}`).set({
@@ -91,7 +96,9 @@ export class ChangepasswordPage {
     }).catch(function(error) {
       alert(error)
     });
+  
   }
+}
 
 
   cancel(){

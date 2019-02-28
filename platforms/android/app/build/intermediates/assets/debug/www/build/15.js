@@ -1,14 +1,14 @@
 webpackJsonp([15],{
 
-/***/ 718:
+/***/ 719:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChatbotPageModule", function() { return ChatbotPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForgotpasswordPageModule", function() { return ForgotpasswordPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__chatbot__ = __webpack_require__(812);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__forgotpassword__ = __webpack_require__(816);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,33 +18,35 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ChatbotPageModule = /** @class */ (function () {
-    function ChatbotPageModule() {
+var ForgotpasswordPageModule = /** @class */ (function () {
+    function ForgotpasswordPageModule() {
     }
-    ChatbotPageModule = __decorate([
+    ForgotpasswordPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__chatbot__["a" /* ChatbotPage */],
+                __WEBPACK_IMPORTED_MODULE_2__forgotpassword__["a" /* ForgotpasswordPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__chatbot__["a" /* ChatbotPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__forgotpassword__["a" /* ForgotpasswordPage */]),
             ],
         })
-    ], ChatbotPageModule);
-    return ChatbotPageModule;
+    ], ForgotpasswordPageModule);
+    return ForgotpasswordPageModule;
 }());
 
-//# sourceMappingURL=chatbot.module.js.map
+//# sourceMappingURL=forgotpassword.module.js.map
 
 /***/ }),
 
-/***/ 812:
+/***/ 816:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChatbotPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ForgotpasswordPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__ = __webpack_require__(459);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(53);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -56,40 +58,60 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var ChatbotPage = /** @class */ (function () {
-    function ChatbotPage(platform, ngZone, navCtrl, navParams) {
-        this.platform = platform;
-        this.ngZone = ngZone;
+
+
+/**
+ * Generated class for the ForgotpasswordPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ForgotpasswordPage = /** @class */ (function () {
+    function ForgotpasswordPage(toast, navCtrl, navParams, afauth) {
+        this.toast = toast;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        platform.ready().then(function () {
-            ApiAIPromises.init({
-                clientAccessToken: "26950d7a838f45e0b584e39ef33c7c47"
-            }).then(function (result) { return console.log(result); });
+        this.afauth = afauth;
+        this.paswordResetForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormGroup"]({
+            email: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])
         });
     }
-    ChatbotPage.prototype.ask = function (question) {
-        var _this = this;
-        ApiAIPromises.requestText({
-            query: question
-        })
-            .then(function (_a) {
-            var speech = _a.result.fulfillment.speech;
-            _this.ngZone.run(function () {
-                _this.answer = speech;
+    ForgotpasswordPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad ForgotpasswordPage');
+    };
+    ForgotpasswordPage.prototype.resetPassword = function () {
+        var toastCtrl = this.toast;
+        var navCtrl = this.navCtrl;
+        var auth = this.afauth.auth;
+        var emailAddress = this.paswordResetForm.controls['email'].value;
+        auth.sendPasswordResetEmail(emailAddress).then(function () {
+            var toast = toastCtrl.create({
+                message: 'Password reset link has been sent to your mail.',
+                duration: 5000
             });
+            toast.present();
+            navCtrl.setRoot('LoginPage');
+        }).catch(function (error) {
+            var toast = toastCtrl.create({
+                message: error,
+                duration: 3000
+            });
+            toast.present();
         });
     };
-    ChatbotPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-chatbot',template:/*ion-inline-start:"F:\ionic-app\src\pages\chatbot\chatbot.html"*/'\n\n\n\n<ion-header>\n\n  <ion-navbar>\n\n    <ion-title>\n\n      Ionic API.AI Chatbot\n\n    </ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n\n\n<ion-content padding>\n\n\n\n  <input ion-text type="text" [(ngModel)]="question">\n\n\n\n  <button ion-button (click)="ask(question)">\n\n    Ask\n\n  </button>\n\n\n\n  <div>\n\n    {{answer}}\n\n  </div>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\chatbot\chatbot.html"*/,
+    ForgotpasswordPage.prototype.goBack = function () {
+        this.navCtrl.setRoot('LoginPage');
+    };
+    ForgotpasswordPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
+            selector: 'page-forgotpassword',template:/*ion-inline-start:"F:\ionic-app\src\pages\forgotpassword\forgotpassword.html"*/'<!--\n  Generated template for the ForgotpasswordPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n  <ion-toolbar color="blue" hideBackButton="true">\n    <button ion-button  menuToggle="left" start>\n        <ion-icon name="menu"></ion-icon>\n    </button>\n    \n    <ion-title text-center>Password Reset</ion-title>\n\n    <ion-buttons end>\n      <button ion-button >\n        <ion-icon name="notifications"></ion-icon> \n      </button> \n    </ion-buttons>\n    \n</ion-toolbar>\n\n</ion-header>\n\n\n<ion-content padding >\n    \n        <form [formGroup]="paswordResetForm" (ngSubmit)="resetPassword()">\n       <ion-list>\n\n          <ion-item no-lines>\n            <h3 style="font-size:20px"> Forgot Password?</h3>\n            <p style="font-size:12px">Enter your email address to reset your password</p>\n            </ion-item>\n           <ion-item no-lines>\n            <ion-input type="email" style="border:1px solid #f6a253" formControlName="email" ></ion-input>\n          </ion-item>\n          <ion-item  no-lines *ngIf="(paswordResetForm.get(\'email\').hasError(\'minlength\') || paswordResetForm.get(\'email\').hasError(\'required\') || paswordResetForm.get(\'email\').hasError(\'pattern\') ) && paswordResetForm.get(\'email\').touched">\n              <ion-label stacked  color="danger" *ngIf="(paswordResetForm.get(\'email\').hasError(\'minlength\') || paswordResetForm.get(\'email\').hasError(\'required\') || paswordResetForm.get(\'email\').hasError(\'pattern\') ) && paswordResetForm.get(\'email\').touched" >\n                Invalid Email ID\n              </ion-label>\n            </ion-item>\n          <hr/>\n         <ion-row>\n           <ion-item col-6 no-lines>\n             <button ion-button color="blue" style="height:40px;" type="submit"  [disabled]="paswordResetForm.invalid">Reset Password</button>\n           </ion-item>\n           <ion-item col-6 no-lines>\n              <button type="reset" ion-button color="light" style="height:40px;" (click)="goBack()">Cancel</button>\n            </ion-item>\n         </ion-row>\n        </ion-list>\n      </form>\n        <hr/>\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\forgotpassword\forgotpassword.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Platform"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"]])
-    ], ChatbotPage);
-    return ChatbotPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ToastController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */]])
+    ], ForgotpasswordPage);
+    return ForgotpasswordPage;
 }());
 
-//# sourceMappingURL=chatbot.js.map
+//# sourceMappingURL=forgotpassword.js.map
 
 /***/ })
 

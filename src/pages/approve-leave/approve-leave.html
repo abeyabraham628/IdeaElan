@@ -35,8 +35,8 @@
          </ion-row>
  
          <ion-row>
-           <ion-col col-6><button ion-button color="secondary" (click)="showConfirm(userLeaveDetails,'approved')"  >Approve</button></ion-col>
-           <ion-col col-6><button ion-button color="danger" (click)="rejectConfirm(userLeaveDetails,'rejected')" >Reject</button></ion-col>
+           <ion-col col-6><button ion-button full style="background-color: green" (click)="showConfirm(userLeaveDetails,'approved')"  >Approve</button></ion-col>
+           <ion-col col-6><button ion-button full color="danger" (click)="rejectConfirm(userLeaveDetails,'rejected')" >Reject</button></ion-col>
         </ion-row>
       </ion-card>
 
@@ -45,31 +45,28 @@
       
   <ion-card>
       <ion-list>
+          <div *ngIf="(leaveRecords.length==0)" style="text-align:center">No record found</div>
         <h6 text-center class="title section-title">Past Leaves</h6>
         <ion-item col-12>
           <ion-label floating>Select Date</ion-label>
           <ion-input type="text" [(ngModel)]="dateRange" (click)="datePicker('range')" readonly></ion-input>
           <ion-icon name="calendar" item-right></ion-icon>
         </ion-item>
+        <hr/>
 
-        <ion-item center>
-          <button ion-button (click)="leaveHistory()" color="blue" >Show</button>
-        </ion-item>
+        
 
-        <ion-card *ngFor="let x of leaveRecords " class="col-text row-bottom-border" >
-          <ion-card-header>
-          {{x.leaveType}} Leave<br/> 
-          
-          </ion-card-header>
-          
-          <ion-card-content  [ngClass]='x.status'>
-              {{x.date}} <br/>
-              {{x.status}} 
+        <ion-list >
+            <ion-item *ngFor="let x of leaveRecords" style="background-color:honeydew">
+              <h3>{{x.leaveType | titlecase}} Leave</h3>
+              <h5> {{x.date}}</h5>
+              <h5 [ngClass]='x.status'>{{x.status}}</h5>
               <div *ngIf="(x.reason!=null)">
-              Comments: {{x.reason}}
-            </div>
-          </ion-card-content>
-        </ion-card>
+                  Comments: {{x.reason}}
+                </div>
+                
+            </ion-item>
+          </ion-list>
         
         
         <!--<ion-item>

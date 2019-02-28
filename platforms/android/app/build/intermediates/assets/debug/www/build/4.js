@@ -5,12 +5,12 @@ webpackJsonp([4],{
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApproveLeavePageModule", function() { return ApproveLeavePageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_leave_model__ = __webpack_require__(739);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_datepicker__ = __webpack_require__(740);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__approve_leave__ = __webpack_require__(810);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApplyLeavePageModule", function() { return ApplyLeavePageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__apply_leave__ = __webpack_require__(813);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_datepicker__ = __webpack_require__(739);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_leave_model__ = __webpack_require__(741);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -22,24 +22,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ApproveLeavePageModule = /** @class */ (function () {
-    function ApproveLeavePageModule() {
+var ApplyLeavePageModule = /** @class */ (function () {
+    function ApplyLeavePageModule() {
     }
-    ApproveLeavePageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["NgModule"])({
+    ApplyLeavePageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__approve_leave__["a" /* ApproveLeavePage */],
+                __WEBPACK_IMPORTED_MODULE_2__apply_leave__["a" /* ApplyLeavePage */],
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_1__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_0__models_leave_model__["a" /* LeaveModel */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_3__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_4__models_leave_model__["a" /* LeaveModel */]],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_4__approve_leave__["a" /* ApproveLeavePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__apply_leave__["a" /* ApplyLeavePage */]),
             ],
         })
-    ], ApproveLeavePageModule);
-    return ApproveLeavePageModule;
+    ], ApplyLeavePageModule);
+    return ApplyLeavePageModule;
 }());
 
-//# sourceMappingURL=approve-leave.module.js.map
+//# sourceMappingURL=apply-leave.module.js.map
 
 /***/ }),
 
@@ -47,11 +47,71 @@ var ApproveLeavePageModule = /** @class */ (function () {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomDatePicker; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(53);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var CustomDatePicker = /** @class */ (function () {
+    function CustomDatePicker(modalCtrl) {
+        this.modalCtrl = modalCtrl;
+    }
+    CustomDatePicker.prototype.datePickerOptions = function (pickMode, defaultScrollTo, from, dateLimitTo, disableWeeks) {
+        var options = {
+            pickMode: pickMode,
+            showAdjacentMonthDay: false,
+            disableWeeks: disableWeeks,
+            from: from,
+            to: dateLimitTo,
+            defaultScrollTo: defaultScrollTo,
+            showMonthPicker: true,
+            showToggleButtons: true
+        };
+        return options;
+    };
+    CustomDatePicker.prototype.getMonths = function () {
+        return [{ 'monthName': 'January', 'value': '01' },
+            { 'monthName': 'February', 'value': '02' },
+            { 'monthName': 'March', 'value': '03' },
+            { 'monthName': 'April', 'value': '04' },
+            { 'monthName': 'May', 'value': '05' },
+            { 'monthName': 'June', 'value': '06' },
+            { 'monthName': 'July', 'value': '07' },
+            { 'monthName': 'August', 'value': '08' },
+            { 'monthName': 'September', 'value': '09' },
+            { 'monthName': 'October', 'value': '10' },
+            { 'monthName': 'November', 'value': '11' },
+            { 'monthName': 'December', 'value': '12' }];
+    };
+    CustomDatePicker = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"]])
+    ], CustomDatePicker);
+    return CustomDatePicker;
+}());
+
+//# sourceMappingURL=datepicker.js.map
+
+/***/ }),
+
+/***/ 741:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LeaveModel; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__ = __webpack_require__(458);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__ = __webpack_require__(459);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(53);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -215,11 +275,11 @@ var LeaveModel = /** @class */ (function () {
                                 flag = false;
                         });
                         if (flag)
-                            pastLeaves.push(child.val());
+                            pastLeaves.push(__assign({ $recKey: child.key }, child.val()));
                     }
                     else {
                         if (new Date(child.child('date').val()).getTime() >= dateFrom && new Date(child.child('date').val()).getTime() <= dateTo)
-                            pastLeaves.push(child.val());
+                            pastLeaves.push(__assign({ $recKey: child.key }, child.val()));
                     }
                 });
             }
@@ -233,11 +293,11 @@ var LeaveModel = /** @class */ (function () {
                                 flag = false;
                         });
                         if (flag)
-                            pastLeaves.push(child.val());
+                            pastLeaves.push(__assign({ $recKey: child.key }, child.val()));
                     }
                     else {
                         if (new Date(child.child('date').val()).getMonth() + 1 === new Date().getMonth() + 1 && new Date(child.child('date').val()).getFullYear() === new Date().getFullYear())
-                            pastLeaves.push(child.val());
+                            pastLeaves.push(__assign({ $recKey: child.key }, child.val()));
                     }
                 });
             }
@@ -320,13 +380,20 @@ var LeaveModel = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 740:
+/***/ 813:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomDatePicker; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApplyLeavePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ion2_calendar__ = __webpack_require__(460);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ion2_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ion2_calendar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_leave_model__ = __webpack_require__(741);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__models_datepicker__ = __webpack_require__(739);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_fire_auth__ = __webpack_require__(459);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_forms__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_fire_database__ = __webpack_require__(458);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -338,68 +405,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
-var CustomDatePicker = /** @class */ (function () {
-    function CustomDatePicker(modalCtrl) {
-        this.modalCtrl = modalCtrl;
-    }
-    CustomDatePicker.prototype.datePickerOptions = function (pickMode, defaultScrollTo, from, dateLimitTo, disableWeeks) {
-        var options = {
-            pickMode: pickMode,
-            showAdjacentMonthDay: false,
-            disableWeeks: disableWeeks,
-            from: from,
-            to: dateLimitTo,
-            defaultScrollTo: defaultScrollTo,
-            showMonthPicker: true,
-            showToggleButtons: true
-        };
-        return options;
-    };
-    CustomDatePicker.prototype.getMonths = function () {
-        return [{ 'monthName': 'January', 'value': '01' },
-            { 'monthName': 'February', 'value': '02' },
-            { 'monthName': 'March', 'value': '03' },
-            { 'monthName': 'April', 'value': '04' },
-            { 'monthName': 'May', 'value': '05' },
-            { 'monthName': 'June', 'value': '06' },
-            { 'monthName': 'July', 'value': '07' },
-            { 'monthName': 'August', 'value': '08' },
-            { 'monthName': 'September', 'value': '09' },
-            { 'monthName': 'October', 'value': '10' },
-            { 'monthName': 'November', 'value': '11' },
-            { 'monthName': 'December', 'value': '12' }];
-    };
-    CustomDatePicker = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"]])
-    ], CustomDatePicker);
-    return CustomDatePicker;
-}());
-
-//# sourceMappingURL=datepicker.js.map
-
-/***/ }),
-
-/***/ 810:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApproveLeavePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_leave_model__ = __webpack_require__(739);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_datepicker__ = __webpack_require__(740);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(458);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(63);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
 
 
 
@@ -407,46 +412,101 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the ApproveLeavePage page.
+ * Generated class for the ApplyLeavePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var ApproveLeavePage = /** @class */ (function () {
-    function ApproveLeavePage(userLeave, datepicker, alertCtrl, navCtrl, navParams, firebase, afauth) {
-        this.userLeave = userLeave;
-        this.datepicker = datepicker;
+var ApplyLeavePage = /** @class */ (function () {
+    function ApplyLeavePage(alertCtrl, formBuilder, afauth, navCtrl, navParams, modalCtrl, customDatePicker, userLeave, firebase) {
         this.alertCtrl = alertCtrl;
+        this.formBuilder = formBuilder;
+        this.afauth = afauth;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
+        this.modalCtrl = modalCtrl;
+        this.customDatePicker = customDatePicker;
+        this.userLeave = userLeave;
         this.firebase = firebase;
-        this.afauth = afauth;
         this.leaveCount = {};
-        this.months = this.datepicker.getMonths();
-        this.userLeaveDetails = this.navParams.get('userDetails');
-        this.userRemainingLeaves(this.userLeaveDetails.userId);
-        this.leaveRecords = this.userLeave.getPastLeaves(this.userLeaveDetails.userId);
+        this.leaveInfo = {};
+        this.dateRange = "This Month Leave";
+        this.months = this.customDatePicker.getMonths();
+        this.leaveForm = this.formBuilder.group({
+            leaveType: ['', __WEBPACK_IMPORTED_MODULE_6__angular_forms__["Validators"].required],
+            date: ['', __WEBPACK_IMPORTED_MODULE_6__angular_forms__["Validators"].requiredTrue],
+        });
+        this.ionSegmentDefaultValue = "applyLeave";
+        this.viewRemainingLeaves();
     }
-    ApproveLeavePage.prototype.userRemainingLeaves = function (userId) {
-        var _this = this;
-        {
-            this.userLeave.getRemainingLeaves(userId).then(function (item) {
-                _this.leaveCount.sickRemaining = item[0].sick;
-                _this.leaveCount.casualRemaining = item[0].casual;
-                _this.leaveCount.currentMonthLeave = item[0].currentMonthLeave;
-            });
-        }
+    ApplyLeavePage.prototype.ionViewDidLoad = function () {
     };
-    ApproveLeavePage.prototype.showConfirm = function (data, status) {
+    ApplyLeavePage.prototype.datePicker = function (pickMode) {
+        var _this = this;
+        var dateLimit = new Date().setDate(new Date().getDate() + 45); // Display  45 days from today
+        var defaultScrollTo = new Date();
+        var disableWeek = [0, 6]; // disable Sunday-0 and Saturday-6
+        if (pickMode == 'multi') {
+            var from = new Date();
+            var options = this.customDatePicker.datePickerOptions(pickMode, defaultScrollTo, from, dateLimit, disableWeek);
+        }
+        else {
+            var from = new Date('2/1/2018');
+            var options = this.customDatePicker.datePickerOptions(pickMode, defaultScrollTo, from);
+        }
+        var myCalendar = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_2_ion2_calendar__["CalendarModal"], {
+            options: options,
+        });
+        myCalendar.present();
+        myCalendar.onDidDismiss(function (date) {
+            if (date != null) {
+                if (pickMode === 'multi') {
+                    date.sort(function (a, b) {
+                        return a.time - b.time;
+                    });
+                    var selectedDates = _this.userLeave.arrangeDates(date);
+                    _this.leaveDates = selectedDates.date1 + "," + selectedDates.date2;
+                    _this.leaveInfo.date = selectedDates.date1;
+                    if (selectedDates.date2.length > 0)
+                        _this.leaveInfo.date2 = selectedDates.date2;
+                }
+                else {
+                    var from = date['from'].string.split('-');
+                    var to = date['to'].string.split('-');
+                    _this.dateRange = from[2] + "-" + from[1] + "-" + from[0] + " to " + to[2] + "-" + to[1] + "-" + to[0];
+                    _this.leaveHistory(date['from'].time, date['to'].time);
+                }
+            }
+        }); //end of displayCalendar function
+    }; // end of datepicker function
+    ApplyLeavePage.prototype.applyForLeave = function (leaveInfo) {
+        leaveInfo.userId = this.afauth.auth.currentUser.uid;
+        leaveInfo.status = "pending";
+        this.userLeave.submitLeaveRequest(leaveInfo);
+    };
+    ApplyLeavePage.prototype.leaveHistory = function (from, to) {
+        this.leaveRecords = this.userLeave.getPastLeaves(this.afauth.auth.currentUser.uid, from, to);
+    };
+    ApplyLeavePage.prototype.viewRemainingLeaves = function () {
+        var _this = this;
+        this.userLeave.getRemainingLeaves(this.afauth.auth.currentUser.uid).then(function (item) {
+            _this.leaveCount.sickRemaining = item[0].sick;
+            _this.leaveCount.casualRemaining = item[0].casual;
+            _this.leaveCount.currentMonthLeave = item[0].currentMonthLeave;
+        });
+    };
+    ApplyLeavePage.prototype.deleteLeave = function ($key) {
         var _this = this;
         var confirm = this.alertCtrl.create({
             title: 'Confirm',
-            message: 'Do you want to approve this leave request',
+            message: 'Do you want to cancel this leave request',
             buttons: [
                 {
                     text: 'Yes',
                     handler: function () {
-                        _this.userLeave.saveLeaveStatus(data, _this.leaveCount, status);
+                        _this.firebase.database.ref("EmployeeLeaves").child("" + $key).remove();
+                        _this.leaveHistory();
+                        //this.userLeave.saveLeaveStatus(data,this.leaveCount,status)
                     }
                 },
                 {
@@ -458,43 +518,16 @@ var ApproveLeavePage = /** @class */ (function () {
         });
         confirm.present();
     };
-    ApproveLeavePage.prototype.rejectConfirm = function (data, status) {
-        var _this = this;
-        var confirm = this.alertCtrl.create({
-            title: 'Reject',
-            message: 'Provide the reason for rejection',
-            inputs: [
-                {
-                    name: 'reason',
-                    placeholder: 'Reason'
-                },
-            ],
-            buttons: [
-                {
-                    text: 'Yes',
-                    handler: function (reject) {
-                        _this.userLeave.saveLeaveStatus(data, _this.leaveCount, status, reject.reason);
-                    }
-                },
-                {
-                    text: 'No',
-                    handler: function () {
-                    }
-                }
-            ]
-        });
-        confirm.present();
-    };
-    ApproveLeavePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["Component"])({
-            selector: 'page-approve-leave',template:/*ion-inline-start:"F:\ionic-app\src\pages\approve-leave\approve-leave.html"*/'<ion-header no-border>\n    <ion-toolbar color="blue" >\n      <button ion-button  menuToggle="left" start>\n          <ion-icon name="menu"></ion-icon>\n      </button>\n      \n      <ion-title text-center>Approve Leaves</ion-title>\n  \n      <ion-buttons end>\n        <button ion-button >\n          <ion-icon name="notifications"></ion-icon> \n        </button> \n      </ion-buttons>\n  </ion-toolbar>\n  </ion-header>\n\n\n<ion-content>\n    <ion-card>\n        <ion-item>\n          <ion-avatar item-start>\n            <img src="assets/imgs/companylogo.png">\n          </ion-avatar>\n          <h2>{{userLeaveDetails.name}}</h2>\n          <p>Leave Type:{{userLeaveDetails.leaveType}}</p>\n          <p>Date: [ {{userLeaveDetails.date}}]</p>\n        </ion-item>\n        <ion-row>\n            <ion-col col-6>This month leaves</ion-col>\n            <ion-col col-6>Remaining Leaves</ion-col>\n         </ion-row>\n         \n        <ion-row >\n           <ion-col col-6>{{leaveCount.currentMonthLeave}}</ion-col><ion-col col-4>Casual</ion-col><ion-col col-2>{{leaveCount.casualRemaining}}</ion-col>\n        </ion-row>\n        <ion-row>\n            <ion-col col-6></ion-col><ion-col col-4>Sick</ion-col><ion-col col-2>{{leaveCount.sickRemaining}}</ion-col>\n         </ion-row>\n \n         <ion-row>\n           <ion-col col-6><button ion-button color="secondary" (click)="showConfirm(userLeaveDetails,\'approved\')"  >Approve</button></ion-col>\n           <ion-col col-6><button ion-button color="danger" (click)="rejectConfirm(userLeaveDetails,\'rejected\')" >Reject</button></ion-col>\n        </ion-row>\n      </ion-card>\n\n    \n    \n      \n  <ion-card>\n      <ion-list>\n        <h6 text-center class="title section-title">Past Leaves</h6>\n        <ion-item>\n            <ion-label>Calendar</ion-label>\n            <ion-select [(ngModel)]="month" (ionChange)="enableYear()">\n              <ion-option *ngFor="let x of months" value="{{x.value}}">{{x.monthName}}</ion-option>\n            </ion-select>\n            <ion-select [(ngModel)]="year" [hidden]=showYear >\n              <ion-option value="2019">2019</ion-option>\n          </ion-select>\n        </ion-item>\n        \n        <ion-item>\n              <ion-row class="table-title" >\n                <ion-col col-3 >Leave Type</ion-col>\n                <ion-col col-7 >Date</ion-col>\n                <ion-col col-2 >Status</ion-col>\n                <ion-col hidden col-2>View</ion-col>\n              </ion-row>\n            </ion-item>\n            <ion-item>\n              <ion-row *ngFor="let x of leaveRecords" class="col-text row-bottom-border" [ngClass]=\'x.status\'>\n                  <ion-col col-3>{{x.leaveType}}</ion-col><ion-col col-7 text-wrap>{{x.date}}</ion-col><ion-col col-2>{{x.status}}</ion-col>\n              </ion-row>\n            </ion-item>\n        </ion-list>\n      </ion-card>\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\approve-leave\approve-leave.html"*/,
+    ApplyLeavePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-apply-leave',template:/*ion-inline-start:"F:\ionic-app\src\pages\apply-leave\apply-leave.html"*/'<!--\n\n  Generated template for the ApplyLeavePage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n<ion-header no-border>\n\n  <ion-toolbar color="blue" hideBackButton="true">\n\n    <button ion-button  menuToggle="left" start>\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    \n\n    <ion-title text-center>Leaves</ion-title>\n\n\n\n    <ion-buttons end>\n\n      <button ion-button >\n\n        <ion-icon name="notifications"></ion-icon> \n\n      </button> \n\n    </ion-buttons>\n\n    \n\n</ion-toolbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n\n\n\n\n  \n\n  \n\n    <ion-segment [(ngModel)]="ionSegmentDefaultValue" color="white" >\n\n        <ion-segment-button value="applyLeave">\n\n           Apply Leave\n\n        </ion-segment-button>\n\n        <ion-segment-button value="leaveHistory" (click)="leaveHistory()" >\n\n          My Leaves\n\n        </ion-segment-button>\n\n     </ion-segment>\n\n\n\n\n\n<div [ngSwitch]="ionSegmentDefaultValue">\n\n  <div *ngSwitchCase="\'applyLeave\'">\n\n    \n\n   \n\n\n\n\n\n\n\n\n\n\n\n\n\n    <ion-card>\n\n      <ion-card-content>\n\n         <ion-row (click)="remaining()">\n\n            <ion-col col-6>This month leaves</ion-col>\n\n            <ion-col col-6>Remaining Leaves</ion-col>\n\n         </ion-row>\n\n         \n\n        <ion-row >\n\n           <ion-col col-6>{{leaveCount.currentMonthLeave}}</ion-col><ion-col col-4>Casual</ion-col><ion-col col-2>{{leaveCount.casualRemaining}}</ion-col>\n\n        </ion-row>\n\n        <ion-row>\n\n            <ion-col col-6></ion-col><ion-col col-4>Sick</ion-col><ion-col col-2>{{leaveCount.sickRemaining}}</ion-col>\n\n         </ion-row>\n\n         \n\n      </ion-card-content>\n\n  </ion-card>\n\n\n\n  <form [formGroup]="leaveForm"   (ngSubmit)="applyForLeave(leaveInfo)">\n\n  <h6 text-center class="title section-title">Leave Details</h6>\n\n    <ion-list>\n\n      \n\n      <div radio-group [(ngModel)]="leaveInfo.leaveType"  formControlName="leaveType">\n\n          <ion-row>\n\n              <ion-item col-6>\n\n                  <ion-radio  value="casual"></ion-radio>\n\n                  <ion-label>Casual Leave</ion-label>\n\n              </ion-item>\n\n              \n\n              <ion-item col-6>\n\n                  <ion-radio value="sick"></ion-radio>\n\n                <ion-label>Sick Leave</ion-label>\n\n              </ion-item>\n\n\n\n              <ion-item no-lines *ngIf="leaveForm.get(\'leaveType\').hasError(\'requiredTrue\') && leaveForm.get(\'leaveType\').touched">\n\n                  <ion-label stacked  color="danger" >\n\n                   Leave type is required\n\n                </ion-label>\n\n                </ion-item>\n\n            </ion-row>\n\n       </div>\n\n    \n\n    \n\n  \n\n    <ion-item col-12>\n\n      <ion-label stacked>Select Dates</ion-label>\n\n      <ion-input  type="readonly" (click)="datePicker(\'multi\') " [(ngModel)]="leaveDates" readonly formControlName="date"  ></ion-input>\n\n    </ion-item>\n\n    <ion-item no-lines *ngIf="leaveForm.get(\'date\').hasError(\'required\') && leaveForm.get(\'date\').touched">\n\n        <ion-label stacked  color="danger" >\n\n         Leave date is required\n\n      </ion-label>\n\n      </ion-item>\n\n    \n\n  \n\n  <ion-row>\n\n      <ion-col col-6>\n\n    <button ion-button full color="blue" type="submit">Submit</button>\n\n  </ion-col>\n\n    <ion-col col-6>\n\n        <button ion-button type="button"  icon-end full color=blue (click)="resetForm()"   >\n\n          Cancel\n\n        </button>\n\n      </ion-col>\n\n  </ion-row>\n\n\n\n</ion-list>\n\n</form>\n\n</div>\n\n\n\n    <div *ngSwitchCase="\'leaveHistory\'">\n\n      \n\n      <ion-row>\n\n       <ion-item col-12>\n\n              <ion-label floating>Choose Date</ion-label>\n\n              <ion-input readonly (click)="datePicker(\'range\')" [(ngModel)]="dateRange" full color="blue">Open calendar</ion-input>\n\n              <ion-icon name="calendar" item-right></ion-icon>\n\n            </ion-item>\n\n        </ion-row>\n\n    \n\n  \n\n     \n\n  \n\n  \n\n  \n\n      <ion-list>\n\n        <h6 text-center class="title section-title">{{dateRange}}</h6>\n\n        \n\n        <ion-list >\n\n            <div *ngIf="(leaveRecords.length==0)">No Record Found</div>\n\n          <ion-item *ngFor="let x of leaveRecords" style="background-color:honeydew">\n\n            <h3>{{x.leaveType | titlecase}} Leave</h3>\n\n            <h5> {{x.date}}</h5>\n\n            <h5 [ngClass]=\'x.status\'>{{x.status}}</h5>\n\n            <div *ngIf="(x.reason!=null)">\n\n                Comments: {{x.reason}}\n\n              </div>\n\n              \n\n              <button *ngIf="(x.status==\'pending\')" ion-button item-right color="blue" (click)="deleteLeave(x.$recKey)">Cancel</button>\n\n                \n\n          </ion-item>\n\n        </ion-list>\n\n\n\n        \n\n\n\n           \n\n        </ion-list>\n\n        \n\n    </div>\n\n</div>\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\apply-leave\apply-leave.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__models_leave_model__["a" /* LeaveModel */], __WEBPACK_IMPORTED_MODULE_1__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */]])
-    ], ApproveLeavePage);
-    return ApproveLeavePage;
-}());
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_6__angular_forms__["FormBuilder"], __WEBPACK_IMPORTED_MODULE_5__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_4__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_3__models_leave_model__["a" /* LeaveModel */], __WEBPACK_IMPORTED_MODULE_7__angular_fire_database__["a" /* AngularFireDatabase */]])
+    ], ApplyLeavePage);
+    return ApplyLeavePage;
+}()); // end of class
 
-//# sourceMappingURL=approve-leave.js.map
+//# sourceMappingURL=apply-leave.js.map
 
 /***/ })
 

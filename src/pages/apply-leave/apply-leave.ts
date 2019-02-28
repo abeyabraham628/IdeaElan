@@ -1,6 +1,6 @@
 import { leaveCount,leaves } from './../../providers/user-leaves';
 import { Component} from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, Form } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, Form, AlertController } from 'ionic-angular';
 import { CalendarModal,CalendarResult} from "ion2-calendar";
 
 import { LeaveModel } from '../../models/leave.model';
@@ -8,6 +8,8 @@ import { CustomDatePicker } from '../../models/datepicker';
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import {FormControl, FormGroup,Validators, FormBuilder} from '@angular/forms'
+import { leave } from '@angular/core/src/profile/wtf_impl';
+import { AngularFireDatabase } from '@angular/fire/database';
 
 
 
@@ -39,7 +41,7 @@ leaveDates:any
 dateRange:any="This Month Leave"
 months=this.customDatePicker.getMonths()
 
- constructor(private formBuilder:FormBuilder,private afauth:AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,private modalCtrl:ModalController,private customDatePicker:CustomDatePicker,private userLeave:LeaveModel) {
+ constructor(private alertCtrl:AlertController,private formBuilder:FormBuilder,private afauth:AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,private modalCtrl:ModalController,private customDatePicker:CustomDatePicker,private userLeave:LeaveModel,private firebase:AngularFireDatabase) {
             this.ionSegmentDefaultValue="applyLeave";
             this.viewRemainingLeaves();
             
@@ -109,6 +111,7 @@ months=this.customDatePicker.getMonths()
 
     
  applyForLeave(leaveInfo){
+  
    leaveInfo.userId=this.afauth.auth.currentUser.uid
    leaveInfo.status="pending"
    this.userLeave.submitLeaveRequest(leaveInfo)
@@ -118,7 +121,7 @@ months=this.customDatePicker.getMonths()
   leaveHistory(from?,to?){
    
    this.leaveRecords=this.userLeave.getPastLeaves(this.afauth.auth.currentUser.uid,from,to)
-   console.log(this.leaveRecords)
+   
  }
 
     viewRemainingLeaves(){
@@ -129,6 +132,28 @@ months=this.customDatePicker.getMonths()
       })
     }
     
-    
+   deleteLeave($key){
+    const confirm = this.alertCtrl.create({
+      title:'Confirm',
+      message: 'Do you want to cancel this leave request',
+      buttons: [
+        {
+          text: 'Yes',
+          handler: () => {
+            this.firebase.database.ref(`EmployeeLeaves`).child(`${$key}`).remove()
+            this.leaveHistory();
+            //this.userLeave.saveLeaveStatus(data,this.leaveCount,status)
+          }
+        },
+        {
+          text: 'No',
+          handler: () => {
+            
+          }
+        }
+      ]
+    });
+    confirm.present();
+   } 
   
 }// end of class

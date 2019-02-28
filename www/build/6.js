@@ -1,14 +1,14 @@
 webpackJsonp([6],{
 
-/***/ 731:
+/***/ 729:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UploadEventsPageModule", function() { return UploadEventsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SystemsPageModule", function() { return SystemsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__upload_events__ = __webpack_require__(836);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__systems__ = __webpack_require__(826);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,68 +18,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var UploadEventsPageModule = /** @class */ (function () {
-    function UploadEventsPageModule() {
+var SystemsPageModule = /** @class */ (function () {
+    function SystemsPageModule() {
     }
-    UploadEventsPageModule = __decorate([
+    SystemsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__upload_events__["a" /* UploadEventsPage */],
+                __WEBPACK_IMPORTED_MODULE_2__systems__["a" /* SystemsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__upload_events__["a" /* UploadEventsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__systems__["a" /* SystemsPage */]),
             ],
         })
-    ], UploadEventsPageModule);
-    return UploadEventsPageModule;
+    ], SystemsPageModule);
+    return SystemsPageModule;
 }());
 
-//# sourceMappingURL=upload-events.module.js.map
+//# sourceMappingURL=systems.module.js.map
 
 /***/ }),
 
-/***/ 758:
+/***/ 826:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Designations; });
-var Designations = /** @class */ (function () {
-    function Designations() {
-        this.designations = [
-            'HR Execuitive',
-            'Intern',
-            'Jr.Software Engineer',
-            'Product Manager',
-            'Project Manager',
-            'QA Manager',
-            'Sr.Software Engineer',
-            'Sr.Software Developer',
-            'Support Specialist',
-            'Sales Support Manager',
-            'Software Developer',
-            'Software Test Engineer',
-            'Sr.Support Specialist',
-            'Team Lead'
-        ];
-    }
-    return Designations;
-}());
-
-//# sourceMappingURL=designations.js.map
-
-/***/ }),
-
-/***/ 836:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UploadEventsPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SystemsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__ = __webpack_require__(458);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(63);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_designations__ = __webpack_require__(758);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_date_picker__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__ = __webpack_require__(466);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_common__ = __webpack_require__(44);
 var __assign = (this && this.__assign) || Object.assign || function(t) {
     for (var s, i = 1, n = arguments.length; i < n; i++) {
         s = arguments[i];
@@ -97,41 +67,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
+
 
 
 
@@ -139,136 +75,152 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 /**
- * Generated class for the UploadEventsPage page.
+ * Generated class for the SystemsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var UploadEventsPage = /** @class */ (function () {
-    function UploadEventsPage(alert, navCtrl, navParams, firebase, afauth) {
-        this.alert = alert;
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
+var SystemsPage = /** @class */ (function () {
+    function SystemsPage(alertCtrl, barcode, datePicker, firebase, datepipe) {
+        this.alertCtrl = alertCtrl;
+        this.barcode = barcode;
+        this.datePicker = datePicker;
         this.firebase = firebase;
-        this.afauth = afauth;
-        this.designations = new __WEBPACK_IMPORTED_MODULE_5__providers_designations__["a" /* Designations */]().designations;
-        this.PublishMessageForm = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormGroup"]({
-            subject: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required]),
-            message: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required]),
-            recipients: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required]),
-            postedBy: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"](''),
-            time: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"](''),
-            date: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"](''),
+        this.datepipe = datepipe;
+        this.Save = "Save";
+        this.systemsForm = new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormGroup"]({
+            $key: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"](null),
+            systemId: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(5)]),
+            keyboard: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
+            mouse: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
+            processor: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
+            memory: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(3)]),
+            hdd: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(3)]),
+            avExpiry: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
+            avValidity: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
         });
-        this.recipients = [];
-        this.sentItems = [];
-        this.messages = "compose";
+        this.systemArray = [];
+        this.systems = "newSystem";
+        this.getSystemList();
     }
-    UploadEventsPage.prototype.publishMessage = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var sentTo, users, sender, i;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        sentTo = this.recipients;
-                        users = [];
-                        return [4 /*yield*/, this.firebase.database.ref("users/" + this.afauth.auth.currentUser.uid).once('value', function (snap) {
-                                sender = (snap.child('fname').val() + " " + snap.child('lname').val());
-                            })];
-                    case 1:
-                        _a.sent();
-                        return [4 /*yield*/, this.firebase.database.ref("users").once('value', function (snap) {
-                                snap.forEach(function (childSnapshot) {
-                                    if (childSnapshot.child('status').val() === "active") {
-                                        for (var i = 0; i < sentTo.length; i++)
-                                            if (sentTo[i] == "All") {
-                                                users.push(childSnapshot.key);
-                                            }
-                                            else {
-                                                if (childSnapshot.child('position').val() === sentTo[i])
-                                                    users.push(childSnapshot.key);
-                                            }
-                                    }
-                                });
-                            })];
-                    case 2:
-                        _a.sent();
-                        this.PublishMessageForm.controls['date'].setValue(new Date().toLocaleDateString());
-                        this.PublishMessageForm.controls['time'].setValue(new Date().toLocaleTimeString());
-                        this.PublishMessageForm.controls['postedBy'].setValue(sender);
-                        for (i = 0; i < users.length; i++)
-                            this.firebase.list("messages/" + users[i]).push({
-                                'date': this.PublishMessageForm.controls['date'].value,
-                                'message': this.PublishMessageForm.controls['message'].value,
-                                'postedBy': this.PublishMessageForm.controls['postedBy'].value,
-                                'subject': this.PublishMessageForm.controls['subject'].value,
-                                'time': this.PublishMessageForm.controls['time'].value
-                            });
-                        this.firebase.list("sentmessages/" + this.afauth.auth.currentUser.uid).push({
-                            'recipients': this.recipients,
-                            'date': this.PublishMessageForm.controls['date'].value,
-                            'message': this.PublishMessageForm.controls['message'].value,
-                            'subject': this.PublishMessageForm.controls['subject'].value,
-                            'time': this.PublishMessageForm.controls['time'].value
-                        });
-                        return [2 /*return*/];
-                }
+    SystemsPage.prototype.getSystemList = function () {
+        this.systemsList = this.firebase.list('systems');
+        return this.systemsList.snapshotChanges();
+    };
+    SystemsPage.prototype.getSystems = function () {
+        var _this = this;
+        this.systemsForm.reset();
+        this.getSystemList().subscribe(function (list) {
+            _this.systemArray = list.map(function (item) {
+                return __assign({ $key: item.key }, item.payload.val());
             });
         });
     };
-    UploadEventsPage.prototype.addRecipients = function () {
+    SystemsPage.prototype.loadForm = function (systems) {
+        this.systems = "newSystem";
+        this.Save = "Update";
+        this.systemsForm.setValue(systems);
+    };
+    SystemsPage.prototype.updateSystems = function (systems) {
         var _this = this;
-        var alert = this.alert.create();
-        alert.setTitle('Choose Recipients');
-        alert.addInput({
-            type: 'checkbox',
-            label: "All",
-            value: "All"
-        });
-        for (var i = 0; i < this.designations.length; i++) {
-            alert.addInput({
-                type: 'checkbox',
-                label: this.designations[i],
-                value: this.designations[i]
+        this.systemsList.update(systems.$key, {
+            systemId: systems.systemId,
+            keyboard: systems.keyboard,
+            mouse: systems.mouse,
+            processor: systems.processor,
+            memory: systems.memory,
+            hdd: systems.hdd,
+            avExpiry: systems.avExpiry,
+            avValidity: systems.avValidity
+        }).then(function () {
+            var alert = _this.alertCtrl.create({
+                title: "Success",
+                subTitle: "System updated succesfuly ",
+                buttons: ['OK']
             });
+            alert.present();
+        });
+    };
+    SystemsPage.prototype.insertSystems = function (systems) {
+        var _this = this;
+        this.systemsList.push({
+            systemId: systems.systemId,
+            keyboard: systems.keyboard,
+            mouse: systems.mouse,
+            processor: systems.processor,
+            memory: systems.memory,
+            hdd: systems.hdd,
+            avExpiry: systems.avExpiry,
+            avValidity: systems.avValidity
+        }).then(function () {
+            var alert = _this.alertCtrl.create({
+                title: "Success",
+                subTitle: "System added succesfuly ",
+                buttons: ['OK']
+            });
+            alert.present();
+        });
+    };
+    SystemsPage.prototype.onSubmit = function () {
+        if (this.systemsForm.controls.$key.value == null) {
+            this.insertSystems(this.systemsForm.value);
+            this.systemsForm.reset();
         }
-        alert.addButton('Cancel');
-        alert.addButton({
-            text: 'OK',
-            handler: function (data) {
-                _this.recipients = data;
-                _this.PublishMessageForm.controls['recipients'].setValue(data);
-            }
-        });
-        alert.present();
+        else {
+            this.updateSystems(this.systemsForm.value);
+            this.systemsForm.reset();
+        }
     };
-    UploadEventsPage.prototype.getSentItems = function () {
+    SystemsPage.prototype.scanBarCode = function (type) {
         var _this = this;
-        this.firebase.list("sentmessages/" + this.afauth.auth.currentUser.uid).snapshotChanges().subscribe(function (snap) {
-            _this.sentItems = snap.map(function (items) {
-                return __assign({ $key: items.key }, items.payload.val());
-            }).reverse();
+        this.barcode.scan().then(function (barcodeData) {
+            if (type == "system") {
+                _this.systemsForm.controls['systemId'].setValue(barcodeData.text);
+            }
+            else if (type == "keyboard") {
+                _this.systemsForm.controls['keyboard'].setValue(barcodeData.text);
+            }
+            else if (type == "mouse") {
+                _this.systemsForm.controls['mouse'].setValue(barcodeData.text);
+            }
+            else if (type == "db") {
+                _this.findSystem(barcodeData.text);
+            }
+        }).catch(function (err) {
+            console.log('Error', err);
         });
     };
-    UploadEventsPage.prototype.viewMessage = function (message) {
-        var alert = this.alert.create({
-            title: "Subject: " + message.subject,
-            subTitle: "Recipients: " + message.recipients,
-            message: "Message: " + message.message,
-            buttons: ['OK']
-        });
-        alert.present();
+    SystemsPage.prototype.dispdate = function () {
+        var _this = this;
+        this.datePicker.show({
+            date: new Date(),
+            mode: 'date',
+            androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_LIGHT
+        }).then(function (date) {
+            _this.systemsForm.controls['avExpiry'].setValue((date.toLocaleDateString())),
+                _this.systemsForm.controls['avValidity'].setValue(Math.ceil((date.getTime() - new Date().getTime()) / (1000 * 3600 * 24)));
+        }, function (err) { return console.log('Error occurred while getting date: ', err); });
     };
-    UploadEventsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-upload-events',template:/*ion-inline-start:"D:\IdeaElan\src\pages\upload-events\upload-events.html"*/'<!--\n\n  Generated template for the UploadEventsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n    <ion-toolbar color="blue" hideBackButton="true">\n\n      <button ion-button  menuToggle="left" start>\n\n          <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      \n\n      <ion-title text-center>Sent Message</ion-title>\n\n  \n\n      <ion-buttons end>\n\n        <button ion-button >\n\n          <ion-icon name="notifications"></ion-icon> \n\n        </button> \n\n      </ion-buttons>\n\n      \n\n  </ion-toolbar>\n\n  \n\n  </ion-header>\n\n\n\n<ion-content>\n\n    <ion-segment [(ngModel)]="messages" color="white" >\n\n        <ion-segment-button value="compose">\n\n           Compose\n\n        </ion-segment-button>\n\n        <ion-segment-button value="sentItems" (click)="getSentItems()">\n\n          Sent Items\n\n        </ion-segment-button>\n\n     </ion-segment>\n\n\n\n     <div [ngSwitch]="messages">\n\n        <div *ngSwitchCase="\'compose\'">\n\n    <form [formGroup]="PublishMessageForm" (ngSubmit)="publishMessage()">\n\n        \n\n       \n\n          <ion-item>\n\n                <ion-label floating>Recipients</ion-label>\n\n                <ion-input type="text" formControlName="recipients" readonly (click)="addRecipients()" (ionFocus)="addRecipients()"></ion-input>\n\n           </ion-item>    \n\n\n\n    <ion-item>\n\n      <ion-label floating>Subject</ion-label>\n\n        <ion-input type="text" formControlName="subject"></ion-input>\n\n    </ion-item>\n\n    <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'subject\').hasError(\'required\')  && PublishMessageForm.get(\'subject\').touched">\n\n        <ion-label stacked  color="danger">\n\n          Subject Is Required\n\n        </ion-label>\n\n      </ion-item>\n\n    <ion-item>\n\n        <ion-label floating>Message</ion-label>\n\n          <ion-textarea rows="10" formControlName="message"></ion-textarea>\n\n      </ion-item>\n\n      <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'message\').hasError(\'required\')  && PublishMessageForm.get(\'message\').touched">\n\n          <ion-label stacked  color="danger">\n\n            Message Is Required\n\n          </ion-label>\n\n        </ion-item>\n\n\n\n      <ion-item>\n\n            <button type="submit"  [disabled]="PublishMessageForm.invalid" color="blue" full ion-button>Send Message</button>\n\n         </ion-item>\n\n         </form>\n\n  </div>\n\n\n\n  <div *ngSwitchCase="\'sentItems\'" >\n\n      <ion-item>\n\n          <ion-row class="table-title">\n\n            <ion-col col-7 >Recipients</ion-col>\n\n            <ion-col col-3 >Subject</ion-col>\n\n            <ion-col col-2 >Date</ion-col>\n\n            \n\n          </ion-row>\n\n        </ion-item>\n\n        <ion-item *ngFor="let message of sentItems">\n\n          <ion-row class="col-text table-bottom-border" (click)="viewMessage(message)" >\n\n              <ion-col col-7 text-wrap>{{message.recipients}}</ion-col><ion-col col-3>{{message.subject}}</ion-col><ion-col col-2>{{message.date}}</ion-col>\n\n          </ion-row>\n\n        </ion-item>\n\n    </div>\n\n\n\n\n\n         </div>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\upload-events\upload-events.html"*/,
+    SystemsPage.prototype.findSystem = function (systemId) {
+        var result = [];
+        this.firebase.database.ref("systems").orderByChild('systemId').equalTo(systemId).on("value", function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+                result = __assign({ $key: childSnapshot.key }, childSnapshot.val());
+                return false;
+            });
+        });
+        this.loadForm(result);
+    }; //end of function
+    SystemsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
+            selector: 'page-systems',template:/*ion-inline-start:"F:\ionic-app\src\pages\systems\systems.html"*/'<ion-header no-border>\n\n  <ion-toolbar color="blue" hideBackButton="true">\n\n    <button ion-button  menuToggle="left" start>\n\n        <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    \n\n    <ion-title text-center>SYSTEMS</ion-title>\n\n\n\n    <ion-buttons end>\n\n      <button ion-button >\n\n        <ion-icon name="notifications"></ion-icon> \n\n      </button> \n\n    </ion-buttons>\n\n</ion-toolbar>\n\n</ion-header>\n\n  \n\n\n\n\n\n\n\n  <ion-content>\n\n \n\n      <ion-segment [(ngModel)]="systems" color="white" >\n\n         <ion-segment-button value="newSystem">\n\n            Add System\n\n         </ion-segment-button>\n\n         <ion-segment-button value="allSystems" (click)="getSystems()">\n\n           All Systems\n\n         </ion-segment-button>\n\n      </ion-segment>\n\n  <div [ngSwitch]="systems">\n\n    <div *ngSwitchCase="\'newSystem\'">\n\n      <form [formGroup]="systemsForm" (ngSubmit)="onSubmit()">\n\n      <ion-list>\n\n          <h6 class="title">System Information</h6>\n\n        \n\n            <ion-item col-12>\n\n              <ion-input hidden formControlName="$key"></ion-input>\n\n              <ion-input hidden formControlName="avValidity"></ion-input>\n\n              <ion-label stacked>System Id</ion-label>\n\n              <ion-input type="text" formControlName="systemId"></ion-input>\n\n             \n\n                <button ion-button type="button" color="blue" (click)="scanBarCode(\'system\')" small item-right>\n\n                  <ion-icon name="barcode"> </ion-icon>\n\n                </button>\n\n               \n\n            </ion-item>\n\n            <ion-item  no-lines *ngIf="(systemsForm.get(\'systemId\').hasError(\'minlength\') || systemsForm.get(\'systemId\').hasError(\'required\') ) && systemsForm.get(\'systemId\').touched">\n\n\n\n              <ion-label stacked  color="danger" *ngIf="systemsForm.get(\'systemId\').hasError(\'required\') && systemsForm.get(\'systemId\').touched">\n\n              SystemId is required\n\n              </ion-label>\n\n              <ion-label stacked color="danger" *ngIf="systemsForm.get(\'systemId\').hasError(\'minlength\') && systemsForm.get(\'systemId\').touched">\n\n              Minimum of 5 characters\n\n              </ion-label>\n\n              </ion-item>\n\n       \n\n             \n\n                <ion-item col-12>\n\n                  <ion-label stacked>Keyboard</ion-label>\n\n                  <ion-input type="text" formControlName="keyboard" ></ion-input>\n\n                    <button ion-button small type="button" (click)="scanBarCode(\'keyboard\')" color="blue" item-right>\n\n                      <ion-icon name="barcode"> </ion-icon>\n\n                    </button>\n\n                  </ion-item>\n\n                  <ion-item  no-lines *ngIf="(systemsForm.get(\'keyboard\').hasError(\'minlength\') || systemsForm.get(\'keyboard\').hasError(\'required\') ) && systemsForm.get(\'keyboard\').touched">\n\n                    <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'keyboard\').hasError(\'required\')  || systemsForm.get(\'keyboard\').hasError(\'minlength\')) && systemsForm.get(\'keyboard\').touched" >\n\n                      Keyboard Details is Required\n\n                    </ion-label>\n\n                  </ion-item>\n\n           \n\n            \n\n                <ion-item col-12>\n\n                  <ion-label stacked>Mouse</ion-label>\n\n                  <ion-input type="text" formControlName="mouse"></ion-input>\n\n                    <button ion-button small type="button" (click)="scanBarCode(\'mouse\')" color="blue" item-right>\n\n                        <ion-icon name="barcode"> </ion-icon>\n\n                      </button>\n\n                  </ion-item>\n\n                  <ion-item  no-lines *ngIf="(systemsForm.get(\'mouse\').hasError(\'minlength\') || systemsForm.get(\'mouse\').hasError(\'required\') ) && systemsForm.get(\'mouse\').touched">\n\n                    <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'mouse\').hasError(\'required\')  || systemsForm.get(\'mouse\').hasError(\'minlength\')) && systemsForm.get(\'mouse\').touched" >\n\n                      Mouse Details is Required\n\n                    </ion-label>\n\n                  </ion-item>\n\n               \n\n\n\n              <ion-item col-12>\n\n                <ion-label stacked>Processor</ion-label>\n\n                <ion-input type="text" formControlName="processor" ></ion-input>\n\n              </ion-item>\n\n              <ion-item  no-lines *ngIf="(systemsForm.get(\'processor\').hasError(\'minlength\') || systemsForm.get(\'processor\').hasError(\'required\') ) && systemsForm.get(\'processor\').touched">\n\n                <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'processor\').hasError(\'required\')  || systemsForm.get(\'processor\').hasError(\'minlength\')) && systemsForm.get(\'processor\').touched" >\n\n                  Processor Details is Required\n\n                </ion-label>\n\n              </ion-item>\n\n             <ion-row  >\n\n              <ion-item  col-6>\n\n                <ion-label stacked>Primary Memory</ion-label>\n\n                <ion-input type="text" formControlName="memory" ></ion-input>\n\n              </ion-item>\n\n              \n\n\n\n              <ion-item no-lines col-6>\n\n                <ion-label stacked>Hard Disk</ion-label>\n\n                <ion-input type="text" formControlName="hdd" ></ion-input>\n\n              </ion-item>\n\n              \n\n            </ion-row>  \n\n            <ion-row>\n\n            <ion-item col-6 no-lines *ngIf="(systemsForm.get(\'memory\').hasError(\'minlength\') || systemsForm.get(\'memory\').hasError(\'required\') ) && systemsForm.get(\'memory\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'memory\').hasError(\'required\')  || systemsForm.get(\'memory\').hasError(\'minlength\')) && systemsForm.get(\'memory\').touched" >\n\n                Memory Details is Required\n\n              </ion-label>\n\n            </ion-item>\n\n            <ion-item col-6  no-lines *ngIf="(systemsForm.get(\'hdd\').hasError(\'minlength\') || systemsForm.get(\'hdd\').hasError(\'required\') ) && systemsForm.get(\'hdd\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'hdd\').hasError(\'required\')  || systemsForm.get(\'hdd\').hasError(\'minlength\')) && systemsForm.get(\'hdd\').touched" >\n\n                HDD Details is Required\n\n              </ion-label>\n\n            </ion-item>\n\n          </ion-row>\n\n        \n\n            <ion-item col-12>\n\n              <ion-label stacked>Antivirus Expiry</ion-label>\n\n              <ion-input type="text" readonly formControlName="avExpiry" (click)="dispdate()" (ionFocus)="dispdate()" ></ion-input>\n\n            </ion-item>\n\n            <ion-item  no-lines *ngIf="(systemsForm.get(\'avExpiry\').hasError(\'minlength\') || systemsForm.get(\'avExpiry\').hasError(\'required\') ) && systemsForm.get(\'avExpiry\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'avExpiry\').hasError(\'required\')  || systemsForm.get(\'avExpiry\').hasError(\'minlength\')) && systemsForm.get(\'avExpiry\').touched" >\n\n                Antivirus Details is Required\n\n              </ion-label>\n\n            </ion-item>\n\n          \n\n\n\n              <ion-row>\n\n                <ion-col col-6>\n\n                <button ion-button type="submit" [disabled]="systemsForm.invalid" icon-end full color=blue   >\n\n                  Save\n\n                </button>\n\n              </ion-col>\n\n              <ion-col col-6>\n\n                  <button ion-button type="reset"  icon-end full color=blue   >\n\n                    Cancel\n\n                  </button>\n\n                </ion-col>\n\n              </ion-row> \n\n             \n\n      </ion-list>\n\n    </form>\n\n\n\n    \n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'allSystems\'">\n\n      <ion-list>\n\n        <ion-searchbar hidden placeholder="Find System" showCancelButton="false">\n\n       </ion-searchbar>\n\n       <button type="button"  color="blue" ion-button (click)="scanBarCode(\'db\')">Scanner</button>\n\n      </ion-list>\n\n      <ion-item>\n\n        <ion-row class="table-title">\n\n          <ion-col col-4 >System Id</ion-col>\n\n          <ion-col col-3 >RAM</ion-col>\n\n          <ion-col col-3 >HDD</ion-col>\n\n          <ion-col col-2 >Antivirus</ion-col>\n\n          <ion-col hidden col-2 >View</ion-col>\n\n        </ion-row>\n\n      </ion-item>\n\n      <ion-item *ngFor="let system of systemArray">\n\n        <ion-row class="col-text table-bottom-border" (click)="loadForm(system)" >\n\n            <ion-col col-4>{{system.systemId}}</ion-col><ion-col col-3>{{system.memory}}</ion-col><ion-col col-3>{{system.hdd}}</ion-col><ion-col col-2>{{system.avValidity}} Days</ion-col>\n\n        </ion-row>\n\n      </ion-item>\n\n\n\n      \n\n    </div>\n\n\n\n\n\n  </div>\n\n    \n\n  </ion-content>\n\n  \n\n '/*ion-inline-end:"F:\ionic-app\src\pages\systems\systems.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__["a" /* AngularFireAuth */]])
-    ], UploadEventsPage);
-    return UploadEventsPage;
-}());
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__["a" /* BarcodeScanner */], __WEBPACK_IMPORTED_MODULE_1__ionic_native_date_picker__["a" /* DatePicker */], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_6__angular_common__["d" /* DatePipe */]])
+    ], SystemsPage);
+    return SystemsPage;
+}()); //end of class
 
-//# sourceMappingURL=upload-events.js.map
+//# sourceMappingURL=systems.js.map
 
 /***/ })
 

@@ -24,10 +24,10 @@ export class LeavesAdminPage {
   leaveRequests:any
   employeeName:any
   employeeKey:any
-  dateRange:any
+  dateRange:any="Select Date"
   from:any
   to:any
-  leaveRecords:any
+  leaveRecords:any=[]
   constructor(public navCtrl:NavController,private userLeave:LeaveModel,public modalCtrl:ModalController,public navParams: NavParams,private empDetails:Employee,private customDatePicker: CustomDatePicker) {
     this.leaves='viewLeaveRequests';
     this.leaveRequests=this.userLeave.viewLeaveRequest()
@@ -59,6 +59,8 @@ datePicker(pickMode){
        this.from=date['from'].time
        this.to=date['to'].time
        this.dateRange=from[2]+"-"+from[1]+"-"+from[0]+" to "+to[2]+"-"+to[1]+"-"+to[0]
+
+       this.leaveHistory()
       }
      })
 
@@ -83,12 +85,11 @@ datePicker(pickMode){
   }
 
   leaveHistory(){
-    if(this.employeeKey===null)
-      alert("Select and Employee")
-    else{
+    
       this.leaveRecords=this.userLeave.getPastLeaves(this.employeeKey,this.from,this.to)
       
-    }
+     
+    
   }
 
 
