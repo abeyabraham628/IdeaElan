@@ -1,5 +1,5 @@
 <ion-header>
-  <page-header title="Users"></page-header>
+  <page-header pageTitle="USERS"></page-header>
 </ion-header>
 
 <ion-content  >
@@ -10,46 +10,46 @@
     </ion-segment-button>
     <ion-segment-button value="allUsers" (click)="new()">
    
-    All User
+        All User
     </ion-segment-button>
   </ion-segment>
      
       <div [ngSwitch]="users">
 
           <div *ngSwitchCase="'newUser'">
-            <ion-list >
+          
               <h6 class="title section-title ">User Information</h6>
-                <ion-row>
-                   
-                    <ion-item col-6 > 
+              
+                 <ion-row>
+                   <ion-item col-6> 
                         <ion-label stacked>First Name</ion-label>
-                        <ion-input type="text" [(ngModel)]="userItem.fname"></ion-input>
-                      </ion-item> 
-                             
-                     <ion-item col-6  > 
+                        <ion-input type="text" [(ngModel)]="userItem.fname" date-picker pickmode="single"></ion-input>
+                    </ion-item> 
+                     
+                    <ion-item col-6> 
                         <ion-label stacked>Last Name</ion-label>
                         <ion-input type="text" [(ngModel)]="userItem.lname" ></ion-input>
                       </ion-item>
+                    
                     </ion-row>
-
-                    <ion-row>
+                    
                       <ion-item col-12 > 
                           <ion-label stacked>Date Of Birth</ion-label>
-                          <ion-input type="text" readonly (ionFocus)="dispdate('birth')" (click)="dispdate('birth')" [(ngModel)]="userItem.dob"  ></ion-input>
+                          <ion-input type="text" readonly (tap)="dispdate('birth')"  [(ngModel)]="userItem.dob"  ></ion-input>
                         </ion-item> 
-                    </ion-row>     
-                    <ion-row>
+                        
+                    
                       <ion-item col-12> 
                          <ion-label stacked>Mobile Number</ion-label>
                          <ion-input type="text" [(ngModel)]="userItem.mobile" ></ion-input>
                        </ion-item>
-                     </ion-row> 
-                    <ion-row>
+                     
+                   
                        <ion-item col-12> 
                           <ion-label stacked>Email Id</ion-label>
                           <ion-input type="text" [(ngModel)]="userItem.email" ></ion-input>
                         </ion-item>
-                      </ion-row>
+                      
                       
                       
                       <h6 class="title section-title">Job Details</h6>
@@ -57,13 +57,17 @@
                         <ion-row>
                             <ion-item col-6> 
                                 <ion-label stacked>Date Of Joining</ion-label>
-                                <ion-input type="text" readonly (ionFocus)="dispdate('join')"  (click)="dispdate('join')" [(ngModel)]="userItem.doj"></ion-input>
+                                <ion-input type="text" readonly (tap)="dispdate('join')"   [(ngModel)]="userItem.doj"></ion-input>
                               </ion-item>
+
                              <ion-item col-6> 
                                 <ion-label stacked>Position</ion-label>
-                                <ion-input type="text" [(ngModel)]="userItem.position" (click)="selectPosition()" readonly ></ion-input>
+                                <ion-select  [(ngModel)]="userItem.position">
+                                  <ion-option *ngFor="let p of designations" [value]='p.value'>{{p.position}}</ion-option>
+                                </ion-select>
                               </ion-item>
                            </ion-row>  
+
                           <ion-row>
                               <ion-col col-6>
                                   <ion-label >Set privileges</ion-label>
@@ -79,11 +83,11 @@
                                   
                            <button ion-button  icon-end  full color=blue (click)="btn(userItem)" >
                              {{butn}}
-                             <ion-icon name="star"></ion-icon>
+                           
                              </button>
                           </ion-row> 
                          
-              </ion-list>
+             
           </div>
             
        <div *ngSwitchCase="'allUsers'">

@@ -1,21 +1,11 @@
-import { Component, ViewChild, ElementRef } from '@angular/core';
+
+import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController} from 'ionic-angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 import { LoadingController } from 'ionic-angular';
 import {FCM} from '@ionic-native/fcm'
-import { PageHeaderComponent } from '../../components/page-header/page-header';
-
-
-
-
-
-/**
- * Generated class for the HomePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import * as moment from 'moment'
 
 @IonicPage()
 @Component({
@@ -23,7 +13,7 @@ import { PageHeaderComponent } from '../../components/page-header/page-header';
   templateUrl: 'home.html',
 })
 export class HomePage {
-  sample:PageHeaderComponent
+ 
 userId:any
 roles:any[]
 users:boolean=true
@@ -43,8 +33,7 @@ wlength:any=0;
 devicetoken : any ="abc";
 
   constructor(private fcm:FCM,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
-    
-
+   
     
     this.lrcountcheck();
     console.log(this.afAuth.auth.currentUser.uid);
@@ -98,30 +87,17 @@ devicetoken : any ="abc";
       this.users=false
      
   }
+
   lrstatus=[]
   async lrcountcheck(){
     let lrstatus=[];
      await this.firebase.database.ref(`EmployeeLeaves`).once('value',function(snap){
-     
-      
-   
-     
-      snap.forEach(snap=>{
-     if(snap.child('status').val()=="pending")
-     // lrstatus.push(snap.child('status').val());
-       // this.lrcount++;{}
-       {
-       //console.log(snap.child('status').val());
-       lrstatus.push(snap.child('status').val());
-      
-       }
-        }) ;
-        console.log(lrstatus);
-        console.log(lrstatus.length)
-  
-
-    
-      });
+     snap.forEach(snap=>{
+        if(snap.child('status').val()=="pending"){
+            lrstatus.push(snap.child('status').val());
+          }
+      }) ;
+    });
       this.lrstatus=lrstatus
   }
 
@@ -149,11 +125,9 @@ devicetoken : any ="abc";
  
  
    ionViewDidLoad() {
-
-    this.getMessages()
-    this.getUpComingEvents()
-    this.getUpComingEventsNotification()
-    
+      this.getMessages()
+      this.getUpComingEvents()
+      this.getUpComingEventsNotification()
    }
 
  
@@ -184,9 +158,7 @@ devicetoken : any ="abc";
   viewMessages(x){
       let modal=this.modalCtrl.create({
         title:x.subject,
-        
-  
-      })
+     })
       modal.present()
   }
   

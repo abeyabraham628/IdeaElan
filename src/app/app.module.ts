@@ -1,3 +1,5 @@
+import { DatepickerDirective } from './../directives/datepicker/datepicker';
+
 import { ChatbotPage } from './../pages/chatbot/chatbot';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { BrowserModule } from '@angular/platform-browser';
@@ -26,10 +28,13 @@ import { ComponentsModule } from '../components/components.module';
 import { DataService } from '../providers/page-tite-service';
 
 
+
 @NgModule({
   declarations: [
     MyApp,
-    ChatbotPage
+    ChatbotPage,
+    
+    
  
     
   ],
@@ -44,7 +49,12 @@ import { DataService } from '../providers/page-tite-service';
     ReactiveFormsModule,
     AngularFireAuthModule,
     CalendarModule,
-    ComponentsModule
+    ComponentsModule,
+    
+    
+  
+    
+   
    ],
   bootstrap: [IonicApp],
   entryComponents: [

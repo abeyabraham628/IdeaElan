@@ -1,4 +1,7 @@
 
+<ion-header>
+  <page-header pageTitle="SYSTEMS"></page-header>
+</ion-header>
 
 
 
@@ -150,7 +153,7 @@
       </ion-item>
       <ion-item *ngFor="let system of systemArray">
         <ion-row class="col-text table-bottom-border" (click)="loadForm(system)" >
-            <ion-col col-4>{{system.systemId}}</ion-col><ion-col col-3>{{system.memory}}</ion-col><ion-col col-3>{{system.hdd}}</ion-col><ion-col col-2>{{system.avValidity}} Days</ion-col>
+            <ion-col col-4>{{system.systemId}}</ion-col><ion-col col-3>{{system.memory}}</ion-col><ion-col col-3>{{system.hdd}}</ion-col><ion-col col-2>{{system.avExpiry | momentdate}} Days</ion-col>
         </ion-row>
       </ion-item>
 

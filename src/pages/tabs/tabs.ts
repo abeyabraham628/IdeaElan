@@ -6,8 +6,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import {  AngularFireDatabase } from '@angular/fire/database';
 import {  AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
 import { AppConst } from '../../providers/strings';
-import { Title } from '../../components/page-header/page-title-model';
-import { DataService } from '../../providers/page-tite-service';
+
 
 /**
  * Generated class for the TabsPage page.
@@ -41,7 +40,7 @@ export class TabsPage {
   uname:any;
   position:any;
   
-  constructor(private data:DataService,private fdb:AngularFireDatabase,public storage: AngularFireStorage,private camera: Camera,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth) {
+  constructor(private fdb:AngularFireDatabase,public storage: AngularFireStorage,private camera: Camera,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth) {
     
     
    // alert(this.afAuth.idTokenResult);
@@ -55,9 +54,7 @@ export class TabsPage {
     this.uri=`https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/${this.afAuth.auth.currentUser.uid}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b5`
   }
 
-  changeTitle(title){
-    this.data.changeTitle(title)
-  }
+ 
 
  async getusername(){
   var uname:any

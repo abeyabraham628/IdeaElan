@@ -1,17 +1,20 @@
 import { AngularFireAuth} from '@angular/fire/auth';
 
 import { userItem } from './../../models/user-item/user-item.interface';
-import { Component,ChangeDetectorRef,ViewChild, Input} from '@angular/core';
-import { IonicPage, NavController, NavParams ,Slides,AlertController, ModalController } from 'ionic-angular';
+import { Component,ChangeDetectorRef} from '@angular/core';
+import { IonicPage, NavController, NavParams ,AlertController, ModalController } from 'ionic-angular';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import { Subscription } from 'rxjs/Subscription';
+
 
 import * as keygen from 'generate-password';
 import * as emailjs from 'emailjs-com';
 import { CustomDatePicker } from '../../models/datepicker';
-import { CalendarModal,CalendarResult, MonthComponent} from "ion2-calendar";
+import { CalendarModal,CalendarResult} from "ion2-calendar";
 import * as moment from 'moment'
 import { Designations } from '../../providers/designations';
+Designations
+
 @IonicPage()
 @Component({
   selector: 'page-newuser',
@@ -21,7 +24,7 @@ import { Designations } from '../../providers/designations';
 export class NewuserPage {
   
   
-  designations=new Designations().designations
+  designations=Designations
   public itemslist: Array<any> = [];
  
  public items: Array<any> = [];
@@ -66,7 +69,6 @@ export class NewuserPage {
 
   icons:string="0";
   constructor(public navCtrl: NavController,private ref: ChangeDetectorRef, private fdb:AngularFireDatabase,public navParams: NavParams,public alertCtrl: AlertController,private customDatePicker:CustomDatePicker,private afAuth:AngularFireAuth,private modalCtrl:ModalController) {
-    // this.disa=false; 
    
    
     this.icons="0";
@@ -190,10 +192,10 @@ getItems(searchbar) {
            if(type=="birth"){
 
 
-             this.userItem.dob=moment(date['time']).format('D/M/YYYY')
+             this.userItem.dob=moment(date['time']).format('D-MMM-YYYY')
            }
            else if(type=="join"){
-             this.userItem.doj=moment(date['time']).format('D/M/YYYY')
+             this.userItem.doj=moment(date['time']).format('D-MMM-YYYY')
            }
          
        }
@@ -869,31 +871,6 @@ console.log(name)
     });
     }
 
-    recipients=[]
-    selectPosition(){
-      
-     let alert = this.alertCtrl.create();
-     alert.setTitle('Select Title');
     
-     for (let i=0;i<this.designations.length;i++) {
-           alert.addInput({
-            type: 'radio',
-            label: this.designations[i],
-            value: this.designations[i],
-            checked: false
-       });
-    }
-    alert.addButton('Cancel');
-    alert.addButton({
-      text: 'OK',
-      handler: data => {
-      // this.recipients = data;
-       this.userItem.position=data
-      }
-    });
-   
-    alert.present();
-    
-    }
     
 }

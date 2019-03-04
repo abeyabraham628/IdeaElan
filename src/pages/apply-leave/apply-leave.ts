@@ -10,22 +10,12 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import {FormControl, FormGroup,Validators, FormBuilder} from '@angular/forms'
 
 import { AngularFireDatabase } from '@angular/fire/database';
-import { PageHeaderComponent } from '../../components/page-header/page-header';
+import * as moment from 'moment'
 
 
 
 
 
-
-
-
-
-/**
- * Generated class for the ApplyLeavePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -68,15 +58,15 @@ months=this.customDatePicker.getMonths()
 
    datePicker(pickMode){
     
-   let dateLimit=new Date().setDate(new Date().getDate()+45)// Display  45 days from today
-   var defaultScrollTo=new Date()
+   let dateLimit=moment().add(45, 'days');// Display  45 days from today
+   var defaultScrollTo=moment()// scroll to curren date
     let disableWeek=[0,6]// disable Sunday-0 and Saturday-6
-    if(pickMode=='multi'){
-      let from=new Date()
+    if(pickMode=='multi'){// Select multiple dates fron date picker
+      let from=moment()// current date selected in date picker
     var options=this.customDatePicker.datePickerOptions(pickMode,defaultScrollTo,from,dateLimit,disableWeek)
     }
-    else{
-      let from=new Date('2/1/2018')
+    else{// for selecting range of dates
+      let from=moment('1/2/2018','D/M/YYYY')// default starting date is set to Feb 2018
       var options=this.customDatePicker.datePickerOptions(pickMode,defaultScrollTo,from)
     }
     let myCalendar =  this.modalCtrl.create(CalendarModal, {
@@ -99,12 +89,14 @@ months=this.customDatePicker.getMonths()
                 this.leaveInfo.date2=selectedDates.date2;
       }
       else{
-        let from=date['from'].string.split('-')
-        let to=date['to'].string.split('-')
-        this.dateRange=from[2]+"-"+from[1]+"-"+from[0]+" to "+to[2]+"-"+to[1]+"-"+to[0]
+        
+        let from=moment(date['from'].string).format('D/MMM/YYYY')
+        let to=moment(date['to'].string).format('D/MMM/YYYY')
+        this.dateRange=from+" to "+to
         this.leaveHistory(date['from'].time,date['to'].time)
       }
-    }
+      }
+    
 
      })//end of displayCalendar function
     }// end of datepicker function

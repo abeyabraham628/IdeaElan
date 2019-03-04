@@ -14,7 +14,7 @@ import { Component, Input } from '@angular/core';
                         <ion-icon name="menu"></ion-icon>
                     </button>
                     
-                    <ion-title text-center>{{title}}</ion-title>
+                    <ion-title text-center>{{this.pageTitle}}</ion-title>
 
                     <ion-buttons end>
                       <button ion-button >
@@ -28,15 +28,14 @@ import { Component, Input } from '@angular/core';
                
 })
 export class PageHeaderComponent {
-@Input() title:string 
+@Input() pageTitle:string
 
 
 
   constructor() {
-  
-    
-   
   }
+
+  
 
   
 

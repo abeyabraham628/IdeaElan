@@ -22,7 +22,7 @@ import { Designations } from '../../providers/designations';
 export class UploadEventsPage {
 
 
-  designations=new Designations().designations
+  designations=Designations
   messages:string
 
 
@@ -103,13 +103,13 @@ async publishMessage(){
     label: "All",
     value: "All"
 });
-  for (let i=0;i<this.designations.length;i++) {
-        alert.addInput({
+  this.designations.forEach(item=>{
+      alert.addInput({
          type: 'checkbox',
-         label: this.designations[i],
-         value: this.designations[i]
+         label: item.position,
+         value: item.value
     });
- }
+ })
  alert.addButton('Cancel');
  alert.addButton({
    text: 'OK',

@@ -1,11 +1,14 @@
+
+
 import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 import { DatePicker } from '@ionic-native/date-picker';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Component } from '@angular/core';
-import { IonicPage, AlertController } from 'ionic-angular';
+import { IonicPage, AlertController, ModalController } from 'ionic-angular';
 import {FormControl, FormGroup,Validators} from '@angular/forms'
-import { DatePipe } from '@angular/common';
-
+import { CustomDatePicker } from '../../models/datepicker';
+import { CalendarModal,CalendarResult} from "ion2-calendar";
+import * as moment from 'moment'
 
 
 
@@ -43,7 +46,7 @@ export class SystemsPage {
   
 
  systems:string;
-  constructor(public alertCtrl:AlertController,private barcode:BarcodeScanner,private datePicker:DatePicker,private firebase:AngularFireDatabase,private datepipe:DatePipe) {
+  constructor(public modalCtrl:ModalController,public customDatePicker:CustomDatePicker ,public alertCtrl:AlertController,private barcode:BarcodeScanner,private datePicker:DatePicker,private firebase:AngularFireDatabase) {
   this.systems="newSystem";
  this.getSystemList();
 }
@@ -162,7 +165,31 @@ insertSystems(systems:any){
      });
   }
   AvValidity:any
-  dispdate(){
+  dispdate(type){
+    let pickMode='single'
+    var defaultScrollTo=new Date()
+      let from=new Date('2/1/2019')
+      var options=this.customDatePicker.datePickerOptions(pickMode,defaultScrollTo,from)
+       
+      let myCalendar =  this.modalCtrl.create(CalendarModal, {
+       options: options,
+       });
+          
+       myCalendar.present();
+        
+       myCalendar.onDidDismiss((date: CalendarResult[]) => {
+        
+         
+         if(date!=null){
+          this.systemsForm.controls['avExpiry'].setValue(moment(date['time']).format('D-MMM-YYYY'))
+          //this.systemsForm.controls['avValidity'].setValue(Math.ceil((date.getTime()-new Date().getTime())/(1000*3600*24)))
+        }
+      
+      
+      })//end of displayCalendar function
+    }
+
+  /*dispdate(){
     this.datePicker.show({
       date:new Date(),
       mode:'date',
@@ -174,7 +201,7 @@ insertSystems(systems:any){
        },
       err => console.log('Error occurred while getting date: ', err)
     )
-  }
+  }*/
 
 
   findSystem(systemId:any){

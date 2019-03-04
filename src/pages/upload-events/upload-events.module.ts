@@ -1,3 +1,4 @@
+import { ComponentsModule } from './../../components/components.module';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { UploadEventsPage } from './upload-events';
@@ -9,6 +10,7 @@ import { UploadEventsPage } from './upload-events';
   ],
   imports: [
     IonicPageModule.forChild(UploadEventsPage),
+    ComponentsModule
   ],
 })
 export class UploadEventsPageModule {}
