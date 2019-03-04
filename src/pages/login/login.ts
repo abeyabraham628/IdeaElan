@@ -1,19 +1,12 @@
-import { async } from 'rxjs/scheduler/async';
+
 import { credentials } from './../../providers/login';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController, ModalController } from 'ionic-angular';
-import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
+import { IonicPage, NavController, NavParams, ToastController, ModalController, LoadingController } from 'ionic-angular';
+import { AngularFireDatabase } from '@angular/fire/database';
+import { AppConst } from '../../providers/strings';
+import { Storage } from '@ionic/storage';
 
-
- 
-
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -24,62 +17,68 @@ import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 export class LoginPage {
 
   credentials={} as credentials
+  companyLogo:string=AppConst.logo
+  loader:any;
+  toast:any;
+  constructor(public toastCtrl:ToastController,
+              public loadingCtrl:LoadingController,
+              public modalCtrl:ModalController,
+              public navCtrl: NavController, 
+              public  afAuth:AngularFireAuth,
+              public firebase:AngularFireDatabase,
+              public storage:Storage) {}
+    
 
-
-  companyLogo:string="assets/imgs/companylogo.png"
-  constructor(public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams, private afAuth:AngularFireAuth,private firebase:AngularFireDatabase) {
-  }
-
-  
-
- 
+  ionViewDidLoad(){
+      this.loader=this.loadingCtrl.create({
+        content:'Signin In',
+        dismissOnPageChange:true
+      })
+      this.storage.get('emailId').then(emailId=>{
+       if(emailId!=null){
+          this.credentials.emailId=emailId
+        }
+      })
+   }
 
   async signIn(user:credentials){
    
    try{
-      const result=await this.afAuth.auth.signInWithEmailAndPassword(user.emailId,user.password);
-      //const result=await this.afAuth.auth.signInWithEmailAndPassword('tony.manuel@mca.christuniversity.in','123456');
-      let x:Promise<boolean>
-      let y;
-      var privilleges=[]
-      
-      const priv=await this.firebase.database.ref(`users/${result.user.uid}`).child('data').once('value',(snapshot)=>{
-       privilleges=snapshot.val()
-       
-      
-      })
-     //console.log("resule",result.user.uid)
-  
-       
-      if(result){
-            await this.firebase.database.ref(`TempLogin/${result.user.uid}`).once("value",(snapshot)=> {
-              y=snapshot.val();
-              console.log(y)
-            });
-
-              if(y==null)
+     this.loader.present()
+      //const loginSuccess=await this.afAuth.auth.signInWithEmailAndPassword(user.emailId,user.password);
+     const loginSuccess=await this.afAuth.auth.signInWithEmailAndPassword('tony.manuel@mca.christuniversity.in','123456');
+     
+     if(loginSuccess){
+            this.storage.set('emailId',user.emailId)
+            //retrieve the user specific roles
+            const privilleges=await this.firebase.database.ref(`users/${loginSuccess.user.uid}`).child('data').once('value')
+            //check whether the user has changed the temporary password
+            const tempPassword=await this.firebase.database.ref(`TempLogin/${loginSuccess.user.uid}`).once('value');
+            // If user is signing in for first time then the user is redirected to change the temporary password
+            if(tempPassword.val()==null)
               this.navCtrl.setRoot('ChangepasswordPage',{'existingUser':false})
-              else
-               this.navCtrl.setRoot('TabsPage',{'roles': privilleges})
-               this.navCtrl.popToRoot();
-          
-            }
-          
-
-          
-    }catch(e){
-      alert(e);
-       }
-      }
+            else
+              this.navCtrl.setRoot('TabsPage',{'roles': privilleges})
+        }
+    }catch(error){
+      this.loader.dismiss()
+      var errMsg = AppConst.FirebaseError.find(e=>e.code==error.code) 
+      let toast=this.toastCtrl.create({
+          message:errMsg.error,
+          duration:5000,
+        })
+        toast.present()
+       }//end of catch
+      }//end of sign in function
 
 
  
  
-     //end of sign in function
+    
 
      forgotPassword(){
      const modal = this.modalCtrl.create('ForgotpasswordPage');
-        modal.present();
+     modal.present();
      
 
      }

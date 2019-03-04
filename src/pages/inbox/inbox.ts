@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
 
 import { IonicPage, NavController, NavParams, ModalController,AlertController } from 'ionic-angular';
 import { messaging } from 'firebase';
-
+import { PageHeaderComponent } from '../../components/page-header/page-header';
 
 /**
  * Generated class for the InboxPage page.

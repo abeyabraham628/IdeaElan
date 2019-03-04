@@ -1,14 +1,14 @@
 webpackJsonp([10],{
 
-/***/ 725:
+/***/ 730:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "PolicyPageModule", function() { return PolicyPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(822);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__policy__ = __webpack_require__(828);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,38 +18,33 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LoginPageModule = /** @class */ (function () {
-    function LoginPageModule() {
+var PolicyPageModule = /** @class */ (function () {
+    function PolicyPageModule() {
     }
-    LoginPageModule = __decorate([
+    PolicyPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_2__policy__["a" /* PolicyPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
-            ],
-            exports: [
-                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__policy__["a" /* PolicyPage */]),
             ],
         })
-    ], LoginPageModule);
-    return LoginPageModule;
+    ], PolicyPageModule);
+    return PolicyPageModule;
 }());
 
-//# sourceMappingURL=login.module.js.map
+//# sourceMappingURL=policy.module.js.map
 
 /***/ }),
 
-/***/ 822:
+/***/ 828:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(458);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PolicyPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(44);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,118 +54,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-
 
 
 /**
- * Generated class for the LoginPage page.
+ * Generated class for the PolicyPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var LoginPage = /** @class */ (function () {
-    function LoginPage(modalCtrl, navCtrl, navParams, afAuth, firebase) {
-        this.modalCtrl = modalCtrl;
+var PolicyPage = /** @class */ (function () {
+    function PolicyPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.afAuth = afAuth;
-        this.firebase = firebase;
-        this.credentials = {};
-        this.companyLogo = "assets/imgs/companylogo.png";
+        this.companyLogo = 'assets/imgs/companylogo.png';
     }
-    LoginPage.prototype.signIn = function (user) {
-        return __awaiter(this, void 0, void 0, function () {
-            var result, x, y_1, privilleges, priv, e_1;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 5, , 6]);
-                        return [4 /*yield*/, this.afAuth.auth.signInWithEmailAndPassword(user.emailId, user.password)];
-                    case 1:
-                        result = _a.sent();
-                        x = void 0;
-                        privilleges = [];
-                        return [4 /*yield*/, this.firebase.database.ref("users/" + result.user.uid).child('data').once('value', function (snapshot) {
-                                privilleges = snapshot.val();
-                            })
-                            //console.log("resule",result.user.uid)
-                        ];
-                    case 2:
-                        priv = _a.sent();
-                        if (!result) return [3 /*break*/, 4];
-                        return [4 /*yield*/, this.firebase.database.ref("TempLogin/" + result.user.uid).once("value", function (snapshot) {
-                                y_1 = snapshot.val();
-                                console.log(y_1);
-                            })];
-                    case 3:
-                        _a.sent();
-                        if (y_1 == null)
-                            this.navCtrl.setRoot('ChangepasswordPage', { 'existingUser': false });
-                        else
-                            this.navCtrl.setRoot('TabsPage', { 'roles': privilleges });
-                        this.navCtrl.popToRoot();
-                        _a.label = 4;
-                    case 4: return [3 /*break*/, 6];
-                    case 5:
-                        e_1 = _a.sent();
-                        alert(e_1);
-                        return [3 /*break*/, 6];
-                    case 6: return [2 /*return*/];
-                }
-            });
-        });
+    PolicyPage.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad PolicyPage');
     };
-    //end of sign in function
-    LoginPage.prototype.forgotPassword = function () {
-        var modal = this.modalCtrl.create('ForgotpasswordPage');
-        modal.present();
+    PolicyPage.prototype.popPage = function () {
+        this.navCtrl.pop();
     };
-    LoginPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-login',template:/*ion-inline-start:"F:\ionic-app\src\pages\login\login.html"*/'\n\n<ion-content padding class="top-botton-border">\n\n  <ion-thumbnail >\n\n    <ion-img class="logo"  [src]="companyLogo"></ion-img>\n\n  </ion-thumbnail>\n\n\n\n<ion-list>\n\n  \n\n  <ion-item no-lines> \n\n    <ion-input text-center type="email" [(ngModel)]="credentials.emailId" class="input-border" placeholder="USER NAME"></ion-input>\n\n   </ion-item>\n\n  \n\n  <ion-item no-lines    >\n\n    <ion-input text-center type="password" class="input-border" [(ngModel)]="credentials.password" placeholder="PASSWORD"></ion-input>\n\n   </ion-item>\n\n\n\n   \n\n      <button type="button"  full default ion-button color="blue" style="height:40px; border-radius:5px;" (click)="signIn(credentials)">Sign In</button>\n\n   \n\n   \n\n  \n\n\n\n</ion-list>\n\n\n\n   \n\n   <ion-label color="orange"  text-right (click)="forgotPassword()">Forgot Password</ion-label>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\login\login.html"*/,
+    PolicyPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-policy',template:/*ion-inline-start:"D:\IdeaElan\src\pages\policy\policy.html"*/'<ion-header no-border>\n\n    <ion-toolbar color="blue" hideBackButton="true">\n\n      <button ion-button color="white"  start (click)="popPage()">\n\n          <ion-icon name="arrow-round-back"></ion-icon>\n\n      </button>\n\n      \n\n      <ion-title text-center>Company Policy</ion-title>\n\n  \n\n      <ion-buttons end>\n\n        <button ion-button >\n\n          <ion-icon name="notifications"></ion-icon> \n\n        </button> \n\n      </ion-buttons>\n\n      \n\n  </ion-toolbar>\n\n  \n\n  </ion-header>\n\n<ion-content padding class="justified">\n\n    <h3 class="text-center" >Handbook</h3>\n\n  \n\n \n\n   <h3 class="text-center">Employee Policy Handbook</h3>\n\n   <h6 class="text-center">Effective Date: Effective as of Jan 1st, 2019.</h6>\n\n   <h5>Purpose of this Handbook</h5>\n\n   <p>The purpose of an employee handbook is to orient new and existing employees with the company. This is a culture handbook for our/your company and we expect our team to build a fantastic entrepreneurial culture to succeed in the future. It is a resource that provides answers for the most frequently asked employee questions.\n\n       Besides informing new employees about company policy, a good handbook emphasizes the at-will nature of the employment and the company’s disciplinary and termination rights. Most importantly, it is a declaration of the employer’s rights and expectations.\n\n       This handbook supersedes and replaces any and all personnel policies and manuals previously distributed, made available or applicable to employees.</p>\n\n \n\n <h5>Employee Goals</h5>\n\n     <ul>\n\n       <li>Employees at all levels are working toward the organization’s goals and priorities.</li>\n\n       <li>Performance expectations are set and clearly communicated in a systematic manner.</li>\n\n       <li>Performance is evaluated fairly and consistently.</li>\n\n       <li>Employees are held accountable for results.</li>\n\n       <li>Development needs are assessed and addressed.</li>\n\n       <li>Accomplishments are recognized and rewarded.</li>\n\n     </ul>\n\n \n\n   <h5>Idea Elan Goals</h5>\n\n     <ul>\n\n       <li>Idea Elan has a growing customer base in 10 countries such as US, Canada, Spain, Germany, Norway, Switzerland, India, Saudi Arabia, Netherlands, and Austria. We plan to expand to more than 5 new countries within 1 year.</li>\n\n       <li>Idea Elan should be a leader and pioneer in new technologies to help scientific community worldwide.</li>\n\n       <li>Idea Elan should double its existing customer base within 1 year (before the end of 2018).</li>\n\n       <li>Idea Elan should win at least 5 proposal based Institution wide orders in the year 2018.</li>\n\n     </ul>\n\n \n\n   <h5>Core Principles:</h5>\n\n     <ul>\n\n       <li>Innovation and Out of Box thinking by all employees at all the roles.</li>\n\n       <li>Responsibility.</li>\n\n       <li>Customer focused and not employee or employer focused.</li>\n\n       <li>Frugality.</li>\n\n       <li>Zero Communication gap.</li>\n\n     </ul>\n\n   <h5>Performance Plan Goals</h5>\n\n   <ul>\n\n     <li>Establish critical elements and performance standards which will permit the accurate evaluation of job performance on the basis of objective criteria.</li>\n\n     <li>Use performance plans to communicate goals and objectives and identify accountability for their accomplishment.</li>\n\n     <li>Use appraisal results as a basis for paying, rewarding, promoting, training, reassigning, and retaining, and for improving or removing employees who are performing unacceptably.</li>\n\n   </ul>\n\n \n\n   <h5>Appraisal Plan</h5>\n\n   <ul>\n\n     <li>The Current Industry standard for Software developers, Software Managers and QA / Support Specialists is 8-12% hike in the salary.</li>\n\n     <li>For a fresher the 1st hike will be 50-70% of the base salary, the 2nd hike will be 25-35%. Base salary will differ for Software developers, QA and Support Specialists.</li>\n\n     <li> We plan to beat the market and have our hike range from 10 – 16%. Hike applicable for personnel with 3-5 years’ experience.</li>\n\n     <li>Hike applicable for personnel with over 5 years’ experience is 8-12%.</li>\n\n     <li>The hike percentage is based on performance evaluation. Employee performance will be evaluated by respective managers and classified as\n\n       <ul>\n\n         <li>Satisfactory</li>\n\n         <li>Good</li>\n\n         <li>Excellent</li>\n\n         <li>Outstanding</li>\n\n       </ul>\n\n     </li>\n\n   </ul>\n\n \n\n   <h5>Bonus Plan</h5>\n\n   <p>\n\n     Every employee will receive a complete bonus every year. The bonus package is based on performance evaluation \n\n     that will be done twice every year. The first appraisal will be done in August and the 2nd appraisal will \n\n     be done towards the end of December. 50% of the bonus will be paid on November 1st based on 1st appraisal \n\n     and the remaining 50% will be paid on April 1st based on the 2nd appraisal. Performance will be graded as \n\n     Satisfactory, Good, and Excellent (anything below Satisfactory would mean that you will be getting a firing\n\n     order soon). The decision to qualify your performance will be done exclusively by respective managers.\n\n     <br/><br/>\n\n     Satisfactory: This means that the person is capable of doing things according to the DNA of Idea Elan however, \n\n     lacks sufficient motivation and enthusiasm to perform better.\n\n     <br/><br/>\n\n     Good: Everything that is applicable to Satisfactory, moreover you also are independent and have enough motivation, \n\n     dedication and enthusiasm to perform well.\n\n     <br/><br/>\n\n     Excellent: Everything that is applicable to Good, moreover you also perform extremely well under stressful situations\n\n     and during deadlines to help company move in a positive direction. You also exhibit an innate team spirit and\n\n     leadership quality to uplift your fellow team members to get to the next league.\n\n     <br/><br/>\n\n     Out-standing: Everything that is applicable to Excellent, moreover you have far exceeded your expectations from \n\n     your managers and the CEO. You are most likely going to get a promotion to the next level within 3-6 months.\n\n     <br/><br/>\n\n     Employees completing 5 years will be provided Vesting.\n\n   </p>\n\n    <ion-grid class="rowHeading">\n\n       <ion-row>\n\n         <ion-col col-3><span class="rowHeading">Years Completed</span></ion-col>\n\n         <ion-col col-2><span class="rowHeading">Satisfactory</span></ion-col>\n\n         <ion-col col-2><span class="rowHeading">Good </span></ion-col>\n\n         <ion-col col-2> <span class="rowHeading">Excellent </span></ion-col>\n\n         <ion-col col-3> <span class="rowHeading">Outstanding </span></ion-col>\n\n       </ion-row>\n\n       <ion-row>\n\n         <ion-col col-3>Year 1</ion-col>\n\n         <ion-col col-2>1%</ion-col>\n\n         <ion-col col-2>2%</ion-col>\n\n         <ion-col col-2 >3%</ion-col>\n\n         <ion-col col-3>5%</ion-col>\n\n       </ion-row>\n\n       <ion-row >\n\n         <ion-col col-3>Year 2</ion-col>\n\n         <ion-col col-2>2%</ion-col>\n\n         <ion-col col-2>5%</ion-col>\n\n         <ion-col col-2>6%</ion-col>\n\n         <ion-col col-3>10%</ion-col>\n\n       </ion-row>\n\n         <ion-row>\n\n           <ion-col col-3>Year 3</ion-col>\n\n           <ion-col col-2>5%</ion-col>\n\n           <ion-col col-2>10%</ion-col>\n\n           <ion-col col-2>12%</ion-col>\n\n           <ion-col col-3>15%</ion-col>\n\n         </ion-row>\n\n         <ion-row>\n\n           <ion-col col-3>Year 4</ion-col>\n\n           <ion-col col-2>10%</ion-col>\n\n           <ion-col col-2>15%</ion-col>\n\n           <ion-col col-2>20%</ion-col>\n\n           <ion-col col-3>25%</ion-col>\n\n         </ion-row>\n\n         <ion-row>\n\n           <ion-col col-3>Year 5 and above</ion-col>\n\n           <ion-col col-2>5%</ion-col>\n\n           <ion-col col-2>7%</ion-col>\n\n           <ion-col col-2>10%</ion-col>\n\n           <ion-col col-3>12%</ion-col>\n\n           </ion-row>\n\n     </ion-grid>\n\n     <p>Example: If an Employee receives “Good” in Year 1 in the first appraisal in August and “Excellent” in the 2nd appraisal in Dec then on Nov 1st he/she will get 2% of the salary as bonus and on April 1st will receive 4% of the salary as bonus.</p>\n\n \n\n     <h5>Employee Referral Bonus</h5>\n\n     <p>This benefit aims to provide an attractive scheme of incentives to reward and acknowledge employees for taking part in the company’s efforts to hire quality manpower by referring suitable candidates for existing job openings. The reward amount varies as per the mode of employment of the referred candidate. The referral amount will be given once the hired candidate completes their probation period.</p>\n\n \n\n      <ion-grid>\n\n       <ion-row>\n\n          <ion-col>Experience(years)</ion-col>\n\n          <ion-col>Referral Amount</ion-col>\n\n       </ion-row>\n\n       <ion-row>\n\n         <ion-col>Fresher / Support Team</ion-col>\n\n         <ion-col>10000 INR</ion-col>\n\n       </ion-row>\n\n       <ion-row>\n\n         <ion-col>1-3 Years</ion-col>\n\n         <ion-col>30000 INR</ion-col>\n\n       </ion-row>\n\n       <ion-row>\n\n         <ion-col>Above 3 years</ion-col>\n\n         <ion-col>40000 INR</ion-col>\n\n       </ion-row>\n\n     </ion-grid> \n\n      \n\n      <h5>Idea Elan Retreat:</h5>\n\n      <p>\n\n         Idea Elan will have a retreat every 1.5 -2 years in a new location for 3-5 days depending on the situation. \n\n         The location and activities for the retreat will be decided by the team as a whole. The retreat time and location \n\n         will be announced at least 1 month before the event. Idea Elan will cover all your expenses during this trip.\n\n     </p>\n\n \n\n      <h5>Equal Opportunity Employment:</h5>\n\n      <p>\n\n         This company is an equal opportunity employer and does not unlawfully discriminate against employees or applicants \n\n         for employment on the basis of an individual’s race, colour, religion, creed, sex, national origin, age, disability,\n\n          marital status or any other status protected by applicable law. This policy applies to all terms, conditions and \n\n          privileges of employment, including recruitment, hiring, placement, compensation, promotion, discipline and \n\n          termination.\n\n         <br/> \n\n         Whenever possible, the company makes reasonable accommodations for qualified individuals with disabilities to\n\n         the extent required by law.\n\n      </p>\n\n      \n\n      <h5>Non-Harassment Policy / Non-Discrimination Policy</h5>\n\n       <p>\n\n           This company prohibits discrimination or harassment based on race, color, religion, creed, sex, national origin, \n\n           age, disability, marital status, veteran status or any other status protected by applicable law. Each individual \n\n           has the right to work in a professional atmosphere that promotes equal employment opportunities and is free from \n\n           discriminatory practices, including without limitation harassment. Consistent with its workplace policy of equal \n\n           employment opportunity, the company prohibits and will not tolerate harassment on the basis of race, color, \n\n           religion, creed, sex, national origin, age, disability, marital status, veteran status or any other status \n\n           protected by applicable law. Violations of this policy will not be tolerated. Discrimination includes, but is not\n\n           limited to: making any employment decision or employment related action on the basis of race, colour, religion, \n\n           creed, age, sex, disability, national origin, marital or veteran status, or any other status protected by \n\n           applicable law.\n\n           <br/><br/>\n\n           Harassment is generally defined as unwelcome verbal or non-verbal conduct, based upon a person’s protected \n\n           characteristic, that denigrates or shows hostility or aversion toward the person because of the characteristic, \n\n           and which affects the person’s employment opportunities or benefits, has the purpose or effect of unreasonably \n\n           interfering with the person’s work performance, or has the purpose or effect of creating an intimidating, hostile \n\n           or offensive working environment. Harassing conduct includes, but is not limited to: epithets; slurs or negative\n\n           stereotyping; threatening, intimidating or hostile acts; denigrating jokes and display or circulation in the \n\n           workplace of written or graphic material that denigrates or shows hostility or aversion toward an individual or group based on their protected characteristic.\n\n           <br/><br/>\n\n           Sexual harassment is defined as unwelcome sexual advances, requests for sexual favors and other verbal, visual \n\n           or physical conduct of a sexual nature, when:\n\n           <br/><br/>\n\n           1. Submission to such conduct is made either explicitly or implicitly a term or condition of an individual’s\n\n           employment;\n\n           <br/><br/>\n\n           2. Submission to or rejection of such conduct by an individual is used as the basis for employment decisions\n\n            affecting such individual; or\n\n           <br/><br/>\n\n           3. Such conduct has the purpose or effect of unreasonably interfering with an individual’s work performance \n\n           or creating an intimidating, hostile or offensive working environment.\n\n           <br/><br/>\n\n           Examples of sexual harassment include: unwelcome or unsolicited sexual advances; displaying sexually suggestive material; unwelcome sexual\n\n           flirtations, advances or propositions; suggestive comments; verbal abuse of a sexual nature; sexually oriented jokes; crude or vulgar language\n\n           or gestures; graphic or verbal commentaries about an individual’s body; display or distribution of obscene materials; physical contact such \n\n           as patting, pinching or brushing against someone’s body; or physical assault of a sexual nature.\n\n       </p>\n\n  \n\n         <h5>Reporting</h5>\n\n         <p>\n\n             Any company employee who feels that he or she has been harassed or discriminated against, or has witnessed or\n\n             become aware of discrimination or harassment in violation of these policies, should bring the matter to the \n\n             immediate attention of his or her supervisor or [enter name of alternative person to whom employees can report]. \n\n             The company will promptly investigate all allegations of discrimination and harassment, and take action as \n\n             appropriate based on the outcome of the investigation. An investigation and its results will be treated as \n\n             confidential to the extent feasible, and the company will take appropriate action based on the outcome of the\n\n             investigation. No employee will be retaliated against for making a complaint in good faith regarding a \n\n             violation of these policies, or for participating in good faith in an investigation pursuant to these policies.\n\n             If an employee feels he/she has been retaliated against, the employee should file a complaint using the \n\n             procedures set forth above.\n\n         </p>\n\n \n\n         <h5>Open Door Policy</h5>\n\n         <p>\n\n             The company has an open door policy and takes employee concerns and problems seriously. The company values \n\n             each employee and strives to provide a positive work experience. Employees are encouraged to bring any workplace\n\n             concerns or problems they might have or know about to their supervisor or some other member of management.\n\n         </p>\n\n \n\n         <h5>Privacy</h5>\n\n         <p>\n\n             Employees and employers share a relationship based on trust and mutual respect. However, the company retains \n\n             the right to access all company property including computers, desks, file cabinets, storage facilities, and \n\n             files and folders, electronic or otherwise, at any time. Employees should not entertain any expectations of \n\n             privacy when on company grounds or while using company property.\n\n             <br/><br/>\n\n             All documents, files, voice-mails and electronic information, including e-mails and other communications, \n\n             created, received or maintained on or through company property are the property of the company, not the \n\n             employee. Therefore employees should have no expectation of privacy over those files or documents.\n\n         </p>\n\n \n\n         <h5>Personnel Files</h5>\n\n         <p>\n\n             The company maintains a personnel file on each employee. These files are kept confidential to the extent \n\n             possible. Employees may review their personnel file upon request.\n\n             <br/><br/>\n\n             It is important that personnel files accurately reflect each employee’s personal information. \n\n             Employees are expected to inform the company of any change in name, address, home phone number, \n\n             and home address, and marital status, number of dependents or emergency contact information.\n\n         </p>\n\n  \n\n         <h5>Tardiness</h5>\n\n         <p>\n\n             Employees are expected to arrive on time and ready for work. An employee who arrives 15 minutes after \n\n             their scheduled arrival time is considered tardy. The company recognizes that situations arise which\n\n             hinder punctuality; regardless, excessive tardiness is prohibited, and may be subject to disciplinary action.\n\n         </p>\n\n \n\n         <h5>Leave Policy</h5>\n\n         <h6>Earned Leave</h6>\n\n         <p>\n\n             All regular, full -time employees at Idea Elan are eligible for earned leave. Earned leave is calculated on a \n\n             month on month basis for the calendar year (January-December). If you have joined during the middle of the year, \n\n             your earned leave will be pro-rated from the date you started employment through Dec 31st of that calendar year\n\n             <br/><br/>\n\n             Every month Earned Leave accrues at 8 hours per month (equivalent to 1.5 days per month per calendar year).\n\n             <br/><br/>\n\n             During the probation period of 3 months , you are not entitled to take Earned Leave You may avail your Earned \n\n             leaves only after completing your probation period, at which point you will have accrued 40 (8 hours X 3) \n\n             hours or 3 days.\n\n             <br/><br/>\n\n             Earned Leave is exclusive of official and weekly holidays. Hence if an employee takes leave during which time a\n\n             declared holiday or weekend occurs, then those particular date(s) will not be counted as your Earned Leave.\n\n             <br/><br/>\n\n             If the employee does not utilize the leave then he/she will be provided a cash equivalent compensation for \n\n             those days.\n\n             <br/><br/>\n\n             Earned leave can be encashed along with the bonus (March).\n\n         </p>\n\n \n\n         <h5>Comp Offs</h5>\n\n         <p>\n\n             Sometimes it is necessary to work extra time to meet the deadlines. We may require certain employees to put \n\n             extra effort \n\n             and time to meet the schedules.After the project work is done, this extra time spent by these individuals \n\n             may be given a compensatory-off on some \n\n             other day(s) and/or we will provide 50% of the salary for the comp off day.\n\n             <br/><br/>\n\n             Comp offs can be given only on the days with prior email approval from the reporting manager. Leaves without \n\n             approval cannot be considered as comp offs.\n\n             <br/><br/>\n\n             Note: Minimum of 7 hours on a holiday will be considered as one compensatory off & a minimum of 4 hours on \n\n             a holiday or overtime as a half - day compensatory off.\n\n             <br/><br/>\n\n             For Example: If an employee works for 2 Saturdays in a month then they will be given 1 day extra salary and\n\n              may also receive 2 extra comp days at a later date based on deadlines and approvals from managers.\n\n         </p>\n\n \n\n         <h5>Accumulation/ Carry forward</h5>\n\n         <p>\n\n             You are urged to use your Earned Leave time in the year it has accrued.\n\n             <br/><br/>  \n\n             However, if you are unable to use all of your accrued Earned Leave during a calendar year, you may elect to\n\n             carry forward any accrued but unused vacation time into the next calendar year, subject to the maximum accrual\n\n             level of 80 hours (2 weeks) .Hence you can accumulate/ carry forward your earned leaves up to a maximum of\n\n             10 days.\n\n         </p>\n\n \n\n         <h5>Holidays</h5>\n\n         <p>\n\n             Company will observe a list of holidays not exceeding 12 each year as per the Gazette Holiday Calendar. \n\n             The dates of the holidays shall be made available to the employees on the 1st of January every year. \n\n             There may be a list of Optional Holidays shared along with this list. If the fixed holidays fall on Sunday, \n\n             each employee will be eligible avail an optional holiday from optional holiday list based on their religious \n\n             sentiments/celebration with prior approval from HR and reporting manager.\n\n             <br/><br/> New Year’s Day\n\n             <br/><br/> Sankranti / Pongal (2 days)\n\n             <br/><br/>  Republic Day\n\n             <br/><br/> Good Friday\n\n             <br/><br/>May Day\n\n             <br/><br/>Holi\n\n             <br/><br/>Ugadi\n\n             <br/><br/>Ramzan (Id-Ul-Fitar)\n\n             <br/><br/>Independence Day\n\n             <br/><br/>Vinayaka Chavithi\n\n             <br/><br/>Gandhi Jayanthi\n\n             <br/><br/>Vijaya Dasami/ Dussehra (2 days)\n\n             <br/><br/>Deepavali\n\n             <br/><br/>Christmas\n\n         </p>\n\n        \n\n         <h5>Notice Period</h5>\n\n           <p>The notice period to leave the company if an employee decides to leave is 30 days.</p>\n\n \n\n         <h5>Health Insurance:</h5>\n\n           <p>Employee is eligible for health insurance once they complete 3 years in the company.</p>\n\n \n\n           <h5>Advance Pay, Transport and Sodexo passes</h5>\n\n             <ul>\n\n               <li>Advance Pay for employees due to emergency is an option for those who have completed 1 year with Idea Elan.</li>\n\n               <li>For employees who has completed 1 year of work with Idea Elan will be provided with INR 500/month as transport allowance.</li>\n\n               <li>For employees who has completed 1 year of work with Idea Elan will be provided with Sodexo passes for INR 1100/month.</li>\n\n               <li>For employees who has completed 5+ year of work with Idea Elan will be provided with Sodexo passes for INR 2200/month.</li>\n\n             </ul>\n\n           \n\n             <h5>Action Plan</h5>\n\n               <ul>\n\n                 <li>All the Employees are requested to arrive the office by 10.00 A.M every day. Any kinds of delay under exceptions need to be informed to the respective Team Leaders.</li>\n\n                 <li>All the Employees should communicate in a common Language i.e. in English in the office premises.</li>\n\n                 <li>Employees are requested to keep their cell phones in silent/vibrator mode and are requested not to attend any personal calls except for calls from Home or under emergencies.</li>\n\n                 <li>Browsing/Surfing other sites which are not work related would not be entertained during working hours. Any personal e-mails can be checked before login hours, during lunch break or after your logout hours.</li>\n\n                 <li>Team Leaders are requested to conduct a team huddle every Monday morning after logging in for about 15 to 30 minutes where in issues of the trainees related to project or any other issues within the campus would be discussed with the TL’s along with the HR.</li>\n\n                 <li>All the Employees are requested to inform their Reporting persons about their leave plans at least 7 working days in advance and get it approved from the manager or the HR.</li>\n\n                 <li>Any unplanned leaves taken by the Trainees have to be informed 1 hour before their login timings to their TL’s and get it approved. Any unplanned leaves which are not been informed to the TL will be considered as an Loss of pay(LOP).</li>\n\n               </ul>\n\n \n\n             <h5>Acknowledgement of Receipt for Employee Handbook</h5>\n\n             <p>\n\n                 I acknowledge that I have received a copy of the Employee Handbook. I understand that I am responsible for \n\n                 reading the information contained in the Handbook.\n\n                 <br/><br/>\n\n                 I understand that the handbook is intended to provide me with a general overview of the company’s policies \n\n                 and procedures.\n\n                 <br/><br/>\n\n                 I acknowledge that nothing in this handbook is to be interpreted as a contract, expressed or implied, \n\n                 or an inducement for employment, nor does it guarantee my employment for any period of time.\n\n                 <br/><br/>\n\n                 I understand and accept that my employment with the company is at-will. I have the right to resign at any \n\n                 time with 30 days’ notice period, just as the company may terminate my employment at any time with 30 days’\n\n                 notice.\n\n                 <br/><br/>\n\n                 I acknowledge that the company may revise, suspend, revoke, terminate, change or remove, prospectively or \n\n                 retroactively, any of the policies or procedures outlined in this handbook or elsewhere, in whole or in \n\n                 part, with or without notice at any time, at the company’s sole discretion.\n\n \n\n             </p>\n\n       </ion-content>\n\n '/*ion-inline-end:"D:\IdeaElan\src\pages\policy\policy.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */]])
-    ], LoginPage);
-    return LoginPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"]])
+    ], PolicyPage);
+    return PolicyPage;
 }());
 
-//# sourceMappingURL=login.js.map
+//# sourceMappingURL=policy.js.map
 
 /***/ })
 

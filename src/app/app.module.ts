@@ -7,7 +7,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http';
-import { IonicStorageModule } from '@ionic/storage';
+
 import { DatePicker } from '@ionic-native/date-picker';
 import { ReactiveFormsModule } from '@angular/forms'
 import { DatePipe } from '@angular/common';
@@ -21,6 +21,9 @@ import { MyApp } from './app.component';
 
 import { FIREBASE_CONFIG } from '../providers/firebase-service'
 import {FCM} from '@ionic-native/fcm'
+import { IonicStorageModule } from '@ionic/storage';
+import { ComponentsModule } from '../components/components.module';
+import { DataService } from '../providers/page-tite-service';
 
 
 @NgModule({
@@ -34,23 +37,15 @@ import {FCM} from '@ionic-native/fcm'
     BrowserModule,
     HttpClientModule,
     HttpModule,
-    IonicModule.forRoot(MyApp, {
-      navExitApp: false
-    }),
+    IonicModule.forRoot(MyApp, {navExitApp: false}),
+    IonicStorageModule.forRoot(),
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
-    IonicStorageModule.forRoot(),
     ReactiveFormsModule,
     AngularFireAuthModule,
     CalendarModule,
-    
-   
-   
-
-    
-    
-    
-  ],
+    ComponentsModule
+   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
@@ -66,6 +61,7 @@ import {FCM} from '@ionic-native/fcm'
     BarcodeScanner,
     DatePipe,
     FCM,
+    DataService,
     
     
    {provide: ErrorHandler, useClass: IonicErrorHandler}

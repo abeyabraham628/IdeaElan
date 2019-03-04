@@ -1,9 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController} from 'ionic-angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 import { LoadingController } from 'ionic-angular';
 import {FCM} from '@ionic-native/fcm'
+import { PageHeaderComponent } from '../../components/page-header/page-header';
+
+
 
 
 
@@ -20,6 +23,7 @@ import {FCM} from '@ionic-native/fcm'
   templateUrl: 'home.html',
 })
 export class HomePage {
+  sample:PageHeaderComponent
 userId:any
 roles:any[]
 users:boolean=true
@@ -37,7 +41,11 @@ wlength:any=0;
 //lrcount:any=0;
 
 devicetoken : any ="abc";
+
   constructor(private fcm:FCM,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
+    
+
+    
     this.lrcountcheck();
     console.log(this.afAuth.auth.currentUser.uid);
     this.fcm.getToken().then(token => {
@@ -117,6 +125,7 @@ devicetoken : any ="abc";
       this.lrstatus=lrstatus
   }
 
+  
   checks(){
     var idOftoken , tokenStatus;
     this.firebase.database.ref('tokensNotificationId').orderByChild('userIdTocken').equalTo(`${this.afAuth.auth.currentUser.uid}`).once("value",(snap)=>{
@@ -144,10 +153,17 @@ devicetoken : any ="abc";
     this.getMessages()
     this.getUpComingEvents()
     this.getUpComingEventsNotification()
+    
    }
 
+ 
+
+ 
+
   goto(page:string){
-    this.navCtrl.push(page);
+    
+    this.navCtrl.push(page)
+    
   }
 
  

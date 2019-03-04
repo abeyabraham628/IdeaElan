@@ -8,8 +8,10 @@ import { CustomDatePicker } from '../../models/datepicker';
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import {FormControl, FormGroup,Validators, FormBuilder} from '@angular/forms'
-import { leave } from '@angular/core/src/profile/wtf_impl';
+
 import { AngularFireDatabase } from '@angular/fire/database';
+import { PageHeaderComponent } from '../../components/page-header/page-header';
+
 
 
 
@@ -50,9 +52,8 @@ months=this.customDatePicker.getMonths()
 
   
 
-  ionViewDidLoad() {
-    
-  }
+
+ 
 
   leaveForm= this.formBuilder.group({
     

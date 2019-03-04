@@ -5,16 +5,16 @@
   Ionic pages and navigation.
 -->
 
-
-<ion-menu [content]="mycontent" persistent="true">
-  <ion-content class="sideMenuList" >
-     
+<ion-header no-border>
+  <page-header ></page-header>
+</ion-header>
+<ion-menu [content]="mycontent" persistent="true" class="sideMenuList">
       <ion-item no-lines style="text-align:center;background-color: #2679b0">
-          <ion-thumbnail style="height:100px;width:100px;border-radius:50%;margin: auto">
-              <img src="{{uri}}" onerror="this.src='assets/imgs/companylogo.png'" style="height:100px;width:100px;border-radius:50%;margin: auto"> 
-            </ion-thumbnail>
-          <h2 style="color:#ffffff">{{this.uname | titlecase }}</h2>
-          <h6 style="color:#ffffff">{{this.position | titlecase }}</h6>
+        <ion-thumbnail style="height:100px;width:100px;border-radius:50%;margin: auto">
+            <img src="{{uri}}" onerror="this.src='assets/imgs/companylogo.png'" style="height:100px;width:100px;border-radius:50%;margin: auto"> 
+          </ion-thumbnail>
+        <h2 style="color:#ffffff">{{this.uname | titlecase }}</h2>
+        <h6 style="color:#ffffff">{{this.position | titlecase }}</h6>
       </ion-item>
 
       <ion-item (click)="uploadHandler()" class="sideMenuList">
@@ -44,20 +44,16 @@
         <progress [value]="percent" max="100"></progress>
       
       </ng-container>
-   
-
-
-  </ion-content>
 </ion-menu>
 <ion-nav #mycontent [root]="rootPage"></ion-nav>
  
 
 <ion-tabs>
   <ion-tab [root]="tab0Root"   tabTitle="Home" tabIcon="home" [rootParams]="tab0Params"></ion-tab>
-  <ion-tab [root]="tab1Root"   tabTitle="Leave" tabIcon="person"></ion-tab>
-  <ion-tab [root]="tab2Root"   tabTitle="Chatbot" tabIcon="document"></ion-tab>
+  <ion-tab [root]="tab1Root"   tabTitle="Leave" tabIcon="person" ></ion-tab>
+  <ion-tab [root]="tab2Root"   tabTitle="Chatbot" tabIcon="document" ></ion-tab>
  
-  <ion-tab [root]="tab3Root"  tabTitle="Inbox" tabIcon="chatboxes" tabBadge='{{this.messages.length}}' tabBadgeStyle="danger"></ion-tab>
+  <ion-tab [root]="tab3Root"  tabTitle="Inbox" tabIcon="chatboxes" tabBadge='{{this.messages.length}}' tabBadgeStyle="danger" ></ion-tab>
 </ion-tabs>
 
 

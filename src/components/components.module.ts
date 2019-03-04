@@ -1,8 +1,10 @@
 import { NgModule } from '@angular/core';
-import { CompanyPolicyComponent } from './company-policy/company-policy';
+
+import { PageHeaderComponent } from './page-header/page-header';
+import { IonicModule } from 'ionic-angular';
 @NgModule({
-	declarations: [CompanyPolicyComponent],
-	imports: [],
-	exports: [CompanyPolicyComponent]
+	declarations: [PageHeaderComponent],
+	imports: [IonicModule],
+	exports: [PageHeaderComponent]
 })
 export class ComponentsModule {}
