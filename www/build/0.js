@@ -1,86 +1,17 @@
 webpackJsonp([0],{
 
-/***/ 592:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DatepickerDirective; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_datepicker__ = __webpack_require__(741);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ion2_calendar__ = __webpack_require__(461);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ion2_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ion2_calendar__);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-
-var DatepickerDirective = /** @class */ (function () {
-    function DatepickerDirective(el, modalCtrl, customDatePicker) {
-        this.el = el;
-        this.modalCtrl = modalCtrl;
-        this.customDatePicker = customDatePicker;
-    }
-    DatepickerDirective.prototype.onfocus = function () {
-        this.dispdate();
-    };
-    DatepickerDirective.prototype.dispdate = function () {
-        var pickMode = 'single';
-        var dateLimit = new Date().setDate(new Date().getDate() + 45); // Display  45 days from today
-        var defaultScrollTo = new Date();
-        var disableWeek = [0, 6]; // disable Sunday-0 and Saturday-6
-        var from = new Date('2/1/2019');
-        var options = this.customDatePicker.datePickerOptions(pickMode, defaultScrollTo, from);
-        var myCalendar = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_3_ion2_calendar__["CalendarModal"], {
-            options: options,
-        });
-        myCalendar.present();
-        myCalendar.onDidDismiss(function (date) {
-            if (date != null) {
-                console.log(date);
-            }
-        }); //end of displayCalendar function
-    };
-    var _a, _b, _c;
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["HostListener"])('focus'),
-        __metadata("design:type", Function),
-        __metadata("design:paramtypes", []),
-        __metadata("design:returntype", void 0)
-    ], DatepickerDirective.prototype, "onfocus", null);
-    DatepickerDirective = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Directive"])({
-            selector: '[date-picker]',
-        }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_core__["ElementRef"]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ModalController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ModalController"]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__models_datepicker__["a" /* CustomDatePicker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__models_datepicker__["a" /* CustomDatePicker */]) === "function" && _c || Object])
-    ], DatepickerDirective);
-    return DatepickerDirective;
-}());
-
-//# sourceMappingURL=datepicker.js.map
-
-/***/ }),
-
-/***/ 736:
+/***/ 735:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewuserPageModule", function() { return NewuserPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__directives_datepicker_datepicker__ = __webpack_require__(592);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__directives_datepicker_datepicker__ = __webpack_require__(838);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_components_module__ = __webpack_require__(460);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__newuser__ = __webpack_require__(839);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_datepicker__ = __webpack_require__(741);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_datepicker__ = __webpack_require__(740);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -116,7 +47,7 @@ var NewuserPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 737:
+/***/ 736:
 /***/ (function(module, exports) {
 
 if (typeof Object.create === 'function') {
@@ -146,11 +77,11 @@ if (typeof Object.create === 'function') {
 
 /***/ }),
 
-/***/ 738:
+/***/ 737:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* eslint-disable node/no-deprecated-api */
-var buffer = __webpack_require__(740)
+var buffer = __webpack_require__(739)
 var Buffer = buffer.Buffer
 
 // alternative to using Object.keys for old browsers
@@ -215,7 +146,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
 
 /***/ }),
 
-/***/ 739:
+/***/ 738:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(module) {(function (module, exports) {
@@ -3650,7 +3581,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
 
 /***/ }),
 
-/***/ 740:
+/***/ 739:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -3666,7 +3597,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
 
 var base64 = __webpack_require__(843)
 var ieee754 = __webpack_require__(844)
-var isArray = __webpack_require__(783)
+var isArray = __webpack_require__(782)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -5444,11 +5375,11 @@ function isnan (val) {
   return val !== val // eslint-disable-line no-self-compare
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(54)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(45)))
 
 /***/ }),
 
-/***/ 741:
+/***/ 740:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -5469,6 +5400,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var CustomDatePicker = /** @class */ (function () {
     function CustomDatePicker(modalCtrl) {
         this.modalCtrl = modalCtrl;
+        this.t = 5;
     }
     CustomDatePicker.prototype.datePickerOptions = function (pickMode, defaultScrollTo, from, dateLimitTo, disableWeeks) {
         var options = {
@@ -5479,7 +5411,8 @@ var CustomDatePicker = /** @class */ (function () {
             to: dateLimitTo,
             defaultScrollTo: defaultScrollTo,
             showMonthPicker: true,
-            showToggleButtons: true
+            showToggleButtons: true,
+            showYearPicker: true,
         };
         return options;
     };
@@ -5508,7 +5441,7 @@ var CustomDatePicker = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 742:
+/***/ 741:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5518,8 +5451,8 @@ var elliptic = exports;
 
 elliptic.version = __webpack_require__(885).version;
 elliptic.utils = __webpack_require__(886);
-elliptic.rand = __webpack_require__(805);
-elliptic.curve = __webpack_require__(760);
+elliptic.rand = __webpack_require__(804);
+elliptic.curve = __webpack_require__(759);
 elliptic.curves = __webpack_require__(891);
 
 // Protocols
@@ -5529,7 +5462,7 @@ elliptic.eddsa = __webpack_require__(903);
 
 /***/ }),
 
-/***/ 743:
+/***/ 742:
 /***/ (function(module, exports) {
 
 module.exports = assert;
@@ -5547,14 +5480,14 @@ assert.equal = function assertEqual(l, r, msg) {
 
 /***/ }),
 
-/***/ 744:
+/***/ 743:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var assert = __webpack_require__(743);
-var inherits = __webpack_require__(737);
+var assert = __webpack_require__(742);
+var inherits = __webpack_require__(736);
 
 exports.inherits = inherits;
 
@@ -5833,13 +5766,13 @@ exports.shr64_lo = shr64_lo;
 
 /***/ }),
 
-/***/ 746:
+/***/ 745:
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(738).Buffer
-var Transform = __webpack_require__(764).Transform
-var StringDecoder = __webpack_require__(768).StringDecoder
-var inherits = __webpack_require__(737)
+var Buffer = __webpack_require__(737).Buffer
+var Transform = __webpack_require__(763).Transform
+var StringDecoder = __webpack_require__(767).StringDecoder
+var inherits = __webpack_require__(736)
 
 function CipherBase (hashMode) {
   Transform.call(this)
@@ -5939,7 +5872,7 @@ module.exports = CipherBase
 
 /***/ }),
 
-/***/ 747:
+/***/ 746:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5973,7 +5906,7 @@ module.exports = CipherBase
 
 /*<replacement>*/
 
-var pna = __webpack_require__(757);
+var pna = __webpack_require__(756);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -5988,12 +5921,12 @@ var objectKeys = Object.keys || function (obj) {
 module.exports = Duplex;
 
 /*<replacement>*/
-var util = __webpack_require__(752);
-util.inherits = __webpack_require__(737);
+var util = __webpack_require__(751);
+util.inherits = __webpack_require__(736);
 /*</replacement>*/
 
-var Readable = __webpack_require__(785);
-var Writable = __webpack_require__(767);
+var Readable = __webpack_require__(784);
+var Writable = __webpack_require__(766);
 
 util.inherits(Duplex, Readable);
 
@@ -6077,7 +6010,7 @@ Duplex.prototype._destroy = function (err, cb) {
 
 /***/ }),
 
-/***/ 748:
+/***/ 747:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6095,7 +6028,7 @@ function oldBrowser () {
   throw new Error('Secure random number generation is not supported by this browser.\nUse Chrome, Firefox or Internet Explorer 11')
 }
 
-var Buffer = __webpack_require__(738).Buffer
+var Buffer = __webpack_require__(737).Buffer
 var crypto = global.crypto || global.msCrypto
 
 if (crypto && crypto.getRandomValues) {
@@ -6132,14 +6065,14 @@ function randomBytes (size, cb) {
   return bytes
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(54), __webpack_require__(191)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(45), __webpack_require__(191)))
 
 /***/ }),
 
-/***/ 749:
+/***/ 748:
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(738).Buffer
+var Buffer = __webpack_require__(737).Buffer
 
 // prototype class for hash functions
 function Hash (blockSize, finalSize) {
@@ -6224,16 +6157,16 @@ module.exports = Hash
 
 /***/ }),
 
-/***/ 751:
+/***/ 750:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var inherits = __webpack_require__(737)
-var MD5 = __webpack_require__(763)
-var RIPEMD160 = __webpack_require__(769)
-var sha = __webpack_require__(770)
-var Base = __webpack_require__(746)
+var inherits = __webpack_require__(736)
+var MD5 = __webpack_require__(762)
+var RIPEMD160 = __webpack_require__(768)
+var sha = __webpack_require__(769)
+var Base = __webpack_require__(745)
 
 function Hash (hash) {
   Base.call(this, 'digest')
@@ -6262,7 +6195,7 @@ module.exports = function createHash (alg) {
 
 /***/ }),
 
-/***/ 752:
+/***/ 751:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright Joyent, Inc. and other Node contributors.
@@ -6373,11 +6306,11 @@ function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(740).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(739).Buffer))
 
 /***/ }),
 
-/***/ 753:
+/***/ 752:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {module.exports = function xor (a, b) {
@@ -6391,18 +6324,18 @@ function objectToString(o) {
   return buffer
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(740).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(739).Buffer))
 
 /***/ }),
 
-/***/ 754:
+/***/ 753:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(744);
-var assert = __webpack_require__(743);
+var utils = __webpack_require__(743);
+var assert = __webpack_require__(742);
 
 function BlockHash() {
   this.pending = null;
@@ -6495,36 +6428,36 @@ BlockHash.prototype._pad = function pad() {
 
 /***/ }),
 
-/***/ 755:
+/***/ 754:
 /***/ (function(module, exports, __webpack_require__) {
 
 var asn1 = exports;
 
-asn1.bignum = __webpack_require__(739);
+asn1.bignum = __webpack_require__(738);
 
 asn1.define = __webpack_require__(907).define;
-asn1.base = __webpack_require__(756);
-asn1.constants = __webpack_require__(811);
+asn1.base = __webpack_require__(755);
+asn1.constants = __webpack_require__(810);
 asn1.decoders = __webpack_require__(913);
 asn1.encoders = __webpack_require__(915);
 
 
 /***/ }),
 
-/***/ 756:
+/***/ 755:
 /***/ (function(module, exports, __webpack_require__) {
 
 var base = exports;
 
 base.Reporter = __webpack_require__(910).Reporter;
-base.DecoderBuffer = __webpack_require__(810).DecoderBuffer;
-base.EncoderBuffer = __webpack_require__(810).EncoderBuffer;
+base.DecoderBuffer = __webpack_require__(809).DecoderBuffer;
+base.EncoderBuffer = __webpack_require__(809).EncoderBuffer;
 base.Node = __webpack_require__(911);
 
 
 /***/ }),
 
-/***/ 757:
+/***/ 756:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6577,7 +6510,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 
 /***/ }),
 
-/***/ 758:
+/***/ 757:
 /***/ (function(module, exports, __webpack_require__) {
 
 // based on the aes implimentation in triple sec
@@ -6585,7 +6518,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 // which is in turn based on the one from crypto-js
 // https://code.google.com/p/crypto-js/
 
-var Buffer = __webpack_require__(738).Buffer
+var Buffer = __webpack_require__(737).Buffer
 
 function asUInt32Array (buf) {
   if (!Buffer.isBuffer(buf)) buf = Buffer.from(buf)
@@ -6812,11 +6745,11 @@ module.exports.AES = AES
 
 /***/ }),
 
-/***/ 759:
+/***/ 758:
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(738).Buffer
-var MD5 = __webpack_require__(763)
+var Buffer = __webpack_require__(737).Buffer
+var MD5 = __webpack_require__(762)
 
 /* eslint-disable camelcase */
 function EVP_BytesToKey (password, salt, keyBits, ivLen) {
@@ -6864,7 +6797,7 @@ module.exports = EVP_BytesToKey
 
 /***/ }),
 
-/***/ 760:
+/***/ 759:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6880,15 +6813,15 @@ curve.edwards = __webpack_require__(890);
 
 /***/ }),
 
-/***/ 761:
+/***/ 760:
 /***/ (function(module, exports, __webpack_require__) {
 
 var asn1 = __webpack_require__(906)
 var aesid = __webpack_require__(918)
 var fixProc = __webpack_require__(919)
-var ciphers = __webpack_require__(772)
-var compat = __webpack_require__(794)
-var Buffer = __webpack_require__(738).Buffer
+var ciphers = __webpack_require__(771)
+var compat = __webpack_require__(793)
+var Buffer = __webpack_require__(737).Buffer
 module.exports = parseKeys
 
 function parseKeys (buffer) {
@@ -6994,7 +6927,7 @@ function decrypt (data, password) {
 
 /***/ }),
 
-/***/ 762:
+/***/ 761:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -7019,14 +6952,14 @@ var Designations = [
 
 /***/ }),
 
-/***/ 763:
+/***/ 762:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var inherits = __webpack_require__(737)
-var HashBase = __webpack_require__(784)
-var Buffer = __webpack_require__(738).Buffer
+var inherits = __webpack_require__(736)
+var HashBase = __webpack_require__(783)
+var Buffer = __webpack_require__(737).Buffer
 
 var ARRAY16 = new Array(16)
 
@@ -7173,7 +7106,7 @@ module.exports = MD5
 
 /***/ }),
 
-/***/ 764:
+/***/ 763:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -7199,11 +7132,11 @@ module.exports = MD5
 
 module.exports = Stream;
 
-var EE = __webpack_require__(765).EventEmitter;
-var inherits = __webpack_require__(737);
+var EE = __webpack_require__(764).EventEmitter;
+var inherits = __webpack_require__(736);
 
 inherits(Stream, EE);
-Stream.Readable = __webpack_require__(766);
+Stream.Readable = __webpack_require__(765);
 Stream.Writable = __webpack_require__(850);
 Stream.Duplex = __webpack_require__(851);
 Stream.Transform = __webpack_require__(852);
@@ -7307,7 +7240,7 @@ Stream.prototype.pipe = function(dest, options) {
 
 /***/ }),
 
-/***/ 765:
+/***/ 764:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7763,21 +7696,21 @@ function unwrapListeners(arr) {
 
 /***/ }),
 
-/***/ 766:
+/***/ 765:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(785);
+exports = module.exports = __webpack_require__(784);
 exports.Stream = exports;
 exports.Readable = exports;
-exports.Writable = __webpack_require__(767);
-exports.Duplex = __webpack_require__(747);
-exports.Transform = __webpack_require__(788);
+exports.Writable = __webpack_require__(766);
+exports.Duplex = __webpack_require__(746);
+exports.Transform = __webpack_require__(787);
 exports.PassThrough = __webpack_require__(849);
 
 
 /***/ }),
 
-/***/ 767:
+/***/ 766:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7810,7 +7743,7 @@ exports.PassThrough = __webpack_require__(849);
 
 /*<replacement>*/
 
-var pna = __webpack_require__(757);
+var pna = __webpack_require__(756);
 /*</replacement>*/
 
 module.exports = Writable;
@@ -7847,8 +7780,8 @@ var Duplex;
 Writable.WritableState = WritableState;
 
 /*<replacement>*/
-var util = __webpack_require__(752);
-util.inherits = __webpack_require__(737);
+var util = __webpack_require__(751);
+util.inherits = __webpack_require__(736);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -7858,12 +7791,12 @@ var internalUtil = {
 /*</replacement>*/
 
 /*<replacement>*/
-var Stream = __webpack_require__(786);
+var Stream = __webpack_require__(785);
 /*</replacement>*/
 
 /*<replacement>*/
 
-var Buffer = __webpack_require__(738).Buffer;
+var Buffer = __webpack_require__(737).Buffer;
 var OurUint8Array = global.Uint8Array || function () {};
 function _uint8ArrayToBuffer(chunk) {
   return Buffer.from(chunk);
@@ -7874,14 +7807,14 @@ function _isUint8Array(obj) {
 
 /*</replacement>*/
 
-var destroyImpl = __webpack_require__(787);
+var destroyImpl = __webpack_require__(786);
 
 util.inherits(Writable, Stream);
 
 function nop() {}
 
 function WritableState(options, stream) {
-  Duplex = Duplex || __webpack_require__(747);
+  Duplex = Duplex || __webpack_require__(746);
 
   options = options || {};
 
@@ -8031,7 +7964,7 @@ if (typeof Symbol === 'function' && Symbol.hasInstance && typeof Function.protot
 }
 
 function Writable(options) {
-  Duplex = Duplex || __webpack_require__(747);
+  Duplex = Duplex || __webpack_require__(746);
 
   // Writable ctor is applied to Duplexes, too.
   // `realHasInstance` is necessary because using plain `instanceof`
@@ -8468,11 +8401,11 @@ Writable.prototype._destroy = function (err, cb) {
   this.end();
   cb(err);
 };
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(191), __webpack_require__(466).setImmediate, __webpack_require__(54)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(191), __webpack_require__(466).setImmediate, __webpack_require__(45)))
 
 /***/ }),
 
-/***/ 768:
+/***/ 767:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8501,7 +8434,7 @@ Writable.prototype._destroy = function (err, cb) {
 
 /*<replacement>*/
 
-var Buffer = __webpack_require__(738).Buffer;
+var Buffer = __webpack_require__(737).Buffer;
 /*</replacement>*/
 
 var isEncoding = Buffer.isEncoding || function (encoding) {
@@ -8775,14 +8708,14 @@ function simpleEnd(buf) {
 
 /***/ }),
 
-/***/ 769:
+/***/ 768:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var Buffer = __webpack_require__(740).Buffer
-var inherits = __webpack_require__(737)
-var HashBase = __webpack_require__(784)
+var Buffer = __webpack_require__(739).Buffer
+var inherits = __webpack_require__(736)
+var HashBase = __webpack_require__(783)
 
 var ARRAY16 = new Array(16)
 
@@ -8946,7 +8879,7 @@ module.exports = RIPEMD160
 
 /***/ }),
 
-/***/ 770:
+/***/ 769:
 /***/ (function(module, exports, __webpack_require__) {
 
 var exports = module.exports = function SHA (algorithm) {
@@ -8961,14 +8894,14 @@ var exports = module.exports = function SHA (algorithm) {
 exports.sha = __webpack_require__(854)
 exports.sha1 = __webpack_require__(855)
 exports.sha224 = __webpack_require__(856)
-exports.sha256 = __webpack_require__(789)
+exports.sha256 = __webpack_require__(788)
 exports.sha384 = __webpack_require__(857)
-exports.sha512 = __webpack_require__(790)
+exports.sha512 = __webpack_require__(789)
 
 
 /***/ }),
 
-/***/ 771:
+/***/ 770:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8983,12 +8916,12 @@ exports.EDE = __webpack_require__(867);
 
 /***/ }),
 
-/***/ 772:
+/***/ 771:
 /***/ (function(module, exports, __webpack_require__) {
 
 var ciphers = __webpack_require__(868)
 var deciphers = __webpack_require__(876)
-var modes = __webpack_require__(800)
+var modes = __webpack_require__(799)
 
 function getCiphers () {
   return Object.keys(modes)
@@ -9003,7 +8936,7 @@ exports.listCiphers = exports.getCiphers = getCiphers
 
 /***/ }),
 
-/***/ 773:
+/***/ 772:
 /***/ (function(module, exports, __webpack_require__) {
 
 var modeModules = {
@@ -9013,11 +8946,11 @@ var modeModules = {
   CFB8: __webpack_require__(872),
   CFB1: __webpack_require__(873),
   OFB: __webpack_require__(874),
-  CTR: __webpack_require__(798),
-  GCM: __webpack_require__(798)
+  CTR: __webpack_require__(797),
+  GCM: __webpack_require__(797)
 }
 
-var modes = __webpack_require__(800)
+var modes = __webpack_require__(799)
 
 for (var key in modes) {
   modes[key].module = modeModules[modes[key].mode]
@@ -9028,11 +8961,11 @@ module.exports = modes
 
 /***/ }),
 
-/***/ 774:
+/***/ 773:
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var bn = __webpack_require__(739);
-var randomBytes = __webpack_require__(748);
+/* WEBPACK VAR INJECTION */(function(Buffer) {var bn = __webpack_require__(738);
+var randomBytes = __webpack_require__(747);
 module.exports = crt;
 function blind(priv) {
   var r = getr(priv);
@@ -9072,17 +9005,17 @@ function getr(priv) {
   return r;
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(740).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(739).Buffer))
 
 /***/ }),
 
-/***/ 775:
+/***/ 774:
 /***/ (function(module, exports, __webpack_require__) {
 
 var hash = exports;
 
-hash.utils = __webpack_require__(744);
-hash.common = __webpack_require__(754);
+hash.utils = __webpack_require__(743);
+hash.common = __webpack_require__(753);
 hash.sha = __webpack_require__(892);
 hash.ripemd = __webpack_require__(896);
 hash.hmac = __webpack_require__(897);
@@ -9098,7 +9031,7 @@ hash.ripemd160 = hash.ripemd.ripemd160;
 
 /***/ }),
 
-/***/ 783:
+/***/ 782:
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -9110,14 +9043,14 @@ module.exports = Array.isArray || function (arr) {
 
 /***/ }),
 
-/***/ 784:
+/***/ 783:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var Buffer = __webpack_require__(738).Buffer
-var Transform = __webpack_require__(764).Transform
-var inherits = __webpack_require__(737)
+var Buffer = __webpack_require__(737).Buffer
+var Transform = __webpack_require__(763).Transform
+var inherits = __webpack_require__(736)
 
 function throwIfNotStringOrBuffer (val, prefix) {
   if (!Buffer.isBuffer(val) && typeof val !== 'string') {
@@ -9213,7 +9146,7 @@ module.exports = HashBase
 
 /***/ }),
 
-/***/ 785:
+/***/ 784:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9242,13 +9175,13 @@ module.exports = HashBase
 
 /*<replacement>*/
 
-var pna = __webpack_require__(757);
+var pna = __webpack_require__(756);
 /*</replacement>*/
 
 module.exports = Readable;
 
 /*<replacement>*/
-var isArray = __webpack_require__(783);
+var isArray = __webpack_require__(782);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -9258,7 +9191,7 @@ var Duplex;
 Readable.ReadableState = ReadableState;
 
 /*<replacement>*/
-var EE = __webpack_require__(765).EventEmitter;
+var EE = __webpack_require__(764).EventEmitter;
 
 var EElistenerCount = function (emitter, type) {
   return emitter.listeners(type).length;
@@ -9266,12 +9199,12 @@ var EElistenerCount = function (emitter, type) {
 /*</replacement>*/
 
 /*<replacement>*/
-var Stream = __webpack_require__(786);
+var Stream = __webpack_require__(785);
 /*</replacement>*/
 
 /*<replacement>*/
 
-var Buffer = __webpack_require__(738).Buffer;
+var Buffer = __webpack_require__(737).Buffer;
 var OurUint8Array = global.Uint8Array || function () {};
 function _uint8ArrayToBuffer(chunk) {
   return Buffer.from(chunk);
@@ -9283,8 +9216,8 @@ function _isUint8Array(obj) {
 /*</replacement>*/
 
 /*<replacement>*/
-var util = __webpack_require__(752);
-util.inherits = __webpack_require__(737);
+var util = __webpack_require__(751);
+util.inherits = __webpack_require__(736);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -9298,7 +9231,7 @@ if (debugUtil && debugUtil.debuglog) {
 /*</replacement>*/
 
 var BufferList = __webpack_require__(846);
-var destroyImpl = __webpack_require__(787);
+var destroyImpl = __webpack_require__(786);
 var StringDecoder;
 
 util.inherits(Readable, Stream);
@@ -9318,7 +9251,7 @@ function prependListener(emitter, event, fn) {
 }
 
 function ReadableState(options, stream) {
-  Duplex = Duplex || __webpack_require__(747);
+  Duplex = Duplex || __webpack_require__(746);
 
   options = options || {};
 
@@ -9388,14 +9321,14 @@ function ReadableState(options, stream) {
   this.decoder = null;
   this.encoding = null;
   if (options.encoding) {
-    if (!StringDecoder) StringDecoder = __webpack_require__(768).StringDecoder;
+    if (!StringDecoder) StringDecoder = __webpack_require__(767).StringDecoder;
     this.decoder = new StringDecoder(options.encoding);
     this.encoding = options.encoding;
   }
 }
 
 function Readable(options) {
-  Duplex = Duplex || __webpack_require__(747);
+  Duplex = Duplex || __webpack_require__(746);
 
   if (!(this instanceof Readable)) return new Readable(options);
 
@@ -9544,7 +9477,7 @@ Readable.prototype.isPaused = function () {
 
 // backwards compatibility.
 Readable.prototype.setEncoding = function (enc) {
-  if (!StringDecoder) StringDecoder = __webpack_require__(768).StringDecoder;
+  if (!StringDecoder) StringDecoder = __webpack_require__(767).StringDecoder;
   this._readableState.decoder = new StringDecoder(enc);
   this._readableState.encoding = enc;
   return this;
@@ -10236,19 +10169,19 @@ function indexOf(xs, x) {
   }
   return -1;
 }
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(54), __webpack_require__(191)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(45), __webpack_require__(191)))
+
+/***/ }),
+
+/***/ 785:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(764).EventEmitter;
+
 
 /***/ }),
 
 /***/ 786:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(765).EventEmitter;
-
-
-/***/ }),
-
-/***/ 787:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10256,7 +10189,7 @@ module.exports = __webpack_require__(765).EventEmitter;
 
 /*<replacement>*/
 
-var pna = __webpack_require__(757);
+var pna = __webpack_require__(756);
 /*</replacement>*/
 
 // undocumented cb() API, needed for core, not for public API
@@ -10329,7 +10262,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 788:
+/***/ 787:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10400,11 +10333,11 @@ module.exports = {
 
 module.exports = Transform;
 
-var Duplex = __webpack_require__(747);
+var Duplex = __webpack_require__(746);
 
 /*<replacement>*/
-var util = __webpack_require__(752);
-util.inherits = __webpack_require__(737);
+var util = __webpack_require__(751);
+util.inherits = __webpack_require__(736);
 /*</replacement>*/
 
 util.inherits(Transform, Duplex);
@@ -10550,7 +10483,7 @@ function done(stream, er, data) {
 
 /***/ }),
 
-/***/ 789:
+/***/ 788:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -10561,9 +10494,9 @@ function done(stream, er, data) {
  *
  */
 
-var inherits = __webpack_require__(737)
-var Hash = __webpack_require__(749)
-var Buffer = __webpack_require__(738).Buffer
+var inherits = __webpack_require__(736)
+var Hash = __webpack_require__(748)
+var Buffer = __webpack_require__(737).Buffer
 
 var K = [
   0x428A2F98, 0x71374491, 0xB5C0FBCF, 0xE9B5DBA5,
@@ -10692,12 +10625,12 @@ module.exports = Sha256
 
 /***/ }),
 
-/***/ 790:
+/***/ 789:
 /***/ (function(module, exports, __webpack_require__) {
 
-var inherits = __webpack_require__(737)
-var Hash = __webpack_require__(749)
-var Buffer = __webpack_require__(738).Buffer
+var inherits = __webpack_require__(736)
+var Hash = __webpack_require__(748)
+var Buffer = __webpack_require__(737).Buffer
 
 var K = [
   0x428a2f98, 0xd728ae22, 0x71374491, 0x23ef65cd,
@@ -10959,19 +10892,19 @@ module.exports = Sha512
 
 /***/ }),
 
-/***/ 791:
+/***/ 790:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
-var inherits = __webpack_require__(737)
+var inherits = __webpack_require__(736)
 var Legacy = __webpack_require__(858)
-var Base = __webpack_require__(746)
-var Buffer = __webpack_require__(738).Buffer
-var md5 = __webpack_require__(792)
-var RIPEMD160 = __webpack_require__(769)
+var Base = __webpack_require__(745)
+var Buffer = __webpack_require__(737).Buffer
+var md5 = __webpack_require__(791)
+var RIPEMD160 = __webpack_require__(768)
 
-var sha = __webpack_require__(770)
+var sha = __webpack_require__(769)
 
 var ZEROS = Buffer.alloc(128)
 
@@ -11029,10 +10962,10 @@ module.exports = function createHmac (alg, key) {
 
 /***/ }),
 
-/***/ 792:
+/***/ 791:
 /***/ (function(module, exports, __webpack_require__) {
 
-var MD5 = __webpack_require__(763)
+var MD5 = __webpack_require__(762)
 
 module.exports = function (buffer) {
   return new MD5().update(buffer).digest()
@@ -11041,23 +10974,23 @@ module.exports = function (buffer) {
 
 /***/ }),
 
-/***/ 793:
+/***/ 792:
 /***/ (function(module, exports) {
 
 module.exports = {"sha224WithRSAEncryption":{"sign":"rsa","hash":"sha224","id":"302d300d06096086480165030402040500041c"},"RSA-SHA224":{"sign":"ecdsa/rsa","hash":"sha224","id":"302d300d06096086480165030402040500041c"},"sha256WithRSAEncryption":{"sign":"rsa","hash":"sha256","id":"3031300d060960864801650304020105000420"},"RSA-SHA256":{"sign":"ecdsa/rsa","hash":"sha256","id":"3031300d060960864801650304020105000420"},"sha384WithRSAEncryption":{"sign":"rsa","hash":"sha384","id":"3041300d060960864801650304020205000430"},"RSA-SHA384":{"sign":"ecdsa/rsa","hash":"sha384","id":"3041300d060960864801650304020205000430"},"sha512WithRSAEncryption":{"sign":"rsa","hash":"sha512","id":"3051300d060960864801650304020305000440"},"RSA-SHA512":{"sign":"ecdsa/rsa","hash":"sha512","id":"3051300d060960864801650304020305000440"},"RSA-SHA1":{"sign":"rsa","hash":"sha1","id":"3021300906052b0e03021a05000414"},"ecdsa-with-SHA1":{"sign":"ecdsa","hash":"sha1","id":""},"sha256":{"sign":"ecdsa","hash":"sha256","id":""},"sha224":{"sign":"ecdsa","hash":"sha224","id":""},"sha384":{"sign":"ecdsa","hash":"sha384","id":""},"sha512":{"sign":"ecdsa","hash":"sha512","id":""},"DSA-SHA":{"sign":"dsa","hash":"sha1","id":""},"DSA-SHA1":{"sign":"dsa","hash":"sha1","id":""},"DSA":{"sign":"dsa","hash":"sha1","id":""},"DSA-WITH-SHA224":{"sign":"dsa","hash":"sha224","id":""},"DSA-SHA224":{"sign":"dsa","hash":"sha224","id":""},"DSA-WITH-SHA256":{"sign":"dsa","hash":"sha256","id":""},"DSA-SHA256":{"sign":"dsa","hash":"sha256","id":""},"DSA-WITH-SHA384":{"sign":"dsa","hash":"sha384","id":""},"DSA-SHA384":{"sign":"dsa","hash":"sha384","id":""},"DSA-WITH-SHA512":{"sign":"dsa","hash":"sha512","id":""},"DSA-SHA512":{"sign":"dsa","hash":"sha512","id":""},"DSA-RIPEMD160":{"sign":"dsa","hash":"rmd160","id":""},"ripemd160WithRSA":{"sign":"rsa","hash":"rmd160","id":"3021300906052b2403020105000414"},"RSA-RIPEMD160":{"sign":"rsa","hash":"rmd160","id":"3021300906052b2403020105000414"},"md5WithRSAEncryption":{"sign":"rsa","hash":"md5","id":"3020300c06082a864886f70d020505000410"},"RSA-MD5":{"sign":"rsa","hash":"md5","id":"3020300c06082a864886f70d020505000410"}}
 
 /***/ }),
 
-/***/ 794:
+/***/ 793:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports.pbkdf2 = __webpack_require__(860)
-exports.pbkdf2Sync = __webpack_require__(797)
+exports.pbkdf2Sync = __webpack_require__(796)
 
 
 /***/ }),
 
-/***/ 795:
+/***/ 794:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var MAX_ALLOC = Math.pow(2, 30) - 1 // default in iojs
@@ -11089,11 +11022,11 @@ module.exports = function (password, salt, iterations, keylen) {
   }
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(740).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(739).Buffer))
 
 /***/ }),
 
-/***/ 796:
+/***/ 795:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {var defaultEncoding
@@ -11111,16 +11044,16 @@ module.exports = defaultEncoding
 
 /***/ }),
 
-/***/ 797:
+/***/ 796:
 /***/ (function(module, exports, __webpack_require__) {
 
-var md5 = __webpack_require__(792)
-var RIPEMD160 = __webpack_require__(769)
-var sha = __webpack_require__(770)
+var md5 = __webpack_require__(791)
+var RIPEMD160 = __webpack_require__(768)
+var sha = __webpack_require__(769)
 
-var checkParameters = __webpack_require__(795)
-var defaultEncoding = __webpack_require__(796)
-var Buffer = __webpack_require__(738).Buffer
+var checkParameters = __webpack_require__(794)
+var defaultEncoding = __webpack_require__(795)
+var Buffer = __webpack_require__(737).Buffer
 var ZEROS = Buffer.alloc(128)
 var sizes = {
   md5: 16,
@@ -11222,12 +11155,12 @@ module.exports = pbkdf2
 
 /***/ }),
 
-/***/ 798:
+/***/ 797:
 /***/ (function(module, exports, __webpack_require__) {
 
-var xor = __webpack_require__(753)
-var Buffer = __webpack_require__(738).Buffer
-var incr32 = __webpack_require__(799)
+var xor = __webpack_require__(752)
+var Buffer = __webpack_require__(737).Buffer
+var incr32 = __webpack_require__(798)
 
 function getBlock (self) {
   var out = self._cipher.encryptBlockRaw(self._prev)
@@ -11259,7 +11192,7 @@ exports.encrypt = function (self, chunk) {
 
 /***/ }),
 
-/***/ 799:
+/***/ 798:
 /***/ (function(module, exports) {
 
 function incr32 (iv) {
@@ -11281,23 +11214,23 @@ module.exports = incr32
 
 /***/ }),
 
-/***/ 800:
+/***/ 799:
 /***/ (function(module, exports) {
 
 module.exports = {"aes-128-ecb":{"cipher":"AES","key":128,"iv":0,"mode":"ECB","type":"block"},"aes-192-ecb":{"cipher":"AES","key":192,"iv":0,"mode":"ECB","type":"block"},"aes-256-ecb":{"cipher":"AES","key":256,"iv":0,"mode":"ECB","type":"block"},"aes-128-cbc":{"cipher":"AES","key":128,"iv":16,"mode":"CBC","type":"block"},"aes-192-cbc":{"cipher":"AES","key":192,"iv":16,"mode":"CBC","type":"block"},"aes-256-cbc":{"cipher":"AES","key":256,"iv":16,"mode":"CBC","type":"block"},"aes128":{"cipher":"AES","key":128,"iv":16,"mode":"CBC","type":"block"},"aes192":{"cipher":"AES","key":192,"iv":16,"mode":"CBC","type":"block"},"aes256":{"cipher":"AES","key":256,"iv":16,"mode":"CBC","type":"block"},"aes-128-cfb":{"cipher":"AES","key":128,"iv":16,"mode":"CFB","type":"stream"},"aes-192-cfb":{"cipher":"AES","key":192,"iv":16,"mode":"CFB","type":"stream"},"aes-256-cfb":{"cipher":"AES","key":256,"iv":16,"mode":"CFB","type":"stream"},"aes-128-cfb8":{"cipher":"AES","key":128,"iv":16,"mode":"CFB8","type":"stream"},"aes-192-cfb8":{"cipher":"AES","key":192,"iv":16,"mode":"CFB8","type":"stream"},"aes-256-cfb8":{"cipher":"AES","key":256,"iv":16,"mode":"CFB8","type":"stream"},"aes-128-cfb1":{"cipher":"AES","key":128,"iv":16,"mode":"CFB1","type":"stream"},"aes-192-cfb1":{"cipher":"AES","key":192,"iv":16,"mode":"CFB1","type":"stream"},"aes-256-cfb1":{"cipher":"AES","key":256,"iv":16,"mode":"CFB1","type":"stream"},"aes-128-ofb":{"cipher":"AES","key":128,"iv":16,"mode":"OFB","type":"stream"},"aes-192-ofb":{"cipher":"AES","key":192,"iv":16,"mode":"OFB","type":"stream"},"aes-256-ofb":{"cipher":"AES","key":256,"iv":16,"mode":"OFB","type":"stream"},"aes-128-ctr":{"cipher":"AES","key":128,"iv":16,"mode":"CTR","type":"stream"},"aes-192-ctr":{"cipher":"AES","key":192,"iv":16,"mode":"CTR","type":"stream"},"aes-256-ctr":{"cipher":"AES","key":256,"iv":16,"mode":"CTR","type":"stream"},"aes-128-gcm":{"cipher":"AES","key":128,"iv":12,"mode":"GCM","type":"auth"},"aes-192-gcm":{"cipher":"AES","key":192,"iv":12,"mode":"GCM","type":"auth"},"aes-256-gcm":{"cipher":"AES","key":256,"iv":12,"mode":"GCM","type":"auth"}}
 
 /***/ }),
 
-/***/ 801:
+/***/ 800:
 /***/ (function(module, exports, __webpack_require__) {
 
-var aes = __webpack_require__(758)
-var Buffer = __webpack_require__(738).Buffer
-var Transform = __webpack_require__(746)
-var inherits = __webpack_require__(737)
+var aes = __webpack_require__(757)
+var Buffer = __webpack_require__(737).Buffer
+var Transform = __webpack_require__(745)
+var inherits = __webpack_require__(736)
 var GHASH = __webpack_require__(875)
-var xor = __webpack_require__(753)
-var incr32 = __webpack_require__(799)
+var xor = __webpack_require__(752)
+var incr32 = __webpack_require__(798)
 
 function xorTest (a, b) {
   var out = 0
@@ -11412,13 +11345,13 @@ module.exports = StreamCipher
 
 /***/ }),
 
-/***/ 802:
+/***/ 801:
 /***/ (function(module, exports, __webpack_require__) {
 
-var aes = __webpack_require__(758)
-var Buffer = __webpack_require__(738).Buffer
-var Transform = __webpack_require__(746)
-var inherits = __webpack_require__(737)
+var aes = __webpack_require__(757)
+var Buffer = __webpack_require__(737).Buffer
+var Transform = __webpack_require__(745)
+var inherits = __webpack_require__(736)
 
 function StreamCipher (mode, key, iv, decrypt) {
   Transform.call(this)
@@ -11446,16 +11379,16 @@ module.exports = StreamCipher
 
 /***/ }),
 
-/***/ 803:
+/***/ 802:
 /***/ (function(module, exports, __webpack_require__) {
 
-var randomBytes = __webpack_require__(748);
+var randomBytes = __webpack_require__(747);
 module.exports = findPrime;
 findPrime.simpleSieve = simpleSieve;
 findPrime.fermatTest = fermatTest;
-var BN = __webpack_require__(739);
+var BN = __webpack_require__(738);
 var TWENTYFOUR = new BN(24);
-var MillerRabin = __webpack_require__(804);
+var MillerRabin = __webpack_require__(803);
 var millerRabin = new MillerRabin();
 var ONE = new BN(1);
 var TWO = new BN(2);
@@ -11558,11 +11491,11 @@ function findPrime(bits, gen) {
 
 /***/ }),
 
-/***/ 804:
+/***/ 803:
 /***/ (function(module, exports, __webpack_require__) {
 
-var bn = __webpack_require__(739);
-var brorand = __webpack_require__(805);
+var bn = __webpack_require__(738);
+var brorand = __webpack_require__(804);
 
 function MillerRabin(rand) {
   this.rand = rand || new brorand.Rand();
@@ -11680,7 +11613,7 @@ MillerRabin.prototype.getDivisor = function getDivisor(n, k) {
 
 /***/ }),
 
-/***/ 805:
+/***/ 804:
 /***/ (function(module, exports, __webpack_require__) {
 
 var r;
@@ -11752,7 +11685,7 @@ if (typeof self === 'object') {
 
 /***/ }),
 
-/***/ 806:
+/***/ 805:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11818,13 +11751,13 @@ utils.encode = function encode(arr, enc) {
 
 /***/ }),
 
-/***/ 807:
+/***/ 806:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(744);
+var utils = __webpack_require__(743);
 var rotr32 = utils.rotr32;
 
 function ft_1(s, x, y, z) {
@@ -11875,16 +11808,16 @@ exports.g1_256 = g1_256;
 
 /***/ }),
 
-/***/ 808:
+/***/ 807:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(744);
-var common = __webpack_require__(754);
-var shaCommon = __webpack_require__(807);
-var assert = __webpack_require__(743);
+var utils = __webpack_require__(743);
+var common = __webpack_require__(753);
+var shaCommon = __webpack_require__(806);
+var assert = __webpack_require__(742);
 
 var sum32 = utils.sum32;
 var sum32_4 = utils.sum32_4;
@@ -11988,15 +11921,15 @@ SHA256.prototype._digest = function digest(enc) {
 
 /***/ }),
 
-/***/ 809:
+/***/ 808:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(744);
-var common = __webpack_require__(754);
-var assert = __webpack_require__(743);
+var utils = __webpack_require__(743);
+var common = __webpack_require__(753);
+var assert = __webpack_require__(742);
 
 var rotr64_hi = utils.rotr64_hi;
 var rotr64_lo = utils.rotr64_lo;
@@ -12326,12 +12259,12 @@ function g1_512_lo(xh, xl) {
 
 /***/ }),
 
-/***/ 810:
+/***/ 809:
 /***/ (function(module, exports, __webpack_require__) {
 
-var inherits = __webpack_require__(737);
-var Reporter = __webpack_require__(756).Reporter;
-var Buffer = __webpack_require__(740).Buffer;
+var inherits = __webpack_require__(736);
+var Reporter = __webpack_require__(755).Reporter;
+var Buffer = __webpack_require__(739).Buffer;
 
 function DecoderBuffer(base, options) {
   Reporter.call(this, options);
@@ -12449,7 +12382,7 @@ EncoderBuffer.prototype.join = function join(out, offset) {
 
 /***/ }),
 
-/***/ 811:
+/***/ 810:
 /***/ (function(module, exports, __webpack_require__) {
 
 var constants = exports;
@@ -12475,12 +12408,12 @@ constants.der = __webpack_require__(912);
 
 /***/ }),
 
-/***/ 812:
+/***/ 811:
 /***/ (function(module, exports, __webpack_require__) {
 
-var inherits = __webpack_require__(737);
+var inherits = __webpack_require__(736);
 
-var asn1 = __webpack_require__(755);
+var asn1 = __webpack_require__(754);
 var base = asn1.base;
 var bignum = asn1.bignum;
 
@@ -12806,13 +12739,13 @@ function derDecodeLen(buf, primitive, fail) {
 
 /***/ }),
 
-/***/ 813:
+/***/ 812:
 /***/ (function(module, exports, __webpack_require__) {
 
-var inherits = __webpack_require__(737);
-var Buffer = __webpack_require__(740).Buffer;
+var inherits = __webpack_require__(736);
+var Buffer = __webpack_require__(739).Buffer;
 
-var asn1 = __webpack_require__(755);
+var asn1 = __webpack_require__(754);
 var base = asn1.base;
 
 // Import DER constants
@@ -13108,18 +13041,18 @@ function encodeTag(tag, primitive, cls, reporter) {
 
 /***/ }),
 
-/***/ 814:
+/***/ 813:
 /***/ (function(module, exports) {
 
 module.exports = {"1.3.132.0.10":"secp256k1","1.3.132.0.33":"p224","1.2.840.10045.3.1.1":"p192","1.2.840.10045.3.1.7":"p256","1.3.132.0.34":"p384","1.3.132.0.35":"p521"}
 
 /***/ }),
 
-/***/ 815:
+/***/ 814:
 /***/ (function(module, exports, __webpack_require__) {
 
-var createHash = __webpack_require__(751)
-var Buffer = __webpack_require__(738).Buffer
+var createHash = __webpack_require__(750)
+var Buffer = __webpack_require__(737).Buffer
 
 module.exports = function (seed, len) {
   var t = Buffer.alloc(0)
@@ -13141,7 +13074,7 @@ function i2ops (c) {
 
 /***/ }),
 
-/***/ 816:
+/***/ 815:
 /***/ (function(module, exports) {
 
 module.exports = function xor (a, b) {
@@ -13156,11 +13089,11 @@ module.exports = function xor (a, b) {
 
 /***/ }),
 
-/***/ 817:
+/***/ 816:
 /***/ (function(module, exports, __webpack_require__) {
 
-var BN = __webpack_require__(739)
-var Buffer = __webpack_require__(738).Buffer
+var BN = __webpack_require__(738)
+var Buffer = __webpack_require__(737).Buffer
 
 function withPublic (paddedMsg, key) {
   return Buffer.from(paddedMsg
@@ -13172,6 +13105,98 @@ function withPublic (paddedMsg, key) {
 
 module.exports = withPublic
 
+
+/***/ }),
+
+/***/ 838:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DatepickerDirective; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_datepicker__ = __webpack_require__(740);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(44);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ion2_calendar__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ion2_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ion2_calendar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_moment__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var DatepickerDirective = /** @class */ (function () {
+    function DatepickerDirective(el, modalCtrl, customDatePicker) {
+        this.el = el;
+        this.modalCtrl = modalCtrl;
+        this.customDatePicker = customDatePicker;
+    }
+    DatepickerDirective.prototype.onfocus = function () {
+        this.dispdate(this.mode);
+    };
+    DatepickerDirective.prototype.dispdate = function (pickMode) {
+        console.log(pickMode);
+        var defaultScrollTo = __WEBPACK_IMPORTED_MODULE_4_moment__().toDate(); // scroll to current date
+        //format D/M/YYYY
+        if (pickMode === 'single') { // date of join/ date of birth
+            var dateLimit = __WEBPACK_IMPORTED_MODULE_4_moment__().toDate();
+            var from = __WEBPACK_IMPORTED_MODULE_4_moment__('1/2/2019', 'D/M/YYYY').toDate();
+            console.log(from);
+        }
+        else if (pickMode === "muilti") { // pick multiple dates
+            var dateLimit = __WEBPACK_IMPORTED_MODULE_4_moment__().add(45, 'days').toDate(); // Display  45 days from today
+            var disableWeeks = [0, 6]; // disable Sunday-0 and Saturday-6
+        }
+        else if (pickMode === "range") {
+            from = __WEBPACK_IMPORTED_MODULE_4_moment__('1/2/2019', 'D/M/YYYY').toDate();
+        }
+        var options = {
+            pickMode: pickMode,
+            showAdjacentMonthDay: false,
+            disableWeeks: disableWeeks,
+            from: from,
+            to: dateLimit,
+            defaultScrollTo: defaultScrollTo,
+        };
+        var myCalendar = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_3_ion2_calendar__["CalendarModal"], {
+            options: options,
+        });
+        myCalendar.present();
+        myCalendar.onDidDismiss(function (date) {
+            if (date != null) {
+                console.log(date);
+            }
+        }); //end of displayCalendar function
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Input"])(),
+        __metadata("design:type", String)
+    ], DatepickerDirective.prototype, "mode", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["HostListener"])('focus'),
+        __metadata("design:type", Function),
+        __metadata("design:paramtypes", []),
+        __metadata("design:returntype", void 0)
+    ], DatepickerDirective.prototype, "onfocus", null);
+    DatepickerDirective = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Directive"])({
+            selector: '[date-picker]',
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_core__["ElementRef"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_0__models_datepicker__["a" /* CustomDatePicker */]])
+    ], DatepickerDirective);
+    return DatepickerDirective;
+}());
+
+//# sourceMappingURL=datepicker.js.map
 
 /***/ }),
 
@@ -13188,12 +13213,12 @@ module.exports = withPublic
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_generate_password___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_generate_password__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_emailjs_com__ = __webpack_require__(926);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_emailjs_com___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_emailjs_com__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_datepicker__ = __webpack_require__(741);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_datepicker__ = __webpack_require__(740);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ion2_calendar__ = __webpack_require__(461);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ion2_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_ion2_calendar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_designations__ = __webpack_require__(762);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_designations__ = __webpack_require__(761);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13935,7 +13960,7 @@ var NewuserPage = /** @class */ (function () {
     };
     NewuserPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-newuser',template:/*ion-inline-start:"F:\ionic-app\src\pages\newuser\newuser.html"*/'<ion-header>\n\n  <page-header pageTitle="USERS"></page-header>\n\n</ion-header>\n\n\n\n<ion-content  >\n\n  <ion-segment [(ngModel)]="users" color="white" (click)="new1()">\n\n    <ion-segment-button value="newUser"  >\n\n    \n\n     New User\n\n    </ion-segment-button>\n\n    <ion-segment-button value="allUsers" (click)="new()">\n\n   \n\n        All User\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n     \n\n      <div [ngSwitch]="users">\n\n\n\n          <div *ngSwitchCase="\'newUser\'">\n\n          \n\n              <h6 class="title section-title ">User Information</h6>\n\n              \n\n                 <ion-row>\n\n                   <ion-item col-6> \n\n                        <ion-label stacked>First Name</ion-label>\n\n                        <ion-input type="text" [(ngModel)]="userItem.fname" date-picker pickmode="single"></ion-input>\n\n                    </ion-item> \n\n                     \n\n                    <ion-item col-6> \n\n                        <ion-label stacked>Last Name</ion-label>\n\n                        <ion-input type="text" [(ngModel)]="userItem.lname" ></ion-input>\n\n                      </ion-item>\n\n                    \n\n                    </ion-row>\n\n                    \n\n                      <ion-item col-12 > \n\n                          <ion-label stacked>Date Of Birth</ion-label>\n\n                          <ion-input type="text" readonly (tap)="dispdate(\'birth\')"  [(ngModel)]="userItem.dob"  ></ion-input>\n\n                        </ion-item> \n\n                        \n\n                    \n\n                      <ion-item col-12> \n\n                         <ion-label stacked>Mobile Number</ion-label>\n\n                         <ion-input type="text" [(ngModel)]="userItem.mobile" ></ion-input>\n\n                       </ion-item>\n\n                     \n\n                   \n\n                       <ion-item col-12> \n\n                          <ion-label stacked>Email Id</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.email" ></ion-input>\n\n                        </ion-item>\n\n                      \n\n                      \n\n                      \n\n                      <h6 class="title section-title">Job Details</h6>\n\n\n\n                        <ion-row>\n\n                            <ion-item col-6> \n\n                                <ion-label stacked>Date Of Joining</ion-label>\n\n                                <ion-input type="text" readonly (tap)="dispdate(\'join\')"   [(ngModel)]="userItem.doj"></ion-input>\n\n                              </ion-item>\n\n\n\n                             <ion-item col-6> \n\n                                <ion-label stacked>Position</ion-label>\n\n                                <ion-select  [(ngModel)]="userItem.position">\n\n                                  <ion-option *ngFor="let p of designations" [value]=\'p.value\'>{{p.position}}</ion-option>\n\n                                </ion-select>\n\n                              </ion-item>\n\n                           </ion-row>  \n\n\n\n                          <ion-row>\n\n                              <ion-col col-6>\n\n                                  <ion-label >Set privileges</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>\n\n                                </ion-col>\n\n                                <ion-col col-6  [hidden]="x">\n\n                                  <ion-label>Deactivate user</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="statuss" ></ion-checkbox>\n\n                                </ion-col>\n\n\n\n                              </ion-row> \n\n                              <ion-row>\n\n                                  \n\n                           <button ion-button  icon-end  full color=blue (click)="btn(userItem)" >\n\n                             {{butn}}\n\n                           \n\n                             </button>\n\n                          </ion-row> \n\n                         \n\n             \n\n          </div>\n\n            \n\n       <div *ngSwitchCase="\'allUsers\'">\n\n        <ion-list >\n\n            <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>\n\n\n\n           <ion-item>\n\n           <ion-row no-margin class="table-title" >\n\n                <ion-col col-6 >Name</ion-col><ion-col col-4>Position </ion-col><ion-col col-2>Action</ion-col>\n\n              </ion-row>\n\n          </ion-item>\n\n           \n\n           <ion-item>\n\n            <ion-row  class="col-text row-bottom-border" *ngFor="let item of itemslist" >\n\n                <ion-col col-6  style="color: #66887F;">\n\n                  {{ item.fname }}\n\n                </ion-col>\n\n                <ion-col col-4  style="color:#2679B0;" >\n\n                  {{ item.position }}\n\n                </ion-col>\n\n                <ion-col col-2 text-center (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position,item.data,item.status)">\n\n                <ion-icon name="create" ></ion-icon>\n\n                </ion-col>\n\n              </ion-row>\n\n           </ion-item>\n\n           \n\n            <!-- <ion-item>\n\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n            </ion-item> -->\n\n         </ion-list>\n\n      </div>\n\n      </div>\n\n</ion-content>\n\n\n\n \n\n\n\n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\newuser\newuser.html"*/,
+            selector: 'page-newuser',template:/*ion-inline-start:"F:\ionic-app\src\pages\newuser\newuser.html"*/'<ion-header>\n\n  <page-header pageTitle="USERS"></page-header>\n\n</ion-header>\n\n\n\n<ion-content  >\n\n  <ion-segment [(ngModel)]="users" color="white" (click)="new1()">\n\n    <ion-segment-button value="newUser"  >\n\n    \n\n     New User\n\n    </ion-segment-button>\n\n    <ion-segment-button value="allUsers" (click)="new()">\n\n   \n\n        All User\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n     \n\n      <div [ngSwitch]="users">\n\n\n\n          <div *ngSwitchCase="\'newUser\'">\n\n          \n\n              <h6 class="title section-title ">User Information</h6>\n\n              \n\n                 <ion-row>\n\n                   <ion-item col-6> \n\n                        <ion-label stacked>First Name</ion-label>\n\n                        <ion-input type="text" [(ngModel)]="userItem.fname" date-picker mode="single"></ion-input>\n\n                    </ion-item> \n\n                     \n\n                    <ion-item col-6> \n\n                        <ion-label stacked>Last Name</ion-label>\n\n                        <ion-input type="text" [(ngModel)]="userItem.lname" ></ion-input>\n\n                      </ion-item>\n\n                    \n\n                    </ion-row>\n\n                    \n\n                      <ion-item col-12 > \n\n                          <ion-label stacked>Date Of Birth</ion-label>\n\n                          <ion-input type="text" readonly (tap)="dispdate(\'birth\')"  [(ngModel)]="userItem.dob"  ></ion-input>\n\n                        </ion-item> \n\n                        \n\n                    \n\n                      <ion-item col-12> \n\n                         <ion-label stacked>Mobile Number</ion-label>\n\n                         <ion-input type="text" [(ngModel)]="userItem.mobile" ></ion-input>\n\n                       </ion-item>\n\n                     \n\n                   \n\n                       <ion-item col-12> \n\n                          <ion-label stacked>Email Id</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.email" ></ion-input>\n\n                        </ion-item>\n\n                      \n\n                      \n\n                      \n\n                      <h6 class="title section-title">Job Details</h6>\n\n\n\n                        <ion-row>\n\n                            <ion-item col-6> \n\n                                <ion-label stacked>Date Of Joining</ion-label>\n\n                                <ion-input type="text" readonly (tap)="dispdate(\'join\')"   [(ngModel)]="userItem.doj"></ion-input>\n\n                              </ion-item>\n\n\n\n                             <ion-item col-6> \n\n                                <ion-label stacked>Position</ion-label>\n\n                                <ion-select  [(ngModel)]="userItem.position">\n\n                                  <ion-option *ngFor="let p of designations" [value]=\'p.value\'>{{p.position}}</ion-option>\n\n                                </ion-select>\n\n                              </ion-item>\n\n                           </ion-row>  \n\n\n\n                          <ion-row>\n\n                              <ion-col col-6>\n\n                                  <ion-label >Set privileges</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>\n\n                                </ion-col>\n\n                                <ion-col col-6  [hidden]="x">\n\n                                  <ion-label>Deactivate user</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="statuss" ></ion-checkbox>\n\n                                </ion-col>\n\n\n\n                              </ion-row> \n\n                              <ion-row>\n\n                                  \n\n                           <button ion-button  icon-end  full color=blue (click)="btn(userItem)" >\n\n                             {{butn}}\n\n                           \n\n                             </button>\n\n                          </ion-row> \n\n                         \n\n             \n\n          </div>\n\n            \n\n       <div *ngSwitchCase="\'allUsers\'">\n\n        <ion-list >\n\n            <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>\n\n\n\n           <ion-item>\n\n           <ion-row no-margin class="table-title" >\n\n                <ion-col col-6 >Name</ion-col><ion-col col-4>Position </ion-col><ion-col col-2>Action</ion-col>\n\n              </ion-row>\n\n          </ion-item>\n\n           \n\n           <ion-item>\n\n            <ion-row  class="col-text row-bottom-border" *ngFor="let item of itemslist" >\n\n                <ion-col col-6  style="color: #66887F;">\n\n                  {{ item.fname }}\n\n                </ion-col>\n\n                <ion-col col-4  style="color:#2679B0;" >\n\n                  {{ item.position }}\n\n                </ion-col>\n\n                <ion-col col-2 text-center (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position,item.data,item.status)">\n\n                <ion-icon name="create" ></ion-icon>\n\n                </ion-col>\n\n              </ion-row>\n\n           </ion-item>\n\n           \n\n            <!-- <ion-item>\n\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n            </ion-item> -->\n\n         </ion-list>\n\n      </div>\n\n      </div>\n\n</ion-content>\n\n\n\n \n\n\n\n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\newuser\newuser.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1__angular_core__["ChangeDetectorRef"], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_6__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ModalController"]])
     ], NewuserPage);
@@ -14085,9 +14110,9 @@ self.generateMultiple = function(amount, options) {
 "use strict";
 
 
-exports.randomBytes = exports.rng = exports.pseudoRandomBytes = exports.prng = __webpack_require__(748)
-exports.createHash = exports.Hash = __webpack_require__(751)
-exports.createHmac = exports.Hmac = __webpack_require__(791)
+exports.randomBytes = exports.rng = exports.pseudoRandomBytes = exports.prng = __webpack_require__(747)
+exports.createHash = exports.Hash = __webpack_require__(750)
+exports.createHmac = exports.Hmac = __webpack_require__(790)
 
 var algos = __webpack_require__(859)
 var algoKeys = Object.keys(algos)
@@ -14096,7 +14121,7 @@ exports.getHashes = function () {
   return hashes
 }
 
-var p = __webpack_require__(794)
+var p = __webpack_require__(793)
 exports.pbkdf2 = p.pbkdf2
 exports.pbkdf2Sync = p.pbkdf2Sync
 
@@ -14449,7 +14474,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Buffer = __webpack_require__(738).Buffer;
+var Buffer = __webpack_require__(737).Buffer;
 var util = __webpack_require__(847);
 
 function copyBuffer(src, target, offset) {
@@ -14605,7 +14630,7 @@ function config (name) {
   return String(val).toLowerCase() === 'true';
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(54)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(45)))
 
 /***/ }),
 
@@ -14642,11 +14667,11 @@ function config (name) {
 
 module.exports = PassThrough;
 
-var Transform = __webpack_require__(788);
+var Transform = __webpack_require__(787);
 
 /*<replacement>*/
-var util = __webpack_require__(752);
-util.inherits = __webpack_require__(737);
+var util = __webpack_require__(751);
+util.inherits = __webpack_require__(736);
 /*</replacement>*/
 
 util.inherits(PassThrough, Transform);
@@ -14666,7 +14691,7 @@ PassThrough.prototype._transform = function (chunk, encoding, cb) {
 /***/ 850:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(767);
+module.exports = __webpack_require__(766);
 
 
 /***/ }),
@@ -14674,7 +14699,7 @@ module.exports = __webpack_require__(767);
 /***/ 851:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(747);
+module.exports = __webpack_require__(746);
 
 
 /***/ }),
@@ -14682,7 +14707,7 @@ module.exports = __webpack_require__(747);
 /***/ 852:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(766).Transform
+module.exports = __webpack_require__(765).Transform
 
 
 /***/ }),
@@ -14690,7 +14715,7 @@ module.exports = __webpack_require__(766).Transform
 /***/ 853:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(766).PassThrough
+module.exports = __webpack_require__(765).PassThrough
 
 
 /***/ }),
@@ -14706,9 +14731,9 @@ module.exports = __webpack_require__(766).PassThrough
  * operation was added.
  */
 
-var inherits = __webpack_require__(737)
-var Hash = __webpack_require__(749)
-var Buffer = __webpack_require__(738).Buffer
+var inherits = __webpack_require__(736)
+var Hash = __webpack_require__(748)
+var Buffer = __webpack_require__(737).Buffer
 
 var K = [
   0x5a827999, 0x6ed9eba1, 0x8f1bbcdc | 0, 0xca62c1d6 | 0
@@ -14808,9 +14833,9 @@ module.exports = Sha
  * See http://pajhome.org.uk/crypt/md5 for details.
  */
 
-var inherits = __webpack_require__(737)
-var Hash = __webpack_require__(749)
-var Buffer = __webpack_require__(738).Buffer
+var inherits = __webpack_require__(736)
+var Hash = __webpack_require__(748)
+var Buffer = __webpack_require__(737).Buffer
 
 var K = [
   0x5a827999, 0x6ed9eba1, 0x8f1bbcdc | 0, 0xca62c1d6 | 0
@@ -14913,10 +14938,10 @@ module.exports = Sha1
  *
  */
 
-var inherits = __webpack_require__(737)
-var Sha256 = __webpack_require__(789)
-var Hash = __webpack_require__(749)
-var Buffer = __webpack_require__(738).Buffer
+var inherits = __webpack_require__(736)
+var Sha256 = __webpack_require__(788)
+var Hash = __webpack_require__(748)
+var Buffer = __webpack_require__(737).Buffer
 
 var W = new Array(64)
 
@@ -14965,10 +14990,10 @@ module.exports = Sha224
 /***/ 857:
 /***/ (function(module, exports, __webpack_require__) {
 
-var inherits = __webpack_require__(737)
-var SHA512 = __webpack_require__(790)
-var Hash = __webpack_require__(749)
-var Buffer = __webpack_require__(738).Buffer
+var inherits = __webpack_require__(736)
+var SHA512 = __webpack_require__(789)
+var Hash = __webpack_require__(748)
+var Buffer = __webpack_require__(737).Buffer
 
 var W = new Array(160)
 
@@ -15031,10 +15056,10 @@ module.exports = Sha384
 
 "use strict";
 
-var inherits = __webpack_require__(737)
-var Buffer = __webpack_require__(738).Buffer
+var inherits = __webpack_require__(736)
+var Buffer = __webpack_require__(737).Buffer
 
-var Base = __webpack_require__(746)
+var Base = __webpack_require__(745)
 
 var ZEROS = Buffer.alloc(128)
 var blocksize = 64
@@ -15083,7 +15108,7 @@ module.exports = Hmac
 /***/ 859:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(793)
+module.exports = __webpack_require__(792)
 
 
 /***/ }),
@@ -15091,10 +15116,10 @@ module.exports = __webpack_require__(793)
 /***/ 860:
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global, process) {var checkParameters = __webpack_require__(795)
-var defaultEncoding = __webpack_require__(796)
-var sync = __webpack_require__(797)
-var Buffer = __webpack_require__(738).Buffer
+/* WEBPACK VAR INJECTION */(function(global, process) {var checkParameters = __webpack_require__(794)
+var defaultEncoding = __webpack_require__(795)
+var sync = __webpack_require__(796)
+var Buffer = __webpack_require__(737).Buffer
 
 var ZERO_BUF
 var subtle = global.crypto && global.crypto.subtle
@@ -15192,7 +15217,7 @@ module.exports = function (password, salt, iterations, keylen, digest, callback)
   }), callback)
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(54), __webpack_require__(191)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(45), __webpack_require__(191)))
 
 /***/ }),
 
@@ -15200,10 +15225,10 @@ module.exports = function (password, salt, iterations, keylen, digest, callback)
 /***/ (function(module, exports, __webpack_require__) {
 
 var DES = __webpack_require__(862)
-var aes = __webpack_require__(772)
-var aesModes = __webpack_require__(773)
+var aes = __webpack_require__(771)
+var aesModes = __webpack_require__(772)
 var desModes = __webpack_require__(877)
-var ebtk = __webpack_require__(759)
+var ebtk = __webpack_require__(758)
 
 function createCipher (suite, password) {
   suite = suite.toLowerCase()
@@ -15273,10 +15298,10 @@ exports.listCiphers = exports.getCiphers = getCiphers
 /***/ 862:
 /***/ (function(module, exports, __webpack_require__) {
 
-var CipherBase = __webpack_require__(746)
-var des = __webpack_require__(771)
-var inherits = __webpack_require__(737)
-var Buffer = __webpack_require__(738).Buffer
+var CipherBase = __webpack_require__(745)
+var des = __webpack_require__(770)
+var inherits = __webpack_require__(736)
+var Buffer = __webpack_require__(737).Buffer
 
 var modes = {
   'des-ede3-cbc': des.CBC.instantiate(des.EDE),
@@ -15597,7 +15622,7 @@ exports.padSplit = function padSplit(num, size, group) {
 "use strict";
 
 
-var assert = __webpack_require__(743);
+var assert = __webpack_require__(742);
 
 function Cipher(options) {
   this.options = options;
@@ -15746,10 +15771,10 @@ Cipher.prototype._finalDecrypt = function _finalDecrypt() {
 "use strict";
 
 
-var assert = __webpack_require__(743);
-var inherits = __webpack_require__(737);
+var assert = __webpack_require__(742);
+var inherits = __webpack_require__(736);
 
-var des = __webpack_require__(771);
+var des = __webpack_require__(770);
 var utils = des.utils;
 var Cipher = des.Cipher;
 
@@ -15897,8 +15922,8 @@ DES.prototype._decrypt = function _decrypt(state, lStart, rStart, out, off) {
 "use strict";
 
 
-var assert = __webpack_require__(743);
-var inherits = __webpack_require__(737);
+var assert = __webpack_require__(742);
+var inherits = __webpack_require__(736);
 
 var proto = {};
 
@@ -15970,10 +15995,10 @@ proto._update = function _update(inp, inOff, out, outOff) {
 "use strict";
 
 
-var assert = __webpack_require__(743);
-var inherits = __webpack_require__(737);
+var assert = __webpack_require__(742);
+var inherits = __webpack_require__(736);
 
-var des = __webpack_require__(771);
+var des = __webpack_require__(770);
 var Cipher = des.Cipher;
 var DES = des.DES;
 
@@ -16030,14 +16055,14 @@ EDE.prototype._unpad = DES.prototype._unpad;
 /***/ 868:
 /***/ (function(module, exports, __webpack_require__) {
 
-var MODES = __webpack_require__(773)
-var AuthCipher = __webpack_require__(801)
-var Buffer = __webpack_require__(738).Buffer
-var StreamCipher = __webpack_require__(802)
-var Transform = __webpack_require__(746)
-var aes = __webpack_require__(758)
-var ebtk = __webpack_require__(759)
-var inherits = __webpack_require__(737)
+var MODES = __webpack_require__(772)
+var AuthCipher = __webpack_require__(800)
+var Buffer = __webpack_require__(737).Buffer
+var StreamCipher = __webpack_require__(801)
+var Transform = __webpack_require__(745)
+var aes = __webpack_require__(757)
+var ebtk = __webpack_require__(758)
+var inherits = __webpack_require__(736)
 
 function Cipher (mode, key, iv) {
   Transform.call(this)
@@ -16165,7 +16190,7 @@ exports.decrypt = function (self, block) {
 /***/ 870:
 /***/ (function(module, exports, __webpack_require__) {
 
-var xor = __webpack_require__(753)
+var xor = __webpack_require__(752)
 
 exports.encrypt = function (self, block) {
   var data = xor(block, self._prev)
@@ -16189,8 +16214,8 @@ exports.decrypt = function (self, block) {
 /***/ 871:
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(738).Buffer
-var xor = __webpack_require__(753)
+var Buffer = __webpack_require__(737).Buffer
+var xor = __webpack_require__(752)
 
 function encryptStart (self, data, decrypt) {
   var len = data.length
@@ -16229,7 +16254,7 @@ exports.encrypt = function (self, data, decrypt) {
 /***/ 872:
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(738).Buffer
+var Buffer = __webpack_require__(737).Buffer
 
 function encryptByte (self, byteParam, decrypt) {
   var pad = self._cipher.encryptBlock(self._prev)
@@ -16261,7 +16286,7 @@ exports.encrypt = function (self, chunk, decrypt) {
 /***/ 873:
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(738).Buffer
+var Buffer = __webpack_require__(737).Buffer
 
 function encryptByte (self, byteParam, decrypt) {
   var pad
@@ -16310,7 +16335,7 @@ exports.encrypt = function (self, chunk, decrypt) {
 /***/ 874:
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var xor = __webpack_require__(753)
+/* WEBPACK VAR INJECTION */(function(Buffer) {var xor = __webpack_require__(752)
 
 function getBlock (self) {
   self._prev = self._cipher.encryptBlock(self._prev)
@@ -16327,14 +16352,14 @@ exports.encrypt = function (self, chunk) {
   return xor(chunk, pad)
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(740).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(739).Buffer))
 
 /***/ }),
 
 /***/ 875:
 /***/ (function(module, exports, __webpack_require__) {
 
-var Buffer = __webpack_require__(738).Buffer
+var Buffer = __webpack_require__(737).Buffer
 var ZEROES = Buffer.alloc(16, 0)
 
 function toArray (buf) {
@@ -16430,14 +16455,14 @@ module.exports = GHASH
 /***/ 876:
 /***/ (function(module, exports, __webpack_require__) {
 
-var AuthCipher = __webpack_require__(801)
-var Buffer = __webpack_require__(738).Buffer
-var MODES = __webpack_require__(773)
-var StreamCipher = __webpack_require__(802)
-var Transform = __webpack_require__(746)
-var aes = __webpack_require__(758)
-var ebtk = __webpack_require__(759)
-var inherits = __webpack_require__(737)
+var AuthCipher = __webpack_require__(800)
+var Buffer = __webpack_require__(737).Buffer
+var MODES = __webpack_require__(772)
+var StreamCipher = __webpack_require__(801)
+var Transform = __webpack_require__(745)
+var aes = __webpack_require__(757)
+var ebtk = __webpack_require__(758)
+var inherits = __webpack_require__(736)
 
 function Decipher (mode, key, iv) {
   Transform.call(this)
@@ -16592,7 +16617,7 @@ exports['des-ede'] = {
 /***/ 878:
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var generatePrime = __webpack_require__(803)
+/* WEBPACK VAR INJECTION */(function(Buffer) {var generatePrime = __webpack_require__(802)
 var primes = __webpack_require__(881)
 
 var DH = __webpack_require__(882)
@@ -16635,7 +16660,7 @@ function createDiffieHellman (prime, enc, generator, genc) {
 exports.DiffieHellmanGroup = exports.createDiffieHellmanGroup = exports.getDiffieHellman = getDiffieHellman
 exports.createDiffieHellman = exports.DiffieHellman = createDiffieHellman
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(740).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(739).Buffer))
 
 /***/ }),
 
@@ -16663,16 +16688,16 @@ module.exports = {"modp1":{"gen":"02","prime":"ffffffffffffffffc90fdaa22168c234c
 /***/ 882:
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var BN = __webpack_require__(739);
-var MillerRabin = __webpack_require__(804);
+/* WEBPACK VAR INJECTION */(function(Buffer) {var BN = __webpack_require__(738);
+var MillerRabin = __webpack_require__(803);
 var millerRabin = new MillerRabin();
 var TWENTYFOUR = new BN(24);
 var ELEVEN = new BN(11);
 var TEN = new BN(10);
 var THREE = new BN(3);
 var SEVEN = new BN(7);
-var primes = __webpack_require__(803);
-var randomBytes = __webpack_require__(748);
+var primes = __webpack_require__(802);
+var randomBytes = __webpack_require__(747);
 module.exports = DH;
 
 function setPublicKey(pub, enc) {
@@ -16828,20 +16853,20 @@ function formatReturnValue(bn, enc) {
   }
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(740).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(739).Buffer))
 
 /***/ }),
 
 /***/ 883:
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(751)
-var stream = __webpack_require__(764)
-var inherits = __webpack_require__(737)
+/* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(750)
+var stream = __webpack_require__(763)
+var inherits = __webpack_require__(736)
 var sign = __webpack_require__(884)
 var verify = __webpack_require__(920)
 
-var algorithms = __webpack_require__(793)
+var algorithms = __webpack_require__(792)
 Object.keys(algorithms).forEach(function (key) {
   algorithms[key].id = new Buffer(algorithms[key].id, 'hex')
   algorithms[key.toLowerCase()] = algorithms[key]
@@ -16927,7 +16952,7 @@ module.exports = {
   createVerify: createVerify
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(740).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(739).Buffer))
 
 /***/ }),
 
@@ -16935,12 +16960,12 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
-var createHmac = __webpack_require__(791)
-var crt = __webpack_require__(774)
-var EC = __webpack_require__(742).ec
-var BN = __webpack_require__(739)
-var parseKeys = __webpack_require__(761)
-var curves = __webpack_require__(814)
+var createHmac = __webpack_require__(790)
+var crt = __webpack_require__(773)
+var EC = __webpack_require__(741).ec
+var BN = __webpack_require__(738)
+var parseKeys = __webpack_require__(760)
+var curves = __webpack_require__(813)
 
 function sign (hash, key, hashType, signType, tag) {
   var priv = parseKeys(key)
@@ -17080,14 +17105,14 @@ module.exports = sign
 module.exports.getKey = getKey
 module.exports.makeKey = makeKey
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(740).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(739).Buffer))
 
 /***/ }),
 
 /***/ 885:
 /***/ (function(module, exports) {
 
-module.exports = {"_from":"elliptic@^6.0.0","_id":"elliptic@6.4.1","_inBundle":false,"_integrity":"sha512-BsXLz5sqX8OHcsh7CqBMztyXARmGQ3LWPtGjJi6DiJHq5C/qvi9P3OqgswKSDftbu8+IoI/QDTAm2fFnQ9SZSQ==","_location":"/elliptic","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"elliptic@^6.0.0","name":"elliptic","escapedName":"elliptic","rawSpec":"^6.0.0","saveSpec":null,"fetchSpec":"^6.0.0"},"_requiredBy":["/browserify-sign","/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.1.tgz","_shasum":"c2d0b7776911b86722c632c3c06c60f2f819939a","_spec":"elliptic@^6.0.0","_where":"D:\\blankproject\\node_modules\\browserify-sign","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"bundleDependencies":false,"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"deprecated":false,"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.1"}
+module.exports = {"_from":"elliptic@^6.0.0","_id":"elliptic@6.4.1","_inBundle":false,"_integrity":"sha512-BsXLz5sqX8OHcsh7CqBMztyXARmGQ3LWPtGjJi6DiJHq5C/qvi9P3OqgswKSDftbu8+IoI/QDTAm2fFnQ9SZSQ==","_location":"/elliptic","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"elliptic@^6.0.0","name":"elliptic","escapedName":"elliptic","rawSpec":"^6.0.0","saveSpec":null,"fetchSpec":"^6.0.0"},"_requiredBy":["/browserify-sign","/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.1.tgz","_shasum":"c2d0b7776911b86722c632c3c06c60f2f819939a","_spec":"elliptic@^6.0.0","_where":"F:\\ionic-app\\node_modules\\browserify-sign","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"bundleDependencies":false,"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"deprecated":false,"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.1"}
 
 /***/ }),
 
@@ -17098,9 +17123,9 @@ module.exports = {"_from":"elliptic@^6.0.0","_id":"elliptic@6.4.1","_inBundle":f
 
 
 var utils = exports;
-var BN = __webpack_require__(739);
-var minAssert = __webpack_require__(743);
-var minUtils = __webpack_require__(806);
+var BN = __webpack_require__(738);
+var minAssert = __webpack_require__(742);
+var minUtils = __webpack_require__(805);
 
 utils.assert = minAssert;
 utils.toArray = minUtils.toArray;
@@ -17225,8 +17250,8 @@ utils.intFromLE = intFromLE;
 "use strict";
 
 
-var BN = __webpack_require__(739);
-var elliptic = __webpack_require__(742);
+var BN = __webpack_require__(738);
+var elliptic = __webpack_require__(741);
 var utils = elliptic.utils;
 var getNAF = utils.getNAF;
 var getJSF = utils.getJSF;
@@ -17608,10 +17633,10 @@ BasePoint.prototype.dblp = function dblp(k) {
 "use strict";
 
 
-var curve = __webpack_require__(760);
-var elliptic = __webpack_require__(742);
-var BN = __webpack_require__(739);
-var inherits = __webpack_require__(737);
+var curve = __webpack_require__(759);
+var elliptic = __webpack_require__(741);
+var BN = __webpack_require__(738);
+var inherits = __webpack_require__(736);
 var Base = curve.base;
 
 var assert = elliptic.utils.assert;
@@ -18553,12 +18578,12 @@ JPoint.prototype.isInfinity = function isInfinity() {
 "use strict";
 
 
-var curve = __webpack_require__(760);
-var BN = __webpack_require__(739);
-var inherits = __webpack_require__(737);
+var curve = __webpack_require__(759);
+var BN = __webpack_require__(738);
+var inherits = __webpack_require__(736);
 var Base = curve.base;
 
-var elliptic = __webpack_require__(742);
+var elliptic = __webpack_require__(741);
 var utils = elliptic.utils;
 
 function MontCurve(conf) {
@@ -18741,10 +18766,10 @@ Point.prototype.getX = function getX() {
 "use strict";
 
 
-var curve = __webpack_require__(760);
-var elliptic = __webpack_require__(742);
-var BN = __webpack_require__(739);
-var inherits = __webpack_require__(737);
+var curve = __webpack_require__(759);
+var elliptic = __webpack_require__(741);
+var BN = __webpack_require__(738);
+var inherits = __webpack_require__(736);
 var Base = curve.base;
 
 var assert = elliptic.utils.assert;
@@ -19184,8 +19209,8 @@ Point.prototype.mixedAdd = Point.prototype.add;
 
 var curves = exports;
 
-var hash = __webpack_require__(775);
-var elliptic = __webpack_require__(742);
+var hash = __webpack_require__(774);
+var elliptic = __webpack_require__(741);
 
 var assert = elliptic.utils.assert;
 
@@ -19397,9 +19422,9 @@ defineCurve('secp256k1', {
 
 exports.sha1 = __webpack_require__(893);
 exports.sha224 = __webpack_require__(894);
-exports.sha256 = __webpack_require__(808);
+exports.sha256 = __webpack_require__(807);
 exports.sha384 = __webpack_require__(895);
-exports.sha512 = __webpack_require__(809);
+exports.sha512 = __webpack_require__(808);
 
 
 /***/ }),
@@ -19410,9 +19435,9 @@ exports.sha512 = __webpack_require__(809);
 "use strict";
 
 
-var utils = __webpack_require__(744);
-var common = __webpack_require__(754);
-var shaCommon = __webpack_require__(807);
+var utils = __webpack_require__(743);
+var common = __webpack_require__(753);
+var shaCommon = __webpack_require__(806);
 
 var rotl32 = utils.rotl32;
 var sum32 = utils.sum32;
@@ -19492,8 +19517,8 @@ SHA1.prototype._digest = function digest(enc) {
 "use strict";
 
 
-var utils = __webpack_require__(744);
-var SHA256 = __webpack_require__(808);
+var utils = __webpack_require__(743);
+var SHA256 = __webpack_require__(807);
 
 function SHA224() {
   if (!(this instanceof SHA224))
@@ -19530,9 +19555,9 @@ SHA224.prototype._digest = function digest(enc) {
 "use strict";
 
 
-var utils = __webpack_require__(744);
+var utils = __webpack_require__(743);
 
-var SHA512 = __webpack_require__(809);
+var SHA512 = __webpack_require__(808);
 
 function SHA384() {
   if (!(this instanceof SHA384))
@@ -19573,8 +19598,8 @@ SHA384.prototype._digest = function digest(enc) {
 "use strict";
 
 
-var utils = __webpack_require__(744);
-var common = __webpack_require__(754);
+var utils = __webpack_require__(743);
+var common = __webpack_require__(753);
 
 var rotl32 = utils.rotl32;
 var sum32 = utils.sum32;
@@ -19727,8 +19752,8 @@ var sh = [
 "use strict";
 
 
-var utils = __webpack_require__(744);
-var assert = __webpack_require__(743);
+var utils = __webpack_require__(743);
+var assert = __webpack_require__(742);
 
 function Hmac(hash, key, enc) {
   if (!(this instanceof Hmac))
@@ -20569,9 +20594,9 @@ module.exports = {
 "use strict";
 
 
-var BN = __webpack_require__(739);
+var BN = __webpack_require__(738);
 var HmacDRBG = __webpack_require__(900);
-var elliptic = __webpack_require__(742);
+var elliptic = __webpack_require__(741);
 var utils = elliptic.utils;
 var assert = utils.assert;
 
@@ -20817,9 +20842,9 @@ EC.prototype.getKeyRecoveryParam = function(e, signature, Q, enc) {
 "use strict";
 
 
-var hash = __webpack_require__(775);
-var utils = __webpack_require__(806);
-var assert = __webpack_require__(743);
+var hash = __webpack_require__(774);
+var utils = __webpack_require__(805);
+var assert = __webpack_require__(742);
 
 function HmacDRBG(options) {
   if (!(this instanceof HmacDRBG))
@@ -20938,8 +20963,8 @@ HmacDRBG.prototype.generate = function generate(len, enc, add, addEnc) {
 "use strict";
 
 
-var BN = __webpack_require__(739);
-var elliptic = __webpack_require__(742);
+var BN = __webpack_require__(738);
+var elliptic = __webpack_require__(741);
 var utils = elliptic.utils;
 var assert = utils.assert;
 
@@ -21065,9 +21090,9 @@ KeyPair.prototype.inspect = function inspect() {
 "use strict";
 
 
-var BN = __webpack_require__(739);
+var BN = __webpack_require__(738);
 
-var elliptic = __webpack_require__(742);
+var elliptic = __webpack_require__(741);
 var utils = elliptic.utils;
 var assert = utils.assert;
 
@@ -21208,8 +21233,8 @@ Signature.prototype.toDER = function toDER(enc) {
 "use strict";
 
 
-var hash = __webpack_require__(775);
-var elliptic = __webpack_require__(742);
+var hash = __webpack_require__(774);
+var elliptic = __webpack_require__(741);
 var utils = elliptic.utils;
 var assert = utils.assert;
 var parseBytes = utils.parseBytes;
@@ -21334,7 +21359,7 @@ EDDSA.prototype.isPoint = function isPoint(val) {
 "use strict";
 
 
-var elliptic = __webpack_require__(742);
+var elliptic = __webpack_require__(741);
 var utils = elliptic.utils;
 var assert = utils.assert;
 var parseBytes = utils.parseBytes;
@@ -21438,8 +21463,8 @@ module.exports = KeyPair;
 "use strict";
 
 
-var BN = __webpack_require__(739);
-var elliptic = __webpack_require__(742);
+var BN = __webpack_require__(738);
+var elliptic = __webpack_require__(741);
 var utils = elliptic.utils;
 var assert = utils.assert;
 var cachedProperty = utils.cachedProperty;
@@ -21514,7 +21539,7 @@ module.exports = Signature;
 // Fedor, you are amazing.
 
 
-var asn1 = __webpack_require__(755)
+var asn1 = __webpack_require__(754)
 
 exports.certificate = __webpack_require__(917)
 
@@ -21639,8 +21664,8 @@ exports.signature = asn1.define('signature', function () {
 /***/ 907:
 /***/ (function(module, exports, __webpack_require__) {
 
-var asn1 = __webpack_require__(755);
-var inherits = __webpack_require__(737);
+var asn1 = __webpack_require__(754);
+var inherits = __webpack_require__(736);
 
 var api = exports;
 
@@ -21868,7 +21893,7 @@ module.exports = function(arr, obj){
 /***/ 910:
 /***/ (function(module, exports, __webpack_require__) {
 
-var inherits = __webpack_require__(737);
+var inherits = __webpack_require__(736);
 
 function Reporter(options) {
   this._reporterState = {
@@ -21996,10 +22021,10 @@ ReporterError.prototype.rethrow = function rethrow(msg) {
 /***/ 911:
 /***/ (function(module, exports, __webpack_require__) {
 
-var Reporter = __webpack_require__(756).Reporter;
-var EncoderBuffer = __webpack_require__(756).EncoderBuffer;
-var DecoderBuffer = __webpack_require__(756).DecoderBuffer;
-var assert = __webpack_require__(743);
+var Reporter = __webpack_require__(755).Reporter;
+var EncoderBuffer = __webpack_require__(755).EncoderBuffer;
+var DecoderBuffer = __webpack_require__(755).DecoderBuffer;
+var assert = __webpack_require__(742);
 
 // Supported tags
 var tags = [
@@ -22637,7 +22662,7 @@ Node.prototype._isPrintstr = function isPrintstr(str) {
 /***/ 912:
 /***/ (function(module, exports, __webpack_require__) {
 
-var constants = __webpack_require__(811);
+var constants = __webpack_require__(810);
 
 exports.tagClass = {
   0: 'universal',
@@ -22688,7 +22713,7 @@ exports.tagByName = constants._reverse(exports.tag);
 
 var decoders = exports;
 
-decoders.der = __webpack_require__(812);
+decoders.der = __webpack_require__(811);
 decoders.pem = __webpack_require__(914);
 
 
@@ -22697,10 +22722,10 @@ decoders.pem = __webpack_require__(914);
 /***/ 914:
 /***/ (function(module, exports, __webpack_require__) {
 
-var inherits = __webpack_require__(737);
-var Buffer = __webpack_require__(740).Buffer;
+var inherits = __webpack_require__(736);
+var Buffer = __webpack_require__(739).Buffer;
 
-var DERDecoder = __webpack_require__(812);
+var DERDecoder = __webpack_require__(811);
 
 function PEMDecoder(entity) {
   DERDecoder.call(this, entity);
@@ -22755,7 +22780,7 @@ PEMDecoder.prototype.decode = function decode(data, options) {
 
 var encoders = exports;
 
-encoders.der = __webpack_require__(813);
+encoders.der = __webpack_require__(812);
 encoders.pem = __webpack_require__(916);
 
 
@@ -22764,9 +22789,9 @@ encoders.pem = __webpack_require__(916);
 /***/ 916:
 /***/ (function(module, exports, __webpack_require__) {
 
-var inherits = __webpack_require__(737);
+var inherits = __webpack_require__(736);
 
-var DEREncoder = __webpack_require__(813);
+var DEREncoder = __webpack_require__(812);
 
 function PEMEncoder(entity) {
   DEREncoder.call(this, entity);
@@ -22798,7 +22823,7 @@ PEMEncoder.prototype.encode = function encode(data, options) {
 
 
 
-var asn = __webpack_require__(755)
+var asn = __webpack_require__(754)
 
 var Time = asn.define('Time', function () {
   this.choice({
@@ -22900,9 +22925,9 @@ module.exports = {"2.16.840.1.101.3.4.1.1":"aes-128-ecb","2.16.840.1.101.3.4.1.2
 var findProc = /Proc-Type: 4,ENCRYPTED[\n\r]+DEK-Info: AES-((?:128)|(?:192)|(?:256))-CBC,([0-9A-H]+)[\n\r]+([0-9A-z\n\r\+\/\=]+)[\n\r]+/m
 var startRegex = /^-----BEGIN ((?:.*? KEY)|CERTIFICATE)-----/m
 var fullRegex = /^-----BEGIN ((?:.*? KEY)|CERTIFICATE)-----([0-9A-z\n\r\+\/\=]+)-----END \1-----$/m
-var evp = __webpack_require__(759)
-var ciphers = __webpack_require__(772)
-var Buffer = __webpack_require__(738).Buffer
+var evp = __webpack_require__(758)
+var ciphers = __webpack_require__(771)
+var Buffer = __webpack_require__(737).Buffer
 module.exports = function (okey, password) {
   var key = okey.toString()
   var match = key.match(findProc)
@@ -22935,10 +22960,10 @@ module.exports = function (okey, password) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
-var BN = __webpack_require__(739)
-var EC = __webpack_require__(742).ec
-var parseKeys = __webpack_require__(761)
-var curves = __webpack_require__(814)
+var BN = __webpack_require__(738)
+var EC = __webpack_require__(741).ec
+var parseKeys = __webpack_require__(760)
+var curves = __webpack_require__(813)
 
 function verify (sig, hash, key, signType, tag) {
   var pub = parseKeys(key)
@@ -23018,15 +23043,15 @@ function checkValue (b, q) {
 
 module.exports = verify
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(740).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(739).Buffer))
 
 /***/ }),
 
 /***/ 921:
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var elliptic = __webpack_require__(742)
-var BN = __webpack_require__(739)
+/* WEBPACK VAR INJECTION */(function(Buffer) {var elliptic = __webpack_require__(741)
+var BN = __webpack_require__(738)
 
 module.exports = function createECDH (curve) {
   return new ECDH(curve)
@@ -23150,7 +23175,7 @@ function formatReturnValue (bn, enc, len) {
   }
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(740).Buffer))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(739).Buffer))
 
 /***/ }),
 
@@ -23174,15 +23199,15 @@ exports.publicDecrypt = function publicDecrypt (key, buf) {
 /***/ 923:
 /***/ (function(module, exports, __webpack_require__) {
 
-var parseKeys = __webpack_require__(761)
-var randomBytes = __webpack_require__(748)
-var createHash = __webpack_require__(751)
-var mgf = __webpack_require__(815)
-var xor = __webpack_require__(816)
-var BN = __webpack_require__(739)
-var withPublic = __webpack_require__(817)
-var crt = __webpack_require__(774)
-var Buffer = __webpack_require__(738).Buffer
+var parseKeys = __webpack_require__(760)
+var randomBytes = __webpack_require__(747)
+var createHash = __webpack_require__(750)
+var mgf = __webpack_require__(814)
+var xor = __webpack_require__(815)
+var BN = __webpack_require__(738)
+var withPublic = __webpack_require__(816)
+var crt = __webpack_require__(773)
+var Buffer = __webpack_require__(737).Buffer
 
 module.exports = function publicEncrypt (publicKey, msg, reverse) {
   var padding
@@ -23269,14 +23294,14 @@ function nonZero (len) {
 /***/ 924:
 /***/ (function(module, exports, __webpack_require__) {
 
-var parseKeys = __webpack_require__(761)
-var mgf = __webpack_require__(815)
-var xor = __webpack_require__(816)
-var BN = __webpack_require__(739)
-var crt = __webpack_require__(774)
-var createHash = __webpack_require__(751)
-var withPublic = __webpack_require__(817)
-var Buffer = __webpack_require__(738).Buffer
+var parseKeys = __webpack_require__(760)
+var mgf = __webpack_require__(814)
+var xor = __webpack_require__(815)
+var BN = __webpack_require__(738)
+var crt = __webpack_require__(773)
+var createHash = __webpack_require__(750)
+var withPublic = __webpack_require__(816)
+var Buffer = __webpack_require__(737).Buffer
 
 module.exports = function privateDecrypt (privateKey, enc, reverse) {
   var padding
@@ -23387,8 +23412,8 @@ function compare (a, b) {
 function oldBrowser () {
   throw new Error('secure random number generation not supported by this browser\nuse chrome, FireFox or Internet Explorer 11')
 }
-var safeBuffer = __webpack_require__(738)
-var randombytes = __webpack_require__(748)
+var safeBuffer = __webpack_require__(737)
+var randombytes = __webpack_require__(747)
 var Buffer = safeBuffer.Buffer
 var kBufferMaxLength = safeBuffer.kMaxLength
 var crypto = global.crypto || global.msCrypto
@@ -23491,7 +23516,7 @@ function randomFillSync (buf, offset, size) {
   return actualFill(buf, offset, size)
 }
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(54), __webpack_require__(191)))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(45), __webpack_require__(191)))
 
 /***/ }),
 

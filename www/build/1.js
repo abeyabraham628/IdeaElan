@@ -1,16 +1,16 @@
 webpackJsonp([1],{
 
-/***/ 734:
+/***/ 733:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabsPageModule", function() { return TabsPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_camera__ = __webpack_require__(777);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_storage__ = __webpack_require__(778);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_camera__ = __webpack_require__(776);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_storage__ = __webpack_require__(777);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs__ = __webpack_require__(837);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs__ = __webpack_require__(836);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(460);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -49,7 +49,7 @@ var TabsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 750:
+/***/ 749:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -69,7 +69,7 @@ var AppConst = {
 
 /***/ }),
 
-/***/ 777:
+/***/ 776:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -363,23 +363,23 @@ var Camera = (function (_super) {
 
 /***/ }),
 
-/***/ 778:
+/***/ 777:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__public_api__ = __webpack_require__(833);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__public_api__ = __webpack_require__(832);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__public_api__["a"]; });
 
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 779:
+/***/ 778:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = createStorageRef;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__task__ = __webpack_require__(780);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__task__ = __webpack_require__(779);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs__ = __webpack_require__(16);
 
 
@@ -404,12 +404,12 @@ function createStorageRef(ref, scheduler) {
 
 /***/ }),
 
-/***/ 780:
+/***/ 779:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = createUploadTask;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__observable_fromTask__ = __webpack_require__(781);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__observable_fromTask__ = __webpack_require__(780);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_operators__ = __webpack_require__(27);
 
 
@@ -430,7 +430,7 @@ function createUploadTask(task) {
 
 /***/ }),
 
-/***/ 781:
+/***/ 780:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -450,14 +450,14 @@ function fromTask(task) {
 
 /***/ }),
 
-/***/ 782:
+/***/ 781:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export StorageBucket */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AngularFireStorage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ref__ = __webpack_require__(779);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ref__ = __webpack_require__(778);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire__ = __webpack_require__(110);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -507,19 +507,19 @@ var AngularFireStorage = (function () {
 
 /***/ }),
 
-/***/ 833:
+/***/ 832:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ref__ = __webpack_require__(779);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ref__ = __webpack_require__(778);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__storage__ = __webpack_require__(782);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__storage__ = __webpack_require__(781);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__storage__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__task__ = __webpack_require__(780);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__task__ = __webpack_require__(779);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__observable_fromTask__ = __webpack_require__(781);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__observable_fromTask__ = __webpack_require__(780);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__storage_module__ = __webpack_require__(834);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__storage_module__ = __webpack_require__(833);
 /* unused harmony namespace reexport */
 
 
@@ -530,14 +530,14 @@ var AngularFireStorage = (function () {
 
 /***/ }),
 
-/***/ 834:
+/***/ 833:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export AngularFireStorageModule */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__storage__ = __webpack_require__(782);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_storage__ = __webpack_require__(835);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__storage__ = __webpack_require__(781);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_storage__ = __webpack_require__(834);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -562,14 +562,15 @@ var AngularFireStorageModule = (function () {
 
 /***/ }),
 
-/***/ 835:
+/***/ 834:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__firebase_storage__ = __webpack_require__(836);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__firebase_storage__ = __webpack_require__(835);
 
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -588,7 +589,7 @@ var AngularFireStorageModule = (function () {
 
 /***/ }),
 
-/***/ 836:
+/***/ 835:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -598,6 +599,7 @@ var AngularFireStorageModule = (function () {
 
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -647,6 +649,7 @@ var defaultMaxUploadRetryTime = 10 * 60 * 100;
 var minSafeInteger = -9007199254740991;
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -834,6 +837,7 @@ function internalError(message) {
 }
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -1028,6 +1032,7 @@ function endsWith(s, end) {
 }
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -1088,6 +1093,7 @@ function taskStateFromInternalTaskState(state) {
 }
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -1127,6 +1133,7 @@ function clone(obj) {
 }
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -1164,6 +1171,7 @@ function reject(error) {
 }
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -1213,6 +1221,7 @@ function isNativeBlobDefined() {
 }
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -1238,6 +1247,7 @@ var ErrorCode;
 })(ErrorCode || (ErrorCode = {}));
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -1262,17 +1272,17 @@ var NetworkXhrIo = /** @class */ (function () {
         this.sent_ = false;
         this.xhr_ = new XMLHttpRequest();
         this.errorCode_ = ErrorCode.NO_ERROR;
-        this.sendPromise_ = make(function (resolve$$1, reject$$1) {
+        this.sendPromise_ = make(function (resolve, reject) {
             _this.xhr_.addEventListener('abort', function (event) {
                 _this.errorCode_ = ErrorCode.ABORT;
-                resolve$$1(_this);
+                resolve(_this);
             });
             _this.xhr_.addEventListener('error', function (event) {
                 _this.errorCode_ = ErrorCode.NETWORK_ERROR;
-                resolve$$1(_this);
+                resolve(_this);
             });
             _this.xhr_.addEventListener('load', function (event) {
-                resolve$$1(_this);
+                resolve(_this);
             });
         });
     }
@@ -1365,6 +1375,7 @@ var NetworkXhrIo = /** @class */ (function () {
 }());
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -1392,6 +1403,7 @@ var XhrIoPool = /** @class */ (function () {
 }());
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -1427,6 +1439,7 @@ function jsonObjectOrNull(s) {
 }
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -1531,6 +1544,7 @@ var Location = /** @class */ (function () {
 }());
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -1593,6 +1607,7 @@ function lastComponent(path) {
 }
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -1629,6 +1644,7 @@ function makeQueryString(params) {
 }
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -1799,6 +1815,7 @@ function metadataValidator(p) {
 }
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -1990,6 +2007,7 @@ function sliceBlob(blob, start, end) {
 }
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -2108,6 +2126,7 @@ var FbsBlob = /** @class */ (function () {
 }());
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -2178,6 +2197,7 @@ var RequestInfo = /** @class */ (function () {
 }());
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -2516,6 +2536,7 @@ function continueResumableUpload(location, authWrapper, url, blob, chunkSize, ma
 }
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -2566,6 +2587,7 @@ var UploadTaskSnapshot = /** @class */ (function () {
 }());
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -2598,6 +2620,7 @@ function async(f) {
 }
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -2665,9 +2688,9 @@ var UploadTask = /** @class */ (function () {
                 _this.transition_(InternalTaskState.ERROR);
             }
         };
-        this.promise_ = make(function (resolve$$1, reject$$1) {
-            _this.resolve_ = resolve$$1;
-            _this.reject_ = reject$$1;
+        this.promise_ = make(function (resolve, reject) {
+            _this.resolve_ = resolve;
+            _this.reject_ = reject;
             _this.start_();
         });
         // Prevent uncaught rejections on the internal promise from bubbling out
@@ -3143,6 +3166,7 @@ var UploadTask = /** @class */ (function () {
 }());
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -3389,6 +3413,7 @@ var FailRequest = /** @class */ (function () {
 }());
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -3553,6 +3578,7 @@ var AuthWrapper = /** @class */ (function () {
 }());
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -3669,6 +3695,7 @@ function stop(id) {
 }
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -3707,9 +3734,9 @@ var NetworkRequest = /** @class */ (function () {
         this.timeout_ = timeout;
         this.pool_ = pool;
         var self = this;
-        this.promise_ = make(function (resolve$$1, reject$$1) {
-            self.resolve_ = resolve$$1;
-            self.reject_ = reject$$1;
+        this.promise_ = make(function (resolve, reject) {
+            self.resolve_ = resolve;
+            self.reject_ = reject;
             self.start_();
         });
     }
@@ -3718,8 +3745,8 @@ var NetworkRequest = /** @class */ (function () {
      */
     NetworkRequest.prototype.start_ = function () {
         var self = this;
-        function doTheRequest(backoffCallback, canceled$$1) {
-            if (canceled$$1) {
+        function doTheRequest(backoffCallback, canceled) {
+            if (canceled) {
                 backoffCallback(false, new RequestEndStatus(false, null, true));
                 return;
             }
@@ -3759,21 +3786,21 @@ var NetworkRequest = /** @class */ (function () {
          *     through, false if it hit the retry limit or was canceled.
          */
         function backoffDone(requestWentThrough, status) {
-            var resolve$$1 = self.resolve_;
-            var reject$$1 = self.reject_;
+            var resolve = self.resolve_;
+            var reject = self.reject_;
             var xhr = status.xhr;
             if (status.wasSuccessCode) {
                 try {
                     var result = self.callback_(xhr, xhr.getResponseText());
                     if (isJustDef(result)) {
-                        resolve$$1(result);
+                        resolve(result);
                     }
                     else {
-                        resolve$$1();
+                        resolve();
                     }
                 }
                 catch (e) {
-                    reject$$1(e);
+                    reject(e);
                 }
             }
             else {
@@ -3781,10 +3808,10 @@ var NetworkRequest = /** @class */ (function () {
                     var err = unknown();
                     err.setServerResponseProp(xhr.getResponseText());
                     if (self.errorCallback_) {
-                        reject$$1(self.errorCallback_(xhr, err));
+                        reject(self.errorCallback_(xhr, err));
                     }
                     else {
-                        reject$$1(err);
+                        reject(err);
                     }
                 }
                 else {
@@ -3792,11 +3819,11 @@ var NetworkRequest = /** @class */ (function () {
                         var err = self.appDelete_
                             ? appDeleted()
                             : canceled();
-                        reject$$1(err);
+                        reject(err);
                     }
                     else {
                         var err = retryLimitExceeded();
-                        reject$$1(err);
+                        reject(err);
                     }
                 }
             }
@@ -3874,6 +3901,7 @@ function makeRequest(requestInfo, authToken, pool) {
 }
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -4011,6 +4039,7 @@ var ServiceInternals = /** @class */ (function () {
 }());
 
 /**
+ * @license
  * Copyright 2017 Google Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -4052,7 +4081,7 @@ registerStorage(__WEBPACK_IMPORTED_MODULE_0__firebase_app___default.a);
 
 /***/ }),
 
-/***/ 837:
+/***/ 836:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4061,17 +4090,20 @@ registerStorage(__WEBPACK_IMPORTED_MODULE_0__firebase_app___default.a);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(44);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_auth__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__ = __webpack_require__(777);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__ = __webpack_require__(776);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__ = __webpack_require__(458);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_fire_storage__ = __webpack_require__(778);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_strings__ = __webpack_require__(750);
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_fire_storage__ = __webpack_require__(777);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_strings__ = __webpack_require__(749);
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
 };
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;

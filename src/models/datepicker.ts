@@ -11,6 +11,7 @@ export class CustomDatePicker{
     
 constructor(public modalCtrl:ModalController){}
 tony:any
+ t:number=5
 
  datePickerOptions(pickMode,defaultScrollTo,from,dateLimitTo?,disableWeeks?)  {
  
@@ -22,7 +23,10 @@ tony:any
         to: dateLimitTo,
         defaultScrollTo:defaultScrollTo,
         showMonthPicker: true,
-        showToggleButtons:true
+        showToggleButtons:true,
+        showYearPicker: true,
+       
+        
         
     }
     return options
