@@ -88,6 +88,8 @@ devicetoken : any ="abc";
      
   }
 
+  
+
   lrstatus=[]
   async lrcountcheck(){
     let lrstatus=[];

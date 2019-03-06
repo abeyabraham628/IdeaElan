@@ -1,2 +1,9 @@
 
-  <ion-nav [root]="rootPage"></ion-nav>
+  <ion-content padding [hidden]="tony">
+      <ion-list>
+      <ion-thumbnail >
+        <ion-img  [src]="noInternetImage"></ion-img>
+      </ion-thumbnail>
+    </ion-list>
+    </ion-content>
+  <ion-nav [hidden]="x" [root]="rootPage"></ion-nav>

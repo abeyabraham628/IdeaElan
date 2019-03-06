@@ -29,6 +29,10 @@ export class InboxPage {
   ionViewDidLoad() {
     this.getMessages()
   }
+  
+  ionViewDidLeave() {
+    this.navCtrl.popToRoot();
+  }
 
 messages=[]
 getMessages(){

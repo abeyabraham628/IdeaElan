@@ -1,16 +1,17 @@
 webpackJsonp([3],{
 
-/***/ 717:
+/***/ 737:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApproveLeavePageModule", function() { return ApproveLeavePageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_leave_model__ = __webpack_require__(741);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_datepicker__ = __webpack_require__(739);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SystemsPageModule", function() { return SystemsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_datepicker__ = __webpack_require__(745);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_components_module__ = __webpack_require__(464);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(53);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__approve_leave__ = __webpack_require__(814);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__systems__ = __webpack_require__(834);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_momentdate_momentdate__ = __webpack_require__(835);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -22,34 +23,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ApproveLeavePageModule = /** @class */ (function () {
-    function ApproveLeavePageModule() {
+
+var SystemsPageModule = /** @class */ (function () {
+    function SystemsPageModule() {
     }
-    ApproveLeavePageModule = __decorate([
+    SystemsPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__approve_leave__["a" /* ApproveLeavePage */],
+                __WEBPACK_IMPORTED_MODULE_4__systems__["a" /* SystemsPage */],
+                __WEBPACK_IMPORTED_MODULE_5__pipes_momentdate_momentdate__["a" /* MomentdatePipe */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_1__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_0__models_leave_model__["a" /* LeaveModel */]],
+            providers: [__WEBPACK_IMPORTED_MODULE_0__models_datepicker__["a" /* CustomDatePicker */]],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_4__approve_leave__["a" /* ApproveLeavePage */]),
+                __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_4__systems__["a" /* SystemsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1__components_components_module__["a" /* ComponentsModule */],
             ],
         })
-    ], ApproveLeavePageModule);
-    return ApproveLeavePageModule;
+    ], SystemsPageModule);
+    return SystemsPageModule;
 }());
 
-//# sourceMappingURL=approve-leave.module.js.map
+//# sourceMappingURL=systems.module.js.map
 
 /***/ }),
 
-/***/ 739:
+/***/ 745:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomDatePicker; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(39);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -64,6 +68,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var CustomDatePicker = /** @class */ (function () {
     function CustomDatePicker(modalCtrl) {
         this.modalCtrl = modalCtrl;
+        this.t = 5;
     }
     CustomDatePicker.prototype.datePickerOptions = function (pickMode, defaultScrollTo, from, dateLimitTo, disableWeeks) {
         var options = {
@@ -73,8 +78,9 @@ var CustomDatePicker = /** @class */ (function () {
             from: from,
             to: dateLimitTo,
             defaultScrollTo: defaultScrollTo,
+            showToggleButtons: true,
             showMonthPicker: true,
-            showToggleButtons: true
+            showYearPicker: true,
         };
         return options;
     };
@@ -103,294 +109,33 @@ var CustomDatePicker = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 741:
+/***/ 834:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LeaveModel; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__ = __webpack_require__(458);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(53);
-var __assign = (this && this.__assign) || Object.assign || function(t) {
-    for (var s, i = 1, n = arguments.length; i < n; i++) {
-        s = arguments[i];
-        for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-            t[p] = s[p];
-    }
-    return t;
-};
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-
-
-
-
-var LeaveModel = /** @class */ (function () {
-    function LeaveModel(afauth, firebase, alert) {
-        this.afauth = afauth;
-        this.firebase = firebase;
-        this.alert = alert;
-        this.monthNumber = [];
-        this.leave = {};
-        this.leaveCount = {};
-        this.pastLeaves = [];
-    }
-    LeaveModel.prototype.arrangeDates = function (date) {
-        var _this = this;
-        var selectedDates = [];
-        var date1 = [];
-        var date2 = [];
-        date.forEach(function (values) {
-            selectedDates.push(new Date(values.time).toLocaleDateString()); // Converting the time property returned from date pikcer to  dates .
-            _this.monthNumber.push(values.months); //Taking the month number which user has selected for  leave
-        });
-        this.monthNumber = this.monthNumber.filter(function (elem, i, arr) {
-            if (arr.indexOf(elem) === i) {
-                return elem;
-            }
-        });
-        if (this.monthNumber.length === 1) {
-            selectedDates.forEach(function (date) {
-                date1.push(date);
-            });
-        }
-        else if (this.monthNumber.length === 2) {
-            selectedDates.forEach(function (date) {
-                if ((new Date(date).getMonth() + 1).toString() === _this.monthNumber[0].toString())
-                    date1.push(date);
-                if ((new Date(date).getMonth() + 1).toString() == _this.monthNumber[1].toString())
-                    date2.push(date);
-            });
-        }
-        return ({ date1: date1, date2: date2 });
-    };
-    LeaveModel.prototype.submitLeaveRequest = function (leaveInfo) {
-        return __awaiter(this, void 0, void 0, function () {
-            var userName, alert_1, x;
-            var _this = this;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.firebase.database.ref("users/" + leaveInfo.userId).once('value', function (snap) {
-                            userName = snap.child('fname').val() + " " + snap.child('lname').val();
-                        })];
-                    case 1:
-                        _a.sent();
-                        this.leave.status = "pending";
-                        if (new Date().getHours() < 9) {
-                            alert_1 = this.alert.create({
-                                title: 'Restricted',
-                                subTitle: 'Unable to process your request at this moment. Please contact your team leader.!',
-                                buttons: ['OK']
-                            });
-                            alert_1.present();
-                        }
-                        else {
-                            if (leaveInfo.date2) {
-                                x = this.firebase.list("EmployeeLeaves").push({
-                                    'name': userName,
-                                    'leaveType': leaveInfo.leaveType,
-                                    'date': leaveInfo.date,
-                                    'status': leaveInfo.status,
-                                    'userId': leaveInfo.userId
-                                    //'count':this.leave.count
-                                }).then(function () {
-                                    var y = _this.firebase.list("EmployeeLeaves").push({
-                                        'name': userName,
-                                        'leaveType': leaveInfo.leaveType,
-                                        'date': leaveInfo.date2,
-                                        'status': leaveInfo.status,
-                                        'userId': leaveInfo.userId
-                                    });
-                                }) //inserting the details of leaves
-                                ;
-                            }
-                            else
-                                this.firebase.list("EmployeeLeaves").push({
-                                    'name': userName,
-                                    'leaveType': leaveInfo.leaveType,
-                                    'date': leaveInfo.date,
-                                    'status': leaveInfo.status,
-                                    'userId': leaveInfo.userId
-                                });
-                        } //end of if else 
-                        return [2 /*return*/];
-                }
-            });
-        });
-    }; //end os submit leave request function
-    LeaveModel.prototype.getPastLeaves = function (userId, dateFrom, dateTo) {
-        var pastLeaves = [];
-        var flag = false;
-        this.firebase.database.ref("EmployeeLeaves").orderByChild("userId").equalTo("" + userId).once('value', function (snap) {
-            if (dateFrom != null && dateTo != null) {
-                snap.forEach(function (child) {
-                    if (child.child('date').val().length > 1) {
-                        child.child('date').forEach(function (data) {
-                            if (new Date(data.val()).getTime() >= dateFrom && new Date(data.val()).getTime() <= dateTo)
-                                flag = true;
-                            else
-                                flag = false;
-                        });
-                        if (flag)
-                            pastLeaves.push(__assign({ $recKey: child.key }, child.val()));
-                    }
-                    else {
-                        if (new Date(child.child('date').val()).getTime() >= dateFrom && new Date(child.child('date').val()).getTime() <= dateTo)
-                            pastLeaves.push(__assign({ $recKey: child.key }, child.val()));
-                    }
-                });
-            }
-            else {
-                snap.forEach(function (child) {
-                    if (child.child('date').val().length > 1) {
-                        child.child('date').forEach(function (data) {
-                            if (new Date(data.val()).getMonth() + 1 === new Date().getMonth() + 1 && new Date(data.val()).getFullYear() === new Date().getFullYear())
-                                flag = true;
-                            else
-                                flag = false;
-                        });
-                        if (flag)
-                            pastLeaves.push(__assign({ $recKey: child.key }, child.val()));
-                    }
-                    else {
-                        if (new Date(child.child('date').val()).getMonth() + 1 === new Date().getMonth() + 1 && new Date(child.child('date').val()).getFullYear() === new Date().getFullYear())
-                            pastLeaves.push(__assign({ $recKey: child.key }, child.val()));
-                    }
-                });
-            }
-        }); //end of database ref
-        return this.pastLeaves = pastLeaves.reverse();
-    }; //end of function
-    LeaveModel.prototype.getRemainingLeaves = function (userId) {
-        return __awaiter(this, void 0, void 0, function () {
-            var remaininingLeaves, count, casual, sick;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        remaininingLeaves = [];
-                        count = 0;
-                        return [4 /*yield*/, this.firebase.database.ref("AvailableLeaves/" + new Date().getFullYear() + "/" + userId).once('value', function (snapshot) {
-                                casual = snapshot.child('casual').val();
-                                sick = snapshot.child('sick').val();
-                            })];
-                    case 1:
-                        _a.sent();
-                        return [4 /*yield*/, this.firebase.database.ref("EmployeeLeaves").orderByChild("userId").equalTo("" + userId).once('value', function (snap) {
-                                snap.forEach(function (child) {
-                                    if (child.child('status').val() === "approved")
-                                        if (child.child('date').val().length > 1) {
-                                            child.child('date').forEach(function (data) {
-                                                if (new Date(data.val()).getMonth() + 1 === new Date().getMonth() + 1 && new Date(data.val()).getFullYear() === new Date().getFullYear())
-                                                    count += 1;
-                                            });
-                                        }
-                                        else {
-                                            if (new Date(child.child('date').val()).getMonth() + 1 === new Date().getMonth() + 1 && new Date(child.child('date').val()).getFullYear() === new Date().getFullYear())
-                                                count += 1;
-                                        }
-                                }); // ed of for each
-                                remaininingLeaves.push({ 'casual': casual, 'sick': sick, 'currentMonthLeave': count });
-                            })
-                            //})//end of then
-                        ]; //end of snap
-                    case 2:
-                        _a.sent(); //end of snap
-                        //})//end of then
-                        return [2 /*return*/, (remaininingLeaves)];
-                }
-            });
-        });
-    };
-    LeaveModel.prototype.viewLeaveRequest = function () {
-        var leaveRequests = [];
-        this.firebase.database.ref("EmployeeLeaves").orderByChild('status').equalTo('pending').on("value", function (snap) {
-            snap.forEach(function (child) {
-                leaveRequests.push(__assign({ $key: child.key }, child.val()));
-            });
-        });
-        return leaveRequests.reverse();
-    };
-    LeaveModel.prototype.saveLeaveStatus = function (data, leaveCount, status, reason) {
-        var _this = this;
-        if (status == "approved") {
-            var count_1;
-            if (data.leaveType == "casual")
-                count_1 = leaveCount.casualRemaining - data.date.length;
-            else
-                count_1 = leaveCount - data.date.length;
-            this.firebase.database.ref("EmployeeLeaves/" + data.$key + "/status").set("" + status).then(function () {
-                _this.firebase.database.ref("AvailableLeaves/" + new Date().getFullYear() + "/" + data.userId + "/" + data.leaveType).set(count_1);
-            });
-        }
-        else {
-            this.firebase.database.ref("EmployeeLeaves/" + data.$key).update({ 'status': "" + status, 'reason': "" + reason });
-        }
-    };
-    LeaveModel = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["AlertController"]])
-    ], LeaveModel);
-    return LeaveModel;
-}()); // end of class
-
-//# sourceMappingURL=leave.model.js.map
-
-/***/ }),
-
-/***/ 814:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApproveLeavePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_leave_model__ = __webpack_require__(741);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_datepicker__ = __webpack_require__(739);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ion2_calendar__ = __webpack_require__(460);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ion2_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ion2_calendar__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SystemsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_date_picker__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__ = __webpack_require__(473);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(53);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_datepicker__ = __webpack_require__(745);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ion2_calendar__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_ion2_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_ion2_calendar__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_moment__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_moment__);
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -400,121 +145,227 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
+
+
+
 
 
 
 
 
 /**
- * Generated class for the ApproveLeavePage page.
+ * Generated class for the SystemsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var ApproveLeavePage = /** @class */ (function () {
-    function ApproveLeavePage(modalCtrl, userLeave, datepicker, alertCtrl, navParams) {
+var SystemsPage = /** @class */ (function () {
+    function SystemsPage(navCtrl, modalCtrl, customDatePicker, alertCtrl, barcode, datePicker, firebase) {
+        this.navCtrl = navCtrl;
         this.modalCtrl = modalCtrl;
-        this.userLeave = userLeave;
-        this.datepicker = datepicker;
+        this.customDatePicker = customDatePicker;
         this.alertCtrl = alertCtrl;
-        this.navParams = navParams;
-        this.leaveCount = {};
-        this.months = this.datepicker.getMonths();
-        this.userLeaveDetails = this.navParams.get('userDetails');
-        this.userRemainingLeaves(this.userLeaveDetails.userId);
-        this.leaveRecords = this.userLeave.getPastLeaves(this.userLeaveDetails.userId);
+        this.barcode = barcode;
+        this.datePicker = datePicker;
+        this.firebase = firebase;
+        this.Save = "Save";
+        this.systemsForm = new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormGroup"]({
+            $key: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"](null),
+            systemId: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(5)]),
+            keyboard: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
+            mouse: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
+            processor: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
+            memory: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(3)]),
+            hdd: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(3)]),
+            avExpiry: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
+            avValidity: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
+        });
+        this.systemArray = [];
+        this.systems = "newSystem";
+        this.getSystemList();
     }
-    ApproveLeavePage.prototype.datePicker = function (pickMode) {
+    SystemsPage.prototype.ionViewDidLeave = function () {
+        this.navCtrl.popToRoot();
+    };
+    SystemsPage.prototype.getSystemList = function () {
+        this.systemsList = this.firebase.list('systems');
+        return this.systemsList.snapshotChanges();
+    };
+    SystemsPage.prototype.getSystems = function () {
         var _this = this;
+        this.systemsForm.reset();
+        this.getSystemList().subscribe(function (list) {
+            _this.systemArray = list.map(function (item) {
+                return __assign({ $key: item.key }, item.payload.val());
+            });
+        });
+    };
+    SystemsPage.prototype.loadForm = function (systems) {
+        this.systems = "newSystem";
+        this.Save = "Update";
+        this.systemsForm.setValue(systems);
+    };
+    SystemsPage.prototype.updateSystems = function (systems) {
+        var _this = this;
+        this.systemsList.update(systems.$key, {
+            systemId: systems.systemId,
+            keyboard: systems.keyboard,
+            mouse: systems.mouse,
+            processor: systems.processor,
+            memory: systems.memory,
+            hdd: systems.hdd,
+            avExpiry: systems.avExpiry,
+            avValidity: systems.avValidity
+        }).then(function () {
+            var alert = _this.alertCtrl.create({
+                title: "Success",
+                subTitle: "System updated succesfuly ",
+                buttons: ['OK']
+            });
+            alert.present();
+        });
+    };
+    SystemsPage.prototype.insertSystems = function (systems) {
+        var _this = this;
+        this.systemsList.push({
+            systemId: systems.systemId,
+            keyboard: systems.keyboard,
+            mouse: systems.mouse,
+            processor: systems.processor,
+            memory: systems.memory,
+            hdd: systems.hdd,
+            avExpiry: systems.avExpiry,
+            avValidity: systems.avValidity
+        }).then(function () {
+            var alert = _this.alertCtrl.create({
+                title: "Success",
+                subTitle: "System added succesfuly ",
+                buttons: ['OK']
+            });
+            alert.present();
+        });
+    };
+    SystemsPage.prototype.onSubmit = function () {
+        if (this.systemsForm.controls.$key.value == null) {
+            this.insertSystems(this.systemsForm.value);
+            this.systemsForm.reset();
+        }
+        else {
+            this.updateSystems(this.systemsForm.value);
+            this.systemsForm.reset();
+        }
+    };
+    SystemsPage.prototype.scanBarCode = function (type) {
+        var _this = this;
+        this.barcode.scan().then(function (barcodeData) {
+            if (type == "system") {
+                _this.systemsForm.controls['systemId'].setValue(barcodeData.text);
+            }
+            else if (type == "keyboard") {
+                _this.systemsForm.controls['keyboard'].setValue(barcodeData.text);
+            }
+            else if (type == "mouse") {
+                _this.systemsForm.controls['mouse'].setValue(barcodeData.text);
+            }
+            else if (type == "db") {
+                _this.findSystem(barcodeData.text);
+            }
+        }).catch(function (err) {
+            console.log('Error', err);
+        });
+    };
+    SystemsPage.prototype.dispdate = function (type) {
+        var _this = this;
+        var pickMode = 'single';
         var defaultScrollTo = new Date();
-        var from = new Date('2/1/2018');
-        var options = this.datepicker.datePickerOptions(pickMode, defaultScrollTo, from);
-        var myCalendar = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_2_ion2_calendar__["CalendarModal"], {
+        var from = new Date('2/1/2019');
+        var options = this.customDatePicker.datePickerOptions(pickMode, defaultScrollTo, from);
+        var myCalendar = this.modalCtrl.create(__WEBPACK_IMPORTED_MODULE_7_ion2_calendar__["CalendarModal"], {
             options: options,
         });
         myCalendar.present();
         myCalendar.onDidDismiss(function (date) {
             if (date != null) {
-                var from_1 = date['from'].string.split('-');
-                var to = date['to'].string.split('-');
-                _this.from = date['from'].time;
-                _this.to = date['to'].time;
-                _this.dateRange = from_1[2] + "-" + from_1[1] + "-" + from_1[0] + " to " + to[2] + "-" + to[1] + "-" + to[0];
-                _this.leaveHistory();
+                _this.systemsForm.controls['avExpiry'].setValue(__WEBPACK_IMPORTED_MODULE_8_moment__(date['time']).format('D-MMM-YYYY'));
+                //this.systemsForm.controls['avValidity'].setValue(Math.ceil((date.getTime()-new Date().getTime())/(1000*3600*24)))
             }
-        });
-    }; // end of datepicker function
-    ApproveLeavePage.prototype.userRemainingLeaves = function (userId) {
-        var _this = this;
-        {
-            this.userLeave.getRemainingLeaves(userId).then(function (item) {
-                _this.leaveCount.sickRemaining = item[0].sick;
-                _this.leaveCount.casualRemaining = item[0].casual;
-                _this.leaveCount.currentMonthLeave = item[0].currentMonthLeave;
+        }); //end of displayCalendar function
+    };
+    /*dispdate(){
+      this.datePicker.show({
+        date:new Date(),
+        mode:'date',
+        androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_LIGHT
+      }).then(
+        date=>{
+          this.systemsForm.controls['avExpiry'].setValue((date.toLocaleDateString())),
+          this.systemsForm.controls['avValidity'].setValue(Math.ceil((date.getTime()-new Date().getTime())/(1000*3600*24)))
+         },
+        err => console.log('Error occurred while getting date: ', err)
+      )
+    }*/
+    SystemsPage.prototype.findSystem = function (systemId) {
+        var result = [];
+        this.firebase.database.ref("systems").orderByChild('systemId').equalTo(systemId).on("value", function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+                result = __assign({ $key: childSnapshot.key }, childSnapshot.val());
+                return false;
             });
-        }
-    };
-    ApproveLeavePage.prototype.showConfirm = function (data, status) {
-        var _this = this;
-        var confirm = this.alertCtrl.create({
-            title: 'Confirm',
-            message: 'Do you want to approve this leave request',
-            buttons: [
-                {
-                    text: 'Yes',
-                    handler: function () {
-                        _this.userLeave.saveLeaveStatus(data, _this.leaveCount, status);
-                    }
-                },
-                {
-                    text: 'No',
-                    handler: function () {
-                    }
-                }
-            ]
         });
-        confirm.present();
-    };
-    ApproveLeavePage.prototype.rejectConfirm = function (data, status) {
-        var _this = this;
-        var confirm = this.alertCtrl.create({
-            title: 'Reject',
-            message: 'Provide the reason for rejection',
-            inputs: [
-                {
-                    name: 'reason',
-                    placeholder: 'Reason'
-                },
-            ],
-            buttons: [
-                {
-                    text: 'Yes',
-                    handler: function (reject) {
-                        _this.userLeave.saveLeaveStatus(data, _this.leaveCount, status, reject.reason);
-                    }
-                },
-                {
-                    text: 'No',
-                    handler: function () {
-                    }
-                }
-            ]
-        });
-        confirm.present();
-    };
-    ApproveLeavePage.prototype.leaveHistory = function () {
-        this.leaveRecords = this.userLeave.getPastLeaves(this.userLeaveDetails.userId, this.from, this.to);
-    };
-    ApproveLeavePage = __decorate([
+        this.loadForm(result);
+    }; //end of function
+    SystemsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
-            selector: 'page-approve-leave',template:/*ion-inline-start:"F:\ionic-app\src\pages\approve-leave\approve-leave.html"*/'<ion-header no-border>\n\n    <ion-toolbar color="blue" >\n\n      <button ion-button  menuToggle="left" start>\n\n          <ion-icon name="menu"></ion-icon>\n\n      </button>\n\n      \n\n      <ion-title text-center>Approve Leaves</ion-title>\n\n  \n\n      <ion-buttons end>\n\n        <button ion-button >\n\n          <ion-icon name="notifications"></ion-icon> \n\n        </button> \n\n      </ion-buttons>\n\n  </ion-toolbar>\n\n  </ion-header>\n\n\n\n\n\n<ion-content>\n\n    <ion-card>\n\n        <ion-item>\n\n          <h2>{{userLeaveDetails.name | titlecase}}</h2>\n\n          <p>Leave Type:{{userLeaveDetails.leaveType | titlecase}}</p>\n\n          <p>Date: [ {{userLeaveDetails.date}}]</p>\n\n        </ion-item>\n\n        <ion-row>\n\n            <ion-col col-6>This month leaves</ion-col>\n\n            <ion-col col-6>Remaining Leaves</ion-col>\n\n         </ion-row>\n\n         \n\n        <ion-row >\n\n           <ion-col col-6>{{leaveCount.currentMonthLeave}}</ion-col><ion-col col-4>Casual</ion-col><ion-col col-2>{{leaveCount.casualRemaining}}</ion-col>\n\n        </ion-row>\n\n        <ion-row>\n\n            <ion-col col-6></ion-col><ion-col col-4>Sick</ion-col><ion-col col-2>{{leaveCount.sickRemaining}}</ion-col>\n\n         </ion-row>\n\n \n\n         <ion-row>\n\n           <ion-col col-6><button ion-button full style="background-color: green" (click)="showConfirm(userLeaveDetails,\'approved\')"  >Approve</button></ion-col>\n\n           <ion-col col-6><button ion-button full color="danger" (click)="rejectConfirm(userLeaveDetails,\'rejected\')" >Reject</button></ion-col>\n\n        </ion-row>\n\n      </ion-card>\n\n\n\n    \n\n    \n\n      \n\n  <ion-card>\n\n      <ion-list>\n\n          <div *ngIf="(leaveRecords.length==0)" style="text-align:center">No record found</div>\n\n        <h6 text-center class="title section-title">Past Leaves</h6>\n\n        <ion-item col-12>\n\n          <ion-label floating>Select Date</ion-label>\n\n          <ion-input type="text" [(ngModel)]="dateRange" (click)="datePicker(\'range\')" readonly></ion-input>\n\n          <ion-icon name="calendar" item-right></ion-icon>\n\n        </ion-item>\n\n        <hr/>\n\n\n\n        \n\n\n\n        <ion-list >\n\n            <ion-item *ngFor="let x of leaveRecords" style="background-color:honeydew">\n\n              <h3>{{x.leaveType | titlecase}} Leave</h3>\n\n              <h5> {{x.date}}</h5>\n\n              <h5 [ngClass]=\'x.status\'>{{x.status}}</h5>\n\n              <div *ngIf="(x.reason!=null)">\n\n                  Comments: {{x.reason}}\n\n                </div>\n\n                \n\n            </ion-item>\n\n          </ion-list>\n\n        \n\n        \n\n        <!--<ion-item>\n\n              <ion-row class="table-title" >\n\n                <ion-col col-3 >Leave Type</ion-col>\n\n                <ion-col col-7 >Date</ion-col>\n\n                <ion-col col-2 >Status</ion-col>\n\n                <ion-col hidden col-2>View</ion-col>\n\n              </ion-row>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-row *ngFor="let x of leaveRecords" class="col-text row-bottom-border" [ngClass]=\'x.status\'>\n\n                  <ion-col col-3>{{x.leaveType}}</ion-col><ion-col col-7 text-wrap>{{x.date}}</ion-col><ion-col col-2>{{x.status}}</ion-col>\n\n              </ion-row>\n\n            </ion-item>\n\n          -->\n\n        </ion-list>\n\n      </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\approve-leave\approve-leave.html"*/,
+            selector: 'page-systems',template:/*ion-inline-start:"F:\ionic-app\src\pages\systems\systems.html"*/'\n\n<ion-header no-border>\n\n  <page-header pageTitle="SYSTEMS"></page-header>\n\n</ion-header>\n\n\n\n\n\n\n\n  <ion-content>\n\n \n\n      <ion-segment [(ngModel)]="systems" color="white" >\n\n         <ion-segment-button value="newSystem">\n\n            Add System\n\n         </ion-segment-button>\n\n         <ion-segment-button value="allSystems" (click)="getSystems()">\n\n           All Systems\n\n         </ion-segment-button>\n\n      </ion-segment>\n\n  <div [ngSwitch]="systems">\n\n    <div *ngSwitchCase="\'newSystem\'">\n\n      <form [formGroup]="systemsForm" (ngSubmit)="onSubmit()">\n\n      <ion-list>\n\n          <h6 class="title">System Information</h6>\n\n        \n\n            <ion-item col-12>\n\n              <ion-input hidden formControlName="$key"></ion-input>\n\n              <ion-input hidden formControlName="avValidity"></ion-input>\n\n              <ion-label stacked>System Id</ion-label>\n\n              <ion-input type="text" formControlName="systemId"></ion-input>\n\n             \n\n                <button ion-button type="button" color="blue" (click)="scanBarCode(\'system\')" small item-right>\n\n                  <ion-icon name="barcode"> </ion-icon>\n\n                </button>\n\n               \n\n            </ion-item>\n\n            <ion-item  no-lines *ngIf="(systemsForm.get(\'systemId\').hasError(\'minlength\') || systemsForm.get(\'systemId\').hasError(\'required\') ) && systemsForm.get(\'systemId\').touched">\n\n\n\n              <ion-label stacked  color="danger" *ngIf="systemsForm.get(\'systemId\').hasError(\'required\') && systemsForm.get(\'systemId\').touched">\n\n              SystemId is required\n\n              </ion-label>\n\n              <ion-label stacked color="danger" *ngIf="systemsForm.get(\'systemId\').hasError(\'minlength\') && systemsForm.get(\'systemId\').touched">\n\n              Minimum of 5 characters\n\n              </ion-label>\n\n              </ion-item>\n\n       \n\n             \n\n                <ion-item col-12>\n\n                  <ion-label stacked>Keyboard</ion-label>\n\n                  <ion-input type="text" formControlName="keyboard" ></ion-input>\n\n                    <button ion-button small type="button" (click)="scanBarCode(\'keyboard\')" color="blue" item-right>\n\n                      <ion-icon name="barcode"> </ion-icon>\n\n                    </button>\n\n                  </ion-item>\n\n                  <ion-item  no-lines *ngIf="(systemsForm.get(\'keyboard\').hasError(\'minlength\') || systemsForm.get(\'keyboard\').hasError(\'required\') ) && systemsForm.get(\'keyboard\').touched">\n\n                    <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'keyboard\').hasError(\'required\')  || systemsForm.get(\'keyboard\').hasError(\'minlength\')) && systemsForm.get(\'keyboard\').touched" >\n\n                      Keyboard Details is Required\n\n                    </ion-label>\n\n                  </ion-item>\n\n           \n\n            \n\n                <ion-item col-12>\n\n                  <ion-label stacked>Mouse</ion-label>\n\n                  <ion-input type="text" formControlName="mouse"></ion-input>\n\n                    <button ion-button small type="button" (click)="scanBarCode(\'mouse\')" color="blue" item-right>\n\n                        <ion-icon name="barcode"> </ion-icon>\n\n                      </button>\n\n                  </ion-item>\n\n                  <ion-item  no-lines *ngIf="(systemsForm.get(\'mouse\').hasError(\'minlength\') || systemsForm.get(\'mouse\').hasError(\'required\') ) && systemsForm.get(\'mouse\').touched">\n\n                    <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'mouse\').hasError(\'required\')  || systemsForm.get(\'mouse\').hasError(\'minlength\')) && systemsForm.get(\'mouse\').touched" >\n\n                      Mouse Details is Required\n\n                    </ion-label>\n\n                  </ion-item>\n\n               \n\n\n\n              <ion-item col-12>\n\n                <ion-label stacked>Processor</ion-label>\n\n                <ion-input type="text" formControlName="processor" ></ion-input>\n\n              </ion-item>\n\n              <ion-item  no-lines *ngIf="(systemsForm.get(\'processor\').hasError(\'minlength\') || systemsForm.get(\'processor\').hasError(\'required\') ) && systemsForm.get(\'processor\').touched">\n\n                <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'processor\').hasError(\'required\')  || systemsForm.get(\'processor\').hasError(\'minlength\')) && systemsForm.get(\'processor\').touched" >\n\n                  Processor Details is Required\n\n                </ion-label>\n\n              </ion-item>\n\n             <ion-row  >\n\n              <ion-item  col-6>\n\n                <ion-label stacked>Primary Memory</ion-label>\n\n                <ion-input type="text" formControlName="memory" ></ion-input>\n\n              </ion-item>\n\n              \n\n\n\n              <ion-item no-lines col-6>\n\n                <ion-label stacked>Hard Disk</ion-label>\n\n                <ion-input type="text" formControlName="hdd" ></ion-input>\n\n              </ion-item>\n\n              \n\n            </ion-row>  \n\n            <ion-row>\n\n            <ion-item col-6 no-lines *ngIf="(systemsForm.get(\'memory\').hasError(\'minlength\') || systemsForm.get(\'memory\').hasError(\'required\') ) && systemsForm.get(\'memory\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'memory\').hasError(\'required\')  || systemsForm.get(\'memory\').hasError(\'minlength\')) && systemsForm.get(\'memory\').touched" >\n\n                Memory Details is Required\n\n              </ion-label>\n\n            </ion-item>\n\n            <ion-item col-6  no-lines *ngIf="(systemsForm.get(\'hdd\').hasError(\'minlength\') || systemsForm.get(\'hdd\').hasError(\'required\') ) && systemsForm.get(\'hdd\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'hdd\').hasError(\'required\')  || systemsForm.get(\'hdd\').hasError(\'minlength\')) && systemsForm.get(\'hdd\').touched" >\n\n                HDD Details is Required\n\n              </ion-label>\n\n            </ion-item>\n\n          </ion-row>\n\n        \n\n            <ion-item col-12>\n\n              <ion-label stacked>Antivirus Expiry</ion-label>\n\n              <ion-input type="text" readonly formControlName="avExpiry" (click)="dispdate()" (ionFocus)="dispdate()" ></ion-input>\n\n            </ion-item>\n\n            <ion-item  no-lines *ngIf="(systemsForm.get(\'avExpiry\').hasError(\'minlength\') || systemsForm.get(\'avExpiry\').hasError(\'required\') ) && systemsForm.get(\'avExpiry\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'avExpiry\').hasError(\'required\')  || systemsForm.get(\'avExpiry\').hasError(\'minlength\')) && systemsForm.get(\'avExpiry\').touched" >\n\n                Antivirus Details is Required\n\n              </ion-label>\n\n            </ion-item>\n\n          \n\n\n\n              <ion-row>\n\n                <ion-col col-6>\n\n                <button ion-button type="submit" [disabled]="systemsForm.invalid" icon-end full color=blue   >\n\n                  Save\n\n                </button>\n\n              </ion-col>\n\n              <ion-col col-6>\n\n                  <button ion-button type="reset"  icon-end full color=blue   >\n\n                    Cancel\n\n                  </button>\n\n                </ion-col>\n\n              </ion-row> \n\n             \n\n      </ion-list>\n\n    </form>\n\n\n\n    \n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'allSystems\'">\n\n      <ion-list>\n\n        <ion-searchbar hidden placeholder="Find System" showCancelButton="false">\n\n       </ion-searchbar>\n\n       <button type="button"  color="blue" ion-button (click)="scanBarCode(\'db\')">Scanner</button>\n\n      </ion-list>\n\n      <ion-item>\n\n        <ion-row class="table-title">\n\n          <ion-col col-4 >System Id</ion-col>\n\n          <ion-col col-3 >RAM</ion-col>\n\n          <ion-col col-3 >HDD</ion-col>\n\n          <ion-col col-2 >Antivirus</ion-col>\n\n          <ion-col hidden col-2 >View</ion-col>\n\n        </ion-row>\n\n      </ion-item>\n\n      <ion-item *ngFor="let system of systemArray">\n\n        <ion-row class="col-text table-bottom-border" (click)="loadForm(system)" >\n\n            <ion-col col-4>{{system.systemId}}</ion-col><ion-col col-3>{{system.memory}}</ion-col><ion-col col-3>{{system.hdd}}</ion-col><ion-col col-2>{{system.avExpiry | momentdate}} Days</ion-col>\n\n        </ion-row>\n\n      </ion-item>\n\n\n\n      \n\n    </div>\n\n\n\n\n\n  </div>\n\n    \n\n  </ion-content>\n\n  \n\n '/*ion-inline-end:"F:\ionic-app\src\pages\systems\systems.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_0__models_leave_model__["a" /* LeaveModel */], __WEBPACK_IMPORTED_MODULE_1__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavParams"]])
-    ], ApproveLeavePage);
-    return ApproveLeavePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_6__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__["a" /* BarcodeScanner */], __WEBPACK_IMPORTED_MODULE_1__ionic_native_date_picker__["a" /* DatePicker */], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */]])
+    ], SystemsPage);
+    return SystemsPage;
+}()); //end of class
+
+//# sourceMappingURL=systems.js.map
+
+/***/ }),
+
+/***/ 835:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MomentdatePipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+/**
+ * Generated class for the MomentdatePipe pipe.
+ *
+ * See https://angular.io/api/core/Pipe for more info on Angular Pipes.
+ */
+var MomentdatePipe = /** @class */ (function () {
+    function MomentdatePipe() {
+        this.currentDate = __WEBPACK_IMPORTED_MODULE_1_moment__();
+    }
+    MomentdatePipe.prototype.transform = function (date) {
+        var expiryDate = __WEBPACK_IMPORTED_MODULE_1_moment__(date);
+        return expiryDate.diff(this.currentDate, 'days');
+    };
+    MomentdatePipe = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
+            name: 'momentdate',
+        })
+    ], MomentdatePipe);
+    return MomentdatePipe;
 }());
 
-//# sourceMappingURL=approve-leave.js.map
+//# sourceMappingURL=momentdate.js.map
 
 /***/ })
 

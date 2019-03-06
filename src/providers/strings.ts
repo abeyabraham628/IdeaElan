@@ -1,6 +1,6 @@
 export const AppConst={
-    logo:"assets/imgs/companylogo.png",
-
+    logo:"assets/images/companylogo.png",
+    noInternet:"assets/images/noInternet.png",
     FirebaseError:[
         {code:'auth/argument-error', error:'Invalid Email Id or Password'},
         {code:'auth/user-not-found', error:'Invalid Email Id or Password'},

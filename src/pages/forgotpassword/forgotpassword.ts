@@ -24,6 +24,9 @@ export class ForgotpasswordPage {
                 
                 
   }
+  ionViewDidLeave() {
+    this.navCtrl.popToRoot();
+  }
 
   ionViewDidLoad() {
     this.storage.get('emailId').then(email=>this.passwordResetForm.controls['email'].setValue(email))

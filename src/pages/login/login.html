@@ -1,11 +1,11 @@
 
-<ion-content padding class="top-botton-border">
-  <ion-thumbnail >
-    <ion-img class="logo"  [src]="companyLogo"></ion-img>
-  </ion-thumbnail>
+<ion-content padding class="top-botton-border login">
+  
 
 <ion-list>
-  
+  <ion-thumbnail >
+    <ion-img class="logo" [src]="companyLogo"></ion-img>
+  </ion-thumbnail>
   <ion-item no-lines> 
     <ion-input text-center type="email" [(ngModel)]="credentials.emailId" class="input-border" placeholder="USER NAME"></ion-input>
    </ion-item>
@@ -16,13 +16,10 @@
 
    
       <button type="button"  full default ion-button color="blue" style="height:40px; border-radius:5px;" (click)="signIn(credentials)">Sign In</button>
-   
-   
-  
-
-</ion-list>
+      <ion-label color="orange"  text-right (click)="forgotPassword()">Forgot Password</ion-label>
+    </ion-list>
 
    
-   <ion-label color="orange"  text-right (click)="forgotPassword()">Forgot Password</ion-label>
+   
   
 </ion-content>

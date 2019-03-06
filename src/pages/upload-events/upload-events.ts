@@ -30,6 +30,9 @@ export class UploadEventsPage {
     this.messages="compose"
   }
 
+  ionViewDidLeave() {
+    this.navCtrl.popToRoot();
+  }
  
 
   PublishMessageForm=new FormGroup({

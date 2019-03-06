@@ -22,9 +22,10 @@ tony:any
         from:from,
         to: dateLimitTo,
         defaultScrollTo:defaultScrollTo,
+        showToggleButtons: true,
         showMonthPicker: true,
-        showToggleButtons:true,
         showYearPicker: true,
+        
        
         
         

@@ -1,14 +1,15 @@
 webpackJsonp([7],{
 
-/***/ 728:
+/***/ 736:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(826);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RecruitmentPageModule", function() { return RecruitmentPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(464);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__recruitment__ = __webpack_require__(833);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,57 +19,49 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LoginPageModule = /** @class */ (function () {
-    function LoginPageModule() {
+
+var RecruitmentPageModule = /** @class */ (function () {
+    function RecruitmentPageModule() {
     }
-    LoginPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    RecruitmentPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_3__recruitment__["a" /* RecruitmentPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_3__recruitment__["a" /* RecruitmentPage */]),
+                __WEBPACK_IMPORTED_MODULE_0__components_components_module__["a" /* ComponentsModule */]
             ],
         })
-    ], LoginPageModule);
-    return LoginPageModule;
+    ], RecruitmentPageModule);
+    return RecruitmentPageModule;
 }());
 
-//# sourceMappingURL=login.module.js.map
+//# sourceMappingURL=recruitment.module.js.map
 
 /***/ }),
 
-/***/ 749:
+/***/ 833:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppConst; });
-var AppConst = {
-    logo: "assets/imgs/companylogo.png",
-    FirebaseError: [
-        { code: 'auth/argument-error', error: 'Invalid Email Id or Password' },
-        { code: 'auth/user-not-found', error: 'Invalid Email Id or Password' },
-        { code: 'auth/wrong-password', error: 'Invalid Email Id or Password' },
-        { code: 'auth/network-request-failed', error: 'Network timeout' },
-        { code: 'auth/invalid-email', error: 'Invalid Email Id' },
-        { code: 'auth/user-not-found-email', error: 'Invalid Email Id' }
-    ]
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecruitmentPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_date_picker__ = __webpack_require__(467);
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
 };
-//# sourceMappingURL=strings.js.map
-
-/***/ }),
-
-/***/ 826:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__ = __webpack_require__(459);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(458);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_strings__ = __webpack_require__(749);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(462);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -78,134 +71,188 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
 
 
 
 
 
-
-var LoginPage = /** @class */ (function () {
-    function LoginPage(toastCtrl, loadingCtrl, modalCtrl, navCtrl, afAuth, firebase, storage) {
-        this.toastCtrl = toastCtrl;
-        this.loadingCtrl = loadingCtrl;
-        this.modalCtrl = modalCtrl;
-        this.navCtrl = navCtrl;
-        this.afAuth = afAuth;
+/**
+ * Generated class for the RecruitmentPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var RecruitmentPage = /** @class */ (function () {
+    function RecruitmentPage(alertCtrl, firebase, datePicker, navCtrl, ref) {
+        this.alertCtrl = alertCtrl;
         this.firebase = firebase;
-        this.storage = storage;
-        this.credentials = {};
-        this.companyLogo = __WEBPACK_IMPORTED_MODULE_4__providers_strings__["a" /* AppConst */].logo;
+        this.datePicker = datePicker;
+        this.navCtrl = navCtrl;
+        this.ref = ref;
+        this.checked = false;
+        this.candidateSelected = true;
+        this.applicantDetails = []; // for storing the applciants retrieved from db
+        this.x = true;
+        //Initialising new applicant form
+        this.newApplicantForm = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormGroup"]({
+            $key: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"](null),
+            fName: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].minLength(2)]),
+            lName: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required),
+            mobile: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].minLength(10)]),
+            email: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
+            employer: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].minLength(3)]),
+            noticePeriod: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].minLength(5)]),
+            currentctc: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].minLength(4)]),
+            experience: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required),
+            expectedctc: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].minLength(4)]),
+        });
+        //Initialising schedule form
+        this.scheduleForm = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormGroup"]({
+            scheduleDate: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required),
+            scheduleTime: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required]),
+            contactPerson: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].minLength(4)]),
+            contactPersonNum: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].minLength(10)]),
+            applicants: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required)
+        });
+        // Function for selecting multiple applincants before assigning a interview schedule
+        this.applicantKeys = [];
+        // function for retrieving the history of schedules
+        this.interviewDate = [];
+        this.recruitment = "newApplicant";
+        this.getApplicants();
     }
-    LoginPage.prototype.ionViewDidLoad = function () {
+    RecruitmentPage.prototype.ionViewDidLeave = function () {
+        this.navCtrl.popToRoot();
+    };
+    RecruitmentPage.prototype.getApplicants = function () {
+        this.applicantList = this.firebase.list('Applicants');
+        return this.applicantList.snapshotChanges();
+    };
+    ;
+    //
+    RecruitmentPage.prototype.getSchedules = function () {
+        this.scheduleList = this.firebase.list('Schedules');
+        return this.scheduleList.snapshotChanges();
+    };
+    ;
+    RecruitmentPage.prototype.showApplicants = function () {
         var _this = this;
-        this.loader = this.loadingCtrl.create({
-            content: 'Signin In',
-            dismissOnPageChange: true
-        });
-        this.storage.get('emailId').then(function (emailId) {
-            if (emailId != null) {
-                _this.credentials.emailId = emailId;
-            }
-        });
-    };
-    LoginPage.prototype.signIn = function (user) {
-        return __awaiter(this, void 0, void 0, function () {
-            var loginSuccess, privilleges, tempPassword, error_1, errMsg, toast;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 5, , 6]);
-                        this.loader.present();
-                        return [4 /*yield*/, this.afAuth.auth.signInWithEmailAndPassword('tony.manuel@mca.christuniversity.in', '123456')];
-                    case 1:
-                        loginSuccess = _a.sent();
-                        if (!loginSuccess) return [3 /*break*/, 4];
-                        this.storage.set('emailId', user.emailId);
-                        return [4 /*yield*/, this.firebase.database.ref("users/" + loginSuccess.user.uid).child('data').once('value')
-                            //check whether the user has changed the temporary password
-                        ];
-                    case 2:
-                        privilleges = _a.sent();
-                        return [4 /*yield*/, this.firebase.database.ref("TempLogin/" + loginSuccess.user.uid).once('value')];
-                    case 3:
-                        tempPassword = _a.sent();
-                        // If user is signing in for first time then the user is redirected to change the temporary password
-                        if (tempPassword.val() == null)
-                            this.navCtrl.setRoot('ChangepasswordPage', { 'existingUser': false });
-                        else
-                            this.navCtrl.setRoot('TabsPage', { 'roles': privilleges });
-                        _a.label = 4;
-                    case 4: return [3 /*break*/, 6];
-                    case 5:
-                        error_1 = _a.sent();
-                        this.loader.dismiss();
-                        errMsg = __WEBPACK_IMPORTED_MODULE_4__providers_strings__["a" /* AppConst */].FirebaseError.find(function (e) { return e.code == error_1.code; });
-                        toast = this.toastCtrl.create({
-                            message: errMsg.error,
-                            duration: 5000,
-                        });
-                        toast.present();
-                        return [3 /*break*/, 6];
-                    case 6: return [2 /*return*/];
-                }
+        this.newApplicantForm.reset();
+        this.getApplicants().subscribe(function (res) {
+            _this.applicantDetails = res.map(function (item) {
+                if (!item.payload.hasChild('interviewDate')) //  retrieve the applicants who are not scheduled for an interview
+                    return __assign({ $key: item.key }, item.payload.val());
+                else
+                    return null;
+            }).filter(Boolean); //end of map
+        }); //end of subscribe
+    }; //end of show applicant function
+    //Function for saving a new applicant to the database
+    RecruitmentPage.prototype.saveApplicant = function (applicantDetails) {
+        var _this = this;
+        this.applicantList.push({
+            fName: applicantDetails.fName,
+            lName: applicantDetails.lName,
+            mobile: applicantDetails.mobile,
+            email: applicantDetails.email,
+            employer: applicantDetails.employer,
+            noticePeriod: applicantDetails.noticePeriod,
+            currentctc: applicantDetails.currentctc,
+            experience: applicantDetails.experience,
+            expectedctc: applicantDetails.expectedctc
+        }).then(function () {
+            var alert = _this.alertCtrl.create({
+                title: "Success",
+                subTitle: "Applicant added succesfuly ",
+                buttons: ['OK']
             });
+            alert.present();
         });
-    }; //end of sign in function
-    LoginPage.prototype.forgotPassword = function () {
-        var modal = this.modalCtrl.create('ForgotpasswordPage');
-        modal.present();
+    }; //end of function
+    RecruitmentPage.prototype.onSubmit = function () {
+        if (this.newApplicantForm.controls.$key.value == null) {
+            this.saveApplicant(this.newApplicantForm.value); // function for saving the form data to the database
+            this.newApplicantForm.reset(); // reset applicant form after saving
+        }
     };
-    LoginPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-login',template:/*ion-inline-start:"F:\ionic-app\src\pages\login\login.html"*/'\n\n<ion-content padding class="top-botton-border">\n\n  <ion-thumbnail >\n\n    <ion-img class="logo"  [src]="companyLogo"></ion-img>\n\n  </ion-thumbnail>\n\n\n\n<ion-list>\n\n  \n\n  <ion-item no-lines> \n\n    <ion-input text-center type="email" [(ngModel)]="credentials.emailId" class="input-border" placeholder="USER NAME"></ion-input>\n\n   </ion-item>\n\n  \n\n  <ion-item no-lines    >\n\n    <ion-input text-center type="password" class="input-border" [(ngModel)]="credentials.password" placeholder="PASSWORD"></ion-input>\n\n   </ion-item>\n\n\n\n   \n\n      <button type="button"  full default ion-button color="blue" style="height:40px; border-radius:5px;" (click)="signIn(credentials)">Sign In</button>\n\n   \n\n   \n\n  \n\n\n\n</ion-list>\n\n\n\n   \n\n   <ion-label color="orange"  text-right (click)="forgotPassword()">Forgot Password</ion-label>\n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\login\login.html"*/,
+    RecruitmentPage.prototype.dispdate = function () {
+        var _this = this;
+        this.datePicker.show({
+            date: new Date(),
+            mode: 'date',
+            androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_LIGHT
+        }).then(function (date) {
+            _this.scheduleForm.controls.scheduleDate.setValue(date.toLocaleDateString());
+        }, function (err) { return console.log('Error occurred while getting date: ', err); });
+    }; //end of function
+    //Funtion for saving interview schedules for the respective applicants
+    RecruitmentPage.prototype.saveSchedule = function () {
+        var _this = this;
+        var schedule = {
+            interviewTime: this.scheduleForm.controls.scheduleTime.value,
+            contactPerson: this.scheduleForm.controls.contactPerson.value,
+            contactNumber: this.scheduleForm.controls.contactPersonNum.value
+        };
+        //Schedule details is pushed first to the db and then the key of that particular record is retrieved
+        //Once the key is retrieved,that key is add as a reference to the interviewDate field for the selected candidated record. 
+        this.scheduleList.push({
+            interviewDate: this.scheduleForm.controls.scheduleDate.value,
+            interviewDetails: schedule
+        }).then(function (snap) {
+            // Save the interviewDate for the candidates who are scheduled for interiew
+            for (var i = 0; i < _this.applicantKeys.length; i++)
+                _this.applicantList.update(_this.applicantKeys[i], {
+                    interviewDate: snap.key
+                }).then(function () {
+                    var alert = _this.alertCtrl.create({
+                        title: "Success",
+                        subTitle: "Schedule created succesfuly ",
+                        buttons: ['OK']
+                    });
+                    alert.present();
+                    _this.scheduleForm.reset();
+                    _this.applicantKeys = [];
+                });
+        });
+    }; //end of save schedule function
+    // fucntion for toggling check all or uncheck all applicants
+    RecruitmentPage.prototype.selectAll = function () {
+        this.checked = !this.checked;
+    };
+    RecruitmentPage.prototype.clickSelectBox = function (itemKey) {
+        this.scheduleForm.controls['applicants'].setValue('');
+        var foundAt = this.applicantKeys.indexOf(itemKey);
+        if (foundAt >= 0)
+            this.applicantKeys.splice(foundAt, 1);
+        else
+            this.applicantKeys.push(itemKey);
+        if (this.applicantKeys.length > 0) {
+            this.candidateSelected = false;
+        }
+        this.scheduleForm.controls['applicants'].setValue(this.applicantKeys);
+    };
+    RecruitmentPage.prototype.viewInterviewDates = function () {
+        var _this = this;
+        this.scheduleForm.reset();
+        this.getSchedules().subscribe(function (res) {
+            _this.interviewDate = res.map(function (item) {
+                return __assign({ $key: item.key }, item.payload.val());
+            }); //end of map
+        }); //end of subscribe
+    }; //end of function
+    RecruitmentPage.prototype.interviewDetailsPage = function (interviewKey, interviewDate) {
+        this.navCtrl.push('InterviewDetailsPage', { 'key': interviewKey, 'date': interviewDate });
+    };
+    RecruitmentPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-recruitment',template:/*ion-inline-start:"F:\ionic-app\src\pages\recruitment\recruitment.html"*/'<ion-header no-border>\n\n  <page-header pageTitle="RECRUITMENT"></page-header>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-segment [(ngModel)]="recruitment" color="white" >\n\n      <ion-segment-button  value="newApplicant" >\n\n         New Applicant\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="schedules" (click)="showApplicants()">\n\n         Schedules\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="interviews" (click)="viewInterviewDates()">\n\n          Interviews\n\n      </ion-segment-button>\n\n  </ion-segment>\n\n   \n\n    <div [ngSwitch]="recruitment">\n\n\n\n        <div *ngSwitchCase="\'newApplicant\'">\n\n          <form [formGroup]="newApplicantForm" (ngSubmit)="onSubmit()">\n\n          <ion-list >\n\n              <ion-input hidden formControlName="$key"></ion-input>\n\n           <ion-row>\n\n                   <ion-col col-6>\n\n                    <ion-item>\n\n                      <ion-label stacked>First Name</ion-label>\n\n                      <ion-input type="text" formControlName="fName" maxlength="15" ></ion-input>\n\n                    </ion-item> \n\n                    <ion-item  no-lines *ngIf="(newApplicantForm.get(\'fName\').hasError(\'minlength\') || newApplicantForm.get(\'fName\').hasError(\'required\') ) && newApplicantForm.get(\'fName\').touched">\n\n                        <ion-label stacked  color="danger" *ngIf="(newApplicantForm.get(\'fName\').hasError(\'required\')  || newApplicantForm.get(\'fName\').hasError(\'minlength\')) && newApplicantForm.get(\'fName\').touched" >\n\n                          Invalid First Name\n\n                        </ion-label>\n\n                      </ion-item>\n\n                  </ion-col>\n\n                  <ion-col col-6>\n\n                      <ion-item  >\n\n                        <ion-label stacked>Last Name</ion-label>\n\n                        <ion-input type="text"  formControlName="lName" maxlength="15" ></ion-input>\n\n                      </ion-item>\n\n                      <ion-item  no-lines *ngIf="(newApplicantForm.get(\'lName\').hasError(\'minlength\') || newApplicantForm.get(\'lName\').hasError(\'required\') ) && newApplicantForm.get(\'lName\').touched">\n\n                          <ion-label stacked  color="danger" *ngIf="(newApplicantForm.get(\'lName\').hasError(\'required\')  || newApplicantForm.get(\'lName\').hasError(\'minlength\')) && newApplicantForm.get(\'lName\').touched" >\n\n                            Invalid Last Name\n\n                          </ion-label>\n\n                        </ion-item>\n\n                    </ion-col>\n\n             </ion-row>\n\n\n\n               \n\n                    <ion-item  > \n\n                        <ion-label stacked>Mobile</ion-label>\n\n                        <ion-input type="text" formControlName="mobile" maxlength="10"></ion-input>\n\n                    </ion-item> \n\n                    <ion-item  no-lines *ngIf="(newApplicantForm.get(\'mobile\').hasError(\'minlength\') || newApplicantForm.get(\'mobile\').hasError(\'required\') ) && newApplicantForm.get(\'mobile\').touched">\n\n                      <ion-label stacked  color="danger" *ngIf="(newApplicantForm.get(\'mobile\').hasError(\'required\')  || newApplicantForm.get(\'mobile\').hasError(\'minlength\') ) && newApplicantForm.get(\'mobile\').touched" >\n\n                        Invalid Mobile Number\n\n                      </ion-label>\n\n                    </ion-item>\n\n                \n\n                      \n\n                  \n\n                    <ion-item> \n\n                       <ion-label stacked>Email</ion-label>\n\n                       <ion-input type="email" formControlName="email" maxlength="25" ></ion-input>\n\n                     </ion-item>\n\n                     <ion-item  no-lines *ngIf="(newApplicantForm.get(\'email\').hasError(\'minlength\') || newApplicantForm.get(\'email\').hasError(\'required\') || newApplicantForm.get(\'email\').hasError(\'pattern\') ) && newApplicantForm.get(\'email\').touched">\n\n                      <ion-label stacked  color="danger" *ngIf="(newApplicantForm.get(\'email\').hasError(\'minlength\') || newApplicantForm.get(\'email\').hasError(\'required\') || newApplicantForm.get(\'email\').hasError(\'pattern\') ) && newApplicantForm.get(\'email\').touched" >\n\n                        Invalid Email ID\n\n                      </ion-label>\n\n                    </ion-item>\n\n                   \n\n\n\n                   <h6 class="title section-title ">Employer And Salary</h6>\n\n                 \n\n                     <ion-item > \n\n                        <ion-label stacked>Current Employer</ion-label>\n\n                        <ion-input type="text"  formControlName="employer" maxlength="20"></ion-input>\n\n                      </ion-item>\n\n                      <ion-item  no-lines *ngIf="(newApplicantForm.get(\'employer\').hasError(\'minlength\') || newApplicantForm.get(\'employer\').hasError(\'required\') ) && newApplicantForm.get(\'employer\').touched">\n\n                        <ion-label stacked  color="danger" *ngIf="(newApplicantForm.get(\'employer\').hasError(\'required\')  || newApplicantForm.get(\'employer\').hasError(\'minlength\')) && newApplicantForm.get(\'employer\').touched" >\n\n                          Employer details Required\n\n                        </ion-label>\n\n                      </ion-item>\n\n                   \n\n                    \n\n                    <ion-row>\n\n                      <ion-col col-6>\n\n                          <ion-item > \n\n                              <ion-label stacked>Notice Period</ion-label>\n\n                              <ion-input type="text"  formControlName="noticePeriod" maxlength="10"></ion-input>\n\n                            </ion-item>\n\n                            <ion-item  no-lines *ngIf="(newApplicantForm.get(\'noticePeriod\').hasError(\'minlength\') || newApplicantForm.get(\'noticePeriod\').hasError(\'required\') ) && newApplicantForm.get(\'noticePeriod\').touched">\n\n                              <ion-label stacked  color="danger" *ngIf="(newApplicantForm.get(\'noticePeriod\').hasError(\'required\')  || newApplicantForm.get(\'noticePeriod\').hasError(\'minlength\')) && newApplicantForm.get(\'noticePeriod\').touched" >\n\n                                Notice Period Required\n\n                              </ion-label>\n\n                            </ion-item>\n\n                            \n\n                      </ion-col>\n\n                    \n\n                   \n\n                       <ion-col col-6>\n\n                         <ion-item>\n\n                          <ion-label stacked>Current CTC</ion-label>\n\n                          <ion-input type="Number" formControlName="currentctc" maxlength="7"></ion-input>\n\n                        </ion-item>\n\n\n\n                        <ion-item  no-lines *ngIf="(newApplicantForm.get(\'currentctc\').hasError(\'minlength\') || newApplicantForm.get(\'currentctc\').hasError(\'required\') ) && newApplicantForm.get(\'currentctc\').touched">\n\n                          <ion-label stacked  color="danger" *ngIf="(newApplicantForm.get(\'currentctc\').hasError(\'required\')  || newApplicantForm.get(\'currentctc\').hasError(\'minlength\')) && newApplicantForm.get(\'currentctc\').touched" >\n\n                            CTC Required\n\n                          </ion-label>\n\n                        </ion-item>\n\n                        </ion-col>\n\n                     </ion-row> \n\n                    \n\n                    <h6 class="title section-title">Experience Details</h6>\n\n                   <ion-row >\n\n                     <ion-col col-6>\n\n                     <ion-item >\n\n                            <ion-label stacked>Total Experience</ion-label>\n\n                            <ion-select    formControlName="experience">\n\n                              <ion-option value="Below 1 Year">Below 1 Year</ion-option>\n\n                              <ion-option value="1 - 2 Years">1 - 2 Years</ion-option>\n\n                              <ion-option value="2 - 3 Years">2 - 3 Years</ion-option>\n\n                              <ion-option value="3 - 4 Years">3 - 4 Years</ion-option>\n\n                              <ion-option value="4 - 5 Years">4 - 5 Years</ion-option>\n\n                              <ion-option value="Above 5 Years">Above 5 Years</ion-option>\n\n                            </ion-select>\n\n                          </ion-item>\n\n                          <ion-item  no-lines *ngIf="(newApplicantForm.get(\'experience\').hasError(\'minlength\') || newApplicantForm.get(\'experience\').hasError(\'required\') ) && newApplicantForm.get(\'experience\').touched">\n\n                            <ion-label stacked  color="danger" *ngIf="(newApplicantForm.get(\'experience\').hasError(\'required\')  || newApplicantForm.get(\'experience\').hasError(\'minlength\')) && newApplicantForm.get(\'experience\').touched" >\n\n                             Invalid Experience\n\n                            </ion-label>\n\n                          </ion-item>\n\n                        </ion-col>\n\n                     \n\n                    <ion-col col-6>\n\n                        <ion-item >\n\n                          <ion-label stacked>Expected CTC</ion-label>\n\n                          <ion-input type="text"  formControlName="expectedctc" maxlength="7"> </ion-input>\n\n                        </ion-item>\n\n                        <ion-item  no-lines *ngIf="(newApplicantForm.get(\'expectedctc\').hasError(\'minlength\') || newApplicantForm.get(\'expectedctc\').hasError(\'required\') ) && newApplicantForm.get(\'expectedctc\').touched">\n\n                          <ion-label stacked  color="danger" *ngIf="(newApplicantForm.get(\'expectedctc\').hasError(\'required\')  || newApplicantForm.get(\'expectedctc\').hasError(\'minlength\')) && newApplicantForm.get(\'expectedctc\').touched" >\n\n                            Invalid Expected CTC\n\n                          </ion-label>\n\n                        </ion-item>\n\n                      </ion-col>\n\n                  </ion-row>\n\n                       \n\n                      <ion-row>\n\n                        <ion-col col-6>\n\n                        <button ion-button type="submit" [disabled]="newApplicantForm.invalid" ion-button  icon-end  full color=blue >\n\n                           Save\n\n                         </button>\n\n                        </ion-col>\n\n                        <ion-col col-6>\n\n                            <button ion-button type="reset"  icon-end full color=blue   >\n\n                              Cancel\n\n                            </button>\n\n                            </ion-col>\n\n                      </ion-row> \n\n                       \n\n            </ion-list>\n\n          </form>\n\n        </div>\n\n          \n\n     <div *ngSwitchCase="\'schedules\'">\n\n        \n\n      <ion-list >\n\n        \n\n         <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>\n\n        \n\n                \n\n                 \n\n                  \n\n                <form [formGroup]="scheduleForm" (ngSubmit)="saveSchedule()">\n\n\n\n                    <ion-row no-margin class="table-title row-bottom-border">\n\n                        <ion-col col-1 > \n\n                          <ion-checkbox (ionChange)=\'selectAll()\'></ion-checkbox>\n\n                        </ion-col>\n\n                        <ion-col col-4>Name</ion-col>\n\n                         <ion-col col-4>Experience</ion-col>\n\n                         <ion-col col-3>Interview Date</ion-col>\n\n                     </ion-row>\n\n     \n\n                     <ion-row no-margin class=" col-text  row-bottom-border" *ngFor="let x of applicantDetails " >\n\n                         <ion-col col-1 > \n\n                             <ion-checkbox    (ionChange)="clickSelectBox(x.$key)"></ion-checkbox>\n\n                           </ion-col>\n\n                           <ion-col col-4>{{x.fName}} {{x.lName}}</ion-col>\n\n                            <ion-col col-4 >{{x.experience}}</ion-col>\n\n                            <ion-col col-3>Not Set</ion-col>\n\n                      </ion-row>\n\n                      <ion-item hidden >\n\n                        <ion-input type="text" formControlName="applicants" ></ion-input>\n\n                      </ion-item>\n\n                      <ion-item  no-lines *ngIf=" scheduleForm.get(\'applicants\').hasError(\'required\') && scheduleForm.get(\'applicants\').touched">\n\n                          <ion-label stacked  color="danger" *ngIf=" scheduleForm.get(\'applicants\').hasError(\'required\')" >\n\n                            Select Candidate\n\n                          </ion-label>\n\n                        </ion-item>\n\n\n\n                <h6 class="title section-title">Schedule Details</h6>\n\n                \n\n                \n\n\n\n\n\n                <ion-row>\n\n                  <ion-col col-6>\n\n                    <ion-item >\n\n                      <ion-label stacked>Interview Date</ion-label>\n\n                      <ion-input type="text" readonly  (click)="dispdate()" (ionFocus)="dispdate()" formControlName="scheduleDate"></ion-input>\n\n                    </ion-item>\n\n                    <ion-item  no-lines *ngIf=" scheduleForm.get(\'scheduleDate\').hasError(\'required\')  && scheduleForm.get(\'scheduleDate\').touched">\n\n                        <ion-label stacked  color="danger">\n\n                          Invalid Date\n\n                        </ion-label>\n\n                      </ion-item>\n\n                  </ion-col>\n\n\n\n               <ion-col col-6>\n\n                    <ion-item >\n\n                        <ion-label stacked>Interview Time</ion-label>\n\n                        <ion-datetime type="text" pickerFormat="h:mm A"  formControlName="scheduleTime" readonly></ion-datetime>\n\n                    </ion-item>\n\n                    <ion-item  no-lines *ngIf=" scheduleForm.get(\'scheduleTime\').hasError(\'required\')  && scheduleForm.get(\'scheduleTime\').touched">\n\n                        <ion-label stacked  color="danger" *ngIf="scheduleForm.get(\'scheduleTime\').hasError(\'required\')  && scheduleForm.get(\'scheduleTime\').touched" >\n\n                          Invalid Time\n\n                        </ion-label>\n\n                      </ion-item>\n\n                  </ion-col>\n\n                \n\n\n\n                  </ion-row>\n\n\n\n                      <ion-item>\n\n                        <ion-label stacked>Contact Person</ion-label>\n\n                        <ion-input formControlName="contactPerson" ></ion-input>\n\n                      </ion-item>\n\n                      <ion-item  no-lines *ngIf="(scheduleForm.get(\'contactPerson\').hasError(\'minlength\') || scheduleForm.get(\'contactPerson\').hasError(\'required\') ) && scheduleForm.get(\'contactPerson\').touched">\n\n                          <ion-label stacked  color="danger">\n\n                            Invalid Name\n\n                          </ion-label>\n\n                        </ion-item>\n\n                      \n\n                    \n\n                    \n\n                        <ion-item >\n\n                          <ion-label stacked>Contact Number</ion-label>\n\n                          <ion-input type="text" maxLength="10" formControlName="contactPersonNum" ></ion-input>\n\n                        </ion-item>\n\n                        <ion-item  no-lines *ngIf="(scheduleForm.get(\'contactPersonNum\').hasError(\'minlength\') || scheduleForm.get(\'contactPersonNum\').hasError(\'required\') ) && scheduleForm.get(\'contactPersonNum\').touched">\n\n                            <ion-label stacked  color="danger" >\n\n                              Invalid Contact Number\n\n                            </ion-label>\n\n                          </ion-item>\n\n\n\n                    <ion-row>\n\n                      <ion-col col-6>\n\n                        <button ion-button type="submit" [disabled]="scheduleForm.invalid" ion-button  icon-end  full color=blue >\n\n                           Save\n\n                         </button>\n\n                      </ion-col>\n\n                         <ion-col col-6>\n\n                          <button ion-button type="reset"  icon-end full color=blue   >\n\n                            Cancel\n\n                          </button>\n\n                        </ion-col>\n\n                      </ion-row>\n\n                     \n\n                    </form>\n\n        </ion-list>\n\n      \n\n\n\n\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'interviews\'" >\n\n        \n\n      <ion-list >\n\n        \n\n       <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>\n\n        \n\n                <ion-row no-margin class="table-title row-bottom-border">\n\n                <ion-col col-4>Interview Date</ion-col>\n\n                    <ion-col col-5>Contact Person</ion-col>\n\n                    <ion-col col-3>Action</ion-col>\n\n                </ion-row>\n\n\n\n                <ion-row no-margin class=" col-text  row-bottom-border" *ngFor="let x of interviewDate" >\n\n                    \n\n                      <ion-col col-4>{{x.interviewDate}} </ion-col>\n\n                       <ion-col col-5 >{{x.interviewDetails.contactPerson}}</ion-col>\n\n                       <ion-col col-3 (click)="interviewDetailsPage(x.$key,x.interviewDate)">View Details</ion-col>\n\n                </ion-row>\n\n                \n\n        </ion-list>\n\n      \n\n\n\n\n\n    </div>\n\n\n\n\n\n\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"F:\ionic-app\src\pages\recruitment\recruitment.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ToastController"],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["LoadingController"],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ModalController"],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"],
-            __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */],
-            __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]])
-    ], LoginPage);
-    return LoginPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_date_picker__["a" /* DatePicker */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]])
+    ], RecruitmentPage);
+    return RecruitmentPage;
 }());
 
-//# sourceMappingURL=login.js.map
+//# sourceMappingURL=recruitment.js.map
 
 /***/ })
 

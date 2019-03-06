@@ -34,12 +34,19 @@ dateRange:any="This Month Leave"
 months=this.customDatePicker.getMonths()
 
  constructor(private alertCtrl:AlertController,private formBuilder:FormBuilder,private afauth:AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,private modalCtrl:ModalController,private customDatePicker:CustomDatePicker,private userLeave:LeaveModel,private firebase:AngularFireDatabase) {
-            this.ionSegmentDefaultValue="applyLeave";
+           
             this.viewRemainingLeaves();
             
             
      }
 
+     ionViewDidEnter(){
+      this.ionSegmentDefaultValue="applyLeave";
+     }
+
+     ionViewDidLeave() {
+      this.navCtrl.popToRoot();
+    }
   
 
 

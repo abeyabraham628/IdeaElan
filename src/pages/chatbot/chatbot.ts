@@ -24,9 +24,10 @@ export class ChatbotPage {
     });
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ChatbotPage');
+  ionViewDidLeave() {
+    this.navCtrl.popToRoot();
   }
+  
 
   questions=[]
   answer:any=[];

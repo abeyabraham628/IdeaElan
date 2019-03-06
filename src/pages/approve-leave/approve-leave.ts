@@ -6,7 +6,7 @@ import { CustomDatePicker } from './../../models/datepicker';
 import { CalendarModal,CalendarResult} from "ion2-calendar";
 
 import { Component } from '@angular/core';
-import { IonicPage, NavParams,AlertController,ModalController } from 'ionic-angular';
+import { IonicPage, NavParams,AlertController,ModalController, NavController } from 'ionic-angular';
 
 /**
  * Generated class for the ApproveLeavePage page.
@@ -30,12 +30,15 @@ from:any
 to:any
 dateRange:any
 
-  constructor( public modalCtrl:ModalController,private userLeave:LeaveModel,private datepicker:CustomDatePicker,public alertCtrl:AlertController, public navParams: NavParams) {
+  constructor(public navCtrl:NavController, public modalCtrl:ModalController,private userLeave:LeaveModel,private datepicker:CustomDatePicker,public alertCtrl:AlertController, public navParams: NavParams) {
      this.userLeaveDetails=this.navParams.get('userDetails')
      this.userRemainingLeaves(this.userLeaveDetails.userId) 
      this.leaveRecords=this.userLeave.getPastLeaves(this.userLeaveDetails.userId)
   }
 
+  ionViewDidLeave() {
+    this.navCtrl.popToRoot();
+  }
   datePicker(pickMode){
     
   

@@ -12370,7 +12370,7 @@ ion-content {
   display: block;
   width: 100%;
   height: 100%;
-  contain: layout size style;
+  contain: size style;
 }
 
 .ion-page > ion-content {
@@ -23553,7 +23553,7 @@ button.swiper-pagination-bullet {
 }
 
 .swiper-pagination-bullet-active {
-  background: #007aff;
+  background: #488aff;
   opacity: 1;
 }
 
@@ -23594,7 +23594,7 @@ button.swiper-pagination-bullet {
   position: absolute;
   width: 100%;
   height: 100%;
-  background: #007aff;
+  background: #488aff;
   -webkit-transform: scale(0);
   transform: scale(0);
 }
@@ -25584,6 +25584,7 @@ ion-toast {
 
 .toggle-ios {
   position: relative;
+  display: block;
   width: 51px;
   height: 32px;
   -webkit-box-sizing: content-box;
@@ -25716,6 +25717,7 @@ ion-toast {
 
 .toggle-md {
   position: relative;
+  display: block;
   width: 36px;
   height: 14px;
   -webkit-box-sizing: content-box;
@@ -25857,6 +25859,7 @@ ion-toast {
 
 .toggle-wp {
   position: relative;
+  display: block;
   width: 40px;
   height: 18px;
   -webkit-box-sizing: content-box;
@@ -35483,6 +35486,11 @@ ion-navbar.toolbar {
   min-height: calc(44px + env(safe-area-inset-bottom));
 }
 
+.ios .tabs:not(.tabs-ios[tabsPlacement='top']) ion-footer .toolbar:last-child {
+  padding-bottom: 4px;
+  min-height: 44px;
+}
+
 .md ion-nav > .ion-page > .toolbar.statusbar-padding:first-child,
 .md ion-nav > .ion-page > ion-header > .toolbar.statusbar-padding:first-child,
 .md ion-tab > .ion-page > .toolbar.statusbar-padding:first-child,
@@ -35563,6 +35571,11 @@ ion-navbar.toolbar {
   min-height: calc(56px + env(safe-area-inset-bottom));
 }
 
+.md .tabs:not(.tabs-ios[tabsPlacement='top']) ion-footer .toolbar:last-child {
+  padding-bottom: 4px;
+  min-height: 56px;
+}
+
 .wp ion-nav > .ion-page > .toolbar.statusbar-padding:first-child,
 .wp ion-nav > .ion-page > ion-header > .toolbar.statusbar-padding:first-child,
 .wp ion-tab > .ion-page > .toolbar.statusbar-padding:first-child,
@@ -35641,6 +35654,11 @@ ion-navbar.toolbar {
   padding-bottom: calc(env(safe-area-inset-bottom) + 4px);
   min-height: calc(46px + constant(safe-area-inset-bottom));
   min-height: calc(46px + env(safe-area-inset-bottom));
+}
+
+.wp .tabs:not(.tabs-ios[tabsPlacement='top']) ion-footer .toolbar:last-child {
+  padding-bottom: 4px;
+  min-height: 46px;
 }
 
 .ios h1, .md h1, .wp h1 {
@@ -35829,6 +35847,27 @@ ion-input ::-ms-input-placeholder {
 
 ion-input ::placeholder {
   text-align: center;
+}
+
+.login >
+.scroll-content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.login >
+.scroll-content .list {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
 .segment {

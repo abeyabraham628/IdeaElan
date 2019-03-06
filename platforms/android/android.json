@@ -35,6 +35,14 @@
             {
               "xml": "<feature name=\"Camera\"><param name=\"android-package\" value=\"org.apache.cordova.camera.CameraLauncher\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"NetworkStatus\"><param name=\"android-package\" value=\"org.apache.cordova.networkinformation.NetworkManager\" /></feature>",
+              "count": 1
+            },
+            {
+              "xml": "<feature name=\"CDVOrientation\"><param name=\"android-package\" value=\"cordova.plugins.screenorientation.CDVOrientation\" /></feature>",
+              "count": 1
             }
           ],
           "widget": [
@@ -105,6 +113,10 @@
             {
               "xml": "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\" />",
               "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+              "count": 1
             }
           ]
         }
@@ -153,6 +165,15 @@
       "PACKAGE_NAME": "idea.elan"
     },
     "cordova-plugin-apiai": {
+      "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "idea.elan"
+    },
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-screen-orientation": {
       "PACKAGE_NAME": "idea.elan"
     }
   },
@@ -259,6 +280,37 @@
       "clobbers": [
         "window.ApiAIPromises"
       ]
+    },
+    {
+      "id": "cordova-plugin-network-information.network",
+      "file": "plugins/cordova-plugin-network-information/www/network.js",
+      "pluginId": "cordova-plugin-network-information",
+      "clobbers": [
+        "navigator.connection",
+        "navigator.network.connection"
+      ]
+    },
+    {
+      "id": "cordova-plugin-network-information.Connection",
+      "file": "plugins/cordova-plugin-network-information/www/Connection.js",
+      "pluginId": "cordova-plugin-network-information",
+      "clobbers": [
+        "Connection"
+      ]
+    },
+    {
+      "id": "es6-promise-plugin.Promise",
+      "file": "plugins/es6-promise-plugin/www/promise.js",
+      "pluginId": "es6-promise-plugin",
+      "runs": true
+    },
+    {
+      "id": "cordova-plugin-screen-orientation.screenorientation",
+      "file": "plugins/cordova-plugin-screen-orientation/www/screenorientation.js",
+      "pluginId": "cordova-plugin-screen-orientation",
+      "clobbers": [
+        "cordova.plugins.screenorientation"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -270,6 +322,9 @@
     "cordova-plugin-x-toast": "2.7.2",
     "cordova-sqlite-storage": "3.1.0",
     "cordova-plugin-camera": "4.0.3",
-    "cordova-plugin-apiai": "1.7.4"
+    "cordova-plugin-apiai": "1.7.4",
+    "cordova-plugin-network-information": "2.0.1",
+    "es6-promise-plugin": "4.2.2",
+    "cordova-plugin-screen-orientation": "3.0.1"
   }
 }

@@ -105,6 +105,10 @@ export class NewuserPage {
  // console.log("STOP");
 } */
 //new
+
+ionViewDidLeave() {
+  this.navCtrl.popToRoot();
+}
 new()
 {
   this.x=true;

@@ -35,7 +35,17 @@
     },
     "cordova-plugin-apiai": {
       "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-screen-orientation": {
+      "PACKAGE_NAME": "idea.elan"
     }
   },
-  "dependent_plugins": {}
+  "dependent_plugins": {
+    "es6-promise-plugin": {
+      "PACKAGE_NAME": "idea.elan"
+    }
+  }
 }

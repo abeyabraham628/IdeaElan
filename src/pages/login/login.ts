@@ -41,6 +41,7 @@ export class LoginPage {
       })
    }
 
+
   async signIn(user:credentials){
    
    try{
@@ -58,7 +59,8 @@ export class LoginPage {
             if(tempPassword.val()==null)
               this.navCtrl.setRoot('ChangepasswordPage',{'existingUser':false})
             else
-              this.navCtrl.setRoot('TabsPage',{'roles': privilleges})
+                
+             this.navCtrl.setRoot('TabsPage',{'roles': privilleges})
         }
     }catch(error){
       this.loader.dismiss()

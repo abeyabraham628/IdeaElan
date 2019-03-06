@@ -31,8 +31,8 @@ export class InterviewDetailsPage {
   
 
 
-  ionViewDidLoad() {
-    
+  ionViewDidLeave() {
+    this.navCtrl.popToRoot();
   }
 
   goBack() {

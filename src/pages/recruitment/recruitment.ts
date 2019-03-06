@@ -31,6 +31,9 @@ export class RecruitmentPage {
     this.getApplicants();
   }
 
+  ionViewDidLeave() {
+    this.navCtrl.popToRoot();
+  }
 
 applicantList:AngularFireList<any>;
 scheduleList:AngularFireList<any>;

@@ -20,8 +20,8 @@ eventDate:any
       this.interviewSummary(this.eventDate)
   }
 
-  ionViewDidLoad() {
-  //console.log('tony');
+  ionViewDidLeave() {
+    this.navCtrl.popToRoot();
   }
 
   goBack(){

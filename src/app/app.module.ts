@@ -1,3 +1,4 @@
+import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { DatepickerDirective } from './../directives/datepicker/datepicker';
 
 import { ChatbotPage } from './../pages/chatbot/chatbot';
@@ -26,6 +27,8 @@ import {FCM} from '@ionic-native/fcm'
 import { IonicStorageModule } from '@ionic/storage';
 import { ComponentsModule } from '../components/components.module';
 import { DataService } from '../providers/page-tite-service';
+import { Network } from '@ionic-native/network';
+import { NointernetPage } from '../pages/nointernet/nointernet';
 
 
 
@@ -33,7 +36,7 @@ import { DataService } from '../providers/page-tite-service';
   declarations: [
     MyApp,
     ChatbotPage,
-    
+    NointernetPage
     
  
     
@@ -52,6 +55,7 @@ import { DataService } from '../providers/page-tite-service';
     ComponentsModule,
     
     
+    
   
     
    
@@ -59,7 +63,8 @@ import { DataService } from '../providers/page-tite-service';
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    ChatbotPage
+    ChatbotPage,
+    NointernetPage
     
     
   ],
@@ -72,6 +77,11 @@ import { DataService } from '../providers/page-tite-service';
     DatePipe,
     FCM,
     DataService,
+    Network,
+    ScreenOrientation,
+    
+    
+
     
     
    {provide: ErrorHandler, useClass: IonicErrorHandler}

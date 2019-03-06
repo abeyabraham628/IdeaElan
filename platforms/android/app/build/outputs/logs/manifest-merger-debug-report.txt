@@ -22,10 +22,10 @@ INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:33
 	android:name
 		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:33:127-180
 manifest
-ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-43:12
-INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-43:12
-INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-43:12
-INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-43:12
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-44:12
 MERGED from [:barcodescanner-release-2.1.5:] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\barcodescanner-release-2.1.5.aar\be51807e8ab930d937e83a4a77956bea\AndroidManifest.xml:2:1-14:12
 MERGED from [com.google.firebase:firebase-core:10.2.6] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\firebase-core-10.2.6.aar\a609b134fb761511d4cc13d46962fd96\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.firebase:firebase-messaging:10.2.6] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\firebase-messaging-10.2.6.aar\ea80ad2e2337d73f0ba9c5d4f04a09bf\AndroidManifest.xml:16:1-30:12
@@ -46,9 +46,9 @@ MERGED from [android.arch.lifecycle:runtime:1.1.0] C:\Users\Admin\.gradle\caches
 MERGED from [android.arch.lifecycle:livedata-core:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\livedata-core-1.1.0.aar\3d7a9109c9ee1b96e255335521000f2b\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.lifecycle:viewmodel:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\viewmodel-1.1.0.aar\4fcc85d2f1664dd40ea5363b0f6435eb\AndroidManifest.xml:17:1-22:12
 MERGED from [android.arch.core:runtime:1.1.0] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\runtime-1.1.0.aar\baf9087cb685a57bf3a124b0979660da\AndroidManifest.xml:17:1-22:12
-INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-43:12
-INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-43:12
-INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-43:12
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-44:12
+INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:1-44:12
 	package
 		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:2:98-117
 		INJECTED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml
@@ -273,6 +273,16 @@ uses-permission#android.permission.RECORD_AUDIO
 ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:42:5-71
 	android:name
 		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:42:22-68
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:43:5-79
+MERGED from [com.google.firebase:firebase-analytics:10.2.6] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\firebase-analytics-10.2.6.aar\22315f9be757df729dc4c27ea362f6ae\AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-analytics:10.2.6] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\firebase-analytics-10.2.6.aar\22315f9be757df729dc4c27ea362f6ae\AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-analytics-impl:10.2.6] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-10.2.6.aar\c022b94c7c845810650dc024840dc887\AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-analytics-impl:10.2.6] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-10.2.6.aar\c022b94c7c845810650dc024840dc887\AndroidManifest.xml:21:5-78
+MERGED from [com.google.firebase:firebase-iid:10.2.6] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\firebase-iid-10.2.6.aar\e6d257e01894df89b41c6f7a7565c776\AndroidManifest.xml:19:5-78
+MERGED from [com.google.firebase:firebase-iid:10.2.6] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\firebase-iid-10.2.6.aar\e6d257e01894df89b41c6f7a7565c776\AndroidManifest.xml:19:5-78
+	android:name
+		ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:43:22-76
 meta-data#android.support.FILE_PROVIDER_PATHS
 ADDED from F:\ionic-app\platforms\android\app\src\main\AndroidManifest.xml:15:13-130
 	android:resource
@@ -285,14 +295,6 @@ ADDED from [com.google.firebase:firebase-messaging:10.2.6] C:\Users\Admin\.gradl
 		ADDED from [com.google.firebase:firebase-messaging:10.2.6] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\firebase-messaging-10.2.6.aar\ea80ad2e2337d73f0ba9c5d4f04a09bf\AndroidManifest.xml:23:88-111
 	android:name
 		ADDED from [com.google.firebase:firebase-messaging:10.2.6] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\firebase-messaging-10.2.6.aar\ea80ad2e2337d73f0ba9c5d4f04a09bf\AndroidManifest.xml:23:18-87
-uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [com.google.firebase:firebase-analytics:10.2.6] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\firebase-analytics-10.2.6.aar\22315f9be757df729dc4c27ea362f6ae\AndroidManifest.xml:21:5-78
-MERGED from [com.google.firebase:firebase-analytics-impl:10.2.6] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-10.2.6.aar\c022b94c7c845810650dc024840dc887\AndroidManifest.xml:21:5-78
-MERGED from [com.google.firebase:firebase-analytics-impl:10.2.6] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-10.2.6.aar\c022b94c7c845810650dc024840dc887\AndroidManifest.xml:21:5-78
-MERGED from [com.google.firebase:firebase-iid:10.2.6] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\firebase-iid-10.2.6.aar\e6d257e01894df89b41c6f7a7565c776\AndroidManifest.xml:19:5-78
-MERGED from [com.google.firebase:firebase-iid:10.2.6] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\firebase-iid-10.2.6.aar\e6d257e01894df89b41c6f7a7565c776\AndroidManifest.xml:19:5-78
-	android:name
-		ADDED from [com.google.firebase:firebase-analytics:10.2.6] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\firebase-analytics-10.2.6.aar\22315f9be757df729dc4c27ea362f6ae\AndroidManifest.xml:21:22-76
 uses-permission#android.permission.WAKE_LOCK
 ADDED from [com.google.firebase:firebase-analytics:10.2.6] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\firebase-analytics-10.2.6.aar\22315f9be757df729dc4c27ea362f6ae\AndroidManifest.xml:22:5-67
 MERGED from [com.google.firebase:firebase-analytics-impl:10.2.6] C:\Users\Admin\.gradle\caches\transforms-1\files-1.1\firebase-analytics-impl-10.2.6.aar\c022b94c7c845810650dc024840dc887\AndroidManifest.xml:22:5-67

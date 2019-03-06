@@ -26,10 +26,10 @@ export class ChangepasswordPage {
     
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ChangepasswordPage');
+ 
+  ionViewDidLeave() {
+    this.navCtrl.popToRoot();
   }
-
 
   changePasswordForm=new FormGroup({
    
