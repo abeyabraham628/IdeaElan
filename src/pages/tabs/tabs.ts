@@ -136,9 +136,8 @@ getMessages(){
 }
 
 public doChange(ev:any) {
-  if (ev.length()>1) {
-    ev.popToRoot();
-   }
+  console.log(ev.index)
+  
 }
 
 

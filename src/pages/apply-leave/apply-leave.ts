@@ -85,12 +85,13 @@ months=this.customDatePicker.getMonths()
       myCalendar.onDidDismiss((date: CalendarResult[]) => {
         if(date!=null){
         if(pickMode==='multi'){
+          
         date.sort(function (a, b) { // sorting the dates in ascending order with the time property
           return a.time - b.time;
         });
             
           let selectedDates=this.userLeave.arrangeDates(date)
-            this.leaveDates=selectedDates.date1+","+selectedDates.date2
+            this.leaveDates=selectedDates.date1+","+selectedDates.date2// header display
               this.leaveInfo.date=selectedDates.date1;
               if(selectedDates.date2.length>0)
                 this.leaveInfo.date2=selectedDates.date2;

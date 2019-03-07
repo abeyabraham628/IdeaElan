@@ -27,6 +27,7 @@ userLeaveDetails:any
 months=this.datepicker.getMonths()
 leaveRecords:any
 from:any
+
 to:any
 dateRange:any
 
@@ -39,6 +40,7 @@ dateRange:any
   ionViewDidLeave() {
     this.navCtrl.popToRoot();
   }
+  
   datePicker(pickMode){
     
   

@@ -37,7 +37,7 @@ export class LeavesAdminPage {
     
 } 
 ionViewDidLeave() {
-  this.navCtrl.popToRoot();
+  //this.navCtrl.popToRoot();
 }
 
 datePicker(pickMode){

@@ -36,7 +36,7 @@ import { NointernetPage } from '../pages/nointernet/nointernet';
   declarations: [
     MyApp,
     ChatbotPage,
-    NointernetPage
+    //NointernetPage
     
  
     
@@ -64,7 +64,7 @@ import { NointernetPage } from '../pages/nointernet/nointernet';
   entryComponents: [
     MyApp,
     ChatbotPage,
-    NointernetPage
+    //NointernetPage
     
     
   ],

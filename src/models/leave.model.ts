@@ -8,7 +8,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Injectable } from '@angular/core';
 import { AlertController,NavController } from 'ionic-angular';
 import { leave } from '@angular/core/src/profile/wtf_impl';
-
+import * as moment from 'moment'
 
 @Injectable()
 export class LeaveModel{
@@ -26,7 +26,9 @@ leaveCount={} as leaveCount
         let date2=[]
 
          date.forEach((values)=>{
-             selectedDates.push(new Date(values.time).toLocaleDateString())// Converting the time property returned from date pikcer to  dates .
+          selectedDates.push(moment(values.time).format('D-MMM-YYYY'))// Converting the time property returned from date pikcer to  dates .
+
+             //selectedDates.push(new Date(values.time).toLocaleDateString())// Converting the time property returned from date pikcer to  dates .
              this.monthNumber.push(values.months)//Taking the month number which user has selected for  leave
 
           })   
@@ -49,9 +51,9 @@ leaveCount={} as leaveCount
          
          else if(this.monthNumber.length===2){
           selectedDates.forEach(date=>{
-             if((new Date(date).getMonth()+1).toString()===this.monthNumber[0].toString())
+           if(moment(date).format('M')===this.monthNumber[0].toString())
              date1.push(date);
-            if((new Date(date).getMonth()+1).toString()==this.monthNumber[1].toString())
+            if(moment(date).format('M')===this.monthNumber[1].toString())
             date2.push(date);
            });
         }

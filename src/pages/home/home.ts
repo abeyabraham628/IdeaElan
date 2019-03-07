@@ -137,7 +137,7 @@ devicetoken : any ="abc";
  
 
   goto(page:string){
-    
+    console.log(page)
     this.navCtrl.push(page)
     
   }

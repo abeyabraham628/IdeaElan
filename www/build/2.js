@@ -79,9 +79,6 @@ var CustomDatePicker = /** @class */ (function () {
             from: from,
             to: dateLimitTo,
             defaultScrollTo: defaultScrollTo,
-            showToggleButtons: true,
-            showMonthPicker: true,
-            showYearPicker: true,
         };
         return options;
     };
@@ -119,6 +116,8 @@ var CustomDatePicker = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__ = __webpack_require__(463);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_moment__);
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -178,6 +177,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
 var LeaveModel = /** @class */ (function () {
     function LeaveModel(afauth, firebase, alert) {
         this.afauth = afauth;
@@ -194,7 +194,8 @@ var LeaveModel = /** @class */ (function () {
         var date1 = [];
         var date2 = [];
         date.forEach(function (values) {
-            selectedDates.push(new Date(values.time).toLocaleDateString()); // Converting the time property returned from date pikcer to  dates .
+            selectedDates.push(__WEBPACK_IMPORTED_MODULE_4_moment__(values.time).format('D-MMM-YYYY')); // Converting the time property returned from date pikcer to  dates .
+            //selectedDates.push(new Date(values.time).toLocaleDateString())// Converting the time property returned from date pikcer to  dates .
             _this.monthNumber.push(values.months); //Taking the month number which user has selected for  leave
         });
         this.monthNumber = this.monthNumber.filter(function (elem, i, arr) {
@@ -209,9 +210,9 @@ var LeaveModel = /** @class */ (function () {
         }
         else if (this.monthNumber.length === 2) {
             selectedDates.forEach(function (date) {
-                if ((new Date(date).getMonth() + 1).toString() === _this.monthNumber[0].toString())
+                if (__WEBPACK_IMPORTED_MODULE_4_moment__(date).format('M') === _this.monthNumber[0].toString())
                     date1.push(date);
-                if ((new Date(date).getMonth() + 1).toString() == _this.monthNumber[1].toString())
+                if (__WEBPACK_IMPORTED_MODULE_4_moment__(date).format('M') === _this.monthNumber[1].toString())
                     date2.push(date);
             });
         }
@@ -573,7 +574,7 @@ var LeavesAdminPage = /** @class */ (function () {
         this.leaveRequests = this.userLeave.viewLeaveRequest();
     }
     LeavesAdminPage.prototype.ionViewDidLeave = function () {
-        this.navCtrl.popToRoot();
+        //this.navCtrl.popToRoot();
     };
     LeavesAdminPage.prototype.datePicker = function (pickMode) {
         var _this = this;
@@ -617,7 +618,7 @@ var LeavesAdminPage = /** @class */ (function () {
     };
     LeavesAdminPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
-            selector: 'page-leaves-admin',template:/*ion-inline-start:"F:\ionic-app\src\pages\leaves-admin\leaves-admin.html"*/'<ion-header no-border>\n\n  <page-header pageTitle="LEAVE REQUESTS"></page-header>\n\n</ion-header>\n\n\n\n\n\n\n\n  <ion-content>\n\n\n\n      <ion-segment [(ngModel)]="leaves" color="white" >\n\n         <ion-segment-button value="viewLeaveRequests">\n\n            Leave Requests\n\n         </ion-segment-button>\n\n         <ion-segment-button value="leaveHistory" (click)="getEmployee()" >\n\n          History\n\n         </ion-segment-button>\n\n      </ion-segment>\n\n  <div [ngSwitch]="leaves">\n\n    <div *ngSwitchCase="\'viewLeaveRequests\'">\n\n    \n\n        \n\n        <div *ngIf="(leaveRequests.length==0)" style="text-align:center">No Leave Requests</div>\n\n      <ion-card (click)="goto(\'ApproveLeavePage\',user)" *ngFor="let user of leaveRequests">\n\n         \n\n        <ion-item>\n\n          <ion-avatar item-start>\n\n              <img src="https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/{{user.userId}}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b" onerror="this.src=\'assets/imgs/companylogo.png\'"> \n\n           <!-- <img src="assets/imgs/companylogo.png">-->\n\n          </ion-avatar>\n\n          <h2>{{user.name |  titlecase}}</h2>\n\n          <p>{{user.leaveType | titlecase}}</p>\n\n          <p>{{user.date}}</p>\n\n        </ion-item>\n\n        \n\n        \n\n      </ion-card>\n\n    \n\n\n\n    \n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'leaveHistory\'">\n\n       \n\n      <ion-item>\n\n          <ion-label>Employee Name</ion-label>\n\n        <ion-select [(ngModel)]="employeeKey">\n\n                 <ion-option *ngFor="let emp of employeeName" value="{{emp.$key}}">{{emp.fname | titlecase}} {{emp.lname | titlecase}}</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n      \n\n              <ion-item col-12>\n\n                 <ion-label floating>Select Date</ion-label>\n\n                 <ion-input type="text" [(ngModel)]="dateRange" (click)="datePicker(\'range\')" readonly></ion-input>\n\n                 <ion-icon name="calendar" item-right></ion-icon>\n\n               </ion-item>\n\n           \n\n      \n\n\n\n      \n\n      <ion-list>\n\n        \n\n          <h6 text-center class="title section-title">{{dateRange}}</h6>\n\n          <div *ngIf="(leaveRecords.length==0)" style="text-align:center">No record found</div>\n\n          <ion-list >\n\n            <ion-item *ngFor="let x of leaveRecords" style="background-color:honeydew">\n\n              <h3>{{x.leaveType | titlecase}} Leave</h3>\n\n              <h5> {{x.date}}</h5>\n\n              <h5 [ngClass]=\'x.status\'>{{x.status}}</h5>\n\n              <div *ngIf="(x.reason!=null)">\n\n                  Comments: {{x.reason}}\n\n                </div>\n\n                \n\n            </ion-item>\n\n          </ion-list>\n\n  \n\n             \n\n          </ion-list>\n\n\n\n      \n\n    </div>\n\n\n\n\n\n  </div>\n\n    \n\n  </ion-content>\n\n  \n\n '/*ion-inline-end:"F:\ionic-app\src\pages\leaves-admin\leaves-admin.html"*/,
+            selector: 'page-leaves-admin',template:/*ion-inline-start:"D:\IdeaElan\src\pages\leaves-admin\leaves-admin.html"*/'<ion-header no-border>\n\n  <page-header pageTitle="LEAVE REQUESTS"></page-header>\n\n</ion-header>\n\n\n\n\n\n\n\n  <ion-content>\n\n\n\n      <ion-segment [(ngModel)]="leaves" color="white" >\n\n         <ion-segment-button value="viewLeaveRequests">\n\n            Leave Requests\n\n         </ion-segment-button>\n\n         <ion-segment-button value="leaveHistory" (click)="getEmployee()" >\n\n          History\n\n         </ion-segment-button>\n\n      </ion-segment>\n\n  <div [ngSwitch]="leaves">\n\n    <div *ngSwitchCase="\'viewLeaveRequests\'">\n\n    \n\n        \n\n        <div *ngIf="(leaveRequests.length==0)" style="text-align:center">No Leave Requests</div>\n\n      <ion-card (click)="goto(\'ApproveLeavePage\',user)" *ngFor="let user of leaveRequests">\n\n         \n\n        <ion-item>\n\n          <ion-avatar item-start>\n\n              <img src="https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/{{user.userId}}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b" onerror="this.src=\'assets/imgs/companylogo.png\'"> \n\n           <!-- <img src="assets/imgs/companylogo.png">-->\n\n          </ion-avatar>\n\n          <h2>{{user.name |  titlecase}}</h2>\n\n          <p>{{user.leaveType | titlecase}}</p>\n\n          <p *ngFor="let x of user.date">{{x}}</p>\n\n        </ion-item>\n\n        \n\n        \n\n      </ion-card>\n\n    \n\n\n\n    \n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'leaveHistory\'">\n\n       \n\n      <ion-item>\n\n          <ion-label>Employee Name</ion-label>\n\n        <ion-select [(ngModel)]="employeeKey">\n\n                 <ion-option *ngFor="let emp of employeeName" value="{{emp.$key}}">{{emp.fname | titlecase}} {{emp.lname | titlecase}}</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n      \n\n              <ion-item col-12>\n\n                 <ion-label floating>Select Date</ion-label>\n\n                 <ion-input type="text" [(ngModel)]="dateRange" (click)="datePicker(\'range\')" readonly></ion-input>\n\n                 <ion-icon name="calendar" item-right></ion-icon>\n\n               </ion-item>\n\n           \n\n      \n\n\n\n      \n\n      <ion-list>\n\n        \n\n          <h6 text-center class="title section-title">{{dateRange}}</h6>\n\n          <div *ngIf="(leaveRecords.length==0)" style="text-align:center">No record found</div>\n\n          <ion-list >\n\n            <ion-item *ngFor="let x of leaveRecords" style="background-color:honeydew">\n\n              <h3>{{x.leaveType | titlecase}} Leave</h3>\n\n              <h5> {{x.date}}</h5>\n\n              <h5 [ngClass]=\'x.status\'>{{x.status}}</h5>\n\n              <div *ngIf="(x.reason!=null)">\n\n                  Comments: {{x.reason}}\n\n                </div>\n\n                \n\n            </ion-item>\n\n          </ion-list>\n\n  \n\n             \n\n          </ion-list>\n\n\n\n      \n\n    </div>\n\n\n\n\n\n  </div>\n\n    \n\n  </ion-content>\n\n  \n\n '/*ion-inline-end:"D:\IdeaElan\src\pages\leaves-admin\leaves-admin.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1__models_leave_model__["a" /* LeaveModel */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_4__models_employee_model__["a" /* Employee */], __WEBPACK_IMPORTED_MODULE_0__models_datepicker__["a" /* CustomDatePicker */]])
     ], LeavesAdminPage);

@@ -35727,6 +35727,15 @@ ion-navbar.toolbar {
   border-bottom: 5px solid #f6a253;
 }
 
+.ionImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 200px;
+  background: transparent !important;
+}
+
 .pending {
   color: orange;
 }
@@ -35821,14 +35830,6 @@ button ion-badge {
 
 .alert-title {
   text-transform: capitalize;
-}
-
-.logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 200px;
-  height: 200px;
 }
 
 .input-border {

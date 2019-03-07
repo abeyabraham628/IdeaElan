@@ -28,7 +28,7 @@
           </ion-avatar>
           <h2>{{user.name |  titlecase}}</h2>
           <p>{{user.leaveType | titlecase}}</p>
-          <p>{{user.date}}</p>
+          <p *ngFor="let x of user.date">{{x}}</p>
         </ion-item>
         
         
