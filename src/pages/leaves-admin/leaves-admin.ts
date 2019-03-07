@@ -4,6 +4,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavParams, ModalController, NavController } from 'ionic-angular';
 import { Employee } from '../../models/employee.model';
 import { CalendarModal,CalendarResult} from "ion2-calendar";
+import { BehaviorSubject } from 'rxjs';
 
 
 /**
@@ -28,6 +29,7 @@ export class LeavesAdminPage {
   from:any
   to:any
   leaveRecords:any=[]
+  public waitForPop: BehaviorSubject<boolean> = new BehaviorSubject(true);
   constructor(public navCtrl:NavController,private userLeave:LeaveModel,public modalCtrl:ModalController,public navParams: NavParams,private empDetails:Employee,private customDatePicker: CustomDatePicker) {
     this.leaves='viewLeaveRequests';
     this.leaveRequests=this.userLeave.viewLeaveRequest()
@@ -36,9 +38,7 @@ export class LeavesAdminPage {
     
     
 } 
-ionViewDidLeave() {
-  //this.navCtrl.popToRoot();
-}
+
 
 datePicker(pickMode){
     
@@ -69,11 +69,21 @@ datePicker(pickMode){
 
     }// end of datepicker function
    
-    goto(page:string,data?:object){
-      this.navCtrl.push(page,{"userDetails":data});
+     goto(page:string,data?:object){
+       
+       this.waitForPop.next(false);
+      this.navCtrl.push(page,{"userDetails":data})
     }
 
-  
+
+
+    ionViewDidLeave() {
+      this.waitForPop.subscribe((ok) => { 
+        if (ok) {
+          this.navCtrl.popToRoot()  
+        } 
+     });
+}
 
   async getEmployee(){
     this.employeeName=[]

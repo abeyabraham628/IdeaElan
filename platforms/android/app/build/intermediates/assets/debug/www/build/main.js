@@ -4,47 +4,20 @@ webpackJsonp([18],{
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NointernetPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_strings__ = __webpack_require__(466);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppConst; });
+var AppConst = {
+    logo: "assets/images/companylogo.png",
+    offline: "assets/images/offline.png",
+    FirebaseError: [
+        { code: 'auth/argument-error', error: 'Invalid Email Id or Password' },
+        { code: 'auth/user-not-found', error: 'Invalid Email Id or Password' },
+        { code: 'auth/wrong-password', error: 'Invalid Email Id or Password' },
+        { code: 'auth/network-request-failed', error: 'Network timeout' },
+        { code: 'auth/invalid-email', error: 'Invalid Email Id' },
+        { code: 'auth/user-not-found-email', error: 'Invalid Email Id' }
+    ]
 };
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-/**
- * Generated class for the NointernetPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var NointernetPage = /** @class */ (function () {
-    function NointernetPage(navCtrl, navParams) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.imgUri = __WEBPACK_IMPORTED_MODULE_2__providers_strings__["a" /* AppConst */].noInternet;
-    }
-    NointernetPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad NointernetPage');
-    };
-    NointernetPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-nointernet',template:/*ion-inline-start:"F:\ionic-app\src\pages\nointernet\nointernet.html"*/'<!--\n  Generated template for the NointernetPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n<ion-content padding>\n  <img src="imgUri"/>\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\nointernet\nointernet.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"]])
-    ], NointernetPage);
-    return NointernetPage;
-}());
-
-//# sourceMappingURL=nointernet.js.map
+//# sourceMappingURL=strings.js.map
 
 /***/ }),
 
@@ -70,75 +43,75 @@ webpackEmptyAsyncContext.id = 226;
 
 var map = {
 	"../pages/apply-leave/apply-leave.module": [
-		723,
+		724,
 		5
 	],
 	"../pages/approve-leave/approve-leave.module": [
-		724,
+		725,
 		4
 	],
 	"../pages/changepassword/changepassword.module": [
-		725,
+		726,
 		16
 	],
 	"../pages/forgotpassword/forgotpassword.module": [
-		726,
+		727,
 		15
 	],
 	"../pages/home/home.module": [
-		727,
+		728,
 		14
 	],
 	"../pages/inbox/inbox.module": [
-		728,
+		729,
 		13
 	],
 	"../pages/interview-details/interview-details.module": [
-		729,
+		730,
 		12
 	],
 	"../pages/interview-summary/interview-summary.module": [
-		730,
+		731,
 		11
 	],
 	"../pages/leaves-admin/leaves-admin.module": [
-		731,
+		732,
 		2
 	],
 	"../pages/login/login.module": [
-		732,
+		733,
 		10
 	],
 	"../pages/newuser/newuser.module": [
-		740,
+		741,
 		0
 	],
 	"../pages/nointernet/nointernet.module": [
-		733,
+		734,
 		17
 	],
 	"../pages/payslip/payslip.module": [
-		734,
+		735,
 		9
 	],
 	"../pages/policy/policy.module": [
-		735,
+		736,
 		8
 	],
 	"../pages/recruitment/recruitment.module": [
-		736,
+		737,
 		7
 	],
 	"../pages/systems/systems.module": [
-		737,
+		738,
 		3
 	],
 	"../pages/tabs/tabs.module": [
-		738,
+		739,
 		1
 	],
 	"../pages/upload-events/upload-events.module": [
-		739,
+		740,
 		6
 	]
 };
@@ -166,6 +139,7 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__page_header_page_header__ = __webpack_require__(627);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__offline_offline__ = __webpack_require__(628);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -175,14 +149,17 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
+
 var ComponentsModule = /** @class */ (function () {
     function ComponentsModule() {
     }
     ComponentsModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
-            declarations: [__WEBPACK_IMPORTED_MODULE_1__page_header_page_header__["a" /* PageHeaderComponent */]],
+            declarations: [__WEBPACK_IMPORTED_MODULE_1__page_header_page_header__["a" /* PageHeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_3__offline_offline__["a" /* OfflineComponent */]],
             imports: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["IonicModule"]],
-            exports: [__WEBPACK_IMPORTED_MODULE_1__page_header_page_header__["a" /* PageHeaderComponent */]]
+            exports: [__WEBPACK_IMPORTED_MODULE_1__page_header_page_header__["a" /* PageHeaderComponent */],
+                __WEBPACK_IMPORTED_MODULE_3__offline_offline__["a" /* OfflineComponent */]]
         })
     ], ComponentsModule);
     return ComponentsModule;
@@ -192,28 +169,7 @@ var ComponentsModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 466:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppConst; });
-var AppConst = {
-    logo: "assets/imgs/companylogo.png",
-    noInternet: "assets/images/no-internet.png",
-    FirebaseError: [
-        { code: 'auth/argument-error', error: 'Invalid Email Id or Password' },
-        { code: 'auth/user-not-found', error: 'Invalid Email Id or Password' },
-        { code: 'auth/wrong-password', error: 'Invalid Email Id or Password' },
-        { code: 'auth/network-request-failed', error: 'Network timeout' },
-        { code: 'auth/invalid-email', error: 'Invalid Email Id' },
-        { code: 'auth/user-not-found-email', error: 'Invalid Email Id' }
-    ]
-};
-//# sourceMappingURL=strings.js.map
-
-/***/ }),
-
-/***/ 469:
+/***/ 468:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -262,7 +218,7 @@ var ChatbotPage = /** @class */ (function () {
     };
     ChatbotPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-chatbot',template:/*ion-inline-start:"F:\ionic-app\src\pages\chatbot\chatbot.html"*/'\n<ion-header no-border>\n  <page-header pageTitle="CHATBOT"></page-header>\n</ion-header>\n\n<ion-content padding >\n\n  <ion-input type="text" [(ngModel)]="question" hidden=true></ion-input>\n\n  <button ion-button (click)="ask(question)" hidden=true>Ask</button>\n\n  \n\n\n \n\n\n  <p text-center *ngIf="sending">sending...</p>\n  <div *ngFor="let q of questions" style="left:0px" >\n    <label name="title" class="msgClass">{{q.question}}</label>\n     \n  </div>\n\n  <div *ngFor="let q of answer"  class="msgClass" style="right:0px;position: relative; text-align: right; background-color: honeydew ">\n      <label name="title" style="display:inline-flex">{{q.answer}}</label>\n  \n</div>\n \n \n</ion-content>\n\n<ion-footer>\n    <ion-item>\n    <ion-input [(ngModel)]="question" name="message" class="input_message" placeholder="Ask me anything"></ion-input>\n    <button ion-button (click)="ask(question)" item-right  color="orange"> <ion-icon  name="send" ></ion-icon></button>\n   \n  </ion-item>\n</ion-footer>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\chatbot\chatbot.html"*/,
+            selector: 'page-chatbot',template:/*ion-inline-start:"f:\ionic-app\src\pages\chatbot\chatbot.html"*/'\n<ion-header no-border>\n  <page-header pageTitle="CHATBOT"></page-header>\n</ion-header>\n\n<ion-content padding >\n\n  <ion-input type="text" [(ngModel)]="question" hidden=true></ion-input>\n\n  <button ion-button (click)="ask(question)" hidden=true>Ask</button>\n\n  \n\n\n \n\n\n  <p text-center *ngIf="sending">sending...</p>\n  <div *ngFor="let q of questions" style="left:0px" >\n    <label name="title" class="msgClass">{{q.question}}</label>\n     \n  </div>\n\n  <div *ngFor="let q of answer"  class="msgClass" style="right:0px;position: relative; text-align: right; background-color: honeydew ">\n      <label name="title" style="display:inline-flex">{{q.answer}}</label>\n  \n</div>\n \n \n</ion-content>\n\n<ion-footer>\n    <ion-item>\n    <ion-input [(ngModel)]="question" name="message" class="input_message" placeholder="Ask me anything"></ion-input>\n    <button ion-button (click)="ask(question)" item-right  color="orange"> <ion-icon  name="send" ></ion-icon></button>\n   \n  </ion-item>\n</ion-footer>\n\n'/*ion-inline-end:"f:\ionic-app\src\pages\chatbot\chatbot.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Platform"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]])
     ], ChatbotPage);
@@ -270,6 +226,55 @@ var ChatbotPage = /** @class */ (function () {
 }());
 
 //# sourceMappingURL=chatbot.js.map
+
+/***/ }),
+
+/***/ 472:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NointernetPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_strings__ = __webpack_require__(192);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+/**
+ * Generated class for the NointernetPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var NointernetPage = /** @class */ (function () {
+    function NointernetPage(navCtrl, navParams) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.offline = __WEBPACK_IMPORTED_MODULE_2__providers_strings__["a" /* AppConst */].offline;
+        this.x = false;
+    }
+    NointernetPage.prototype.ionViewWillLeave = function () {
+        return false;
+    };
+    NointernetPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-nointernet',template:/*ion-inline-start:"f:\ionic-app\src\pages\nointernet\nointernet.html"*/'<!--\n\n  Generated template for the NointernetPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n<ion-content padding>\n\n  \n\n  <img class="ionImage" [src]="offline">\n\n  <ion-list>\n\n    <ion-thumbnail >\n\n    \n\n      \n\n    </ion-thumbnail>\n\n</ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"f:\ionic-app\src\pages\nointernet\nointernet.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"]])
+    ], NointernetPage);
+    return NointernetPage;
+}());
+
+//# sourceMappingURL=nointernet.js.map
 
 /***/ }),
 
@@ -293,32 +298,32 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_screen_orientation__ = __webpack_require__(227);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_chatbot_chatbot__ = __webpack_require__(469);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_chatbot_chatbot__ = __webpack_require__(468);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__ = __webpack_require__(473);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_splash_screen__ = __webpack_require__(459);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__ = __webpack_require__(460);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_common_http__ = __webpack_require__(711);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_http__ = __webpack_require__(718);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_date_picker__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_common_http__ = __webpack_require__(712);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_http__ = __webpack_require__(719);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_date_picker__ = __webpack_require__(467);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_forms__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_common__ = __webpack_require__(48);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_firebase__ = __webpack_require__(719);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_firebase__ = __webpack_require__(720);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_fire_database__ = __webpack_require__(462);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_fire__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_fire_auth__ = __webpack_require__(463);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ion2_calendar__ = __webpack_require__(465);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ion2_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17_ion2_calendar__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__app_component__ = __webpack_require__(720);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_firebase_service__ = __webpack_require__(721);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_fcm__ = __webpack_require__(472);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_storage__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__app_component__ = __webpack_require__(721);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_firebase_service__ = __webpack_require__(722);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_fcm__ = __webpack_require__(471);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_storage__ = __webpack_require__(466);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_components_module__ = __webpack_require__(464);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_page_tite_service__ = __webpack_require__(722);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_page_tite_service__ = __webpack_require__(723);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ionic_native_network__ = __webpack_require__(461);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_nointernet_nointernet__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__pages_nointernet_nointernet__ = __webpack_require__(472);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -455,7 +460,7 @@ var PageHeaderComponent = /** @class */ (function () {
     PageHeaderComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-header',
-            template: "  <ion-toolbar color=\"blue\" hideBackButton=\"true\">\n                    <button ion-button  menuToggle=\"left\" start>\n                        <ion-icon name=\"menu\"></ion-icon>\n                    </button>\n                    \n                    <ion-title text-center>{{this.pageTitle}}</ion-title>\n\n                    <ion-buttons end>\n                      <button ion-button >\n                        <ion-icon name=\"notifications\"></ion-icon> \n                      </button> \n                    </ion-buttons>\n                    \n                </ion-toolbar>"
+            template: "  <ion-toolbar color=\"blue\" hideBackButton=\"true\">\n                    <button ion-button  menuToggle=\"left\" start>\n                        <ion-icon name=\"menu\"></ion-icon>\n                    </button>\n                    \n                    <ion-title text-center>{{this.pageTitle}}</ion-title>\n\n                   \n                    \n                </ion-toolbar>"
         }),
         __metadata("design:paramtypes", [])
     ], PageHeaderComponent);
@@ -467,6 +472,48 @@ var PageHeaderComponent = /** @class */ (function () {
 /***/ }),
 
 /***/ 628:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OfflineComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_strings__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+/**
+ * Generated class for the OfflineComponent component.
+ *
+ * See https://angular.io/api/core/Component for more info on Angular
+ * Components.
+ */
+var OfflineComponent = /** @class */ (function () {
+    function OfflineComponent() {
+        this.offline = __WEBPACK_IMPORTED_MODULE_0__providers_strings__["a" /* AppConst */].offline;
+    }
+    OfflineComponent = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
+            selector: 'offline',
+            template: "  <ion-content padding class=\"login\">\n                <ion-list style=\"text-align:center\">\n                <img class=\"ionImage\" [src]=\"offline\">\n                <hr>\n                \n                <h3>WHOOPS!</h3>\n                <h5>Slow or no internet connection.</h5>\n                <h5>Please check your internet setting.</h5>\n                </ion-list>\n              \n              </ion-content>"
+        }),
+        __metadata("design:paramtypes", [])
+    ], OfflineComponent);
+    return OfflineComponent;
+}());
+
+//# sourceMappingURL=offline.js.map
+
+/***/ }),
+
+/***/ 629:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
@@ -739,11 +786,11 @@ webpackContext.keys = function webpackContextKeys() {
 };
 webpackContext.resolve = webpackContextResolve;
 module.exports = webpackContext;
-webpackContext.id = 628;
+webpackContext.id = 629;
 
 /***/ }),
 
-/***/ 720:
+/***/ 721:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -753,8 +800,7 @@ webpackContext.id = 628;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(460);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(459);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_network__ = __webpack_require__(461);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_nointernet_nointernet__ = __webpack_require__(192);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__ = __webpack_require__(227);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__ = __webpack_require__(227);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -770,48 +816,89 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 var MyApp = /** @class */ (function () {
-    function MyApp(screenOrientation, network, app, platform, statusBar, splashScreen, alertCtrl) {
+    function MyApp(zone, screenOrientation, network, app, platform, statusBar, splashScreen, alertCtrl) {
         var _this = this;
+        this.zone = zone;
         this.screenOrientation = screenOrientation;
         this.network = network;
         this.app = app;
         this.platform = platform;
         this.alertCtrl = alertCtrl;
+        this.isOffline = false;
+        this.showOffline = true;
         this.rootPage = 'LoginPage'; //'ApplyLeavePage';//CompanyPolicyComponent;//HomePage
+        this.alertShown = false;
+        this.checkConnection();
+        this.checkDisconnection();
         this.platform.ready().then(function () {
             _this.screenOrientation.lock(_this.screenOrientation.ORIENTATIONS.PORTRAIT);
-            _this.checkDisconnection();
             statusBar.styleDefault();
             splashScreen.hide();
+            _this.platform.registerBackButtonAction(function () {
+                if (_this.alertShown == false) {
+                    _this.presentConfirm();
+                }
+            }, 0);
         });
     }
     MyApp.prototype.checkDisconnection = function () {
         var _this = this;
         var disconnectSubscription = this.network.onDisconnect().subscribe(function () {
+            _this.zone.run(function () {
+                _this.isOffline = true;
+                _this.showOffline = false;
+            });
             _this.checkConnection();
             disconnectSubscription.unsubscribe();
-            var view = _this.navCtrl.getActive();
-            _this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_5__pages_nointernet_nointernet__["a" /* NointernetPage */]);
         });
     };
     MyApp.prototype.checkConnection = function () {
         var _this = this;
         var connectSubscription = this.network.onConnect().subscribe(function () {
             _this.checkDisconnection();
+            _this.zone.run(function () {
+                _this.isOffline = false;
+                _this.showOffline = true;
+            });
             connectSubscription.unsubscribe();
-            _this.navCtrl.pop();
+        });
+    };
+    MyApp.prototype.presentConfirm = function () {
+        var _this = this;
+        var alert = this.alertCtrl.create({
+            title: 'Confirm Exit',
+            message: 'Do you want Exit?',
+            buttons: [
+                {
+                    text: 'Cancel',
+                    role: 'cancel',
+                    handler: function () {
+                        console.log('Cancel clicked');
+                        _this.alertShown = false;
+                    }
+                },
+                {
+                    text: 'Yes',
+                    handler: function () {
+                        console.log('Yes clicked');
+                        _this.platform.exitApp();
+                    }
+                }
+            ]
+        });
+        alert.present().then(function () {
+            _this.alertShown = true;
         });
     };
     __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('tony'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Nav"])
-    ], MyApp.prototype, "navCtrl", void 0);
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('nav'),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"])
+    ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"F:\ionic-app\src\app\app.html"*/'\n\n  <ion-nav #tony [root]="rootPage"></ion-nav>\n\n'/*ion-inline-end:"F:\ionic-app\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"f:\ionic-app\src\app\app.html"*/'\n\n  <offline [hidden]=showOffline></offline>\n\n  \n\n  <ion-nav nav [root]="rootPage" [hidden]="isOffline "></ion-nav>\n\n'/*ion-inline-end:"f:\ionic-app\src\app\app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6__ionic_native_screen_orientation__["a" /* ScreenOrientation */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_network__["a" /* Network */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["App"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Platform"], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"], __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__["a" /* ScreenOrientation */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_network__["a" /* Network */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["App"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Platform"], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"]])
     ], MyApp);
     return MyApp;
 }());
@@ -820,7 +907,7 @@ var MyApp = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 721:
+/***/ 722:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -837,7 +924,7 @@ var FIREBASE_CONFIG = {
 
 /***/ }),
 
-/***/ 722:
+/***/ 723:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";

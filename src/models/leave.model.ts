@@ -6,7 +6,7 @@ import { leaves,leaveCount } from '../providers/user-leaves';
 import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Injectable } from '@angular/core';
-import { AlertController,NavController } from 'ionic-angular';
+import { AlertController, NavController, LoadingController } from 'ionic-angular';
 import { leave } from '@angular/core/src/profile/wtf_impl';
 import * as moment from 'moment'
 
@@ -15,10 +15,13 @@ export class LeaveModel{
 monthNumber:number[]=[]
 leave={} as leaves
 leaveCount={} as leaveCount
+loader:any
+loader1:any
 
-
-  constructor(private afauth:AngularFireAuth,private firebase:AngularFireDatabase,private alert:AlertController){}
-
+  constructor( public loadingCtrl:LoadingController,private afauth:AngularFireAuth,private firebase:AngularFireDatabase,private alert:AlertController){
+   
+  }
+  
    arrangeDates(date:any){
         
         let selectedDates=[]
@@ -124,7 +127,12 @@ leaveCount={} as leaveCount
       pastLeaves=[]
   
        getPastLeaves(userId,dateFrom?,dateTo?){
-       
+        this.loader=this.loadingCtrl.create({
+          spinner:'dots',
+          content:'Loading',
+           dismissOnPageChange:true
+         })
+       this.loader.present()
             var pastLeaves=[]
             var flag:boolean=false
             this.firebase.database.ref(`EmployeeLeaves`).orderByChild(`userId`).equalTo(`${userId}`).once('value',(snap)=>{
@@ -192,7 +200,7 @@ leaveCount={} as leaveCount
      
 
       
-
+       this.loader.dismiss()
        return this.pastLeaves=pastLeaves.reverse()
          
         
@@ -201,7 +209,12 @@ leaveCount={} as leaveCount
    }//end of function
     
      async getRemainingLeaves(userId){
-     
+      this.loader1=this.loadingCtrl.create({
+        spinner:'dots',
+        content:'Loading',
+         dismissOnPageChange:true
+       })
+      this.loader1.present()
      let remaininingLeaves=[]
      let count:number=0
      let casual:any
@@ -235,12 +248,19 @@ leaveCount={} as leaveCount
                   
                       
                 //})//end of then
+                this.loader1.dismiss()
                 return (remaininingLeaves)
                 
    }
 
    
    viewLeaveRequest(){
+    this.loader=this.loadingCtrl.create({
+      spinner:'dots',
+      content:'Loading',
+       dismissOnPageChange:true
+     })
+    this.loader.present()
     let leaveRequests=[]
       
    this.firebase.database.ref(`EmployeeLeaves`).orderByChild('status').equalTo('pending').on("value", (snap)=> {
@@ -252,7 +272,7 @@ leaveCount={} as leaveCount
          })
          
      })
-   
+     this.loader.dismiss()
      return leaveRequests.reverse()
     
    }

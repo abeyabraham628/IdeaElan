@@ -2,7 +2,7 @@ import { map } from 'rxjs/operators';
 import { Firebase } from '@ionic-native/firebase';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams,AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import {FormControl,FormGroup,Validators}from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Designations } from '../../providers/designations';
@@ -24,9 +24,9 @@ export class UploadEventsPage {
 
   designations=Designations
   messages:string
+  loader:any
 
-
-  constructor(public alert:AlertController,public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public afauth:AngularFireAuth) {
+  constructor(public loadingCtrl:LoadingController,public alertCtrl:AlertController,public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public afauth:AngularFireAuth) {
     this.messages="compose"
   }
 
@@ -89,6 +89,15 @@ async publishMessage(){
      'subject':this.PublishMessageForm.controls['subject'].value,
      'time':this.PublishMessageForm.controls['time'].value
     })
+
+    let alert = this.alertCtrl.create({
+      title: "Success",
+      subTitle: "System updated succesfuly ",
+      buttons: ['OK']
+    });
+    
+    alert.present();
+  
  
   }
 
@@ -99,7 +108,7 @@ async publishMessage(){
  recipients=[]
  addRecipients(){
    
-  let alert = this.alert.create();
+  let alert = this.alertCtrl.create();
   alert.setTitle('Choose Recipients');
   alert.addInput({
     type: 'checkbox',
@@ -129,6 +138,12 @@ async publishMessage(){
 
 sentItems=[]
  getSentItems(){
+  this.loader=this.loadingCtrl.create({
+    spinner:'dots',
+    content:'Loading',
+     dismissOnPageChange:true
+   })
+  this.loader.present()
     this.firebase.list(`sentmessages/${this.afauth.auth.currentUser.uid}`).snapshotChanges().subscribe(snap=>{
         this.sentItems=snap.map(items=>{
           return{
@@ -137,12 +152,12 @@ sentItems=[]
           }
         }).reverse()
     })
-        
+    this.loader.dismiss()  
  }
 
 
  viewMessage(message) {
-  const alert = this.alert.create({
+  const alert = this.alertCtrl.create({
     title: "Subject: "+message.subject,
     subTitle:"Recipients: "+message.recipients,
     message:"Message: "+message.message,

@@ -4,7 +4,7 @@ import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 import { DatePicker } from '@ionic-native/date-picker';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Component } from '@angular/core';
-import { IonicPage, AlertController, ModalController, NavController } from 'ionic-angular';
+import { IonicPage, AlertController, ModalController, NavController, LoadingController } from 'ionic-angular';
 import {FormControl, FormGroup,Validators} from '@angular/forms'
 import { CustomDatePicker } from '../../models/datepicker';
 import { CalendarModal,CalendarResult} from "ion2-calendar";
@@ -25,7 +25,7 @@ import * as moment from 'moment'
   templateUrl: 'systems.html',
 })
 export class SystemsPage {
-
+  loader:any;
   Save="Save"
     
     systemsForm= new FormGroup({
@@ -46,10 +46,11 @@ export class SystemsPage {
   
 
  systems:string;
-  constructor(public navCtrl:NavController,public modalCtrl:ModalController,public customDatePicker:CustomDatePicker ,public alertCtrl:AlertController,private barcode:BarcodeScanner,private datePicker:DatePicker,private firebase:AngularFireDatabase) {
+  constructor(public loadingCtrl:LoadingController,public navCtrl:NavController,public modalCtrl:ModalController,public customDatePicker:CustomDatePicker ,public alertCtrl:AlertController,private barcode:BarcodeScanner,private datePicker:DatePicker,private firebase:AngularFireDatabase) {
   this.systems="newSystem";
  this.getSystemList();
 }
+
 
 ionViewDidLeave() {
   this.navCtrl.popToRoot();
@@ -65,6 +66,12 @@ getSystemList(){
 
 systemArray=[];
 getSystems(){
+  this.loader=this.loadingCtrl.create({
+    spinner:'dots',
+    content:'Loading',
+     dismissOnPageChange:true
+   })
+  this.loader.present()
   this.systemsForm.reset();
 this.getSystemList().subscribe(
   list=>{
@@ -77,6 +84,7 @@ this.getSystemList().subscribe(
     });
   
   });
+  this.loader.dismiss()
 }
 
 loadForm(systems){

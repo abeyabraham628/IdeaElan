@@ -16,11 +16,7 @@ import { Component, Input } from '@angular/core';
                     
                     <ion-title text-center>{{this.pageTitle}}</ion-title>
 
-                    <ion-buttons end>
-                      <button ion-button >
-                        <ion-icon name="notifications"></ion-icon> 
-                      </button> 
-                    </ion-buttons>
+                   
                     
                 </ion-toolbar>`
     

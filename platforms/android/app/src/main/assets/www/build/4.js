@@ -1,22 +1,24 @@
 webpackJsonp([4],{
 
-/***/ 724:
+/***/ 725:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ApproveLeavePageModule", function() { return ApproveLeavePageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_leave_model__ = __webpack_require__(749);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_datepicker__ = __webpack_require__(745);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_leave_model__ = __webpack_require__(750);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_datepicker__ = __webpack_require__(746);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__approve_leave__ = __webpack_require__(822);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__approve_leave__ = __webpack_require__(823);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(464);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -33,6 +35,7 @@ var ApproveLeavePageModule = /** @class */ (function () {
             providers: [__WEBPACK_IMPORTED_MODULE_1__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_0__models_leave_model__["a" /* LeaveModel */]],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_4__approve_leave__["a" /* ApproveLeavePage */]),
+                __WEBPACK_IMPORTED_MODULE_5__components_components_module__["a" /* ComponentsModule */]
             ],
         })
     ], ApproveLeavePageModule);
@@ -43,7 +46,7 @@ var ApproveLeavePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 745:
+/***/ 746:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -74,9 +77,6 @@ var CustomDatePicker = /** @class */ (function () {
             from: from,
             to: dateLimitTo,
             defaultScrollTo: defaultScrollTo,
-            showToggleButtons: true,
-            showMonthPicker: true,
-            showYearPicker: true,
         };
         return options;
     };
@@ -105,7 +105,7 @@ var CustomDatePicker = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 749:
+/***/ 750:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -114,6 +114,8 @@ var CustomDatePicker = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__ = __webpack_require__(463);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_moment__);
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -173,8 +175,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
 var LeaveModel = /** @class */ (function () {
-    function LeaveModel(afauth, firebase, alert) {
+    function LeaveModel(loadingCtrl, afauth, firebase, alert) {
+        this.loadingCtrl = loadingCtrl;
         this.afauth = afauth;
         this.firebase = firebase;
         this.alert = alert;
@@ -189,7 +193,8 @@ var LeaveModel = /** @class */ (function () {
         var date1 = [];
         var date2 = [];
         date.forEach(function (values) {
-            selectedDates.push(new Date(values.time).toLocaleDateString()); // Converting the time property returned from date pikcer to  dates .
+            selectedDates.push(__WEBPACK_IMPORTED_MODULE_4_moment__(values.time).format('D-MMM-YYYY')); // Converting the time property returned from date pikcer to  dates .
+            //selectedDates.push(new Date(values.time).toLocaleDateString())// Converting the time property returned from date pikcer to  dates .
             _this.monthNumber.push(values.months); //Taking the month number which user has selected for  leave
         });
         this.monthNumber = this.monthNumber.filter(function (elem, i, arr) {
@@ -204,9 +209,9 @@ var LeaveModel = /** @class */ (function () {
         }
         else if (this.monthNumber.length === 2) {
             selectedDates.forEach(function (date) {
-                if ((new Date(date).getMonth() + 1).toString() === _this.monthNumber[0].toString())
+                if (__WEBPACK_IMPORTED_MODULE_4_moment__(date).format('M') === _this.monthNumber[0].toString())
                     date1.push(date);
-                if ((new Date(date).getMonth() + 1).toString() == _this.monthNumber[1].toString())
+                if (__WEBPACK_IMPORTED_MODULE_4_moment__(date).format('M') === _this.monthNumber[1].toString())
                     date2.push(date);
             });
         }
@@ -267,6 +272,12 @@ var LeaveModel = /** @class */ (function () {
         });
     }; //end os submit leave request function
     LeaveModel.prototype.getPastLeaves = function (userId, dateFrom, dateTo) {
+        this.loader = this.loadingCtrl.create({
+            spinner: 'dots',
+            content: 'Loading',
+            dismissOnPageChange: true
+        });
+        this.loader.present();
         var pastLeaves = [];
         var flag = false;
         this.firebase.database.ref("EmployeeLeaves").orderByChild("userId").equalTo("" + userId).once('value', function (snap) {
@@ -307,6 +318,7 @@ var LeaveModel = /** @class */ (function () {
                 });
             }
         }); //end of database ref
+        this.loader.dismiss();
         return this.pastLeaves = pastLeaves.reverse();
     }; //end of function
     LeaveModel.prototype.getRemainingLeaves = function (userId) {
@@ -315,6 +327,12 @@ var LeaveModel = /** @class */ (function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
+                        this.loader1 = this.loadingCtrl.create({
+                            spinner: 'dots',
+                            content: 'Loading',
+                            dismissOnPageChange: true
+                        });
+                        this.loader1.present();
                         remaininingLeaves = [];
                         count = 0;
                         return [4 /*yield*/, this.firebase.database.ref("AvailableLeaves/" + new Date().getFullYear() + "/" + userId).once('value', function (snapshot) {
@@ -344,18 +362,26 @@ var LeaveModel = /** @class */ (function () {
                     case 2:
                         _a.sent(); //end of snap
                         //})//end of then
+                        this.loader1.dismiss();
                         return [2 /*return*/, (remaininingLeaves)];
                 }
             });
         });
     };
     LeaveModel.prototype.viewLeaveRequest = function () {
+        this.loader = this.loadingCtrl.create({
+            spinner: 'dots',
+            content: 'Loading',
+            dismissOnPageChange: true
+        });
+        this.loader.present();
         var leaveRequests = [];
         this.firebase.database.ref("EmployeeLeaves").orderByChild('status').equalTo('pending').on("value", function (snap) {
             snap.forEach(function (child) {
                 leaveRequests.push(__assign({ $key: child.key }, child.val()));
             });
         });
+        this.loader.dismiss();
         return leaveRequests.reverse();
     };
     LeaveModel.prototype.saveLeaveStatus = function (data, leaveCount, status, reason) {
@@ -376,7 +402,7 @@ var LeaveModel = /** @class */ (function () {
     };
     LeaveModel = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["AlertController"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["LoadingController"], __WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["AlertController"]])
     ], LeaveModel);
     return LeaveModel;
 }()); // end of class
@@ -385,17 +411,20 @@ var LeaveModel = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 822:
+/***/ 823:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ApproveLeavePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_leave_model__ = __webpack_require__(749);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_datepicker__ = __webpack_require__(745);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_leave_model__ = __webpack_require__(750);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_datepicker__ = __webpack_require__(746);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ion2_calendar__ = __webpack_require__(465);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ion2_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ion2_calendar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_moment__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -405,6 +434,8 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
+
 
 
 
@@ -426,12 +457,19 @@ var ApproveLeavePage = /** @class */ (function () {
         this.navParams = navParams;
         this.leaveCount = {};
         this.months = this.datepicker.getMonths();
+        this.dateRange = "This month leaves";
+        this.waitForPop = new __WEBPACK_IMPORTED_MODULE_5_rxjs__["BehaviorSubject"](true);
         this.userLeaveDetails = this.navParams.get('userDetails');
         this.userRemainingLeaves(this.userLeaveDetails.userId);
         this.leaveRecords = this.userLeave.getPastLeaves(this.userLeaveDetails.userId);
     }
     ApproveLeavePage.prototype.ionViewDidLeave = function () {
-        this.navCtrl.popToRoot();
+        var _this = this;
+        this.waitForPop.subscribe(function (ok) {
+            if (ok) {
+                _this.navCtrl.popToRoot();
+            }
+        });
     };
     ApproveLeavePage.prototype.datePicker = function (pickMode) {
         var _this = this;
@@ -444,12 +482,10 @@ var ApproveLeavePage = /** @class */ (function () {
         myCalendar.present();
         myCalendar.onDidDismiss(function (date) {
             if (date != null) {
-                var from_1 = date['from'].string.split('-');
-                var to = date['to'].string.split('-');
-                _this.from = date['from'].time;
-                _this.to = date['to'].time;
-                _this.dateRange = from_1[2] + "-" + from_1[1] + "-" + from_1[0] + " to " + to[2] + "-" + to[1] + "-" + to[0];
-                _this.leaveHistory();
+                var from_1 = __WEBPACK_IMPORTED_MODULE_6_moment__(date['from'].string).format('D/MMM/YYYY');
+                var to = __WEBPACK_IMPORTED_MODULE_6_moment__(date['to'].string).format('D/MMM/YYYY');
+                _this.dateRange = from_1 + " to " + to;
+                _this.leaveHistory(date['from'].time, date['to'].time);
             }
         });
     }; // end of datepicker function
@@ -463,6 +499,10 @@ var ApproveLeavePage = /** @class */ (function () {
             });
         }
     };
+    ApproveLeavePage.prototype.goBack = function () {
+        this.waitForPop.next(false);
+        this.navCtrl.push('LeavesAdminPage');
+    };
     ApproveLeavePage.prototype.showConfirm = function (data, status) {
         var _this = this;
         var confirm = this.alertCtrl.create({
@@ -472,7 +512,8 @@ var ApproveLeavePage = /** @class */ (function () {
                 {
                     text: 'Yes',
                     handler: function () {
-                        _this.userLeave.saveLeaveStatus(data, _this.leaveCount, status);
+                        _this.userLeave.saveLeaveStatus(data, _this.leaveCount, status),
+                            _this.goBack();
                     }
                 },
                 {
@@ -499,7 +540,8 @@ var ApproveLeavePage = /** @class */ (function () {
                 {
                     text: 'Yes',
                     handler: function (reject) {
-                        _this.userLeave.saveLeaveStatus(data, _this.leaveCount, status, reject.reason);
+                        _this.userLeave.saveLeaveStatus(data, _this.leaveCount, status, reject.reason),
+                            _this.goBack();
                     }
                 },
                 {
@@ -511,12 +553,12 @@ var ApproveLeavePage = /** @class */ (function () {
         });
         confirm.present();
     };
-    ApproveLeavePage.prototype.leaveHistory = function () {
-        this.leaveRecords = this.userLeave.getPastLeaves(this.userLeaveDetails.userId, this.from, this.to);
+    ApproveLeavePage.prototype.leaveHistory = function (from, to) {
+        this.leaveRecords = this.userLeave.getPastLeaves(this.userLeaveDetails.userId, from, to);
     };
     ApproveLeavePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
-            selector: 'page-approve-leave',template:/*ion-inline-start:"F:\ionic-app\src\pages\approve-leave\approve-leave.html"*/'<ion-header no-border>\n\n  <page-header pageTitle="APPROVE LEAVE"></page-header>\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n    <ion-card>\n\n        <ion-item>\n\n          <h2>{{userLeaveDetails.name | titlecase}}</h2>\n\n          <p>Leave Type:{{userLeaveDetails.leaveType | titlecase}}</p>\n\n          <p>Date: [ {{userLeaveDetails.date}}]</p>\n\n        </ion-item>\n\n        <ion-row>\n\n            <ion-col col-6>This month leaves</ion-col>\n\n            <ion-col col-6>Remaining Leaves</ion-col>\n\n         </ion-row>\n\n         \n\n        <ion-row >\n\n           <ion-col col-6>{{leaveCount.currentMonthLeave}}</ion-col><ion-col col-4>Casual</ion-col><ion-col col-2>{{leaveCount.casualRemaining}}</ion-col>\n\n        </ion-row>\n\n        <ion-row>\n\n            <ion-col col-6></ion-col><ion-col col-4>Sick</ion-col><ion-col col-2>{{leaveCount.sickRemaining}}</ion-col>\n\n         </ion-row>\n\n \n\n         <ion-row>\n\n           <ion-col col-6><button ion-button full style="background-color: green" (click)="showConfirm(userLeaveDetails,\'approved\')"  >Approve</button></ion-col>\n\n           <ion-col col-6><button ion-button full color="danger" (click)="rejectConfirm(userLeaveDetails,\'rejected\')" >Reject</button></ion-col>\n\n        </ion-row>\n\n      </ion-card>\n\n\n\n    \n\n    \n\n      \n\n  <ion-card>\n\n      <ion-list>\n\n          <div *ngIf="(leaveRecords.length==0)" style="text-align:center">No record found</div>\n\n        <h6 text-center class="title section-title">Past Leaves</h6>\n\n        <ion-item col-12>\n\n          <ion-label floating>Select Date</ion-label>\n\n          <ion-input type="text" [(ngModel)]="dateRange" (click)="datePicker(\'range\')" readonly></ion-input>\n\n          <ion-icon name="calendar" item-right></ion-icon>\n\n        </ion-item>\n\n        <hr/>\n\n\n\n        \n\n\n\n        <ion-list >\n\n            <ion-item *ngFor="let x of leaveRecords" style="background-color:honeydew">\n\n              <h3>{{x.leaveType | titlecase}} Leave</h3>\n\n              <h5> {{x.date}}</h5>\n\n              <h5 [ngClass]=\'x.status\'>{{x.status}}</h5>\n\n              <div *ngIf="(x.reason!=null)">\n\n                  Comments: {{x.reason}}\n\n                </div>\n\n                \n\n            </ion-item>\n\n          </ion-list>\n\n        \n\n        \n\n        <!--<ion-item>\n\n              <ion-row class="table-title" >\n\n                <ion-col col-3 >Leave Type</ion-col>\n\n                <ion-col col-7 >Date</ion-col>\n\n                <ion-col col-2 >Status</ion-col>\n\n                <ion-col hidden col-2>View</ion-col>\n\n              </ion-row>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-row *ngFor="let x of leaveRecords" class="col-text row-bottom-border" [ngClass]=\'x.status\'>\n\n                  <ion-col col-3>{{x.leaveType}}</ion-col><ion-col col-7 text-wrap>{{x.date}}</ion-col><ion-col col-2>{{x.status}}</ion-col>\n\n              </ion-row>\n\n            </ion-item>\n\n          -->\n\n        </ion-list>\n\n      </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\approve-leave\approve-leave.html"*/,
+            selector: 'page-approve-leave',template:/*ion-inline-start:"f:\ionic-app\src\pages\approve-leave\approve-leave.html"*/'<ion-header no-border>\n\n  <page-header pageTitle="APPROVE LEAVE"></page-header>\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n    <ion-card>\n\n        <ion-item>\n\n          <h2>{{userLeaveDetails.name | titlecase}}</h2>\n\n          <p>Leave Type:{{userLeaveDetails.leaveType | titlecase}}</p>\n\n          <div>Date:[<p *ngFor="let date of userLeaveDetails.date" > {{date}}</p>]</div>\n\n        </ion-item>\n\n        <ion-row>\n\n            <ion-col col-6>This month leaves</ion-col>\n\n            <ion-col col-6>Remaining Leaves</ion-col>\n\n         </ion-row>\n\n         \n\n        <ion-row >\n\n           <ion-col col-6>{{leaveCount.currentMonthLeave}}</ion-col><ion-col col-4>Casual</ion-col><ion-col col-2>{{leaveCount.casualRemaining}}</ion-col>\n\n        </ion-row>\n\n        <ion-row>\n\n            <ion-col col-6></ion-col><ion-col col-4>Sick</ion-col><ion-col col-2>{{leaveCount.sickRemaining}}</ion-col>\n\n         </ion-row>\n\n \n\n         <ion-row>\n\n           <ion-col col-6><button ion-button full style="background-color: green" (click)="showConfirm(userLeaveDetails,\'approved\')"  >Approve</button></ion-col>\n\n           <ion-col col-6><button ion-button full color="danger" (click)="rejectConfirm(userLeaveDetails,\'rejected\')" >Reject</button></ion-col>\n\n        </ion-row>\n\n      </ion-card>\n\n\n\n    \n\n    \n\n      \n\n  <ion-card>\n\n      <ion-list>\n\n          <div *ngIf="(leaveRecords.length==0)" style="text-align:center">No record found</div>\n\n        <h6 text-center class="title section-title">Past Leaves</h6>\n\n        <ion-item col-12>\n\n          <ion-label floating>Select Date</ion-label>\n\n          <ion-input type="text" [(ngModel)]="dateRange" (tap)="datePicker(\'range\')" readonly></ion-input>\n\n          <ion-icon name="calendar" item-right></ion-icon>\n\n        </ion-item>\n\n        <hr/>\n\n\n\n        \n\n\n\n        <ion-list >\n\n            <ion-item *ngFor="let x of leaveRecords" style="background-color:honeydew">\n\n              <h3>{{x.leaveType | titlecase}} Leave</h3>\n\n              <h5 *ngFor="let date of x.date" > {{date}}</h5>\n\n              <h5 [ngClass]=\'x.status\'>{{x.status}}</h5>\n\n              <div *ngIf="x.reason!=null && x.reason!=\'\' ">\n\n                  Comments: {{x.reason}}\n\n                </div>\n\n                \n\n            </ion-item>\n\n          </ion-list>\n\n        \n\n        \n\n        <!--<ion-item>\n\n              <ion-row class="table-title" >\n\n                <ion-col col-3 >Leave Type</ion-col>\n\n                <ion-col col-7 >Date</ion-col>\n\n                <ion-col col-2 >Status</ion-col>\n\n                <ion-col hidden col-2>View</ion-col>\n\n              </ion-row>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-row *ngFor="let x of leaveRecords" class="col-text row-bottom-border" [ngClass]=\'x.status\'>\n\n                  <ion-col col-3>{{x.leaveType}}</ion-col><ion-col col-7 text-wrap>{{x.date}}</ion-col><ion-col col-2>{{x.status}}</ion-col>\n\n              </ion-row>\n\n            </ion-item>\n\n          -->\n\n        </ion-list>\n\n      </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"f:\ionic-app\src\pages\approve-leave\approve-leave.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_0__models_leave_model__["a" /* LeaveModel */], __WEBPACK_IMPORTED_MODULE_1__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavParams"]])
     ], ApproveLeavePage);

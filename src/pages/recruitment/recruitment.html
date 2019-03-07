@@ -21,7 +21,7 @@
 
         <div *ngSwitchCase="'newApplicant'">
           <form [formGroup]="newApplicantForm" (ngSubmit)="onSubmit()">
-          <ion-list >
+         
               <ion-input hidden formControlName="$key"></ion-input>
            <ion-row>
                    <ion-col col-6>
@@ -161,7 +161,7 @@
                             </ion-col>
                       </ion-row> 
                        
-            </ion-list>
+            
           </form>
         </div>
           

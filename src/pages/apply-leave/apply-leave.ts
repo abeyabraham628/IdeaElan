@@ -1,6 +1,6 @@
 import { leaveCount,leaves } from './../../providers/user-leaves';
 import { Component} from '@angular/core';
-import { IonicPage, NavController, NavParams, ModalController, Form, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, Form, AlertController, LoadingController } from 'ionic-angular';
 import { CalendarModal,CalendarResult} from "ion2-calendar";
 
 import { LeaveModel } from '../../models/leave.model';
@@ -32,17 +32,21 @@ leaveRecords:any
 leaveDates:any
 dateRange:any="This Month Leave"
 months=this.customDatePicker.getMonths()
-
- constructor(private alertCtrl:AlertController,private formBuilder:FormBuilder,private afauth:AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,private modalCtrl:ModalController,private customDatePicker:CustomDatePicker,private userLeave:LeaveModel,private firebase:AngularFireDatabase) {
+loader:any
+ constructor(public loadingCtrl:LoadingController,private alertCtrl:AlertController,private formBuilder:FormBuilder,private afauth:AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,private modalCtrl:ModalController,private customDatePicker:CustomDatePicker,private userLeave:LeaveModel,private firebase:AngularFireDatabase) {
            
-            this.viewRemainingLeaves();
-            
             
      }
 
      ionViewDidEnter(){
       this.ionSegmentDefaultValue="applyLeave";
-     }
+      
+      }
+     
+      ionViewDidLoad(){
+        this.viewRemainingLeaves();
+      }
+     
 
      ionViewDidLeave() {
       this.navCtrl.popToRoot();
@@ -69,7 +73,7 @@ months=this.customDatePicker.getMonths()
    var defaultScrollTo=moment()// scroll to curren date
     let disableWeek=[0,6]// disable Sunday-0 and Saturday-6
     if(pickMode=='multi'){// Select multiple dates fron date picker
-      let from=moment()// current date selected in date picker
+    let from=moment()// current date selected in date picker
     var options=this.customDatePicker.datePickerOptions(pickMode,defaultScrollTo,from,dateLimit,disableWeek)
     }
     else{// for selecting range of dates
@@ -115,25 +119,42 @@ months=this.customDatePicker.getMonths()
   
    leaveInfo.userId=this.afauth.auth.currentUser.uid
    leaveInfo.status="pending"
-   this.userLeave.submitLeaveRequest(leaveInfo)
- }
+   this.userLeave.submitLeaveRequest(leaveInfo).then(()=>{
+    let alert = this.alertCtrl.create({
+      title: "Success",
+      subTitle: "Leave applied successfully ",
+      buttons: ['OK']
+    });
+        alert.present();
+
+  })
+    
+}
+ 
 
  
   leaveHistory(from?,to?){
-   
+    
    this.leaveRecords=this.userLeave.getPastLeaves(this.afauth.auth.currentUser.uid,from,to)
    
  }
 
     viewRemainingLeaves(){
+      
+      
         this.userLeave.getRemainingLeaves(this.afauth.auth.currentUser.uid).then((item)=>{
         this.leaveCount.sickRemaining=item[0].sick;
         this.leaveCount.casualRemaining=item[0].casual;
         this.leaveCount.currentMonthLeave=item[0].currentMonthLeave
+        
+        
       })
+      
+      
     }
     
    deleteLeave($key){
+    
     const confirm = this.alertCtrl.create({
       title:'Confirm',
       message: 'Do you want to cancel this leave request',
@@ -141,9 +162,11 @@ months=this.customDatePicker.getMonths()
         {
           text: 'Yes',
           handler: () => {
+            
             this.firebase.database.ref(`EmployeeLeaves`).child(`${$key}`).remove()
             this.leaveHistory();
-            //this.userLeave.saveLeaveStatus(data,this.leaveCount,status)
+           
+            
           }
         },
         {

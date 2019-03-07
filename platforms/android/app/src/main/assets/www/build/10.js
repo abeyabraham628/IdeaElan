@@ -1,6 +1,6 @@
 webpackJsonp([10],{
 
-/***/ 732:
+/***/ 733:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(830);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(831);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var LoginPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 830:
+/***/ 831:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -47,8 +47,8 @@ var LoginPageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(462);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_strings__ = __webpack_require__(466);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_strings__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(466);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -123,9 +123,6 @@ var LoginPage = /** @class */ (function () {
             }
         });
     };
-    LoginPage.prototype.ionViewDidLeave = function () {
-        this.navCtrl.popToRoot();
-    };
     LoginPage.prototype.signIn = function (user) {
         return __awaiter(this, void 0, void 0, function () {
             var loginSuccess, privilleges, tempPassword, error_1, errMsg, toast;
@@ -134,7 +131,7 @@ var LoginPage = /** @class */ (function () {
                     case 0:
                         _a.trys.push([0, 5, , 6]);
                         this.loader.present();
-                        return [4 /*yield*/, this.afAuth.auth.signInWithEmailAndPassword('tony.manuel@mca.christuniversity.in', '123456')];
+                        return [4 /*yield*/, this.afAuth.auth.signInWithEmailAndPassword(user.emailId, user.password)];
                     case 1:
                         loginSuccess = _a.sent();
                         if (!loginSuccess) return [3 /*break*/, 4];
@@ -175,7 +172,7 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-login',template:/*ion-inline-start:"F:\ionic-app\src\pages\login\login.html"*/'\n\n<ion-content padding class="top-botton-border login">\n\n  \n\n\n\n<ion-list>\n\n  <ion-thumbnail >\n\n    <ion-img class="logo"  [src]="companyLogo"></ion-img>\n\n  </ion-thumbnail>\n\n  <ion-item no-lines> \n\n    <ion-input text-center type="email" [(ngModel)]="credentials.emailId" class="input-border" placeholder="USER NAME"></ion-input>\n\n   </ion-item>\n\n  \n\n  <ion-item no-lines    >\n\n    <ion-input text-center type="password" class="input-border" [(ngModel)]="credentials.password" placeholder="PASSWORD"></ion-input>\n\n   </ion-item>\n\n\n\n   \n\n      <button type="button"  full default ion-button color="blue" style="height:40px; border-radius:5px;" (click)="signIn(credentials)">Sign In</button>\n\n      <ion-label color="orange"  text-right (click)="forgotPassword()">Forgot Password</ion-label>\n\n    </ion-list>\n\n\n\n   \n\n   \n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"f:\ionic-app\src\pages\login\login.html"*/'\n\n<ion-content padding class="top-botton-border login">\n\n  \n\n\n\n<ion-list>\n\n  <ion-thumbnail >\n\n    <ion-img class="ionImage" [src]="companyLogo"></ion-img>\n\n  </ion-thumbnail>\n\n  <ion-item no-lines> \n\n    <ion-input text-center type="email" [(ngModel)]="credentials.emailId" class="input-border" placeholder="USER NAME"></ion-input>\n\n   </ion-item>\n\n  \n\n  <ion-item no-lines    >\n\n    <ion-input text-center type="password" class="input-border" [(ngModel)]="credentials.password" placeholder="PASSWORD"></ion-input>\n\n   </ion-item>\n\n\n\n   \n\n      <button type="button"  full default ion-button color="blue" style="height:40px; border-radius:5px;" (click)="signIn(credentials)">Sign In</button>\n\n      <ion-label color="orange"  text-right (click)="forgotPassword()">Forgot Password</ion-label>\n\n    </ion-list>\n\n\n\n   \n\n   \n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"f:\ionic-app\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ToastController"],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["LoadingController"],

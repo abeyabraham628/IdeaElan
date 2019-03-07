@@ -23,9 +23,8 @@ export class NointernetPage {
     
   }
 
-  ionViewDidEnter(){
-      
-     
+  ionViewWillLeave(){
+    return false
   }
 
  

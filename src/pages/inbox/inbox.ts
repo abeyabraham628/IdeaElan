@@ -2,7 +2,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
 import { Component } from '@angular/core';
 
-import { IonicPage, NavController, NavParams, ModalController,AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ModalController, AlertController, LoadingController } from 'ionic-angular';
 import { messaging } from 'firebase';
 import { PageHeaderComponent } from '../../components/page-header/page-header';
 
@@ -20,9 +20,9 @@ import { PageHeaderComponent } from '../../components/page-header/page-header';
 })
 export class InboxPage {
 
-  
+  loader:any
 
-  constructor(public afauth:AngularFireAuth,public alertCtrl:AlertController, public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public modalCtrl:ModalController) {
+  constructor(public loadingCtrl:LoadingController,public afauth:AngularFireAuth,public alertCtrl:AlertController, public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public modalCtrl:ModalController) {
 
   }
 
@@ -36,6 +36,12 @@ export class InboxPage {
 
 messages=[]
 getMessages(){
+  this.loader=this.loadingCtrl.create({
+    spinner:'dots',
+    content:'Loading',
+     dismissOnPageChange:true
+   })
+  this.loader.present()
   this.firebase.list(`messages/${this.afauth.auth.currentUser.uid}`).snapshotChanges().subscribe(snap=>{
     this.messages=snap.map(item=>{
       return{
@@ -45,7 +51,7 @@ getMessages(){
 
     })
   })
-
+  this.loader.dismiss()
   
 }
 

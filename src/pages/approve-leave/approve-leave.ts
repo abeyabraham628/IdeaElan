@@ -7,6 +7,8 @@ import { CalendarModal,CalendarResult} from "ion2-calendar";
 
 import { Component } from '@angular/core';
 import { IonicPage, NavParams,AlertController,ModalController, NavController } from 'ionic-angular';
+import { BehaviorSubject } from 'rxjs';
+import * as moment from 'moment'
 
 /**
  * Generated class for the ApproveLeavePage page.
@@ -29,8 +31,8 @@ leaveRecords:any
 from:any
 
 to:any
-dateRange:any
-
+dateRange:any="This month leaves"
+public waitForPop: BehaviorSubject<boolean> = new BehaviorSubject(true);
   constructor(public navCtrl:NavController, public modalCtrl:ModalController,private userLeave:LeaveModel,private datepicker:CustomDatePicker,public alertCtrl:AlertController, public navParams: NavParams) {
      this.userLeaveDetails=this.navParams.get('userDetails')
      this.userRemainingLeaves(this.userLeaveDetails.userId) 
@@ -38,8 +40,12 @@ dateRange:any
   }
 
   ionViewDidLeave() {
-    this.navCtrl.popToRoot();
-  }
+    this.waitForPop.subscribe((ok) => { 
+      if (ok) {
+        this.navCtrl.popToRoot()  
+      } 
+   });
+}
   
   datePicker(pickMode){
     
@@ -56,13 +62,11 @@ dateRange:any
         
        myCalendar.onDidDismiss((date: CalendarResult[]) => {
          if(date!=null){
-         let from=date['from'].string.split('-')
-         let to=date['to'].string.split('-')
+          let from=moment(date['from'].string).format('D/MMM/YYYY')
+          let to=moment(date['to'].string).format('D/MMM/YYYY')
   
-         this.from=date['from'].time
-         this.to=date['to'].time
-         this.dateRange=from[2]+"-"+from[1]+"-"+from[0]+" to "+to[2]+"-"+to[1]+"-"+to[0]
-         this.leaveHistory()
+         this.dateRange=from+" to "+to
+         this.leaveHistory(date['from'].time,date['to'].time)
          }
        })
   
@@ -75,15 +79,17 @@ dateRange:any
       this.leaveCount.sickRemaining=item[0].sick;
       this.leaveCount.casualRemaining=item[0].casual;
       this.leaveCount.currentMonthLeave=item[0].currentMonthLeave;
-      
-
-      
-      
-    })
+      })
   }
     
   }
 
+  goBack(){
+    this.waitForPop.next(false);
+  
+    this.navCtrl.push('LeavesAdminPage')
+    
+  }
   showConfirm(data,status:string) {
     const confirm = this.alertCtrl.create({
       title:'Confirm',
@@ -92,7 +98,8 @@ dateRange:any
         {
           text: 'Yes',
           handler: () => {
-            this.userLeave.saveLeaveStatus(data,this.leaveCount,status)
+            this.userLeave.saveLeaveStatus(data,this.leaveCount,status),
+            this.goBack()
           }
         },
         {
@@ -122,7 +129,9 @@ dateRange:any
           text: 'Yes',
           handler: (reject) => {
            
-            this.userLeave.saveLeaveStatus(data,this.leaveCount,status,reject.reason)
+            this.userLeave.saveLeaveStatus(data,this.leaveCount,status,reject.reason),
+            this.goBack()
+
 
           }
         },
@@ -138,9 +147,9 @@ dateRange:any
     confirm.present();
   }
   
-  leaveHistory(){
+  leaveHistory(from?,to?){
     
-      this.leaveRecords=this.userLeave.getPastLeaves(this.userLeaveDetails.userId,this.from,this.to)
+      this.leaveRecords=this.userLeave.getPastLeaves(this.userLeaveDetails.userId,from,to)
       
     
   }

@@ -108,7 +108,7 @@
         
             <ion-item col-12>
               <ion-label stacked>Antivirus Expiry</ion-label>
-              <ion-input type="text" readonly formControlName="avExpiry" (click)="dispdate()" (ionFocus)="dispdate()" ></ion-input>
+              <ion-input type="text" readonly formControlName="avExpiry" (tap)="dispdate()"  ></ion-input>
             </ion-item>
             <ion-item  no-lines *ngIf="(systemsForm.get('avExpiry').hasError('minlength') || systemsForm.get('avExpiry').hasError('required') ) && systemsForm.get('avExpiry').touched">
               <ion-label stacked  color="danger" *ngIf="(systemsForm.get('avExpiry').hasError('required')  || systemsForm.get('avExpiry').hasError('minlength')) && systemsForm.get('avExpiry').touched" >

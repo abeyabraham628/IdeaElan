@@ -35727,6 +35727,36 @@ ion-navbar.toolbar {
   border-bottom: 5px solid #f6a253;
 }
 
+.ionImage {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 200px;
+  height: 200px;
+  background: transparent !important;
+}
+
+.login >
+.scroll-content {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.login >
+.scroll-content .list {
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 0 auto;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+}
+
 .pending {
   color: orange;
 }
@@ -35823,14 +35853,6 @@ button ion-badge {
   text-transform: capitalize;
 }
 
-.logo {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 200px;
-  height: 200px;
-}
-
 .input-border {
   border: 1px solid gray;
   border-radius: 5px;
@@ -35847,27 +35869,6 @@ ion-input ::-ms-input-placeholder {
 
 ion-input ::placeholder {
   text-align: center;
-}
-
-.login >
-.scroll-content {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  width: 100%;
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-}
-
-.login >
-.scroll-content .list {
-  -webkit-box-flex: 1;
-  -webkit-flex: 1 0 auto;
-  -ms-flex: 1 0 auto;
-  flex: 1 0 auto;
 }
 
 .segment {

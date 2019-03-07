@@ -1,6 +1,6 @@
 webpackJsonp([13],{
 
-/***/ 728:
+/***/ 729:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(464);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__inbox__ = __webpack_require__(826);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__inbox__ = __webpack_require__(827);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,7 +41,7 @@ var InboxPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 826:
+/***/ 827:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -81,7 +81,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var InboxPage = /** @class */ (function () {
-    function InboxPage(afauth, alertCtrl, navCtrl, navParams, firebase, modalCtrl) {
+    function InboxPage(loadingCtrl, afauth, alertCtrl, navCtrl, navParams, firebase, modalCtrl) {
+        this.loadingCtrl = loadingCtrl;
         this.afauth = afauth;
         this.alertCtrl = alertCtrl;
         this.navCtrl = navCtrl;
@@ -98,11 +99,18 @@ var InboxPage = /** @class */ (function () {
     };
     InboxPage.prototype.getMessages = function () {
         var _this = this;
+        this.loader = this.loadingCtrl.create({
+            spinner: 'dots',
+            content: 'Loading',
+            dismissOnPageChange: true
+        });
+        this.loader.present();
         this.firebase.list("messages/" + this.afauth.auth.currentUser.uid).snapshotChanges().subscribe(function (snap) {
             _this.messages = snap.map(function (item) {
                 return __assign({ $key: item.key }, item.payload.val());
             });
         });
+        this.loader.dismiss();
     };
     InboxPage.prototype.viewMessage = function (x) {
         var alert = this.alertCtrl.create({
@@ -114,9 +122,9 @@ var InboxPage = /** @class */ (function () {
     };
     InboxPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
-            selector: 'page-inbox',template:/*ion-inline-start:"D:\IdeaElan\src\pages\inbox\inbox.html"*/'<!--\n\n  Generated template for the InboxPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n  <page-header pageTitle="INBOX"></page-header>\n\n</ion-header>\n\n\n\n<ion-content >\n\n    <ion-card *ngFor="let x of messages" >\n\n      <ion-card-header (click)="viewMessage(x)">\n\n      <ion-item>\n\n          <ion-avatar item-start>\n\n            <img src="assets/imgs/companylogo.png">\n\n          </ion-avatar>\n\n          <h4 style="text-transform:capitalize">{{x.postedBy}}</h4>\n\n          <p >{{x.subject}}</p>\n\n          <p>{{x.date}} {{x.time}}</p>\n\n        </ion-item>\n\n      </ion-card-header>\n\n     \n\n      </ion-card>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\inbox\inbox.html"*/,
+            selector: 'page-inbox',template:/*ion-inline-start:"f:\ionic-app\src\pages\inbox\inbox.html"*/'<!--\n\n  Generated template for the InboxPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n  <page-header pageTitle="INBOX"></page-header>\n\n</ion-header>\n\n\n\n<ion-content >\n\n    <ion-card *ngFor="let x of messages" >\n\n      <ion-card-header (click)="viewMessage(x)">\n\n      <ion-item>\n\n          <ion-avatar item-start>\n\n            <img src="assets/imgs/companylogo.png">\n\n          </ion-avatar>\n\n          <h4 style="text-transform:capitalize">{{x.postedBy}}</h4>\n\n          <p >{{x.subject}}</p>\n\n          <p>{{x.date}} {{x.time}}</p>\n\n        </ion-item>\n\n      </ion-card-header>\n\n     \n\n      </ion-card>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"f:\ionic-app\src\pages\inbox\inbox.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ModalController"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["LoadingController"], __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ModalController"]])
     ], InboxPage);
     return InboxPage;
 }());

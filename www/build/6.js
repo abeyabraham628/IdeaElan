@@ -1,6 +1,6 @@
 webpackJsonp([6],{
 
-/***/ 739:
+/***/ 740:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(464);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__upload_events__ = __webpack_require__(841);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__upload_events__ = __webpack_require__(842);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,7 +41,7 @@ var UploadEventsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 765:
+/***/ 766:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66,7 +66,7 @@ var Designations = [
 
 /***/ }),
 
-/***/ 841:
+/***/ 842:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -76,7 +76,7 @@ var Designations = [
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(39);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__ = __webpack_require__(463);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_designations__ = __webpack_require__(765);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_designations__ = __webpack_require__(766);
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -145,8 +145,9 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
  * Ionic pages and navigation.
  */
 var UploadEventsPage = /** @class */ (function () {
-    function UploadEventsPage(alert, navCtrl, navParams, firebase, afauth) {
-        this.alert = alert;
+    function UploadEventsPage(loadingCtrl, alertCtrl, navCtrl, navParams, firebase, afauth) {
+        this.loadingCtrl = loadingCtrl;
+        this.alertCtrl = alertCtrl;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.firebase = firebase;
@@ -169,7 +170,7 @@ var UploadEventsPage = /** @class */ (function () {
     };
     UploadEventsPage.prototype.publishMessage = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var sentTo, users, sender, i;
+            var sentTo, users, sender, i, alert;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -214,6 +215,12 @@ var UploadEventsPage = /** @class */ (function () {
                             'subject': this.PublishMessageForm.controls['subject'].value,
                             'time': this.PublishMessageForm.controls['time'].value
                         });
+                        alert = this.alertCtrl.create({
+                            title: "Success",
+                            subTitle: "System updated succesfuly ",
+                            buttons: ['OK']
+                        });
+                        alert.present();
                         return [2 /*return*/];
                 }
             });
@@ -221,7 +228,7 @@ var UploadEventsPage = /** @class */ (function () {
     };
     UploadEventsPage.prototype.addRecipients = function () {
         var _this = this;
-        var alert = this.alert.create();
+        var alert = this.alertCtrl.create();
         alert.setTitle('Choose Recipients');
         alert.addInput({
             type: 'checkbox',
@@ -247,14 +254,21 @@ var UploadEventsPage = /** @class */ (function () {
     };
     UploadEventsPage.prototype.getSentItems = function () {
         var _this = this;
+        this.loader = this.loadingCtrl.create({
+            spinner: 'dots',
+            content: 'Loading',
+            dismissOnPageChange: true
+        });
+        this.loader.present();
         this.firebase.list("sentmessages/" + this.afauth.auth.currentUser.uid).snapshotChanges().subscribe(function (snap) {
             _this.sentItems = snap.map(function (items) {
                 return __assign({ $key: items.key }, items.payload.val());
             }).reverse();
         });
+        this.loader.dismiss();
     };
     UploadEventsPage.prototype.viewMessage = function (message) {
-        var alert = this.alert.create({
+        var alert = this.alertCtrl.create({
             title: "Subject: " + message.subject,
             subTitle: "Recipients: " + message.recipients,
             message: "Message: " + message.message,
@@ -264,9 +278,9 @@ var UploadEventsPage = /** @class */ (function () {
     };
     UploadEventsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-upload-events',template:/*ion-inline-start:"D:\IdeaElan\src\pages\upload-events\upload-events.html"*/'<!--\n\n  Generated template for the UploadEventsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n  <page-header pageTitle="SEND MESSAGE"></page-header>\n\n</ion-header>\n\n\n\n<ion-content>\n\n    <ion-segment [(ngModel)]="messages" color="white" >\n\n        <ion-segment-button value="compose">\n\n           Compose\n\n        </ion-segment-button>\n\n        <ion-segment-button value="sentItems" (click)="getSentItems()">\n\n          Sent Items\n\n        </ion-segment-button>\n\n     </ion-segment>\n\n\n\n     <div [ngSwitch]="messages">\n\n        <div *ngSwitchCase="\'compose\'">\n\n    <form [formGroup]="PublishMessageForm" (ngSubmit)="publishMessage()">\n\n        \n\n       \n\n          <ion-item>\n\n                <ion-label floating>Recipients</ion-label>\n\n                <ion-input type="text" formControlName="recipients" readonly (click)="addRecipients()" (ionFocus)="addRecipients()"></ion-input>\n\n           </ion-item>    \n\n\n\n    <ion-item>\n\n      <ion-label floating>Subject</ion-label>\n\n        <ion-input type="text" formControlName="subject"></ion-input>\n\n    </ion-item>\n\n    <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'subject\').hasError(\'required\')  && PublishMessageForm.get(\'subject\').touched">\n\n        <ion-label stacked  color="danger">\n\n          Subject Is Required\n\n        </ion-label>\n\n      </ion-item>\n\n    <ion-item>\n\n        <ion-label floating>Message</ion-label>\n\n          <ion-textarea rows="10" formControlName="message"></ion-textarea>\n\n      </ion-item>\n\n      <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'message\').hasError(\'required\')  && PublishMessageForm.get(\'message\').touched">\n\n          <ion-label stacked  color="danger">\n\n            Message Is Required\n\n          </ion-label>\n\n        </ion-item>\n\n\n\n      <ion-item>\n\n            <button type="submit"  [disabled]="PublishMessageForm.invalid" color="blue" full ion-button>Send Message</button>\n\n         </ion-item>\n\n         </form>\n\n  </div>\n\n\n\n  <div *ngSwitchCase="\'sentItems\'" >\n\n      <ion-item>\n\n          <ion-row class="table-title">\n\n            <ion-col col-7 >Recipients</ion-col>\n\n            <ion-col col-3 >Subject</ion-col>\n\n            <ion-col col-2 >Date</ion-col>\n\n            \n\n          </ion-row>\n\n        </ion-item>\n\n        <ion-item *ngFor="let message of sentItems">\n\n          <ion-row class="col-text table-bottom-border" (click)="viewMessage(message)" >\n\n              <ion-col col-7 text-wrap>{{message.recipients}}</ion-col><ion-col col-3>{{message.subject}}</ion-col><ion-col col-2>{{message.date}}</ion-col>\n\n          </ion-row>\n\n        </ion-item>\n\n    </div>\n\n\n\n\n\n         </div>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\upload-events\upload-events.html"*/,
+            selector: 'page-upload-events',template:/*ion-inline-start:"f:\ionic-app\src\pages\upload-events\upload-events.html"*/'<!--\n  Generated template for the UploadEventsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n  <page-header pageTitle="SEND MESSAGE"></page-header>\n</ion-header>\n\n<ion-content>\n    <ion-segment [(ngModel)]="messages" color="white" >\n        <ion-segment-button value="compose">\n           Compose\n        </ion-segment-button>\n        <ion-segment-button value="sentItems" (click)="getSentItems()">\n          Sent Items\n        </ion-segment-button>\n     </ion-segment>\n\n     <div [ngSwitch]="messages">\n        <div *ngSwitchCase="\'compose\'">\n    <form [formGroup]="PublishMessageForm" (ngSubmit)="publishMessage()">\n        \n       \n          <ion-item>\n                <ion-label floating>Recipients</ion-label>\n                <ion-input type="text" formControlName="recipients" readonly (click)="addRecipients()" (ionFocus)="addRecipients()"></ion-input>\n           </ion-item>    \n\n    <ion-item>\n      <ion-label floating>Subject</ion-label>\n        <ion-input type="text" formControlName="subject"></ion-input>\n    </ion-item>\n    <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'subject\').hasError(\'required\')  && PublishMessageForm.get(\'subject\').touched">\n        <ion-label stacked  color="danger">\n          Subject Is Required\n        </ion-label>\n      </ion-item>\n    <ion-item>\n        <ion-label floating>Message</ion-label>\n          <ion-textarea rows="10" formControlName="message"></ion-textarea>\n      </ion-item>\n      <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'message\').hasError(\'required\')  && PublishMessageForm.get(\'message\').touched">\n          <ion-label stacked  color="danger">\n            Message Is Required\n          </ion-label>\n        </ion-item>\n\n      <ion-item>\n            <button type="submit"  [disabled]="PublishMessageForm.invalid" color="blue" full ion-button>Send Message</button>\n         </ion-item>\n         </form>\n  </div>\n\n  <div *ngSwitchCase="\'sentItems\'" >\n      <ion-item>\n          <ion-row class="table-title">\n            <ion-col col-7 >Recipients</ion-col>\n            <ion-col col-3 >Subject</ion-col>\n            <ion-col col-2 >Date</ion-col>\n            \n          </ion-row>\n        </ion-item>\n        <ion-item *ngFor="let message of sentItems">\n          <ion-row class="col-text table-bottom-border" (click)="viewMessage(message)" >\n              <ion-col col-7 text-wrap>{{message.recipients}}</ion-col><ion-col col-3>{{message.subject}}</ion-col><ion-col col-2>{{message.date}}</ion-col>\n          </ion-row>\n        </ion-item>\n    </div>\n\n\n         </div>\n</ion-content>\n'/*ion-inline-end:"f:\ionic-app\src\pages\upload-events\upload-events.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__["a" /* AngularFireAuth */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["LoadingController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__["a" /* AngularFireAuth */]])
     ], UploadEventsPage);
     return UploadEventsPage;
 }());

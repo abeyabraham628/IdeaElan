@@ -49,7 +49,7 @@
       
               <ion-item col-12>
                  <ion-label floating>Select Date</ion-label>
-                 <ion-input type="text" [(ngModel)]="dateRange" (click)="datePicker('range')" readonly></ion-input>
+                 <ion-input type="text" [(ngModel)]="dateRange" (tap)="datePicker('range')" readonly></ion-input>
                  <ion-icon name="calendar" item-right></ion-icon>
                </ion-item>
            
@@ -63,9 +63,9 @@
           <ion-list >
             <ion-item *ngFor="let x of leaveRecords" style="background-color:honeydew">
               <h3>{{x.leaveType | titlecase}} Leave</h3>
-              <h5> {{x.date}}</h5>
+              <h5 *ngFor="let date of x.date" > {{date}}</h5>
               <h5 [ngClass]='x.status'>{{x.status}}</h5>
-              <div *ngIf="(x.reason!=null)">
+              <div *ngIf="x.reason!=null && x.reason!='' ">
                   Comments: {{x.reason}}
                 </div>
                 

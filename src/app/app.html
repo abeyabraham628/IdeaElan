@@ -1,3 +1,4 @@
 
-
-  <ion-nav #tony [root]="rootPage"></ion-nav>
+  <offline [hidden]=showOffline></offline>
+  
+  <ion-nav nav [root]="rootPage" [hidden]="isOffline "></ion-nav>

@@ -1,8 +1,9 @@
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireAuth} from '@angular/fire/auth';
 
 import { userItem } from './../../models/user-item/user-item.interface';
-import { Component,ChangeDetectorRef} from '@angular/core';
-import { IonicPage, NavController, NavParams ,AlertController, ModalController } from 'ionic-angular';
+import { Component, ChangeDetectorRef, NgZone } from '@angular/core';
+import { IonicPage, NavController, NavParams, AlertController, ModalController, LoadingController } from 'ionic-angular';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import { Subscription } from 'rxjs/Subscription';
 
@@ -21,8 +22,20 @@ Designations
   templateUrl: 'newuser.html',
 })
 
+
 export class NewuserPage {
-  
+  slideOneForm = new FormGroup({
+    $key      :new FormControl(null),
+    fname: new FormControl('',[Validators.required,Validators.minLength(5)]),
+    lname: new FormControl('',[Validators.required,Validators.minLength(5)]),
+    dob: new FormControl('',[Validators.required,Validators.minLength(5)]),
+    mobile: new FormControl('',[Validators.required,Validators.minLength(5)]),
+    doj: new FormControl('',[Validators.required,Validators.minLength(5)]),
+    email: new FormControl('',[Validators.required,Validators.minLength(5),Validators.pattern('^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$')]),
+    position: new FormControl('',[Validators.required,Validators.minLength(5)]),
+
+
+  });
   
   designations=Designations
   public itemslist: Array<any> = [];
@@ -68,7 +81,9 @@ export class NewuserPage {
   userItemRef$: AngularFireList<userItem>
 
   icons:string="0";
-  constructor(public navCtrl: NavController,private ref: ChangeDetectorRef, private fdb:AngularFireDatabase,public navParams: NavParams,public alertCtrl: AlertController,private customDatePicker:CustomDatePicker,private afAuth:AngularFireAuth,private modalCtrl:ModalController) {
+  fnameShow:boolean=true;
+  loader:any
+  constructor(public loadingCtrl:LoadingController,public zone:NgZone,public navCtrl: NavController,private ref: ChangeDetectorRef, private fdb:AngularFireDatabase,public navParams: NavParams,public alertCtrl: AlertController,private customDatePicker:CustomDatePicker,private afAuth:AngularFireAuth,private modalCtrl:ModalController) {
    
    
     this.icons="0";
@@ -111,8 +126,15 @@ ionViewDidLeave() {
 }
 new()
 {
+  this.fnameShow=true;
   this.x=true;
   console.log("NEW CALLED ");
+  this.loader=this.loadingCtrl.create({
+    spinner:'dots',
+    content:'Loading',
+     dismissOnPageChange:true
+   })
+  this.loader.present()
   this.itemRef.on('value', itemSnapshot => {
     this.items = [];
     itemSnapshot.forEach( itemSnap => {
@@ -125,6 +147,7 @@ new()
     this.loaditems=this.items;
     this.ref.detectChanges();
   });
+  this.loader.dismiss();
  
   console.log("PRINT ");
   console.log(this.itemslist);
@@ -220,6 +243,12 @@ getItems(searchbar) {
   
   if(this.butn=="save")
   {
+    if (this.slideOneForm.get('fname').hasError('mobile') ||this.slideOneForm.get('fname').hasError('required') ||this.slideOneForm.get('email').hasError('required') ||this.slideOneForm.get('position').hasError('required') ||this.slideOneForm.get('doj').hasError('required') ||this.slideOneForm.get('dob').hasError('required') ||this.slideOneForm.get('lname').hasError('required'))
+   {
+    this.fnameShow=false;
+    
+  return;
+   }
     var password=keygen.generate({
       length:6,
       symbols:false
@@ -358,7 +387,7 @@ collect(keys:any,fname:any,lname:any,dob:any,mobile:any,email:any,doj:any,positi
   this.userItem.position=position;
   this.userItem.$key=keys;
   this.userItem.data=data;
-  this.users="newUser";
+  
   this.butn="update";
   this.chk=0;
   this.x=false;
@@ -392,6 +421,9 @@ collect(keys:any,fname:any,lname:any,dob:any,mobile:any,email:any,doj:any,positi
   /*this.slides.lockSwipes(false);
   this.slider.slideTo(0);
   this.slides.lockSwipes(true);*/
+  this.zone.run(()=>{
+      this.users="newUser";
+  })
   
 }
 clear(){
@@ -854,6 +886,8 @@ this.v7=0;
 
 new1()
 {
+  this.fnameShow=true;
+  this.slideOneForm.reset();
   this.userItem.data=null;
   this.sp=false;
   this.x=true;
