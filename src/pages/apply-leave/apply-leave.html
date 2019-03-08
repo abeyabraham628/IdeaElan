@@ -9,7 +9,7 @@
   
   
     <ion-segment [(ngModel)]="ionSegmentDefaultValue" color="white" >
-        <ion-segment-button value="applyLeave">
+        <ion-segment-button value="applyLeave" (click)="getRemainingLeave()">
            Apply Leave
         </ion-segment-button>
         <ion-segment-button value="leaveHistory" (click)="leaveHistory()" >
@@ -46,7 +46,7 @@
   </ion-card>
 
   <form [formGroup]="leaveForm"   (ngSubmit)="applyForLeave(leaveInfo)">
-  <h6 text-center class="title section-title">Leave Details</h6>
+  <h6 text-center class="title section-title">Leave Request</h6>
     <ion-list>
       
       <div radio-group [(ngModel)]="leaveInfo.leaveType"  formControlName="leaveType">
@@ -61,7 +61,7 @@
                 <ion-label>Sick Leave</ion-label>
               </ion-item>
 
-              <ion-item no-lines *ngIf="leaveForm.get('leaveType').hasError('requiredTrue') && leaveForm.get('leaveType').touched">
+              <ion-item no-lines [hidden]="leaveErr">
                   <ion-label stacked  color="danger" >
                    Leave type is required
                 </ion-label>
@@ -75,7 +75,7 @@
       <ion-label stacked>Select Dates</ion-label>
       <ion-input  type="readonly" (tap)="datePicker('multi') " [(ngModel)]="leaveDates" readonly formControlName="date"  ></ion-input>
     </ion-item>
-    <ion-item no-lines *ngIf="leaveForm.get('date').hasError('required') && leaveForm.get('date').touched">
+    <ion-item no-lines [hidden]="dateErr">
         <ion-label stacked  color="danger" >
          Leave date is required
       </ion-label>
@@ -84,10 +84,10 @@
   
   <ion-row>
       <ion-col col-6>
-    <button ion-button full color="blue" type="submit">Submit</button>
+    <button ion-button full color="blue" type="submit" >Submit</button>
   </ion-col>
     <ion-col col-6>
-        <button ion-button type="button"  icon-end full color=blue (click)="resetForm()"   >
+        <button ion-button type="reset"  icon-end full color=blue (click)="resetForm()" >
           Cancel
         </button>
       </ion-col>

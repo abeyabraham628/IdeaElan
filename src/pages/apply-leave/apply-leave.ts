@@ -1,3 +1,4 @@
+import { leave } from '@angular/core/src/profile/wtf_impl';
 import { leaveCount,leaves } from './../../providers/user-leaves';
 import { Component} from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, Form, AlertController, LoadingController } from 'ionic-angular';
@@ -34,7 +35,7 @@ dateRange:any="This Month Leave"
 months=this.customDatePicker.getMonths()
 loader:any
  constructor(public loadingCtrl:LoadingController,private alertCtrl:AlertController,private formBuilder:FormBuilder,private afauth:AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,private modalCtrl:ModalController,private customDatePicker:CustomDatePicker,private userLeave:LeaveModel,private firebase:AngularFireDatabase) {
-           
+    this.getRemainingLeave()
             
      }
 
@@ -43,23 +44,33 @@ loader:any
       
       }
      
-      ionViewDidLoad(){
-        this.viewRemainingLeaves();
-      }
+     
      
 
      ionViewDidLeave() {
       this.navCtrl.popToRoot();
     }
   
+    getRemainingLeave(){
+      
+      this.dateRange="This Month Leave"
+      this.leaveRecords=[]
+      this.leaveDates=""
+      this.viewRemainingLeaves()
 
+    }
+
+    resetForm(){
+        this.leaveErr=true;
+        this.dateErr=true;
+    }
 
  
 
   leaveForm= this.formBuilder.group({
     
-    leaveType  :['',Validators.required],
-    date  :['',Validators.requiredTrue],
+    leaveType  :['',Validators.requiredTrue],
+    date  :['',Validators.required],
     
       
    
@@ -114,9 +125,20 @@ loader:any
     }// end of datepicker function
 
 
-    
+  leaveErr:boolean=true
+  dateErr:boolean=true
  applyForLeave(leaveInfo){
-  
+   
+   
+
+   leaveInfo.leaveType==null?this.leaveErr=false:this.leaveErr=true
+    leaveInfo.date==null?this.dateErr=false:this.dateErr=true 
+            
+      
+
+
+  if(this.leaveErr && this.dateErr){
+
    leaveInfo.userId=this.afauth.auth.currentUser.uid
    leaveInfo.status="pending"
    this.userLeave.submitLeaveRequest(leaveInfo).then(()=>{
@@ -128,12 +150,16 @@ loader:any
         alert.present();
 
   })
+  this.leaveForm.reset()
+}
     
 }
  
 
  
   leaveHistory(from?,to?){
+    this.leaveForm.reset()
+    this.leaveRecords=[]
     
    this.leaveRecords=this.userLeave.getPastLeaves(this.afauth.auth.currentUser.uid,from,to)
    

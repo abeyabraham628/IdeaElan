@@ -28,7 +28,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { ComponentsModule } from '../components/components.module';
 import { DataService } from '../providers/page-tite-service';
 import { Network } from '@ionic-native/network';
-import { NointernetPage } from '../pages/nointernet/nointernet';
+
 
 
 
@@ -36,7 +36,8 @@ import { NointernetPage } from '../pages/nointernet/nointernet';
   declarations: [
     MyApp,
     ChatbotPage,
-    NointernetPage
+    
+    
     
  
     
@@ -64,7 +65,7 @@ import { NointernetPage } from '../pages/nointernet/nointernet';
   entryComponents: [
     MyApp,
     ChatbotPage,
-    NointernetPage
+
     
     
   ],

@@ -26,7 +26,7 @@ import * as moment from 'moment'
   templateUrl: 'systems.html',
 })
 export class SystemsPage {
-  public searchString: string;
+  searchString: string;
   loader:any;
   Save="Save"
     

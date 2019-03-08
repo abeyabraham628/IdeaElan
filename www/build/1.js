@@ -9,9 +9,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_camera__ = __webpack_require__(781);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_storage__ = __webpack_require__(782);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs__ = __webpack_require__(841);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(464);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs__ = __webpack_require__(844);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(463);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -61,7 +61,7 @@ var TabsPageModule = /** @class */ (function () {
 /* unused harmony export Direction */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Camera; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_core__ = __webpack_require__(39);
 var __extends = (this && this.__extends) || (function () {
     var extendStatics = Object.setPrototypeOf ||
         ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
@@ -347,7 +347,7 @@ var Camera = (function (_super) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__public_api__ = __webpack_require__(837);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__public_api__ = __webpack_require__(840);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__public_api__["a"]; });
 
 //# sourceMappingURL=index.js.map
@@ -487,7 +487,7 @@ var AngularFireStorage = (function () {
 
 /***/ }),
 
-/***/ 837:
+/***/ 840:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -499,7 +499,7 @@ var AngularFireStorage = (function () {
 /* unused harmony namespace reexport */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__observable_fromTask__ = __webpack_require__(785);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__storage_module__ = __webpack_require__(838);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__storage_module__ = __webpack_require__(841);
 /* unused harmony namespace reexport */
 
 
@@ -510,14 +510,14 @@ var AngularFireStorage = (function () {
 
 /***/ }),
 
-/***/ 838:
+/***/ 841:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export AngularFireStorageModule */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__storage__ = __webpack_require__(786);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_storage__ = __webpack_require__(839);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_storage__ = __webpack_require__(842);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -542,11 +542,11 @@ var AngularFireStorageModule = (function () {
 
 /***/ }),
 
-/***/ 839:
+/***/ 842:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__firebase_storage__ = __webpack_require__(840);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__firebase_storage__ = __webpack_require__(843);
 
 
 /**
@@ -569,7 +569,7 @@ var AngularFireStorageModule = (function () {
 
 /***/ }),
 
-/***/ 840:
+/***/ 843:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4061,19 +4061,19 @@ registerStorage(__WEBPACK_IMPORTED_MODULE_0__firebase_app___default.a);
 
 /***/ }),
 
-/***/ 841:
+/***/ 844:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__chatbot_chatbot__ = __webpack_require__(468);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_auth__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_auth__ = __webpack_require__(462);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__ = __webpack_require__(781);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__ = __webpack_require__(461);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_fire_storage__ = __webpack_require__(782);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_strings__ = __webpack_require__(192);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_strings__ = __webpack_require__(465);
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -4156,10 +4156,19 @@ var TabsPage = /** @class */ (function () {
         this.tab1Root = 'ApplyLeavePage';
         this.tab2Root = __WEBPACK_IMPORTED_MODULE_0__chatbot_chatbot__["a" /* ChatbotPage */];
         this.tab3Root = 'InboxPage';
+        this.tab4Root = 'AdminPage';
         this.hid = true;
+        this.hideAdmin = true;
         this.messages = [];
-        // alert(this.afAuth.idTokenResult);
-        this.tab0Params = this.navParams.data;
+        /*this.navParams.get('roles').forEach(priv=>{
+             if(priv!="null"){
+               this.hideAdmin=true
+             }
+             console.log(priv)
+           })
+           this.hideAdmin=false
+       */
+        this.tab4Params = this.navParams.data;
         this.getusername();
         this.getMessages();
         this.hid = false;
@@ -4250,14 +4259,12 @@ var TabsPage = /** @class */ (function () {
             });
         });
     };
-    TabsPage.prototype.doChange = function (ev) {
-        console.log(ev.index);
-    };
+    var _a, _b, _c, _d, _e, _f;
     TabsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-tabs',template:/*ion-inline-start:"D:\IdeaElan\src\pages\tabs\tabs.html"*/'<!--\n\n  Generated template for the TabsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n<ion-menu [content]="mycontent" persistent="true" class="sideMenuList">\n\n      <ion-item no-lines style="text-align:center;background-color: #2679b0">\n\n        <ion-thumbnail style="height:100px;width:100px;border-radius:50%;margin: auto">\n\n            <img src="{{uri}}" onerror="this.src=\'assets/imgs/companylogo.png\'" style="height:100px;width:100px;border-radius:50%;margin: auto"> \n\n          </ion-thumbnail>\n\n        <h2 style="color:#ffffff">{{this.uname | titlecase }}</h2>\n\n        <h6 style="color:#ffffff">{{this.position | titlecase }}</h6>\n\n      </ion-item>\n\n\n\n      <ion-item (click)="uploadHandler()" class="sideMenuList">\n\n          <ion-icon name="images" item-end></ion-icon>\n\n          Change Image\n\n      </ion-item>\n\n     \n\n      <ion-item (click)="changepassword()" class="sideMenuList">\n\n          <ion-icon name="lock" item-end></ion-icon>\n\n          Change Password\n\n      </ion-item>\n\n\n\n      <ion-item (click)="policy()" class="sideMenuList">\n\n          <ion-icon name="document" item-end></ion-icon>\n\n           Company Policy\n\n      </ion-item>\n\n      \n\n      <ion-item (click)="logout()" class="sideMenuList">\n\n          <ion-icon name="power" item-end></ion-icon>\n\n           Logout\n\n      </ion-item>\n\n\n\n     \n\n\n\n      <ng-container *ngIf="progress | async as percent">\n\n\n\n        <progress [value]="percent" max="100"></progress>\n\n      \n\n      </ng-container>\n\n</ion-menu>\n\n<ion-nav #mycontent [root]="rootPage"></ion-nav>\n\n \n\n\n\n<ion-tabs (ionChange)="doChange($event)" >\n\n  <ion-tab [root]="tab0Root"   tabTitle="Home" tabIcon="home" [rootParams]="tab0Params"></ion-tab>\n\n  <ion-tab [root]="tab1Root"   tabTitle="Leave" tabIcon="person" ></ion-tab>\n\n  <ion-tab [root]="tab2Root"   tabTitle="Chatbot" tabIcon="document" ></ion-tab>\n\n \n\n  <ion-tab [root]="tab3Root"  tabTitle="Inbox" tabIcon="chatboxes" tabBadge=\'{{this.messages.length}}\' tabBadgeStyle="danger" ></ion-tab>\n\n</ion-tabs>\n\n\n\n\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\tabs\tabs.html"*/,
+            selector: 'page-tabs',template:/*ion-inline-start:"F:\ionic-app\src\pages\tabs\tabs.html"*/'<!--\n\n  Generated template for the TabsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n<ion-menu [content]="mycontent" persistent="true" class="sideMenuList">\n\n      <ion-item no-lines style="text-align:center;background-color: #2679b0">\n\n        <ion-thumbnail style="height:100px;width:100px;border-radius:50%;margin: auto">\n\n            <img src="{{uri}}" onerror="this.src=\'assets/imgs/companylogo.png\'" style="height:100px;width:100px;border-radius:50%;margin: auto"> \n\n          </ion-thumbnail>\n\n        <h2 style="color:#ffffff">{{this.uname | titlecase }}</h2>\n\n        <h6 style="color:#ffffff">{{this.position | titlecase }}</h6>\n\n      </ion-item>\n\n\n\n      <ion-item (click)="uploadHandler()" class="sideMenuList">\n\n          <ion-icon name="images" item-end></ion-icon>\n\n          Change Image\n\n      </ion-item>\n\n     \n\n      <ion-item (click)="changepassword()" class="sideMenuList">\n\n          <ion-icon name="lock" item-end></ion-icon>\n\n          Change Password\n\n      </ion-item>\n\n\n\n      <ion-item (click)="policy()" class="sideMenuList">\n\n          <ion-icon name="document" item-end></ion-icon>\n\n           Company Policy\n\n      </ion-item>\n\n      \n\n      <ion-item (click)="logout()" class="sideMenuList">\n\n          <ion-icon name="power" item-end></ion-icon>\n\n           Logout\n\n      </ion-item>\n\n\n\n     \n\n\n\n      <ng-container *ngIf="progress | async as percent">\n\n        \n\n        <progress [value]="percent" max="100"></progress>\n\n      \n\n      </ng-container>\n\n</ion-menu>\n\n<ion-nav #mycontent [root]="rootPage"></ion-nav>\n\n \n\n\n\n<ion-tabs  >\n\n  <ion-tab [root]="tab0Root"   tabTitle="Home" tabIcon="home"></ion-tab>\n\n  <ion-tab [root]="tab1Root"   tabTitle="Leave" tabIcon="person" ></ion-tab>\n\n  <ion-tab [root]="tab2Root"   tabTitle="Chatbot" tabIcon="document" ></ion-tab>\n\n  <ion-tab [root]="tab3Root"  tabTitle="Inbox" tabIcon="chatboxes" tabBadge=\'{{this.messages.length}}\' tabBadgeStyle="danger" ></ion-tab>\n\n  <ion-tab [root]="tab4Root"   tabTitle="Admin" tabIcon="document"  [rootParams]="tab4Params" ></ion-tab>\n\n</ion-tabs>\n\n\n\n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\tabs\tabs.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_6__angular_fire_storage__["a" /* AngularFireStorage */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_3__angular_fire_auth__["a" /* AngularFireAuth */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__["a" /* AngularFireDatabase */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6__angular_fire_storage__["a" /* AngularFireStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__angular_fire_storage__["a" /* AngularFireStorage */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__angular_fire_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_fire_auth__["a" /* AngularFireAuth */]) === "function" ? _f : Object])
     ], TabsPage);
     return TabsPage;
 }());

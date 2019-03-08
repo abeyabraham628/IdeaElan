@@ -7,7 +7,7 @@
   <ion-content>
 
       <ion-segment [(ngModel)]="leaves" color="white" >
-         <ion-segment-button value="viewLeaveRequests">
+         <ion-segment-button value="viewLeaveRequests" (click)="viewLeaveRequests()">
             Leave Requests
          </ion-segment-button>
          <ion-segment-button value="leaveHistory" (click)="getEmployee()" >
@@ -42,7 +42,7 @@
        
       <ion-item>
           <ion-label>Employee Name</ion-label>
-        <ion-select [(ngModel)]="employeeKey">
+        <ion-select [(ngModel)]="employeeKey" (ionChange)="clearDatePicker()">
                  <ion-option *ngFor="let emp of employeeName" value="{{emp.$key}}">{{emp.fname | titlecase}} {{emp.lname | titlecase}}</ion-option>
         </ion-select>
       </ion-item>

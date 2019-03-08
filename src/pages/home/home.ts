@@ -15,13 +15,7 @@ import * as moment from 'moment'
 export class HomePage {
  
 userId:any
-roles:any[]
-users:boolean=true
-recruitment:boolean=true
-systems:boolean=true
-policy:boolean=true
-leaveRequest:boolean=true
-sendMessage:boolean=true
+
 loader:any
 
 FirebasePlugin: any;
@@ -36,7 +30,7 @@ devicetoken : any ="abc";
    
     
     this.lrcountcheck();
-    console.log(this.afAuth.auth.currentUser.uid);
+    
     this.fcm.getToken().then(token => {
       //backend.registerToken(token);
       this.devicetoken=token;
@@ -60,31 +54,7 @@ devicetoken : any ="abc";
     
     
     
-    this.roles=navParams.get('roles')
     
-     if(this.roles[0]!="null"){
-        
-      this.users=false
-      this.recruitment=false
-      this.systems=false
-      this.policy=false
-      this.leaveRequest=false
-      this.sendMessage=false
-    }
-
-    if(this.roles[1]!="null")
-      this.leaveRequest=false
-
-     if(this.roles[2]!=null)
-      this.policy=false
-      if(this.roles[3]!="null")
-      this.sendMessage=false
-      if(this.roles[4]!="null")
-      this.recruitment=false
-      if(this.roles[5]!="null")
-      this.systems=false
-      if(this.roles[6]!="null")
-      this.users=false
      
   }
 
@@ -127,7 +97,7 @@ devicetoken : any ="abc";
  
  
    ionViewDidLoad() {
-      this.getMessages()
+      //this.getMessages()
       this.getUpComingEvents()
       this.getUpComingEventsNotification()
    }
@@ -143,7 +113,7 @@ devicetoken : any ="abc";
   }
 
  
-  messages=[]
+  /*messages=[]
   getMessages(){
     this.firebase.list('messages').snapshotChanges().subscribe(snap=>{
       this.messages=snap.map(item=>{
@@ -162,7 +132,7 @@ devicetoken : any ="abc";
         title:x.subject,
      })
       modal.present()
-  }
+  }*/
   
   events=[]
   async getUpComingEvents(){

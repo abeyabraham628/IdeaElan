@@ -138,6 +138,7 @@ async publishMessage(){
 
 sentItems=[]
  getSentItems(){
+  this.PublishMessageForm.reset()
   this.loader=this.loadingCtrl.create({
     spinner:'dots',
     content:'Loading',

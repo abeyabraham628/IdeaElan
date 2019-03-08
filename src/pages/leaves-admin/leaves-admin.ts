@@ -5,7 +5,7 @@ import { IonicPage, NavParams, ModalController, NavController } from 'ionic-angu
 import { Employee } from '../../models/employee.model';
 import { CalendarModal,CalendarResult} from "ion2-calendar";
 import { BehaviorSubject } from 'rxjs';
-
+import * as moment from 'moment'
 
 /**
  * Generated class for the LeavesAdminPage page.
@@ -26,13 +26,12 @@ export class LeavesAdminPage {
   employeeName:any
   employeeKey:any
   dateRange:any="Select Date"
-  from:any
-  to:any
+  
   leaveRecords:any=[]
   public waitForPop: BehaviorSubject<boolean> = new BehaviorSubject(true);
   constructor(public navCtrl:NavController,private userLeave:LeaveModel,public modalCtrl:ModalController,public navParams: NavParams,private empDetails:Employee,private customDatePicker: CustomDatePicker) {
     this.leaves='viewLeaveRequests';
-    this.leaveRequests=this.userLeave.viewLeaveRequest()
+    this.viewLeaveRequests()
     
     
     
@@ -40,12 +39,28 @@ export class LeavesAdminPage {
 } 
 
 
+viewLeaveRequests(){
+  this.resetFields()
+  this.leaveRequests=this.userLeave.viewLeaveRequest()
+}
+
+resetFields(){
+  this.leaveRecords=[]
+  this.dateRange="";
+  this.employeeKey=""
+
+}
+
+clearDatePicker(){
+  this.dateRange=""
+}
+
 datePicker(pickMode){
     
   
   var defaultScrollTo=new Date()
-      let from=new Date('2/1/2018')
-     var options=this.customDatePicker.datePickerOptions(pickMode,defaultScrollTo,from)
+  let from=moment('1/2/2018','D/M/YYYY')
+  var options=this.customDatePicker.datePickerOptions(pickMode,defaultScrollTo,from)
   
    let myCalendar =  this.modalCtrl.create(CalendarModal, {
      options: options,
@@ -55,15 +70,13 @@ datePicker(pickMode){
       
      myCalendar.onDidDismiss((date: CalendarResult[]) => {
        
-       if(date!=null){
-       let from=date['from'].string.split('-')
-       let to=date['to'].string.split('-')
+       if(date!=null && this.employeeKey!=""){
+        let from=moment(date['from'].string).format('D/MMM/YYYY')
+        let to=moment(date['to'].string).format('D/MMM/YYYY')
+        this.dateRange=from+" to "+to
+        this.leaveHistory(date['from'].time,date['to'].time)
 
-       this.from=date['from'].time
-       this.to=date['to'].time
-       this.dateRange=from[2]+"-"+from[1]+"-"+from[0]+" to "+to[2]+"-"+to[1]+"-"+to[0]
-
-       this.leaveHistory()
+       
       }
      })
 
@@ -97,13 +110,9 @@ datePicker(pickMode){
     
   }
 
-  leaveHistory(){
-    
-      this.leaveRecords=this.userLeave.getPastLeaves(this.employeeKey,this.from,this.to)
-      
-     
-    
-  }
+  leaveHistory(from?,to?){
+      this.leaveRecords=this.userLeave.getPastLeaves(this.employeeKey,from,to)
+   }
 
 
 

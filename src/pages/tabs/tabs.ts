@@ -33,23 +33,34 @@ export class TabsPage {
   tab1Root='ApplyLeavePage';
   tab2Root=ChatbotPage;
   tab3Root='InboxPage';
-  tab0Params:any
+  tab4Root='AdminPage';
+  tab4Params:any
   userId:any
   uri:any;
   hid:boolean=true;
   uname:any;
   position:any;
-  
+  hideAdmin:boolean=true
+  tony:any
   constructor(private fdb:AngularFireDatabase,public storage: AngularFireStorage,private camera: Camera,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth) {
     
-    
-   // alert(this.afAuth.idTokenResult);
-    this.tab0Params=this.navParams.data
+   /*this.navParams.get('roles').forEach(priv=>{
+        if(priv!="null"){
+          this.hideAdmin=true
+        }
+        console.log(priv)
+      })
+      this.hideAdmin=false
+  */
+    this.tab4Params=this.navParams.data
     this.getusername();
     this.getMessages()
     this.hid=false;
    //this.uname=this.afAuth.auth.currentUser.email
    //console.log(this.uname);
+   
+      
+    
    
     this.uri=`https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/${this.afAuth.auth.currentUser.uid}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b5`
   }
@@ -135,10 +146,7 @@ getMessages(){
   
 }
 
-public doChange(ev:any) {
-  console.log(ev.index)
-  
-}
+
 
 
 }
