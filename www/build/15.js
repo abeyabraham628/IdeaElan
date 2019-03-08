@@ -111,9 +111,16 @@ var HomePage = /** @class */ (function () {
         this.afAuth = afAuth;
         this.firebase = firebase;
         this.loadingCtrl = loadingCtrl;
+        this.users = true;
+        this.recruitment = true;
+        this.systems = true;
+        this.policy = true;
+        this.leaveRequest = true;
+        this.sendMessage = true;
         this.blength = 0;
         this.wlength = 0;
         //lrcount:any=0;
+        this.controllPanel = false;
         this.devicetoken = "abc";
         this.lrstatus = [];
         /*messages=[]
@@ -139,6 +146,41 @@ var HomePage = /** @class */ (function () {
         this.events = [];
         this.bevents = [];
         this.wevents = [];
+        this.roles = navParams.get('roles');
+        console.log(this.roles.length);
+        if (this.roles[0] != "null") {
+            this.users = false;
+            this.recruitment = false;
+            this.systems = false;
+            this.policy = false;
+            this.leaveRequest = false;
+            this.sendMessage = false;
+            this.controllPanel = true;
+        }
+        if (this.roles[1] != "null") {
+            this.leaveRequest = false;
+            this.controllPanel = true;
+        }
+        if (this.roles[2] != "null") {
+            this.policy = false;
+            this.controllPanel = true;
+        }
+        if (this.roles[3] != "null") {
+            this.sendMessage = false;
+            this.controllPanel = true;
+        }
+        if (this.roles[4] != "null") {
+            this.recruitment = false;
+            this.controllPanel = true;
+        }
+        if (this.roles[5] != "null") {
+            this.systems = false;
+            this.controllPanel = true;
+        }
+        if (this.roles[6] != "null") {
+            this.users = false;
+            this.controllPanel = true;
+        }
         this.lrcountcheck();
         this.fcm.getToken().then(function (token) {
             //backend.registerToken(token);
@@ -297,12 +339,12 @@ var HomePage = /** @class */ (function () {
             });
         });
     };
-    var HomePage_1;
+    var HomePage_1, _a, _b, _c, _d, _e, _f, _g;
     HomePage = HomePage_1 = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"F:\ionic-app\src\pages\home\home.html"*/'<ion-header no-border>\n\n  <page-header pageTitle="HOME"></page-header>\n\n</ion-header>\n\n\n\n\n\n\n\n<ion-content padding>\n\n    <div *ngIf="(events.length==0)">No Upcoming Events</div>\n\n  <h5  *ngIf="(events.length!=0)">Upcoming Events ({{events.length}})</h5>\n\n  \n\n \n\n    <ion-list >\n\n      <ion-item *ngFor="let event of events">\n\n        <ion-avatar item-start>\n\n            <img src="https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/{{event.userId}}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b" onerror="this.src=\'assets/imgs/companylogo.png\'"> \n\n\n\n        </ion-avatar>\n\n        <h5> {{event.title}}</h5>\n\n        <p>{{event.user}}</p>\n\n        <p>{{event.date}}</p>\n\n      </ion-item>\n\n    </ion-list>\n\n    \n\n\n\n \n\n  \n\n</ion-content>\n\n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\home\home.html"*/,
+            selector: 'page-home',template:/*ion-inline-start:"D:\IdeaElan\src\pages\home\home.html"*/'<ion-header no-border>\n\n  <page-header pageTitle="HOME"></page-header>\n\n</ion-header>\n\n\n\n\n\n\n\n<ion-content padding>\n\n    <div *ngIf="(events.length==0)">No Upcoming Events</div>\n\n  <h5  *ngIf="(events.length!=0)">Upcoming Events ({{events.length}})</h5>\n\n  \n\n \n\n    <ion-list >\n\n      <ion-item *ngFor="let event of events">\n\n        <ion-avatar item-start>\n\n            <img src="https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/{{event.userId}}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b" onerror="this.src=\'assets/imgs/companylogo.png\'"> \n\n\n\n        </ion-avatar>\n\n        <h5> {{event.title}}</h5>\n\n        <p>{{event.user}}</p>\n\n        <p>{{event.date}}</p>\n\n      </ion-item>\n\n    </ion-list>\n\n    \n\n\n\n \n\n  \n\n</ion-content>\n\n<ion-footer padding class="privilleges"  *ngIf="controllPanel" >\n\n  <h5>Control Panel</h5>\n\n  <ion-list no-lines>\n\n    <button ion-item  (click)="goto(\'NewuserPage\')" [hidden]=users >\n\n        Users\n\n    </button>\n\n    \n\n \n\n      <button ion-item  (click)="goto(\'SystemsPage\')" [hidden]=systems >\n\n          Systems\n\n      </button>\n\n    \n\n      <button ion-item (click)="goto(\'RecruitmentPage\')" [hidden]=recruitment>\n\n        Recruitment\n\n     </button>\n\n   \n\n     \n\n          <button ion-item  (click)="goto(\'LeavesAdminPage\')" [hidden]=leaveRequest>\n\n             Leave Request\n\n             <ion-badge color="danger">{{lrstatus.length}}</ion-badge>\n\n          </button>\n\n       \n\n            <button ion-item   (click)="goto(\'UploadEventsPage\')" [hidden]="sendMessage">\n\n                Send Message\n\n            </button>\n\n          </ion-list>\n\n          \n\n  \n\n</ion-footer>\n\n\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\home\home.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_fcm__["a" /* FCM */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_fcm__["a" /* FCM */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_fcm__["a" /* FCM */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */]) === "function" ? _f : Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]) === "function" ? _g : Object])
     ], HomePage);
     return HomePage;
 }());

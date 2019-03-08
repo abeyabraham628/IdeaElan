@@ -49,6 +49,8 @@ loader:any
 
      ionViewDidLeave() {
       this.navCtrl.popToRoot();
+      this.resetForm()
+
     }
   
     getRemainingLeave(){
@@ -61,6 +63,7 @@ loader:any
     }
 
     resetForm(){
+      this.leaveForm.reset()
         this.leaveErr=true;
         this.dateErr=true;
     }

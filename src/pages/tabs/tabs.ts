@@ -34,7 +34,7 @@ export class TabsPage {
   tab2Root=ChatbotPage;
   tab3Root='InboxPage';
   tab4Root='AdminPage';
-  tab4Params:any
+  tab0Params:any
   userId:any
   uri:any;
   hid:boolean=true;
@@ -44,15 +44,8 @@ export class TabsPage {
   tony:any
   constructor(private fdb:AngularFireDatabase,public storage: AngularFireStorage,private camera: Camera,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth) {
     
-   /*this.navParams.get('roles').forEach(priv=>{
-        if(priv!="null"){
-          this.hideAdmin=true
-        }
-        console.log(priv)
-      })
-      this.hideAdmin=false
-  */
-    this.tab4Params=this.navParams.data
+  
+    this.tab0Params=this.navParams.data
     this.getusername();
     this.getMessages()
     this.hid=false;
