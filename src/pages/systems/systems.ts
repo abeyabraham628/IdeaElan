@@ -12,6 +12,7 @@ import * as moment from 'moment'
 
 
 
+
 /**
  * Generated class for the SystemsPage page.
  *
@@ -25,6 +26,7 @@ import * as moment from 'moment'
   templateUrl: 'systems.html',
 })
 export class SystemsPage {
+  public searchString: string;
   loader:any;
   Save="Save"
     
@@ -201,19 +203,7 @@ insertSystems(systems:any){
       })//end of displayCalendar function
     }
 
-  /*dispdate(){
-    this.datePicker.show({
-      date:new Date(),
-      mode:'date',
-      androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_LIGHT
-    }).then(
-      date=>{
-        this.systemsForm.controls['avExpiry'].setValue((date.toLocaleDateString())),
-        this.systemsForm.controls['avValidity'].setValue(Math.ceil((date.getTime()-new Date().getTime())/(1000*3600*24)))
-       },
-      err => console.log('Error occurred while getting date: ', err)
-    )
-  }*/
+
 
 
   findSystem(systemId:any){
@@ -233,7 +223,6 @@ insertSystems(systems:any){
     });
     this.loadForm(result);
 }//end of function
-
 
 }//end of class
 

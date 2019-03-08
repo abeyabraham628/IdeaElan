@@ -131,7 +131,7 @@ var LoginPage = /** @class */ (function () {
                     case 0:
                         _a.trys.push([0, 5, , 6]);
                         this.loader.present();
-                        return [4 /*yield*/, this.afAuth.auth.signInWithEmailAndPassword(user.emailId, user.password)];
+                        return [4 /*yield*/, this.afAuth.auth.signInWithEmailAndPassword('tony.manuel@mca.christuniversity.in', '123456')];
                     case 1:
                         loginSuccess = _a.sent();
                         if (!loginSuccess) return [3 /*break*/, 4];
@@ -172,7 +172,7 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-login',template:/*ion-inline-start:"f:\ionic-app\src\pages\login\login.html"*/'\n\n<ion-content padding class="top-botton-border login">\n\n  \n\n\n\n<ion-list>\n\n  <ion-thumbnail >\n\n    <ion-img class="ionImage" [src]="companyLogo"></ion-img>\n\n  </ion-thumbnail>\n\n  <ion-item no-lines> \n\n    <ion-input text-center type="email" [(ngModel)]="credentials.emailId" class="input-border" placeholder="USER NAME"></ion-input>\n\n   </ion-item>\n\n  \n\n  <ion-item no-lines    >\n\n    <ion-input text-center type="password" class="input-border" [(ngModel)]="credentials.password" placeholder="PASSWORD"></ion-input>\n\n   </ion-item>\n\n\n\n   \n\n      <button type="button"  full default ion-button color="blue" style="height:40px; border-radius:5px;" (click)="signIn(credentials)">Sign In</button>\n\n      <ion-label color="orange"  text-right (click)="forgotPassword()">Forgot Password</ion-label>\n\n    </ion-list>\n\n\n\n   \n\n   \n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"f:\ionic-app\src\pages\login\login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"D:\IdeaElan\src\pages\login\login.html"*/'\n\n<ion-content padding class="top-botton-border login">\n\n  \n\n\n\n<ion-list>\n\n  <ion-thumbnail >\n\n    <ion-img class="ionImage" [src]="companyLogo"></ion-img>\n\n  </ion-thumbnail>\n\n  <ion-item no-lines> \n\n    <ion-input text-center type="email" [(ngModel)]="credentials.emailId" class="input-border" placeholder="USER NAME"></ion-input>\n\n   </ion-item>\n\n  \n\n  <ion-item no-lines    >\n\n    <ion-input text-center type="password" class="input-border" [(ngModel)]="credentials.password" placeholder="PASSWORD"></ion-input>\n\n   </ion-item>\n\n\n\n   \n\n      <button type="button"  full default ion-button color="blue" style="height:40px; border-radius:5px;" (click)="signIn(credentials)">Sign In</button>\n\n      <ion-label color="orange"  text-right (click)="forgotPassword()">Forgot Password</ion-label>\n\n    </ion-list>\n\n\n\n   \n\n   \n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\login\login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ToastController"],
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["LoadingController"],

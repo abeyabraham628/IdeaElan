@@ -137,11 +137,18 @@
     </div>
 
     <div *ngSwitchCase="'allSystems'">
-      <ion-list>
-        <ion-searchbar hidden placeholder="Find System" showCancelButton="false">
-       </ion-searchbar>
-       <button type="button"  color="blue" ion-button (click)="scanBarCode('db')">Scanner</button>
-      </ion-list>
+      
+       <ion-row>
+          
+          <ion-item col-10  no-lines >
+              <ion-searchbar  placeholder="Search User"  [showCancelButton]="shouldShowCancel" name="searchString" [(ngModel)]="searchString" ><ion-icon name="barcode" item-right> </ion-icon></ion-searchbar>
+          </ion-item>
+          <ion-item col-2>
+              <ion-icon  type="button" name="barcode" (click)="scanBarCode('db')" color="blue"> </ion-icon>
+           </ion-item>
+        </ion-row>
+       
+      
       <ion-item>
         <ion-row class="table-title">
           <ion-col col-4 >System Id</ion-col>
@@ -151,7 +158,7 @@
           <ion-col hidden col-2 >View</ion-col>
         </ion-row>
       </ion-item>
-      <ion-item *ngFor="let system of systemArray">
+      <ion-item *ngFor="let system of systemArray | table-filter : 'name' : searchString; let i = index">
         <ion-row class="col-text table-bottom-border" (click)="loadForm(system)" >
             <ion-col col-4>{{system.systemId}}</ion-col><ion-col col-3>{{system.memory}}</ion-col><ion-col col-3>{{system.hdd}}</ion-col><ion-col col-2>{{system.avExpiry | momentdate}} Days</ion-col>
         </ion-row>

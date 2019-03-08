@@ -72,7 +72,7 @@ var PayslipPage = /** @class */ (function () {
     };
     PayslipPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-payslip',template:/*ion-inline-start:"f:\ionic-app\src\pages\payslip\payslip.html"*/'<!--\n  Generated template for the PayslipPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>payslip</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"f:\ionic-app\src\pages\payslip\payslip.html"*/,
+            selector: 'page-payslip',template:/*ion-inline-start:"D:\IdeaElan\src\pages\payslip\payslip.html"*/'<!--\n\n  Generated template for the PayslipPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header>\n\n\n\n  <ion-navbar>\n\n    <ion-title>payslip</ion-title>\n\n  </ion-navbar>\n\n\n\n</ion-header>\n\n\n\n\n\n<ion-content padding>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\payslip\payslip.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"]])
     ], PayslipPage);

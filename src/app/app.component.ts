@@ -29,7 +29,7 @@ export class MyApp {
    
     this.platform.ready().then(() => {
       
-      this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT)
+      //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT)
       
       statusBar.styleDefault();
       splashScreen.hide();
@@ -57,7 +57,7 @@ export class MyApp {
       
       
     this.checkConnection();
-  disconnectSubscription.unsubscribe();
+    disconnectSubscription.unsubscribe();
     
    
   });

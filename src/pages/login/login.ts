@@ -46,8 +46,8 @@ export class LoginPage {
    
    try{
      this.loader.present()
-     const loginSuccess=await this.afAuth.auth.signInWithEmailAndPassword(user.emailId,user.password);
-    // const loginSuccess=await this.afAuth.auth.signInWithEmailAndPassword('tony.manuel@mca.christuniversity.in','123456');
+     //const loginSuccess=await this.afAuth.auth.signInWithEmailAndPassword(user.emailId,user.password);
+    const loginSuccess=await this.afAuth.auth.signInWithEmailAndPassword('tony.manuel@mca.christuniversity.in','123456');
      
      if(loginSuccess){
             this.storage.set('emailId',user.emailId)

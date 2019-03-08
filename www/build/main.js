@@ -218,7 +218,7 @@ var ChatbotPage = /** @class */ (function () {
     };
     ChatbotPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-chatbot',template:/*ion-inline-start:"f:\ionic-app\src\pages\chatbot\chatbot.html"*/'\n<ion-header no-border>\n  <page-header pageTitle="CHATBOT"></page-header>\n</ion-header>\n\n<ion-content padding >\n\n  <ion-input type="text" [(ngModel)]="question" hidden=true></ion-input>\n\n  <button ion-button (click)="ask(question)" hidden=true>Ask</button>\n\n  \n\n\n \n\n\n  <p text-center *ngIf="sending">sending...</p>\n  <div *ngFor="let q of questions" style="left:0px" >\n    <label name="title" class="msgClass">{{q.question}}</label>\n     \n  </div>\n\n  <div *ngFor="let q of answer"  class="msgClass" style="right:0px;position: relative; text-align: right; background-color: honeydew ">\n      <label name="title" style="display:inline-flex">{{q.answer}}</label>\n  \n</div>\n \n \n</ion-content>\n\n<ion-footer>\n    <ion-item>\n    <ion-input [(ngModel)]="question" name="message" class="input_message" placeholder="Ask me anything"></ion-input>\n    <button ion-button (click)="ask(question)" item-right  color="orange"> <ion-icon  name="send" ></ion-icon></button>\n   \n  </ion-item>\n</ion-footer>\n\n'/*ion-inline-end:"f:\ionic-app\src\pages\chatbot\chatbot.html"*/,
+            selector: 'page-chatbot',template:/*ion-inline-start:"D:\IdeaElan\src\pages\chatbot\chatbot.html"*/'\n\n<ion-header no-border>\n\n  <page-header pageTitle="CHATBOT"></page-header>\n\n</ion-header>\n\n\n\n<ion-content padding >\n\n\n\n  <ion-input type="text" [(ngModel)]="question" hidden=true></ion-input>\n\n\n\n  <button ion-button (click)="ask(question)" hidden=true>Ask</button>\n\n\n\n  \n\n\n\n\n\n \n\n\n\n\n\n  <p text-center *ngIf="sending">sending...</p>\n\n  <div *ngFor="let q of questions" style="left:0px" >\n\n    <label name="title" class="msgClass">{{q.question}}</label>\n\n     \n\n  </div>\n\n\n\n  <div *ngFor="let q of answer"  class="msgClass" style="right:0px;position: relative; text-align: right; background-color: honeydew ">\n\n      <label name="title" style="display:inline-flex">{{q.answer}}</label>\n\n  \n\n</div>\n\n \n\n \n\n</ion-content>\n\n\n\n<ion-footer>\n\n    <ion-item>\n\n    <ion-input [(ngModel)]="question" name="message" class="input_message" placeholder="Ask me anything"></ion-input>\n\n    <button ion-button (click)="ask(question)" item-right  color="orange"> <ion-icon  name="send" ></ion-icon></button>\n\n   \n\n  </ion-item>\n\n</ion-footer>\n\n\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\chatbot\chatbot.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Platform"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]])
     ], ChatbotPage);
@@ -267,7 +267,7 @@ var NointernetPage = /** @class */ (function () {
     };
     NointernetPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-nointernet',template:/*ion-inline-start:"f:\ionic-app\src\pages\nointernet\nointernet.html"*/'<!--\n\n  Generated template for the NointernetPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n<ion-content padding>\n\n  \n\n  <img class="ionImage" [src]="offline">\n\n  <ion-list>\n\n    <ion-thumbnail >\n\n    \n\n      \n\n    </ion-thumbnail>\n\n</ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"f:\ionic-app\src\pages\nointernet\nointernet.html"*/,
+            selector: 'page-nointernet',template:/*ion-inline-start:"D:\IdeaElan\src\pages\nointernet\nointernet.html"*/'<!--\n\n  Generated template for the NointernetPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n<ion-content padding>\n\n  \n\n  <img class="ionImage" [src]="offline">\n\n  <ion-list>\n\n    <ion-thumbnail >\n\n    \n\n      \n\n    </ion-thumbnail>\n\n</ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\nointernet\nointernet.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"]])
     ], NointernetPage);
@@ -832,7 +832,7 @@ var MyApp = /** @class */ (function () {
         this.checkConnection();
         this.checkDisconnection();
         this.platform.ready().then(function () {
-            _this.screenOrientation.lock(_this.screenOrientation.ORIENTATIONS.PORTRAIT);
+            //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT)
             statusBar.styleDefault();
             splashScreen.hide();
             _this.platform.registerBackButtonAction(function () {
@@ -896,7 +896,7 @@ var MyApp = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"f:\ionic-app\src\app\app.html"*/'\n\n  <offline [hidden]=showOffline></offline>\n\n  \n\n  <ion-nav nav [root]="rootPage" [hidden]="isOffline "></ion-nav>\n\n'/*ion-inline-end:"f:\ionic-app\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"D:\IdeaElan\src\app\app.html"*/'\n\n  <offline [hidden]=showOffline></offline>\n\n  \n\n  <ion-nav nav [root]="rootPage" [hidden]="isOffline "></ion-nav>\n\n'/*ion-inline-end:"D:\IdeaElan\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"], __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__["a" /* ScreenOrientation */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_network__["a" /* Network */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["App"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Platform"], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"]])
     ], MyApp);
