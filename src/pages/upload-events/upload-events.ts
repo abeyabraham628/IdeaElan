@@ -98,7 +98,7 @@ async publishMessage(){
     
     alert.present();
   
- 
+    this.PublishMessageForm.reset()
   }
 
 

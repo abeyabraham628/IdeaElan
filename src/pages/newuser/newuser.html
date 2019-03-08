@@ -87,8 +87,8 @@
                           <ion-input type="text" [(ngModel)]="userItem.email" class="form-control"  formControlName="email" name="email"   ></ion-input>
                         </ion-item>
                         
-                        <ion-item [hidden]="fnameShow" no-lines *ngIf=" slideOneForm.get('email').hasError('required')">
-                          <ion-label  stacked  color="danger" *ngIf="slideOneForm.get('email').hasError('required')">
+                        <ion-item [hidden]="fnameShow" no-lines *ngIf="slideOneForm.get('email').hasError('pattern') || slideOneForm.get('email').hasError('required')">
+                          <ion-label  stacked  color="danger"  *ngIf="slideOneForm.get('email').hasError('pattern') || slideOneForm.get('email').hasError('required')">
                           please enter a valid email id 
                           </ion-label>
                           </ion-item>

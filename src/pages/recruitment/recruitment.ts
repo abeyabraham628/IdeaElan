@@ -25,7 +25,8 @@ export class RecruitmentPage {
   scheduleDate: String
   checked:boolean=false
   candidateSelected=true
- 
+  searchString:string
+  searchInterview:string
   constructor(public alertCtrl:AlertController,private firebase:AngularFireDatabase, private datePicker:DatePicker,public navCtrl: NavController,private ref: ChangeDetectorRef) {
     this.recruitment="newApplicant";
     this.getApplicants();

@@ -144,15 +144,7 @@ loader:any
 
    leaveInfo.userId=this.afauth.auth.currentUser.uid
    leaveInfo.status="pending"
-   this.userLeave.submitLeaveRequest(leaveInfo).then(()=>{
-    let alert = this.alertCtrl.create({
-      title: "Success",
-      subTitle: "Leave applied successfully ",
-      buttons: ['OK']
-    });
-        alert.present();
-
-  })
+   this.userLeave.submitLeaveRequest(leaveInfo)
   this.leaveForm.reset()
 }
     

@@ -35815,7 +35815,6 @@ ion-navbar.toolbar {
   padding: 10px;
   white-space: nowrap;
   display: inline-block;
-  clear: both;
 }
 
 .box-events {

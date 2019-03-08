@@ -31,11 +31,13 @@ export class NewuserPage {
     dob: new FormControl('',[Validators.required,Validators.minLength(5)]),
     mobile: new FormControl('',[Validators.required,Validators.minLength(5)]),
     doj: new FormControl('',[Validators.required,Validators.minLength(5)]),
-    email: new FormControl('',[Validators.required,Validators.minLength(5),Validators.pattern('^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$')]),
+    email: new FormControl('',[Validators.required,Validators.minLength(5), Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')] ),
     position: new FormControl('',[Validators.required,Validators.minLength(5)]),
 
 
   });
+
+  
   
   designations=Designations
   public itemslist: Array<any> = [];
@@ -377,6 +379,8 @@ this.status="active";
 
 }
 }
+
+
 collect(keys:any,fname:any,lname:any,dob:any,mobile:any,email:any,doj:any,position:any,data:any,status:any){
   this.userItem.fname=fname;
   this.userItem.lname=lname;

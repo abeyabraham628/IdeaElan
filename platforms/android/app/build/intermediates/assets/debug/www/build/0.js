@@ -6,11 +6,11 @@ webpackJsonp([0],{
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NewuserPageModule", function() { return NewuserPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__directives_datepicker_datepicker__ = __webpack_require__(843);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_components_module__ = __webpack_require__(464);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__directives_datepicker_datepicker__ = __webpack_require__(846);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_components_module__ = __webpack_require__(463);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__newuser__ = __webpack_require__(844);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__newuser__ = __webpack_require__(847);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_datepicker__ = __webpack_require__(746);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -201,7 +201,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
 
   var Buffer;
   try {
-    Buffer = __webpack_require__(884).Buffer;
+    Buffer = __webpack_require__(887).Buffer;
   } catch (e) {
   }
 
@@ -3595,9 +3595,9 @@ SafeBuffer.allocUnsafeSlow = function (size) {
 
 
 
-var base64 = __webpack_require__(848)
-var ieee754 = __webpack_require__(849)
-var isArray = __webpack_require__(787)
+var base64 = __webpack_require__(851)
+var ieee754 = __webpack_require__(852)
+var isArray = __webpack_require__(788)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -5385,7 +5385,7 @@ function isnan (val) {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomDatePicker; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(39);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -5446,15 +5446,15 @@ var CustomDatePicker = /** @class */ (function () {
 
 var elliptic = exports;
 
-elliptic.version = __webpack_require__(890).version;
-elliptic.utils = __webpack_require__(891);
-elliptic.rand = __webpack_require__(809);
+elliptic.version = __webpack_require__(893).version;
+elliptic.utils = __webpack_require__(894);
+elliptic.rand = __webpack_require__(810);
 elliptic.curve = __webpack_require__(764);
-elliptic.curves = __webpack_require__(896);
+elliptic.curves = __webpack_require__(899);
 
 // Protocols
-elliptic.ec = __webpack_require__(904);
-elliptic.eddsa = __webpack_require__(908);
+elliptic.ec = __webpack_require__(907);
+elliptic.eddsa = __webpack_require__(911);
 
 
 /***/ }),
@@ -5767,8 +5767,8 @@ exports.shr64_lo = shr64_lo;
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(743).Buffer
-var Transform = __webpack_require__(768).Transform
-var StringDecoder = __webpack_require__(772).StringDecoder
+var Transform = __webpack_require__(769).Transform
+var StringDecoder = __webpack_require__(773).StringDecoder
 var inherits = __webpack_require__(742)
 
 function CipherBase (hashMode) {
@@ -5922,8 +5922,8 @@ var util = __webpack_require__(756);
 util.inherits = __webpack_require__(742);
 /*</replacement>*/
 
-var Readable = __webpack_require__(789);
-var Writable = __webpack_require__(771);
+var Readable = __webpack_require__(790);
+var Writable = __webpack_require__(772);
 
 util.inherits(Duplex, Readable);
 
@@ -6160,9 +6160,9 @@ module.exports = Hash
 "use strict";
 
 var inherits = __webpack_require__(742)
-var MD5 = __webpack_require__(767)
-var RIPEMD160 = __webpack_require__(773)
-var sha = __webpack_require__(774)
+var MD5 = __webpack_require__(768)
+var RIPEMD160 = __webpack_require__(774)
+var sha = __webpack_require__(775)
 var Base = __webpack_require__(751)
 
 function Hash (hash) {
@@ -6432,11 +6432,11 @@ var asn1 = exports;
 
 asn1.bignum = __webpack_require__(744);
 
-asn1.define = __webpack_require__(912).define;
+asn1.define = __webpack_require__(915).define;
 asn1.base = __webpack_require__(760);
-asn1.constants = __webpack_require__(815);
-asn1.decoders = __webpack_require__(918);
-asn1.encoders = __webpack_require__(920);
+asn1.constants = __webpack_require__(816);
+asn1.decoders = __webpack_require__(921);
+asn1.encoders = __webpack_require__(923);
 
 
 /***/ }),
@@ -6446,10 +6446,10 @@ asn1.encoders = __webpack_require__(920);
 
 var base = exports;
 
-base.Reporter = __webpack_require__(915).Reporter;
-base.DecoderBuffer = __webpack_require__(814).DecoderBuffer;
-base.EncoderBuffer = __webpack_require__(814).EncoderBuffer;
-base.Node = __webpack_require__(916);
+base.Reporter = __webpack_require__(918).Reporter;
+base.DecoderBuffer = __webpack_require__(815).DecoderBuffer;
+base.EncoderBuffer = __webpack_require__(815).EncoderBuffer;
+base.Node = __webpack_require__(919);
 
 
 /***/ }),
@@ -6746,7 +6746,7 @@ module.exports.AES = AES
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(743).Buffer
-var MD5 = __webpack_require__(767)
+var MD5 = __webpack_require__(768)
 
 /* eslint-disable camelcase */
 function EVP_BytesToKey (password, salt, keyBits, ivLen) {
@@ -6802,10 +6802,10 @@ module.exports = EVP_BytesToKey
 
 var curve = exports;
 
-curve.base = __webpack_require__(892);
-curve.short = __webpack_require__(893);
-curve.mont = __webpack_require__(894);
-curve.edwards = __webpack_require__(895);
+curve.base = __webpack_require__(895);
+curve.short = __webpack_require__(896);
+curve.mont = __webpack_require__(897);
+curve.edwards = __webpack_require__(898);
 
 
 /***/ }),
@@ -6813,11 +6813,11 @@ curve.edwards = __webpack_require__(895);
 /***/ 765:
 /***/ (function(module, exports, __webpack_require__) {
 
-var asn1 = __webpack_require__(911)
-var aesid = __webpack_require__(923)
-var fixProc = __webpack_require__(924)
-var ciphers = __webpack_require__(776)
-var compat = __webpack_require__(798)
+var asn1 = __webpack_require__(914)
+var aesid = __webpack_require__(926)
+var fixProc = __webpack_require__(927)
+var ciphers = __webpack_require__(777)
+var compat = __webpack_require__(799)
 var Buffer = __webpack_require__(743).Buffer
 module.exports = parseKeys
 
@@ -6924,7 +6924,7 @@ function decrypt (data, password) {
 
 /***/ }),
 
-/***/ 766:
+/***/ 767:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6949,13 +6949,13 @@ var Designations = [
 
 /***/ }),
 
-/***/ 767:
+/***/ 768:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var inherits = __webpack_require__(742)
-var HashBase = __webpack_require__(788)
+var HashBase = __webpack_require__(789)
 var Buffer = __webpack_require__(743).Buffer
 
 var ARRAY16 = new Array(16)
@@ -7103,7 +7103,7 @@ module.exports = MD5
 
 /***/ }),
 
-/***/ 768:
+/***/ 769:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -7129,15 +7129,15 @@ module.exports = MD5
 
 module.exports = Stream;
 
-var EE = __webpack_require__(769).EventEmitter;
+var EE = __webpack_require__(770).EventEmitter;
 var inherits = __webpack_require__(742);
 
 inherits(Stream, EE);
-Stream.Readable = __webpack_require__(770);
-Stream.Writable = __webpack_require__(855);
-Stream.Duplex = __webpack_require__(856);
-Stream.Transform = __webpack_require__(857);
-Stream.PassThrough = __webpack_require__(858);
+Stream.Readable = __webpack_require__(771);
+Stream.Writable = __webpack_require__(858);
+Stream.Duplex = __webpack_require__(859);
+Stream.Transform = __webpack_require__(860);
+Stream.PassThrough = __webpack_require__(861);
 
 // Backwards-compat with node 0.4.x
 Stream.Stream = Stream;
@@ -7237,7 +7237,7 @@ Stream.prototype.pipe = function(dest, options) {
 
 /***/ }),
 
-/***/ 769:
+/***/ 770:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7693,21 +7693,21 @@ function unwrapListeners(arr) {
 
 /***/ }),
 
-/***/ 770:
+/***/ 771:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(789);
+exports = module.exports = __webpack_require__(790);
 exports.Stream = exports;
 exports.Readable = exports;
-exports.Writable = __webpack_require__(771);
+exports.Writable = __webpack_require__(772);
 exports.Duplex = __webpack_require__(752);
-exports.Transform = __webpack_require__(792);
-exports.PassThrough = __webpack_require__(854);
+exports.Transform = __webpack_require__(793);
+exports.PassThrough = __webpack_require__(857);
 
 
 /***/ }),
 
-/***/ 771:
+/***/ 772:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7783,12 +7783,12 @@ util.inherits = __webpack_require__(742);
 
 /*<replacement>*/
 var internalUtil = {
-  deprecate: __webpack_require__(853)
+  deprecate: __webpack_require__(856)
 };
 /*</replacement>*/
 
 /*<replacement>*/
-var Stream = __webpack_require__(790);
+var Stream = __webpack_require__(791);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -7804,7 +7804,7 @@ function _isUint8Array(obj) {
 
 /*</replacement>*/
 
-var destroyImpl = __webpack_require__(791);
+var destroyImpl = __webpack_require__(792);
 
 util.inherits(Writable, Stream);
 
@@ -8402,7 +8402,7 @@ Writable.prototype._destroy = function (err, cb) {
 
 /***/ }),
 
-/***/ 772:
+/***/ 773:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8705,14 +8705,14 @@ function simpleEnd(buf) {
 
 /***/ }),
 
-/***/ 773:
+/***/ 774:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Buffer = __webpack_require__(745).Buffer
 var inherits = __webpack_require__(742)
-var HashBase = __webpack_require__(788)
+var HashBase = __webpack_require__(789)
 
 var ARRAY16 = new Array(16)
 
@@ -8876,7 +8876,7 @@ module.exports = RIPEMD160
 
 /***/ }),
 
-/***/ 774:
+/***/ 775:
 /***/ (function(module, exports, __webpack_require__) {
 
 var exports = module.exports = function SHA (algorithm) {
@@ -8888,27 +8888,12 @@ var exports = module.exports = function SHA (algorithm) {
   return new Algorithm()
 }
 
-exports.sha = __webpack_require__(859)
-exports.sha1 = __webpack_require__(860)
-exports.sha224 = __webpack_require__(861)
-exports.sha256 = __webpack_require__(793)
-exports.sha384 = __webpack_require__(862)
-exports.sha512 = __webpack_require__(794)
-
-
-/***/ }),
-
-/***/ 775:
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.utils = __webpack_require__(868);
-exports.Cipher = __webpack_require__(869);
-exports.DES = __webpack_require__(870);
-exports.CBC = __webpack_require__(871);
-exports.EDE = __webpack_require__(872);
+exports.sha = __webpack_require__(862)
+exports.sha1 = __webpack_require__(863)
+exports.sha224 = __webpack_require__(864)
+exports.sha256 = __webpack_require__(794)
+exports.sha384 = __webpack_require__(865)
+exports.sha512 = __webpack_require__(795)
 
 
 /***/ }),
@@ -8916,9 +8901,24 @@ exports.EDE = __webpack_require__(872);
 /***/ 776:
 /***/ (function(module, exports, __webpack_require__) {
 
-var ciphers = __webpack_require__(873)
-var deciphers = __webpack_require__(881)
-var modes = __webpack_require__(804)
+"use strict";
+
+
+exports.utils = __webpack_require__(871);
+exports.Cipher = __webpack_require__(872);
+exports.DES = __webpack_require__(873);
+exports.CBC = __webpack_require__(874);
+exports.EDE = __webpack_require__(875);
+
+
+/***/ }),
+
+/***/ 777:
+/***/ (function(module, exports, __webpack_require__) {
+
+var ciphers = __webpack_require__(876)
+var deciphers = __webpack_require__(884)
+var modes = __webpack_require__(805)
 
 function getCiphers () {
   return Object.keys(modes)
@@ -8933,21 +8933,21 @@ exports.listCiphers = exports.getCiphers = getCiphers
 
 /***/ }),
 
-/***/ 777:
+/***/ 778:
 /***/ (function(module, exports, __webpack_require__) {
 
 var modeModules = {
-  ECB: __webpack_require__(874),
-  CBC: __webpack_require__(875),
-  CFB: __webpack_require__(876),
-  CFB8: __webpack_require__(877),
-  CFB1: __webpack_require__(878),
-  OFB: __webpack_require__(879),
-  CTR: __webpack_require__(802),
-  GCM: __webpack_require__(802)
+  ECB: __webpack_require__(877),
+  CBC: __webpack_require__(878),
+  CFB: __webpack_require__(879),
+  CFB8: __webpack_require__(880),
+  CFB1: __webpack_require__(881),
+  OFB: __webpack_require__(882),
+  CTR: __webpack_require__(803),
+  GCM: __webpack_require__(803)
 }
 
-var modes = __webpack_require__(804)
+var modes = __webpack_require__(805)
 
 for (var key in modes) {
   modes[key].module = modeModules[modes[key].mode]
@@ -8958,7 +8958,7 @@ module.exports = modes
 
 /***/ }),
 
-/***/ 778:
+/***/ 779:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var bn = __webpack_require__(744);
@@ -9006,16 +9006,16 @@ function getr(priv) {
 
 /***/ }),
 
-/***/ 779:
+/***/ 780:
 /***/ (function(module, exports, __webpack_require__) {
 
 var hash = exports;
 
 hash.utils = __webpack_require__(749);
 hash.common = __webpack_require__(758);
-hash.sha = __webpack_require__(897);
-hash.ripemd = __webpack_require__(901);
-hash.hmac = __webpack_require__(902);
+hash.sha = __webpack_require__(900);
+hash.ripemd = __webpack_require__(904);
+hash.hmac = __webpack_require__(905);
 
 // Proxy hash functions to the main object
 hash.sha1 = hash.sha.sha1;
@@ -9028,7 +9028,7 @@ hash.ripemd160 = hash.ripemd.ripemd160;
 
 /***/ }),
 
-/***/ 787:
+/***/ 788:
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -9040,13 +9040,13 @@ module.exports = Array.isArray || function (arr) {
 
 /***/ }),
 
-/***/ 788:
+/***/ 789:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Buffer = __webpack_require__(743).Buffer
-var Transform = __webpack_require__(768).Transform
+var Transform = __webpack_require__(769).Transform
 var inherits = __webpack_require__(742)
 
 function throwIfNotStringOrBuffer (val, prefix) {
@@ -9143,7 +9143,7 @@ module.exports = HashBase
 
 /***/ }),
 
-/***/ 789:
+/***/ 790:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9178,7 +9178,7 @@ var pna = __webpack_require__(761);
 module.exports = Readable;
 
 /*<replacement>*/
-var isArray = __webpack_require__(787);
+var isArray = __webpack_require__(788);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -9188,7 +9188,7 @@ var Duplex;
 Readable.ReadableState = ReadableState;
 
 /*<replacement>*/
-var EE = __webpack_require__(769).EventEmitter;
+var EE = __webpack_require__(770).EventEmitter;
 
 var EElistenerCount = function (emitter, type) {
   return emitter.listeners(type).length;
@@ -9196,7 +9196,7 @@ var EElistenerCount = function (emitter, type) {
 /*</replacement>*/
 
 /*<replacement>*/
-var Stream = __webpack_require__(790);
+var Stream = __webpack_require__(791);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -9218,7 +9218,7 @@ util.inherits = __webpack_require__(742);
 /*</replacement>*/
 
 /*<replacement>*/
-var debugUtil = __webpack_require__(850);
+var debugUtil = __webpack_require__(853);
 var debug = void 0;
 if (debugUtil && debugUtil.debuglog) {
   debug = debugUtil.debuglog('stream');
@@ -9227,8 +9227,8 @@ if (debugUtil && debugUtil.debuglog) {
 }
 /*</replacement>*/
 
-var BufferList = __webpack_require__(851);
-var destroyImpl = __webpack_require__(791);
+var BufferList = __webpack_require__(854);
+var destroyImpl = __webpack_require__(792);
 var StringDecoder;
 
 util.inherits(Readable, Stream);
@@ -9318,7 +9318,7 @@ function ReadableState(options, stream) {
   this.decoder = null;
   this.encoding = null;
   if (options.encoding) {
-    if (!StringDecoder) StringDecoder = __webpack_require__(772).StringDecoder;
+    if (!StringDecoder) StringDecoder = __webpack_require__(773).StringDecoder;
     this.decoder = new StringDecoder(options.encoding);
     this.encoding = options.encoding;
   }
@@ -9474,7 +9474,7 @@ Readable.prototype.isPaused = function () {
 
 // backwards compatibility.
 Readable.prototype.setEncoding = function (enc) {
-  if (!StringDecoder) StringDecoder = __webpack_require__(772).StringDecoder;
+  if (!StringDecoder) StringDecoder = __webpack_require__(773).StringDecoder;
   this._readableState.decoder = new StringDecoder(enc);
   this._readableState.encoding = enc;
   return this;
@@ -10170,15 +10170,15 @@ function indexOf(xs, x) {
 
 /***/ }),
 
-/***/ 790:
+/***/ 791:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(769).EventEmitter;
+module.exports = __webpack_require__(770).EventEmitter;
 
 
 /***/ }),
 
-/***/ 791:
+/***/ 792:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10259,7 +10259,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 792:
+/***/ 793:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10480,7 +10480,7 @@ function done(stream, er, data) {
 
 /***/ }),
 
-/***/ 793:
+/***/ 794:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -10622,7 +10622,7 @@ module.exports = Sha256
 
 /***/ }),
 
-/***/ 794:
+/***/ 795:
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(742)
@@ -10889,19 +10889,19 @@ module.exports = Sha512
 
 /***/ }),
 
-/***/ 795:
+/***/ 796:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var inherits = __webpack_require__(742)
-var Legacy = __webpack_require__(863)
+var Legacy = __webpack_require__(866)
 var Base = __webpack_require__(751)
 var Buffer = __webpack_require__(743).Buffer
-var md5 = __webpack_require__(796)
-var RIPEMD160 = __webpack_require__(773)
+var md5 = __webpack_require__(797)
+var RIPEMD160 = __webpack_require__(774)
 
-var sha = __webpack_require__(774)
+var sha = __webpack_require__(775)
 
 var ZEROS = Buffer.alloc(128)
 
@@ -10959,10 +10959,10 @@ module.exports = function createHmac (alg, key) {
 
 /***/ }),
 
-/***/ 796:
+/***/ 797:
 /***/ (function(module, exports, __webpack_require__) {
 
-var MD5 = __webpack_require__(767)
+var MD5 = __webpack_require__(768)
 
 module.exports = function (buffer) {
   return new MD5().update(buffer).digest()
@@ -10971,23 +10971,23 @@ module.exports = function (buffer) {
 
 /***/ }),
 
-/***/ 797:
+/***/ 798:
 /***/ (function(module, exports) {
 
 module.exports = {"sha224WithRSAEncryption":{"sign":"rsa","hash":"sha224","id":"302d300d06096086480165030402040500041c"},"RSA-SHA224":{"sign":"ecdsa/rsa","hash":"sha224","id":"302d300d06096086480165030402040500041c"},"sha256WithRSAEncryption":{"sign":"rsa","hash":"sha256","id":"3031300d060960864801650304020105000420"},"RSA-SHA256":{"sign":"ecdsa/rsa","hash":"sha256","id":"3031300d060960864801650304020105000420"},"sha384WithRSAEncryption":{"sign":"rsa","hash":"sha384","id":"3041300d060960864801650304020205000430"},"RSA-SHA384":{"sign":"ecdsa/rsa","hash":"sha384","id":"3041300d060960864801650304020205000430"},"sha512WithRSAEncryption":{"sign":"rsa","hash":"sha512","id":"3051300d060960864801650304020305000440"},"RSA-SHA512":{"sign":"ecdsa/rsa","hash":"sha512","id":"3051300d060960864801650304020305000440"},"RSA-SHA1":{"sign":"rsa","hash":"sha1","id":"3021300906052b0e03021a05000414"},"ecdsa-with-SHA1":{"sign":"ecdsa","hash":"sha1","id":""},"sha256":{"sign":"ecdsa","hash":"sha256","id":""},"sha224":{"sign":"ecdsa","hash":"sha224","id":""},"sha384":{"sign":"ecdsa","hash":"sha384","id":""},"sha512":{"sign":"ecdsa","hash":"sha512","id":""},"DSA-SHA":{"sign":"dsa","hash":"sha1","id":""},"DSA-SHA1":{"sign":"dsa","hash":"sha1","id":""},"DSA":{"sign":"dsa","hash":"sha1","id":""},"DSA-WITH-SHA224":{"sign":"dsa","hash":"sha224","id":""},"DSA-SHA224":{"sign":"dsa","hash":"sha224","id":""},"DSA-WITH-SHA256":{"sign":"dsa","hash":"sha256","id":""},"DSA-SHA256":{"sign":"dsa","hash":"sha256","id":""},"DSA-WITH-SHA384":{"sign":"dsa","hash":"sha384","id":""},"DSA-SHA384":{"sign":"dsa","hash":"sha384","id":""},"DSA-WITH-SHA512":{"sign":"dsa","hash":"sha512","id":""},"DSA-SHA512":{"sign":"dsa","hash":"sha512","id":""},"DSA-RIPEMD160":{"sign":"dsa","hash":"rmd160","id":""},"ripemd160WithRSA":{"sign":"rsa","hash":"rmd160","id":"3021300906052b2403020105000414"},"RSA-RIPEMD160":{"sign":"rsa","hash":"rmd160","id":"3021300906052b2403020105000414"},"md5WithRSAEncryption":{"sign":"rsa","hash":"md5","id":"3020300c06082a864886f70d020505000410"},"RSA-MD5":{"sign":"rsa","hash":"md5","id":"3020300c06082a864886f70d020505000410"}}
 
 /***/ }),
 
-/***/ 798:
+/***/ 799:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports.pbkdf2 = __webpack_require__(865)
-exports.pbkdf2Sync = __webpack_require__(801)
+exports.pbkdf2 = __webpack_require__(868)
+exports.pbkdf2Sync = __webpack_require__(802)
 
 
 /***/ }),
 
-/***/ 799:
+/***/ 800:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var MAX_ALLOC = Math.pow(2, 30) - 1 // default in iojs
@@ -11023,7 +11023,7 @@ module.exports = function (password, salt, iterations, keylen) {
 
 /***/ }),
 
-/***/ 800:
+/***/ 801:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {var defaultEncoding
@@ -11041,15 +11041,15 @@ module.exports = defaultEncoding
 
 /***/ }),
 
-/***/ 801:
+/***/ 802:
 /***/ (function(module, exports, __webpack_require__) {
 
-var md5 = __webpack_require__(796)
-var RIPEMD160 = __webpack_require__(773)
-var sha = __webpack_require__(774)
+var md5 = __webpack_require__(797)
+var RIPEMD160 = __webpack_require__(774)
+var sha = __webpack_require__(775)
 
-var checkParameters = __webpack_require__(799)
-var defaultEncoding = __webpack_require__(800)
+var checkParameters = __webpack_require__(800)
+var defaultEncoding = __webpack_require__(801)
 var Buffer = __webpack_require__(743).Buffer
 var ZEROS = Buffer.alloc(128)
 var sizes = {
@@ -11152,12 +11152,12 @@ module.exports = pbkdf2
 
 /***/ }),
 
-/***/ 802:
+/***/ 803:
 /***/ (function(module, exports, __webpack_require__) {
 
 var xor = __webpack_require__(757)
 var Buffer = __webpack_require__(743).Buffer
-var incr32 = __webpack_require__(803)
+var incr32 = __webpack_require__(804)
 
 function getBlock (self) {
   var out = self._cipher.encryptBlockRaw(self._prev)
@@ -11189,7 +11189,7 @@ exports.encrypt = function (self, chunk) {
 
 /***/ }),
 
-/***/ 803:
+/***/ 804:
 /***/ (function(module, exports) {
 
 function incr32 (iv) {
@@ -11211,23 +11211,23 @@ module.exports = incr32
 
 /***/ }),
 
-/***/ 804:
+/***/ 805:
 /***/ (function(module, exports) {
 
 module.exports = {"aes-128-ecb":{"cipher":"AES","key":128,"iv":0,"mode":"ECB","type":"block"},"aes-192-ecb":{"cipher":"AES","key":192,"iv":0,"mode":"ECB","type":"block"},"aes-256-ecb":{"cipher":"AES","key":256,"iv":0,"mode":"ECB","type":"block"},"aes-128-cbc":{"cipher":"AES","key":128,"iv":16,"mode":"CBC","type":"block"},"aes-192-cbc":{"cipher":"AES","key":192,"iv":16,"mode":"CBC","type":"block"},"aes-256-cbc":{"cipher":"AES","key":256,"iv":16,"mode":"CBC","type":"block"},"aes128":{"cipher":"AES","key":128,"iv":16,"mode":"CBC","type":"block"},"aes192":{"cipher":"AES","key":192,"iv":16,"mode":"CBC","type":"block"},"aes256":{"cipher":"AES","key":256,"iv":16,"mode":"CBC","type":"block"},"aes-128-cfb":{"cipher":"AES","key":128,"iv":16,"mode":"CFB","type":"stream"},"aes-192-cfb":{"cipher":"AES","key":192,"iv":16,"mode":"CFB","type":"stream"},"aes-256-cfb":{"cipher":"AES","key":256,"iv":16,"mode":"CFB","type":"stream"},"aes-128-cfb8":{"cipher":"AES","key":128,"iv":16,"mode":"CFB8","type":"stream"},"aes-192-cfb8":{"cipher":"AES","key":192,"iv":16,"mode":"CFB8","type":"stream"},"aes-256-cfb8":{"cipher":"AES","key":256,"iv":16,"mode":"CFB8","type":"stream"},"aes-128-cfb1":{"cipher":"AES","key":128,"iv":16,"mode":"CFB1","type":"stream"},"aes-192-cfb1":{"cipher":"AES","key":192,"iv":16,"mode":"CFB1","type":"stream"},"aes-256-cfb1":{"cipher":"AES","key":256,"iv":16,"mode":"CFB1","type":"stream"},"aes-128-ofb":{"cipher":"AES","key":128,"iv":16,"mode":"OFB","type":"stream"},"aes-192-ofb":{"cipher":"AES","key":192,"iv":16,"mode":"OFB","type":"stream"},"aes-256-ofb":{"cipher":"AES","key":256,"iv":16,"mode":"OFB","type":"stream"},"aes-128-ctr":{"cipher":"AES","key":128,"iv":16,"mode":"CTR","type":"stream"},"aes-192-ctr":{"cipher":"AES","key":192,"iv":16,"mode":"CTR","type":"stream"},"aes-256-ctr":{"cipher":"AES","key":256,"iv":16,"mode":"CTR","type":"stream"},"aes-128-gcm":{"cipher":"AES","key":128,"iv":12,"mode":"GCM","type":"auth"},"aes-192-gcm":{"cipher":"AES","key":192,"iv":12,"mode":"GCM","type":"auth"},"aes-256-gcm":{"cipher":"AES","key":256,"iv":12,"mode":"GCM","type":"auth"}}
 
 /***/ }),
 
-/***/ 805:
+/***/ 806:
 /***/ (function(module, exports, __webpack_require__) {
 
 var aes = __webpack_require__(762)
 var Buffer = __webpack_require__(743).Buffer
 var Transform = __webpack_require__(751)
 var inherits = __webpack_require__(742)
-var GHASH = __webpack_require__(880)
+var GHASH = __webpack_require__(883)
 var xor = __webpack_require__(757)
-var incr32 = __webpack_require__(803)
+var incr32 = __webpack_require__(804)
 
 function xorTest (a, b) {
   var out = 0
@@ -11342,7 +11342,7 @@ module.exports = StreamCipher
 
 /***/ }),
 
-/***/ 806:
+/***/ 807:
 /***/ (function(module, exports, __webpack_require__) {
 
 var aes = __webpack_require__(762)
@@ -11376,7 +11376,7 @@ module.exports = StreamCipher
 
 /***/ }),
 
-/***/ 807:
+/***/ 808:
 /***/ (function(module, exports, __webpack_require__) {
 
 var randomBytes = __webpack_require__(753);
@@ -11385,7 +11385,7 @@ findPrime.simpleSieve = simpleSieve;
 findPrime.fermatTest = fermatTest;
 var BN = __webpack_require__(744);
 var TWENTYFOUR = new BN(24);
-var MillerRabin = __webpack_require__(808);
+var MillerRabin = __webpack_require__(809);
 var millerRabin = new MillerRabin();
 var ONE = new BN(1);
 var TWO = new BN(2);
@@ -11488,11 +11488,11 @@ function findPrime(bits, gen) {
 
 /***/ }),
 
-/***/ 808:
+/***/ 809:
 /***/ (function(module, exports, __webpack_require__) {
 
 var bn = __webpack_require__(744);
-var brorand = __webpack_require__(809);
+var brorand = __webpack_require__(810);
 
 function MillerRabin(rand) {
   this.rand = rand || new brorand.Rand();
@@ -11610,7 +11610,7 @@ MillerRabin.prototype.getDivisor = function getDivisor(n, k) {
 
 /***/ }),
 
-/***/ 809:
+/***/ 810:
 /***/ (function(module, exports, __webpack_require__) {
 
 var r;
@@ -11668,7 +11668,7 @@ if (typeof self === 'object') {
 } else {
   // Node.js or Web worker with no crypto support
   try {
-    var crypto = __webpack_require__(885);
+    var crypto = __webpack_require__(888);
     if (typeof crypto.randomBytes !== 'function')
       throw new Error('Not supported');
 
@@ -11682,7 +11682,7 @@ if (typeof self === 'object') {
 
 /***/ }),
 
-/***/ 810:
+/***/ 811:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11748,7 +11748,7 @@ utils.encode = function encode(arr, enc) {
 
 /***/ }),
 
-/***/ 811:
+/***/ 812:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11805,7 +11805,7 @@ exports.g1_256 = g1_256;
 
 /***/ }),
 
-/***/ 812:
+/***/ 813:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11813,7 +11813,7 @@ exports.g1_256 = g1_256;
 
 var utils = __webpack_require__(749);
 var common = __webpack_require__(758);
-var shaCommon = __webpack_require__(811);
+var shaCommon = __webpack_require__(812);
 var assert = __webpack_require__(748);
 
 var sum32 = utils.sum32;
@@ -11918,7 +11918,7 @@ SHA256.prototype._digest = function digest(enc) {
 
 /***/ }),
 
-/***/ 813:
+/***/ 814:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12256,7 +12256,7 @@ function g1_512_lo(xh, xl) {
 
 /***/ }),
 
-/***/ 814:
+/***/ 815:
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(742);
@@ -12379,7 +12379,7 @@ EncoderBuffer.prototype.join = function join(out, offset) {
 
 /***/ }),
 
-/***/ 815:
+/***/ 816:
 /***/ (function(module, exports, __webpack_require__) {
 
 var constants = exports;
@@ -12400,12 +12400,12 @@ constants._reverse = function reverse(map) {
   return res;
 };
 
-constants.der = __webpack_require__(917);
+constants.der = __webpack_require__(920);
 
 
 /***/ }),
 
-/***/ 816:
+/***/ 817:
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(742);
@@ -12736,7 +12736,7 @@ function derDecodeLen(buf, primitive, fail) {
 
 /***/ }),
 
-/***/ 817:
+/***/ 818:
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(742);
@@ -13038,14 +13038,14 @@ function encodeTag(tag, primitive, cls, reporter) {
 
 /***/ }),
 
-/***/ 818:
+/***/ 819:
 /***/ (function(module, exports) {
 
 module.exports = {"1.3.132.0.10":"secp256k1","1.3.132.0.33":"p224","1.2.840.10045.3.1.1":"p192","1.2.840.10045.3.1.7":"p256","1.3.132.0.34":"p384","1.3.132.0.35":"p521"}
 
 /***/ }),
 
-/***/ 819:
+/***/ 820:
 /***/ (function(module, exports, __webpack_require__) {
 
 var createHash = __webpack_require__(755)
@@ -13071,7 +13071,7 @@ function i2ops (c) {
 
 /***/ }),
 
-/***/ 820:
+/***/ 821:
 /***/ (function(module, exports) {
 
 module.exports = function xor (a, b) {
@@ -13086,7 +13086,7 @@ module.exports = function xor (a, b) {
 
 /***/ }),
 
-/***/ 821:
+/***/ 822:
 /***/ (function(module, exports, __webpack_require__) {
 
 var BN = __webpack_require__(744)
@@ -13105,15 +13105,15 @@ module.exports = withPublic
 
 /***/ }),
 
-/***/ 843:
+/***/ 846:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return DatepickerDirective; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_datepicker__ = __webpack_require__(746);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ion2_calendar__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ion2_calendar__ = __webpack_require__(464);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ion2_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ion2_calendar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_moment__);
@@ -13197,26 +13197,26 @@ var DatepickerDirective = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 844:
+/***/ 847:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewuserPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_forms__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__ = __webpack_require__(462);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(39);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_database__ = __webpack_require__(462);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_generate_password__ = __webpack_require__(845);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_database__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_generate_password__ = __webpack_require__(848);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_generate_password___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_generate_password__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_emailjs_com__ = __webpack_require__(931);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_emailjs_com__ = __webpack_require__(934);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_emailjs_com___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_emailjs_com__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__models_datepicker__ = __webpack_require__(746);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ion2_calendar__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ion2_calendar__ = __webpack_require__(464);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ion2_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_ion2_calendar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_designations__ = __webpack_require__(766);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_designations__ = __webpack_require__(767);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13292,7 +13292,7 @@ var NewuserPage = /** @class */ (function () {
             dob: new __WEBPACK_IMPORTED_MODULE_0__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].minLength(5)]),
             mobile: new __WEBPACK_IMPORTED_MODULE_0__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].minLength(5)]),
             doj: new __WEBPACK_IMPORTED_MODULE_0__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].minLength(5)]),
-            email: new __WEBPACK_IMPORTED_MODULE_0__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].minLength(5), __WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].pattern('^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$')]),
+            email: new __WEBPACK_IMPORTED_MODULE_0__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].minLength(5), __WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
             position: new __WEBPACK_IMPORTED_MODULE_0__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].minLength(5)]),
         });
         this.designations = __WEBPACK_IMPORTED_MODULE_10__providers_designations__["a" /* Designations */];
@@ -13992,7 +13992,7 @@ var NewuserPage = /** @class */ (function () {
     };
     NewuserPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
-            selector: 'page-newuser',template:/*ion-inline-start:"f:\ionic-app\src\pages\newuser\newuser.html"*/'<!--\n\n  Generated template for the NewuserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n  <page-header pageTitle="USERS"></page-header>\n\n</ion-header>\n\n\n\n<ion-content  >\n\n  <ion-segment [(ngModel)]="users" color="white" (click)="new1()">\n\n    <ion-segment-button value="newUser"  >\n\n    \n\n     New User\n\n    </ion-segment-button>\n\n    <ion-segment-button value="allUsers" (click)="new()">\n\n   \n\n    All User\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n     \n\n      <div [ngSwitch]="users">\n\n\n\n          <div *ngSwitchCase="\'newUser\'">\n\n              \n\n           \n\n          <form  [formGroup]="slideOneForm">\n\n              <h6 class="title section-title ">User Information</h6>\n\n                <ion-row>\n\n                   <ion-item col-6 > \n\n                        <ion-label stacked>First Name</ion-label>\n\n                        <ion-input type="text"  [(ngModel)]="userItem.fname" class="form-control" formControlName="fname" name="fname" ></ion-input>\n\n                    </ion-item> \n\n\n\n                        <ion-item col-6> \n\n                          <ion-label stacked>Last Name</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.lname" formControlName="lname" name="lname" ></ion-input>\n\n                        </ion-item>\n\n                     </ion-row> \n\n\n\n                      <ion-row>\n\n                        <ion-item [hidden]="fnameShow" col-6  no-lines *ngIf=" slideOneForm.get(\'fname\').hasError(\'required\') ">\n\n                         <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'fname\').hasError(\'required\')">\n\n                              first name is required\n\n                          </ion-label>\n\n                          </ion-item>\n\n\n\n                       <ion-item [hidden]="fnameShow" col-6 no-lines *ngIf=" slideOneForm.get(\'lname\').hasError(\'required\') ">\n\n\n\n                        <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'lname\').hasError(\'required\')">\n\n                            lname is required\n\n                        </ion-label>\n\n                        </ion-item>\n\n                    </ion-row>\n\n                  \n\n                    <ion-row>\n\n                      <ion-item  > \n\n                          <ion-label stacked>Date Of Birth</ion-label>\n\n                          <ion-input type="text"   (tap)="dispdate(\'birth\')" [(ngModel)]="userItem.dob"  formControlName="dob" name="dob"  ></ion-input>\n\n                        </ion-item> \n\n                    </ion-row> \n\n                    <ion-row>\n\n                        <ion-item [hidden]="fnameShow" no-lines *ngIf=" slideOneForm.get(\'dob\').hasError(\'required\') ">\n\n                          <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'dob\').hasError(\'required\')">\n\n                              Date of Birth is required\n\n                          </ion-label>\n\n                          </ion-item>\n\n                    </ion-row>  \n\n                    \n\n                    <ion-row>\n\n                      <ion-item > \n\n                         <ion-label stacked>Mobile Number</ion-label>\n\n                         <ion-input type="text" [(ngModel)]="userItem.mobile" formControlName="mobile" name="mobile" ></ion-input>\n\n                       </ion-item>\n\n                       <ion-item  [hidden]="fnameShow"  no-lines *ngIf=" slideOneForm.get(\'mobile\').hasError(\'required\') ">\n\n\n\n                        <ion-label stacked  color="danger" *ngIf="slideOneForm.get(\'mobile\').hasError(\'required\')">\n\n                           mobile number is required\n\n                        </ion-label>\n\n                        </ion-item>\n\n                     </ion-row> \n\n                   \n\n                    <ion-row>\n\n                       <ion-item> \n\n                          <ion-label stacked>Email Id</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.email" class="form-control"  formControlName="email" name="email"   ></ion-input>\n\n                        </ion-item>\n\n                        \n\n                        <ion-item [hidden]="fnameShow" no-lines *ngIf=" slideOneForm.get(\'email\').hasError(\'required\')">\n\n                          <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'email\').hasError(\'required\')">\n\n                          please enter a valid email id \n\n                          </ion-label>\n\n                          </ion-item>\n\n                      </ion-row>\n\n                    \n\n                      \n\n                      <h6 class="title section-title">Job Details</h6>\n\n\n\n                        <ion-row>\n\n                            <ion-item col-6> \n\n                                <ion-label stacked>Date Of Joining</ion-label>\n\n                                <ion-input type="text"  (tap)="dispdate(\'join\')" [(ngModel)]="userItem.doj" formControlName="doj" name="doj" ></ion-input>\n\n                              </ion-item>\n\n\n\n                              <ion-item [hidden]="fnameShow"  col-6  no-lines *ngIf=" slideOneForm.get(\'doj\').hasError(\'required\') ">\n\n\n\n                                <ion-label stacked  color="danger" *ngIf="slideOneForm.get(\'doj\').hasError(\'required\')">\n\n                                  Date of Joining is required\n\n                                </ion-label>\n\n                                </ion-item>\n\n                                \n\n                             <ion-item col-6> \n\n                                <ion-label stacked>Position</ion-label>\n\n                               \n\n                                <ion-select   [(ngModel)]="userItem.position" formControlName="position" name="position">\n\n                                  <ion-option *ngFor="let p of designations" [value]=\'p.value\'>{{p.position}}</ion-option>\n\n                                </ion-select>\n\n                                \n\n                              </ion-item>\n\n                              <ion-item [hidden]="fnameShow" col-6 no-lines *ngIf=" slideOneForm.get(\'position\').hasError(\'required\') ">\n\n\n\n                                <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'position\').hasError(\'required\')">\n\n                                   position is required\n\n                                </ion-label>\n\n                                </ion-item>\n\n                           </ion-row>  \n\n                          </form> \n\n                          \n\n                         <ion-row>\n\n                              <ion-col col-6>\n\n                                <ion-label>Set privileges</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>\n\n                                  \n\n                                </ion-col>\n\n\n\n                                <ion-col col-6  [hidden]="x">\n\n                                  <ion-label stacked>Deactivate user</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="statuss" ></ion-checkbox>\n\n                                </ion-col>\n\n                              </ion-row> \n\n\n\n                              <ion-row>\n\n                                  \n\n                           <button ion-button  icon-end  full color=blue (click)="btn(userItem)" >\n\n                             {{butn}}\n\n                             \n\n                             </button>\n\n                          </ion-row> \n\n                        \n\n             \n\n           \n\n          </div>\n\n            \n\n       <div *ngSwitchCase="\'allUsers\'">\n\n        <ion-list >\n\n            <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>\n\n          <ion-item>\n\n           <ion-row no-margin class="table-title" >\n\n                <ion-col col-6 >Name</ion-col><ion-col col-4>Position </ion-col><ion-col col-2>Action</ion-col>\n\n              </ion-row>\n\n          </ion-item>\n\n           \n\n           <ion-item>\n\n            <ion-row  class="col-text row-bottom-border" *ngFor="let item of itemslist" >\n\n                <ion-col col-6  style="color: #66887F;">\n\n                  {{ item.fname }}\n\n                </ion-col>\n\n                <ion-col col-4  style="color:#2679B0;" >\n\n                  {{ item.position }}\n\n                </ion-col>\n\n                <ion-col col-2 text-center (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position,item.data,item.status)">\n\n                <ion-icon name="create" ></ion-icon>\n\n                </ion-col>\n\n              </ion-row>\n\n           </ion-item>\n\n           \n\n            <!-- <ion-item>\n\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n            </ion-item> -->\n\n         </ion-list>\n\n      </div>\n\n      </div>\n\n</ion-content>\n\n\n\n \n\n\n\n\n\n'/*ion-inline-end:"f:\ionic-app\src\pages\newuser\newuser.html"*/,
+            selector: 'page-newuser',template:/*ion-inline-start:"F:\ionic-app\src\pages\newuser\newuser.html"*/'<!--\n\n  Generated template for the NewuserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n  <page-header pageTitle="USERS"></page-header>\n\n</ion-header>\n\n\n\n<ion-content  >\n\n  <ion-segment [(ngModel)]="users" color="white" (click)="new1()">\n\n    <ion-segment-button value="newUser"  >\n\n    \n\n     New User\n\n    </ion-segment-button>\n\n    <ion-segment-button value="allUsers" (click)="new()">\n\n   \n\n    All User\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n     \n\n      <div [ngSwitch]="users">\n\n\n\n          <div *ngSwitchCase="\'newUser\'">\n\n              \n\n           \n\n          <form  [formGroup]="slideOneForm">\n\n              <h6 class="title section-title ">User Information</h6>\n\n                <ion-row>\n\n                   <ion-item col-6 > \n\n                        <ion-label stacked>First Name</ion-label>\n\n                        <ion-input type="text"  [(ngModel)]="userItem.fname" class="form-control" formControlName="fname" name="fname" ></ion-input>\n\n                    </ion-item> \n\n\n\n                        <ion-item col-6> \n\n                          <ion-label stacked>Last Name</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.lname" formControlName="lname" name="lname" ></ion-input>\n\n                        </ion-item>\n\n                     </ion-row> \n\n\n\n                      <ion-row>\n\n                        <ion-item [hidden]="fnameShow" col-6  no-lines *ngIf=" slideOneForm.get(\'fname\').hasError(\'required\') ">\n\n                         <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'fname\').hasError(\'required\')">\n\n                              first name is required\n\n                          </ion-label>\n\n                          </ion-item>\n\n\n\n                       <ion-item [hidden]="fnameShow" col-6 no-lines *ngIf=" slideOneForm.get(\'lname\').hasError(\'required\') ">\n\n\n\n                        <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'lname\').hasError(\'required\')">\n\n                            lname is required\n\n                        </ion-label>\n\n                        </ion-item>\n\n                    </ion-row>\n\n                  \n\n                    <ion-row>\n\n                      <ion-item  > \n\n                          <ion-label stacked>Date Of Birth</ion-label>\n\n                          <ion-input type="text"   (tap)="dispdate(\'birth\')" [(ngModel)]="userItem.dob"  formControlName="dob" name="dob"  ></ion-input>\n\n                        </ion-item> \n\n                    </ion-row> \n\n                    <ion-row>\n\n                        <ion-item [hidden]="fnameShow" no-lines *ngIf=" slideOneForm.get(\'dob\').hasError(\'required\') ">\n\n                          <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'dob\').hasError(\'required\')">\n\n                              Date of Birth is required\n\n                          </ion-label>\n\n                          </ion-item>\n\n                    </ion-row>  \n\n                    \n\n                    <ion-row>\n\n                      <ion-item > \n\n                         <ion-label stacked>Mobile Number</ion-label>\n\n                         <ion-input type="text" [(ngModel)]="userItem.mobile" formControlName="mobile" name="mobile" ></ion-input>\n\n                       </ion-item>\n\n                       <ion-item  [hidden]="fnameShow"  no-lines *ngIf=" slideOneForm.get(\'mobile\').hasError(\'required\') ">\n\n\n\n                        <ion-label stacked  color="danger" *ngIf="slideOneForm.get(\'mobile\').hasError(\'required\')">\n\n                           mobile number is required\n\n                        </ion-label>\n\n                        </ion-item>\n\n                     </ion-row> \n\n                   \n\n                    <ion-row>\n\n                       <ion-item> \n\n                          <ion-label stacked>Email Id</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.email" class="form-control"  formControlName="email" name="email"   ></ion-input>\n\n                        </ion-item>\n\n                        \n\n                        <ion-item [hidden]="fnameShow" no-lines *ngIf="slideOneForm.get(\'email\').hasError(\'pattern\') || slideOneForm.get(\'email\').hasError(\'required\')">\n\n                          <ion-label  stacked  color="danger"  *ngIf="slideOneForm.get(\'email\').hasError(\'pattern\') || slideOneForm.get(\'email\').hasError(\'required\')">\n\n                          please enter a valid email id \n\n                          </ion-label>\n\n                          </ion-item>\n\n                      </ion-row>\n\n                    \n\n                      \n\n                      <h6 class="title section-title">Job Details</h6>\n\n\n\n                        <ion-row>\n\n                            <ion-item col-6> \n\n                                <ion-label stacked>Date Of Joining</ion-label>\n\n                                <ion-input type="text"  (tap)="dispdate(\'join\')" [(ngModel)]="userItem.doj" formControlName="doj" name="doj" ></ion-input>\n\n                              </ion-item>\n\n\n\n                              <ion-item [hidden]="fnameShow"  col-6  no-lines *ngIf=" slideOneForm.get(\'doj\').hasError(\'required\') ">\n\n\n\n                                <ion-label stacked  color="danger" *ngIf="slideOneForm.get(\'doj\').hasError(\'required\')">\n\n                                  Date of Joining is required\n\n                                </ion-label>\n\n                                </ion-item>\n\n                                \n\n                             <ion-item col-6> \n\n                                <ion-label stacked>Position</ion-label>\n\n                               \n\n                                <ion-select   [(ngModel)]="userItem.position" formControlName="position" name="position">\n\n                                  <ion-option *ngFor="let p of designations" [value]=\'p.value\'>{{p.position}}</ion-option>\n\n                                </ion-select>\n\n                                \n\n                              </ion-item>\n\n                              <ion-item [hidden]="fnameShow" col-6 no-lines *ngIf=" slideOneForm.get(\'position\').hasError(\'required\') ">\n\n\n\n                                <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'position\').hasError(\'required\')">\n\n                                   position is required\n\n                                </ion-label>\n\n                                </ion-item>\n\n                           </ion-row>  \n\n                          </form> \n\n                          \n\n                         <ion-row>\n\n                              <ion-col col-6>\n\n                                <ion-label>Set privileges</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>\n\n                                  \n\n                                </ion-col>\n\n\n\n                                <ion-col col-6  [hidden]="x">\n\n                                  <ion-label stacked>Deactivate user</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="statuss" ></ion-checkbox>\n\n                                </ion-col>\n\n                              </ion-row> \n\n\n\n                              <ion-row>\n\n                                  \n\n                           <button ion-button  icon-end  full color=blue (click)="btn(userItem)" >\n\n                             {{butn}}\n\n                             \n\n                             </button>\n\n                          </ion-row> \n\n                        \n\n             \n\n           \n\n          </div>\n\n            \n\n       <div *ngSwitchCase="\'allUsers\'">\n\n        <ion-list >\n\n            <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>\n\n          <ion-item>\n\n           <ion-row no-margin class="table-title" >\n\n                <ion-col col-6 >Name</ion-col><ion-col col-4>Position </ion-col><ion-col col-2>Action</ion-col>\n\n              </ion-row>\n\n          </ion-item>\n\n           \n\n           <ion-item>\n\n            <ion-row  class="col-text row-bottom-border" *ngFor="let item of itemslist" >\n\n                <ion-col col-6  style="color: #66887F;">\n\n                  {{ item.fname }}\n\n                </ion-col>\n\n                <ion-col col-4  style="color:#2679B0;" >\n\n                  {{ item.position }}\n\n                </ion-col>\n\n                <ion-col col-2 text-center (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position,item.data,item.status)">\n\n                <ion-icon name="create" ></ion-icon>\n\n                </ion-col>\n\n              </ion-row>\n\n           </ion-item>\n\n           \n\n            <!-- <ion-item>\n\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n            </ion-item> -->\n\n         </ion-list>\n\n      </div>\n\n      </div>\n\n</ion-content>\n\n\n\n \n\n\n\n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\newuser\newuser.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["LoadingController"], __WEBPACK_IMPORTED_MODULE_2__angular_core__["NgZone"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2__angular_core__["ChangeDetectorRef"], __WEBPACK_IMPORTED_MODULE_4__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_7__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ModalController"]])
     ], NewuserPage);
@@ -14003,18 +14003,18 @@ var NewuserPage = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 845:
+/***/ 848:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(846);
+module.exports = __webpack_require__(849);
 
 
 /***/ }),
 
-/***/ 846:
+/***/ 849:
 /***/ (function(module, exports, __webpack_require__) {
 
-var crypto = __webpack_require__(847);
+var crypto = __webpack_require__(850);
 
 var self = module.exports;
 
@@ -14136,7 +14136,7 @@ self.generateMultiple = function(amount, options) {
 
 /***/ }),
 
-/***/ 847:
+/***/ 850:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14144,20 +14144,20 @@ self.generateMultiple = function(amount, options) {
 
 exports.randomBytes = exports.rng = exports.pseudoRandomBytes = exports.prng = __webpack_require__(753)
 exports.createHash = exports.Hash = __webpack_require__(755)
-exports.createHmac = exports.Hmac = __webpack_require__(795)
+exports.createHmac = exports.Hmac = __webpack_require__(796)
 
-var algos = __webpack_require__(864)
+var algos = __webpack_require__(867)
 var algoKeys = Object.keys(algos)
 var hashes = ['sha1', 'sha224', 'sha256', 'sha384', 'sha512', 'md5', 'rmd160'].concat(algoKeys)
 exports.getHashes = function () {
   return hashes
 }
 
-var p = __webpack_require__(798)
+var p = __webpack_require__(799)
 exports.pbkdf2 = p.pbkdf2
 exports.pbkdf2Sync = p.pbkdf2Sync
 
-var aes = __webpack_require__(866)
+var aes = __webpack_require__(869)
 
 exports.Cipher = aes.Cipher
 exports.createCipher = aes.createCipher
@@ -14170,7 +14170,7 @@ exports.createDecipheriv = aes.createDecipheriv
 exports.getCiphers = aes.getCiphers
 exports.listCiphers = aes.listCiphers
 
-var dh = __webpack_require__(883)
+var dh = __webpack_require__(886)
 
 exports.DiffieHellmanGroup = dh.DiffieHellmanGroup
 exports.createDiffieHellmanGroup = dh.createDiffieHellmanGroup
@@ -14178,16 +14178,16 @@ exports.getDiffieHellman = dh.getDiffieHellman
 exports.createDiffieHellman = dh.createDiffieHellman
 exports.DiffieHellman = dh.DiffieHellman
 
-var sign = __webpack_require__(888)
+var sign = __webpack_require__(891)
 
 exports.createSign = sign.createSign
 exports.Sign = sign.Sign
 exports.createVerify = sign.createVerify
 exports.Verify = sign.Verify
 
-exports.createECDH = __webpack_require__(926)
+exports.createECDH = __webpack_require__(929)
 
-var publicEncrypt = __webpack_require__(927)
+var publicEncrypt = __webpack_require__(930)
 
 exports.publicEncrypt = publicEncrypt.publicEncrypt
 exports.privateEncrypt = publicEncrypt.privateEncrypt
@@ -14207,7 +14207,7 @@ exports.privateDecrypt = publicEncrypt.privateDecrypt
 //   }
 // })
 
-var rf = __webpack_require__(930)
+var rf = __webpack_require__(933)
 
 exports.randomFill = rf.randomFill
 exports.randomFillSync = rf.randomFillSync
@@ -14241,7 +14241,7 @@ exports.constants = {
 
 /***/ }),
 
-/***/ 848:
+/***/ 851:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14400,7 +14400,7 @@ function fromByteArray (uint8) {
 
 /***/ }),
 
-/***/ 849:
+/***/ 852:
 /***/ (function(module, exports) {
 
 exports.read = function (buffer, offset, isLE, mLen, nBytes) {
@@ -14491,14 +14491,14 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 
 /***/ }),
 
-/***/ 850:
+/***/ 853:
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
 
-/***/ 851:
+/***/ 854:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14507,7 +14507,7 @@ exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Buffer = __webpack_require__(743).Buffer;
-var util = __webpack_require__(852);
+var util = __webpack_require__(855);
 
 function copyBuffer(src, target, offset) {
   src.copy(target, offset);
@@ -14584,14 +14584,14 @@ if (util && util.inspect && util.inspect.custom) {
 
 /***/ }),
 
-/***/ 852:
+/***/ 855:
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
 
-/***/ 853:
+/***/ 856:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {
@@ -14666,7 +14666,7 @@ function config (name) {
 
 /***/ }),
 
-/***/ 854:
+/***/ 857:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -14699,7 +14699,7 @@ function config (name) {
 
 module.exports = PassThrough;
 
-var Transform = __webpack_require__(792);
+var Transform = __webpack_require__(793);
 
 /*<replacement>*/
 var util = __webpack_require__(756);
@@ -14720,15 +14720,15 @@ PassThrough.prototype._transform = function (chunk, encoding, cb) {
 
 /***/ }),
 
-/***/ 855:
+/***/ 858:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(771);
+module.exports = __webpack_require__(772);
 
 
 /***/ }),
 
-/***/ 856:
+/***/ 859:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(752);
@@ -14736,23 +14736,23 @@ module.exports = __webpack_require__(752);
 
 /***/ }),
 
-/***/ 857:
+/***/ 860:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(770).Transform
+module.exports = __webpack_require__(771).Transform
 
 
 /***/ }),
 
-/***/ 858:
+/***/ 861:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(770).PassThrough
+module.exports = __webpack_require__(771).PassThrough
 
 
 /***/ }),
 
-/***/ 859:
+/***/ 862:
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -14853,7 +14853,7 @@ module.exports = Sha
 
 /***/ }),
 
-/***/ 860:
+/***/ 863:
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -14959,7 +14959,7 @@ module.exports = Sha1
 
 /***/ }),
 
-/***/ 861:
+/***/ 864:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -14971,7 +14971,7 @@ module.exports = Sha1
  */
 
 var inherits = __webpack_require__(742)
-var Sha256 = __webpack_require__(793)
+var Sha256 = __webpack_require__(794)
 var Hash = __webpack_require__(754)
 var Buffer = __webpack_require__(743).Buffer
 
@@ -15019,11 +15019,11 @@ module.exports = Sha224
 
 /***/ }),
 
-/***/ 862:
+/***/ 865:
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(742)
-var SHA512 = __webpack_require__(794)
+var SHA512 = __webpack_require__(795)
 var Hash = __webpack_require__(754)
 var Buffer = __webpack_require__(743).Buffer
 
@@ -15083,7 +15083,7 @@ module.exports = Sha384
 
 /***/ }),
 
-/***/ 863:
+/***/ 866:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15137,20 +15137,20 @@ module.exports = Hmac
 
 /***/ }),
 
-/***/ 864:
+/***/ 867:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(797)
+module.exports = __webpack_require__(798)
 
 
 /***/ }),
 
-/***/ 865:
+/***/ 868:
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global, process) {var checkParameters = __webpack_require__(799)
-var defaultEncoding = __webpack_require__(800)
-var sync = __webpack_require__(801)
+/* WEBPACK VAR INJECTION */(function(global, process) {var checkParameters = __webpack_require__(800)
+var defaultEncoding = __webpack_require__(801)
+var sync = __webpack_require__(802)
 var Buffer = __webpack_require__(743).Buffer
 
 var ZERO_BUF
@@ -15253,13 +15253,13 @@ module.exports = function (password, salt, iterations, keylen, digest, callback)
 
 /***/ }),
 
-/***/ 866:
+/***/ 869:
 /***/ (function(module, exports, __webpack_require__) {
 
-var DES = __webpack_require__(867)
-var aes = __webpack_require__(776)
-var aesModes = __webpack_require__(777)
-var desModes = __webpack_require__(882)
+var DES = __webpack_require__(870)
+var aes = __webpack_require__(777)
+var aesModes = __webpack_require__(778)
+var desModes = __webpack_require__(885)
 var ebtk = __webpack_require__(763)
 
 function createCipher (suite, password) {
@@ -15327,11 +15327,11 @@ exports.listCiphers = exports.getCiphers = getCiphers
 
 /***/ }),
 
-/***/ 867:
+/***/ 870:
 /***/ (function(module, exports, __webpack_require__) {
 
 var CipherBase = __webpack_require__(751)
-var des = __webpack_require__(775)
+var des = __webpack_require__(776)
 var inherits = __webpack_require__(742)
 var Buffer = __webpack_require__(743).Buffer
 
@@ -15384,7 +15384,7 @@ DES.prototype._final = function () {
 
 /***/ }),
 
-/***/ 868:
+/***/ 871:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15648,7 +15648,7 @@ exports.padSplit = function padSplit(num, size, group) {
 
 /***/ }),
 
-/***/ 869:
+/***/ 872:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15797,7 +15797,7 @@ Cipher.prototype._finalDecrypt = function _finalDecrypt() {
 
 /***/ }),
 
-/***/ 870:
+/***/ 873:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15806,7 +15806,7 @@ Cipher.prototype._finalDecrypt = function _finalDecrypt() {
 var assert = __webpack_require__(748);
 var inherits = __webpack_require__(742);
 
-var des = __webpack_require__(775);
+var des = __webpack_require__(776);
 var utils = des.utils;
 var Cipher = des.Cipher;
 
@@ -15948,7 +15948,7 @@ DES.prototype._decrypt = function _decrypt(state, lStart, rStart, out, off) {
 
 /***/ }),
 
-/***/ 871:
+/***/ 874:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16021,7 +16021,7 @@ proto._update = function _update(inp, inOff, out, outOff) {
 
 /***/ }),
 
-/***/ 872:
+/***/ 875:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16030,7 +16030,7 @@ proto._update = function _update(inp, inOff, out, outOff) {
 var assert = __webpack_require__(748);
 var inherits = __webpack_require__(742);
 
-var des = __webpack_require__(775);
+var des = __webpack_require__(776);
 var Cipher = des.Cipher;
 var DES = des.DES;
 
@@ -16084,13 +16084,13 @@ EDE.prototype._unpad = DES.prototype._unpad;
 
 /***/ }),
 
-/***/ 873:
+/***/ 876:
 /***/ (function(module, exports, __webpack_require__) {
 
-var MODES = __webpack_require__(777)
-var AuthCipher = __webpack_require__(805)
+var MODES = __webpack_require__(778)
+var AuthCipher = __webpack_require__(806)
 var Buffer = __webpack_require__(743).Buffer
-var StreamCipher = __webpack_require__(806)
+var StreamCipher = __webpack_require__(807)
 var Transform = __webpack_require__(751)
 var aes = __webpack_require__(762)
 var ebtk = __webpack_require__(763)
@@ -16205,7 +16205,7 @@ exports.createCipher = createCipher
 
 /***/ }),
 
-/***/ 874:
+/***/ 877:
 /***/ (function(module, exports) {
 
 exports.encrypt = function (self, block) {
@@ -16219,7 +16219,7 @@ exports.decrypt = function (self, block) {
 
 /***/ }),
 
-/***/ 875:
+/***/ 878:
 /***/ (function(module, exports, __webpack_require__) {
 
 var xor = __webpack_require__(757)
@@ -16243,7 +16243,7 @@ exports.decrypt = function (self, block) {
 
 /***/ }),
 
-/***/ 876:
+/***/ 879:
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(743).Buffer
@@ -16283,7 +16283,7 @@ exports.encrypt = function (self, data, decrypt) {
 
 /***/ }),
 
-/***/ 877:
+/***/ 880:
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(743).Buffer
@@ -16315,7 +16315,7 @@ exports.encrypt = function (self, chunk, decrypt) {
 
 /***/ }),
 
-/***/ 878:
+/***/ 881:
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(743).Buffer
@@ -16364,7 +16364,7 @@ exports.encrypt = function (self, chunk, decrypt) {
 
 /***/ }),
 
-/***/ 879:
+/***/ 882:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var xor = __webpack_require__(757)
@@ -16388,7 +16388,7 @@ exports.encrypt = function (self, chunk) {
 
 /***/ }),
 
-/***/ 880:
+/***/ 883:
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(743).Buffer
@@ -16484,13 +16484,13 @@ module.exports = GHASH
 
 /***/ }),
 
-/***/ 881:
+/***/ 884:
 /***/ (function(module, exports, __webpack_require__) {
 
-var AuthCipher = __webpack_require__(805)
+var AuthCipher = __webpack_require__(806)
 var Buffer = __webpack_require__(743).Buffer
-var MODES = __webpack_require__(777)
-var StreamCipher = __webpack_require__(806)
+var MODES = __webpack_require__(778)
+var StreamCipher = __webpack_require__(807)
 var Transform = __webpack_require__(751)
 var aes = __webpack_require__(762)
 var ebtk = __webpack_require__(763)
@@ -16615,7 +16615,7 @@ exports.createDecipheriv = createDecipheriv
 
 /***/ }),
 
-/***/ 882:
+/***/ 885:
 /***/ (function(module, exports) {
 
 exports['des-ecb'] = {
@@ -16646,13 +16646,13 @@ exports['des-ede'] = {
 
 /***/ }),
 
-/***/ 883:
+/***/ 886:
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var generatePrime = __webpack_require__(807)
-var primes = __webpack_require__(886)
+/* WEBPACK VAR INJECTION */(function(Buffer) {var generatePrime = __webpack_require__(808)
+var primes = __webpack_require__(889)
 
-var DH = __webpack_require__(887)
+var DH = __webpack_require__(890)
 
 function getDiffieHellman (mod) {
   var prime = new Buffer(primes[mod].prime, 'hex')
@@ -16696,39 +16696,39 @@ exports.createDiffieHellman = exports.DiffieHellman = createDiffieHellman
 
 /***/ }),
 
-/***/ 884:
+/***/ 887:
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
 
-/***/ 885:
+/***/ 888:
 /***/ (function(module, exports) {
 
 /* (ignored) */
 
 /***/ }),
 
-/***/ 886:
+/***/ 889:
 /***/ (function(module, exports) {
 
 module.exports = {"modp1":{"gen":"02","prime":"ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec6f44c42e9a63a3620ffffffffffffffff"},"modp2":{"gen":"02","prime":"ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec6f44c42e9a637ed6b0bff5cb6f406b7edee386bfb5a899fa5ae9f24117c4b1fe649286651ece65381ffffffffffffffff"},"modp5":{"gen":"02","prime":"ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec6f44c42e9a637ed6b0bff5cb6f406b7edee386bfb5a899fa5ae9f24117c4b1fe649286651ece45b3dc2007cb8a163bf0598da48361c55d39a69163fa8fd24cf5f83655d23dca3ad961c62f356208552bb9ed529077096966d670c354e4abc9804f1746c08ca237327ffffffffffffffff"},"modp14":{"gen":"02","prime":"ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec6f44c42e9a637ed6b0bff5cb6f406b7edee386bfb5a899fa5ae9f24117c4b1fe649286651ece45b3dc2007cb8a163bf0598da48361c55d39a69163fa8fd24cf5f83655d23dca3ad961c62f356208552bb9ed529077096966d670c354e4abc9804f1746c08ca18217c32905e462e36ce3be39e772c180e86039b2783a2ec07a28fb5c55df06f4c52c9de2bcbf6955817183995497cea956ae515d2261898fa051015728e5a8aacaa68ffffffffffffffff"},"modp15":{"gen":"02","prime":"ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec6f44c42e9a637ed6b0bff5cb6f406b7edee386bfb5a899fa5ae9f24117c4b1fe649286651ece45b3dc2007cb8a163bf0598da48361c55d39a69163fa8fd24cf5f83655d23dca3ad961c62f356208552bb9ed529077096966d670c354e4abc9804f1746c08ca18217c32905e462e36ce3be39e772c180e86039b2783a2ec07a28fb5c55df06f4c52c9de2bcbf6955817183995497cea956ae515d2261898fa051015728e5a8aaac42dad33170d04507a33a85521abdf1cba64ecfb850458dbef0a8aea71575d060c7db3970f85a6e1e4c7abf5ae8cdb0933d71e8c94e04a25619dcee3d2261ad2ee6bf12ffa06d98a0864d87602733ec86a64521f2b18177b200cbbe117577a615d6c770988c0bad946e208e24fa074e5ab3143db5bfce0fd108e4b82d120a93ad2caffffffffffffffff"},"modp16":{"gen":"02","prime":"ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec6f44c42e9a637ed6b0bff5cb6f406b7edee386bfb5a899fa5ae9f24117c4b1fe649286651ece45b3dc2007cb8a163bf0598da48361c55d39a69163fa8fd24cf5f83655d23dca3ad961c62f356208552bb9ed529077096966d670c354e4abc9804f1746c08ca18217c32905e462e36ce3be39e772c180e86039b2783a2ec07a28fb5c55df06f4c52c9de2bcbf6955817183995497cea956ae515d2261898fa051015728e5a8aaac42dad33170d04507a33a85521abdf1cba64ecfb850458dbef0a8aea71575d060c7db3970f85a6e1e4c7abf5ae8cdb0933d71e8c94e04a25619dcee3d2261ad2ee6bf12ffa06d98a0864d87602733ec86a64521f2b18177b200cbbe117577a615d6c770988c0bad946e208e24fa074e5ab3143db5bfce0fd108e4b82d120a92108011a723c12a787e6d788719a10bdba5b2699c327186af4e23c1a946834b6150bda2583e9ca2ad44ce8dbbbc2db04de8ef92e8efc141fbecaa6287c59474e6bc05d99b2964fa090c3a2233ba186515be7ed1f612970cee2d7afb81bdd762170481cd0069127d5b05aa993b4ea988d8fddc186ffb7dc90a6c08f4df435c934063199ffffffffffffffff"},"modp17":{"gen":"02","prime":"ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec6f44c42e9a637ed6b0bff5cb6f406b7edee386bfb5a899fa5ae9f24117c4b1fe649286651ece45b3dc2007cb8a163bf0598da48361c55d39a69163fa8fd24cf5f83655d23dca3ad961c62f356208552bb9ed529077096966d670c354e4abc9804f1746c08ca18217c32905e462e36ce3be39e772c180e86039b2783a2ec07a28fb5c55df06f4c52c9de2bcbf6955817183995497cea956ae515d2261898fa051015728e5a8aaac42dad33170d04507a33a85521abdf1cba64ecfb850458dbef0a8aea71575d060c7db3970f85a6e1e4c7abf5ae8cdb0933d71e8c94e04a25619dcee3d2261ad2ee6bf12ffa06d98a0864d87602733ec86a64521f2b18177b200cbbe117577a615d6c770988c0bad946e208e24fa074e5ab3143db5bfce0fd108e4b82d120a92108011a723c12a787e6d788719a10bdba5b2699c327186af4e23c1a946834b6150bda2583e9ca2ad44ce8dbbbc2db04de8ef92e8efc141fbecaa6287c59474e6bc05d99b2964fa090c3a2233ba186515be7ed1f612970cee2d7afb81bdd762170481cd0069127d5b05aa993b4ea988d8fddc186ffb7dc90a6c08f4df435c93402849236c3fab4d27c7026c1d4dcb2602646dec9751e763dba37bdf8ff9406ad9e530ee5db382f413001aeb06a53ed9027d831179727b0865a8918da3edbebcf9b14ed44ce6cbaced4bb1bdb7f1447e6cc254b332051512bd7af426fb8f401378cd2bf5983ca01c64b92ecf032ea15d1721d03f482d7ce6e74fef6d55e702f46980c82b5a84031900b1c9e59e7c97fbec7e8f323a97a7e36cc88be0f1d45b7ff585ac54bd407b22b4154aacc8f6d7ebf48e1d814cc5ed20f8037e0a79715eef29be32806a1d58bb7c5da76f550aa3d8a1fbff0eb19ccb1a313d55cda56c9ec2ef29632387fe8d76e3c0468043e8f663f4860ee12bf2d5b0b7474d6e694f91e6dcc4024ffffffffffffffff"},"modp18":{"gen":"02","prime":"ffffffffffffffffc90fdaa22168c234c4c6628b80dc1cd129024e088a67cc74020bbea63b139b22514a08798e3404ddef9519b3cd3a431b302b0a6df25f14374fe1356d6d51c245e485b576625e7ec6f44c42e9a637ed6b0bff5cb6f406b7edee386bfb5a899fa5ae9f24117c4b1fe649286651ece45b3dc2007cb8a163bf0598da48361c55d39a69163fa8fd24cf5f83655d23dca3ad961c62f356208552bb9ed529077096966d670c354e4abc9804f1746c08ca18217c32905e462e36ce3be39e772c180e86039b2783a2ec07a28fb5c55df06f4c52c9de2bcbf6955817183995497cea956ae515d2261898fa051015728e5a8aaac42dad33170d04507a33a85521abdf1cba64ecfb850458dbef0a8aea71575d060c7db3970f85a6e1e4c7abf5ae8cdb0933d71e8c94e04a25619dcee3d2261ad2ee6bf12ffa06d98a0864d87602733ec86a64521f2b18177b200cbbe117577a615d6c770988c0bad946e208e24fa074e5ab3143db5bfce0fd108e4b82d120a92108011a723c12a787e6d788719a10bdba5b2699c327186af4e23c1a946834b6150bda2583e9ca2ad44ce8dbbbc2db04de8ef92e8efc141fbecaa6287c59474e6bc05d99b2964fa090c3a2233ba186515be7ed1f612970cee2d7afb81bdd762170481cd0069127d5b05aa993b4ea988d8fddc186ffb7dc90a6c08f4df435c93402849236c3fab4d27c7026c1d4dcb2602646dec9751e763dba37bdf8ff9406ad9e530ee5db382f413001aeb06a53ed9027d831179727b0865a8918da3edbebcf9b14ed44ce6cbaced4bb1bdb7f1447e6cc254b332051512bd7af426fb8f401378cd2bf5983ca01c64b92ecf032ea15d1721d03f482d7ce6e74fef6d55e702f46980c82b5a84031900b1c9e59e7c97fbec7e8f323a97a7e36cc88be0f1d45b7ff585ac54bd407b22b4154aacc8f6d7ebf48e1d814cc5ed20f8037e0a79715eef29be32806a1d58bb7c5da76f550aa3d8a1fbff0eb19ccb1a313d55cda56c9ec2ef29632387fe8d76e3c0468043e8f663f4860ee12bf2d5b0b7474d6e694f91e6dbe115974a3926f12fee5e438777cb6a932df8cd8bec4d073b931ba3bc832b68d9dd300741fa7bf8afc47ed2576f6936ba424663aab639c5ae4f5683423b4742bf1c978238f16cbe39d652de3fdb8befc848ad922222e04a4037c0713eb57a81a23f0c73473fc646cea306b4bcbc8862f8385ddfa9d4b7fa2c087e879683303ed5bdd3a062b3cf5b3a278a66d2a13f83f44f82ddf310ee074ab6a364597e899a0255dc164f31cc50846851df9ab48195ded7ea1b1d510bd7ee74d73faf36bc31ecfa268359046f4eb879f924009438b481c6cd7889a002ed5ee382bc9190da6fc026e479558e4475677e9aa9e3050e2765694dfc81f56e880b96e7160c980dd98edd3dfffffffffffffffff"}}
 
 /***/ }),
 
-/***/ 887:
+/***/ 890:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var BN = __webpack_require__(744);
-var MillerRabin = __webpack_require__(808);
+var MillerRabin = __webpack_require__(809);
 var millerRabin = new MillerRabin();
 var TWENTYFOUR = new BN(24);
 var ELEVEN = new BN(11);
 var TEN = new BN(10);
 var THREE = new BN(3);
 var SEVEN = new BN(7);
-var primes = __webpack_require__(807);
+var primes = __webpack_require__(808);
 var randomBytes = __webpack_require__(753);
 module.exports = DH;
 
@@ -16889,16 +16889,16 @@ function formatReturnValue(bn, enc) {
 
 /***/ }),
 
-/***/ 888:
+/***/ 891:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(755)
-var stream = __webpack_require__(768)
+var stream = __webpack_require__(769)
 var inherits = __webpack_require__(742)
-var sign = __webpack_require__(889)
-var verify = __webpack_require__(925)
+var sign = __webpack_require__(892)
+var verify = __webpack_require__(928)
 
-var algorithms = __webpack_require__(797)
+var algorithms = __webpack_require__(798)
 Object.keys(algorithms).forEach(function (key) {
   algorithms[key].id = new Buffer(algorithms[key].id, 'hex')
   algorithms[key.toLowerCase()] = algorithms[key]
@@ -16988,16 +16988,16 @@ module.exports = {
 
 /***/ }),
 
-/***/ 889:
+/***/ 892:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
-var createHmac = __webpack_require__(795)
-var crt = __webpack_require__(778)
+var createHmac = __webpack_require__(796)
+var crt = __webpack_require__(779)
 var EC = __webpack_require__(747).ec
 var BN = __webpack_require__(744)
 var parseKeys = __webpack_require__(765)
-var curves = __webpack_require__(818)
+var curves = __webpack_require__(819)
 
 function sign (hash, key, hashType, signType, tag) {
   var priv = parseKeys(key)
@@ -17141,14 +17141,14 @@ module.exports.makeKey = makeKey
 
 /***/ }),
 
-/***/ 890:
+/***/ 893:
 /***/ (function(module, exports) {
 
 module.exports = {"_from":"elliptic@^6.0.0","_id":"elliptic@6.4.1","_inBundle":false,"_integrity":"sha512-BsXLz5sqX8OHcsh7CqBMztyXARmGQ3LWPtGjJi6DiJHq5C/qvi9P3OqgswKSDftbu8+IoI/QDTAm2fFnQ9SZSQ==","_location":"/elliptic","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"elliptic@^6.0.0","name":"elliptic","escapedName":"elliptic","rawSpec":"^6.0.0","saveSpec":null,"fetchSpec":"^6.0.0"},"_requiredBy":["/browserify-sign","/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.1.tgz","_shasum":"c2d0b7776911b86722c632c3c06c60f2f819939a","_spec":"elliptic@^6.0.0","_where":"F:\\ionic-app\\node_modules\\browserify-sign","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"bundleDependencies":false,"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"deprecated":false,"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.1"}
 
 /***/ }),
 
-/***/ 891:
+/***/ 894:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17157,7 +17157,7 @@ module.exports = {"_from":"elliptic@^6.0.0","_id":"elliptic@6.4.1","_inBundle":f
 var utils = exports;
 var BN = __webpack_require__(744);
 var minAssert = __webpack_require__(748);
-var minUtils = __webpack_require__(810);
+var minUtils = __webpack_require__(811);
 
 utils.assert = minAssert;
 utils.toArray = minUtils.toArray;
@@ -17276,7 +17276,7 @@ utils.intFromLE = intFromLE;
 
 /***/ }),
 
-/***/ 892:
+/***/ 895:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -17659,7 +17659,7 @@ BasePoint.prototype.dblp = function dblp(k) {
 
 /***/ }),
 
-/***/ 893:
+/***/ 896:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18604,7 +18604,7 @@ JPoint.prototype.isInfinity = function isInfinity() {
 
 /***/ }),
 
-/***/ 894:
+/***/ 897:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -18792,7 +18792,7 @@ Point.prototype.getX = function getX() {
 
 /***/ }),
 
-/***/ 895:
+/***/ 898:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19233,7 +19233,7 @@ Point.prototype.mixedAdd = Point.prototype.add;
 
 /***/ }),
 
-/***/ 896:
+/***/ 899:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19241,7 +19241,7 @@ Point.prototype.mixedAdd = Point.prototype.add;
 
 var curves = exports;
 
-var hash = __webpack_require__(779);
+var hash = __webpack_require__(780);
 var elliptic = __webpack_require__(747);
 
 var assert = elliptic.utils.assert;
@@ -19406,7 +19406,7 @@ defineCurve('ed25519', {
 
 var pre;
 try {
-  pre = __webpack_require__(903);
+  pre = __webpack_require__(906);
 } catch (e) {
   pre = undefined;
 }
@@ -19446,22 +19446,22 @@ defineCurve('secp256k1', {
 
 /***/ }),
 
-/***/ 897:
+/***/ 900:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-exports.sha1 = __webpack_require__(898);
-exports.sha224 = __webpack_require__(899);
-exports.sha256 = __webpack_require__(812);
-exports.sha384 = __webpack_require__(900);
-exports.sha512 = __webpack_require__(813);
+exports.sha1 = __webpack_require__(901);
+exports.sha224 = __webpack_require__(902);
+exports.sha256 = __webpack_require__(813);
+exports.sha384 = __webpack_require__(903);
+exports.sha512 = __webpack_require__(814);
 
 
 /***/ }),
 
-/***/ 898:
+/***/ 901:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19469,7 +19469,7 @@ exports.sha512 = __webpack_require__(813);
 
 var utils = __webpack_require__(749);
 var common = __webpack_require__(758);
-var shaCommon = __webpack_require__(811);
+var shaCommon = __webpack_require__(812);
 
 var rotl32 = utils.rotl32;
 var sum32 = utils.sum32;
@@ -19543,14 +19543,14 @@ SHA1.prototype._digest = function digest(enc) {
 
 /***/ }),
 
-/***/ 899:
+/***/ 902:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var utils = __webpack_require__(749);
-var SHA256 = __webpack_require__(812);
+var SHA256 = __webpack_require__(813);
 
 function SHA224() {
   if (!(this instanceof SHA224))
@@ -19581,7 +19581,7 @@ SHA224.prototype._digest = function digest(enc) {
 
 /***/ }),
 
-/***/ 900:
+/***/ 903:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19589,7 +19589,7 @@ SHA224.prototype._digest = function digest(enc) {
 
 var utils = __webpack_require__(749);
 
-var SHA512 = __webpack_require__(813);
+var SHA512 = __webpack_require__(814);
 
 function SHA384() {
   if (!(this instanceof SHA384))
@@ -19624,7 +19624,7 @@ SHA384.prototype._digest = function digest(enc) {
 
 /***/ }),
 
-/***/ 901:
+/***/ 904:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19778,7 +19778,7 @@ var sh = [
 
 /***/ }),
 
-/***/ 902:
+/***/ 905:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -19833,7 +19833,7 @@ Hmac.prototype.digest = function digest(enc) {
 
 /***/ }),
 
-/***/ 903:
+/***/ 906:
 /***/ (function(module, exports) {
 
 module.exports = {
@@ -20620,20 +20620,20 @@ module.exports = {
 
 /***/ }),
 
-/***/ 904:
+/***/ 907:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
 var BN = __webpack_require__(744);
-var HmacDRBG = __webpack_require__(905);
+var HmacDRBG = __webpack_require__(908);
 var elliptic = __webpack_require__(747);
 var utils = elliptic.utils;
 var assert = utils.assert;
 
-var KeyPair = __webpack_require__(906);
-var Signature = __webpack_require__(907);
+var KeyPair = __webpack_require__(909);
+var Signature = __webpack_require__(910);
 
 function EC(options) {
   if (!(this instanceof EC))
@@ -20868,14 +20868,14 @@ EC.prototype.getKeyRecoveryParam = function(e, signature, Q, enc) {
 
 /***/ }),
 
-/***/ 905:
+/***/ 908:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var hash = __webpack_require__(779);
-var utils = __webpack_require__(810);
+var hash = __webpack_require__(780);
+var utils = __webpack_require__(811);
 var assert = __webpack_require__(748);
 
 function HmacDRBG(options) {
@@ -20989,7 +20989,7 @@ HmacDRBG.prototype.generate = function generate(len, enc, add, addEnc) {
 
 /***/ }),
 
-/***/ 906:
+/***/ 909:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21116,7 +21116,7 @@ KeyPair.prototype.inspect = function inspect() {
 
 /***/ }),
 
-/***/ 907:
+/***/ 910:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21259,19 +21259,19 @@ Signature.prototype.toDER = function toDER(enc) {
 
 /***/ }),
 
-/***/ 908:
+/***/ 911:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var hash = __webpack_require__(779);
+var hash = __webpack_require__(780);
 var elliptic = __webpack_require__(747);
 var utils = elliptic.utils;
 var assert = utils.assert;
 var parseBytes = utils.parseBytes;
-var KeyPair = __webpack_require__(909);
-var Signature = __webpack_require__(910);
+var KeyPair = __webpack_require__(912);
+var Signature = __webpack_require__(913);
 
 function EDDSA(curve) {
   assert(curve === 'ed25519', 'only tested with ed25519 so far');
@@ -21385,7 +21385,7 @@ EDDSA.prototype.isPoint = function isPoint(val) {
 
 /***/ }),
 
-/***/ 909:
+/***/ 912:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21489,7 +21489,7 @@ module.exports = KeyPair;
 
 /***/ }),
 
-/***/ 910:
+/***/ 913:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21563,7 +21563,7 @@ module.exports = Signature;
 
 /***/ }),
 
-/***/ 911:
+/***/ 914:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -21573,7 +21573,7 @@ module.exports = Signature;
 
 var asn1 = __webpack_require__(759)
 
-exports.certificate = __webpack_require__(922)
+exports.certificate = __webpack_require__(925)
 
 var RSAPrivateKey = asn1.define('RSAPrivateKey', function () {
   this.seq().obj(
@@ -21693,7 +21693,7 @@ exports.signature = asn1.define('signature', function () {
 
 /***/ }),
 
-/***/ 912:
+/***/ 915:
 /***/ (function(module, exports, __webpack_require__) {
 
 var asn1 = __webpack_require__(759);
@@ -21716,7 +21716,7 @@ function Entity(name, body) {
 Entity.prototype._createNamed = function createNamed(base) {
   var named;
   try {
-    named = __webpack_require__(913).runInThisContext(
+    named = __webpack_require__(916).runInThisContext(
       '(function ' + this.name + '(entity) {\n' +
       '  this._initNamed(entity);\n' +
       '})'
@@ -21761,10 +21761,10 @@ Entity.prototype.encode = function encode(data, enc, /* internal */ reporter) {
 
 /***/ }),
 
-/***/ 913:
+/***/ 916:
 /***/ (function(module, exports, __webpack_require__) {
 
-var indexOf = __webpack_require__(914);
+var indexOf = __webpack_require__(917);
 
 var Object_keys = function (obj) {
     if (Object.keys) return Object.keys(obj)
@@ -21906,7 +21906,7 @@ exports.createContext = Script.createContext = function (context) {
 
 /***/ }),
 
-/***/ 914:
+/***/ 917:
 /***/ (function(module, exports) {
 
 
@@ -21922,7 +21922,7 @@ module.exports = function(arr, obj){
 
 /***/ }),
 
-/***/ 915:
+/***/ 918:
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(742);
@@ -22050,7 +22050,7 @@ ReporterError.prototype.rethrow = function rethrow(msg) {
 
 /***/ }),
 
-/***/ 916:
+/***/ 919:
 /***/ (function(module, exports, __webpack_require__) {
 
 var Reporter = __webpack_require__(760).Reporter;
@@ -22691,10 +22691,10 @@ Node.prototype._isPrintstr = function isPrintstr(str) {
 
 /***/ }),
 
-/***/ 917:
+/***/ 920:
 /***/ (function(module, exports, __webpack_require__) {
 
-var constants = __webpack_require__(815);
+var constants = __webpack_require__(816);
 
 exports.tagClass = {
   0: 'universal',
@@ -22740,24 +22740,24 @@ exports.tagByName = constants._reverse(exports.tag);
 
 /***/ }),
 
-/***/ 918:
+/***/ 921:
 /***/ (function(module, exports, __webpack_require__) {
 
 var decoders = exports;
 
-decoders.der = __webpack_require__(816);
-decoders.pem = __webpack_require__(919);
+decoders.der = __webpack_require__(817);
+decoders.pem = __webpack_require__(922);
 
 
 /***/ }),
 
-/***/ 919:
+/***/ 922:
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(742);
 var Buffer = __webpack_require__(745).Buffer;
 
-var DERDecoder = __webpack_require__(816);
+var DERDecoder = __webpack_require__(817);
 
 function PEMDecoder(entity) {
   DERDecoder.call(this, entity);
@@ -22807,23 +22807,23 @@ PEMDecoder.prototype.decode = function decode(data, options) {
 
 /***/ }),
 
-/***/ 920:
+/***/ 923:
 /***/ (function(module, exports, __webpack_require__) {
 
 var encoders = exports;
 
-encoders.der = __webpack_require__(817);
-encoders.pem = __webpack_require__(921);
+encoders.der = __webpack_require__(818);
+encoders.pem = __webpack_require__(924);
 
 
 /***/ }),
 
-/***/ 921:
+/***/ 924:
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(742);
 
-var DEREncoder = __webpack_require__(817);
+var DEREncoder = __webpack_require__(818);
 
 function PEMEncoder(entity) {
   DEREncoder.call(this, entity);
@@ -22846,7 +22846,7 @@ PEMEncoder.prototype.encode = function encode(data, options) {
 
 /***/ }),
 
-/***/ 922:
+/***/ 925:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -22943,14 +22943,14 @@ module.exports = X509Certificate
 
 /***/ }),
 
-/***/ 923:
+/***/ 926:
 /***/ (function(module, exports) {
 
 module.exports = {"2.16.840.1.101.3.4.1.1":"aes-128-ecb","2.16.840.1.101.3.4.1.2":"aes-128-cbc","2.16.840.1.101.3.4.1.3":"aes-128-ofb","2.16.840.1.101.3.4.1.4":"aes-128-cfb","2.16.840.1.101.3.4.1.21":"aes-192-ecb","2.16.840.1.101.3.4.1.22":"aes-192-cbc","2.16.840.1.101.3.4.1.23":"aes-192-ofb","2.16.840.1.101.3.4.1.24":"aes-192-cfb","2.16.840.1.101.3.4.1.41":"aes-256-ecb","2.16.840.1.101.3.4.1.42":"aes-256-cbc","2.16.840.1.101.3.4.1.43":"aes-256-ofb","2.16.840.1.101.3.4.1.44":"aes-256-cfb"}
 
 /***/ }),
 
-/***/ 924:
+/***/ 927:
 /***/ (function(module, exports, __webpack_require__) {
 
 // adapted from https://github.com/apatil/pemstrip
@@ -22958,7 +22958,7 @@ var findProc = /Proc-Type: 4,ENCRYPTED[\n\r]+DEK-Info: AES-((?:128)|(?:192)|(?:2
 var startRegex = /^-----BEGIN ((?:.*? KEY)|CERTIFICATE)-----/m
 var fullRegex = /^-----BEGIN ((?:.*? KEY)|CERTIFICATE)-----([0-9A-z\n\r\+\/\=]+)-----END \1-----$/m
 var evp = __webpack_require__(763)
-var ciphers = __webpack_require__(776)
+var ciphers = __webpack_require__(777)
 var Buffer = __webpack_require__(743).Buffer
 module.exports = function (okey, password) {
   var key = okey.toString()
@@ -22988,14 +22988,14 @@ module.exports = function (okey, password) {
 
 /***/ }),
 
-/***/ 925:
+/***/ 928:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
 var BN = __webpack_require__(744)
 var EC = __webpack_require__(747).ec
 var parseKeys = __webpack_require__(765)
-var curves = __webpack_require__(818)
+var curves = __webpack_require__(819)
 
 function verify (sig, hash, key, signType, tag) {
   var pub = parseKeys(key)
@@ -23079,7 +23079,7 @@ module.exports = verify
 
 /***/ }),
 
-/***/ 926:
+/***/ 929:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var elliptic = __webpack_require__(747)
@@ -23211,11 +23211,11 @@ function formatReturnValue (bn, enc, len) {
 
 /***/ }),
 
-/***/ 927:
+/***/ 930:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports.publicEncrypt = __webpack_require__(928)
-exports.privateDecrypt = __webpack_require__(929)
+exports.publicEncrypt = __webpack_require__(931)
+exports.privateDecrypt = __webpack_require__(932)
 
 exports.privateEncrypt = function privateEncrypt (key, buf) {
   return exports.publicEncrypt(key, buf, true)
@@ -23228,17 +23228,17 @@ exports.publicDecrypt = function publicDecrypt (key, buf) {
 
 /***/ }),
 
-/***/ 928:
+/***/ 931:
 /***/ (function(module, exports, __webpack_require__) {
 
 var parseKeys = __webpack_require__(765)
 var randomBytes = __webpack_require__(753)
 var createHash = __webpack_require__(755)
-var mgf = __webpack_require__(819)
-var xor = __webpack_require__(820)
+var mgf = __webpack_require__(820)
+var xor = __webpack_require__(821)
 var BN = __webpack_require__(744)
-var withPublic = __webpack_require__(821)
-var crt = __webpack_require__(778)
+var withPublic = __webpack_require__(822)
+var crt = __webpack_require__(779)
 var Buffer = __webpack_require__(743).Buffer
 
 module.exports = function publicEncrypt (publicKey, msg, reverse) {
@@ -23323,16 +23323,16 @@ function nonZero (len) {
 
 /***/ }),
 
-/***/ 929:
+/***/ 932:
 /***/ (function(module, exports, __webpack_require__) {
 
 var parseKeys = __webpack_require__(765)
-var mgf = __webpack_require__(819)
-var xor = __webpack_require__(820)
+var mgf = __webpack_require__(820)
+var xor = __webpack_require__(821)
 var BN = __webpack_require__(744)
-var crt = __webpack_require__(778)
+var crt = __webpack_require__(779)
 var createHash = __webpack_require__(755)
-var withPublic = __webpack_require__(821)
+var withPublic = __webpack_require__(822)
 var Buffer = __webpack_require__(743).Buffer
 
 module.exports = function privateDecrypt (privateKey, enc, reverse) {
@@ -23435,7 +23435,7 @@ function compare (a, b) {
 
 /***/ }),
 
-/***/ 930:
+/***/ 933:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23552,14 +23552,14 @@ function randomFillSync (buf, offset, size) {
 
 /***/ }),
 
-/***/ 931:
+/***/ 934:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-var EmailJSResponseStatus_1 = __webpack_require__(932);
-var UI_1 = __webpack_require__(933);
+var EmailJSResponseStatus_1 = __webpack_require__(935);
+var UI_1 = __webpack_require__(936);
 var _userID = null;
 var _origin = 'https://api.emailjs.com';
 function sendPost(url, data, headers) {
@@ -23659,7 +23659,7 @@ exports.sendForm = sendForm;
 
 /***/ }),
 
-/***/ 932:
+/***/ 935:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -23677,7 +23677,7 @@ exports.EmailJSResponseStatus = EmailJSResponseStatus;
 
 /***/ }),
 
-/***/ 933:
+/***/ 936:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

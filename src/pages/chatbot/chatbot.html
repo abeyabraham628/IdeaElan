@@ -16,15 +16,13 @@
 
 
   <p text-center *ngIf="sending">sending...</p>
-  <div *ngFor="let q of questions" style="left:0px" >
-    <label name="title" class="msgClass">{{q.question}}</label>
-     
-  </div>
+  <ion-item  *ngFor="let c of chat" style="left:0px" no-lines >
 
-  <div *ngFor="let q of answer"  class="msgClass" style="right:0px;position: relative; text-align: right; background-color: honeydew ">
-      <label name="title" style="display:inline-flex">{{q.answer}}</label>
-  
-</div>
+    <ion-label text-wrap  name="title" class="msgClass" *ngIf="c.question!='' && c.question!=null">{{c.question}}</ion-label>
+    <ion-label text-wrap name="title" class="msgClass" style="color:red" *ngIf="c.answer!='' && c.answer!=null">{{c.answer}}</ion-label>
+     
+  </ion-item>
+
  
  
 </ion-content>

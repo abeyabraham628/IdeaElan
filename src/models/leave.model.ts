@@ -9,6 +9,7 @@ import { Injectable } from '@angular/core';
 import { AlertController, NavController, LoadingController } from 'ionic-angular';
 import { leave } from '@angular/core/src/profile/wtf_impl';
 import * as moment from 'moment'
+import { exists } from 'fs';
 
 @Injectable()
 export class LeaveModel{
@@ -18,7 +19,7 @@ leaveCount={} as leaveCount
 loader:any
 loader1:any
 
-  constructor( public loadingCtrl:LoadingController,private afauth:AngularFireAuth,private firebase:AngularFireDatabase,private alert:AlertController){
+  constructor( public loadingCtrl:LoadingController,private afauth:AngularFireAuth,private firebase:AngularFireDatabase,private alertCtrl:AlertController){
    
   }
   
@@ -65,9 +66,45 @@ loader1:any
 
 
        async submitLeaveRequest(leaveInfo){
-         
+        
       
         var userName:any
+        let leaveExists:Boolean=false
+        let leaveExistDate=[]
+        await this.firebase.database.ref(`EmployeeLeaves`).orderByChild(`userId`).equalTo(`${leaveInfo.userId}`).once('value',(snap)=>{
+          snap.forEach((child)=>{
+            
+            child.child('date').val().forEach(val=>{
+              if(leaveInfo.date2){
+                if((leaveInfo.date.find(date=>date==val) || leaveInfo.date2.find(date=>date==val)) && !leaveExists ){
+                  leaveExists=true
+                  leaveExistDate.push(val)
+                  
+               }
+              }
+              else{
+                if(leaveInfo.date.find(date=>date==val) && !leaveExists ){
+                  leaveExists=true
+                  leaveExistDate.push(val)
+               }
+              }
+            })
+          
+          })
+        })
+
+        if(leaveExists){
+          let alert = this.alertCtrl.create({
+            title: "Error",
+            subTitle: "Could not process your request. Leave record already exists on "+ leaveExistDate+".",
+            buttons: ['OK']
+          });
+              alert.present();
+              
+        }
+
+        else{
+
         await this.firebase.database.ref(`users/${leaveInfo.userId}`).once('value',(snap)=>{
           
           userName=snap.child('fname').val()+" "+snap.child('lname').val()
@@ -76,8 +113,8 @@ loader1:any
         this.leave.status="pending";
         
         
-       if(new Date().getHours()<9){
-          const alert = this.alert.create({
+       if(moment().hour()>=9  &&  leaveInfo.date.find(date=>date===moment().format('D-MMM-YYYY'))){
+         const alert = this.alertCtrl.create({
             title: 'Restricted',
             subTitle: 'Unable to process your request at this moment. Please contact your team leader.!',
             buttons: ['OK']
@@ -115,11 +152,18 @@ loader1:any
               'userId':leaveInfo.userId
             });
       
-  
+            let alert = this.alertCtrl.create({
+              title: "Success",
+              subTitle: "Leave applied successfully ",
+              buttons: ['OK']
+            });
+                alert.present();
        
       }//end of if else 
            
          
+       
+    }// end of leaveExist condition
       }//end os submit leave request function
 
 

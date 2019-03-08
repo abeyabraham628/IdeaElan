@@ -15,35 +15,37 @@ declare var ApiAIPromises: any;
   templateUrl: 'chatbot.html',
 })
 export class ChatbotPage {
- 
+ question:any
   constructor(public navCtrl: NavController, public navParams: NavParams , public platform: Platform, public ngZone: NgZone) {
     platform.ready().then(() => {
       ApiAIPromises.init({
         clientAccessToken: "eefd359fd25447899a07c6e5404be212"
       }).then(result => console.log(result));
     });
+    this.chat.push({'question':'ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffsssssssssssssssssssssssssssssssssss'})
   }
 
   ionViewDidLeave() {
     this.navCtrl.popToRoot();
   }
   
-
+chat=[]
   questions=[]
   answer:any=[];
   ask(question) {
-    this.questions.push({'question':question})
+    this.chat.push({'question':question})
   
     
     ApiAIPromises.requestText({
       query: question
     }).then(({result: {fulfillment: {speech}}}) => {
        this.ngZone.run(()=> {
-         this.answer.push({'answer':speech});
+         this.chat.push({'answer':speech});
         
        });
 
     })
+    this.question="";
   }
 
 

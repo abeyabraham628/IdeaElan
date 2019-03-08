@@ -169,7 +169,7 @@
         
       <ion-list >
         
-         <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>
+         <ion-searchbar placeholder="Search User" [(ngModel)]=searchString  [showCancelButton]="shouldShowCancel"></ion-searchbar>
         
                 
                  
@@ -185,7 +185,7 @@
                          <ion-col col-3>Interview Date</ion-col>
                      </ion-row>
      
-                     <ion-row no-margin class=" col-text  row-bottom-border" *ngFor="let x of applicantDetails " >
+                     <ion-row no-margin class=" col-text  row-bottom-border" *ngFor='let x of applicantDetails | tableFilter : "fName" : searchString; let i = index'  >
                          <ion-col col-1 > 
                              <ion-checkbox    (ionChange)="clickSelectBox(x.$key)"></ion-checkbox>
                            </ion-col>
@@ -281,7 +281,7 @@
         
       <ion-list >
         
-       <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>
+       <ion-searchbar placeholder="Search fUser" [(ngModel)]="searchInterview"  [showCancelButton]="shouldShowCancel"></ion-searchbar>
         
                 <ion-row no-margin class="table-title row-bottom-border">
                 <ion-col col-4>Interview Date</ion-col>
@@ -289,7 +289,7 @@
                     <ion-col col-3>Action</ion-col>
                 </ion-row>
 
-                <ion-row no-margin class=" col-text  row-bottom-border" *ngFor="let x of interviewDate" >
+                <ion-row no-margin class=" col-text  row-bottom-border" *ngFor='let x of interviewDate | tableFilter : "contactPerson" : searchInterview; let i = index' >
                     
                       <ion-col col-4>{{x.interviewDate}} </ion-col>
                        <ion-col col-5 >{{x.interviewDetails.contactPerson}}</ion-col>

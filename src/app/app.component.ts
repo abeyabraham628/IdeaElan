@@ -9,7 +9,8 @@ import { Network } from '@ionic-native/network';
 
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
-
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   templateUrl: 'app.html'
@@ -17,13 +18,15 @@ import { ScreenOrientation } from '@ionic-native/screen-orientation';
 export class MyApp {
   
   
-  isOffline:boolean=false
-  showOffline:boolean=true;
   
+ 
+  isOffline:boolean=false
+  showOffline:boolean=true
   rootPage:string = 'LoginPage'//'ApplyLeavePage';//CompanyPolicyComponent;//HomePage
   
   @ViewChild('nav') nav : NavController;
   constructor(public zone:NgZone,public screenOrientation:ScreenOrientation,public network:Network,public app:App,private platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private alertCtrl:AlertController) {
+    
     this.checkConnection();
     this.checkDisconnection();
    
@@ -54,7 +57,7 @@ export class MyApp {
         this.isOffline=true
         this.showOffline=false;
         });
-      
+        
       
     this.checkConnection();
     disconnectSubscription.unsubscribe();
@@ -66,10 +69,11 @@ checkConnection() {
  const connectSubscription = this.network.onConnect().subscribe(() => {
   
  this.checkDisconnection();
- this.zone.run(() => {
+  this.zone.run(() => {
   this.isOffline=false
   this.showOffline=true;
   });
+  
  connectSubscription.unsubscribe();
  
  

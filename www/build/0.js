@@ -3597,7 +3597,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
 
 var base64 = __webpack_require__(851)
 var ieee754 = __webpack_require__(852)
-var isArray = __webpack_require__(787)
+var isArray = __webpack_require__(788)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -5448,7 +5448,7 @@ var elliptic = exports;
 
 elliptic.version = __webpack_require__(893).version;
 elliptic.utils = __webpack_require__(894);
-elliptic.rand = __webpack_require__(809);
+elliptic.rand = __webpack_require__(810);
 elliptic.curve = __webpack_require__(764);
 elliptic.curves = __webpack_require__(899);
 
@@ -5767,8 +5767,8 @@ exports.shr64_lo = shr64_lo;
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(743).Buffer
-var Transform = __webpack_require__(768).Transform
-var StringDecoder = __webpack_require__(772).StringDecoder
+var Transform = __webpack_require__(769).Transform
+var StringDecoder = __webpack_require__(773).StringDecoder
 var inherits = __webpack_require__(742)
 
 function CipherBase (hashMode) {
@@ -5922,8 +5922,8 @@ var util = __webpack_require__(756);
 util.inherits = __webpack_require__(742);
 /*</replacement>*/
 
-var Readable = __webpack_require__(789);
-var Writable = __webpack_require__(771);
+var Readable = __webpack_require__(790);
+var Writable = __webpack_require__(772);
 
 util.inherits(Duplex, Readable);
 
@@ -6160,9 +6160,9 @@ module.exports = Hash
 "use strict";
 
 var inherits = __webpack_require__(742)
-var MD5 = __webpack_require__(767)
-var RIPEMD160 = __webpack_require__(773)
-var sha = __webpack_require__(774)
+var MD5 = __webpack_require__(768)
+var RIPEMD160 = __webpack_require__(774)
+var sha = __webpack_require__(775)
 var Base = __webpack_require__(751)
 
 function Hash (hash) {
@@ -6434,7 +6434,7 @@ asn1.bignum = __webpack_require__(744);
 
 asn1.define = __webpack_require__(915).define;
 asn1.base = __webpack_require__(760);
-asn1.constants = __webpack_require__(815);
+asn1.constants = __webpack_require__(816);
 asn1.decoders = __webpack_require__(921);
 asn1.encoders = __webpack_require__(923);
 
@@ -6447,8 +6447,8 @@ asn1.encoders = __webpack_require__(923);
 var base = exports;
 
 base.Reporter = __webpack_require__(918).Reporter;
-base.DecoderBuffer = __webpack_require__(814).DecoderBuffer;
-base.EncoderBuffer = __webpack_require__(814).EncoderBuffer;
+base.DecoderBuffer = __webpack_require__(815).DecoderBuffer;
+base.EncoderBuffer = __webpack_require__(815).EncoderBuffer;
 base.Node = __webpack_require__(919);
 
 
@@ -6746,7 +6746,7 @@ module.exports.AES = AES
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(743).Buffer
-var MD5 = __webpack_require__(767)
+var MD5 = __webpack_require__(768)
 
 /* eslint-disable camelcase */
 function EVP_BytesToKey (password, salt, keyBits, ivLen) {
@@ -6816,8 +6816,8 @@ curve.edwards = __webpack_require__(898);
 var asn1 = __webpack_require__(914)
 var aesid = __webpack_require__(926)
 var fixProc = __webpack_require__(927)
-var ciphers = __webpack_require__(776)
-var compat = __webpack_require__(798)
+var ciphers = __webpack_require__(777)
+var compat = __webpack_require__(799)
 var Buffer = __webpack_require__(743).Buffer
 module.exports = parseKeys
 
@@ -6924,7 +6924,7 @@ function decrypt (data, password) {
 
 /***/ }),
 
-/***/ 766:
+/***/ 767:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6949,13 +6949,13 @@ var Designations = [
 
 /***/ }),
 
-/***/ 767:
+/***/ 768:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var inherits = __webpack_require__(742)
-var HashBase = __webpack_require__(788)
+var HashBase = __webpack_require__(789)
 var Buffer = __webpack_require__(743).Buffer
 
 var ARRAY16 = new Array(16)
@@ -7103,7 +7103,7 @@ module.exports = MD5
 
 /***/ }),
 
-/***/ 768:
+/***/ 769:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -7129,11 +7129,11 @@ module.exports = MD5
 
 module.exports = Stream;
 
-var EE = __webpack_require__(769).EventEmitter;
+var EE = __webpack_require__(770).EventEmitter;
 var inherits = __webpack_require__(742);
 
 inherits(Stream, EE);
-Stream.Readable = __webpack_require__(770);
+Stream.Readable = __webpack_require__(771);
 Stream.Writable = __webpack_require__(858);
 Stream.Duplex = __webpack_require__(859);
 Stream.Transform = __webpack_require__(860);
@@ -7237,7 +7237,7 @@ Stream.prototype.pipe = function(dest, options) {
 
 /***/ }),
 
-/***/ 769:
+/***/ 770:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7693,21 +7693,21 @@ function unwrapListeners(arr) {
 
 /***/ }),
 
-/***/ 770:
+/***/ 771:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(789);
+exports = module.exports = __webpack_require__(790);
 exports.Stream = exports;
 exports.Readable = exports;
-exports.Writable = __webpack_require__(771);
+exports.Writable = __webpack_require__(772);
 exports.Duplex = __webpack_require__(752);
-exports.Transform = __webpack_require__(792);
+exports.Transform = __webpack_require__(793);
 exports.PassThrough = __webpack_require__(857);
 
 
 /***/ }),
 
-/***/ 771:
+/***/ 772:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7788,7 +7788,7 @@ var internalUtil = {
 /*</replacement>*/
 
 /*<replacement>*/
-var Stream = __webpack_require__(790);
+var Stream = __webpack_require__(791);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -7804,7 +7804,7 @@ function _isUint8Array(obj) {
 
 /*</replacement>*/
 
-var destroyImpl = __webpack_require__(791);
+var destroyImpl = __webpack_require__(792);
 
 util.inherits(Writable, Stream);
 
@@ -8402,7 +8402,7 @@ Writable.prototype._destroy = function (err, cb) {
 
 /***/ }),
 
-/***/ 772:
+/***/ 773:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8705,14 +8705,14 @@ function simpleEnd(buf) {
 
 /***/ }),
 
-/***/ 773:
+/***/ 774:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Buffer = __webpack_require__(745).Buffer
 var inherits = __webpack_require__(742)
-var HashBase = __webpack_require__(788)
+var HashBase = __webpack_require__(789)
 
 var ARRAY16 = new Array(16)
 
@@ -8876,7 +8876,7 @@ module.exports = RIPEMD160
 
 /***/ }),
 
-/***/ 774:
+/***/ 775:
 /***/ (function(module, exports, __webpack_require__) {
 
 var exports = module.exports = function SHA (algorithm) {
@@ -8891,14 +8891,14 @@ var exports = module.exports = function SHA (algorithm) {
 exports.sha = __webpack_require__(862)
 exports.sha1 = __webpack_require__(863)
 exports.sha224 = __webpack_require__(864)
-exports.sha256 = __webpack_require__(793)
+exports.sha256 = __webpack_require__(794)
 exports.sha384 = __webpack_require__(865)
-exports.sha512 = __webpack_require__(794)
+exports.sha512 = __webpack_require__(795)
 
 
 /***/ }),
 
-/***/ 775:
+/***/ 776:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8913,12 +8913,12 @@ exports.EDE = __webpack_require__(875);
 
 /***/ }),
 
-/***/ 776:
+/***/ 777:
 /***/ (function(module, exports, __webpack_require__) {
 
 var ciphers = __webpack_require__(876)
 var deciphers = __webpack_require__(884)
-var modes = __webpack_require__(804)
+var modes = __webpack_require__(805)
 
 function getCiphers () {
   return Object.keys(modes)
@@ -8933,7 +8933,7 @@ exports.listCiphers = exports.getCiphers = getCiphers
 
 /***/ }),
 
-/***/ 777:
+/***/ 778:
 /***/ (function(module, exports, __webpack_require__) {
 
 var modeModules = {
@@ -8943,11 +8943,11 @@ var modeModules = {
   CFB8: __webpack_require__(880),
   CFB1: __webpack_require__(881),
   OFB: __webpack_require__(882),
-  CTR: __webpack_require__(802),
-  GCM: __webpack_require__(802)
+  CTR: __webpack_require__(803),
+  GCM: __webpack_require__(803)
 }
 
-var modes = __webpack_require__(804)
+var modes = __webpack_require__(805)
 
 for (var key in modes) {
   modes[key].module = modeModules[modes[key].mode]
@@ -8958,7 +8958,7 @@ module.exports = modes
 
 /***/ }),
 
-/***/ 778:
+/***/ 779:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var bn = __webpack_require__(744);
@@ -9006,7 +9006,7 @@ function getr(priv) {
 
 /***/ }),
 
-/***/ 779:
+/***/ 780:
 /***/ (function(module, exports, __webpack_require__) {
 
 var hash = exports;
@@ -9028,7 +9028,7 @@ hash.ripemd160 = hash.ripemd.ripemd160;
 
 /***/ }),
 
-/***/ 787:
+/***/ 788:
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -9040,13 +9040,13 @@ module.exports = Array.isArray || function (arr) {
 
 /***/ }),
 
-/***/ 788:
+/***/ 789:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Buffer = __webpack_require__(743).Buffer
-var Transform = __webpack_require__(768).Transform
+var Transform = __webpack_require__(769).Transform
 var inherits = __webpack_require__(742)
 
 function throwIfNotStringOrBuffer (val, prefix) {
@@ -9143,7 +9143,7 @@ module.exports = HashBase
 
 /***/ }),
 
-/***/ 789:
+/***/ 790:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9178,7 +9178,7 @@ var pna = __webpack_require__(761);
 module.exports = Readable;
 
 /*<replacement>*/
-var isArray = __webpack_require__(787);
+var isArray = __webpack_require__(788);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -9188,7 +9188,7 @@ var Duplex;
 Readable.ReadableState = ReadableState;
 
 /*<replacement>*/
-var EE = __webpack_require__(769).EventEmitter;
+var EE = __webpack_require__(770).EventEmitter;
 
 var EElistenerCount = function (emitter, type) {
   return emitter.listeners(type).length;
@@ -9196,7 +9196,7 @@ var EElistenerCount = function (emitter, type) {
 /*</replacement>*/
 
 /*<replacement>*/
-var Stream = __webpack_require__(790);
+var Stream = __webpack_require__(791);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -9228,7 +9228,7 @@ if (debugUtil && debugUtil.debuglog) {
 /*</replacement>*/
 
 var BufferList = __webpack_require__(854);
-var destroyImpl = __webpack_require__(791);
+var destroyImpl = __webpack_require__(792);
 var StringDecoder;
 
 util.inherits(Readable, Stream);
@@ -9318,7 +9318,7 @@ function ReadableState(options, stream) {
   this.decoder = null;
   this.encoding = null;
   if (options.encoding) {
-    if (!StringDecoder) StringDecoder = __webpack_require__(772).StringDecoder;
+    if (!StringDecoder) StringDecoder = __webpack_require__(773).StringDecoder;
     this.decoder = new StringDecoder(options.encoding);
     this.encoding = options.encoding;
   }
@@ -9474,7 +9474,7 @@ Readable.prototype.isPaused = function () {
 
 // backwards compatibility.
 Readable.prototype.setEncoding = function (enc) {
-  if (!StringDecoder) StringDecoder = __webpack_require__(772).StringDecoder;
+  if (!StringDecoder) StringDecoder = __webpack_require__(773).StringDecoder;
   this._readableState.decoder = new StringDecoder(enc);
   this._readableState.encoding = enc;
   return this;
@@ -10170,15 +10170,15 @@ function indexOf(xs, x) {
 
 /***/ }),
 
-/***/ 790:
+/***/ 791:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(769).EventEmitter;
+module.exports = __webpack_require__(770).EventEmitter;
 
 
 /***/ }),
 
-/***/ 791:
+/***/ 792:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10259,7 +10259,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 792:
+/***/ 793:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10480,7 +10480,7 @@ function done(stream, er, data) {
 
 /***/ }),
 
-/***/ 793:
+/***/ 794:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -10622,7 +10622,7 @@ module.exports = Sha256
 
 /***/ }),
 
-/***/ 794:
+/***/ 795:
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(742)
@@ -10889,7 +10889,7 @@ module.exports = Sha512
 
 /***/ }),
 
-/***/ 795:
+/***/ 796:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10898,10 +10898,10 @@ var inherits = __webpack_require__(742)
 var Legacy = __webpack_require__(866)
 var Base = __webpack_require__(751)
 var Buffer = __webpack_require__(743).Buffer
-var md5 = __webpack_require__(796)
-var RIPEMD160 = __webpack_require__(773)
+var md5 = __webpack_require__(797)
+var RIPEMD160 = __webpack_require__(774)
 
-var sha = __webpack_require__(774)
+var sha = __webpack_require__(775)
 
 var ZEROS = Buffer.alloc(128)
 
@@ -10959,10 +10959,10 @@ module.exports = function createHmac (alg, key) {
 
 /***/ }),
 
-/***/ 796:
+/***/ 797:
 /***/ (function(module, exports, __webpack_require__) {
 
-var MD5 = __webpack_require__(767)
+var MD5 = __webpack_require__(768)
 
 module.exports = function (buffer) {
   return new MD5().update(buffer).digest()
@@ -10971,23 +10971,23 @@ module.exports = function (buffer) {
 
 /***/ }),
 
-/***/ 797:
+/***/ 798:
 /***/ (function(module, exports) {
 
 module.exports = {"sha224WithRSAEncryption":{"sign":"rsa","hash":"sha224","id":"302d300d06096086480165030402040500041c"},"RSA-SHA224":{"sign":"ecdsa/rsa","hash":"sha224","id":"302d300d06096086480165030402040500041c"},"sha256WithRSAEncryption":{"sign":"rsa","hash":"sha256","id":"3031300d060960864801650304020105000420"},"RSA-SHA256":{"sign":"ecdsa/rsa","hash":"sha256","id":"3031300d060960864801650304020105000420"},"sha384WithRSAEncryption":{"sign":"rsa","hash":"sha384","id":"3041300d060960864801650304020205000430"},"RSA-SHA384":{"sign":"ecdsa/rsa","hash":"sha384","id":"3041300d060960864801650304020205000430"},"sha512WithRSAEncryption":{"sign":"rsa","hash":"sha512","id":"3051300d060960864801650304020305000440"},"RSA-SHA512":{"sign":"ecdsa/rsa","hash":"sha512","id":"3051300d060960864801650304020305000440"},"RSA-SHA1":{"sign":"rsa","hash":"sha1","id":"3021300906052b0e03021a05000414"},"ecdsa-with-SHA1":{"sign":"ecdsa","hash":"sha1","id":""},"sha256":{"sign":"ecdsa","hash":"sha256","id":""},"sha224":{"sign":"ecdsa","hash":"sha224","id":""},"sha384":{"sign":"ecdsa","hash":"sha384","id":""},"sha512":{"sign":"ecdsa","hash":"sha512","id":""},"DSA-SHA":{"sign":"dsa","hash":"sha1","id":""},"DSA-SHA1":{"sign":"dsa","hash":"sha1","id":""},"DSA":{"sign":"dsa","hash":"sha1","id":""},"DSA-WITH-SHA224":{"sign":"dsa","hash":"sha224","id":""},"DSA-SHA224":{"sign":"dsa","hash":"sha224","id":""},"DSA-WITH-SHA256":{"sign":"dsa","hash":"sha256","id":""},"DSA-SHA256":{"sign":"dsa","hash":"sha256","id":""},"DSA-WITH-SHA384":{"sign":"dsa","hash":"sha384","id":""},"DSA-SHA384":{"sign":"dsa","hash":"sha384","id":""},"DSA-WITH-SHA512":{"sign":"dsa","hash":"sha512","id":""},"DSA-SHA512":{"sign":"dsa","hash":"sha512","id":""},"DSA-RIPEMD160":{"sign":"dsa","hash":"rmd160","id":""},"ripemd160WithRSA":{"sign":"rsa","hash":"rmd160","id":"3021300906052b2403020105000414"},"RSA-RIPEMD160":{"sign":"rsa","hash":"rmd160","id":"3021300906052b2403020105000414"},"md5WithRSAEncryption":{"sign":"rsa","hash":"md5","id":"3020300c06082a864886f70d020505000410"},"RSA-MD5":{"sign":"rsa","hash":"md5","id":"3020300c06082a864886f70d020505000410"}}
 
 /***/ }),
 
-/***/ 798:
+/***/ 799:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports.pbkdf2 = __webpack_require__(868)
-exports.pbkdf2Sync = __webpack_require__(801)
+exports.pbkdf2Sync = __webpack_require__(802)
 
 
 /***/ }),
 
-/***/ 799:
+/***/ 800:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var MAX_ALLOC = Math.pow(2, 30) - 1 // default in iojs
@@ -11023,7 +11023,7 @@ module.exports = function (password, salt, iterations, keylen) {
 
 /***/ }),
 
-/***/ 800:
+/***/ 801:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {var defaultEncoding
@@ -11041,15 +11041,15 @@ module.exports = defaultEncoding
 
 /***/ }),
 
-/***/ 801:
+/***/ 802:
 /***/ (function(module, exports, __webpack_require__) {
 
-var md5 = __webpack_require__(796)
-var RIPEMD160 = __webpack_require__(773)
-var sha = __webpack_require__(774)
+var md5 = __webpack_require__(797)
+var RIPEMD160 = __webpack_require__(774)
+var sha = __webpack_require__(775)
 
-var checkParameters = __webpack_require__(799)
-var defaultEncoding = __webpack_require__(800)
+var checkParameters = __webpack_require__(800)
+var defaultEncoding = __webpack_require__(801)
 var Buffer = __webpack_require__(743).Buffer
 var ZEROS = Buffer.alloc(128)
 var sizes = {
@@ -11152,12 +11152,12 @@ module.exports = pbkdf2
 
 /***/ }),
 
-/***/ 802:
+/***/ 803:
 /***/ (function(module, exports, __webpack_require__) {
 
 var xor = __webpack_require__(757)
 var Buffer = __webpack_require__(743).Buffer
-var incr32 = __webpack_require__(803)
+var incr32 = __webpack_require__(804)
 
 function getBlock (self) {
   var out = self._cipher.encryptBlockRaw(self._prev)
@@ -11189,7 +11189,7 @@ exports.encrypt = function (self, chunk) {
 
 /***/ }),
 
-/***/ 803:
+/***/ 804:
 /***/ (function(module, exports) {
 
 function incr32 (iv) {
@@ -11211,14 +11211,14 @@ module.exports = incr32
 
 /***/ }),
 
-/***/ 804:
+/***/ 805:
 /***/ (function(module, exports) {
 
 module.exports = {"aes-128-ecb":{"cipher":"AES","key":128,"iv":0,"mode":"ECB","type":"block"},"aes-192-ecb":{"cipher":"AES","key":192,"iv":0,"mode":"ECB","type":"block"},"aes-256-ecb":{"cipher":"AES","key":256,"iv":0,"mode":"ECB","type":"block"},"aes-128-cbc":{"cipher":"AES","key":128,"iv":16,"mode":"CBC","type":"block"},"aes-192-cbc":{"cipher":"AES","key":192,"iv":16,"mode":"CBC","type":"block"},"aes-256-cbc":{"cipher":"AES","key":256,"iv":16,"mode":"CBC","type":"block"},"aes128":{"cipher":"AES","key":128,"iv":16,"mode":"CBC","type":"block"},"aes192":{"cipher":"AES","key":192,"iv":16,"mode":"CBC","type":"block"},"aes256":{"cipher":"AES","key":256,"iv":16,"mode":"CBC","type":"block"},"aes-128-cfb":{"cipher":"AES","key":128,"iv":16,"mode":"CFB","type":"stream"},"aes-192-cfb":{"cipher":"AES","key":192,"iv":16,"mode":"CFB","type":"stream"},"aes-256-cfb":{"cipher":"AES","key":256,"iv":16,"mode":"CFB","type":"stream"},"aes-128-cfb8":{"cipher":"AES","key":128,"iv":16,"mode":"CFB8","type":"stream"},"aes-192-cfb8":{"cipher":"AES","key":192,"iv":16,"mode":"CFB8","type":"stream"},"aes-256-cfb8":{"cipher":"AES","key":256,"iv":16,"mode":"CFB8","type":"stream"},"aes-128-cfb1":{"cipher":"AES","key":128,"iv":16,"mode":"CFB1","type":"stream"},"aes-192-cfb1":{"cipher":"AES","key":192,"iv":16,"mode":"CFB1","type":"stream"},"aes-256-cfb1":{"cipher":"AES","key":256,"iv":16,"mode":"CFB1","type":"stream"},"aes-128-ofb":{"cipher":"AES","key":128,"iv":16,"mode":"OFB","type":"stream"},"aes-192-ofb":{"cipher":"AES","key":192,"iv":16,"mode":"OFB","type":"stream"},"aes-256-ofb":{"cipher":"AES","key":256,"iv":16,"mode":"OFB","type":"stream"},"aes-128-ctr":{"cipher":"AES","key":128,"iv":16,"mode":"CTR","type":"stream"},"aes-192-ctr":{"cipher":"AES","key":192,"iv":16,"mode":"CTR","type":"stream"},"aes-256-ctr":{"cipher":"AES","key":256,"iv":16,"mode":"CTR","type":"stream"},"aes-128-gcm":{"cipher":"AES","key":128,"iv":12,"mode":"GCM","type":"auth"},"aes-192-gcm":{"cipher":"AES","key":192,"iv":12,"mode":"GCM","type":"auth"},"aes-256-gcm":{"cipher":"AES","key":256,"iv":12,"mode":"GCM","type":"auth"}}
 
 /***/ }),
 
-/***/ 805:
+/***/ 806:
 /***/ (function(module, exports, __webpack_require__) {
 
 var aes = __webpack_require__(762)
@@ -11227,7 +11227,7 @@ var Transform = __webpack_require__(751)
 var inherits = __webpack_require__(742)
 var GHASH = __webpack_require__(883)
 var xor = __webpack_require__(757)
-var incr32 = __webpack_require__(803)
+var incr32 = __webpack_require__(804)
 
 function xorTest (a, b) {
   var out = 0
@@ -11342,7 +11342,7 @@ module.exports = StreamCipher
 
 /***/ }),
 
-/***/ 806:
+/***/ 807:
 /***/ (function(module, exports, __webpack_require__) {
 
 var aes = __webpack_require__(762)
@@ -11376,7 +11376,7 @@ module.exports = StreamCipher
 
 /***/ }),
 
-/***/ 807:
+/***/ 808:
 /***/ (function(module, exports, __webpack_require__) {
 
 var randomBytes = __webpack_require__(753);
@@ -11385,7 +11385,7 @@ findPrime.simpleSieve = simpleSieve;
 findPrime.fermatTest = fermatTest;
 var BN = __webpack_require__(744);
 var TWENTYFOUR = new BN(24);
-var MillerRabin = __webpack_require__(808);
+var MillerRabin = __webpack_require__(809);
 var millerRabin = new MillerRabin();
 var ONE = new BN(1);
 var TWO = new BN(2);
@@ -11488,11 +11488,11 @@ function findPrime(bits, gen) {
 
 /***/ }),
 
-/***/ 808:
+/***/ 809:
 /***/ (function(module, exports, __webpack_require__) {
 
 var bn = __webpack_require__(744);
-var brorand = __webpack_require__(809);
+var brorand = __webpack_require__(810);
 
 function MillerRabin(rand) {
   this.rand = rand || new brorand.Rand();
@@ -11610,7 +11610,7 @@ MillerRabin.prototype.getDivisor = function getDivisor(n, k) {
 
 /***/ }),
 
-/***/ 809:
+/***/ 810:
 /***/ (function(module, exports, __webpack_require__) {
 
 var r;
@@ -11682,7 +11682,7 @@ if (typeof self === 'object') {
 
 /***/ }),
 
-/***/ 810:
+/***/ 811:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11748,7 +11748,7 @@ utils.encode = function encode(arr, enc) {
 
 /***/ }),
 
-/***/ 811:
+/***/ 812:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11805,7 +11805,7 @@ exports.g1_256 = g1_256;
 
 /***/ }),
 
-/***/ 812:
+/***/ 813:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11813,7 +11813,7 @@ exports.g1_256 = g1_256;
 
 var utils = __webpack_require__(749);
 var common = __webpack_require__(758);
-var shaCommon = __webpack_require__(811);
+var shaCommon = __webpack_require__(812);
 var assert = __webpack_require__(748);
 
 var sum32 = utils.sum32;
@@ -11918,7 +11918,7 @@ SHA256.prototype._digest = function digest(enc) {
 
 /***/ }),
 
-/***/ 813:
+/***/ 814:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12256,7 +12256,7 @@ function g1_512_lo(xh, xl) {
 
 /***/ }),
 
-/***/ 814:
+/***/ 815:
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(742);
@@ -12379,7 +12379,7 @@ EncoderBuffer.prototype.join = function join(out, offset) {
 
 /***/ }),
 
-/***/ 815:
+/***/ 816:
 /***/ (function(module, exports, __webpack_require__) {
 
 var constants = exports;
@@ -12405,7 +12405,7 @@ constants.der = __webpack_require__(920);
 
 /***/ }),
 
-/***/ 816:
+/***/ 817:
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(742);
@@ -12736,7 +12736,7 @@ function derDecodeLen(buf, primitive, fail) {
 
 /***/ }),
 
-/***/ 817:
+/***/ 818:
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(742);
@@ -13038,14 +13038,14 @@ function encodeTag(tag, primitive, cls, reporter) {
 
 /***/ }),
 
-/***/ 818:
+/***/ 819:
 /***/ (function(module, exports) {
 
 module.exports = {"1.3.132.0.10":"secp256k1","1.3.132.0.33":"p224","1.2.840.10045.3.1.1":"p192","1.2.840.10045.3.1.7":"p256","1.3.132.0.34":"p384","1.3.132.0.35":"p521"}
 
 /***/ }),
 
-/***/ 819:
+/***/ 820:
 /***/ (function(module, exports, __webpack_require__) {
 
 var createHash = __webpack_require__(755)
@@ -13071,7 +13071,7 @@ function i2ops (c) {
 
 /***/ }),
 
-/***/ 820:
+/***/ 821:
 /***/ (function(module, exports) {
 
 module.exports = function xor (a, b) {
@@ -13086,7 +13086,7 @@ module.exports = function xor (a, b) {
 
 /***/ }),
 
-/***/ 821:
+/***/ 822:
 /***/ (function(module, exports, __webpack_require__) {
 
 var BN = __webpack_require__(744)
@@ -13216,7 +13216,7 @@ var DatepickerDirective = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_ion2_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_ion2_calendar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_designations__ = __webpack_require__(766);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_designations__ = __webpack_require__(767);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13292,7 +13292,7 @@ var NewuserPage = /** @class */ (function () {
             dob: new __WEBPACK_IMPORTED_MODULE_0__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].minLength(5)]),
             mobile: new __WEBPACK_IMPORTED_MODULE_0__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].minLength(5)]),
             doj: new __WEBPACK_IMPORTED_MODULE_0__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].minLength(5)]),
-            email: new __WEBPACK_IMPORTED_MODULE_0__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].minLength(5), __WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].pattern('^[^\\s@]+@[^\\s@]+\\.[^\\s@]{2,}$')]),
+            email: new __WEBPACK_IMPORTED_MODULE_0__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].minLength(5), __WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
             position: new __WEBPACK_IMPORTED_MODULE_0__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_0__angular_forms__["Validators"].minLength(5)]),
         });
         this.designations = __WEBPACK_IMPORTED_MODULE_10__providers_designations__["a" /* Designations */];
@@ -13992,7 +13992,7 @@ var NewuserPage = /** @class */ (function () {
     };
     NewuserPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
-            selector: 'page-newuser',template:/*ion-inline-start:"D:\IdeaElan\src\pages\newuser\newuser.html"*/'<!--\n\n  Generated template for the NewuserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n  <page-header pageTitle="USERS"></page-header>\n\n</ion-header>\n\n\n\n<ion-content  >\n\n  <ion-segment [(ngModel)]="users" color="white" (click)="new1()">\n\n    <ion-segment-button value="newUser"  >\n\n    \n\n     New User\n\n    </ion-segment-button>\n\n    <ion-segment-button value="allUsers" (click)="new()">\n\n   \n\n    All User\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n     \n\n      <div [ngSwitch]="users">\n\n\n\n          <div *ngSwitchCase="\'newUser\'">\n\n              \n\n           \n\n          <form  [formGroup]="slideOneForm">\n\n              <h6 class="title section-title ">User Information</h6>\n\n                <ion-row>\n\n                   <ion-item col-6 > \n\n                        <ion-label stacked>First Name</ion-label>\n\n                        <ion-input type="text"  [(ngModel)]="userItem.fname" class="form-control" formControlName="fname" name="fname" ></ion-input>\n\n                    </ion-item> \n\n\n\n                        <ion-item col-6> \n\n                          <ion-label stacked>Last Name</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.lname" formControlName="lname" name="lname" ></ion-input>\n\n                        </ion-item>\n\n                     </ion-row> \n\n\n\n                      <ion-row>\n\n                        <ion-item [hidden]="fnameShow" col-6  no-lines *ngIf=" slideOneForm.get(\'fname\').hasError(\'required\') ">\n\n                         <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'fname\').hasError(\'required\')">\n\n                              first name is required\n\n                          </ion-label>\n\n                          </ion-item>\n\n\n\n                       <ion-item [hidden]="fnameShow" col-6 no-lines *ngIf=" slideOneForm.get(\'lname\').hasError(\'required\') ">\n\n\n\n                        <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'lname\').hasError(\'required\')">\n\n                            lname is required\n\n                        </ion-label>\n\n                        </ion-item>\n\n                    </ion-row>\n\n                  \n\n                    <ion-row>\n\n                      <ion-item  > \n\n                          <ion-label stacked>Date Of Birth</ion-label>\n\n                          <ion-input type="text"   (tap)="dispdate(\'birth\')" [(ngModel)]="userItem.dob"  formControlName="dob" name="dob"  ></ion-input>\n\n                        </ion-item> \n\n                    </ion-row> \n\n                    <ion-row>\n\n                        <ion-item [hidden]="fnameShow" no-lines *ngIf=" slideOneForm.get(\'dob\').hasError(\'required\') ">\n\n                          <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'dob\').hasError(\'required\')">\n\n                              Date of Birth is required\n\n                          </ion-label>\n\n                          </ion-item>\n\n                    </ion-row>  \n\n                    \n\n                    <ion-row>\n\n                      <ion-item > \n\n                         <ion-label stacked>Mobile Number</ion-label>\n\n                         <ion-input type="text" [(ngModel)]="userItem.mobile" formControlName="mobile" name="mobile" ></ion-input>\n\n                       </ion-item>\n\n                       <ion-item  [hidden]="fnameShow"  no-lines *ngIf=" slideOneForm.get(\'mobile\').hasError(\'required\') ">\n\n\n\n                        <ion-label stacked  color="danger" *ngIf="slideOneForm.get(\'mobile\').hasError(\'required\')">\n\n                           mobile number is required\n\n                        </ion-label>\n\n                        </ion-item>\n\n                     </ion-row> \n\n                   \n\n                    <ion-row>\n\n                       <ion-item> \n\n                          <ion-label stacked>Email Id</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.email" class="form-control"  formControlName="email" name="email"   ></ion-input>\n\n                        </ion-item>\n\n                        \n\n                        <ion-item [hidden]="fnameShow" no-lines *ngIf=" slideOneForm.get(\'email\').hasError(\'required\')">\n\n                          <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'email\').hasError(\'required\')">\n\n                          please enter a valid email id \n\n                          </ion-label>\n\n                          </ion-item>\n\n                      </ion-row>\n\n                    \n\n                      \n\n                      <h6 class="title section-title">Job Details</h6>\n\n\n\n                        <ion-row>\n\n                            <ion-item col-6> \n\n                                <ion-label stacked>Date Of Joining</ion-label>\n\n                                <ion-input type="text"  (tap)="dispdate(\'join\')" [(ngModel)]="userItem.doj" formControlName="doj" name="doj" ></ion-input>\n\n                              </ion-item>\n\n\n\n                              <ion-item [hidden]="fnameShow"  col-6  no-lines *ngIf=" slideOneForm.get(\'doj\').hasError(\'required\') ">\n\n\n\n                                <ion-label stacked  color="danger" *ngIf="slideOneForm.get(\'doj\').hasError(\'required\')">\n\n                                  Date of Joining is required\n\n                                </ion-label>\n\n                                </ion-item>\n\n                                \n\n                             <ion-item col-6> \n\n                                <ion-label stacked>Position</ion-label>\n\n                               \n\n                                <ion-select   [(ngModel)]="userItem.position" formControlName="position" name="position">\n\n                                  <ion-option *ngFor="let p of designations" [value]=\'p.value\'>{{p.position}}</ion-option>\n\n                                </ion-select>\n\n                                \n\n                              </ion-item>\n\n                              <ion-item [hidden]="fnameShow" col-6 no-lines *ngIf=" slideOneForm.get(\'position\').hasError(\'required\') ">\n\n\n\n                                <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'position\').hasError(\'required\')">\n\n                                   position is required\n\n                                </ion-label>\n\n                                </ion-item>\n\n                           </ion-row>  \n\n                          </form> \n\n                          \n\n                         <ion-row>\n\n                              <ion-col col-6>\n\n                                <ion-label>Set privileges</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>\n\n                                  \n\n                                </ion-col>\n\n\n\n                                <ion-col col-6  [hidden]="x">\n\n                                  <ion-label stacked>Deactivate user</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="statuss" ></ion-checkbox>\n\n                                </ion-col>\n\n                              </ion-row> \n\n\n\n                              <ion-row>\n\n                                  \n\n                           <button ion-button  icon-end  full color=blue (click)="btn(userItem)" >\n\n                             {{butn}}\n\n                             \n\n                             </button>\n\n                          </ion-row> \n\n                        \n\n             \n\n           \n\n          </div>\n\n            \n\n       <div *ngSwitchCase="\'allUsers\'">\n\n        <ion-list >\n\n            <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>\n\n          <ion-item>\n\n           <ion-row no-margin class="table-title" >\n\n                <ion-col col-6 >Name</ion-col><ion-col col-4>Position </ion-col><ion-col col-2>Action</ion-col>\n\n              </ion-row>\n\n          </ion-item>\n\n           \n\n           <ion-item>\n\n            <ion-row  class="col-text row-bottom-border" *ngFor="let item of itemslist" >\n\n                <ion-col col-6  style="color: #66887F;">\n\n                  {{ item.fname }}\n\n                </ion-col>\n\n                <ion-col col-4  style="color:#2679B0;" >\n\n                  {{ item.position }}\n\n                </ion-col>\n\n                <ion-col col-2 text-center (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position,item.data,item.status)">\n\n                <ion-icon name="create" ></ion-icon>\n\n                </ion-col>\n\n              </ion-row>\n\n           </ion-item>\n\n           \n\n            <!-- <ion-item>\n\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n            </ion-item> -->\n\n         </ion-list>\n\n      </div>\n\n      </div>\n\n</ion-content>\n\n\n\n \n\n\n\n\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\newuser\newuser.html"*/,
+            selector: 'page-newuser',template:/*ion-inline-start:"F:\ionic-app\src\pages\newuser\newuser.html"*/'<!--\n\n  Generated template for the NewuserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n  <page-header pageTitle="USERS"></page-header>\n\n</ion-header>\n\n\n\n<ion-content  >\n\n  <ion-segment [(ngModel)]="users" color="white" (click)="new1()">\n\n    <ion-segment-button value="newUser"  >\n\n    \n\n     New User\n\n    </ion-segment-button>\n\n    <ion-segment-button value="allUsers" (click)="new()">\n\n   \n\n    All User\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n     \n\n      <div [ngSwitch]="users">\n\n\n\n          <div *ngSwitchCase="\'newUser\'">\n\n              \n\n           \n\n          <form  [formGroup]="slideOneForm">\n\n              <h6 class="title section-title ">User Information</h6>\n\n                <ion-row>\n\n                   <ion-item col-6 > \n\n                        <ion-label stacked>First Name</ion-label>\n\n                        <ion-input type="text"  [(ngModel)]="userItem.fname" class="form-control" formControlName="fname" name="fname" ></ion-input>\n\n                    </ion-item> \n\n\n\n                        <ion-item col-6> \n\n                          <ion-label stacked>Last Name</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.lname" formControlName="lname" name="lname" ></ion-input>\n\n                        </ion-item>\n\n                     </ion-row> \n\n\n\n                      <ion-row>\n\n                        <ion-item [hidden]="fnameShow" col-6  no-lines *ngIf=" slideOneForm.get(\'fname\').hasError(\'required\') ">\n\n                         <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'fname\').hasError(\'required\')">\n\n                              first name is required\n\n                          </ion-label>\n\n                          </ion-item>\n\n\n\n                       <ion-item [hidden]="fnameShow" col-6 no-lines *ngIf=" slideOneForm.get(\'lname\').hasError(\'required\') ">\n\n\n\n                        <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'lname\').hasError(\'required\')">\n\n                            lname is required\n\n                        </ion-label>\n\n                        </ion-item>\n\n                    </ion-row>\n\n                  \n\n                    <ion-row>\n\n                      <ion-item  > \n\n                          <ion-label stacked>Date Of Birth</ion-label>\n\n                          <ion-input type="text"   (tap)="dispdate(\'birth\')" [(ngModel)]="userItem.dob"  formControlName="dob" name="dob"  ></ion-input>\n\n                        </ion-item> \n\n                    </ion-row> \n\n                    <ion-row>\n\n                        <ion-item [hidden]="fnameShow" no-lines *ngIf=" slideOneForm.get(\'dob\').hasError(\'required\') ">\n\n                          <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'dob\').hasError(\'required\')">\n\n                              Date of Birth is required\n\n                          </ion-label>\n\n                          </ion-item>\n\n                    </ion-row>  \n\n                    \n\n                    <ion-row>\n\n                      <ion-item > \n\n                         <ion-label stacked>Mobile Number</ion-label>\n\n                         <ion-input type="text" [(ngModel)]="userItem.mobile" formControlName="mobile" name="mobile" ></ion-input>\n\n                       </ion-item>\n\n                       <ion-item  [hidden]="fnameShow"  no-lines *ngIf=" slideOneForm.get(\'mobile\').hasError(\'required\') ">\n\n\n\n                        <ion-label stacked  color="danger" *ngIf="slideOneForm.get(\'mobile\').hasError(\'required\')">\n\n                           mobile number is required\n\n                        </ion-label>\n\n                        </ion-item>\n\n                     </ion-row> \n\n                   \n\n                    <ion-row>\n\n                       <ion-item> \n\n                          <ion-label stacked>Email Id</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.email" class="form-control"  formControlName="email" name="email"   ></ion-input>\n\n                        </ion-item>\n\n                        \n\n                        <ion-item [hidden]="fnameShow" no-lines *ngIf="slideOneForm.get(\'email\').hasError(\'pattern\') || slideOneForm.get(\'email\').hasError(\'required\')">\n\n                          <ion-label  stacked  color="danger"  *ngIf="slideOneForm.get(\'email\').hasError(\'pattern\') || slideOneForm.get(\'email\').hasError(\'required\')">\n\n                          please enter a valid email id \n\n                          </ion-label>\n\n                          </ion-item>\n\n                      </ion-row>\n\n                    \n\n                      \n\n                      <h6 class="title section-title">Job Details</h6>\n\n\n\n                        <ion-row>\n\n                            <ion-item col-6> \n\n                                <ion-label stacked>Date Of Joining</ion-label>\n\n                                <ion-input type="text"  (tap)="dispdate(\'join\')" [(ngModel)]="userItem.doj" formControlName="doj" name="doj" ></ion-input>\n\n                              </ion-item>\n\n\n\n                              <ion-item [hidden]="fnameShow"  col-6  no-lines *ngIf=" slideOneForm.get(\'doj\').hasError(\'required\') ">\n\n\n\n                                <ion-label stacked  color="danger" *ngIf="slideOneForm.get(\'doj\').hasError(\'required\')">\n\n                                  Date of Joining is required\n\n                                </ion-label>\n\n                                </ion-item>\n\n                                \n\n                             <ion-item col-6> \n\n                                <ion-label stacked>Position</ion-label>\n\n                               \n\n                                <ion-select   [(ngModel)]="userItem.position" formControlName="position" name="position">\n\n                                  <ion-option *ngFor="let p of designations" [value]=\'p.value\'>{{p.position}}</ion-option>\n\n                                </ion-select>\n\n                                \n\n                              </ion-item>\n\n                              <ion-item [hidden]="fnameShow" col-6 no-lines *ngIf=" slideOneForm.get(\'position\').hasError(\'required\') ">\n\n\n\n                                <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'position\').hasError(\'required\')">\n\n                                   position is required\n\n                                </ion-label>\n\n                                </ion-item>\n\n                           </ion-row>  \n\n                          </form> \n\n                          \n\n                         <ion-row>\n\n                              <ion-col col-6>\n\n                                <ion-label>Set privileges</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>\n\n                                  \n\n                                </ion-col>\n\n\n\n                                <ion-col col-6  [hidden]="x">\n\n                                  <ion-label stacked>Deactivate user</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="statuss" ></ion-checkbox>\n\n                                </ion-col>\n\n                              </ion-row> \n\n\n\n                              <ion-row>\n\n                                  \n\n                           <button ion-button  icon-end  full color=blue (click)="btn(userItem)" >\n\n                             {{butn}}\n\n                             \n\n                             </button>\n\n                          </ion-row> \n\n                        \n\n             \n\n           \n\n          </div>\n\n            \n\n       <div *ngSwitchCase="\'allUsers\'">\n\n        <ion-list >\n\n            <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>\n\n          <ion-item>\n\n           <ion-row no-margin class="table-title" >\n\n                <ion-col col-6 >Name</ion-col><ion-col col-4>Position </ion-col><ion-col col-2>Action</ion-col>\n\n              </ion-row>\n\n          </ion-item>\n\n           \n\n           <ion-item>\n\n            <ion-row  class="col-text row-bottom-border" *ngFor="let item of itemslist" >\n\n                <ion-col col-6  style="color: #66887F;">\n\n                  {{ item.fname }}\n\n                </ion-col>\n\n                <ion-col col-4  style="color:#2679B0;" >\n\n                  {{ item.position }}\n\n                </ion-col>\n\n                <ion-col col-2 text-center (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position,item.data,item.status)">\n\n                <ion-icon name="create" ></ion-icon>\n\n                </ion-col>\n\n              </ion-row>\n\n           </ion-item>\n\n           \n\n            <!-- <ion-item>\n\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n            </ion-item> -->\n\n         </ion-list>\n\n      </div>\n\n      </div>\n\n</ion-content>\n\n\n\n \n\n\n\n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\newuser\newuser.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["LoadingController"], __WEBPACK_IMPORTED_MODULE_2__angular_core__["NgZone"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2__angular_core__["ChangeDetectorRef"], __WEBPACK_IMPORTED_MODULE_4__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_7__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ModalController"]])
     ], NewuserPage);
@@ -14144,7 +14144,7 @@ self.generateMultiple = function(amount, options) {
 
 exports.randomBytes = exports.rng = exports.pseudoRandomBytes = exports.prng = __webpack_require__(753)
 exports.createHash = exports.Hash = __webpack_require__(755)
-exports.createHmac = exports.Hmac = __webpack_require__(795)
+exports.createHmac = exports.Hmac = __webpack_require__(796)
 
 var algos = __webpack_require__(867)
 var algoKeys = Object.keys(algos)
@@ -14153,7 +14153,7 @@ exports.getHashes = function () {
   return hashes
 }
 
-var p = __webpack_require__(798)
+var p = __webpack_require__(799)
 exports.pbkdf2 = p.pbkdf2
 exports.pbkdf2Sync = p.pbkdf2Sync
 
@@ -14699,7 +14699,7 @@ function config (name) {
 
 module.exports = PassThrough;
 
-var Transform = __webpack_require__(792);
+var Transform = __webpack_require__(793);
 
 /*<replacement>*/
 var util = __webpack_require__(756);
@@ -14723,7 +14723,7 @@ PassThrough.prototype._transform = function (chunk, encoding, cb) {
 /***/ 858:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(771);
+module.exports = __webpack_require__(772);
 
 
 /***/ }),
@@ -14739,7 +14739,7 @@ module.exports = __webpack_require__(752);
 /***/ 860:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(770).Transform
+module.exports = __webpack_require__(771).Transform
 
 
 /***/ }),
@@ -14747,7 +14747,7 @@ module.exports = __webpack_require__(770).Transform
 /***/ 861:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(770).PassThrough
+module.exports = __webpack_require__(771).PassThrough
 
 
 /***/ }),
@@ -14971,7 +14971,7 @@ module.exports = Sha1
  */
 
 var inherits = __webpack_require__(742)
-var Sha256 = __webpack_require__(793)
+var Sha256 = __webpack_require__(794)
 var Hash = __webpack_require__(754)
 var Buffer = __webpack_require__(743).Buffer
 
@@ -15023,7 +15023,7 @@ module.exports = Sha224
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(742)
-var SHA512 = __webpack_require__(794)
+var SHA512 = __webpack_require__(795)
 var Hash = __webpack_require__(754)
 var Buffer = __webpack_require__(743).Buffer
 
@@ -15140,7 +15140,7 @@ module.exports = Hmac
 /***/ 867:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(797)
+module.exports = __webpack_require__(798)
 
 
 /***/ }),
@@ -15148,9 +15148,9 @@ module.exports = __webpack_require__(797)
 /***/ 868:
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global, process) {var checkParameters = __webpack_require__(799)
-var defaultEncoding = __webpack_require__(800)
-var sync = __webpack_require__(801)
+/* WEBPACK VAR INJECTION */(function(global, process) {var checkParameters = __webpack_require__(800)
+var defaultEncoding = __webpack_require__(801)
+var sync = __webpack_require__(802)
 var Buffer = __webpack_require__(743).Buffer
 
 var ZERO_BUF
@@ -15257,8 +15257,8 @@ module.exports = function (password, salt, iterations, keylen, digest, callback)
 /***/ (function(module, exports, __webpack_require__) {
 
 var DES = __webpack_require__(870)
-var aes = __webpack_require__(776)
-var aesModes = __webpack_require__(777)
+var aes = __webpack_require__(777)
+var aesModes = __webpack_require__(778)
 var desModes = __webpack_require__(885)
 var ebtk = __webpack_require__(763)
 
@@ -15331,7 +15331,7 @@ exports.listCiphers = exports.getCiphers = getCiphers
 /***/ (function(module, exports, __webpack_require__) {
 
 var CipherBase = __webpack_require__(751)
-var des = __webpack_require__(775)
+var des = __webpack_require__(776)
 var inherits = __webpack_require__(742)
 var Buffer = __webpack_require__(743).Buffer
 
@@ -15806,7 +15806,7 @@ Cipher.prototype._finalDecrypt = function _finalDecrypt() {
 var assert = __webpack_require__(748);
 var inherits = __webpack_require__(742);
 
-var des = __webpack_require__(775);
+var des = __webpack_require__(776);
 var utils = des.utils;
 var Cipher = des.Cipher;
 
@@ -16030,7 +16030,7 @@ proto._update = function _update(inp, inOff, out, outOff) {
 var assert = __webpack_require__(748);
 var inherits = __webpack_require__(742);
 
-var des = __webpack_require__(775);
+var des = __webpack_require__(776);
 var Cipher = des.Cipher;
 var DES = des.DES;
 
@@ -16087,10 +16087,10 @@ EDE.prototype._unpad = DES.prototype._unpad;
 /***/ 876:
 /***/ (function(module, exports, __webpack_require__) {
 
-var MODES = __webpack_require__(777)
-var AuthCipher = __webpack_require__(805)
+var MODES = __webpack_require__(778)
+var AuthCipher = __webpack_require__(806)
 var Buffer = __webpack_require__(743).Buffer
-var StreamCipher = __webpack_require__(806)
+var StreamCipher = __webpack_require__(807)
 var Transform = __webpack_require__(751)
 var aes = __webpack_require__(762)
 var ebtk = __webpack_require__(763)
@@ -16487,10 +16487,10 @@ module.exports = GHASH
 /***/ 884:
 /***/ (function(module, exports, __webpack_require__) {
 
-var AuthCipher = __webpack_require__(805)
+var AuthCipher = __webpack_require__(806)
 var Buffer = __webpack_require__(743).Buffer
-var MODES = __webpack_require__(777)
-var StreamCipher = __webpack_require__(806)
+var MODES = __webpack_require__(778)
+var StreamCipher = __webpack_require__(807)
 var Transform = __webpack_require__(751)
 var aes = __webpack_require__(762)
 var ebtk = __webpack_require__(763)
@@ -16649,7 +16649,7 @@ exports['des-ede'] = {
 /***/ 886:
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var generatePrime = __webpack_require__(807)
+/* WEBPACK VAR INJECTION */(function(Buffer) {var generatePrime = __webpack_require__(808)
 var primes = __webpack_require__(889)
 
 var DH = __webpack_require__(890)
@@ -16721,14 +16721,14 @@ module.exports = {"modp1":{"gen":"02","prime":"ffffffffffffffffc90fdaa22168c234c
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var BN = __webpack_require__(744);
-var MillerRabin = __webpack_require__(808);
+var MillerRabin = __webpack_require__(809);
 var millerRabin = new MillerRabin();
 var TWENTYFOUR = new BN(24);
 var ELEVEN = new BN(11);
 var TEN = new BN(10);
 var THREE = new BN(3);
 var SEVEN = new BN(7);
-var primes = __webpack_require__(807);
+var primes = __webpack_require__(808);
 var randomBytes = __webpack_require__(753);
 module.exports = DH;
 
@@ -16893,12 +16893,12 @@ function formatReturnValue(bn, enc) {
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(755)
-var stream = __webpack_require__(768)
+var stream = __webpack_require__(769)
 var inherits = __webpack_require__(742)
 var sign = __webpack_require__(892)
 var verify = __webpack_require__(928)
 
-var algorithms = __webpack_require__(797)
+var algorithms = __webpack_require__(798)
 Object.keys(algorithms).forEach(function (key) {
   algorithms[key].id = new Buffer(algorithms[key].id, 'hex')
   algorithms[key.toLowerCase()] = algorithms[key]
@@ -16992,12 +16992,12 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
-var createHmac = __webpack_require__(795)
-var crt = __webpack_require__(778)
+var createHmac = __webpack_require__(796)
+var crt = __webpack_require__(779)
 var EC = __webpack_require__(747).ec
 var BN = __webpack_require__(744)
 var parseKeys = __webpack_require__(765)
-var curves = __webpack_require__(818)
+var curves = __webpack_require__(819)
 
 function sign (hash, key, hashType, signType, tag) {
   var priv = parseKeys(key)
@@ -17144,7 +17144,7 @@ module.exports.makeKey = makeKey
 /***/ 893:
 /***/ (function(module, exports) {
 
-module.exports = {"_args":[["elliptic@6.4.1","D:\\IdeaElan"]],"_development":true,"_from":"elliptic@6.4.1","_id":"elliptic@6.4.1","_inBundle":false,"_integrity":"sha512-BsXLz5sqX8OHcsh7CqBMztyXARmGQ3LWPtGjJi6DiJHq5C/qvi9P3OqgswKSDftbu8+IoI/QDTAm2fFnQ9SZSQ==","_location":"/elliptic","_phantomChildren":{},"_requested":{"type":"version","registry":true,"raw":"elliptic@6.4.1","name":"elliptic","escapedName":"elliptic","rawSpec":"6.4.1","saveSpec":null,"fetchSpec":"6.4.1"},"_requiredBy":["/browserify-sign","/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.1.tgz","_spec":"6.4.1","_where":"D:\\IdeaElan","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.1"}
+module.exports = {"_from":"elliptic@^6.0.0","_id":"elliptic@6.4.1","_inBundle":false,"_integrity":"sha512-BsXLz5sqX8OHcsh7CqBMztyXARmGQ3LWPtGjJi6DiJHq5C/qvi9P3OqgswKSDftbu8+IoI/QDTAm2fFnQ9SZSQ==","_location":"/elliptic","_phantomChildren":{},"_requested":{"type":"range","registry":true,"raw":"elliptic@^6.0.0","name":"elliptic","escapedName":"elliptic","rawSpec":"^6.0.0","saveSpec":null,"fetchSpec":"^6.0.0"},"_requiredBy":["/browserify-sign","/create-ecdh"],"_resolved":"https://registry.npmjs.org/elliptic/-/elliptic-6.4.1.tgz","_shasum":"c2d0b7776911b86722c632c3c06c60f2f819939a","_spec":"elliptic@^6.0.0","_where":"F:\\ionic-app\\node_modules\\browserify-sign","author":{"name":"Fedor Indutny","email":"fedor@indutny.com"},"bugs":{"url":"https://github.com/indutny/elliptic/issues"},"bundleDependencies":false,"dependencies":{"bn.js":"^4.4.0","brorand":"^1.0.1","hash.js":"^1.0.0","hmac-drbg":"^1.0.0","inherits":"^2.0.1","minimalistic-assert":"^1.0.0","minimalistic-crypto-utils":"^1.0.0"},"deprecated":false,"description":"EC cryptography","devDependencies":{"brfs":"^1.4.3","coveralls":"^2.11.3","grunt":"^0.4.5","grunt-browserify":"^5.0.0","grunt-cli":"^1.2.0","grunt-contrib-connect":"^1.0.0","grunt-contrib-copy":"^1.0.0","grunt-contrib-uglify":"^1.0.1","grunt-mocha-istanbul":"^3.0.1","grunt-saucelabs":"^8.6.2","istanbul":"^0.4.2","jscs":"^2.9.0","jshint":"^2.6.0","mocha":"^2.1.0"},"files":["lib"],"homepage":"https://github.com/indutny/elliptic","keywords":["EC","Elliptic","curve","Cryptography"],"license":"MIT","main":"lib/elliptic.js","name":"elliptic","repository":{"type":"git","url":"git+ssh://git@github.com/indutny/elliptic.git"},"scripts":{"jscs":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","jshint":"jscs benchmarks/*.js lib/*.js lib/**/*.js lib/**/**/*.js test/index.js","lint":"npm run jscs && npm run jshint","test":"npm run lint && npm run unit","unit":"istanbul test _mocha --reporter=spec test/index.js","version":"grunt dist && git add dist/"},"version":"6.4.1"}
 
 /***/ }),
 
@@ -17157,7 +17157,7 @@ module.exports = {"_args":[["elliptic@6.4.1","D:\\IdeaElan"]],"_development":tru
 var utils = exports;
 var BN = __webpack_require__(744);
 var minAssert = __webpack_require__(748);
-var minUtils = __webpack_require__(810);
+var minUtils = __webpack_require__(811);
 
 utils.assert = minAssert;
 utils.toArray = minUtils.toArray;
@@ -19241,7 +19241,7 @@ Point.prototype.mixedAdd = Point.prototype.add;
 
 var curves = exports;
 
-var hash = __webpack_require__(779);
+var hash = __webpack_require__(780);
 var elliptic = __webpack_require__(747);
 
 var assert = elliptic.utils.assert;
@@ -19454,9 +19454,9 @@ defineCurve('secp256k1', {
 
 exports.sha1 = __webpack_require__(901);
 exports.sha224 = __webpack_require__(902);
-exports.sha256 = __webpack_require__(812);
+exports.sha256 = __webpack_require__(813);
 exports.sha384 = __webpack_require__(903);
-exports.sha512 = __webpack_require__(813);
+exports.sha512 = __webpack_require__(814);
 
 
 /***/ }),
@@ -19469,7 +19469,7 @@ exports.sha512 = __webpack_require__(813);
 
 var utils = __webpack_require__(749);
 var common = __webpack_require__(758);
-var shaCommon = __webpack_require__(811);
+var shaCommon = __webpack_require__(812);
 
 var rotl32 = utils.rotl32;
 var sum32 = utils.sum32;
@@ -19550,7 +19550,7 @@ SHA1.prototype._digest = function digest(enc) {
 
 
 var utils = __webpack_require__(749);
-var SHA256 = __webpack_require__(812);
+var SHA256 = __webpack_require__(813);
 
 function SHA224() {
   if (!(this instanceof SHA224))
@@ -19589,7 +19589,7 @@ SHA224.prototype._digest = function digest(enc) {
 
 var utils = __webpack_require__(749);
 
-var SHA512 = __webpack_require__(813);
+var SHA512 = __webpack_require__(814);
 
 function SHA384() {
   if (!(this instanceof SHA384))
@@ -20874,8 +20874,8 @@ EC.prototype.getKeyRecoveryParam = function(e, signature, Q, enc) {
 "use strict";
 
 
-var hash = __webpack_require__(779);
-var utils = __webpack_require__(810);
+var hash = __webpack_require__(780);
+var utils = __webpack_require__(811);
 var assert = __webpack_require__(748);
 
 function HmacDRBG(options) {
@@ -21265,7 +21265,7 @@ Signature.prototype.toDER = function toDER(enc) {
 "use strict";
 
 
-var hash = __webpack_require__(779);
+var hash = __webpack_require__(780);
 var elliptic = __webpack_require__(747);
 var utils = elliptic.utils;
 var assert = utils.assert;
@@ -22694,7 +22694,7 @@ Node.prototype._isPrintstr = function isPrintstr(str) {
 /***/ 920:
 /***/ (function(module, exports, __webpack_require__) {
 
-var constants = __webpack_require__(815);
+var constants = __webpack_require__(816);
 
 exports.tagClass = {
   0: 'universal',
@@ -22745,7 +22745,7 @@ exports.tagByName = constants._reverse(exports.tag);
 
 var decoders = exports;
 
-decoders.der = __webpack_require__(816);
+decoders.der = __webpack_require__(817);
 decoders.pem = __webpack_require__(922);
 
 
@@ -22757,7 +22757,7 @@ decoders.pem = __webpack_require__(922);
 var inherits = __webpack_require__(742);
 var Buffer = __webpack_require__(745).Buffer;
 
-var DERDecoder = __webpack_require__(816);
+var DERDecoder = __webpack_require__(817);
 
 function PEMDecoder(entity) {
   DERDecoder.call(this, entity);
@@ -22812,7 +22812,7 @@ PEMDecoder.prototype.decode = function decode(data, options) {
 
 var encoders = exports;
 
-encoders.der = __webpack_require__(817);
+encoders.der = __webpack_require__(818);
 encoders.pem = __webpack_require__(924);
 
 
@@ -22823,7 +22823,7 @@ encoders.pem = __webpack_require__(924);
 
 var inherits = __webpack_require__(742);
 
-var DEREncoder = __webpack_require__(817);
+var DEREncoder = __webpack_require__(818);
 
 function PEMEncoder(entity) {
   DEREncoder.call(this, entity);
@@ -22958,7 +22958,7 @@ var findProc = /Proc-Type: 4,ENCRYPTED[\n\r]+DEK-Info: AES-((?:128)|(?:192)|(?:2
 var startRegex = /^-----BEGIN ((?:.*? KEY)|CERTIFICATE)-----/m
 var fullRegex = /^-----BEGIN ((?:.*? KEY)|CERTIFICATE)-----([0-9A-z\n\r\+\/\=]+)-----END \1-----$/m
 var evp = __webpack_require__(763)
-var ciphers = __webpack_require__(776)
+var ciphers = __webpack_require__(777)
 var Buffer = __webpack_require__(743).Buffer
 module.exports = function (okey, password) {
   var key = okey.toString()
@@ -22995,7 +22995,7 @@ module.exports = function (okey, password) {
 var BN = __webpack_require__(744)
 var EC = __webpack_require__(747).ec
 var parseKeys = __webpack_require__(765)
-var curves = __webpack_require__(818)
+var curves = __webpack_require__(819)
 
 function verify (sig, hash, key, signType, tag) {
   var pub = parseKeys(key)
@@ -23234,11 +23234,11 @@ exports.publicDecrypt = function publicDecrypt (key, buf) {
 var parseKeys = __webpack_require__(765)
 var randomBytes = __webpack_require__(753)
 var createHash = __webpack_require__(755)
-var mgf = __webpack_require__(819)
-var xor = __webpack_require__(820)
+var mgf = __webpack_require__(820)
+var xor = __webpack_require__(821)
 var BN = __webpack_require__(744)
-var withPublic = __webpack_require__(821)
-var crt = __webpack_require__(778)
+var withPublic = __webpack_require__(822)
+var crt = __webpack_require__(779)
 var Buffer = __webpack_require__(743).Buffer
 
 module.exports = function publicEncrypt (publicKey, msg, reverse) {
@@ -23327,12 +23327,12 @@ function nonZero (len) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var parseKeys = __webpack_require__(765)
-var mgf = __webpack_require__(819)
-var xor = __webpack_require__(820)
+var mgf = __webpack_require__(820)
+var xor = __webpack_require__(821)
 var BN = __webpack_require__(744)
-var crt = __webpack_require__(778)
+var crt = __webpack_require__(779)
 var createHash = __webpack_require__(755)
-var withPublic = __webpack_require__(821)
+var withPublic = __webpack_require__(822)
 var Buffer = __webpack_require__(743).Buffer
 
 module.exports = function privateDecrypt (privateKey, enc, reverse) {

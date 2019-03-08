@@ -1,8 +1,10 @@
+import { AppConst } from './../../providers/strings';
 import { FormGroup, Validators, FormControl,ValidatorFn,AbstractControl } from '@angular/forms';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
+
 /**
  * Generated class for the ChangepasswordPage page.
  *
@@ -20,7 +22,7 @@ import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 export class ChangepasswordPage {
   private password:string;
   existingUser:any
-  companyLogo:string="assets/imgs/26053.png"
+  companyLogo:string=AppConst.passwordImg
   constructor(public toast:ToastController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase) {
     this.existingUser=this.navParams.get('existingUser')
     

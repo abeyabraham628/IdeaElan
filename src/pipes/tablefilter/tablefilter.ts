@@ -6,11 +6,11 @@ import { Pipe, PipeTransform } from '@angular/core';
  * See https://angular.io/api/core/Pipe for more info on Angular Pipes.
  */
 @Pipe({
-  name: 'myPipe',
+  name: 'tableFilter',
 })
 export class TablefilterPipe implements PipeTransform {
   transform(items: any[], field: string, value: string): any[] {
-    
+    console.log(value)
     if (!items) {
         return [];
     }

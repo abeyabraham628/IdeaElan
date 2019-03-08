@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InterviewDetailsPageModule", function() { return InterviewDetailsPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__interview_details__ = __webpack_require__(829);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__interview_details__ = __webpack_require__(830);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var InterviewDetailsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 829:
+/***/ 830:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -188,7 +188,7 @@ var InterviewDetailsPage = /** @class */ (function () {
     };
     InterviewDetailsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-interview-details',template:/*ion-inline-start:"D:\IdeaElan\src\pages\interview-details\interview-details.html"*/'\n\n<ion-header no-border>\n\n  <page-header pageTitle="RECRUITMENTS"></page-header>\n\n</ion-header>\n\n\n\n<ion-content  >\n\n <ion-list >\n\n       {{eventDate}}  <button item-right ion-button (click)="goBack()">Back</button>\n\n       <button item-right ion-button (click)="interviewSummary(eventKey)">Summary</button>\n\n         <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>\n\n        \n\n                <ion-row no-margin class="table-title row-bottom-border"> \n\n                   \n\n                   <ion-col col-4>Applicant Name</ion-col>\n\n                    <ion-col col-3>Phone</ion-col>\n\n                    <ion-col col-3>Status</ion-col>\n\n                </ion-row>\n\n\n\n                <ion-row no-margin class="table-title row-bottom-border" *ngFor="let x of applicantsData"> \n\n                   \n\n                  <ion-col col-4>{{x.fName}} {{x.lName}}</ion-col>\n\n                   <ion-col col-3>{{x.mobile}}</ion-col>\n\n                   <ion-col col-3>{{x.interviewStatus}}</ion-col>\n\n                   <ion-col col-2 (click)="changeStatus(x)">Change</ion-col>\n\n               </ion-row>\n\n\n\n                \n\n        </ion-list>\n\n      \n\n\n\n\n\n</ion-content>'/*ion-inline-end:"D:\IdeaElan\src\pages\interview-details\interview-details.html"*/,
+            selector: 'page-interview-details',template:/*ion-inline-start:"F:\ionic-app\src\pages\interview-details\interview-details.html"*/'\n<ion-header no-border>\n  <page-header pageTitle="RECRUITMENTS"></page-header>\n</ion-header>\n\n<ion-content  >\n <ion-list >\n       {{eventDate}}  <button item-right ion-button (click)="goBack()">Back</button>\n       <button item-right ion-button (click)="interviewSummary(eventKey)">Summary</button>\n         <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>\n        \n                <ion-row no-margin class="table-title row-bottom-border"> \n                   \n                   <ion-col col-4>Applicant Name</ion-col>\n                    <ion-col col-3>Phone</ion-col>\n                    <ion-col col-3>Status</ion-col>\n                </ion-row>\n\n                <ion-row no-margin class="table-title row-bottom-border" *ngFor="let x of applicantsData"> \n                   \n                  <ion-col col-4>{{x.fName}} {{x.lName}}</ion-col>\n                   <ion-col col-3>{{x.mobile}}</ion-col>\n                   <ion-col col-3>{{x.interviewStatus}}</ion-col>\n                   <ion-col col-2 (click)="changeStatus(x)">Change</ion-col>\n               </ion-row>\n\n                \n        </ion-list>\n      \n\n\n</ion-content>'/*ion-inline-end:"F:\ionic-app\src\pages\interview-details\interview-details.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"]])
     ], InterviewDetailsPage);

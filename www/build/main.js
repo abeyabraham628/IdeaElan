@@ -160,6 +160,7 @@ var ComponentsModule = /** @class */ (function () {
 var AppConst = {
     logo: "assets/images/companylogo.png",
     offline: "assets/images/offline.png",
+    passwordImg: "assets/images/26053.png",
     FirebaseError: [
         { code: 'auth/argument-error', error: 'Invalid Email Id or Password' },
         { code: 'auth/user-not-found', error: 'Invalid Email Id or Password' },
@@ -197,6 +198,7 @@ var ChatbotPage = /** @class */ (function () {
         this.navParams = navParams;
         this.platform = platform;
         this.ngZone = ngZone;
+        this.chat = [];
         this.questions = [];
         this.answer = [];
         platform.ready().then(function () {
@@ -204,25 +206,27 @@ var ChatbotPage = /** @class */ (function () {
                 clientAccessToken: "eefd359fd25447899a07c6e5404be212"
             }).then(function (result) { return console.log(result); });
         });
+        this.chat.push({ 'question': 'ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffsssssssssssssssssssssssssssssssssss' });
     }
     ChatbotPage.prototype.ionViewDidLeave = function () {
         this.navCtrl.popToRoot();
     };
     ChatbotPage.prototype.ask = function (question) {
         var _this = this;
-        this.questions.push({ 'question': question });
+        this.chat.push({ 'question': question });
         ApiAIPromises.requestText({
             query: question
         }).then(function (_a) {
             var speech = _a.result.fulfillment.speech;
             _this.ngZone.run(function () {
-                _this.answer.push({ 'answer': speech });
+                _this.chat.push({ 'answer': speech });
             });
         });
+        this.question = "";
     };
     ChatbotPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-chatbot',template:/*ion-inline-start:"D:\IdeaElan\src\pages\chatbot\chatbot.html"*/'\n\n<ion-header no-border>\n\n  <page-header pageTitle="CHATBOT"></page-header>\n\n</ion-header>\n\n\n\n<ion-content padding >\n\n\n\n  <ion-input type="text" [(ngModel)]="question" hidden=true></ion-input>\n\n\n\n  <button ion-button (click)="ask(question)" hidden=true>Ask</button>\n\n\n\n  \n\n\n\n\n\n \n\n\n\n\n\n  <p text-center *ngIf="sending">sending...</p>\n\n  <div *ngFor="let q of questions" style="left:0px" >\n\n    <label name="title" class="msgClass">{{q.question}}</label>\n\n     \n\n  </div>\n\n\n\n  <div *ngFor="let q of answer"  class="msgClass" style="right:0px;position: relative; text-align: right; background-color: honeydew ">\n\n      <label name="title" style="display:inline-flex">{{q.answer}}</label>\n\n  \n\n</div>\n\n \n\n \n\n</ion-content>\n\n\n\n<ion-footer>\n\n    <ion-item>\n\n    <ion-input [(ngModel)]="question" name="message" class="input_message" placeholder="Ask me anything"></ion-input>\n\n    <button ion-button (click)="ask(question)" item-right  color="orange"> <ion-icon  name="send" ></ion-icon></button>\n\n   \n\n  </ion-item>\n\n</ion-footer>\n\n\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\chatbot\chatbot.html"*/,
+            selector: 'page-chatbot',template:/*ion-inline-start:"F:\ionic-app\src\pages\chatbot\chatbot.html"*/'\n<ion-header no-border>\n  <page-header pageTitle="CHATBOT"></page-header>\n</ion-header>\n\n<ion-content padding >\n\n  <ion-input type="text" [(ngModel)]="question" hidden=true></ion-input>\n\n  <button ion-button (click)="ask(question)" hidden=true>Ask</button>\n\n  \n\n\n \n\n\n  <p text-center *ngIf="sending">sending...</p>\n  <ion-item  *ngFor="let c of chat" style="left:0px" no-lines >\n\n    <ion-label text-wrap  name="title" class="msgClass" *ngIf="c.question!=\'\' && c.question!=null">{{c.question}}</ion-label>\n    <ion-label text-wrap name="title" class="msgClass" style="color:red" *ngIf="c.answer!=\'\' && c.answer!=null">{{c.answer}}</ion-label>\n     \n  </ion-item>\n\n \n \n</ion-content>\n\n<ion-footer>\n    <ion-item>\n    <ion-input [(ngModel)]="question" name="message" class="input_message" placeholder="Ask me anything"></ion-input>\n    <button ion-button (click)="ask(question)" item-right  color="orange"> <ion-icon  name="send" ></ion-icon></button>\n   \n  </ion-item>\n</ion-footer>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\chatbot\chatbot.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Platform"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]])
     ], ChatbotPage);
@@ -848,7 +852,7 @@ var MyApp = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"D:\IdeaElan\src\app\app.html"*/'\n\n  <offline [hidden]=showOffline></offline>\n\n  \n\n  <ion-nav nav [root]="rootPage" [hidden]="isOffline "></ion-nav>\n\n'/*ion-inline-end:"D:\IdeaElan\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"F:\ionic-app\src\app\app.html"*/'\n\n  <offline [hidden]=showOffline></offline>\n\n  \n\n  <ion-nav nav [root]="rootPage" [hidden]="isOffline "></ion-nav>\n\n'/*ion-inline-end:"F:\ionic-app\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"], __WEBPACK_IMPORTED_MODULE_5__ionic_native_screen_orientation__["a" /* ScreenOrientation */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_network__["a" /* Network */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["App"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Platform"], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"]])
     ], MyApp);

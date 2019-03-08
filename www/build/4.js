@@ -10,7 +10,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_datepicker__ = __webpack_require__(746);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__approve_leave__ = __webpack_require__(824);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__approve_leave__ = __webpack_require__(825);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(463);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -177,11 +177,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 var LeaveModel = /** @class */ (function () {
-    function LeaveModel(loadingCtrl, afauth, firebase, alert) {
+    function LeaveModel(loadingCtrl, afauth, firebase, alertCtrl) {
         this.loadingCtrl = loadingCtrl;
         this.afauth = afauth;
         this.firebase = firebase;
-        this.alert = alert;
+        this.alertCtrl = alertCtrl;
         this.monthNumber = [];
         this.leave = {};
         this.leaveCount = {};
@@ -219,23 +219,54 @@ var LeaveModel = /** @class */ (function () {
     };
     LeaveModel.prototype.submitLeaveRequest = function (leaveInfo) {
         return __awaiter(this, void 0, void 0, function () {
-            var userName, alert_1, x;
+            var userName, leaveExists, leaveExistDate, alert_1, alert_2, x, alert_3;
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.firebase.database.ref("users/" + leaveInfo.userId).once('value', function (snap) {
-                            userName = snap.child('fname').val() + " " + snap.child('lname').val();
-                        })];
+                    case 0:
+                        leaveExists = false;
+                        leaveExistDate = [];
+                        return [4 /*yield*/, this.firebase.database.ref("EmployeeLeaves").orderByChild("userId").equalTo("" + leaveInfo.userId).once('value', function (snap) {
+                                snap.forEach(function (child) {
+                                    child.child('date').val().forEach(function (val) {
+                                        if (leaveInfo.date2) {
+                                            if ((leaveInfo.date.find(function (date) { return date == val; }) || leaveInfo.date2.find(function (date) { return date == val; })) && !leaveExists) {
+                                                leaveExists = true;
+                                                leaveExistDate.push(val);
+                                            }
+                                        }
+                                        else {
+                                            if (leaveInfo.date.find(function (date) { return date == val; }) && !leaveExists) {
+                                                leaveExists = true;
+                                                leaveExistDate.push(val);
+                                            }
+                                        }
+                                    });
+                                });
+                            })];
                     case 1:
                         _a.sent();
+                        if (!leaveExists) return [3 /*break*/, 2];
+                        alert_1 = this.alertCtrl.create({
+                            title: "Error",
+                            subTitle: "Could not process your request. Leave record already exists on " + leaveExistDate + ".",
+                            buttons: ['OK']
+                        });
+                        alert_1.present();
+                        return [3 /*break*/, 4];
+                    case 2: return [4 /*yield*/, this.firebase.database.ref("users/" + leaveInfo.userId).once('value', function (snap) {
+                            userName = snap.child('fname').val() + " " + snap.child('lname').val();
+                        })];
+                    case 3:
+                        _a.sent();
                         this.leave.status = "pending";
-                        if (new Date().getHours() < 9) {
-                            alert_1 = this.alert.create({
+                        if (__WEBPACK_IMPORTED_MODULE_4_moment__().hour() >= 9 && leaveInfo.date.find(function (date) { return date === __WEBPACK_IMPORTED_MODULE_4_moment__().format('D-MMM-YYYY'); })) {
+                            alert_2 = this.alertCtrl.create({
                                 title: 'Restricted',
                                 subTitle: 'Unable to process your request at this moment. Please contact your team leader.!',
                                 buttons: ['OK']
                             });
-                            alert_1.present();
+                            alert_2.present();
                         }
                         else {
                             if (leaveInfo.date2) {
@@ -265,8 +296,15 @@ var LeaveModel = /** @class */ (function () {
                                     'status': leaveInfo.status,
                                     'userId': leaveInfo.userId
                                 });
+                            alert_3 = this.alertCtrl.create({
+                                title: "Success",
+                                subTitle: "Leave applied successfully ",
+                                buttons: ['OK']
+                            });
+                            alert_3.present();
                         } //end of if else 
-                        return [2 /*return*/];
+                        _a.label = 4;
+                    case 4: return [2 /*return*/];
                 }
             });
         });
@@ -411,7 +449,7 @@ var LeaveModel = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 824:
+/***/ 825:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -558,7 +596,7 @@ var ApproveLeavePage = /** @class */ (function () {
     };
     ApproveLeavePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
-            selector: 'page-approve-leave',template:/*ion-inline-start:"D:\IdeaElan\src\pages\approve-leave\approve-leave.html"*/'<ion-header no-border>\n\n  <page-header pageTitle="APPROVE LEAVE"></page-header>\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n    <ion-card>\n\n        <ion-item>\n\n          <h2>{{userLeaveDetails.name | titlecase}}</h2>\n\n          <p>Leave Type:{{userLeaveDetails.leaveType | titlecase}}</p>\n\n          <div>Date:[<p *ngFor="let date of userLeaveDetails.date" > {{date}}</p>]</div>\n\n          <button ion-fab color="blue" mini item-right (click)="goBack()"><ion-icon name="arrow-round-back"></ion-icon></button>\n\n        </ion-item>\n\n        <ion-row>\n\n            <ion-col col-6>This month leaves</ion-col>\n\n            <ion-col col-6>Remaining Leaves</ion-col>\n\n         </ion-row>\n\n         \n\n        <ion-row >\n\n           <ion-col col-6>{{leaveCount.currentMonthLeave}}</ion-col><ion-col col-4>Casual</ion-col><ion-col col-2>{{leaveCount.casualRemaining}}</ion-col>\n\n        </ion-row>\n\n        <ion-row>\n\n            <ion-col col-6></ion-col><ion-col col-4>Sick</ion-col><ion-col col-2>{{leaveCount.sickRemaining}}</ion-col>\n\n         </ion-row>\n\n \n\n         <ion-row>\n\n           <ion-col col-6><button ion-button full style="background-color: green" (click)="showConfirm(userLeaveDetails,\'approved\')"  >Approve</button></ion-col>\n\n           <ion-col col-6><button ion-button full color="danger" (click)="rejectConfirm(userLeaveDetails,\'rejected\')" >Reject</button></ion-col>\n\n        </ion-row>\n\n      </ion-card>\n\n\n\n    \n\n    \n\n      \n\n  <ion-card>\n\n      <ion-list>\n\n          \n\n        <h6 text-center class="title section-title">Past Leaves</h6>\n\n        <ion-item col-12>\n\n          <ion-label floating>Select Date</ion-label>\n\n          <ion-input type="text" [(ngModel)]="dateRange" (tap)="datePicker(\'range\')" readonly></ion-input>\n\n          <ion-icon name="calendar" item-right></ion-icon>\n\n        </ion-item>\n\n        <hr/>\n\n\n\n        \n\n\n\n        <ion-list >\n\n            <div *ngIf="(leaveRecords.length==0)" style="text-align:center">No record found</div>\n\n            <ion-item *ngFor="let x of leaveRecords" style="background-color:honeydew">\n\n              <h3>{{x.leaveType | titlecase}} Leave</h3>\n\n              <h5 *ngFor="let date of x.date" > {{date}}</h5>\n\n              <h5 [ngClass]=\'x.status\'>{{x.status}}</h5>\n\n              <div *ngIf="x.reason!=null && x.reason!=\'\' ">\n\n                  Comments: {{x.reason}}\n\n                </div>\n\n              \n\n            </ion-item>\n\n          </ion-list>\n\n        \n\n        \n\n        <!--<ion-item>\n\n              <ion-row class="table-title" >\n\n                <ion-col col-3 >Leave Type</ion-col>\n\n                <ion-col col-7 >Date</ion-col>\n\n                <ion-col col-2 >Status</ion-col>\n\n                <ion-col hidden col-2>View</ion-col>\n\n              </ion-row>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-row *ngFor="let x of leaveRecords" class="col-text row-bottom-border" [ngClass]=\'x.status\'>\n\n                  <ion-col col-3>{{x.leaveType}}</ion-col><ion-col col-7 text-wrap>{{x.date}}</ion-col><ion-col col-2>{{x.status}}</ion-col>\n\n              </ion-row>\n\n            </ion-item>\n\n          -->\n\n        </ion-list>\n\n      </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\approve-leave\approve-leave.html"*/,
+            selector: 'page-approve-leave',template:/*ion-inline-start:"F:\ionic-app\src\pages\approve-leave\approve-leave.html"*/'<ion-header no-border>\n\n  <page-header pageTitle="APPROVE LEAVE"></page-header>\n\n</ion-header>\n\n\n\n\n\n<ion-content>\n\n    <ion-card>\n\n        <ion-item>\n\n          <h2>{{userLeaveDetails.name | titlecase}}</h2>\n\n          <p>Leave Type:{{userLeaveDetails.leaveType | titlecase}}</p>\n\n          <div>Date:[<p *ngFor="let date of userLeaveDetails.date" > {{date}}</p>]</div>\n\n          <button ion-fab color="blue" mini item-right (click)="goBack()"><ion-icon name="arrow-round-back"></ion-icon></button>\n\n        </ion-item>\n\n        <ion-row>\n\n            <ion-col col-6>This month leaves</ion-col>\n\n            <ion-col col-6>Remaining Leaves</ion-col>\n\n         </ion-row>\n\n         \n\n        <ion-row >\n\n           <ion-col col-6>{{leaveCount.currentMonthLeave}}</ion-col><ion-col col-4>Casual</ion-col><ion-col col-2>{{leaveCount.casualRemaining}}</ion-col>\n\n        </ion-row>\n\n        <ion-row>\n\n            <ion-col col-6></ion-col><ion-col col-4>Sick</ion-col><ion-col col-2>{{leaveCount.sickRemaining}}</ion-col>\n\n         </ion-row>\n\n \n\n         <ion-row>\n\n           <ion-col col-6><button ion-button full style="background-color: green" (click)="showConfirm(userLeaveDetails,\'approved\')"  >Approve</button></ion-col>\n\n           <ion-col col-6><button ion-button full color="danger" (click)="rejectConfirm(userLeaveDetails,\'rejected\')" >Reject</button></ion-col>\n\n        </ion-row>\n\n      </ion-card>\n\n\n\n    \n\n    \n\n      \n\n  <ion-card>\n\n      <ion-list>\n\n          \n\n        <h6 text-center class="title section-title">Past Leaves</h6>\n\n        <ion-item col-12>\n\n          <ion-label floating>Select Date</ion-label>\n\n          <ion-input type="text" [(ngModel)]="dateRange" (tap)="datePicker(\'range\')" readonly></ion-input>\n\n          <ion-icon name="calendar" item-right></ion-icon>\n\n        </ion-item>\n\n        <hr/>\n\n\n\n        \n\n\n\n        <ion-list >\n\n            <div *ngIf="(leaveRecords.length==0)" style="text-align:center">No record found</div>\n\n            <ion-item *ngFor="let x of leaveRecords" style="background-color:honeydew">\n\n              <h3>{{x.leaveType | titlecase}} Leave</h3>\n\n              <h5 *ngFor="let date of x.date" > {{date}}</h5>\n\n              <h5 [ngClass]=\'x.status\'>{{x.status}}</h5>\n\n              <div *ngIf="x.reason!=null && x.reason!=\'\' ">\n\n                  Comments: {{x.reason}}\n\n                </div>\n\n              \n\n            </ion-item>\n\n          </ion-list>\n\n        \n\n        \n\n        <!--<ion-item>\n\n              <ion-row class="table-title" >\n\n                <ion-col col-3 >Leave Type</ion-col>\n\n                <ion-col col-7 >Date</ion-col>\n\n                <ion-col col-2 >Status</ion-col>\n\n                <ion-col hidden col-2>View</ion-col>\n\n              </ion-row>\n\n            </ion-item>\n\n            <ion-item>\n\n              <ion-row *ngFor="let x of leaveRecords" class="col-text row-bottom-border" [ngClass]=\'x.status\'>\n\n                  <ion-col col-3>{{x.leaveType}}</ion-col><ion-col col-7 text-wrap>{{x.date}}</ion-col><ion-col col-2>{{x.status}}</ion-col>\n\n              </ion-row>\n\n            </ion-item>\n\n          -->\n\n        </ion-list>\n\n      </ion-card>\n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\approve-leave\approve-leave.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_0__models_leave_model__["a" /* LeaveModel */], __WEBPACK_IMPORTED_MODULE_1__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavParams"]])
     ], ApproveLeavePage);
