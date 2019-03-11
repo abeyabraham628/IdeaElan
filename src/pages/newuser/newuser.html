@@ -57,7 +57,7 @@
                     <ion-row>
                       <ion-item  > 
                           <ion-label stacked>Date Of Birth</ion-label>
-                          <ion-input type="text"   (tap)="dispdate('birth')" [(ngModel)]="userItem.dob"  formControlName="dob" name="dob"  ></ion-input>
+                          <ion-input type="text" readOnly  (tap)="dispdate('birth')" [(ngModel)]="userItem.dob"  formControlName="dob" name="dob"  ></ion-input>
                         </ion-item> 
                     </ion-row> 
                     <ion-row>
@@ -100,7 +100,7 @@
                         <ion-row>
                             <ion-item col-6> 
                                 <ion-label stacked>Date Of Joining</ion-label>
-                                <ion-input type="text"  (tap)="dispdate('join')" [(ngModel)]="userItem.doj" formControlName="doj" name="doj" ></ion-input>
+                                <ion-input type="text" readOnly  (tap)="dispdate('join')" [(ngModel)]="userItem.doj" formControlName="doj" name="doj" ></ion-input>
                               </ion-item>
 
                               <ion-item [hidden]="fnameShow"  col-6  no-lines *ngIf=" slideOneForm.get('doj').hasError('required') ">

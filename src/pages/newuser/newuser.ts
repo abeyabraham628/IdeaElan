@@ -1,3 +1,5 @@
+import { Firebase } from '@ionic-native/firebase';
+import { DatePicker } from '@ionic-native/date-picker';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireAuth} from '@angular/fire/auth';
 
@@ -85,7 +87,7 @@ export class NewuserPage {
   icons:string="0";
   fnameShow:boolean=true;
   loader:any
-  constructor(public loadingCtrl:LoadingController,public zone:NgZone,public navCtrl: NavController,private ref: ChangeDetectorRef, private fdb:AngularFireDatabase,public navParams: NavParams,public alertCtrl: AlertController,private customDatePicker:CustomDatePicker,private afAuth:AngularFireAuth,private modalCtrl:ModalController) {
+  constructor(private datePicker:DatePicker,public loadingCtrl:LoadingController,public zone:NgZone,public navCtrl: NavController,private ref: ChangeDetectorRef, private fdb:AngularFireDatabase,public navParams: NavParams,public alertCtrl: AlertController,private customDatePicker:CustomDatePicker,private afAuth:AngularFireAuth,private modalCtrl:ModalController) {
    
    
     this.icons="0";
@@ -199,7 +201,7 @@ getItems(searchbar) {
 }
 
   
-  dispdate(type){
+  /*dispdate(type){
     let pickMode='single'
     let dateLimit=new Date().setDate(new Date().getDate()+45)// Display  45 days from today
     var defaultScrollTo=new Date()
@@ -230,6 +232,25 @@ getItems(searchbar) {
        }
       
       })//end of displayCalendar function
+    }*/
+
+    dispdate(type:String){
+      this.datePicker.show({
+      date: moment().toDate(),
+      mode: 'date',
+      androidTheme: 5,
+      
+    }).then(
+      date=>{
+       if(type==="join"){
+         this.userItem.doj = moment(date).format('D-MMM-YYYY')
+       }
+       else{
+         this.userItem.dob =  moment(date).format('D-MMM-YYYY')
+       }
+     },err => console.log('Error occurred while getting date: ', err)
+
+     );
     }
 
 
@@ -270,6 +291,7 @@ getItems(searchbar) {
     
   
     try{
+      let firebase=this.fdb
       await this.afAuth.auth.createUserWithEmailAndPassword(this.userItem.email,password).then(data=>{
          
           const ref =  this.fdb.object(`users/${data.user.uid}`).set({
@@ -289,6 +311,17 @@ getItems(searchbar) {
           'userIdTocken': data.user.uid,
           'tokenid': "null"
           })
+          }).then(async()=>{
+            await firebase.database.ref(`AvailableLeaves/${moment().format('YYYY')}/${data.user.uid}`).once("value",function(snapshot) {
+              /*If an employee is applying leave for the first time, then copy the 
+                 leave rules set by to company to the employees record. Then a counter is created for the leaves taken in 
+                 respective months/year. Eg  012019 means jan 2019*/
+               if(snapshot.val()==null){
+                 firebase.database.ref(`Leaves`).on("value",function(snapshot){// retrieving leave rules set by company
+                 firebase.object(`AvailableLeaves/${moment().format('YYYY')}/${data.user.uid}`).set(snapshot.child(`${moment().format('YYYY')}`).val())/// copying leave rules to employee record
+                 });
+               }
+              });//end of database.ref
           });// end of push;// end of push
      });//end of create user
       this.email(this.userItem.fname, this.userItem.email,password)
@@ -298,6 +331,7 @@ getItems(searchbar) {
    }
   else{
     try{
+      let firebase=this.fdb
       await this.afAuth.auth.createUserWithEmailAndPassword(this.userItem.email,password).then(data=>{
         
       const ref = this.fdb.object(`users/${data.user.uid}`).set({
@@ -320,9 +354,20 @@ getItems(searchbar) {
         })
 
 
+      }).then(async()=>{
+        await firebase.database.ref(`AvailableLeaves/${moment().format('YYYY')}/${data.user.uid}`).once("value",function(snapshot) {
+          /*If an employee is applying leave for the first time, then copy the 
+             leave rules set by to company to the employees record. Then a counter is created for the leaves taken in 
+             respective months/year. Eg  012019 means jan 2019*/
+           if(snapshot.val()==null){
+             firebase.database.ref(`Leaves`).on("value",function(snapshot){
+               // retrieving leave rules set by company
+            firebase.object(`AvailableLeaves/${moment().format('YYYY')}/${data.user.uid}`).set(snapshot.child(`${moment().format('YYYY')}`).val())// copying leave rules to employee record
+             });
+           }
+          });//end of database.ref
       });// end of push;// end of push
-    });//end of create user
-
+ });//end of create user
     this.email(this.userItem.fname, this.userItem.email,password);
      }catch(e){
        console.error(e)

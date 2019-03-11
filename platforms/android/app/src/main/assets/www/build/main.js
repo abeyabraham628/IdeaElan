@@ -27,11 +27,11 @@ var map = {
 	],
 	"../pages/apply-leave/apply-leave.module": [
 		724,
-		5
+		6
 	],
 	"../pages/approve-leave/approve-leave.module": [
 		725,
-		4
+		5
 	],
 	"../pages/changepassword/changepassword.module": [
 		726,
@@ -59,7 +59,7 @@ var map = {
 	],
 	"../pages/leaves-admin/leaves-admin.module": [
 		732,
-		3
+		4
 	],
 	"../pages/login/login.module": [
 		733,
@@ -83,7 +83,7 @@ var map = {
 	],
 	"../pages/recruitment/recruitment.module": [
 		737,
-		7
+		3
 	],
 	"../pages/systems/systems.module": [
 		738,
@@ -95,7 +95,7 @@ var map = {
 	],
 	"../pages/upload-events/upload-events.module": [
 		740,
-		6
+		7
 	]
 };
 function webpackAsyncContext(req) {
@@ -152,7 +152,7 @@ var ComponentsModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 465:
+/***/ 464:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -266,19 +266,19 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__ = __webpack_require__(459);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_common_http__ = __webpack_require__(711);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_http__ = __webpack_require__(718);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_date_picker__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_date_picker__ = __webpack_require__(465);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_forms__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_common__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_firebase__ = __webpack_require__(719);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_fire_database__ = __webpack_require__(461);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_fire__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_fire_auth__ = __webpack_require__(462);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ion2_calendar__ = __webpack_require__(464);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ion2_calendar__ = __webpack_require__(466);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ion2_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17_ion2_calendar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__app_component__ = __webpack_require__(720);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_firebase_service__ = __webpack_require__(721);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_fcm__ = __webpack_require__(471);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_storage__ = __webpack_require__(466);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_storage__ = __webpack_require__(467);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_components_module__ = __webpack_require__(463);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_page_tite_service__ = __webpack_require__(722);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ionic_native_network__ = __webpack_require__(460);
@@ -432,7 +432,7 @@ var PageHeaderComponent = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OfflineComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_strings__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_strings__ = __webpack_require__(464);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -788,7 +788,7 @@ var MyApp = /** @class */ (function () {
         this.checkConnection();
         this.checkDisconnection();
         this.platform.ready().then(function () {
-            //this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT)
+            _this.screenOrientation.lock(_this.screenOrientation.ORIENTATIONS.PORTRAIT);
             statusBar.styleDefault();
             splashScreen.hide();
             _this.platform.registerBackButtonAction(function () {

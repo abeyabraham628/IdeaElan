@@ -35,7 +35,7 @@ devicetoken : any ="abc";
 
   constructor(private fcm:FCM,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
     this.roles=navParams.get('roles')
-    console.log(this.roles.length)
+    
     
     if(this.roles[0]!="null"){
         
@@ -90,10 +90,10 @@ devicetoken : any ="abc";
     this.fcm.onNotification().subscribe(data => {
       if(data.wasTapped){
         this.navCtrl.push(HomePage);
-        console.log("Received in background");
+        
       } else {
         this.navCtrl.push(HomePage);
-        console.log("Received in foreground");
+       
       };
     });
     
@@ -119,7 +119,7 @@ devicetoken : any ="abc";
   checks(){
     var idOftoken , tokenStatus;
     this.firebase.database.ref('tokensNotificationId').orderByChild('userIdTocken').equalTo(`${this.afAuth.auth.currentUser.uid}`).once("value",(snap)=>{
-     // console.log(snap.val())
+   
      snap.forEach((child) => {
        
          
@@ -127,8 +127,6 @@ devicetoken : any ="abc";
 
  .update({ tokenid:this.devicetoken,userIdTocken : this.afAuth.auth.currentUser.uid});
        
-       console.log(child.child('userIdTocken').val());
-      console.log(child.key);
      })
 
 //if not exsist , needed to be added , but already user will have an entry to token list as it is added in newuser.ts file 
@@ -149,7 +147,7 @@ devicetoken : any ="abc";
  
 
   goto(page:string){
-    console.log(page)
+    
     this.navCtrl.push(page)
     
   }
@@ -187,23 +185,27 @@ devicetoken : any ="abc";
     await this.firebase.database.ref(`users`).once('value',function(snap){
       
       snap.forEach(snap=>{
-        bday=snap.child('dob').val().split('/')
-        anniversary=snap.child('doj').val().split('/')
-        if(new Date().getMonth()+1===parseInt(bday[1],10) && new Date().getDate()<=parseInt(bday[0],10)  ){
+        bday=snap.child('dob').val()
+        anniversary=snap.child('doj').val()
+
+       
+       
+        if(parseInt(moment().format('M'))==parseInt(moment(bday).format('M')) && parseInt(moment().format('D'))<=parseInt(moment(bday).format('D'))  ){
+          
           events.push({
             'title':'Birthday',
             'user':snap.child('fname').val()+" "+snap.child('lname').val(),
             'userId':snap.child('userId').val(),
-            'date':parseInt(bday[0],10)+"/"+parseInt(bday[1],10)+"/"+new Date().getFullYear()
+            'date':moment(bday).format('D-MMM')+"-"+moment().format('YYYY')
           })
         }
 
-        if(new Date().getMonth()+1===parseInt(anniversary[1],10) && new Date().getDate()<=parseInt(anniversary[0],10) ){
+        if(parseInt(moment().format('M'))==parseInt(moment(anniversary).format('M')) && parseInt(moment().format('D'))<=parseInt(moment(anniversary).format('D'))  ){
           events.push({
             'title':'Work Anniversary',
-            'userId':snap.child('userId').val(),
             'user':snap.child('fname').val()+" "+snap.child('lname').val(),
-            'date':parseInt(anniversary[0],10)+"/"+parseInt(anniversary[1],10)+"/"+new Date().getFullYear()
+            'userId':snap.child('userId').val(),
+            'date':moment(anniversary).format('D-MMM')+"-"+moment().format('YYYY')
           })
         }
       })
@@ -227,21 +229,23 @@ devicetoken : any ="abc";
       await this.firebase.database.ref(`users`).once('value',function(snap){
         
         snap.forEach(snap=>{
-          bday=snap.child('dob').val().split('/')
-          anniversary=snap.child('doj').val().split('/')
-          if(new Date().getMonth()+1===parseInt(bday[1],10) && new Date().getDate()<=parseInt(bday[0],10) ){
+          bday=snap.child('dob').val()
+        anniversary=snap.child('doj').val()
+        if(parseInt(moment().format('M'))==parseInt(moment(bday).format('M')) && parseInt(moment().format('D'))<=parseInt(moment(bday).format('D'))  ){
             bevents.push({
               'title':'Birthday',
               'user':snap.child('fname').val()+" "+snap.child('lname').val(),
-              'date':parseInt(bday[0],10)+"/"+parseInt(bday[1],10)+"/"+new Date().getFullYear()
+              'userId':snap.child('userId').val(),
+              'date':moment(bday).format('D-MMM')+"-"+moment().format('YYYY')
             })
           }
   
-          if(new Date().getMonth()+1===parseInt(anniversary[1],10) && new Date().getDate()<=parseInt(anniversary[0],10) ){
+          if(parseInt(moment().format('M'))==parseInt(moment(anniversary).format('M')) && parseInt(moment().format('D'))<=parseInt(moment(anniversary).format('D'))  ){
             wevents.push({
               'title':'Work Anniversary',
               'user':snap.child('fname').val()+" "+snap.child('lname').val(),
-              'date':parseInt(anniversary[0],10)+"/"+parseInt(anniversary[1],10)+"/"+new Date().getFullYear()
+              'userId':snap.child('userId').val(),
+              'date':moment(anniversary).format('D-MMM')+"-"+moment().format('YYYY')
             })
           }
         })
@@ -253,8 +257,7 @@ devicetoken : any ="abc";
        this.wevents=wevents;
        this.blength=bevents.length;
        this.wlength=wevents.length;
-       console.log (" birthday event length",this.blength);
-       console.log (" work annivessary  event length",this.wlength);
+       
     await  this.firebase.database.ref(`eventTrigger/WorkEvents`).update({
         length : this.wlength,
         

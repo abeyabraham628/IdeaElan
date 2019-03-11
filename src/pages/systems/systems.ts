@@ -13,6 +13,7 @@ import * as moment from 'moment'
 
 
 
+
 /**
  * Generated class for the SystemsPage page.
  *
@@ -24,6 +25,7 @@ import * as moment from 'moment'
 @Component({
   selector: 'page-systems',
   templateUrl: 'systems.html',
+  
 })
 export class SystemsPage {
   searchString: string;
@@ -178,31 +180,20 @@ insertSystems(systems:any){
          console.log('Error', err);
      });
   }
-  AvValidity:any
-  dispdate(type){
-    let pickMode='single'
-    var defaultScrollTo=new Date()
-      let from=new Date('2/1/2019')
-      var options=this.customDatePicker.datePickerOptions(pickMode,defaultScrollTo,from)
-       
-      let myCalendar =  this.modalCtrl.create(CalendarModal, {
-       options: options,
-       });
-          
-       myCalendar.present();
-        
-       myCalendar.onDidDismiss((date: CalendarResult[]) => {
-        
-         
-         if(date!=null){
-          this.systemsForm.controls['avExpiry'].setValue(moment(date['time']).format('D-MMM-YYYY'))
-          //this.systemsForm.controls['avValidity'].setValue(Math.ceil((date.getTime()-new Date().getTime())/(1000*3600*24)))
-        }
-      
-      
-      })//end of displayCalendar function
-    }
 
+  AvValidity:any
+    dispdate(){
+      this.datePicker.show({
+        date:moment().toDate(),
+        mode:'date',
+        androidTheme: 5,
+      }).then(
+        date=>{
+          this.systemsForm.controls['avExpiry'].setValue(moment(date['time']).format('D-MMM-YYYY'))
+         },
+        err => console.log('Error occurred while getting date: ', err)
+      )
+    }
 
 
 

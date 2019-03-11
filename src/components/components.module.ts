@@ -4,10 +4,11 @@ import { PageHeaderComponent } from './page-header/page-header';
 import { IonicModule } from 'ionic-angular';
 import { OfflineComponent } from './offline/offline';
 @NgModule({
-	declarations: [PageHeaderComponent,
-    OfflineComponent],
+	declarations:[PageHeaderComponent,
+		OfflineComponent],
 	imports: [IonicModule],
-	exports: [PageHeaderComponent,
-    OfflineComponent]
+	exports:[PageHeaderComponent,
+		OfflineComponent]
+	
 })
 export class ComponentsModule {}

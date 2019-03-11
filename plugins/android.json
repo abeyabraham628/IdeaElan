@@ -41,6 +41,9 @@
     },
     "cordova-plugin-screen-orientation": {
       "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-datepicker": {
+      "PACKAGE_NAME": "idea.elan"
     }
   },
   "dependent_plugins": {

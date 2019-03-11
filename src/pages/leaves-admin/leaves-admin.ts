@@ -1,3 +1,4 @@
+import { DatePicker } from '@ionic-native/date-picker';
 import { CustomDatePicker } from './../../models/datepicker';
 import { LeaveModel } from './../../models/leave.model';
 import { Component } from '@angular/core';
@@ -29,7 +30,7 @@ export class LeavesAdminPage {
   
   leaveRecords:any=[]
   public waitForPop: BehaviorSubject<boolean> = new BehaviorSubject(true);
-  constructor(public navCtrl:NavController,private userLeave:LeaveModel,public modalCtrl:ModalController,public navParams: NavParams,private empDetails:Employee,private customDatePicker: CustomDatePicker) {
+  constructor(public nativeDatePicker:DatePicker,public navCtrl:NavController,private userLeave:LeaveModel,public modalCtrl:ModalController,public navParams: NavParams,private empDetails:Employee,private customDatePicker: CustomDatePicker) {
     this.leaves='viewLeaveRequests';
     this.viewLeaveRequests()
     
@@ -81,6 +82,28 @@ datePicker(pickMode){
      })
 
     }// end of datepicker function
+
+    dateFrom:any
+dateTo:any
+    dispDate(type:String){
+      this.nativeDatePicker.show({
+      date: moment().toDate(),
+      mode: 'date',
+      androidTheme: 5,
+      
+    }).then(
+      date=>{
+       if(type==="from"){
+         this.dateFrom = moment(date).format('D-MMM-YYYY')
+       }
+       else{
+         this.dateTo =  moment(date).format('D-MMM-YYYY')
+         this.dateRange=this.dateFrom+" to "+this.dateTo
+       }
+     },err => console.log('Error occurred while getting date: ', err)
+
+     );
+    }
    
      goto(page:string,data?:object){
        
@@ -111,6 +134,7 @@ datePicker(pickMode){
   }
 
   leaveHistory(from?,to?){
+    if(this.employeeKey!="")
       this.leaveRecords=this.userLeave.getPastLeaves(this.employeeKey,from,to)
    }
 

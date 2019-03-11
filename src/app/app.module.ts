@@ -1,3 +1,5 @@
+import { PipesModule } from './../pipes/pipes.module';
+import { MomentdatePipe } from './../pipes/momentdate/momentdate';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 import { DatepickerDirective } from './../directives/datepicker/datepicker';
 
@@ -28,6 +30,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { ComponentsModule } from '../components/components.module';
 import { DataService } from '../providers/page-tite-service';
 import { Network } from '@ionic-native/network';
+import { TablefilterPipe } from '../pipes/tablefilter/tablefilter';
 
 
 
@@ -38,10 +41,8 @@ import { Network } from '@ionic-native/network';
     ChatbotPage,
     
     
-    
- 
-    
-  ],
+    ],
+
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -54,6 +55,7 @@ import { Network } from '@ionic-native/network';
     AngularFireAuthModule,
     CalendarModule,
     ComponentsModule,
+    
     
     
     

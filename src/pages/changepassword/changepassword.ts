@@ -30,7 +30,7 @@ export class ChangepasswordPage {
 
  
   ionViewDidLeave() {
-    this.navCtrl.popToRoot();
+    //this.navCtrl.popToRoot();
   }
 
   changePasswordForm=new FormGroup({

@@ -43,6 +43,10 @@
             {
               "xml": "<feature name=\"CDVOrientation\"><param name=\"android-package\" value=\"cordova.plugins.screenorientation.CDVOrientation\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"DatePickerPlugin\"><param name=\"android-package\" value=\"com.plugin.datepicker.DatePickerPlugin\" /></feature>",
+              "count": 1
             }
           ],
           "widget": [
@@ -174,6 +178,9 @@
       "PACKAGE_NAME": "idea.elan"
     },
     "cordova-plugin-screen-orientation": {
+      "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-datepicker": {
       "PACKAGE_NAME": "idea.elan"
     }
   },
@@ -311,6 +318,14 @@
       "clobbers": [
         "cordova.plugins.screenorientation"
       ]
+    },
+    {
+      "id": "cordova-plugin-datepicker.DatePicker",
+      "file": "plugins/cordova-plugin-datepicker/www/android/DatePicker.js",
+      "pluginId": "cordova-plugin-datepicker",
+      "clobbers": [
+        "datePicker"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -325,6 +340,7 @@
     "cordova-plugin-apiai": "1.7.4",
     "cordova-plugin-network-information": "2.0.1",
     "es6-promise-plugin": "4.2.2",
-    "cordova-plugin-screen-orientation": "3.0.1"
+    "cordova-plugin-screen-orientation": "3.0.1",
+    "cordova-plugin-datepicker": "0.9.3"
   }
 }

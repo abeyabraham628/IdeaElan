@@ -13,7 +13,7 @@ import { exists } from 'fs';
 
 @Injectable()
 export class LeaveModel{
-monthNumber:number[]=[]
+monthNumber:number[]
 leave={} as leaves
 leaveCount={} as leaveCount
 loader:any
@@ -28,6 +28,7 @@ loader1:any
         let selectedDates=[]
         let date1=[]
         let date2=[]
+        this.monthNumber=[]
 
          date.forEach((values)=>{
           selectedDates.push(moment(values.time).format('D-MMM-YYYY'))// Converting the time property returned from date pikcer to  dates .
@@ -36,6 +37,8 @@ loader1:any
              this.monthNumber.push(values.months)//Taking the month number which user has selected for  leave
 
           })   
+
+          
           
          
           this.monthNumber = this.monthNumber.filter((elem, i, arr) => {
@@ -43,6 +46,7 @@ loader1:any
                return elem
              }
            })
+
            
            
         
@@ -66,11 +70,50 @@ loader1:any
 
 
        async submitLeaveRequest(leaveInfo){
-        
+        this.loader=this.loadingCtrl.create({
+          spinner:'dots',
+          content:'Loading',
+           dismissOnPageChange:true
+         })
+       this.loader.present()
       
         var userName:any
         let leaveExists:Boolean=false
         let leaveExistDate=[]
+        let canTakeCasual:number=0
+        let canTakeSick:number=0
+
+        
+
+         await this.firebase.database.ref(`AvailableLeaves/${moment().format('YYYY')}/${leaveInfo.userId}`).once('value',(snap)=>{
+          canTakeCasual=snap.child('casual').val()
+          canTakeSick=snap.child('sick').val()
+          })
+        
+          if(leaveInfo.leaveType=="sick" && canTakeSick<1){
+          let alert = this.alertCtrl.create({
+            title: "Error",
+            subTitle: "Could not process your request. You do not have any available sick leaves.",
+            buttons: ['OK']
+          });
+              alert.present();
+              this.loader.dismiss()
+              return
+        }
+        else if(leaveInfo.leaveType=="casual" && canTakeCasual<1){
+          let alert = this.alertCtrl.create({
+            title: "Error",
+            subTitle: "Could not process your request. You do not have any available casual leaves.",
+            buttons: ['OK']
+          });
+              alert.present();
+              this.loader.dismiss()
+              return
+        }
+
+        else{ 
+         
+         
         await this.firebase.database.ref(`EmployeeLeaves`).orderByChild(`userId`).equalTo(`${leaveInfo.userId}`).once('value',(snap)=>{
           snap.forEach((child)=>{
             
@@ -94,12 +137,14 @@ loader1:any
         })
 
         if(leaveExists){
+          
           let alert = this.alertCtrl.create({
             title: "Error",
             subTitle: "Could not process your request. Leave record already exists on "+ leaveExistDate+".",
             buttons: ['OK']
           });
               alert.present();
+              this.loader.dismiss()
               
         }
 
@@ -109,17 +154,21 @@ loader1:any
           
           userName=snap.child('fname').val()+" "+snap.child('lname').val()
         })
+
+
   
-        this.leave.status="pending";
+        //this.leave.status="pending";
         
         
        if(moment().hour()>=9  &&  leaveInfo.date.find(date=>date===moment().format('D-MMM-YYYY'))){
+        
          const alert = this.alertCtrl.create({
             title: 'Restricted',
             subTitle: 'Unable to process your request at this moment. Please contact your team leader.!',
             buttons: ['OK']
             });
           alert.present();
+          this.loader.dismiss()
       }
         
       else{
@@ -139,11 +188,18 @@ loader1:any
               'status':leaveInfo.status,
               'userId':leaveInfo.userId
           })
-           
+          let alert = this.alertCtrl.create({
+            title: "Success",
+            subTitle: "Leave applied successfully ",
+            buttons: ['OK']
+          });
+              alert.present();
+              this.loader.dismiss()
           })//inserting the details of leaves
           
         }
-        else
+        else{
+         
             this.firebase.list(`EmployeeLeaves`).push({
               'name':userName,
               'leaveType':leaveInfo.leaveType,
@@ -151,19 +207,22 @@ loader1:any
               'status':leaveInfo.status,
               'userId':leaveInfo.userId
             });
-      
             let alert = this.alertCtrl.create({
               title: "Success",
               subTitle: "Leave applied successfully ",
               buttons: ['OK']
             });
                 alert.present();
+                this.loader.dismiss()
+          }
+            
        
       }//end of if else 
            
          
        
     }// end of leaveExist condition
+  }// end of can take leaves fucntion
       }//end os submit leave request function
 
 
@@ -171,10 +230,11 @@ loader1:any
       pastLeaves=[]
   
        getPastLeaves(userId,dateFrom?,dateTo?){
+        
         this.loader=this.loadingCtrl.create({
           spinner:'dots',
           content:'Loading',
-           dismissOnPageChange:true
+           
          })
        this.loader.present()
             var pastLeaves=[]
@@ -182,6 +242,8 @@ loader1:any
             this.firebase.database.ref(`EmployeeLeaves`).orderByChild(`userId`).equalTo(`${userId}`).once('value',(snap)=>{
               if(dateFrom !=null && dateTo !=null) 
               {
+                dateFrom=moment(dateFrom).format('x')
+                dateTo=moment(dateTo).format('x')
                   snap.forEach(function(child){
 
                     if(child.child('date').val().length>1){
@@ -256,9 +318,10 @@ loader1:any
       this.loader1=this.loadingCtrl.create({
         spinner:'dots',
         content:'Loading',
-         dismissOnPageChange:true
+         
        })
       this.loader1.present()
+
      let remaininingLeaves=[]
      let count:number=0
      let casual:any
@@ -332,7 +395,7 @@ saveLeaveStatus(data,leaveCount,status:string,reason?:any){
   if(data.leaveType=="casual")
     count=leaveCount.casualRemaining-data.date.length;
   else
-    count=leaveCount-data.date.length;
+    count=leaveCount.sickRemaining-data.date.length;
 
   this.firebase.database.ref(`EmployeeLeaves/${data.$key}/status`).set(`${status}`).then(()=>{
   this.firebase.database.ref(`AvailableLeaves/${new Date().getFullYear()}/${data.userId}/${data.leaveType}`).set(count)

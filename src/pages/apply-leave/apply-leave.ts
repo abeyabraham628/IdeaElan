@@ -1,3 +1,4 @@
+import { DatePicker } from '@ionic-native/date-picker';
 import { leave } from '@angular/core/src/profile/wtf_impl';
 import { leaveCount,leaves } from './../../providers/user-leaves';
 import { Component} from '@angular/core';
@@ -12,6 +13,7 @@ import {FormControl, FormGroup,Validators, FormBuilder} from '@angular/forms'
 
 import { AngularFireDatabase } from '@angular/fire/database';
 import * as moment from 'moment'
+import { concatAll } from 'rxjs/operators';
 
 
 
@@ -33,15 +35,17 @@ leaveRecords:any
 leaveDates:any
 dateRange:any="This Month Leave"
 months=this.customDatePicker.getMonths()
-loader:any
- constructor(public loadingCtrl:LoadingController,private alertCtrl:AlertController,private formBuilder:FormBuilder,private afauth:AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,private modalCtrl:ModalController,private customDatePicker:CustomDatePicker,private userLeave:LeaveModel,private firebase:AngularFireDatabase) {
-    this.getRemainingLeave()
+
+ constructor(public nativeDatePicker:DatePicker,private alertCtrl:AlertController,private formBuilder:FormBuilder,private afauth:AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,private modalCtrl:ModalController,private customDatePicker:CustomDatePicker,private userLeave:LeaveModel,private firebase:AngularFireDatabase) {
+    //this.getRemainingLeave()
+    
             
      }
 
      ionViewDidEnter(){
       this.ionSegmentDefaultValue="applyLeave";
-      
+      //this.getRemainingLeave()
+      this.viewRemainingLeaves()
       }
      
      
@@ -53,19 +57,17 @@ loader:any
 
     }
   
-    getRemainingLeave(){
+    /*getRemainingLeave(){
       
-      this.dateRange="This Month Leave"
-      this.leaveRecords=[]
-      this.leaveDates=""
+      
       this.viewRemainingLeaves()
 
-    }
+    }*/
 
     resetForm(){
       this.leaveForm.reset()
         this.leaveErr=true;
-        this.dateErr=true;
+        this.dateErr= true;
     }
 
  
@@ -127,41 +129,67 @@ loader:any
      })//end of displayCalendar function
     }// end of datepicker function
 
+dateFrom:any
+dateTo:any
+    dispDate(type:String){
+      this.nativeDatePicker.show({
+      date: moment().toDate(),
+      mode: 'date',
+      androidTheme: 5,
+      
+    }).then(
+      date=>{
+       if(type==="from"){
+         this.dateFrom = moment(date).format('D-MMM-YYYY')
+       }
+       else{
+         this.dateTo =  moment(date).format('D-MMM-YYYY')
+         this.dateRange=this.dateFrom+" to "+this.dateTo
+       }
+     },err => console.log('Error occurred while getting date: ', err)
+
+     );
+    }
+
+
 
   leaveErr:boolean=true
   dateErr:boolean=true
  applyForLeave(leaveInfo){
-   
-   
-
-   leaveInfo.leaveType==null?this.leaveErr=false:this.leaveErr=true
+ 
+    leaveInfo.leaveType==null?this.leaveErr=false:this.leaveErr=true
     leaveInfo.date==null?this.dateErr=false:this.dateErr=true 
-            
-      
-
-
-  if(this.leaveErr && this.dateErr){
+   if(this.leaveErr && this.dateErr){
 
    leaveInfo.userId=this.afauth.auth.currentUser.uid
    leaveInfo.status="pending"
-   this.userLeave.submitLeaveRequest(leaveInfo)
-  this.leaveForm.reset()
+   this.userLeave.submitLeaveRequest(leaveInfo).then(()=>{
+    this.leaveForm.reset()
+   })
+ 
 }
     
-}
+}//end of apply for leave
  
-
+getMyLeaves(){
+  if(this.dateFrom!='' && this.dateTo!='')
+    this.leaveHistory(this.dateFrom,this.dateTo)
+}
  
   leaveHistory(from?,to?){
     this.leaveForm.reset()
     this.leaveRecords=[]
-    
    this.leaveRecords=this.userLeave.getPastLeaves(this.afauth.auth.currentUser.uid,from,to)
    
  }
 
     viewRemainingLeaves(){
       
+      this.dateRange="This Month Leave"
+      this.dateFrom=""
+      this.dateTo=""
+      this.leaveRecords=[]
+      this.leaveDates=""
       
         this.userLeave.getRemainingLeaves(this.afauth.auth.currentUser.uid).then((item)=>{
         this.leaveCount.sickRemaining=item[0].sick;

@@ -122,7 +122,7 @@ newApplicantForm=new FormGroup({
     this.datePicker.show({
       date:new Date(),
       mode:'date',
-      androidTheme: this.datePicker.ANDROID_THEMES.THEME_HOLO_LIGHT
+      androidTheme: 5,
     }).then(
       date=>{
         this.scheduleForm.controls.scheduleDate.setValue(date.toLocaleDateString())

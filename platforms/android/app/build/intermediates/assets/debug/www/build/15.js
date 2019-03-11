@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(828);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(830);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(463);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -41,7 +41,7 @@ var HomePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 828:
+/***/ 830:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51,6 +51,8 @@ var HomePageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__ = __webpack_require__(462);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(461);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_fcm__ = __webpack_require__(471);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -95,6 +97,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+
 
 
 
@@ -147,7 +150,6 @@ var HomePage = /** @class */ (function () {
         this.bevents = [];
         this.wevents = [];
         this.roles = navParams.get('roles');
-        console.log(this.roles.length);
         if (this.roles[0] != "null") {
             this.users = false;
             this.recruitment = false;
@@ -196,11 +198,9 @@ var HomePage = /** @class */ (function () {
         this.fcm.onNotification().subscribe(function (data) {
             if (data.wasTapped) {
                 _this.navCtrl.push(HomePage_1);
-                console.log("Received in background");
             }
             else {
                 _this.navCtrl.push(HomePage_1);
-                console.log("Received in foreground");
             }
             ;
         });
@@ -232,12 +232,9 @@ var HomePage = /** @class */ (function () {
         var _this = this;
         var idOftoken, tokenStatus;
         this.firebase.database.ref('tokensNotificationId').orderByChild('userIdTocken').equalTo("" + this.afAuth.auth.currentUser.uid).once("value", function (snap) {
-            // console.log(snap.val())
             snap.forEach(function (child) {
                 _this.firebase.object("/tokensNotificationId/" + child.key)
                     .update({ tokenid: _this.devicetoken, userIdTocken: _this.afAuth.auth.currentUser.uid });
-                console.log(child.child('userIdTocken').val());
-                console.log(child.key);
             });
             //if not exsist , needed to be added , but already user will have an entry to token list as it is added in newuser.ts file 
         });
@@ -248,7 +245,6 @@ var HomePage = /** @class */ (function () {
         this.getUpComingEventsNotification();
     };
     HomePage.prototype.goto = function (page) {
-        console.log(page);
         this.navCtrl.push(page);
     };
     HomePage.prototype.getUpComingEvents = function () {
@@ -260,22 +256,22 @@ var HomePage = /** @class */ (function () {
                         events = [];
                         return [4 /*yield*/, this.firebase.database.ref("users").once('value', function (snap) {
                                 snap.forEach(function (snap) {
-                                    bday = snap.child('dob').val().split('/');
-                                    anniversary = snap.child('doj').val().split('/');
-                                    if (new Date().getMonth() + 1 === parseInt(bday[1], 10) && new Date().getDate() <= parseInt(bday[0], 10)) {
+                                    bday = snap.child('dob').val();
+                                    anniversary = snap.child('doj').val();
+                                    if (parseInt(__WEBPACK_IMPORTED_MODULE_5_moment__().format('M')) == parseInt(__WEBPACK_IMPORTED_MODULE_5_moment__(bday).format('M')) && parseInt(__WEBPACK_IMPORTED_MODULE_5_moment__().format('D')) <= parseInt(__WEBPACK_IMPORTED_MODULE_5_moment__(bday).format('D'))) {
                                         events.push({
                                             'title': 'Birthday',
                                             'user': snap.child('fname').val() + " " + snap.child('lname').val(),
                                             'userId': snap.child('userId').val(),
-                                            'date': parseInt(bday[0], 10) + "/" + parseInt(bday[1], 10) + "/" + new Date().getFullYear()
+                                            'date': __WEBPACK_IMPORTED_MODULE_5_moment__(bday).format('D-MMM') + "-" + __WEBPACK_IMPORTED_MODULE_5_moment__().format('YYYY')
                                         });
                                     }
-                                    if (new Date().getMonth() + 1 === parseInt(anniversary[1], 10) && new Date().getDate() <= parseInt(anniversary[0], 10)) {
+                                    if (parseInt(__WEBPACK_IMPORTED_MODULE_5_moment__().format('M')) == parseInt(__WEBPACK_IMPORTED_MODULE_5_moment__(anniversary).format('M')) && parseInt(__WEBPACK_IMPORTED_MODULE_5_moment__().format('D')) <= parseInt(__WEBPACK_IMPORTED_MODULE_5_moment__(anniversary).format('D'))) {
                                         events.push({
                                             'title': 'Work Anniversary',
-                                            'userId': snap.child('userId').val(),
                                             'user': snap.child('fname').val() + " " + snap.child('lname').val(),
-                                            'date': parseInt(anniversary[0], 10) + "/" + parseInt(anniversary[1], 10) + "/" + new Date().getFullYear()
+                                            'userId': snap.child('userId').val(),
+                                            'date': __WEBPACK_IMPORTED_MODULE_5_moment__(anniversary).format('D-MMM') + "-" + __WEBPACK_IMPORTED_MODULE_5_moment__().format('YYYY')
                                         });
                                     }
                                 });
@@ -298,20 +294,22 @@ var HomePage = /** @class */ (function () {
                         wevents = [];
                         return [4 /*yield*/, this.firebase.database.ref("users").once('value', function (snap) {
                                 snap.forEach(function (snap) {
-                                    bday = snap.child('dob').val().split('/');
-                                    anniversary = snap.child('doj').val().split('/');
-                                    if (new Date().getMonth() + 1 === parseInt(bday[1], 10) && new Date().getDate() <= parseInt(bday[0], 10)) {
+                                    bday = snap.child('dob').val();
+                                    anniversary = snap.child('doj').val();
+                                    if (parseInt(__WEBPACK_IMPORTED_MODULE_5_moment__().format('M')) == parseInt(__WEBPACK_IMPORTED_MODULE_5_moment__(bday).format('M')) && parseInt(__WEBPACK_IMPORTED_MODULE_5_moment__().format('D')) <= parseInt(__WEBPACK_IMPORTED_MODULE_5_moment__(bday).format('D'))) {
                                         bevents.push({
                                             'title': 'Birthday',
                                             'user': snap.child('fname').val() + " " + snap.child('lname').val(),
-                                            'date': parseInt(bday[0], 10) + "/" + parseInt(bday[1], 10) + "/" + new Date().getFullYear()
+                                            'userId': snap.child('userId').val(),
+                                            'date': __WEBPACK_IMPORTED_MODULE_5_moment__(bday).format('D-MMM') + "-" + __WEBPACK_IMPORTED_MODULE_5_moment__().format('YYYY')
                                         });
                                     }
-                                    if (new Date().getMonth() + 1 === parseInt(anniversary[1], 10) && new Date().getDate() <= parseInt(anniversary[0], 10)) {
+                                    if (parseInt(__WEBPACK_IMPORTED_MODULE_5_moment__().format('M')) == parseInt(__WEBPACK_IMPORTED_MODULE_5_moment__(anniversary).format('M')) && parseInt(__WEBPACK_IMPORTED_MODULE_5_moment__().format('D')) <= parseInt(__WEBPACK_IMPORTED_MODULE_5_moment__(anniversary).format('D'))) {
                                         wevents.push({
                                             'title': 'Work Anniversary',
                                             'user': snap.child('fname').val() + " " + snap.child('lname').val(),
-                                            'date': parseInt(anniversary[0], 10) + "/" + parseInt(anniversary[1], 10) + "/" + new Date().getFullYear()
+                                            'userId': snap.child('userId').val(),
+                                            'date': __WEBPACK_IMPORTED_MODULE_5_moment__(anniversary).format('D-MMM') + "-" + __WEBPACK_IMPORTED_MODULE_5_moment__().format('YYYY')
                                         });
                                     }
                                 });
@@ -322,8 +320,6 @@ var HomePage = /** @class */ (function () {
                         this.wevents = wevents;
                         this.blength = bevents.length;
                         this.wlength = wevents.length;
-                        console.log(" birthday event length", this.blength);
-                        console.log(" work annivessary  event length", this.wlength);
                         return [4 /*yield*/, this.firebase.database.ref("eventTrigger/WorkEvents").update({
                                 length: this.wlength,
                             })];

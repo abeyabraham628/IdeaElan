@@ -132,6 +132,14 @@ module.exports = [
     "clobbers": [
       "cordova.plugins.screenorientation"
     ]
+  },
+  {
+    "id": "cordova-plugin-datepicker.DatePicker",
+    "file": "plugins/cordova-plugin-datepicker/www/android/DatePicker.js",
+    "pluginId": "cordova-plugin-datepicker",
+    "clobbers": [
+      "datePicker"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -148,7 +156,8 @@ module.exports.metadata =
   "cordova-plugin-apiai": "1.7.4",
   "cordova-plugin-network-information": "2.0.1",
   "es6-promise-plugin": "4.2.2",
-  "cordova-plugin-screen-orientation": "3.0.1"
+  "cordova-plugin-screen-orientation": "3.0.1",
+  "cordova-plugin-datepicker": "0.9.3"
 };
 // BOTTOM OF METADATA
 });
