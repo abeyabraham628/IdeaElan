@@ -7,50 +7,89 @@
 
 
 <ion-menu [content]="mycontent" persistent="true" class="sideMenuList">
+    
+      <ion-header>
       <ion-item no-lines style="text-align:center;background-color: #2679b0">
-        <ion-thumbnail style="height:100px;width:100px;border-radius:50%;margin: auto">
-            <img src="{{uri}}" onerror="this.src='assets/imgs/companylogo.png'" style="height:100px;width:100px;border-radius:50%;margin: auto"> 
-          </ion-thumbnail>
-        <h2 style="color:#ffffff">{{this.uname | titlecase }}</h2>
-        <h6 style="color:#ffffff">{{this.position | titlecase }}</h6>
-      </ion-item>
-
-      <ion-item (click)="uploadHandler()" class="sideMenuList">
-          <ion-icon name="images" item-end></ion-icon>
+            
+                <img src="{{uri}}" onerror="this.src='assets/imgs/companylogo.png'" style="height:50px;width:50px;border-radius:30%;margin: auto"> 
+              
+            <h4 style="color:#ffffff">{{this.uname | titlecase }}</h4>
+            <h6 style="color:#ffffff">{{this.position | titlecase }}</h6>
+            <ion-icon name="arrow-dropright" item-right (click)="goto('MyprofilePage')" menuClose></ion-icon>
+          </ion-item>
+        </ion-header>
+      
+<ion-content>
+  
+      <ion-item hidden (click)="uploadHandler()" class="sideMenuList">
+          <ion-icon name="images" item-end small></ion-icon>
           Change Image
       </ion-item>
      
-      <ion-item (click)="changepassword()" class="sideMenuList">
-          <ion-icon name="lock" item-end></ion-icon>
+      <ion-item (click)="changepassword()" menuClose class="sideMenuList">
+          <ion-icon name="lock" item-end small></ion-icon>
           Change Password
       </ion-item>
 
-      <ion-item (click)="policy()" class="sideMenuList">
-          <ion-icon name="document" item-end></ion-icon>
+      <ion-item (click)="goto('PolicyPage')" menuClose class="sideMenuList">
+          <ion-icon name="document" item-end small></ion-icon>
            Company Policy
       </ion-item>
       
-      <ion-item (click)="logout()" class="sideMenuList">
-          <ion-icon name="power" item-end></ion-icon>
+      <ion-item no-lines (click)="logout()"  class="sideMenuList">
+          <ion-icon name="power" item-end small></ion-icon>
            Logout
       </ion-item>
 
-     
+      <ion-list-header *ngIf="controllPanel">
+          Control Panel
+        </ion-list-header>
 
+      <ion-item (click)="goto('NewuserPage')" menuClose [hidden]=users>
+        <ion-icon name="arrow-forward" small item-end></ion-icon>
+        Users
+      </ion-item>
+      <ion-item (click)="goto('SystemsPage')" menuClose [hidden]=systems>
+        <ion-icon name="arrow-forward" small item-end></ion-icon>
+        Systems
+      </ion-item>
+      <ion-item (click)="goto('RecruitmentPage')" menuClose [hidden]=recruitment>
+        <ion-icon name="arrow-forward" small item-end></ion-icon>
+        Recruitment
+      </ion-item>
+      <ion-item (click)="goto('LeavesAdminPage')" menuClose [hidden]=leaveRequest>
+        <ion-icon name="arrow-forward" small item-end></ion-icon>
+        Leave Requests
+      </ion-item>
+      <ion-item (click)="goto('UploadEventsPage')" menuClose [hidden]="sendMessage">
+          <ion-icon name="arrow-forward" small item-end></ion-icon>
+        Send Message
+      </ion-item>
       <ng-container *ngIf="progress | async as percent">
         
-        <progress [value]="percent" max="100"></progress>
+          <progress [value]="percent" max="100"></progress>
+        
+        </ng-container>
+     
+    </ion-content>
+
+     <ion-footer>
+       <ion-item no-lines>
+         <ion-label>IdeaElan | version 0.0.1</ion-label>
+       </ion-item>
+     </ion-footer>
+
       
-      </ng-container>
 </ion-menu>
 <ion-nav #mycontent [root]="rootPage"></ion-nav>
  
 
 <ion-tabs  >
-  <ion-tab [root]="tab0Root"   tabTitle="Home" tabIcon="home" [rootParams]="tab0Params"></ion-tab>
+  <ion-tab [root]="tab0Root"   tabTitle="Home" tabIcon="home" ></ion-tab>
   <ion-tab [root]="tab1Root"   tabTitle="Leave" tabIcon="person" ></ion-tab>
   <ion-tab [root]="tab2Root"   tabTitle="Chatbot" tabIcon="document" ></ion-tab>
   <ion-tab [root]="tab3Root"  tabTitle="Inbox" tabIcon="chatboxes" tabBadge='{{this.messages.length}}' tabBadgeStyle="danger" ></ion-tab>
+  <ion-tab [root]="tab4Root"  tabTitle="Support" tabIcon="quote"  ></ion-tab>
 </ion-tabs>
 
 

@@ -25,33 +25,5 @@
  
   
 </ion-content>
-<ion-footer padding class="privilleges"  *ngIf="controllPanel" >
-  <h5>Control Panel</h5>
-  <ion-list no-lines>
-    <button ion-item  (click)="goto('NewuserPage')" [hidden]=users >
-        Users
-    </button>
-    
- 
-      <button ion-item  (click)="goto('SystemsPage')" [hidden]=systems >
-          Systems
-      </button>
-    
-      <button ion-item (click)="goto('RecruitmentPage')" [hidden]=recruitment>
-        Recruitment
-     </button>
-   
-     
-          <button ion-item  (click)="goto('LeavesAdminPage')" [hidden]=leaveRequest>
-             Leave Request
-             <ion-badge color="danger">{{lrstatus.length}}</ion-badge>
-          </button>
-       
-            <button ion-item   (click)="goto('UploadEventsPage')" [hidden]="sendMessage">
-                Send Message
-            </button>
-          </ion-list>
-          
-  
-</ion-footer>
+
 

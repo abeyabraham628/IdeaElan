@@ -1,6 +1,6 @@
 webpackJsonp([7],{
 
-/***/ 740:
+/***/ 742:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(463);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__upload_events__ = __webpack_require__(846);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__upload_events__ = __webpack_require__(849);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,7 +41,7 @@ var UploadEventsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 769:
+/***/ 771:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66,7 +66,7 @@ var Designations = [
 
 /***/ }),
 
-/***/ 846:
+/***/ 849:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -76,7 +76,7 @@ var Designations = [
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__ = __webpack_require__(462);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_designations__ = __webpack_require__(769);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_designations__ = __webpack_require__(771);
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -280,7 +280,7 @@ var UploadEventsPage = /** @class */ (function () {
     };
     UploadEventsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-upload-events',template:/*ion-inline-start:"F:\ionic-app\src\pages\upload-events\upload-events.html"*/'<!--\n  Generated template for the UploadEventsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n  <page-header pageTitle="SEND MESSAGE"></page-header>\n</ion-header>\n\n<ion-content>\n    <ion-segment [(ngModel)]="messages" color="white" >\n        <ion-segment-button value="compose">\n           Compose\n        </ion-segment-button>\n        <ion-segment-button value="sentItems" (click)="getSentItems()">\n          Sent Items\n        </ion-segment-button>\n     </ion-segment>\n\n     <div [ngSwitch]="messages">\n        <div *ngSwitchCase="\'compose\'">\n    <form [formGroup]="PublishMessageForm" (ngSubmit)="publishMessage()">\n        \n       \n          <ion-item>\n                <ion-label floating>Recipients</ion-label>\n                <ion-input type="text" formControlName="recipients" readonly (click)="addRecipients()" (ionFocus)="addRecipients()"></ion-input>\n           </ion-item>    \n\n    <ion-item>\n      <ion-label floating>Subject</ion-label>\n        <ion-input type="text" formControlName="subject"></ion-input>\n    </ion-item>\n    <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'subject\').hasError(\'required\')  && PublishMessageForm.get(\'subject\').touched">\n        <ion-label stacked  color="danger">\n          Subject Is Required\n        </ion-label>\n      </ion-item>\n    <ion-item>\n        <ion-label floating>Message</ion-label>\n          <ion-textarea rows="10" formControlName="message"></ion-textarea>\n      </ion-item>\n      <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'message\').hasError(\'required\')  && PublishMessageForm.get(\'message\').touched">\n          <ion-label stacked  color="danger">\n            Message Is Required\n          </ion-label>\n        </ion-item>\n\n       <ion-row>\n            <ion-col col-6>\n                <button type="submit"  [disabled]="PublishMessageForm.invalid" color="blue" full ion-button>Send Message</button>\n          </ion-col>\n          <ion-col col-6>\n              <button ion-button type="reset"  icon-end full color=blue   >\n                Cancel\n              </button>\n            </ion-col>\n          </ion-row> \n         </form>\n  </div>\n\n  <div *ngSwitchCase="\'sentItems\'" >\n      <ion-item>\n          <ion-row class="table-title">\n            <ion-col col-5 >Recipients</ion-col>\n            <ion-col col-4 >Subject</ion-col>\n            <ion-col col-3 >Date</ion-col>\n            \n          </ion-row>\n        </ion-item>\n        <ion-item *ngFor="let message of sentItems">\n          <ion-row class="col-text table-bottom-border" (click)="viewMessage(message)" >\n              <ion-col col-5 *ngFor="let recipients of message.recipients">{{recipients}}</ion-col><ion-col col-4>{{message.subject}}</ion-col><ion-col col-3>{{message.date}}</ion-col>\n          </ion-row>\n        </ion-item>\n    </div>\n\n\n         </div>\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\upload-events\upload-events.html"*/,
+            selector: 'page-upload-events',template:/*ion-inline-start:"F:\ionic-app\src\pages\upload-events\upload-events.html"*/'<!--\n  Generated template for the UploadEventsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n  <navbar pageTitle="SEND MESSAGE"></navbar>\n</ion-header>\n\n<ion-content>\n    <ion-segment [(ngModel)]="messages" color="white" >\n        <ion-segment-button value="compose">\n           Compose\n        </ion-segment-button>\n        <ion-segment-button value="sentItems" (click)="getSentItems()">\n          Sent Items\n        </ion-segment-button>\n     </ion-segment>\n\n     <div [ngSwitch]="messages">\n        <div *ngSwitchCase="\'compose\'">\n    <form [formGroup]="PublishMessageForm" (ngSubmit)="publishMessage()">\n        \n       \n          <ion-item>\n                <ion-label floating>Recipients</ion-label>\n                <ion-input type="text" formControlName="recipients" readonly (click)="addRecipients()" (ionFocus)="addRecipients()"></ion-input>\n           </ion-item>    \n\n    <ion-item>\n      <ion-label floating>Subject</ion-label>\n        <ion-input type="text" formControlName="subject"></ion-input>\n    </ion-item>\n    <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'subject\').hasError(\'required\')  && PublishMessageForm.get(\'subject\').touched">\n        <ion-label stacked  color="danger">\n          Subject Is Required\n        </ion-label>\n      </ion-item>\n    <ion-item>\n        <ion-label floating>Message</ion-label>\n          <ion-textarea rows="10" formControlName="message"></ion-textarea>\n      </ion-item>\n      <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'message\').hasError(\'required\')  && PublishMessageForm.get(\'message\').touched">\n          <ion-label stacked  color="danger">\n            Message Is Required\n          </ion-label>\n        </ion-item>\n\n       <ion-row>\n            <ion-col col-6>\n                <button type="submit"  [disabled]="PublishMessageForm.invalid" color="blue" full ion-button>Send Message</button>\n          </ion-col>\n          <ion-col col-6>\n              <button ion-button type="reset"  icon-end full color=blue   >\n                Cancel\n              </button>\n            </ion-col>\n          </ion-row> \n         </form>\n  </div>\n\n  <div *ngSwitchCase="\'sentItems\'" >\n      <ion-item>\n          <ion-row class="table-title">\n            <ion-col col-5 >Recipients</ion-col>\n            <ion-col col-4 >Subject</ion-col>\n            <ion-col col-3 >Date</ion-col>\n            \n          </ion-row>\n        </ion-item>\n        <ion-item *ngFor="let message of sentItems">\n          <ion-row class="col-text table-bottom-border" (click)="viewMessage(message)" >\n              <ion-col col-5 *ngFor="let recipients of message.recipients">{{recipients}}</ion-col><ion-col col-4>{{message.subject}}</ion-col><ion-col col-3>{{message.date}}</ion-col>\n          </ion-row>\n        </ion-item>\n    </div>\n\n\n         </div>\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\upload-events\upload-events.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["LoadingController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__["a" /* AngularFireAuth */]])
     ], UploadEventsPage);

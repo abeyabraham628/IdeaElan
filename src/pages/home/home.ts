@@ -15,13 +15,7 @@ import * as moment from 'moment'
 export class HomePage {
  
 userId:any
-roles:any[]
-  users:boolean=true
-  recruitment:boolean=true
-  systems:boolean=true
-  policy:boolean=true
-  leaveRequest:boolean=true
-  sendMessage:boolean=true
+
 
 loader:any
 
@@ -30,49 +24,14 @@ FirebasePlugin: any;
 blength:any=0;
 wlength:any=0;
 //lrcount:any=0;
-controllPanel:boolean=false
+
 devicetoken : any ="abc";
 
   constructor(private fcm:FCM,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
-    this.roles=navParams.get('roles')
     
     
-    if(this.roles[0]!="null"){
-        
-      this.users=false
-      this.recruitment=false
-      this.systems=false
-      this.policy=false
-      this.leaveRequest=false
-      this.sendMessage=false
-      this.controllPanel=true
-    }
-
-    if(this.roles[1]!="null"){
-      this.leaveRequest=false
-      this.controllPanel=true
-    }
-
-     if(this.roles[2]!="null"){
-      this.policy=false
-      this.controllPanel=true
-     }
-      if(this.roles[3]!="null"){
-      this.sendMessage=false
-      this.controllPanel=true
-      }
-      if(this.roles[4]!="null"){
-      this.recruitment=false
-      this.controllPanel=true
-      }
-      if(this.roles[5]!="null"){
-      this.systems=false
-      this.controllPanel=true
-      }
-      if(this.roles[6]!="null"){
-      this.users=false
-      this.controllPanel=true
-      }
+    
+    
     
     this.lrcountcheck();
     

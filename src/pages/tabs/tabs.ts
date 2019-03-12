@@ -33,19 +33,62 @@ export class TabsPage {
   tab1Root='ApplyLeavePage';
   tab2Root=ChatbotPage;
   tab3Root='InboxPage';
-  tab4Root='AdminPage';
-  tab0Params:any
+  tab4Root='Support';
+  
   userId:any
   uri:any;
   hid:boolean=true;
   uname:any;
   position:any;
   hideAdmin:boolean=true
-  tony:any
+
+  roles:any[]
+  users:boolean=true
+  recruitment:boolean=true
+  systems:boolean=true
+  policy:boolean=true
+  leaveRequest:boolean=true
+  sendMessage:boolean=true
+  controllPanel:boolean=false
   constructor(private fdb:AngularFireDatabase,public storage: AngularFireStorage,private camera: Camera,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth) {
+    this.roles=navParams.get('roles')
+    if(this.roles[0]!="null"){
+        
+      this.users=false
+      this.recruitment=false
+      this.systems=false
+      this.policy=false
+      this.leaveRequest=false
+      this.sendMessage=false
+      this.controllPanel=true
+    }
+
+    if(this.roles[1]!="null"){
+      this.leaveRequest=false
+      this.controllPanel=true
+    }
+
+     if(this.roles[2]!="null"){
+      this.policy=false
+      this.controllPanel=true
+     }
+      if(this.roles[3]!="null"){
+      this.sendMessage=false
+      this.controllPanel=true
+      }
+      if(this.roles[4]!="null"){
+      this.recruitment=false
+      this.controllPanel=true
+      }
+      if(this.roles[5]!="null"){
+      this.systems=false
+      this.controllPanel=true
+      }
+      if(this.roles[6]!="null"){
+      this.users=false
+      this.controllPanel=true
+      }
     
-  
-    this.tab0Params=this.navParams.data
     this.getusername();
     this.getMessages()
     this.hid=false;
@@ -65,16 +108,10 @@ export class TabsPage {
   var position:any
     await this.fdb.database.ref(`/users/${this.afAuth.auth.currentUser.uid}`).once('value',function(snap){
       uname=snap.child('fname').val() +" "+snap.child('lname').val()
-      
+      position=snap.child('position').val()
    
      });
      this.uname=uname;
-    
-    await this.fdb.database.ref(`/users/${this.afAuth.auth.currentUser.uid}`).once('value',function(snap){
-      position=snap.child('position').val()
-       
-
-     });
      this.position=position;
    
   }
@@ -102,8 +139,11 @@ export class TabsPage {
     this.navCtrl.push('ChangepasswordPage');
   }
 
-  policy(){
-    this.navCtrl.push('PolicyPage');
+  
+
+  goto(page:string){
+    
+    this.navCtrl.push(page)
     
   }
  

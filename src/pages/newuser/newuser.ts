@@ -626,7 +626,7 @@ console.log('Cdatas look like  value :', this.datas);
 {
  
   let alert = this.alertCtrl.create();
-  alert.setTitle('Which are the privileges that you want to set to the user?');
+  alert.setTitle('Privilleges');
 //
   alert.addInput({
     type: 'checkbox',
@@ -739,29 +739,10 @@ console.log('Cdatas look like  value :', this.datas);
   alert.addButton({
     text: 'Okay',
     handler: data => {
-      
-  
-      
-     // console.log("hui");
-    //  console.log('data value  :', data);
-      //this.userItem.data=this.datas;
-     
-     // this.datas=data;
-    //  console.log(data[0]);
-    //try1 
+    
     if(data!=null)
     {
-     // console.log("kerunnuu");
-   // console.log("what comes in ");
-   // console.log(data[6]);
-   // console.log(this.v1);
-  //  console.log(this.v2);
-   // console.log(this.v3);
-   // console.log(this.v4);
-   // console.log(this.v5);
-   // console.log(this.v6);
-    //console.log(this.v7);
-   // console.log(this.v7);
+    
 
     
     for(this.i=0;this.i<=6;this.i++)
@@ -800,11 +781,7 @@ console.log('Cdatas look like  value :', this.datas);
       if(data[this.i]=="value7")
     this.v7=6;
     }
-    //console.log("after condition check ");
-    //console.log(this.datas);
-    //console.log(this.v1,this.v2,this.v3,this.v4,this.v5,this.v6,this.v7);
-    //-1 1 2 3 4 5 6 
-    //null 
+    
     if(this.v1==-1)
     {
       data[0]="null";

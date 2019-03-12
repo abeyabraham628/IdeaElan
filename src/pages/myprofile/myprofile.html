@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar color="blue">
+    <ion-title>
+      My Profile
+    </ion-title>
+    <ion-buttons end >
+        <button ion-button icon-only (click)="updateProfile()"> <ion-icon item-left name="checkmark"></ion-icon>Save</button>
+        
+    </ion-buttons>
+   </ion-navbar>
+</ion-header>
+<ion-content>
+    
+   
+        
+      <ion-item  style="text-align:center;">
+            
+            <img src="{{uri}}" onerror="this.src='assets/imgs/companylogo.png'" style="height:100px;width:100px;border-radius:30%;margin: auto"> 
+          
+        <h4 >{{this.fName | titlecase }} {{this.lName | titlecase }}</h4>
+        <h6>{{this.jobTitle | titlecase }} </h6>
+        <h6>{{this.email}}</h6>
+        
+        
+      </ion-item>
+            
+          <ion-row>
+              <ion-item col-6>
+                <ion-input hidden [(ngModel)]="$key"></ion-input>
+                
+                <ion-label stacked>First Name</ion-label>
+                <ion-input type="text" [(ngModel)]="fName" ></ion-input>
+              </ion-item>
+              <ion-item col-6>
+                  <ion-label stacked>Last Name</ion-label>
+                  <ion-input type="text"[(ngModel)]="lName"  ></ion-input>
+                </ion-item>
+          </ion-row> 
+            
+          <ion-item>
+              <ion-label stacked>Mobile Number</ion-label>
+              <ion-input type="text" [(ngModel)]="mobile" ></ion-input>
+            </ion-item>  
+            
+            <ion-item>
+              <ion-label stacked>Date Of Birth</ion-label>
+              <ion-input disabled type="text" [(ngModel)]="dob" ></ion-input>
+            </ion-item>  
+            <ion-item>
+              <ion-label stacked>Date Of Join</ion-label>
+              <ion-input disabled type="text" [(ngModel)]="doj"></ion-input>
+            </ion-item>  
+            
+
+          
+          </ion-content>
