@@ -1,17 +1,17 @@
 webpackJsonp([1],{
 
-/***/ 741:
+/***/ 742:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabsPageModule", function() { return TabsPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_camera__ = __webpack_require__(786);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_storage__ = __webpack_require__(787);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_camera__ = __webpack_require__(787);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_storage__ = __webpack_require__(788);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs__ = __webpack_require__(848);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs__ = __webpack_require__(850);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(462);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -49,7 +49,7 @@ var TabsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 786:
+/***/ 787:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -343,23 +343,23 @@ var Camera = (function (_super) {
 
 /***/ }),
 
-/***/ 787:
+/***/ 788:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__public_api__ = __webpack_require__(844);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__public_api__ = __webpack_require__(846);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__public_api__["a"]; });
 
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 788:
+/***/ 789:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = createStorageRef;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__task__ = __webpack_require__(789);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__task__ = __webpack_require__(790);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs__ = __webpack_require__(16);
 
 
@@ -384,12 +384,12 @@ function createStorageRef(ref, scheduler) {
 
 /***/ }),
 
-/***/ 789:
+/***/ 790:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = createUploadTask;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__observable_fromTask__ = __webpack_require__(790);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__observable_fromTask__ = __webpack_require__(791);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_operators__ = __webpack_require__(27);
 
 
@@ -410,7 +410,7 @@ function createUploadTask(task) {
 
 /***/ }),
 
-/***/ 790:
+/***/ 791:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -430,14 +430,14 @@ function fromTask(task) {
 
 /***/ }),
 
-/***/ 791:
+/***/ 792:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export StorageBucket */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AngularFireStorage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ref__ = __webpack_require__(788);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ref__ = __webpack_require__(789);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire__ = __webpack_require__(110);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -487,19 +487,19 @@ var AngularFireStorage = (function () {
 
 /***/ }),
 
-/***/ 844:
+/***/ 846:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ref__ = __webpack_require__(788);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ref__ = __webpack_require__(789);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__storage__ = __webpack_require__(791);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__storage__ = __webpack_require__(792);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__storage__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__task__ = __webpack_require__(789);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__task__ = __webpack_require__(790);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__observable_fromTask__ = __webpack_require__(790);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__observable_fromTask__ = __webpack_require__(791);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__storage_module__ = __webpack_require__(845);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__storage_module__ = __webpack_require__(847);
 /* unused harmony namespace reexport */
 
 
@@ -510,14 +510,14 @@ var AngularFireStorage = (function () {
 
 /***/ }),
 
-/***/ 845:
+/***/ 847:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export AngularFireStorageModule */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__storage__ = __webpack_require__(791);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_storage__ = __webpack_require__(846);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__storage__ = __webpack_require__(792);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_storage__ = __webpack_require__(848);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -542,11 +542,11 @@ var AngularFireStorageModule = (function () {
 
 /***/ }),
 
-/***/ 846:
+/***/ 848:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__firebase_storage__ = __webpack_require__(847);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__firebase_storage__ = __webpack_require__(849);
 
 
 /**
@@ -569,7 +569,7 @@ var AngularFireStorageModule = (function () {
 
 /***/ }),
 
-/***/ 847:
+/***/ 849:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4061,7 +4061,7 @@ registerStorage(__WEBPACK_IMPORTED_MODULE_0__firebase_app___default.a);
 
 /***/ }),
 
-/***/ 848:
+/***/ 850:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4069,10 +4069,10 @@ registerStorage(__WEBPACK_IMPORTED_MODULE_0__firebase_app___default.a);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__chatbot_chatbot__ = __webpack_require__(468);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_auth__ = __webpack_require__(462);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__ = __webpack_require__(786);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_auth__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__ = __webpack_require__(787);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__ = __webpack_require__(461);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_fire_storage__ = __webpack_require__(787);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_fire_storage__ = __webpack_require__(788);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_strings__ = __webpack_require__(464);
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
@@ -4287,12 +4287,11 @@ var TabsPage = /** @class */ (function () {
             });
         });
     };
-    var _a, _b, _c, _d, _e, _f;
     TabsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
             selector: 'page-tabs',template:/*ion-inline-start:"F:\ionic-app\src\pages\tabs\tabs.html"*/'<!--\n\n  Generated template for the TabsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n<ion-menu [content]="mycontent" persistent="true" class="sideMenuList">\n\n    \n\n      <ion-header>\n\n      <ion-item no-lines style="text-align:center;background-color: #2679b0">\n\n            \n\n                <img src="{{uri}}" onerror="this.src=\'assets/imgs/companylogo.png\'" style="height:50px;width:50px;border-radius:30%;margin: auto"> \n\n              \n\n            <h4 style="color:#ffffff">{{this.uname | titlecase }}</h4>\n\n            <h6 style="color:#ffffff">{{this.position | titlecase }}</h6>\n\n            <ion-icon name="arrow-dropright" item-right (click)="goto(\'MyprofilePage\')" menuClose></ion-icon>\n\n          </ion-item>\n\n        </ion-header>\n\n      \n\n<ion-content>\n\n  \n\n      <ion-item hidden (click)="uploadHandler()" class="sideMenuList">\n\n          <ion-icon name="images" item-end small></ion-icon>\n\n          Change Image\n\n      </ion-item>\n\n     \n\n      <ion-item (click)="changepassword()" menuClose class="sideMenuList">\n\n          <ion-icon name="lock" item-end small></ion-icon>\n\n          Change Password\n\n      </ion-item>\n\n\n\n      <ion-item (click)="goto(\'PolicyPage\')" menuClose class="sideMenuList">\n\n          <ion-icon name="document" item-end small></ion-icon>\n\n           Company Policy\n\n      </ion-item>\n\n      \n\n      <ion-item no-lines (click)="logout()"  class="sideMenuList">\n\n          <ion-icon name="power" item-end small></ion-icon>\n\n           Logout\n\n      </ion-item>\n\n\n\n      <ion-list-header *ngIf="controllPanel">\n\n          Control Panel\n\n        </ion-list-header>\n\n\n\n      <ion-item (click)="goto(\'NewuserPage\')" menuClose [hidden]=users>\n\n        <ion-icon name="arrow-forward" small item-end></ion-icon>\n\n        Users\n\n      </ion-item>\n\n      <ion-item (click)="goto(\'SystemsPage\')" menuClose [hidden]=systems>\n\n        <ion-icon name="arrow-forward" small item-end></ion-icon>\n\n        Systems\n\n      </ion-item>\n\n      <ion-item (click)="goto(\'RecruitmentPage\')" menuClose [hidden]=recruitment>\n\n        <ion-icon name="arrow-forward" small item-end></ion-icon>\n\n        Recruitment\n\n      </ion-item>\n\n      <ion-item (click)="goto(\'LeavesAdminPage\')" menuClose [hidden]=leaveRequest>\n\n        <ion-icon name="arrow-forward" small item-end></ion-icon>\n\n        Leave Requests\n\n      </ion-item>\n\n      <ion-item (click)="goto(\'UploadEventsPage\')" menuClose [hidden]="sendMessage">\n\n          <ion-icon name="arrow-forward" small item-end></ion-icon>\n\n        Send Message\n\n      </ion-item>\n\n      <ng-container *ngIf="progress | async as percent">\n\n        \n\n          <progress [value]="percent" max="100"></progress>\n\n        \n\n        </ng-container>\n\n     \n\n    </ion-content>\n\n\n\n     <ion-footer>\n\n       <ion-item no-lines>\n\n         <ion-label>IdeaElan | version 0.0.1</ion-label>\n\n       </ion-item>\n\n     </ion-footer>\n\n\n\n      \n\n</ion-menu>\n\n<ion-nav #mycontent [root]="rootPage"></ion-nav>\n\n \n\n\n\n<ion-tabs  >\n\n  <ion-tab [root]="tab0Root"   tabTitle="Home" tabIcon="home" ></ion-tab>\n\n  <ion-tab [root]="tab1Root"   tabTitle="Leave" tabIcon="person" ></ion-tab>\n\n  <ion-tab [root]="tab2Root"   tabTitle="Chatbot" tabIcon="document" ></ion-tab>\n\n  <ion-tab [root]="tab3Root"  tabTitle="Inbox" tabIcon="chatboxes" tabBadge=\'{{this.messages.length}}\' tabBadgeStyle="danger" ></ion-tab>\n\n  <ion-tab [root]="tab4Root"  tabTitle="Support" tabIcon="quote"  ></ion-tab>\n\n</ion-tabs>\n\n\n\n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\tabs\tabs.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__["a" /* AngularFireDatabase */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6__angular_fire_storage__["a" /* AngularFireStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__angular_fire_storage__["a" /* AngularFireStorage */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__angular_fire_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_fire_auth__["a" /* AngularFireAuth */]) === "function" ? _f : Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_6__angular_fire_storage__["a" /* AngularFireStorage */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_3__angular_fire_auth__["a" /* AngularFireAuth */]])
     ], TabsPage);
     return TabsPage;
 }());

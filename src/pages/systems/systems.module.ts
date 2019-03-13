@@ -14,7 +14,8 @@ import { PipesModule } from '../../pipes/pipes.module';
   imports: [
     IonicPageModule.forChild(SystemsPage),
     ComponentsModule,
-    PipesModule
+    PipesModule,
+    
     
   ],
 })

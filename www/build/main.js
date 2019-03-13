@@ -1,4 +1,4 @@
-webpackJsonp([20],{
+webpackJsonp([21],{
 
 /***/ 225:
 /***/ (function(module, exports) {
@@ -23,7 +23,7 @@ webpackEmptyAsyncContext.id = 225;
 var map = {
 	"../pages/admin/admin.module": [
 		724,
-		19
+		20
 	],
 	"../pages/apply-leave/apply-leave.module": [
 		725,
@@ -35,27 +35,27 @@ var map = {
 	],
 	"../pages/changepassword/changepassword.module": [
 		727,
-		18
+		19
 	],
 	"../pages/forgotpassword/forgotpassword.module": [
 		728,
-		17
+		18
 	],
 	"../pages/home/home.module": [
 		729,
-		16
+		17
 	],
 	"../pages/inbox/inbox.module": [
 		730,
-		15
+		16
 	],
 	"../pages/interview-details/interview-details.module": [
 		731,
-		14
+		15
 	],
 	"../pages/interview-summary/interview-summary.module": [
 		732,
-		13
+		14
 	],
 	"../pages/leaves-admin/leaves-admin.module": [
 		733,
@@ -63,42 +63,46 @@ var map = {
 	],
 	"../pages/login/login.module": [
 		734,
+		13
+	],
+	"../pages/modifysystems/modifysystems.module": [
+		735,
 		12
 	],
 	"../pages/myprofile/myprofile.module": [
-		735,
+		736,
 		11
 	],
 	"../pages/newuser/newuser.module": [
-		743,
+		744,
 		0
 	],
 	"../pages/nointernet/nointernet.module": [
-		736,
+		737,
 		10
 	],
 	"../pages/payslip/payslip.module": [
-		737,
+		738,
 		9
 	],
 	"../pages/policy/policy.module": [
-		738,
+		739,
 		8
 	],
 	"../pages/recruitment/recruitment.module": [
-		739,
+		740,
 		3
 	],
 	"../pages/systems/systems.module": [
-		740,
+		741,
 		2
 	],
 	"../pages/tabs/tabs.module": [
-		741,
+		742,
 		1
 	],
 	"../pages/upload-events/upload-events.module": [
-		742,
+		743,
 		7
 	]
 };
@@ -118,7 +122,7 @@ module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 463:
+/***/ 462:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -280,14 +284,14 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_firebase__ = __webpack_require__(720);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_fire_database__ = __webpack_require__(461);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_fire__ = __webpack_require__(110);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_fire_auth__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__angular_fire_auth__ = __webpack_require__(463);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ion2_calendar__ = __webpack_require__(466);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ion2_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17_ion2_calendar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__app_component__ = __webpack_require__(721);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_firebase_service__ = __webpack_require__(722);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_fcm__ = __webpack_require__(471);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_storage__ = __webpack_require__(467);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_components_module__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_components_module__ = __webpack_require__(462);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_page_tite_service__ = __webpack_require__(723);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ionic_native_network__ = __webpack_require__(460);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -347,6 +351,7 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/interview-summary/interview-summary.module#InterviewSummaryPageModule', name: 'InterviewSummaryPage', segment: 'interview-summary', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/leaves-admin/leaves-admin.module#LeavesAdminPageModule', name: 'LeavesAdminPage', segment: 'leaves-admin', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/login/login.module#LoginPageModule', name: 'LoginPage', segment: 'login', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/modifysystems/modifysystems.module#ModifysystemsPageModule', name: 'ModifysystemsPage', segment: 'modifysystems', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/myprofile/myprofile.module#MyprofilePageModule', name: 'MyprofilePage', segment: 'myprofile', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/nointernet/nointernet.module#NointernetPageModule', name: 'NointernetPage', segment: 'nointernet', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/payslip/payslip.module#PayslipPageModule', name: 'PayslipPage', segment: 'payslip', priority: 'low', defaultHistory: [] },

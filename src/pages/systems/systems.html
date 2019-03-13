@@ -20,14 +20,23 @@
       <form [formGroup]="systemsForm" (ngSubmit)="onSubmit()">
       <ion-list>
           <h6 class="title">System Information</h6>
-        
+          <ion-item col-12>
+            <ion-label stacked>Purchase Date</ion-label>
+            <ion-input [disabled]="replace" type="text" readonly formControlName="purchaseDate" (tap)="dispdate('purchaseDate')"  ></ion-input>
+          </ion-item>
+          <ion-item  no-lines *ngIf="(systemsForm.get('purchaseDate').hasError('minlength') || systemsForm.get('purchaseDate').hasError('required') ) && systemsForm.get('purchaseDate').touched">
+            <ion-label stacked  color="danger" *ngIf="(systemsForm.get('purchaseDate').hasError('required')  || systemsForm.get('purchaseDate').hasError('minlength')) && systemsForm.get('purchaseDate').touched" >
+              Purchase date is required
+            </ion-label>
+          </ion-item>
+
             <ion-item col-12>
               <ion-input hidden formControlName="$key"></ion-input>
-              <ion-input hidden formControlName="avValidity"></ion-input>
+              <ion-input hidden formControlName="maintenance"></ion-input>
               <ion-label stacked>System Id</ion-label>
-              <ion-input type="text" formControlName="systemId"></ion-input>
+              <ion-input type="text" [readonly]="replace" formControlName="systemId"></ion-input>
              
-                <button ion-button type="button" color="blue" (click)="scanBarCode('system')" small item-right>
+                <button *ngIf="!replace" ion-button type="button" color="blue" (click)="scanBarCode('system')" small item-right>
                   <ion-icon name="barcode"> </ion-icon>
                 </button>
                
@@ -45,8 +54,14 @@
              
                 <ion-item col-12>
                   <ion-label stacked>Keyboard</ion-label>
-                  <ion-input type="text" formControlName="keyboard" ></ion-input>
-                    <button ion-button small type="button" (click)="scanBarCode('keyboard')" color="blue" item-right>
+                  <ion-input type="text" [readonly]="replace" formControlName="keyboard" ></ion-input>
+                 
+                  <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify('keyboard')">
+                    <ion-icon  small name="create" ></ion-icon>
+                  </button>
+                  
+                  
+                  <button *ngIf="!replace"  ion-button small type="button" (click)="scanBarCode('keyboard')" color="blue" item-right>
                       <ion-icon name="barcode"> </ion-icon>
                     </button>
                   </ion-item>
@@ -59,8 +74,11 @@
             
                 <ion-item col-12>
                   <ion-label stacked>Mouse</ion-label>
-                  <ion-input type="text" formControlName="mouse"></ion-input>
-                    <button ion-button small type="button" (click)="scanBarCode('mouse')" color="blue" item-right>
+                  <ion-input type="text" [readonly]="replace" formControlName="mouse"></ion-input>
+                  <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify('mouse')">
+                      <ion-icon  small name="create" ></ion-icon>
+                    </button>
+                    <button *ngIf="!replace" ion-button small type="button"  color="blue" item-right>
                         <ion-icon name="barcode"> </ion-icon>
                       </button>
                   </ion-item>
@@ -73,7 +91,10 @@
 
               <ion-item col-12>
                 <ion-label stacked>Processor</ion-label>
-                <ion-input type="text" formControlName="processor" ></ion-input>
+                <ion-input type="text" [readonly]="replace" formControlName="processor" ></ion-input>
+                <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify('processor')">
+                    <ion-icon  small name="create" ></ion-icon>
+                  </button>
               </ion-item>
               <ion-item  no-lines *ngIf="(systemsForm.get('processor').hasError('minlength') || systemsForm.get('processor').hasError('required') ) && systemsForm.get('processor').touched">
                 <ion-label stacked  color="danger" *ngIf="(systemsForm.get('processor').hasError('required')  || systemsForm.get('processor').hasError('minlength')) && systemsForm.get('processor').touched" >
@@ -83,13 +104,19 @@
              <ion-row  >
               <ion-item  col-6>
                 <ion-label stacked>Primary Memory</ion-label>
-                <ion-input type="text" formControlName="memory" ></ion-input>
+                <ion-input type="text" [readonly]="replace" formControlName="memory" ></ion-input>
+                <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify('memory')">
+                    <ion-icon  small name="create" ></ion-icon>
+                  </button>
               </ion-item>
               
 
               <ion-item no-lines col-6>
                 <ion-label stacked>Hard Disk</ion-label>
-                <ion-input type="text" formControlName="hdd" ></ion-input>
+                <ion-input type="text" [readonly]="replace" formControlName="hdd" ></ion-input>
+                <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify('hdd')">
+                    <ion-icon  small name="create" ></ion-icon>
+                  </button>
               </ion-item>
               
             </ion-row>  
@@ -108,13 +135,30 @@
         
             <ion-item col-12>
               <ion-label stacked>Antivirus Expiry</ion-label>
-              <ion-input type="text" readonly formControlName="avExpiry" (tap)="dispdate()"  ></ion-input>
+              <ion-input type="text" [disabled]="replace" readonly formControlName="avExpiry" (tap)="dispdate('antivirus')"  ></ion-input>
+              <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify('avExpiry')">
+                  <ion-icon  small name="create" ></ion-icon>
+                </button>
             </ion-item>
             <ion-item  no-lines *ngIf="(systemsForm.get('avExpiry').hasError('minlength') || systemsForm.get('avExpiry').hasError('required') ) && systemsForm.get('avExpiry').touched">
               <ion-label stacked  color="danger" *ngIf="(systemsForm.get('avExpiry').hasError('required')  || systemsForm.get('avExpiry').hasError('minlength')) && systemsForm.get('avExpiry').touched" >
                 Antivirus Details is Required
               </ion-label>
             </ion-item>
+
+            <ion-item col-12>
+              <ion-label stacked>User</ion-label>
+              <ion-select formControlName="systemUser">
+                <ion-option *ngFor="let emp of employeeList" [value]="emp.$key">{{emp.fName}} {{emp.lName}}</ion-option>
+              </ion-select>
+              <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify('systemUser')">
+                  <ion-icon  small name="create" ></ion-icon>
+                </button>
+
+            </ion-item>
+
+
+            
           
 
               <ion-row>
@@ -124,7 +168,7 @@
                 </button>
               </ion-col>
               <ion-col col-6>
-                  <button ion-button type="reset"  icon-end full color=blue   >
+                  <button ion-button type="button" (click)=formReset()  icon-end full color=blue   >
                     Cancel
                   </button>
                 </ion-col>

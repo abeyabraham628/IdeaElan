@@ -1,17 +1,17 @@
 webpackJsonp([2],{
 
-/***/ 740:
+/***/ 741:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SystemsPageModule", function() { return SystemsPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_datepicker__ = __webpack_require__(748);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_components_module__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_datepicker__ = __webpack_require__(749);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_components_module__ = __webpack_require__(462);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__systems__ = __webpack_require__(843);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__ = __webpack_require__(768);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__systems__ = __webpack_require__(845);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__ = __webpack_require__(769);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -36,7 +36,7 @@ var SystemsPageModule = /** @class */ (function () {
             imports: [
                 __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_4__systems__["a" /* SystemsPage */]),
                 __WEBPACK_IMPORTED_MODULE_1__components_components_module__["a" /* ComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__["a" /* PipesModule */]
+                __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__["a" /* PipesModule */],
             ],
         })
     ], SystemsPageModule);
@@ -47,7 +47,7 @@ var SystemsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 748:
+/***/ 749:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -106,14 +106,14 @@ var CustomDatePicker = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 768:
+/***/ 769:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PipesModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__momentdate_momentdate__ = __webpack_require__(769);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tablefilter_tablefilter__ = __webpack_require__(770);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__momentdate_momentdate__ = __webpack_require__(770);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tablefilter_tablefilter__ = __webpack_require__(771);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -142,7 +142,7 @@ var PipesModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 769:
+/***/ 770:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -183,7 +183,7 @@ var MomentdatePipe = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 770:
+/***/ 771:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -228,7 +228,7 @@ var TablefilterPipe = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 843:
+/***/ 845:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -239,7 +239,7 @@ var TablefilterPipe = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_datepicker__ = __webpack_require__(748);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_datepicker__ = __webpack_require__(749);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_moment__);
 var __assign = (this && this.__assign) || function () {
@@ -287,23 +287,28 @@ var SystemsPage = /** @class */ (function () {
         this.datePicker = datePicker;
         this.firebase = firebase;
         this.Save = "Save";
+        this.replace = false;
         this.systemsForm = new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormGroup"]({
             $key: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"](null),
+            purchaseDate: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
             systemId: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(5)]),
             keyboard: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
             mouse: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
-            processor: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
+            processor: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(3)]),
             memory: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(3)]),
             hdd: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(3)]),
             avExpiry: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
-            avValidity: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
+            systemUser: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"](''),
+            maintenance: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"](''),
         });
         this.systemArray = [];
+        this.employeeList = [];
         this.systems = "newSystem";
         this.getSystemList();
+        this.getUsers();
     }
     SystemsPage.prototype.ionViewDidLeave = function () {
-        this.navCtrl.popToRoot();
+        //this.navCtrl.popToRoot();
     };
     SystemsPage.prototype.getSystemList = function () {
         this.systemsList = this.firebase.list('systems');
@@ -324,8 +329,10 @@ var SystemsPage = /** @class */ (function () {
             });
         });
         this.loader.dismiss();
+        this.replace = false;
     };
     SystemsPage.prototype.loadForm = function (systems) {
+        this.replace = true;
         this.systems = "newSystem";
         this.Save = "Update";
         this.systemsForm.setValue(systems);
@@ -333,6 +340,7 @@ var SystemsPage = /** @class */ (function () {
     SystemsPage.prototype.updateSystems = function (systems) {
         var _this = this;
         this.systemsList.update(systems.$key, {
+            purchaseDate: systems.purchaseDate,
             systemId: systems.systemId,
             keyboard: systems.keyboard,
             mouse: systems.mouse,
@@ -340,7 +348,6 @@ var SystemsPage = /** @class */ (function () {
             memory: systems.memory,
             hdd: systems.hdd,
             avExpiry: systems.avExpiry,
-            avValidity: systems.avValidity
         }).then(function () {
             var alert = _this.alertCtrl.create({
                 title: "Success",
@@ -353,6 +360,7 @@ var SystemsPage = /** @class */ (function () {
     SystemsPage.prototype.insertSystems = function (systems) {
         var _this = this;
         this.systemsList.push({
+            purchaseDate: systems.purchaseDate,
             systemId: systems.systemId,
             keyboard: systems.keyboard,
             mouse: systems.mouse,
@@ -360,7 +368,6 @@ var SystemsPage = /** @class */ (function () {
             memory: systems.memory,
             hdd: systems.hdd,
             avExpiry: systems.avExpiry,
-            avValidity: systems.avValidity
         }).then(function () {
             var alert = _this.alertCtrl.create({
                 title: "Success",
@@ -399,14 +406,19 @@ var SystemsPage = /** @class */ (function () {
             console.log('Error', err);
         });
     };
-    SystemsPage.prototype.dispdate = function () {
+    SystemsPage.prototype.dispdate = function (type) {
         var _this = this;
         this.datePicker.show({
             date: __WEBPACK_IMPORTED_MODULE_7_moment__().toDate(),
             mode: 'date',
             androidTheme: 5,
         }).then(function (date) {
-            _this.systemsForm.controls['avExpiry'].setValue(__WEBPACK_IMPORTED_MODULE_7_moment__(date['time']).format('D-MMM-YYYY'));
+            if (type === "purchaseDate") {
+                _this.systemsForm.controls['purchaseDate'].setValue(__WEBPACK_IMPORTED_MODULE_7_moment__(date).format('D-MMM-YYYY'));
+            }
+            else {
+                _this.systemsForm.controls['avExpiry'].setValue(__WEBPACK_IMPORTED_MODULE_7_moment__(date).format('D-MMM-YYYY'));
+            }
         }, function (err) { return console.log('Error occurred while getting date: ', err); });
     };
     SystemsPage.prototype.findSystem = function (systemId) {
@@ -419,11 +431,34 @@ var SystemsPage = /** @class */ (function () {
         });
         this.loadForm(result);
     }; //end of function
+    SystemsPage.prototype.getUsers = function () {
+        var _this = this;
+        this.firebase.list("users").snapshotChanges().subscribe(function (list) {
+            _this.employeeList = list.map(function (item) {
+                return {
+                    '$key': item.key,
+                    'fName': item.payload.child('fname').val(),
+                    'lName': item.payload.child('lname').val()
+                };
+            });
+        });
+    };
+    SystemsPage.prototype.formReset = function () {
+        this.systemsForm.reset();
+        this.replace = false;
+    };
+    SystemsPage.prototype.modify = function (fieldName) {
+        var fieldVal = this.systemsForm.controls[fieldName].value;
+        var $key = this.systemsForm.controls['$key'].value;
+        var $userKey = this.systemsForm.controls['systemUser'].value;
+        this.navCtrl.push('ModifysystemsPage', { 'fieldName': fieldName, 'fieldVal': fieldVal, '$key': $key, 'userKey': $userKey });
+    };
+    var _a, _b, _c, _d, _e, _f, _g, _h;
     SystemsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
-            selector: 'page-systems',template:/*ion-inline-start:"F:\ionic-app\src\pages\systems\systems.html"*/'\n\n<ion-header no-border>\n\n  <navbar pageTitle="SYSTEMS"></navbar>\n\n</ion-header>\n\n\n\n\n\n\n\n  <ion-content>\n\n \n\n      <ion-segment [(ngModel)]="systems" color="white" >\n\n         <ion-segment-button value="newSystem">\n\n            Add System\n\n         </ion-segment-button>\n\n         <ion-segment-button value="allSystems" (click)="getSystems()">\n\n           All Systems\n\n         </ion-segment-button>\n\n      </ion-segment>\n\n  <div [ngSwitch]="systems">\n\n    <div *ngSwitchCase="\'newSystem\'">\n\n      <form [formGroup]="systemsForm" (ngSubmit)="onSubmit()">\n\n      <ion-list>\n\n          <h6 class="title">System Information</h6>\n\n        \n\n            <ion-item col-12>\n\n              <ion-input hidden formControlName="$key"></ion-input>\n\n              <ion-input hidden formControlName="avValidity"></ion-input>\n\n              <ion-label stacked>System Id</ion-label>\n\n              <ion-input type="text" formControlName="systemId"></ion-input>\n\n             \n\n                <button ion-button type="button" color="blue" (click)="scanBarCode(\'system\')" small item-right>\n\n                  <ion-icon name="barcode"> </ion-icon>\n\n                </button>\n\n               \n\n            </ion-item>\n\n            <ion-item  no-lines *ngIf="(systemsForm.get(\'systemId\').hasError(\'minlength\') || systemsForm.get(\'systemId\').hasError(\'required\') ) && systemsForm.get(\'systemId\').touched">\n\n\n\n              <ion-label stacked  color="danger" *ngIf="systemsForm.get(\'systemId\').hasError(\'required\') && systemsForm.get(\'systemId\').touched">\n\n              SystemId is required\n\n              </ion-label>\n\n              <ion-label stacked color="danger" *ngIf="systemsForm.get(\'systemId\').hasError(\'minlength\') && systemsForm.get(\'systemId\').touched">\n\n              Minimum of 5 characters\n\n              </ion-label>\n\n              </ion-item>\n\n       \n\n             \n\n                <ion-item col-12>\n\n                  <ion-label stacked>Keyboard</ion-label>\n\n                  <ion-input type="text" formControlName="keyboard" ></ion-input>\n\n                    <button ion-button small type="button" (click)="scanBarCode(\'keyboard\')" color="blue" item-right>\n\n                      <ion-icon name="barcode"> </ion-icon>\n\n                    </button>\n\n                  </ion-item>\n\n                  <ion-item  no-lines *ngIf="(systemsForm.get(\'keyboard\').hasError(\'minlength\') || systemsForm.get(\'keyboard\').hasError(\'required\') ) && systemsForm.get(\'keyboard\').touched">\n\n                    <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'keyboard\').hasError(\'required\')  || systemsForm.get(\'keyboard\').hasError(\'minlength\')) && systemsForm.get(\'keyboard\').touched" >\n\n                      Keyboard Details is Required\n\n                    </ion-label>\n\n                  </ion-item>\n\n           \n\n            \n\n                <ion-item col-12>\n\n                  <ion-label stacked>Mouse</ion-label>\n\n                  <ion-input type="text" formControlName="mouse"></ion-input>\n\n                    <button ion-button small type="button" (click)="scanBarCode(\'mouse\')" color="blue" item-right>\n\n                        <ion-icon name="barcode"> </ion-icon>\n\n                      </button>\n\n                  </ion-item>\n\n                  <ion-item  no-lines *ngIf="(systemsForm.get(\'mouse\').hasError(\'minlength\') || systemsForm.get(\'mouse\').hasError(\'required\') ) && systemsForm.get(\'mouse\').touched">\n\n                    <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'mouse\').hasError(\'required\')  || systemsForm.get(\'mouse\').hasError(\'minlength\')) && systemsForm.get(\'mouse\').touched" >\n\n                      Mouse Details is Required\n\n                    </ion-label>\n\n                  </ion-item>\n\n               \n\n\n\n              <ion-item col-12>\n\n                <ion-label stacked>Processor</ion-label>\n\n                <ion-input type="text" formControlName="processor" ></ion-input>\n\n              </ion-item>\n\n              <ion-item  no-lines *ngIf="(systemsForm.get(\'processor\').hasError(\'minlength\') || systemsForm.get(\'processor\').hasError(\'required\') ) && systemsForm.get(\'processor\').touched">\n\n                <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'processor\').hasError(\'required\')  || systemsForm.get(\'processor\').hasError(\'minlength\')) && systemsForm.get(\'processor\').touched" >\n\n                  Processor Details is Required\n\n                </ion-label>\n\n              </ion-item>\n\n             <ion-row  >\n\n              <ion-item  col-6>\n\n                <ion-label stacked>Primary Memory</ion-label>\n\n                <ion-input type="text" formControlName="memory" ></ion-input>\n\n              </ion-item>\n\n              \n\n\n\n              <ion-item no-lines col-6>\n\n                <ion-label stacked>Hard Disk</ion-label>\n\n                <ion-input type="text" formControlName="hdd" ></ion-input>\n\n              </ion-item>\n\n              \n\n            </ion-row>  \n\n            <ion-row>\n\n            <ion-item col-6 no-lines *ngIf="(systemsForm.get(\'memory\').hasError(\'minlength\') || systemsForm.get(\'memory\').hasError(\'required\') ) && systemsForm.get(\'memory\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'memory\').hasError(\'required\')  || systemsForm.get(\'memory\').hasError(\'minlength\')) && systemsForm.get(\'memory\').touched" >\n\n                Memory Details is Required\n\n              </ion-label>\n\n            </ion-item>\n\n            <ion-item col-6  no-lines *ngIf="(systemsForm.get(\'hdd\').hasError(\'minlength\') || systemsForm.get(\'hdd\').hasError(\'required\') ) && systemsForm.get(\'hdd\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'hdd\').hasError(\'required\')  || systemsForm.get(\'hdd\').hasError(\'minlength\')) && systemsForm.get(\'hdd\').touched" >\n\n                HDD Details is Required\n\n              </ion-label>\n\n            </ion-item>\n\n          </ion-row>\n\n        \n\n            <ion-item col-12>\n\n              <ion-label stacked>Antivirus Expiry</ion-label>\n\n              <ion-input type="text" readonly formControlName="avExpiry" (tap)="dispdate()"  ></ion-input>\n\n            </ion-item>\n\n            <ion-item  no-lines *ngIf="(systemsForm.get(\'avExpiry\').hasError(\'minlength\') || systemsForm.get(\'avExpiry\').hasError(\'required\') ) && systemsForm.get(\'avExpiry\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'avExpiry\').hasError(\'required\')  || systemsForm.get(\'avExpiry\').hasError(\'minlength\')) && systemsForm.get(\'avExpiry\').touched" >\n\n                Antivirus Details is Required\n\n              </ion-label>\n\n            </ion-item>\n\n          \n\n\n\n              <ion-row>\n\n                <ion-col col-6>\n\n                <button ion-button type="submit" [disabled]="systemsForm.invalid" icon-end full color=blue   >\n\n                  Save\n\n                </button>\n\n              </ion-col>\n\n              <ion-col col-6>\n\n                  <button ion-button type="reset"  icon-end full color=blue   >\n\n                    Cancel\n\n                  </button>\n\n                </ion-col>\n\n              </ion-row> \n\n             \n\n      </ion-list>\n\n    </form>\n\n\n\n    \n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'allSystems\'">\n\n      \n\n       <ion-row>\n\n          \n\n          <ion-item col-10  no-lines >\n\n              <ion-searchbar  placeholder="Search User"  [showCancelButton]="shouldShowCancel"  [(ngModel)]="searchString" ><ion-icon name="barcode" item-right> </ion-icon></ion-searchbar>\n\n          </ion-item>\n\n          <ion-item col-2>\n\n              <ion-icon  type="button" name="barcode" (click)="scanBarCode(\'db\')" color="blue"> </ion-icon>\n\n           </ion-item>\n\n        </ion-row>\n\n       \n\n      \n\n      <ion-item>\n\n        <ion-row class="table-title">\n\n          <ion-col col-4 >System Id</ion-col>\n\n          <ion-col col-3 >RAM</ion-col>\n\n          <ion-col col-3 >HDD</ion-col>\n\n          <ion-col col-2 >Antivirus</ion-col>\n\n          <ion-col hidden col-2 >View</ion-col>\n\n        </ion-row>\n\n      </ion-item>\n\n      <ion-item *ngFor=\'let system of systemArray | tableFilter : "systemId" : searchString; let i = index\'>\n\n        <ion-row class="col-text table-bottom-border" (click)="loadForm(system)" >\n\n            <ion-col col-4>{{system.systemId}}</ion-col><ion-col col-3>{{system.memory}}</ion-col><ion-col col-3>{{system.hdd}}</ion-col><ion-col col-2>{{system.avExpiry | momentdate}} Days</ion-col>\n\n        </ion-row>\n\n      </ion-item>\n\n\n\n      \n\n    </div>\n\n\n\n\n\n  </div>\n\n    \n\n  </ion-content>\n\n  \n\n '/*ion-inline-end:"F:\ionic-app\src\pages\systems\systems.html"*/,
+            selector: 'page-systems',template:/*ion-inline-start:"F:\ionic-app\src\pages\systems\systems.html"*/'\n\n<ion-header no-border>\n\n  <navbar pageTitle="SYSTEMS"></navbar>\n\n</ion-header>\n\n\n\n\n\n\n\n  <ion-content>\n\n \n\n      <ion-segment [(ngModel)]="systems" color="white" >\n\n         <ion-segment-button value="newSystem">\n\n            Add System\n\n         </ion-segment-button>\n\n         <ion-segment-button value="allSystems" (click)="getSystems()">\n\n           All Systems\n\n         </ion-segment-button>\n\n      </ion-segment>\n\n  <div [ngSwitch]="systems">\n\n    <div *ngSwitchCase="\'newSystem\'">\n\n      <form [formGroup]="systemsForm" (ngSubmit)="onSubmit()">\n\n      <ion-list>\n\n          <h6 class="title">System Information</h6>\n\n          <ion-item col-12>\n\n            <ion-label stacked>Purchase Date</ion-label>\n\n            <ion-input [disabled]="replace" type="text" readonly formControlName="purchaseDate" (tap)="dispdate(\'purchaseDate\')"  ></ion-input>\n\n          </ion-item>\n\n          <ion-item  no-lines *ngIf="(systemsForm.get(\'purchaseDate\').hasError(\'minlength\') || systemsForm.get(\'purchaseDate\').hasError(\'required\') ) && systemsForm.get(\'purchaseDate\').touched">\n\n            <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'purchaseDate\').hasError(\'required\')  || systemsForm.get(\'purchaseDate\').hasError(\'minlength\')) && systemsForm.get(\'purchaseDate\').touched" >\n\n              Purchase date is required\n\n            </ion-label>\n\n          </ion-item>\n\n\n\n            <ion-item col-12>\n\n              <ion-input hidden formControlName="$key"></ion-input>\n\n              <ion-input hidden formControlName="maintenance"></ion-input>\n\n              <ion-label stacked>System Id</ion-label>\n\n              <ion-input type="text" [readonly]="replace" formControlName="systemId"></ion-input>\n\n             \n\n                <button *ngIf="!replace" ion-button type="button" color="blue" (click)="scanBarCode(\'system\')" small item-right>\n\n                  <ion-icon name="barcode"> </ion-icon>\n\n                </button>\n\n               \n\n            </ion-item>\n\n            <ion-item  no-lines *ngIf="(systemsForm.get(\'systemId\').hasError(\'minlength\') || systemsForm.get(\'systemId\').hasError(\'required\') ) && systemsForm.get(\'systemId\').touched">\n\n\n\n              <ion-label stacked  color="danger" *ngIf="systemsForm.get(\'systemId\').hasError(\'required\') && systemsForm.get(\'systemId\').touched">\n\n              SystemId is required\n\n              </ion-label>\n\n              <ion-label stacked color="danger" *ngIf="systemsForm.get(\'systemId\').hasError(\'minlength\') && systemsForm.get(\'systemId\').touched">\n\n              Minimum of 5 characters\n\n              </ion-label>\n\n              </ion-item>\n\n       \n\n             \n\n                <ion-item col-12>\n\n                  <ion-label stacked>Keyboard</ion-label>\n\n                  <ion-input type="text" [readonly]="replace" formControlName="keyboard" ></ion-input>\n\n                 \n\n                  <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify(\'keyboard\')">\n\n                    <ion-icon  small name="create" ></ion-icon>\n\n                  </button>\n\n                  \n\n                  \n\n                  <button *ngIf="!replace"  ion-button small type="button" (click)="scanBarCode(\'keyboard\')" color="blue" item-right>\n\n                      <ion-icon name="barcode"> </ion-icon>\n\n                    </button>\n\n                  </ion-item>\n\n                  <ion-item  no-lines *ngIf="(systemsForm.get(\'keyboard\').hasError(\'minlength\') || systemsForm.get(\'keyboard\').hasError(\'required\') ) && systemsForm.get(\'keyboard\').touched">\n\n                    <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'keyboard\').hasError(\'required\')  || systemsForm.get(\'keyboard\').hasError(\'minlength\')) && systemsForm.get(\'keyboard\').touched" >\n\n                      Keyboard Details is Required\n\n                    </ion-label>\n\n                  </ion-item>\n\n           \n\n            \n\n                <ion-item col-12>\n\n                  <ion-label stacked>Mouse</ion-label>\n\n                  <ion-input type="text" [readonly]="replace" formControlName="mouse"></ion-input>\n\n                  <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify(\'mouse\')">\n\n                      <ion-icon  small name="create" ></ion-icon>\n\n                    </button>\n\n                    <button *ngIf="!replace" ion-button small type="button"  color="blue" item-right>\n\n                        <ion-icon name="barcode"> </ion-icon>\n\n                      </button>\n\n                  </ion-item>\n\n                  <ion-item  no-lines *ngIf="(systemsForm.get(\'mouse\').hasError(\'minlength\') || systemsForm.get(\'mouse\').hasError(\'required\') ) && systemsForm.get(\'mouse\').touched">\n\n                    <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'mouse\').hasError(\'required\')  || systemsForm.get(\'mouse\').hasError(\'minlength\')) && systemsForm.get(\'mouse\').touched" >\n\n                      Mouse Details is Required\n\n                    </ion-label>\n\n                  </ion-item>\n\n               \n\n\n\n              <ion-item col-12>\n\n                <ion-label stacked>Processor</ion-label>\n\n                <ion-input type="text" [readonly]="replace" formControlName="processor" ></ion-input>\n\n                <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify(\'processor\')">\n\n                    <ion-icon  small name="create" ></ion-icon>\n\n                  </button>\n\n              </ion-item>\n\n              <ion-item  no-lines *ngIf="(systemsForm.get(\'processor\').hasError(\'minlength\') || systemsForm.get(\'processor\').hasError(\'required\') ) && systemsForm.get(\'processor\').touched">\n\n                <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'processor\').hasError(\'required\')  || systemsForm.get(\'processor\').hasError(\'minlength\')) && systemsForm.get(\'processor\').touched" >\n\n                  Processor Details is Required\n\n                </ion-label>\n\n              </ion-item>\n\n             <ion-row  >\n\n              <ion-item  col-6>\n\n                <ion-label stacked>Primary Memory</ion-label>\n\n                <ion-input type="text" [readonly]="replace" formControlName="memory" ></ion-input>\n\n                <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify(\'memory\')">\n\n                    <ion-icon  small name="create" ></ion-icon>\n\n                  </button>\n\n              </ion-item>\n\n              \n\n\n\n              <ion-item no-lines col-6>\n\n                <ion-label stacked>Hard Disk</ion-label>\n\n                <ion-input type="text" [readonly]="replace" formControlName="hdd" ></ion-input>\n\n                <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify(\'hdd\')">\n\n                    <ion-icon  small name="create" ></ion-icon>\n\n                  </button>\n\n              </ion-item>\n\n              \n\n            </ion-row>  \n\n            <ion-row>\n\n            <ion-item col-6 no-lines *ngIf="(systemsForm.get(\'memory\').hasError(\'minlength\') || systemsForm.get(\'memory\').hasError(\'required\') ) && systemsForm.get(\'memory\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'memory\').hasError(\'required\')  || systemsForm.get(\'memory\').hasError(\'minlength\')) && systemsForm.get(\'memory\').touched" >\n\n                Memory Details is Required\n\n              </ion-label>\n\n            </ion-item>\n\n            <ion-item col-6  no-lines *ngIf="(systemsForm.get(\'hdd\').hasError(\'minlength\') || systemsForm.get(\'hdd\').hasError(\'required\') ) && systemsForm.get(\'hdd\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'hdd\').hasError(\'required\')  || systemsForm.get(\'hdd\').hasError(\'minlength\')) && systemsForm.get(\'hdd\').touched" >\n\n                HDD Details is Required\n\n              </ion-label>\n\n            </ion-item>\n\n          </ion-row>\n\n        \n\n            <ion-item col-12>\n\n              <ion-label stacked>Antivirus Expiry</ion-label>\n\n              <ion-input type="text" [disabled]="replace" readonly formControlName="avExpiry" (tap)="dispdate(\'antivirus\')"  ></ion-input>\n\n              <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify(\'avExpiry\')">\n\n                  <ion-icon  small name="create" ></ion-icon>\n\n                </button>\n\n            </ion-item>\n\n            <ion-item  no-lines *ngIf="(systemsForm.get(\'avExpiry\').hasError(\'minlength\') || systemsForm.get(\'avExpiry\').hasError(\'required\') ) && systemsForm.get(\'avExpiry\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'avExpiry\').hasError(\'required\')  || systemsForm.get(\'avExpiry\').hasError(\'minlength\')) && systemsForm.get(\'avExpiry\').touched" >\n\n                Antivirus Details is Required\n\n              </ion-label>\n\n            </ion-item>\n\n\n\n            <ion-item col-12>\n\n              <ion-label stacked>User</ion-label>\n\n              <ion-select formControlName="systemUser">\n\n                <ion-option *ngFor="let emp of employeeList" [value]="emp.$key">{{emp.fName}} {{emp.lName}}</ion-option>\n\n              </ion-select>\n\n              <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify(\'systemUser\')">\n\n                  <ion-icon  small name="create" ></ion-icon>\n\n                </button>\n\n\n\n            </ion-item>\n\n\n\n\n\n            \n\n          \n\n\n\n              <ion-row>\n\n                <ion-col col-6>\n\n                <button ion-button type="submit" [disabled]="systemsForm.invalid" icon-end full color=blue   >\n\n                  Save\n\n                </button>\n\n              </ion-col>\n\n              <ion-col col-6>\n\n                  <button ion-button type="button" (click)=formReset()  icon-end full color=blue   >\n\n                    Cancel\n\n                  </button>\n\n                </ion-col>\n\n              </ion-row> \n\n             \n\n      </ion-list>\n\n    </form>\n\n\n\n    \n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'allSystems\'">\n\n      \n\n       <ion-row>\n\n          \n\n          <ion-item col-10  no-lines >\n\n              <ion-searchbar  placeholder="Search User"  [showCancelButton]="shouldShowCancel"  [(ngModel)]="searchString" ><ion-icon name="barcode" item-right> </ion-icon></ion-searchbar>\n\n          </ion-item>\n\n          <ion-item col-2>\n\n              <ion-icon  type="button" name="barcode" (click)="scanBarCode(\'db\')" color="blue"> </ion-icon>\n\n           </ion-item>\n\n        </ion-row>\n\n       \n\n      \n\n      <ion-item>\n\n        <ion-row class="table-title">\n\n          <ion-col col-4 >System Id</ion-col>\n\n          <ion-col col-3 >RAM</ion-col>\n\n          <ion-col col-3 >HDD</ion-col>\n\n          <ion-col col-2 >Antivirus</ion-col>\n\n          <ion-col hidden col-2 >View</ion-col>\n\n        </ion-row>\n\n      </ion-item>\n\n      <ion-item *ngFor=\'let system of systemArray | tableFilter : "systemId" : searchString; let i = index\'>\n\n        <ion-row class="col-text table-bottom-border" (click)="loadForm(system)" >\n\n            <ion-col col-4>{{system.systemId}}</ion-col><ion-col col-3>{{system.memory}}</ion-col><ion-col col-3>{{system.hdd}}</ion-col><ion-col col-2>{{system.avExpiry | momentdate}} Days</ion-col>\n\n        </ion-row>\n\n      </ion-item>\n\n\n\n      \n\n    </div>\n\n\n\n\n\n  </div>\n\n    \n\n  </ion-content>\n\n  \n\n '/*ion-inline-end:"F:\ionic-app\src\pages\systems\systems.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["LoadingController"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_6__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__["a" /* BarcodeScanner */], __WEBPACK_IMPORTED_MODULE_1__ionic_native_date_picker__["a" /* DatePicker */], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["LoadingController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["LoadingController"]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavController"]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["ModalController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["ModalController"]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6__models_datepicker__["a" /* CustomDatePicker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__models_datepicker__["a" /* CustomDatePicker */]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["AlertController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["AlertController"]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__["a" /* BarcodeScanner */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__["a" /* BarcodeScanner */]) === "function" ? _f : Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_native_date_picker__["a" /* DatePicker */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_native_date_picker__["a" /* DatePicker */]) === "function" ? _g : Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */]) === "function" ? _h : Object])
     ], SystemsPage);
     return SystemsPage;
 }()); //end of class

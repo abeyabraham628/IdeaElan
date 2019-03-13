@@ -1,0 +1,42 @@
+<!--
+  Generated template for the ModifysystemsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <navbar pageTitle="System"></navbar>
+</ion-header>
+
+
+<ion-content padding >
+    
+    
+   
+
+      <ion-item no-lines>
+        <h3 style="font-size:20px">Change {{fieldName}}</h3>
+        <p style="font-size:12px">Enter the new {{fieldName}} details.</p>
+        </ion-item>
+
+       <ion-item >
+        <ion-label stacked></ion-label>
+        <ion-input *ngIf="showDefault" type="text"  [(ngModel)]="default" ></ion-input>
+        <ion-select *ngIf="showSystemUser" [(ngModel)]="systemUser">
+          <ion-option *ngFor="let emp of employeeList" [value]="emp.$key">{{emp.fName}} {{emp.lName}}</ion-option>
+        </ion-select>
+        <ion-input *ngIf="showavExpiry" type="text"   [(ngModel)]="avExpiry" ></ion-input>
+       </ion-item>
+       
+      
+      
+     <ion-row>
+       <ion-item col-6 no-lines>
+         <button ion-button color="blue" style="height:40px;" type="button" (click)="updateSystems()">Save Details</button>
+       </ion-item>
+       
+     </ion-row>
+    
+  
+    <hr/>
+</ion-content>

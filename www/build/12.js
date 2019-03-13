@@ -1,14 +1,15 @@
 webpackJsonp([12],{
 
-/***/ 734:
+/***/ 735:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(837);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModifysystemsPageModule", function() { return ModifysystemsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modifysystems__ = __webpack_require__(839);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,37 +19,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var LoginPageModule = /** @class */ (function () {
-    function LoginPageModule() {
+
+var ModifysystemsPageModule = /** @class */ (function () {
+    function ModifysystemsPageModule() {
     }
-    LoginPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    ModifysystemsPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
+                __WEBPACK_IMPORTED_MODULE_3__modifysystems__["a" /* ModifysystemsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_3__modifysystems__["a" /* ModifysystemsPage */]),
+                __WEBPACK_IMPORTED_MODULE_0__components_components_module__["a" /* ComponentsModule */]
             ],
         })
-    ], LoginPageModule);
-    return LoginPageModule;
+    ], ModifysystemsPageModule);
+    return ModifysystemsPageModule;
 }());
 
-//# sourceMappingURL=login.module.js.map
+//# sourceMappingURL=modifysystems.module.js.map
 
 /***/ }),
 
-/***/ 837:
+/***/ 839:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__ = __webpack_require__(462);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModifysystemsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__ = __webpack_require__(461);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(461);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_strings__ = __webpack_require__(464);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_moment__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -58,134 +60,128 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
 
 
 
 
-
-
-var LoginPage = /** @class */ (function () {
-    function LoginPage(toastCtrl, loadingCtrl, modalCtrl, navCtrl, afAuth, firebase, storage) {
-        this.toastCtrl = toastCtrl;
-        this.loadingCtrl = loadingCtrl;
-        this.modalCtrl = modalCtrl;
+/**
+ * Generated class for the ModifysystemsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ModifysystemsPage = /** @class */ (function () {
+    function ModifysystemsPage(navCtrl, navParams, firebase, alertCtrl) {
         this.navCtrl = navCtrl;
-        this.afAuth = afAuth;
+        this.navParams = navParams;
         this.firebase = firebase;
-        this.storage = storage;
-        this.credentials = {};
-        this.companyLogo = __WEBPACK_IMPORTED_MODULE_4__providers_strings__["a" /* AppConst */].logo;
+        this.alertCtrl = alertCtrl;
+        this.showDefault = false;
+        this.showSystemUser = false;
+        this.showavExpiry = false;
+        this.employeeList = [];
+        this.getUsers();
+        this.params = navParams.data;
     }
-    LoginPage.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        this.loader = this.loadingCtrl.create({
-            content: 'Signin In',
-            dismissOnPageChange: true
-        });
-        this.storage.get('emailId').then(function (emailId) {
-            if (emailId != null) {
-                _this.credentials.emailId = emailId;
-            }
-        });
+    ModifysystemsPage.prototype.ionViewDidLoad = function () {
+        switch (this.params.fieldName) {
+            case 'keyboard':
+                this.fieldName = 'Key Board';
+                this.default = this.params.fieldVal;
+                this.showDefault = true;
+                break;
+            case 'mouse':
+                this.fieldName = 'Mouse';
+                this.default = this.params.fieldVal;
+                this.showDefault = true;
+                break;
+            case 'processor':
+                this.fieldName = 'Processor';
+                this.default = this.params.fieldVal;
+                this.showDefault = true;
+                break;
+            case 'hdd':
+                this.fieldName = 'Hard Disk';
+                this.default = this.params.fieldVal;
+                this.showDefault = true;
+                break;
+            case 'memory':
+                this.fieldName = 'Ram';
+                this.default = this.params.fieldVal;
+                this.showDefault = true;
+                break;
+            case 'avExpiry':
+                this.fieldName = 'Antivirus Expiry';
+                this.avExpiry = this.params.fieldVal;
+                this.showavExpiry = true;
+                break;
+            case 'systemUser':
+                this.fieldName = 'System User';
+                this.systemUser = this.params.fieldVal;
+                this.showSystemUser = true;
+                break;
+        }
     };
-    LoginPage.prototype.signIn = function (user) {
-        return __awaiter(this, void 0, void 0, function () {
-            var loginSuccess, privilleges, tempPassword, error_1, errMsg, toast;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 5, , 6]);
-                        this.loader.present();
-                        return [4 /*yield*/, this.afAuth.auth.signInWithEmailAndPassword('tony.manuel@mca.christuniversity.in', '123456')];
-                    case 1:
-                        loginSuccess = _a.sent();
-                        if (!loginSuccess) return [3 /*break*/, 4];
-                        this.storage.set('emailId', user.emailId);
-                        return [4 /*yield*/, this.firebase.database.ref("users/" + loginSuccess.user.uid).child('data').once('value')
-                            //check whether the user has changed the temporary password
-                        ];
-                    case 2:
-                        privilleges = _a.sent();
-                        return [4 /*yield*/, this.firebase.database.ref("TempLogin/" + loginSuccess.user.uid).once('value')];
-                    case 3:
-                        tempPassword = _a.sent();
-                        // If user is signing in for first time then the user is redirected to change the temporary password
-                        if (tempPassword.val() == null)
-                            this.navCtrl.setRoot('ChangepasswordPage', { 'existingUser': false });
-                        else
-                            this.navCtrl.setRoot('TabsPage', { 'roles': privilleges.val() });
-                        _a.label = 4;
-                    case 4: return [3 /*break*/, 6];
-                    case 5:
-                        error_1 = _a.sent();
-                        this.loader.dismiss();
-                        errMsg = __WEBPACK_IMPORTED_MODULE_4__providers_strings__["a" /* AppConst */].FirebaseError.find(function (e) { return e.code == error_1.code; });
-                        toast = this.toastCtrl.create({
-                            message: errMsg.error,
-                            duration: 5000,
-                        });
-                        toast.present();
-                        return [3 /*break*/, 6];
-                    case 6: return [2 /*return*/];
-                }
+    ModifysystemsPage.prototype.getUsers = function () {
+        var _this = this;
+        this.firebase.list("users").snapshotChanges().subscribe(function (list) {
+            _this.employeeList = list.map(function (item) {
+                return {
+                    '$key': item.key,
+                    'fName': item.payload.child('fname').val(),
+                    'lName': item.payload.child('lname').val()
+                };
             });
         });
-    }; //end of sign in function
-    LoginPage.prototype.forgotPassword = function () {
-        var modal = this.modalCtrl.create('ForgotpasswordPage');
-        modal.present();
     };
-    LoginPage = __decorate([
+    ModifysystemsPage.prototype.updateSystems = function () {
+        var _this = this;
+        var _a;
+        var value;
+        switch (this.params.fieldName) {
+            case 'keyboard':
+            case 'mouse':
+            case 'processor':
+            case 'hdd':
+            case 'memory':
+                value = this.default;
+                break;
+            case 'avExpiry':
+                value = this.avExpiry;
+                break;
+            case 'systemUser':
+                value = this.systemUser;
+                break;
+        }
+        this.firebase.list("systems/" + this.params.$key + "/maintenance").push((_a = {},
+            _a[this.params.fieldName] = value,
+            _a.date = __WEBPACK_IMPORTED_MODULE_3_moment__().format('D-MMM-YYYY'),
+            _a.user = this.params.userKey != this.systemUser ? this.params.userKey : value,
+            _a)).then(function () {
+            var _a;
+            _this.firebase.list("systems").update(_this.params.$key, (_a = {},
+                _a[_this.params.fieldName] = value,
+                _a)).then(function () {
+                var alert = _this.alertCtrl.create({
+                    title: "Success",
+                    message: _this.fieldName + " updated successfully"
+                });
+                alert.present();
+                _this.navCtrl.pop();
+            });
+        });
+    };
+    var _a, _b, _c, _d;
+    ModifysystemsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-login',template:/*ion-inline-start:"F:\ionic-app\src\pages\login\login.html"*/'\n\n<ion-content padding class="top-botton-border login">\n\n  \n\n\n\n<ion-list>\n\n  <ion-thumbnail >\n\n    <ion-img class="ionImage" [src]="companyLogo"></ion-img>\n\n  </ion-thumbnail>\n\n  <ion-item no-lines> \n\n    <ion-input text-center type="email" [(ngModel)]="credentials.emailId" class="input-border" placeholder="USER NAME"></ion-input>\n\n   </ion-item>\n\n  \n\n  <ion-item no-lines    >\n\n    <ion-input text-center type="password" class="input-border" [(ngModel)]="credentials.password" placeholder="PASSWORD"></ion-input>\n\n   </ion-item>\n\n\n\n   \n\n      <button type="button"  full default ion-button color="blue" style="height:40px; border-radius:5px;" (click)="signIn(credentials)">Sign In</button>\n\n      <ion-label color="orange"  text-right (click)="forgotPassword()">Forgot Password</ion-label>\n\n    </ion-list>\n\n\n\n   \n\n   \n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\login\login.html"*/,
+            selector: 'page-modifysystems',template:/*ion-inline-start:"F:\ionic-app\src\pages\modifysystems\modifysystems.html"*/'<!--\n  Generated template for the ModifysystemsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <navbar pageTitle="System"></navbar>\n</ion-header>\n\n\n<ion-content padding >\n    \n    \n   \n\n      <ion-item no-lines>\n        <h3 style="font-size:20px">Change {{fieldName}}</h3>\n        <p style="font-size:12px">Enter the new {{fieldName}} details.</p>\n        </ion-item>\n\n       <ion-item >\n        <ion-label stacked></ion-label>\n        <ion-input *ngIf="showDefault" type="text"  [(ngModel)]="default" ></ion-input>\n        <ion-select *ngIf="showSystemUser" [(ngModel)]="systemUser">\n          <ion-option *ngFor="let emp of employeeList" [value]="emp.$key">{{emp.fName}} {{emp.lName}}</ion-option>\n        </ion-select>\n        <ion-input *ngIf="showavExpiry" type="text"   [(ngModel)]="avExpiry" ></ion-input>\n       </ion-item>\n       \n      \n      \n     <ion-row>\n       <ion-item col-6 no-lines>\n         <button ion-button color="blue" style="height:40px;" type="button" (click)="updateSystems()">Save Details</button>\n       </ion-item>\n       \n     </ion-row>\n    \n  \n    <hr/>\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\modifysystems\modifysystems.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ToastController"],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["LoadingController"],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ModalController"],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"],
-            __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */],
-            __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]])
-    ], LoginPage);
-    return LoginPage;
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["AlertController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["AlertController"]) === "function" ? _d : Object])
+    ], ModifysystemsPage);
+    return ModifysystemsPage;
 }());
 
-//# sourceMappingURL=login.js.map
+//# sourceMappingURL=modifysystems.js.map
 
 /***/ })
 
