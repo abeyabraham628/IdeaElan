@@ -1,8 +1,10 @@
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import {  AngularFireDatabase } from '@angular/fire/database';
 
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import * as moment from 'moment'
+import { DataService } from '../../providers/form-service';
 
 /**
  * Generated class for the ModifysystemsPage page.
@@ -16,6 +18,7 @@ import * as moment from 'moment'
   selector: 'page-modifysystems',
   templateUrl: 'modifysystems.html',
 })
+@Injectable()
 export class ModifysystemsPage {
  
   fieldName:string
@@ -28,7 +31,7 @@ export class ModifysystemsPage {
     systemUser:string;
     avExpiry:string;
    
-  constructor(public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public alertCtrl:AlertController) {
+  constructor(public formData:DataService,public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public alertCtrl:AlertController) {
     this.getUsers()  
     this.params=navParams.data
     
@@ -80,7 +83,7 @@ getUsers(){
   this.firebase.list(`users`).snapshotChanges().subscribe(list=>{
       this.employeeList=list.map(item=>{
         return{
-           '$key':item.key,
+          '$key':item.key,
           'fName':item.payload.child('fname').val(),
           'lName':item.payload.child('lname').val()
         }
@@ -115,10 +118,17 @@ updateSystems(){
         }).then(()=>{
           let alert=this.alertCtrl.create({
             title:"Success",
-            message:this.fieldName+" updated successfully"
+            message:this.fieldName+" updated successfully",
+            buttons: [{
+            text:'OK',
+            handler:()=>{
+              this.formData.changeValue(value)
+              this.navCtrl.pop()
+            }
+            }]
           })
           alert.present();
-          this.navCtrl.pop()
+         
         })
       })
         

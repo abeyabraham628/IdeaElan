@@ -8,3 +8,15 @@ ion-col.radio-combo *{
     color:#372929;
 }
 
+input[disabled] {
+    color:#000 !important;
+    background: none !important;
+    opacity: 1 !important;
+    }
+
+    .select-disabled,ion-label {
+        opacity: 1;
+        .select-icon {
+            visibility: hidden;
+        }
+    }

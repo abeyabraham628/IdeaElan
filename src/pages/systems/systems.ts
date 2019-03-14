@@ -1,3 +1,5 @@
+import { DataService } from './../../providers/form-service';
+
 
 
 import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
@@ -7,8 +9,9 @@ import { Component } from '@angular/core';
 import { IonicPage, AlertController, ModalController, NavController, LoadingController } from 'ionic-angular';
 import {FormControl, FormGroup,Validators} from '@angular/forms'
 import { CustomDatePicker } from '../../models/datepicker';
-import { CalendarModal,CalendarResult} from "ion2-calendar";
+
 import * as moment from 'moment'
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 
@@ -31,10 +34,9 @@ export class SystemsPage {
   searchString: string;
   loader:any;
   Save="Save"
-
   replace  :boolean=false
-  
-    
+  formFieldVal:any
+  formField:any
     systemsForm= new FormGroup({
     $key      :new FormControl(null),
     purchaseDate:new FormControl('',[Validators.required,Validators.minLength(4)]),
@@ -54,15 +56,28 @@ export class SystemsPage {
   
 
  systems:string;
-  constructor(public loadingCtrl:LoadingController,public navCtrl:NavController,public modalCtrl:ModalController,public customDatePicker:CustomDatePicker ,public alertCtrl:AlertController,private barcode:BarcodeScanner,private datePicker:DatePicker,private firebase:AngularFireDatabase) {
+
+  constructor(private data:DataService,public loadingCtrl:LoadingController,public navCtrl:NavController,public modalCtrl:ModalController,public customDatePicker:CustomDatePicker ,public alertCtrl:AlertController,private barcode:BarcodeScanner,private datePicker:DatePicker,private firebase:AngularFireDatabase) {
   this.systems="newSystem";
  this.getSystemList();
  this.getUsers()
 }
 
+tony(){
+ let history=this.systemsForm.controls['maintenance'].value
+ this.navCtrl.push('MaintenancehistoryPage',{data:history})
 
-ionViewDidLeave() {
-  //this.navCtrl.popToRoot();
+}
+
+ionViewDidLoad() {
+  
+  this.data.currentValue.subscribe(item=>this.formFieldVal=item)
+
+}
+
+ionViewWillEnter(){
+  if(this.formField!=null)
+  this.systemsForm.controls[this.formField].setValue(this.formFieldVal)
 }
 
 //systemsList:AngularFireList<any>
@@ -259,14 +274,15 @@ formReset() {
   this.replace=false
 }
 
-modify(fieldName){
 
+
+modify(fieldName){
+  this.formField=fieldName
   let fieldVal=this.systemsForm.controls[fieldName].value
   let $key=this.systemsForm.controls['$key'].value
   let $userKey=this.systemsForm.controls['systemUser'].value
   
   this.navCtrl.push('ModifysystemsPage',{'fieldName':fieldName,'fieldVal':fieldVal,'$key':$key,'userKey':$userKey})
-
 }
 }//end of class
 

@@ -1,6 +1,5 @@
 
-import { NointernetPage } from './../pages/nointernet/nointernet';
-import { AppConst } from './../providers/strings';
+
 import { Component, ViewChild, Input, NgZone } from '@angular/core';
 import { Platform, AlertController, NavController, App, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
@@ -9,8 +8,6 @@ import { Network } from '@ionic-native/network';
 
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
 
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import { Subscription } from 'rxjs/Subscription';
 
 @Component({
   templateUrl: 'app.html'

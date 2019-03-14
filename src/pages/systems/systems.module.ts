@@ -1,3 +1,4 @@
+import { ModifysystemsPage } from './../modifysystems/modifysystems';
 import { CustomDatePicker } from './../../models/datepicker';
 import { ComponentsModule } from './../../components/components.module';
 import { NgModule, OnInit } from '@angular/core';
@@ -17,7 +18,8 @@ import { PipesModule } from '../../pipes/pipes.module';
     PipesModule,
     
     
-  ],
+    
+   ],
 })
 export class SystemsPageModule  {
  }

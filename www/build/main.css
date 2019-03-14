@@ -35902,6 +35902,20 @@ ion-col.radio-combo * {
   color: #372929;
 }
 
+input[disabled] {
+  color: #000 !important;
+  background: none !important;
+  opacity: 1 !important;
+}
+
+.select-disabled, ion-label {
+  opacity: 1;
+}
+
+.select-disabled .select-icon, ion-label .select-icon {
+  visibility: hidden;
+}
+
 .tabs .tabbar {
   background-color: #2679b0;
   border-top: 5px solid #f6a253 !important;

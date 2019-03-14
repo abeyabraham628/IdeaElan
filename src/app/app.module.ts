@@ -28,9 +28,9 @@ import { FIREBASE_CONFIG } from '../providers/firebase-service'
 import {FCM} from '@ionic-native/fcm'
 import { IonicStorageModule } from '@ionic/storage';
 import { ComponentsModule } from '../components/components.module';
-import { DataService } from '../providers/page-tite-service';
+import { DataService } from '../providers/form-service';
 import { Network } from '@ionic-native/network';
-import { TablefilterPipe } from '../pipes/tablefilter/tablefilter';
+
 
 
 

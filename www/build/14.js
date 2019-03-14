@@ -1,14 +1,14 @@
 webpackJsonp([14],{
 
-/***/ 732:
+/***/ 734:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InterviewSummaryPageModule", function() { return InterviewSummaryPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LoginPageModule", function() { return LoginPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__interview_summary__ = __webpack_require__(836);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login__ = __webpack_require__(839);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,45 +18,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var InterviewSummaryPageModule = /** @class */ (function () {
-    function InterviewSummaryPageModule() {
+var LoginPageModule = /** @class */ (function () {
+    function LoginPageModule() {
     }
-    InterviewSummaryPageModule = __decorate([
+    LoginPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__interview_summary__["a" /* InterviewSummaryPage */],
+                __WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__interview_summary__["a" /* InterviewSummaryPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__login__["a" /* LoginPage */]),
             ],
         })
-    ], InterviewSummaryPageModule);
-    return InterviewSummaryPageModule;
+    ], LoginPageModule);
+    return LoginPageModule;
 }());
 
-//# sourceMappingURL=interview-summary.module.js.map
+//# sourceMappingURL=login.module.js.map
 
 /***/ }),
 
-/***/ 836:
+/***/ 839:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InterviewSummaryPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__ = __webpack_require__(461);
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__ = __webpack_require__(463);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_strings__ = __webpack_require__(464);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(467);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -104,70 +96,96 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-/**
- * Generated class for the InterviewSummaryPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var InterviewSummaryPage = /** @class */ (function () {
-    function InterviewSummaryPage(navCtrl, navParams, firebase) {
+
+
+
+var LoginPage = /** @class */ (function () {
+    function LoginPage(toastCtrl, loadingCtrl, modalCtrl, navCtrl, afAuth, firebase, storage) {
+        this.toastCtrl = toastCtrl;
+        this.loadingCtrl = loadingCtrl;
+        this.modalCtrl = modalCtrl;
         this.navCtrl = navCtrl;
-        this.navParams = navParams;
+        this.afAuth = afAuth;
         this.firebase = firebase;
-        this.selectedList = [];
-        this.total_Count = 0;
-        this.attended_Count = 0;
-        this.selected_Count = 0;
-        this.eventDate = navParams.get('eventDate');
-        this.interviewSummary(this.eventDate);
+        this.storage = storage;
+        this.credentials = {};
+        this.companyLogo = __WEBPACK_IMPORTED_MODULE_4__providers_strings__["a" /* AppConst */].logo;
     }
-    InterviewSummaryPage.prototype.ionViewDidLeave = function () {
-        this.navCtrl.popToRoot();
+    LoginPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        this.loader = this.loadingCtrl.create({
+            content: 'Signin In',
+            dismissOnPageChange: true
+        });
+        this.storage.get('emailId').then(function (emailId) {
+            if (emailId != null) {
+                _this.credentials.emailId = emailId;
+            }
+        });
     };
-    InterviewSummaryPage.prototype.goBack = function () {
-        this.navCtrl.pop();
-    };
-    InterviewSummaryPage.prototype.interviewSummary = function (eventKey) {
+    LoginPage.prototype.signIn = function (user) {
         return __awaiter(this, void 0, void 0, function () {
-            var result, key;
-            var _this = this;
+            var loginSuccess, privilleges, tempPassword, error_1, errMsg, toast;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        result = [];
-                        return [4 /*yield*/, this.firebase.database.ref("Applicants").orderByChild('interviewDate').equalTo(eventKey).once("value", function (snapshot) {
-                                snapshot.forEach(function (childSnapshot) {
-                                    result.push(__assign({ $key: childSnapshot.key }, childSnapshot.val()));
-                                    return false;
-                                });
-                            })];
+                        _a.trys.push([0, 5, , 6]);
+                        this.loader.present();
+                        return [4 /*yield*/, this.afAuth.auth.signInWithEmailAndPassword('tony.manuel@mca.christuniversity.in', '123456')];
                     case 1:
-                        _a.sent(); //end of Applicants reference
-                        this.total_Count = result.length;
-                        result.forEach(function (element) {
-                            if (element.interviewStatus == "selected") {
-                                _this.selectedList.push(element);
-                                _this.attended_Count += 1;
-                            }
-                            else if (element.interviewStatus == "reported")
-                                _this.attended_Count += 1;
+                        loginSuccess = _a.sent();
+                        if (!loginSuccess) return [3 /*break*/, 4];
+                        this.storage.set('emailId', user.emailId);
+                        return [4 /*yield*/, this.firebase.database.ref("users/" + loginSuccess.user.uid).child('data').once('value')
+                            //check whether the user has changed the temporary password
+                        ];
+                    case 2:
+                        privilleges = _a.sent();
+                        return [4 /*yield*/, this.firebase.database.ref("TempLogin/" + loginSuccess.user.uid).once('value')];
+                    case 3:
+                        tempPassword = _a.sent();
+                        // If user is signing in for first time then the user is redirected to change the temporary password
+                        if (tempPassword.val() == null)
+                            this.navCtrl.setRoot('ChangepasswordPage', { 'existingUser': false });
+                        else
+                            this.navCtrl.setRoot('TabsPage', { 'roles': privilleges.val() });
+                        _a.label = 4;
+                    case 4: return [3 /*break*/, 6];
+                    case 5:
+                        error_1 = _a.sent();
+                        this.loader.dismiss();
+                        errMsg = __WEBPACK_IMPORTED_MODULE_4__providers_strings__["a" /* AppConst */].FirebaseError.find(function (e) { return e.code == error_1.code; });
+                        toast = this.toastCtrl.create({
+                            message: errMsg.error,
+                            duration: 5000,
                         });
-                        return [2 /*return*/];
+                        toast.present();
+                        return [3 /*break*/, 6];
+                    case 6: return [2 /*return*/];
                 }
             });
         });
-    }; //end of function
-    InterviewSummaryPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-interview-summary',template:/*ion-inline-start:"F:\ionic-app\src\pages\interview-summary\interview-summary.html"*/'<!--\n  Generated template for the InterviewSummaryPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n\n<ion-content style="margin-top:55px;" >\n  <ion-card>\n    <ion-card-header>\n     <ion-row> Interview Summary</ion-row>\n     \n     <ion-row>26/05/2019</ion-row>\n     <ion-row><ion-col col-6>Total Candidates:{{total_Count}}</ion-col><ion-col col-6 ><ion-icon  name="arrow-back" (click)="goBack()"></ion-icon></ion-col></ion-row>\n     <ion-row> Attended:{{attended_Count}}</ion-row>\n     <ion-row> Selected:{{selectedList.length}}</ion-row>\n    </ion-card-header>\n  </ion-card>\n  \n      <ion-list >\n    <h6 class="title section-title">Selected Candidates</h6>\n    <ion-item>\n      <ion-row class="table-title">\n        <ion-col col-4 >Name</ion-col>\n      </ion-row>\n    </ion-item>\n    <div *ngFor="let x of selectedList">\n    <ion-item no-lines  >\n      <ion-row  class="col-text" >\n          <ion-col col-6  style="color: #66887F;">\n           {{x.fName}} {{x.lName}}\n          </ion-col>\n          <ion-col col-4  style="color:#2679B0;" >\n           Notice Period:{{x.noticePeriod}}\n          </ion-col><br/>\n        \n       \n          <ion-col col-6  style="color: #66887F;">\n           {{x.employer}}\n          </ion-col>\n          <ion-col col-6  style="color:#2679B0;" >\n           Current CTC:{{x.currentctc}}\n          </ion-col><br/>\n        \n          <ion-col col-6  style="color: #66887F;">\n           {{x.mobile}}\n          </ion-col>\n          <ion-col col-6  style="color:#2679B0;" >\n           Expected CTC:{{x.expectedctc}}\n          </ion-col><br/>\n        <ion-col col-12  class="row-bottom-border" style="color: #66887F;">\n          {{x.email}}\n          </ion-col>\n         </ion-row >\n     </ion-item>\n    </div>\n    </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\interview-summary\interview-summary.html"*/,
+    }; //end of sign in function
+    LoginPage.prototype.forgotPassword = function () {
+        var modal = this.modalCtrl.create('ForgotpasswordPage');
+        modal.present();
+    };
+    LoginPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
+            selector: 'page-login',template:/*ion-inline-start:"F:\ionic-app\src\pages\login\login.html"*/'\n\n<ion-content padding class="top-botton-border login">\n\n  \n\n\n\n<ion-list>\n\n  <ion-thumbnail >\n\n    <ion-img class="ionImage" [src]="companyLogo"></ion-img>\n\n  </ion-thumbnail>\n\n  <ion-item no-lines> \n\n    <ion-input text-center type="email" [(ngModel)]="credentials.emailId" class="input-border" placeholder="USER NAME"></ion-input>\n\n   </ion-item>\n\n  \n\n  <ion-item no-lines    >\n\n    <ion-input text-center type="password" class="input-border" [(ngModel)]="credentials.password" placeholder="PASSWORD"></ion-input>\n\n   </ion-item>\n\n\n\n   \n\n      <button type="button"  full default ion-button color="blue" style="height:40px; border-radius:5px;" (click)="signIn(credentials)">Sign In</button>\n\n      <ion-label color="orange"  text-right (click)="forgotPassword()">Forgot Password</ion-label>\n\n    </ion-list>\n\n\n\n   \n\n   \n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\login\login.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__["a" /* AngularFireDatabase */]])
-    ], InterviewSummaryPage);
-    return InterviewSummaryPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ToastController"],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["LoadingController"],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ModalController"],
+            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"],
+            __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */],
+            __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */],
+            __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]])
+    ], LoginPage);
+    return LoginPage;
 }());
 
-//# sourceMappingURL=interview-summary.js.map
+//# sourceMappingURL=login.js.map
 
 /***/ })
 

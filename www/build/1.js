@@ -1,16 +1,16 @@
 webpackJsonp([1],{
 
-/***/ 742:
+/***/ 743:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabsPageModule", function() { return TabsPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_camera__ = __webpack_require__(787);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_storage__ = __webpack_require__(788);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_camera__ = __webpack_require__(788);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_storage__ = __webpack_require__(789);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs__ = __webpack_require__(850);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs__ = __webpack_require__(852);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(462);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -49,7 +49,7 @@ var TabsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 787:
+/***/ 788:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -343,23 +343,23 @@ var Camera = (function (_super) {
 
 /***/ }),
 
-/***/ 788:
+/***/ 789:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__public_api__ = __webpack_require__(846);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__public_api__ = __webpack_require__(848);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_0__public_api__["a"]; });
 
 //# sourceMappingURL=index.js.map
 
 /***/ }),
 
-/***/ 789:
+/***/ 790:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = createStorageRef;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__task__ = __webpack_require__(790);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__task__ = __webpack_require__(791);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs__ = __webpack_require__(16);
 
 
@@ -384,12 +384,12 @@ function createStorageRef(ref, scheduler) {
 
 /***/ }),
 
-/***/ 790:
+/***/ 791:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (immutable) */ __webpack_exports__["a"] = createUploadTask;
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__observable_fromTask__ = __webpack_require__(791);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__observable_fromTask__ = __webpack_require__(792);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_operators__ = __webpack_require__(27);
 
 
@@ -410,7 +410,7 @@ function createUploadTask(task) {
 
 /***/ }),
 
-/***/ 791:
+/***/ 792:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -430,14 +430,14 @@ function fromTask(task) {
 
 /***/ }),
 
-/***/ 792:
+/***/ 793:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export StorageBucket */
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AngularFireStorage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ref__ = __webpack_require__(789);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ref__ = __webpack_require__(790);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire__ = __webpack_require__(110);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -487,19 +487,19 @@ var AngularFireStorage = (function () {
 
 /***/ }),
 
-/***/ 846:
+/***/ 848:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ref__ = __webpack_require__(789);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ref__ = __webpack_require__(790);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__storage__ = __webpack_require__(792);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__storage__ = __webpack_require__(793);
 /* harmony namespace reexport (by used) */ __webpack_require__.d(__webpack_exports__, "a", function() { return __WEBPACK_IMPORTED_MODULE_1__storage__["a"]; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__task__ = __webpack_require__(790);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__task__ = __webpack_require__(791);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__observable_fromTask__ = __webpack_require__(791);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__observable_fromTask__ = __webpack_require__(792);
 /* unused harmony namespace reexport */
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__storage_module__ = __webpack_require__(847);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__storage_module__ = __webpack_require__(849);
 /* unused harmony namespace reexport */
 
 
@@ -510,14 +510,14 @@ var AngularFireStorage = (function () {
 
 /***/ }),
 
-/***/ 847:
+/***/ 849:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* unused harmony export AngularFireStorageModule */
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__storage__ = __webpack_require__(792);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_storage__ = __webpack_require__(848);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__storage__ = __webpack_require__(793);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_firebase_storage__ = __webpack_require__(850);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -542,11 +542,11 @@ var AngularFireStorageModule = (function () {
 
 /***/ }),
 
-/***/ 848:
+/***/ 850:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__firebase_storage__ = __webpack_require__(849);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__firebase_storage__ = __webpack_require__(851);
 
 
 /**
@@ -569,7 +569,7 @@ var AngularFireStorageModule = (function () {
 
 /***/ }),
 
-/***/ 849:
+/***/ 851:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -4061,18 +4061,18 @@ registerStorage(__WEBPACK_IMPORTED_MODULE_0__firebase_app___default.a);
 
 /***/ }),
 
-/***/ 850:
+/***/ 852:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__chatbot_chatbot__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__chatbot_chatbot__ = __webpack_require__(469);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_auth__ = __webpack_require__(463);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__ = __webpack_require__(787);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_camera__ = __webpack_require__(788);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__ = __webpack_require__(461);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_fire_storage__ = __webpack_require__(788);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_fire_storage__ = __webpack_require__(789);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_strings__ = __webpack_require__(464);
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {

@@ -1,6 +1,6 @@
 webpackJsonp([12],{
 
-/***/ 735:
+/***/ 736:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(462);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modifysystems__ = __webpack_require__(839);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modifysystems__ = __webpack_require__(841);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,7 +41,7 @@ var ModifysystemsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 839:
+/***/ 841:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -51,6 +51,7 @@ var ModifysystemsPageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_form_service__ = __webpack_require__(468);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -64,6 +65,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the ModifysystemsPage page.
  *
@@ -71,7 +73,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var ModifysystemsPage = /** @class */ (function () {
-    function ModifysystemsPage(navCtrl, navParams, firebase, alertCtrl) {
+    function ModifysystemsPage(formData, navCtrl, navParams, firebase, alertCtrl) {
+        this.formData = formData;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.firebase = firebase;
@@ -164,19 +167,25 @@ var ModifysystemsPage = /** @class */ (function () {
                 _a)).then(function () {
                 var alert = _this.alertCtrl.create({
                     title: "Success",
-                    message: _this.fieldName + " updated successfully"
+                    message: _this.fieldName + " updated successfully",
+                    buttons: [{
+                            text: 'OK',
+                            handler: function () {
+                                _this.formData.changeValue(value);
+                                _this.navCtrl.pop();
+                            }
+                        }]
                 });
                 alert.present();
-                _this.navCtrl.pop();
             });
         });
     };
-    var _a, _b, _c, _d;
     ModifysystemsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
             selector: 'page-modifysystems',template:/*ion-inline-start:"F:\ionic-app\src\pages\modifysystems\modifysystems.html"*/'<!--\n  Generated template for the ModifysystemsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <navbar pageTitle="System"></navbar>\n</ion-header>\n\n\n<ion-content padding >\n    \n    \n   \n\n      <ion-item no-lines>\n        <h3 style="font-size:20px">Change {{fieldName}}</h3>\n        <p style="font-size:12px">Enter the new {{fieldName}} details.</p>\n        </ion-item>\n\n       <ion-item >\n        <ion-label stacked></ion-label>\n        <ion-input *ngIf="showDefault" type="text"  [(ngModel)]="default" ></ion-input>\n        <ion-select *ngIf="showSystemUser" [(ngModel)]="systemUser">\n          <ion-option *ngFor="let emp of employeeList" [value]="emp.$key">{{emp.fName}} {{emp.lName}}</ion-option>\n        </ion-select>\n        <ion-input *ngIf="showavExpiry" type="text"   [(ngModel)]="avExpiry" ></ion-input>\n       </ion-item>\n       \n      \n      \n     <ion-row>\n       <ion-item col-6 no-lines>\n         <button ion-button color="blue" style="height:40px;" type="button" (click)="updateSystems()">Save Details</button>\n       </ion-item>\n       \n     </ion-row>\n    \n  \n    <hr/>\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\modifysystems\modifysystems.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["AlertController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["AlertController"]) === "function" ? _d : Object])
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__providers_form_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["AlertController"]])
     ], ModifysystemsPage);
     return ModifysystemsPage;
 }());
