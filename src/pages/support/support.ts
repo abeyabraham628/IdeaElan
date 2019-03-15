@@ -1,5 +1,9 @@
+import { AngularFireAuth } from '@angular/fire/auth';
+import { Firebase } from '@ionic-native/firebase';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import * as moment from 'moment';
 
 /**
  * Generated class for the SupportPage page.
@@ -15,12 +19,65 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SupportPage {
 support:string
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+subjectErr:boolean=true
+commentErr:boolean=true
+recpErr:boolean=true
+subject:string
+matter:string
+recipient:string
+  constructor(public toastCtrl:ToastController,public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public afAuth:AngularFireAuth) {
     this.support="newIssue"
+    this.getMyRequests()
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SupportPage');
+  ionViewDidLeave(){
+    this.navCtrl.popToRoot()
+  }
+  
+
+  contactSupport(){
+    
+    this.subject==null?this.subjectErr=false:this.subjectErr=true;
+    this.matter==null?this.commentErr=false:this.commentErr=true
+    this.recipient==null?this.recpErr=false:this.recpErr=true
+    
+    if(this.subjectErr&& this.commentErr&& this.recpErr){
+      this.firebase.list(`support`).push({
+        subject:this.subject,
+        matter:this.matter,
+        recipient:this.recipient,
+        userId:this.afAuth.auth.currentUser.uid,
+        date:moment().format('D-MMM-YYYY'),
+        time:moment().format('h:mm a'),
+        status:'Pending'
+      }).then(()=>{
+        let toast=this.toastCtrl.create({
+            message:"Issue submitted successfully",
+            duration:3000
+        })
+        toast.present()
+        this.resetFields()
+      })
+    }
+    
+
+  }
+
+  resetFields(){
+    this.subject=this.recipient=this.matter=null
+    this.recpErr=this.subjectErr=this.commentErr=true
+  }
+
+  myRequests=[]
+  getMyRequests(){
+    this.firebase.list(`support`,ref=>ref.orderByChild(`userId`).equalTo(`${this.afAuth.auth.currentUser.uid}`)).snapshotChanges().subscribe(snap=>{
+      this.myRequests=snap.map(item=>{
+        return{
+          ...item.payload.val()
+        }
+      })
+    })
+    console.log(this.myRequests)
   }
 
 }

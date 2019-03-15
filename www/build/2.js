@@ -1,17 +1,17 @@
 webpackJsonp([2],{
 
-/***/ 742:
+/***/ 743:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SystemsPageModule", function() { return SystemsPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_datepicker__ = __webpack_require__(750);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_datepicker__ = __webpack_require__(751);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_components_module__ = __webpack_require__(462);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__systems__ = __webpack_require__(847);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__ = __webpack_require__(770);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__systems__ = __webpack_require__(849);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__ = __webpack_require__(771);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -47,7 +47,7 @@ var SystemsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 750:
+/***/ 751:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -106,14 +106,14 @@ var CustomDatePicker = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 770:
+/***/ 771:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PipesModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__momentdate_momentdate__ = __webpack_require__(771);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tablefilter_tablefilter__ = __webpack_require__(772);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__momentdate_momentdate__ = __webpack_require__(772);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tablefilter_tablefilter__ = __webpack_require__(773);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -142,7 +142,7 @@ var PipesModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 771:
+/***/ 772:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -183,7 +183,7 @@ var MomentdatePipe = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 772:
+/***/ 773:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -228,7 +228,7 @@ var TablefilterPipe = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 847:
+/***/ 849:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -240,7 +240,7 @@ var TablefilterPipe = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_forms__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__models_datepicker__ = __webpack_require__(750);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__models_datepicker__ = __webpack_require__(751);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_moment__);
 var __assign = (this && this.__assign) || function () {
@@ -317,9 +317,10 @@ var SystemsPage = /** @class */ (function () {
         this.data.currentValue.subscribe(function (item) { return _this.formFieldVal = item; });
     };
     SystemsPage.prototype.ionViewWillEnter = function () {
-        console.log(this.formField);
-        if (this.formField != null)
+        if (this.formField != null && this.formFieldVal != null) {
             this.systemsForm.controls[this.formField].setValue(this.formFieldVal);
+            this.data.changeValue(null);
+        }
     };
     SystemsPage.prototype.getSystemList = function () {
         this.systemsList = this.firebase.list('systems');
@@ -462,7 +463,6 @@ var SystemsPage = /** @class */ (function () {
     SystemsPage.prototype.modify = function (fieldName) {
         this.formField = fieldName;
         var fieldVal = this.systemsForm.controls[fieldName].value;
-        console.log(fieldVal);
         var $key = this.systemsForm.controls['$key'].value;
         var $userKey = this.systemsForm.controls['systemUser'].value;
         var empObj = this.employeeList.find(function (key) { return key.$key == $userKey; });

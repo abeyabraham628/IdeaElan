@@ -24,8 +24,8 @@ import { DataService } from '../../providers/form-service';
 @Injectable()
 export class ModifysystemsPage {
  
-  fieldName:string
-  params:any
+    fieldName:string
+    params:any
     showDefault:boolean=false;
     showSystemUser:boolean=false;
     showavExpiry:boolean=false;
@@ -33,6 +33,7 @@ export class ModifysystemsPage {
     default:string;
     systemUser:string;
     avExpiry:string;
+    fieldErr:boolean=true
    
   constructor(public barcode:BarcodeScanner,public datePicker:DatePicker,public formData:DataService,public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public alertCtrl:AlertController) {
     this.getUsers()  
@@ -99,6 +100,9 @@ getUsers(){
 }
 
 updateSystems(){
+
+console.log(":fds")
+
   let value:string
   var flag:boolean=false
   var uname:any
@@ -117,7 +121,13 @@ updateSystems(){
                          
                       break;   
   }
-    
+
+    if(value==null || value=="" || value.length<3){
+      this.fieldErr=false;
+      
+    }
+    else{
+      this.fieldErr=true;
       this.firebase.list(`maintenance/${this.params.$key}`).push({
         'type':{'name':this.params.fieldName,'value':flag?uname:value},
         
@@ -144,7 +154,7 @@ updateSystems(){
         })
       })
         
-        
+    }//end of if else error
      
   }
 

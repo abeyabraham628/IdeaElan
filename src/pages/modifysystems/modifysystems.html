@@ -29,8 +29,10 @@
           <ion-option *ngFor="let emp of employeeList" [value]="emp.$key">{{emp.fName}} {{emp.lName}}</ion-option>
         </ion-select>
         <ion-input *ngIf="showavExpiry" type="text" readonly [(ngModel)]="avExpiry" (tap)="dispDate()"></ion-input>
-        
-       </ion-item>
+        </ion-item>
+        <ion-item no-lines [hidden]="fieldErr">
+          <ion-label stacked color="danger">{{fieldName}} value is invalid</ion-label>
+        </ion-item>
        
       
       

@@ -34,6 +34,7 @@ export class TabsPage {
   tab2Root=ChatbotPage;
   tab3Root='InboxPage';
   tab4Root='SupportPage';
+  tab0Params:any
   
   userId:any
   uri:any;
@@ -52,6 +53,7 @@ export class TabsPage {
   controllPanel:boolean=false
   constructor(private fdb:AngularFireDatabase,public storage: AngularFireStorage,private camera: Camera,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth) {
     this.roles=navParams.get('roles')
+    this.tab0Params=this.roles
     if(this.roles[0]!="null"){
         
       this.users=false

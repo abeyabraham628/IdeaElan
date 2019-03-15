@@ -1,11 +1,10 @@
-import { Component, ViewChild, KeyValueDiffers,ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, NavParams ,Slides, Form, Item, AlertController} from 'ionic-angular';
+import { Component,ChangeDetectorRef } from '@angular/core';
+import { IonicPage, NavController, AlertController, LoadingController } from 'ionic-angular';
 import {AngularFireDatabase,AngularFireList} from '@angular/fire/database';
 import {FormControl,FormGroup,Validators}from '@angular/forms';
 import { DatePicker } from '@ionic-native/date-picker';
-import {Observable} from 'rxjs/observable'
-
 import { InterviewDetailsPage } from '../interview-details/interview-details';
+import * as moment from 'moment';
 /**
  * Generated class for the RecruitmentPage page.
  *
@@ -27,7 +26,7 @@ export class RecruitmentPage {
   candidateSelected=true
   searchString:string
   searchInterview:string
-  constructor(public alertCtrl:AlertController,private firebase:AngularFireDatabase, private datePicker:DatePicker,public navCtrl: NavController,private ref: ChangeDetectorRef) {
+  constructor(public loadingCtrl:LoadingController,public alertCtrl:AlertController,private firebase:AngularFireDatabase, private datePicker:DatePicker,public navCtrl: NavController,private ref: ChangeDetectorRef) {
     this.recruitment="newApplicant";
     this.getApplicants();
   }
@@ -55,6 +54,12 @@ getApplicants(){
   applicantDetails=[];// for storing the applciants retrieved from db
   x:boolean=true
   showApplicants(){
+    let loader=this.loadingCtrl.create({
+      spinner:'dots',
+      content:'Loading',
+       dismissOnPageChange:true
+     })
+     loader.present()
     this.newApplicantForm.reset();
    this.getApplicants().subscribe(
      res=>{ 
@@ -67,6 +72,7 @@ getApplicants(){
         else
          return null
       }).filter(Boolean);//end of map
+      loader.dismiss()
  });//end of subscribe
 
 
@@ -89,6 +95,12 @@ newApplicantForm=new FormGroup({
   
 //Function for saving a new applicant to the database
   saveApplicant(applicantDetails:any){
+    let loader=this.loadingCtrl.create({
+      spinner:'dots',
+      
+       dismissOnPageChange:true
+     })
+     loader.present()
     this.applicantList.push({
         fName:applicantDetails.fName,
         lName:applicantDetails.lName,
@@ -100,6 +112,7 @@ newApplicantForm=new FormGroup({
         experience:applicantDetails.experience,
         expectedctc:applicantDetails.expectedctc
     }).then(()=>{
+      loader.dismiss()
       let alert = this.alertCtrl.create({
         title: "Success",
         subTitle: "Applicant added succesfuly ",
@@ -110,11 +123,51 @@ newApplicantForm=new FormGroup({
     });
   }//end of function
 
+  editCandidate(obj){
+    this.newApplicantForm.setValue(obj);
+    this.recruitment="newApplicant"
+  }
+
+
+  updateApplicant(applicantDetails:any){
+    let loader=this.loadingCtrl.create({
+      spinner:'dots',
+      
+       dismissOnPageChange:true
+     })
+     loader.present()
+    this.applicantList.update(applicantDetails.$key,{
+        fName:applicantDetails.fName,
+        lName:applicantDetails.lName,
+        mobile:applicantDetails.mobile,
+        email:applicantDetails.email,
+        employer:applicantDetails.employer,
+        noticePeriod:applicantDetails.noticePeriod,
+        currentctc:applicantDetails.currentctc,
+        experience:applicantDetails.experience,
+        expectedctc:applicantDetails.expectedctc
+    }).then(()=>{
+      loader.dismiss()
+      let alert = this.alertCtrl.create({
+        title: "Success",
+        subTitle: "Applicant Updated succesfuly ",
+        buttons: ['OK']
+      });
+      
+      alert.present();
+    });
+  }//end of function
+
+
 
   onSubmit(){//submit function of save applicant form 
     if(this.newApplicantForm.controls.$key.value==null){
       this.saveApplicant(this.newApplicantForm.value);// function for saving the form data to the database
       this.newApplicantForm.reset();// reset applicant form after saving
+    }
+    else{
+      this.updateApplicant(this.newApplicantForm.value);// function for saving the form data to the database
+      this.newApplicantForm.reset();
     }
   }
 
@@ -125,7 +178,7 @@ newApplicantForm=new FormGroup({
       androidTheme: 5,
     }).then(
       date=>{
-        this.scheduleForm.controls.scheduleDate.setValue(date.toLocaleDateString())
+        this.scheduleForm.controls.scheduleDate.setValue(moment(date).format('D-MMM-YYYY'))
        },
       err => console.log('Error occurred while getting date: ', err)
     )

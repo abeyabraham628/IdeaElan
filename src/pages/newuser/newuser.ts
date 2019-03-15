@@ -83,7 +83,7 @@ export class NewuserPage {
   users:String
   userItem = {} as userItem;
   userItemRef$: AngularFireList<userItem>
-
+  selectedPrivileges : any = ""
   icons:string="0";
   fnameShow:boolean=true;
   loader:any
@@ -739,7 +739,7 @@ console.log('Cdatas look like  value :', this.datas);
   alert.addButton({
     text: 'Okay',
     handler: data => {
-    
+      this.selectedPrivileges="";
     if(data!=null)
     {
     
@@ -840,9 +840,38 @@ console.log('Cdatas look like  value :', this.datas);
     }
   }
   this.userItem.data=data;
+
  // console.log("database:",data);
   
   //console.log("database:",data);
+  if(this.userItem.data[0]=="value1")
+  {
+    this.selectedPrivileges=this.selectedPrivileges+" Admin , ";
+  }
+  if(this.userItem.data[1]=="value2")
+  {
+    this.selectedPrivileges=this.selectedPrivileges+" Leave Approval , ";
+  }
+  if(this.userItem.data[2]=="value3")
+  {
+    this.selectedPrivileges=this.selectedPrivileges+" View Policy, ";
+  }
+  if(this.userItem.data[3]=="value4")
+  {
+    this.selectedPrivileges=this.selectedPrivileges+" Send Message, ";
+  }
+  if(this.userItem.data[4]=="value5")
+  {
+    this.selectedPrivileges=this.selectedPrivileges+" Recruitment , ";
+  }
+  if(this.userItem.data[5]=="value6")
+  {
+    this.selectedPrivileges=this.selectedPrivileges+" Systems, ";
+  }
+  if(this.userItem.data[6]=="value7")
+  {
+    this.selectedPrivileges=this.selectedPrivileges+" Add User, ";
+  }
       this.testCheckboxOpen = true;
       this.testCheckboxResult = data;
       if(this.butn=="save"||this.butn=="update")

@@ -138,7 +138,15 @@
                                   <ion-checkbox  [(ngModel)]="statuss" ></ion-checkbox>
                                 </ion-col>
                               </ion-row> 
-
+                              <ion-row>
+                                  <ion-item>
+                                      
+                                          <ion-col style=" font-size: 9px" col-12>
+                                            {{selectedPrivileges}}
+                                          </ion-col>
+                                      
+                                  </ion-item>
+                              </ion-row>
                               <ion-row>
                                   
                            <button ion-button  icon-end  full color=blue (click)="btn(userItem)" >

@@ -13,11 +13,67 @@
     <ion-segment-button value="newIssue">
        New Issue
     </ion-segment-button>
-    <ion-segment-button value="pastIssues" (click)="getIssues()">
+    <ion-segment-button value="pastIssues" (click)="resetFields()">
       History
     </ion-segment-button>
  </ion-segment>
 
+ <div [ngSwitch]="support">
+    <div *ngSwitchCase="'newIssue'">
+        <ion-item>
+            <ion-label stacked>Send To</ion-label>
+              <ion-select [(ngModel)]="recipient">
+                <ion-option value="HR">HR</ion-option>
+                <ion-option value="admin">Admin</ion-option>
+              </ion-select>
+          </ion-item>
+          <ion-item  no-lines [hidden]="recpErr">
+            <ion-label color="danger" stacked>Recipient cannot be blank</ion-label>
+          </ion-item>
+     
+      <ion-item>
+        <ion-label stacked>I need Help With</ion-label>
+          <ion-select [(ngModel)]="subject">
+            <ion-option value="Internet Connectivity">Internet Connectivity</ion-option>
+            <ion-option value="Computer Related">Computer Related</ion-option>
+            <ion-option value="Other">Other</ion-option>
+          </ion-select>
+      </ion-item>
+      <ion-item no-lines [hidden]="subjectErr">
+          <ion-label color="danger" stacked>Subject cannot be blank</ion-label>
+        </ion-item>
+      <ion-item>
+        <ion-label stacked>Please enter you concern</ion-label>
+        <ion-textarea rows=5 [(ngModel)]="matter"></ion-textarea>
+      </ion-item>
+      <ion-item  no-lines [hidden]="commentErr">
+          <ion-label color="danger" stacked>Comments cannot be blank</ion-label>
+        </ion-item>
+
+      <ion-row>
+        <ion-col col-6><button ion-button  type="button" color="blue" full (click)="contactSupport()">Send</button></ion-col>
+        <ion-col col-6><button ion-button  type="reset" color="blue" full (click)="resetFields()">Cancel</button></ion-col>
+       
+      </ion-row>
+      
+    </div>
+    <div *ngSwitchCase="'pastIssues'">
+        <ion-item>
+            <ion-row class="table-title">
+              <ion-col col-3 >Date</ion-col>
+              <ion-col col-2 >Send To</ion-col>
+               <ion-col col-5 >Subject</ion-col>
+              <ion-col col-2 >Status</ion-col>
+             
+            </ion-row>
+          </ion-item>
+          <ion-item *ngFor='let r of myRequests'>
+              <ion-row class="col-text table-bottom-border"  >
+                  <ion-col col-3>{{r.date}}</ion-col><ion-col col-2>{{r.recipient}}</ion-col><ion-col col-5>{{r.subject}}</ion-col><ion-col col-2>{{r.status}}</ion-col>
+              </ion-row>
+            </ion-item>
+    </div>
+ </div>
 
  
 </ion-content>

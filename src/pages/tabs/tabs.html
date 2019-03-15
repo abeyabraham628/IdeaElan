@@ -85,7 +85,7 @@
  
 
 <ion-tabs  >
-  <ion-tab [root]="tab0Root"   tabTitle="Home" tabIcon="home" ></ion-tab>
+  <ion-tab [root]="tab0Root"   tabTitle="Home" tabIcon="home"  [rootParams]="tab0Params" ></ion-tab>
   <ion-tab [root]="tab1Root"   tabTitle="Leave" tabIcon="person" ></ion-tab>
   <ion-tab [root]="tab2Root"   tabTitle="Chatbot" tabIcon="document" ></ion-tab>
   <ion-tab [root]="tab3Root"  tabTitle="Inbox" tabIcon="chatboxes" tabBadge='{{this.messages.length}}' tabBadgeStyle="danger" ></ion-tab>

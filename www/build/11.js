@@ -1,14 +1,14 @@
 webpackJsonp([11],{
 
-/***/ 737:
+/***/ 738:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyprofilePageModule", function() { return MyprofilePageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "NointernetPageModule", function() { return NointernetPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__myprofile__ = __webpack_require__(842);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__nointernet__ = __webpack_require__(844);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,35 +18,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var MyprofilePageModule = /** @class */ (function () {
-    function MyprofilePageModule() {
+var NointernetPageModule = /** @class */ (function () {
+    function NointernetPageModule() {
     }
-    MyprofilePageModule = __decorate([
+    NointernetPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__myprofile__["a" /* MyprofilePage */],
+                __WEBPACK_IMPORTED_MODULE_2__nointernet__["a" /* NointernetPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__myprofile__["a" /* MyprofilePage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__nointernet__["a" /* NointernetPage */]),
             ],
         })
-    ], MyprofilePageModule);
-    return MyprofilePageModule;
+    ], NointernetPageModule);
+    return NointernetPageModule;
 }());
 
-//# sourceMappingURL=myprofile.module.js.map
+//# sourceMappingURL=nointernet.module.js.map
 
 /***/ }),
 
-/***/ 842:
+/***/ 844:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyprofilePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__ = __webpack_require__(463);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__ = __webpack_require__(461);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NointernetPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_strings__ = __webpack_require__(465);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,61 +58,32 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
 /**
- * Generated class for the MyprofilePage page.
+ * Generated class for the NointernetPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var MyprofilePage = /** @class */ (function () {
-    function MyprofilePage(toastCtrl, navCtrl, navParams, firebase, afauth) {
-        this.toastCtrl = toastCtrl;
+var NointernetPage = /** @class */ (function () {
+    function NointernetPage(navCtrl, navParams) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.firebase = firebase;
-        this.afauth = afauth;
-        this.retrieveProfile();
-        this.uri = "https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/" + this.afauth.auth.currentUser.uid + ".jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b5";
+        this.offline = __WEBPACK_IMPORTED_MODULE_2__providers_strings__["a" /* AppConst */].offline;
+        this.x = false;
     }
-    MyprofilePage.prototype.retrieveProfile = function () {
-        var _this = this;
-        this.firebase.database.ref("users/" + this.afauth.auth.currentUser.uid).once('value', function (snap) {
-            _this.$key = snap.key;
-            _this.fName = snap.child('fname').val();
-            _this.lName = snap.child('lname').val();
-            _this.email = snap.child('email').val();
-            _this.mobile = snap.child('mobile').val();
-            _this.doj = snap.child('doj').val();
-            _this.dob = snap.child('dob').val();
-            _this.jobTitle = snap.child('position').val();
-        });
+    NointernetPage.prototype.ionViewWillLeave = function () {
+        return false;
     };
-    MyprofilePage.prototype.updateProfile = function () {
-        var _this = this;
-        if (this.$key != "")
-            this.firebase.list('users').update(this.$key, {
-                fname: this.fName,
-                lname: this.lName,
-                mobile: this.mobile
-            }).then(function () {
-                var toast = _this.toastCtrl.create({
-                    message: 'Profile updated successfully',
-                    duration: 3000
-                });
-                toast.present();
-            });
-    };
-    MyprofilePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
-            selector: 'page-myprofile',template:/*ion-inline-start:"F:\ionic-app\src\pages\myprofile\myprofile.html"*/'<ion-header>\n  <ion-navbar color="blue">\n    <ion-title>\n      My Profile\n    </ion-title>\n    <ion-buttons end >\n        <button ion-button icon-only (click)="updateProfile()"> <ion-icon item-left name="checkmark"></ion-icon>Save</button>\n        \n    </ion-buttons>\n   </ion-navbar>\n</ion-header>\n<ion-content>\n    \n   \n        \n      <ion-item  style="text-align:center;">\n            \n            <img src="{{uri}}" onerror="this.src=\'assets/imgs/companylogo.png\'" style="height:100px;width:100px;border-radius:30%;margin: auto"> \n          \n        <h4 >{{this.fName | titlecase }} {{this.lName | titlecase }}</h4>\n        <h6>{{this.jobTitle | titlecase }} </h6>\n        <h6>{{this.email}}</h6>\n        \n        \n      </ion-item>\n            \n          <ion-row>\n              <ion-item col-6>\n                <ion-input hidden [(ngModel)]="$key"></ion-input>\n                \n                <ion-label stacked>First Name</ion-label>\n                <ion-input type="text" [(ngModel)]="fName" ></ion-input>\n              </ion-item>\n              <ion-item col-6>\n                  <ion-label stacked>Last Name</ion-label>\n                  <ion-input type="text"[(ngModel)]="lName"  ></ion-input>\n                </ion-item>\n          </ion-row> \n            \n          <ion-item>\n              <ion-label stacked>Mobile Number</ion-label>\n              <ion-input type="text" [(ngModel)]="mobile" ></ion-input>\n            </ion-item>  \n            \n            <ion-item>\n              <ion-label stacked>Date Of Birth</ion-label>\n              <ion-input disabled type="text" [(ngModel)]="dob" ></ion-input>\n            </ion-item>  \n            <ion-item>\n              <ion-label stacked>Date Of Join</ion-label>\n              <ion-input disabled type="text" [(ngModel)]="doj"></ion-input>\n            </ion-item>  \n            \n\n          \n          </ion-content>'/*ion-inline-end:"F:\ionic-app\src\pages\myprofile\myprofile.html"*/,
+    NointernetPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-nointernet',template:/*ion-inline-start:"F:\ionic-app\src\pages\nointernet\nointernet.html"*/'<!--\n\n  Generated template for the NointernetPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n<ion-content padding>\n\n  \n\n  <img class="ionImage" [src]="offline">\n\n  <ion-list>\n\n    <ion-thumbnail >\n\n    \n\n      \n\n    </ion-thumbnail>\n\n</ion-list>\n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\nointernet\nointernet.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ToastController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */]])
-    ], MyprofilePage);
-    return MyprofilePage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"]])
+    ], NointernetPage);
+    return NointernetPage;
 }());
 
-//# sourceMappingURL=myprofile.js.map
+//# sourceMappingURL=nointernet.js.map
 
 /***/ })
 

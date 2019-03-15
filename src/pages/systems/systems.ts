@@ -265,13 +265,8 @@ getUsers(){
           'fName':item.payload.child('fname').val(),
           'lName':item.payload.child('lname').val()
         }
-       
       })
-      
-
-  })
-
- 
+   })
 }
 
 formReset() {

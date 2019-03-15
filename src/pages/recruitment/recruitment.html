@@ -63,7 +63,7 @@
                   
                     <ion-item> 
                        <ion-label stacked>Email</ion-label>
-                       <ion-input type="email" formControlName="email" maxlength="25" ></ion-input>
+                       <ion-input type="email" formControlName="email"  ></ion-input>
                      </ion-item>
                      <ion-item  no-lines *ngIf="(newApplicantForm.get('email').hasError('minlength') || newApplicantForm.get('email').hasError('required') || newApplicantForm.get('email').hasError('pattern') ) && newApplicantForm.get('email').touched">
                       <ion-label stacked  color="danger" *ngIf="(newApplicantForm.get('email').hasError('minlength') || newApplicantForm.get('email').hasError('required') || newApplicantForm.get('email').hasError('pattern') ) && newApplicantForm.get('email').touched" >
@@ -180,18 +180,20 @@
                         <ion-col col-1 > 
                           <ion-checkbox (ionChange)='selectAll()'></ion-checkbox>
                         </ion-col>
-                        <ion-col col-4>Name</ion-col>
-                         <ion-col col-4>Experience</ion-col>
+                        <ion-col col-3>Name</ion-col>
+                         <ion-col col-3>Exp</ion-col>
                          <ion-col col-3>Interview Date</ion-col>
+                         <ion-col col-2>Edit</ion-col>
                      </ion-row>
      
                      <ion-row no-margin class=" col-text  row-bottom-border" *ngFor='let x of applicantDetails | tableFilter : "fName" : searchString; let i = index'  >
                          <ion-col col-1 > 
-                             <ion-checkbox    (ionChange)="clickSelectBox(x.$key)"></ion-checkbox>
+                             <ion-checkbox (ionChange)="clickSelectBox(x.$key)"></ion-checkbox>
                            </ion-col>
-                           <ion-col col-4>{{x.fName}} {{x.lName}}</ion-col>
-                            <ion-col col-4 >{{x.experience}}</ion-col>
+                           <ion-col col-3>{{x.fName}} {{x.lName}}</ion-col>
+                            <ion-col col-3 >{{x.experience}}</ion-col>
                             <ion-col col-3>Not Set</ion-col>
+                            <ion-col col-2 (click)="editCandidate(x)">Edit</ion-col>
                       </ion-row>
                       <ion-item hidden >
                         <ion-input type="text" formControlName="applicants" ></ion-input>

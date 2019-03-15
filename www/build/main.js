@@ -1,4 +1,4 @@
-webpackJsonp([22],{
+webpackJsonp([23],{
 
 /***/ 225:
 /***/ (function(module, exports) {
@@ -23,95 +23,95 @@ webpackEmptyAsyncContext.id = 225;
 var map = {
 	"../pages/admin/admin.module": [
 		724,
-		46
+		22
 	],
 	"../pages/apply-leave/apply-leave.module": [
 		725,
-		30
+		6
 	],
 	"../pages/approve-leave/approve-leave.module": [
 		726,
-		29
+		5
 	],
 	"../pages/changepassword/changepassword.module": [
 		727,
-		45
+		21
 	],
 	"../pages/forgotpassword/forgotpassword.module": [
 		728,
-		44
+		20
 	],
 	"../pages/home/home.module": [
 		729,
-		43
+		19
 	],
 	"../pages/inbox/inbox.module": [
 		730,
-		42
+		18
 	],
 	"../pages/interview-details/interview-details.module": [
 		731,
-		41
+		17
 	],
 	"../pages/interview-summary/interview-summary.module": [
 		732,
-		40
+		16
 	],
 	"../pages/leaves-admin/leaves-admin.module": [
 		733,
-		28
+		4
 	],
 	"../pages/login/login.module": [
 		734,
-		39
+		15
 	],
 	"../pages/maintenancehistory/maintenancehistory.module": [
 		735,
-		38
+		14
 	],
 	"../pages/modifysystems/modifysystems.module": [
 		736,
-		37
+		13
 	],
 	"../pages/myprofile/myprofile.module": [
 		737,
-		36
+		12
 	],
 	"../pages/newuser/newuser.module": [
-		745,
-		24
+		746,
+		0
 	],
 	"../pages/nointernet/nointernet.module": [
 		738,
-		35
+		11
 	],
 	"../pages/payslip/payslip.module": [
 		739,
-		34
+		10
 	],
 	"../pages/policy/policy.module": [
 		740,
-		33
+		9
 	],
 	"../pages/recruitment/recruitment.module": [
 		741,
-		27
+		3
 	],
 	"../pages/support/support.module": [
-		947,
-		32
+		742,
+		8
 	],
 	"../pages/systems/systems.module": [
-		742,
-		26
+		743,
+		2
 	],
 	"../pages/tabs/tabs.module": [
-		743,
-		25
+		744,
+		1
 	],
 	"../pages/upload-events/upload-events.module": [
-		744,
-		31
+		745,
+		7
 	]
 };
 function webpackAsyncContext(req) {
@@ -403,6 +403,7 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/payslip/payslip.module#PayslipPageModule', name: 'PayslipPage', segment: 'payslip', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/policy/policy.module#PolicyPageModule', name: 'PolicyPage', segment: 'policy', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/recruitment/recruitment.module#RecruitmentPageModule', name: 'RecruitmentPage', segment: 'recruitment', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/support/support.module#SupportPageModule', name: 'SupportPage', segment: 'support', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/systems/systems.module#SystemsPageModule', name: 'SystemsPage', segment: 'systems', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/tabs/tabs.module#TabsPageModule', name: 'TabsPage', segment: 'tabs', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/upload-events/upload-events.module#UploadEventsPageModule', name: 'UploadEventsPage', segment: 'upload-events', priority: 'low', defaultHistory: [] },
