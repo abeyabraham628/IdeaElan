@@ -46,8 +46,20 @@ var MaintenancehistoryPageModule = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MaintenancehistoryPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -59,6 +71,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
 /**
  * Generated class for the MaintenancehistoryPage page.
  *
@@ -66,21 +79,31 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var MaintenancehistoryPage = /** @class */ (function () {
-    function MaintenancehistoryPage(navCtrl, navParams) {
+    function MaintenancehistoryPage(navCtrl, navParams, firebase) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.history = this.navParams.data;
-        console.log(this.history);
+        this.firebase = firebase;
+        this.history = [];
+        this.key = this.navParams.data;
+        this.getHistory();
     }
     MaintenancehistoryPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad MaintenancehistoryPage');
     };
-    var _a, _b;
+    MaintenancehistoryPage.prototype.getHistory = function () {
+        var _this = this;
+        this.firebase.list("maintenance/" + this.key).snapshotChanges().subscribe(function (snap) {
+            _this.history = snap.map(function (item) {
+                return __assign({ $key: item.key }, item.payload.val());
+            });
+            console.log(_this.history);
+        });
+    };
     MaintenancehistoryPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-maintenancehistory',template:/*ion-inline-start:"F:\ionic-app\src\pages\maintenancehistory\maintenancehistory.html"*/'<!--\n  Generated template for the MaintenancehistoryPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <navbar pageTitle="Maintenance History"></navbar>\n</ion-header>\n\n<ion-content padding>\n  <ion-item>\n    <ion-row class="table-title">\n      <ion-col col-4 >Date</ion-col>\n      \n      \n      <ion-col col-3 >Item Changed</ion-col>\n      <ion-col col-5 >User</ion-col>\n    \n    </ion-row>\n  </ion-item>\n  \n\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\maintenancehistory\maintenancehistory.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
+            selector: 'page-maintenancehistory',template:/*ion-inline-start:"F:\ionic-app\src\pages\maintenancehistory\maintenancehistory.html"*/'<!--\n  Generated template for the MaintenancehistoryPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <navbar pageTitle="Maintenance History"></navbar>\n</ion-header>\n\n<ion-content>\n  <ion-item>\n    <ion-row class="table-title">\n      <ion-col col-3 >Date</ion-col>\n      <ion-col col-3 >New Item</ion-col>\n      <ion-col col-3 >New ID</ion-col>\n      <ion-col col-3 >User</ion-col>\n    </ion-row>\n  </ion-item>\n  <ion-item>\n    <ion-row class="col-text table-bottom-border" *ngFor="let h of history"> \n      <ion-col col-3>{{h.date}}</ion-col><ion-col col-3 >{{h.type.name}}</ion-col><ion-col col-3 >{{h.type.value}}</ion-col><ion-col col-3>{{h.userName}}</ion-col>\n    </ion-row>\n  </ion-item>\n  \n\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\maintenancehistory\maintenancehistory.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"]) === "function" ? _b : Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */]])
     ], MaintenancehistoryPage);
     return MaintenancehistoryPage;
 }());

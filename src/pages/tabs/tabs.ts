@@ -33,7 +33,7 @@ export class TabsPage {
   tab1Root='ApplyLeavePage';
   tab2Root=ChatbotPage;
   tab3Root='InboxPage';
-  tab4Root='Support';
+  tab4Root='SupportPage';
   
   userId:any
   uri:any;

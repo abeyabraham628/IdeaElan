@@ -48,7 +48,7 @@ export class SystemsPage {
     hdd       :new FormControl('',[Validators.required,Validators.minLength(3)]),
     avExpiry  :new FormControl('',[Validators.required,Validators.minLength(4)]),
     systemUser  :new FormControl(''),
-    maintenance  :new FormControl(''),
+   
       
    
 });
@@ -64,8 +64,8 @@ export class SystemsPage {
 }
 
 tony(){
- let history=this.systemsForm.controls['maintenance'].value
- this.navCtrl.push('MaintenancehistoryPage',{data:history})
+ 
+  this.navCtrl.push('MaintenancehistoryPage',this.systemsForm.controls['$key'].value)
 
 }
 
@@ -76,8 +76,11 @@ ionViewDidLoad() {
 }
 
 ionViewWillEnter(){
-  if(this.formField!=null)
-  this.systemsForm.controls[this.formField].setValue(this.formFieldVal)
+  
+  if(this.formField!=null && this.formFieldVal!=null  ){
+    this.systemsForm.controls[this.formField].setValue(this.formFieldVal)
+    this.data.changeValue(null) 
+  }
 }
 
 //systemsList:AngularFireList<any>
@@ -159,6 +162,8 @@ insertSystems(systems:any){
     memory:systems.memory,
     hdd:systems.hdd,
     avExpiry:systems.avExpiry,
+    systemUser:systems.systemUser,
+    
    
 }).then(()=>{
   let alert = this.alertCtrl.create({
@@ -281,8 +286,14 @@ modify(fieldName){
   let fieldVal=this.systemsForm.controls[fieldName].value
   let $key=this.systemsForm.controls['$key'].value
   let $userKey=this.systemsForm.controls['systemUser'].value
+  let empObj=this.employeeList.find(key=>key.$key==$userKey)
+  let empName=empObj.fName+" "+empObj.lName
+ 
   
-  this.navCtrl.push('ModifysystemsPage',{'fieldName':fieldName,'fieldVal':fieldVal,'$key':$key,'userKey':$userKey})
+  let params=[
+    {'fieldName':fieldName,'fieldVal':fieldVal,'$key':$key,'userKey':$userKey,'userName':empName}
+  ]
+this.navCtrl.push('ModifysystemsPage',params)
 }
 }//end of class
 

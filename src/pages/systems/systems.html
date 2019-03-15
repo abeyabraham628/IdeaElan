@@ -23,7 +23,7 @@
       <form [formGroup]="systemsForm" (ngSubmit)="onSubmit()">
       <ion-item no-lines>
           <ion-label class="title">System Information</ion-label>
-          <button *ngIf="replace" ion-button item-right small color="blue" type="button" (click)="tony(this.value)" >Maintenance History</button>
+          <button *ngIf="replace" ion-button item-right small color="blue" type="button" (click)="tony()" >Maintenance History</button>
         </ion-item>
           <ion-item>
             <ion-label stacked>Purchase Date</ion-label>
@@ -42,7 +42,7 @@
 
             <ion-item col-12>
               <ion-input hidden formControlName="$key"></ion-input>
-              <ion-input  hidden formControlName="maintenance" ></ion-input>
+             
               <ion-label stacked>System Id</ion-label>
               <ion-input type="text" [disabled]="replace" formControlName="systemId"></ion-input>
              
@@ -64,7 +64,7 @@
              
                 <ion-item col-12>
                   <ion-label stacked>Keyboard</ion-label>
-                  <ion-input type="text" [disabled]="replace" formControlName="keyboard" ></ion-input>
+                  <ion-input type="text" [readonly]="replace" formControlName="keyboard" ></ion-input>
                  
                   <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify('keyboard')">
                     <ion-icon  small name="create" ></ion-icon>
@@ -206,11 +206,9 @@
       <ion-item>
         <ion-row class="table-title">
           <ion-col col-4 >System Id</ion-col>
-          
-          
-          <ion-col col-3 >Antivirus</ion-col>
-          <ion-col col-5 >Maintenance History</ion-col>
-        
+           <ion-col col-3 >RAM</ion-col>
+          <ion-col col-3 >HDD</ion-col>
+          <ion-col col-2 >Antivirus</ion-col>
         </ion-row>
       </ion-item>
       <ion-item *ngFor='let system of systemArray | tableFilter : "systemId" : searchString; let i = index'>

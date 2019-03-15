@@ -46,12 +46,14 @@ var ModifysystemsPageModule = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModifysystemsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__ = __webpack_require__(461);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_form_service__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_barcode_scanner__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_date_picker__ = __webpack_require__(464);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_form_service__ = __webpack_require__(469);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -66,6 +68,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 /**
  * Generated class for the ModifysystemsPage page.
  *
@@ -73,7 +77,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var ModifysystemsPage = /** @class */ (function () {
-    function ModifysystemsPage(formData, navCtrl, navParams, firebase, alertCtrl) {
+    function ModifysystemsPage(barcode, datePicker, formData, navCtrl, navParams, firebase, alertCtrl) {
+        this.barcode = barcode;
+        this.datePicker = datePicker;
         this.formData = formData;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
@@ -84,9 +90,10 @@ var ModifysystemsPage = /** @class */ (function () {
         this.showavExpiry = false;
         this.employeeList = [];
         this.getUsers();
-        this.params = navParams.data;
+        this.params = navParams.data[0];
     }
     ModifysystemsPage.prototype.ionViewDidLoad = function () {
+        console.log(this.params);
         switch (this.params.fieldName) {
             case 'keyboard':
                 this.fieldName = 'Key Board';
@@ -139,7 +146,6 @@ var ModifysystemsPage = /** @class */ (function () {
     };
     ModifysystemsPage.prototype.updateSystems = function () {
         var _this = this;
-        var _a;
         var value;
         switch (this.params.fieldName) {
             case 'keyboard':
@@ -156,11 +162,12 @@ var ModifysystemsPage = /** @class */ (function () {
                 value = this.systemUser;
                 break;
         }
-        this.firebase.list("systems/" + this.params.$key + "/maintenance").push((_a = {},
-            _a[this.params.fieldName] = value,
-            _a.date = __WEBPACK_IMPORTED_MODULE_3_moment__().format('D-MMM-YYYY'),
-            _a.user = this.params.userKey != this.systemUser ? this.params.userKey : value,
-            _a)).then(function () {
+        this.firebase.list("maintenance/" + this.params.$key).push({
+            'type': { 'name': this.params.fieldName, 'value': value },
+            date: __WEBPACK_IMPORTED_MODULE_5_moment__().format('D-MMM-YYYY'),
+            userKey: this.params.userKey != this.systemUser ? this.params.userKey : value,
+            userName: this.params.userName
+        }).then(function () {
             var _a;
             _this.firebase.list("systems").update(_this.params.$key, (_a = {},
                 _a[_this.params.fieldName] = value,
@@ -180,12 +187,30 @@ var ModifysystemsPage = /** @class */ (function () {
             });
         });
     };
+    ModifysystemsPage.prototype.dispdate = function () {
+        var _this = this;
+        this.datePicker.show({
+            date: __WEBPACK_IMPORTED_MODULE_5_moment__().toDate(),
+            mode: 'date',
+            androidTheme: 5,
+        }).then(function (date) {
+            _this.avExpiry = __WEBPACK_IMPORTED_MODULE_5_moment__(date).format('D-MMM-YYYY');
+        }, function (err) { return console.log('Error occurred while getting date: ', err); });
+    };
+    ModifysystemsPage.prototype.scanBarCode = function (type) {
+        var _this = this;
+        this.barcode.scan().then(function (barcodeData) {
+            _this.default = barcodeData.text;
+        }).catch(function (err) {
+            console.log('Error', err);
+        });
+    };
     ModifysystemsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-modifysystems',template:/*ion-inline-start:"F:\ionic-app\src\pages\modifysystems\modifysystems.html"*/'<!--\n  Generated template for the ModifysystemsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <navbar pageTitle="System"></navbar>\n</ion-header>\n\n\n<ion-content padding >\n    \n    \n   \n\n      <ion-item no-lines>\n        <h3 style="font-size:20px">Change {{fieldName}}</h3>\n        <p style="font-size:12px">Enter the new {{fieldName}} details.</p>\n        </ion-item>\n\n       <ion-item >\n        <ion-label stacked></ion-label>\n        <ion-input *ngIf="showDefault" type="text"  [(ngModel)]="default" ></ion-input>\n        <ion-select *ngIf="showSystemUser" [(ngModel)]="systemUser">\n          <ion-option *ngFor="let emp of employeeList" [value]="emp.$key">{{emp.fName}} {{emp.lName}}</ion-option>\n        </ion-select>\n        <ion-input *ngIf="showavExpiry" type="text"   [(ngModel)]="avExpiry" ></ion-input>\n       </ion-item>\n       \n      \n      \n     <ion-row>\n       <ion-item col-6 no-lines>\n         <button ion-button color="blue" style="height:40px;" type="button" (click)="updateSystems()">Save Details</button>\n       </ion-item>\n       \n     </ion-row>\n    \n  \n    <hr/>\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\modifysystems\modifysystems.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
+            selector: 'page-modifysystems',template:/*ion-inline-start:"F:\ionic-app\src\pages\modifysystems\modifysystems.html"*/'<!--\n  Generated template for the ModifysystemsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <navbar pageTitle="System"></navbar>\n</ion-header>\n\n\n<ion-content padding >\n    \n    \n   \n\n      <ion-item no-lines>\n        <h3 style="font-size:20px">Change {{fieldName}}</h3>\n        <p style="font-size:12px">Enter the new {{fieldName}} details.</p>\n        </ion-item>\n\n       <ion-item >\n        <ion-label stacked></ion-label>\n        <ion-input *ngIf="showDefault" type="text"  [(ngModel)]="default" ></ion-input>\n        <button *ngIf="showDefault"  ion-button small type="button" (click)="scanBarCode(\'keyboard\')" color="blue" item-right>\n          <ion-icon name="barcode"> </ion-icon>\n        </button>\n        <ion-select *ngIf="showSystemUser" [(ngModel)]="systemUser">\n          <ion-option *ngFor="let emp of employeeList" [value]="emp.$key">{{emp.fName}} {{emp.lName}}</ion-option>\n        </ion-select>\n        <ion-input *ngIf="showavExpiry" type="text" readonly [(ngModel)]="avExpiry" (tap)="dispDate()"></ion-input>\n        \n       </ion-item>\n       \n      \n      \n     <ion-row>\n       <ion-item col-6 no-lines>\n         <button ion-button color="blue" style="height:40px;" type="button" (click)="updateSystems()">Save Details</button>\n       </ion-item>\n       \n     </ion-row>\n    \n  \n    <hr/>\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\modifysystems\modifysystems.html"*/,
         }),
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__providers_form_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["AlertController"]])
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__ionic_native_barcode_scanner__["a" /* BarcodeScanner */], __WEBPACK_IMPORTED_MODULE_1__ionic_native_date_picker__["a" /* DatePicker */], __WEBPACK_IMPORTED_MODULE_6__providers_form_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["AlertController"]])
     ], ModifysystemsPage);
     return ModifysystemsPage;
 }());

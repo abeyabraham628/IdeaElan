@@ -1,3 +1,6 @@
+import { concatAll } from 'rxjs/operators';
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+import { DatePicker } from '@ionic-native/date-picker';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import {  AngularFireDatabase } from '@angular/fire/database';
 
@@ -31,11 +34,10 @@ export class ModifysystemsPage {
     systemUser:string;
     avExpiry:string;
    
-  constructor(public formData:DataService,public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public alertCtrl:AlertController) {
+  constructor(public barcode:BarcodeScanner,public datePicker:DatePicker,public formData:DataService,public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public alertCtrl:AlertController) {
     this.getUsers()  
-    this.params=navParams.data
-    
-
+    this.params=navParams.data[0]
+   
       
   }
 
@@ -64,7 +66,7 @@ export class ModifysystemsPage {
                         this.showDefault=true
                         break;
       case 'avExpiry' : this.fieldName='Antivirus Expiry';
-                       this.avExpiry=this.params.fieldVal
+                        this.avExpiry=this.params.fieldVal
                         this.showavExpiry=true
                         break;
       case 'systemUser': this.fieldName='System User';
@@ -95,8 +97,11 @@ getUsers(){
 
  
 }
+
 updateSystems(){
   let value:string
+  var flag:boolean=false
+  var uname:any
   switch(this.params.fieldName){
 
     case 'keyboard' : 
@@ -105,13 +110,20 @@ updateSystems(){
     case 'hdd'      : 
     case 'memory'   : value=this.default;break
     case 'avExpiry' : value=this.avExpiry;break;
-    case 'systemUser':value=this.systemUser;break;   
+    case 'systemUser': flag=true
+                      value=this.systemUser;
+                       let empObj=this.employeeList.find(key=>key.$key==this.systemUser)
+                        uname=empObj.fName+" "+empObj.lName;
+                         
+                      break;   
   }
     
-      this.firebase.list(`systems/${this.params.$key}/maintenance`).push({
-        [this.params.fieldName]:value,
+      this.firebase.list(`maintenance/${this.params.$key}`).push({
+        'type':{'name':this.params.fieldName,'value':flag?uname:value},
+        
         date:moment().format('D-MMM-YYYY'),
-        user:this.params.userKey!=this.systemUser?this.params.userKey:value
+        userKey:this.params.userKey!=this.systemUser?this.params.userKey:value,
+        userName:this.params.userName
       }).then(()=>{
         this.firebase.list(`systems`).update(this.params.$key,{
           [this.params.fieldName]:value
@@ -136,10 +148,28 @@ updateSystems(){
      
   }
 
- /* case 'keyboard' : this.fieldName='Key Board';
-  this.firebase.list(`systems`).update(data.$key,{
-      keyboard:data.keyboard
-  })*/
+  dispdate(){
+    this.datePicker.show({
+      date:moment().toDate(),
+      mode:'date',
+      androidTheme: 5,
+    }).then(
+      date=>{
+          this.avExpiry=moment(date).format('D-MMM-YYYY')
+        },
+      err => console.log('Error occurred while getting date: ', err)
+    )
+  }
+
+  scanBarCode(type:string){
+    this.barcode.scan().then(barcodeData => {
+      this.default=barcodeData.text
+     }).catch(err => {
+         console.log('Error', err);
+     });
+  }
+
+
 }
 
 

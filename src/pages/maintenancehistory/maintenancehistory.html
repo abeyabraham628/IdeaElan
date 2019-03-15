@@ -8,15 +8,18 @@
   <navbar pageTitle="Maintenance History"></navbar>
 </ion-header>
 
-<ion-content padding>
+<ion-content>
   <ion-item>
     <ion-row class="table-title">
-      <ion-col col-4 >Date</ion-col>
-      
-      
-      <ion-col col-3 >Item Changed</ion-col>
-      <ion-col col-5 >User</ion-col>
-    
+      <ion-col col-3 >Date</ion-col>
+      <ion-col col-3 >New Item</ion-col>
+      <ion-col col-3 >New ID</ion-col>
+      <ion-col col-3 >User</ion-col>
+    </ion-row>
+  </ion-item>
+  <ion-item>
+    <ion-row class="col-text table-bottom-border" *ngFor="let h of history"> 
+      <ion-col col-3>{{h.date}}</ion-col><ion-col col-3 >{{h.type.name}}</ion-col><ion-col col-3 >{{h.type.value}}</ion-col><ion-col col-3>{{h.userName}}</ion-col>
     </ion-row>
   </ion-item>
   

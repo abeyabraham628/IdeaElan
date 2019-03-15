@@ -23,91 +23,95 @@ webpackEmptyAsyncContext.id = 225;
 var map = {
 	"../pages/admin/admin.module": [
 		724,
-		21
+		46
 	],
 	"../pages/apply-leave/apply-leave.module": [
 		725,
-		6
+		30
 	],
 	"../pages/approve-leave/approve-leave.module": [
 		726,
-		5
+		29
 	],
 	"../pages/changepassword/changepassword.module": [
 		727,
-		20
+		45
 	],
 	"../pages/forgotpassword/forgotpassword.module": [
 		728,
-		19
+		44
 	],
 	"../pages/home/home.module": [
 		729,
-		18
+		43
 	],
 	"../pages/inbox/inbox.module": [
 		730,
-		17
+		42
 	],
 	"../pages/interview-details/interview-details.module": [
 		731,
-		16
+		41
 	],
 	"../pages/interview-summary/interview-summary.module": [
 		732,
-		15
+		40
 	],
 	"../pages/leaves-admin/leaves-admin.module": [
 		733,
-		4
+		28
 	],
 	"../pages/login/login.module": [
 		734,
-		14
+		39
 	],
 	"../pages/maintenancehistory/maintenancehistory.module": [
 		735,
-		13
+		38
 	],
 	"../pages/modifysystems/modifysystems.module": [
 		736,
-		12
+		37
 	],
 	"../pages/myprofile/myprofile.module": [
 		737,
-		11
+		36
 	],
 	"../pages/newuser/newuser.module": [
 		745,
-		0
+		24
 	],
 	"../pages/nointernet/nointernet.module": [
 		738,
-		10
+		35
 	],
 	"../pages/payslip/payslip.module": [
 		739,
-		9
+		34
 	],
 	"../pages/policy/policy.module": [
 		740,
-		8
+		33
 	],
 	"../pages/recruitment/recruitment.module": [
 		741,
-		3
+		27
+	],
+	"../pages/support/support.module": [
+		947,
+		32
 	],
 	"../pages/systems/systems.module": [
 		742,
-		2
+		26
 	],
 	"../pages/tabs/tabs.module": [
 		743,
-		1
+		25
 	],
 	"../pages/upload-events/upload-events.module": [
 		744,
-		7
+		31
 	]
 };
 function webpackAsyncContext(req) {
@@ -168,7 +172,7 @@ var ComponentsModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 464:
+/***/ 465:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -190,7 +194,7 @@ var AppConst = {
 
 /***/ }),
 
-/***/ 468:
+/***/ 469:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -227,7 +231,7 @@ var DataService = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 469:
+/***/ 470:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -310,8 +314,8 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_screen_orientation__ = __webpack_require__(226);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_chatbot_chatbot__ = __webpack_require__(469);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__ = __webpack_require__(473);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_chatbot_chatbot__ = __webpack_require__(470);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__ = __webpack_require__(468);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_platform_browser__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(46);
@@ -319,7 +323,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_status_bar__ = __webpack_require__(459);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_common_http__ = __webpack_require__(713);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__angular_http__ = __webpack_require__(720);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_date_picker__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_date_picker__ = __webpack_require__(464);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_forms__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__angular_common__ = __webpack_require__(48);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_native_firebase__ = __webpack_require__(721);
@@ -330,10 +334,10 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17_ion2_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_17_ion2_calendar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__app_component__ = __webpack_require__(722);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__providers_firebase_service__ = __webpack_require__(723);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_fcm__ = __webpack_require__(472);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_fcm__ = __webpack_require__(473);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_storage__ = __webpack_require__(467);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__components_components_module__ = __webpack_require__(462);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_form_service__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__providers_form_service__ = __webpack_require__(469);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ionic_native_network__ = __webpack_require__(460);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -488,7 +492,7 @@ var PageHeaderComponent = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return OfflineComponent; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_strings__ = __webpack_require__(464);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_strings__ = __webpack_require__(465);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;

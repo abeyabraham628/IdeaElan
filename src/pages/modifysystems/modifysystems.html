@@ -22,10 +22,14 @@
        <ion-item >
         <ion-label stacked></ion-label>
         <ion-input *ngIf="showDefault" type="text"  [(ngModel)]="default" ></ion-input>
+        <button *ngIf="showDefault"  ion-button small type="button" (click)="scanBarCode('keyboard')" color="blue" item-right>
+          <ion-icon name="barcode"> </ion-icon>
+        </button>
         <ion-select *ngIf="showSystemUser" [(ngModel)]="systemUser">
           <ion-option *ngFor="let emp of employeeList" [value]="emp.$key">{{emp.fName}} {{emp.lName}}</ion-option>
         </ion-select>
-        <ion-input *ngIf="showavExpiry" type="text"   [(ngModel)]="avExpiry" ></ion-input>
+        <ion-input *ngIf="showavExpiry" type="text" readonly [(ngModel)]="avExpiry" (tap)="dispDate()"></ion-input>
+        
        </ion-item>
        
       
