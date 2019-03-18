@@ -6,6 +6,7 @@ import { IonicPage, NavController, NavParams, AlertController, LoadingController
 import {FormControl,FormGroup,Validators}from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Designations } from '../../providers/designations';
+import * as moment from 'moment'
 
 /**
  * Generated class for the UploadEventsPage page.
@@ -69,8 +70,8 @@ async publishMessage(){
       });
 })
 
-  this.PublishMessageForm.controls['date'].setValue(new Date().toLocaleDateString())
-  this.PublishMessageForm.controls['time'].setValue(new Date().toLocaleTimeString())
+  this.PublishMessageForm.controls['date'].setValue(moment().format('D-MMM-YYYY'))
+  this.PublishMessageForm.controls['time'].setValue(moment().format('h:mm a'))
   this.PublishMessageForm.controls['postedBy'].setValue(sender)
  
   for(let i=0;i<users.length;i++)
@@ -79,7 +80,8 @@ async publishMessage(){
      'message':this.PublishMessageForm.controls['message'].value,
      'postedBy':this.PublishMessageForm.controls['postedBy'].value,
      'subject':this.PublishMessageForm.controls['subject'].value,
-     'time':this.PublishMessageForm.controls['time'].value
+     'time':this.PublishMessageForm.controls['time'].value,
+     'status':'unread'
    })
 
     this.firebase.list(`sentmessages/${this.afauth.auth.currentUser.uid}`).push({
@@ -92,7 +94,7 @@ async publishMessage(){
 
     let alert = this.alertCtrl.create({
       title: "Success",
-      subTitle: "System updated succesfuly ",
+      subTitle: "Message Sent Successfully",
       buttons: ['OK']
     });
     

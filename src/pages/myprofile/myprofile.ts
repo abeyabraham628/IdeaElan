@@ -1,8 +1,9 @@
+import { Storage } from '@ionic/storage';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
 import { FormGroup, FormControl } from '@angular/forms';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, ModalController } from 'ionic-angular';
 
 /**
  * Generated class for the MyprofilePage page.
@@ -29,9 +30,10 @@ export class MyprofilePage {
   jobTitle:any
 
 
-  constructor(public toastCtrl:ToastController,public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public afauth:AngularFireAuth) {
+  constructor(public cache: Storage,public myModal:ModalController,public toastCtrl:ToastController,public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public afauth:AngularFireAuth) {
     this.retrieveProfile()
-    this.uri=`https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/${this.afauth.auth.currentUser.uid}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b5`
+  
+    this.uri=`https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/${this.afauth.auth.currentUser.uid}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b5${new Date().toLocaleTimeString()}`
 
   }
 
@@ -65,5 +67,28 @@ export class MyprofilePage {
     })
   }
 
+  public clearCache(){
+    this.cache.clear();
+    localStorage.clear();
+ 
+  }
+
+  showmodal()
+  {
+    console.log("hiiii");
+    const mydata={
+      uri :`${this.uri}`
+    };
+    const modal=this.myModal.create('ModalPage',{mydata});
+    modal.onDidDismiss(() => {
+     
+     this.clearCache();
+     this.clearCache;
+     this.uri.clearCache;
+     this.uri=`https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/${this.afauth.auth.currentUser.uid}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b5${new Date().toLocaleTimeString()}`
+  
+  });
+    modal.present();
+  }
 
 }

@@ -1,3 +1,5 @@
+import { Camera } from '@ionic-native/camera';
+import { AngularFireStorage } from '@angular/fire/storage';
 import { PipesModule } from './../pipes/pipes.module';
 import { MomentdatePipe } from './../pipes/momentdate/momentdate';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
@@ -82,6 +84,9 @@ import { Network } from '@ionic-native/network';
     DataService,
     Network,
     ScreenOrientation,
+    AngularFireStorage,
+    Camera,
+    
     
     
 

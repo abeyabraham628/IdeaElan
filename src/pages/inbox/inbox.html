@@ -10,13 +10,13 @@
 
 <ion-content >
     <ion-card *ngFor="let x of messages" >
-      <ion-card-header (click)="viewMessage(x)">
+      <ion-card-header (click)="viewMessage(x)" class={{x.status}}>
       <ion-item>
           <ion-avatar item-start>
             <img src="assets/imgs/companylogo.png">
           </ion-avatar>
           <h4 style="text-transform:capitalize">{{x.postedBy}}</h4>
-          <p >{{x.subject}}</p>
+          <p >Subject:{{x.subject | titlecase}}</p>
           <p>{{x.date}} {{x.time}}</p>
         </ion-item>
       </ion-card-header>

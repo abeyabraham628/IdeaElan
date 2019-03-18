@@ -1,15 +1,14 @@
 webpackJsonp([17],{
 
-/***/ 731:
+/***/ 741:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InterviewDetailsPageModule", function() { return InterviewDetailsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InterviewSummaryPageModule", function() { return InterviewSummaryPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__interview_details__ = __webpack_require__(837);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__interview_summary__ = __webpack_require__(842);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -19,36 +18,34 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var InterviewDetailsPageModule = /** @class */ (function () {
-    function InterviewDetailsPageModule() {
+var InterviewSummaryPageModule = /** @class */ (function () {
+    function InterviewSummaryPageModule() {
     }
-    InterviewDetailsPageModule = __decorate([
+    InterviewSummaryPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__interview_details__["a" /* InterviewDetailsPage */],
+                __WEBPACK_IMPORTED_MODULE_2__interview_summary__["a" /* InterviewSummaryPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__interview_details__["a" /* InterviewDetailsPage */]),
-                __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* ComponentsModule */]
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__interview_summary__["a" /* InterviewSummaryPage */]),
             ],
         })
-    ], InterviewDetailsPageModule);
-    return InterviewDetailsPageModule;
+    ], InterviewSummaryPageModule);
+    return InterviewSummaryPageModule;
 }());
 
-//# sourceMappingURL=interview-details.module.js.map
+//# sourceMappingURL=interview-summary.module.js.map
 
 /***/ }),
 
-/***/ 837:
+/***/ 842:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InterviewDetailsPage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InterviewSummaryPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__ = __webpack_require__(465);
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -104,101 +101,73 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-//import { Firebase } from '@ionic-native/firebase';
 
 
 
 /**
- * Generated class for the InterviewDetailsPage page.
+ * Generated class for the InterviewSummaryPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var InterviewDetailsPage = /** @class */ (function () {
-    function InterviewDetailsPage(navCtrl, navParams, firebase, modalCtrl, alertCtrl) {
+var InterviewSummaryPage = /** @class */ (function () {
+    function InterviewSummaryPage(navCtrl, navParams, firebase) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.firebase = firebase;
-        this.modalCtrl = modalCtrl;
-        this.alertCtrl = alertCtrl;
-        this.eventDate = navParams.get('date');
-        this.eventKey = navParams.get('key');
-        this.loadApplicants(this.eventKey);
+        this.selectedList = [];
+        this.total_Count = 0;
+        this.attended_Count = 0;
+        this.selected_Count = 0;
+        this.eventDate = navParams.get('eventDate');
+        this.interviewSummary(this.eventDate);
     }
-    InterviewDetailsPage.prototype.ionViewDidLeave = function () {
+    InterviewSummaryPage.prototype.ionViewDidLeave = function () {
         this.navCtrl.popToRoot();
     };
-    InterviewDetailsPage.prototype.goBack = function () {
+    InterviewSummaryPage.prototype.goBack = function () {
         this.navCtrl.pop();
     };
-    InterviewDetailsPage.prototype.loadApplicants = function (key) {
+    InterviewSummaryPage.prototype.interviewSummary = function (eventKey) {
         return __awaiter(this, void 0, void 0, function () {
-            var result, x;
+            var result, key;
+            var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        this.applicantsData = [];
                         result = [];
-                        /*this.firebase.database.ref("Schedules").orderByChild('interviewDate').equalTo(date).on("value",function(snapshot) {
-                            x=Object.keys(snapshot.val())[0];
-                        });//end of Schedules reference*/
-                        return [4 /*yield*/, this.firebase.database.ref("Applicants").orderByChild('interviewDate').equalTo(key).once("value", function (snapshot) {
+                        return [4 /*yield*/, this.firebase.database.ref("Applicants").orderByChild('interviewDate').equalTo(eventKey).once("value", function (snapshot) {
                                 snapshot.forEach(function (childSnapshot) {
                                     result.push(__assign({ $key: childSnapshot.key }, childSnapshot.val()));
                                     return false;
                                 });
                             })];
                     case 1:
-                        /*this.firebase.database.ref("Schedules").orderByChild('interviewDate').equalTo(date).on("value",function(snapshot) {
-                            x=Object.keys(snapshot.val())[0];
-                        });//end of Schedules reference*/
                         _a.sent(); //end of Applicants reference
-                        this.applicantsData = result;
+                        this.total_Count = result.length;
+                        result.forEach(function (element) {
+                            if (element.interviewStatus == "selected") {
+                                _this.selectedList.push(element);
+                                _this.attended_Count += 1;
+                            }
+                            else if (element.interviewStatus == "reported")
+                                _this.attended_Count += 1;
+                        });
                         return [2 /*return*/];
                 }
             });
         });
     }; //end of function
-    InterviewDetailsPage.prototype.changeStatus = function (data) {
-        var _this = this;
-        var statusAlert = this.alertCtrl.create();
-        statusAlert.addInput({
-            type: 'radio',
-            label: 'Reported',
-            value: 'reported',
-            checked: false
-        });
-        statusAlert.addInput({
-            type: 'radio',
-            label: 'Selected',
-            value: 'selected',
-            checked: false
-        });
-        statusAlert.addButton({
-            text: 'OK',
-            handler: function (status) {
-                _this.firebase.list('Applicants').update(data.$key, { interviewStatus: status });
-                _this.loadApplicants(_this.eventKey);
-            }
-        });
-        statusAlert.setTitle(data.fName + " " + data.lName);
-        statusAlert.addButton('Cancel');
-        statusAlert.present();
-    };
-    InterviewDetailsPage.prototype.interviewSummary = function (eventDate) {
-        var summaryModal = this.modalCtrl.create('InterviewSummaryPage', { eventDate: eventDate });
-        summaryModal.present();
-    };
-    InterviewDetailsPage = __decorate([
+    InterviewSummaryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-interview-details',template:/*ion-inline-start:"F:\ionic-app\src\pages\interview-details\interview-details.html"*/'\n<ion-header no-border>\n  <page-header pageTitle="RECRUITMENTS"></page-header>\n</ion-header>\n\n<ion-content  >\n <ion-list >\n       {{eventDate}}  <button item-right ion-button (click)="goBack()">Back</button>\n       <button item-right ion-button (click)="interviewSummary(eventKey)">Summary</button>\n         <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>\n        \n                <ion-row no-margin class="table-title row-bottom-border"> \n                   \n                   <ion-col col-4>Applicant Name</ion-col>\n                    <ion-col col-3>Phone</ion-col>\n                    <ion-col col-3>Status</ion-col>\n                </ion-row>\n\n                <ion-row no-margin class="table-title row-bottom-border" *ngFor="let x of applicantsData"> \n                   \n                  <ion-col col-4>{{x.fName}} {{x.lName}}</ion-col>\n                   <ion-col col-3>{{x.mobile}}</ion-col>\n                   <ion-col col-3>{{x.interviewStatus}}</ion-col>\n                   <ion-col col-2 (click)="changeStatus(x)">Change</ion-col>\n               </ion-row>\n\n                \n        </ion-list>\n      \n\n\n</ion-content>'/*ion-inline-end:"F:\ionic-app\src\pages\interview-details\interview-details.html"*/,
+            selector: 'page-interview-summary',template:/*ion-inline-start:"F:\ionic-app\src\pages\interview-summary\interview-summary.html"*/'<!--\n  Generated template for the InterviewSummaryPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n\n\n\n<ion-content style="margin-top:55px;" >\n  <ion-card>\n    <ion-card-header>\n     <ion-row> Interview Summary</ion-row>\n     \n     <ion-row>26/05/2019</ion-row>\n     <ion-row><ion-col col-6>Total Candidates:{{total_Count}}</ion-col><ion-col col-6 ><ion-icon  name="arrow-back" (click)="goBack()"></ion-icon></ion-col></ion-row>\n     <ion-row> Attended:{{attended_Count}}</ion-row>\n     <ion-row> Selected:{{selectedList.length}}</ion-row>\n    </ion-card-header>\n  </ion-card>\n  \n      <ion-list >\n    <h6 class="title section-title">Selected Candidates</h6>\n    <ion-item>\n      <ion-row class="table-title">\n        <ion-col col-4 >Name</ion-col>\n      </ion-row>\n    </ion-item>\n    <div *ngFor="let x of selectedList">\n    <ion-item no-lines  >\n      <ion-row  class="col-text" >\n          <ion-col col-6  style="color: #66887F;">\n           {{x.fName}} {{x.lName}}\n          </ion-col>\n          <ion-col col-4  style="color:#2679B0;" >\n           Notice Period:{{x.noticePeriod}}\n          </ion-col><br/>\n        \n       \n          <ion-col col-6  style="color: #66887F;">\n           {{x.employer}}\n          </ion-col>\n          <ion-col col-6  style="color:#2679B0;" >\n           Current CTC:{{x.currentctc}}\n          </ion-col><br/>\n        \n          <ion-col col-6  style="color: #66887F;">\n           {{x.mobile}}\n          </ion-col>\n          <ion-col col-6  style="color:#2679B0;" >\n           Expected CTC:{{x.expectedctc}}\n          </ion-col><br/>\n        <ion-col col-12  class="row-bottom-border" style="color: #66887F;">\n          {{x.email}}\n          </ion-col>\n         </ion-row >\n     </ion-item>\n    </div>\n    </ion-list>\n\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\interview-summary\interview-summary.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"]])
-    ], InterviewDetailsPage);
-    return InterviewDetailsPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__["a" /* AngularFireDatabase */]])
+    ], InterviewSummaryPage);
+    return InterviewSummaryPage;
 }());
 
-//# sourceMappingURL=interview-details.js.map
+//# sourceMappingURL=interview-summary.js.map
 
 /***/ })
 

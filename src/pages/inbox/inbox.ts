@@ -49,17 +49,26 @@ getMessages(){
         ...item.payload.val()
       }
 
-    })
+    }).reverse()
   })
   this.loader.dismiss()
   
 }
 
 viewMessage(x) {
+  console.log(x.$key)
   const alert = this.alertCtrl.create({
     title: x.subject,
     message:x.message,
-    buttons: ['OK']
+    buttons: [{
+      text:'OK',
+      handler:()=>{
+        this.firebase.object(`messages/${this.afauth.auth.currentUser.uid}/${x.$key}`).update({
+          status:'read'
+        })
+      }
+    
+    }]
   });
   alert.present();
 }

@@ -35,7 +35,7 @@ export class TabsPage {
   tab3Root='InboxPage';
   tab4Root='SupportPage';
   tab0Params:any
-  
+  messageCount:number=0
   userId:any
   uri:any;
   hid:boolean=true;
@@ -176,7 +176,15 @@ getMessages(){
       }
 
     })
-    
+    this.messageCount=0;
+    for( let i=0;i<this.messages.length;i++)
+      {
+if(this.messages[i]['status']!='read')
+this.messageCount++;
+      }
+    console.log("messages is ",this.messages[0]['status'])
+    console.log(this.messages.length)
+    console.log("actual messagecount ", this.messageCount);
   })
   
 }

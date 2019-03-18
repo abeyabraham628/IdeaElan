@@ -1,6 +1,6 @@
 webpackJsonp([12],{
 
-/***/ 737:
+/***/ 747:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyprofilePageModule", function() { return MyprofilePageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__myprofile__ = __webpack_require__(843);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__myprofile__ = __webpack_require__(848);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,15 +38,16 @@ var MyprofilePageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 843:
+/***/ 848:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyprofilePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__ = __webpack_require__(463);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__ = __webpack_require__(461);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_storage__ = __webpack_require__(473);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(46);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -60,6 +61,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
 /**
  * Generated class for the MyprofilePage page.
  *
@@ -67,14 +69,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Ionic pages and navigation.
  */
 var MyprofilePage = /** @class */ (function () {
-    function MyprofilePage(toastCtrl, navCtrl, navParams, firebase, afauth) {
+    function MyprofilePage(cache, myModal, toastCtrl, navCtrl, navParams, firebase, afauth) {
+        this.cache = cache;
+        this.myModal = myModal;
         this.toastCtrl = toastCtrl;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.firebase = firebase;
         this.afauth = afauth;
         this.retrieveProfile();
-        this.uri = "https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/" + this.afauth.auth.currentUser.uid + ".jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b5";
+        this.uri = "https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/" + this.afauth.auth.currentUser.uid + ".jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b5" + new Date().toLocaleTimeString();
     }
     MyprofilePage.prototype.retrieveProfile = function () {
         var _this = this;
@@ -104,11 +108,30 @@ var MyprofilePage = /** @class */ (function () {
                 toast.present();
             });
     };
+    MyprofilePage.prototype.clearCache = function () {
+        this.cache.clear();
+        localStorage.clear();
+    };
+    MyprofilePage.prototype.showmodal = function () {
+        var _this = this;
+        console.log("hiiii");
+        var mydata = {
+            uri: "" + this.uri
+        };
+        var modal = this.myModal.create('ModalPage', { mydata: mydata });
+        modal.onDidDismiss(function () {
+            _this.clearCache();
+            _this.clearCache;
+            _this.uri.clearCache;
+            _this.uri = "https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/" + _this.afauth.auth.currentUser.uid + ".jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b5" + new Date().toLocaleTimeString();
+        });
+        modal.present();
+    };
     MyprofilePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
-            selector: 'page-myprofile',template:/*ion-inline-start:"F:\ionic-app\src\pages\myprofile\myprofile.html"*/'<ion-header>\n  <ion-navbar color="blue">\n    <ion-title>\n      My Profile\n    </ion-title>\n    <ion-buttons end >\n        <button ion-button icon-only (click)="updateProfile()"> <ion-icon item-left name="checkmark"></ion-icon>Save</button>\n        \n    </ion-buttons>\n   </ion-navbar>\n</ion-header>\n<ion-content>\n    \n   \n        \n      <ion-item  style="text-align:center;">\n            \n            <img src="{{uri}}" onerror="this.src=\'assets/imgs/companylogo.png\'" style="height:100px;width:100px;border-radius:30%;margin: auto"> \n          \n        <h4 >{{this.fName | titlecase }} {{this.lName | titlecase }}</h4>\n        <h6>{{this.jobTitle | titlecase }} </h6>\n        <h6>{{this.email}}</h6>\n        \n        \n      </ion-item>\n            \n          <ion-row>\n              <ion-item col-6>\n                <ion-input hidden [(ngModel)]="$key"></ion-input>\n                \n                <ion-label stacked>First Name</ion-label>\n                <ion-input type="text" [(ngModel)]="fName" ></ion-input>\n              </ion-item>\n              <ion-item col-6>\n                  <ion-label stacked>Last Name</ion-label>\n                  <ion-input type="text"[(ngModel)]="lName"  ></ion-input>\n                </ion-item>\n          </ion-row> \n            \n          <ion-item>\n              <ion-label stacked>Mobile Number</ion-label>\n              <ion-input type="text" [(ngModel)]="mobile" ></ion-input>\n            </ion-item>  \n            \n            <ion-item>\n              <ion-label stacked>Date Of Birth</ion-label>\n              <ion-input disabled type="text" [(ngModel)]="dob" ></ion-input>\n            </ion-item>  \n            <ion-item>\n              <ion-label stacked>Date Of Join</ion-label>\n              <ion-input disabled type="text" [(ngModel)]="doj"></ion-input>\n            </ion-item>  \n            \n\n          \n          </ion-content>'/*ion-inline-end:"F:\ionic-app\src\pages\myprofile\myprofile.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
+            selector: 'page-myprofile',template:/*ion-inline-start:"F:\ionic-app\src\pages\myprofile\myprofile.html"*/'<ion-header>\n  <ion-navbar color="blue">\n    <ion-title>\n      My Profile\n    </ion-title>\n    <ion-buttons end >\n        <button ion-button icon-only (click)="updateProfile()"> <ion-icon item-left name="checkmark"></ion-icon>Save</button>\n        \n    </ion-buttons>\n   </ion-navbar>\n</ion-header>\n<ion-content>\n    \n   \n        \n      <ion-item  style="text-align:center;" (click)="showmodal()">\n            \n            <img src="{{uri}}" onerror="this.src=\'assets/imgs/companylogo.png\'" style="height:100px;width:100px;border-radius:30%;margin: auto"> \n          \n        <h4 >{{this.fName | titlecase }} {{this.lName | titlecase }}</h4>\n        <h6>{{this.jobTitle | titlecase }} </h6>\n        <h6>{{this.email}}</h6>\n        \n        \n      </ion-item>\n            \n          <ion-row>\n              <ion-item col-6>\n                <ion-input hidden [(ngModel)]="$key"></ion-input>\n                \n                <ion-label stacked>First Name</ion-label>\n                <ion-input type="text" [(ngModel)]="fName" ></ion-input>\n              </ion-item>\n              <ion-item col-6>\n                  <ion-label stacked>Last Name</ion-label>\n                  <ion-input type="text"[(ngModel)]="lName"  ></ion-input>\n                </ion-item>\n          </ion-row> \n            \n          <ion-item>\n              <ion-label stacked>Mobile Number</ion-label>\n              <ion-input type="text" [(ngModel)]="mobile" ></ion-input>\n            </ion-item>  \n            \n            <ion-item>\n              <ion-label stacked>Date Of Birth</ion-label>\n              <ion-input disabled type="text" [(ngModel)]="dob" ></ion-input>\n            </ion-item>  \n            <ion-item>\n              <ion-label stacked>Date Of Join</ion-label>\n              <ion-input disabled type="text" [(ngModel)]="doj"></ion-input>\n            </ion-item>  \n            \n\n          \n          </ion-content>'/*ion-inline-end:"F:\ionic-app\src\pages\myprofile\myprofile.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ToastController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["ToastController"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__["a" /* AngularFireAuth */]])
     ], MyprofilePage);
     return MyprofilePage;
 }());

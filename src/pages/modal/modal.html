@@ -1,0 +1,40 @@
+<!--
+  Generated template for the ModalPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <navbar pageTitle="Upload Image"></navbar>
+</ion-header>
+
+
+<ion-content padding>
+   
+     
+     
+     
+
+   
+    
+
+     
+    <img [hidden]="this.hid" src="{{uri}}" style="height:300px;width:300x;border-radius:5px;padding:auto;margin: auto; border:2px solid gray"/>
+    
+       
+    <ion-row>
+        <ion-item col-6>
+          <button ion-button color="blue" (click)="uploadHandler()" full>Change Image</button>
+         </ion-item>
+    
+         <ion-item col-6>
+            <button ion-button color="blue" (click)="closemodal()" full>Cancel</button>
+           </ion-item>
+      </ion-row>  
+
+
+<ng-container *ngIf="progress | async as percent">
+    {{percent}}
+    <progress [value]="percent" max="100"></progress>
+  </ng-container>
+</ion-content>

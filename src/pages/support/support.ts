@@ -42,7 +42,7 @@ recipient:string
     this.recipient==null?this.recpErr=false:this.recpErr=true
     
     if(this.subjectErr&& this.commentErr&& this.recpErr){
-      this.firebase.list(`support`).push({
+      this.firebase.list(`support/${this.recipient}`).push({
         subject:this.subject,
         matter:this.matter,
         recipient:this.recipient,
@@ -70,14 +70,16 @@ recipient:string
 
   myRequests=[]
   getMyRequests(){
-    this.firebase.list(`support`,ref=>ref.orderByChild(`userId`).equalTo(`${this.afAuth.auth.currentUser.uid}`)).snapshotChanges().subscribe(snap=>{
-      this.myRequests=snap.map(item=>{
-        return{
-          ...item.payload.val()
-        }
+    this.firebase.database.ref(`support`).on('value',(snap)=>{
+      snap.forEach((child)=>{
+          child.forEach(item=>{
+            if(item.child('userId').val()===this.afAuth.auth.currentUser.uid){
+              this.myRequests.push(item.val())
+            }
+          })
       })
     })
-    console.log(this.myRequests)
+    
   }
 
 }

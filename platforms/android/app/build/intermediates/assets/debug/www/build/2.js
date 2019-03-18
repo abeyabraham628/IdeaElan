@@ -1,17 +1,16 @@
 webpackJsonp([2],{
 
-/***/ 738:
+/***/ 756:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SystemsPageModule", function() { return SystemsPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_datepicker__ = __webpack_require__(746);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_components_module__ = __webpack_require__(463);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RecruitmentPageModule", function() { return RecruitmentPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pipes_pipes_module__ = __webpack_require__(782);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_components_module__ = __webpack_require__(466);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__systems__ = __webpack_require__(840);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__ = __webpack_require__(766);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__recruitment__ = __webpack_require__(857);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -23,97 +22,36 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var SystemsPageModule = /** @class */ (function () {
-    function SystemsPageModule() {
+var RecruitmentPageModule = /** @class */ (function () {
+    function RecruitmentPageModule() {
     }
-    SystemsPageModule = __decorate([
+    RecruitmentPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__systems__["a" /* SystemsPage */],
+                __WEBPACK_IMPORTED_MODULE_4__recruitment__["a" /* RecruitmentPage */],
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_0__models_datepicker__["a" /* CustomDatePicker */]],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_4__systems__["a" /* SystemsPage */]),
+                __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_4__recruitment__["a" /* RecruitmentPage */]),
                 __WEBPACK_IMPORTED_MODULE_1__components_components_module__["a" /* ComponentsModule */],
-                __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__["a" /* PipesModule */]
+                __WEBPACK_IMPORTED_MODULE_0__pipes_pipes_module__["a" /* PipesModule */]
             ],
         })
-    ], SystemsPageModule);
-    return SystemsPageModule;
+    ], RecruitmentPageModule);
+    return RecruitmentPageModule;
 }());
 
-//# sourceMappingURL=systems.module.js.map
+//# sourceMappingURL=recruitment.module.js.map
 
 /***/ }),
 
-/***/ 746:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomDatePicker; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-var CustomDatePicker = /** @class */ (function () {
-    function CustomDatePicker(modalCtrl) {
-        this.modalCtrl = modalCtrl;
-        this.t = 5;
-    }
-    CustomDatePicker.prototype.datePickerOptions = function (pickMode, defaultScrollTo, from, dateLimitTo, disableWeeks) {
-        var options = {
-            pickMode: pickMode,
-            showAdjacentMonthDay: false,
-            disableWeeks: disableWeeks,
-            from: from,
-            to: dateLimitTo,
-            defaultScrollTo: defaultScrollTo,
-        };
-        return options;
-    };
-    CustomDatePicker.prototype.getMonths = function () {
-        return [{ 'monthName': 'January', 'value': '01' },
-            { 'monthName': 'February', 'value': '02' },
-            { 'monthName': 'March', 'value': '03' },
-            { 'monthName': 'April', 'value': '04' },
-            { 'monthName': 'May', 'value': '05' },
-            { 'monthName': 'June', 'value': '06' },
-            { 'monthName': 'July', 'value': '07' },
-            { 'monthName': 'August', 'value': '08' },
-            { 'monthName': 'September', 'value': '09' },
-            { 'monthName': 'October', 'value': '10' },
-            { 'monthName': 'November', 'value': '11' },
-            { 'monthName': 'December', 'value': '12' }];
-    };
-    CustomDatePicker = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"]])
-    ], CustomDatePicker);
-    return CustomDatePicker;
-}());
-
-//# sourceMappingURL=datepicker.js.map
-
-/***/ }),
-
-/***/ 766:
+/***/ 782:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PipesModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__momentdate_momentdate__ = __webpack_require__(767);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tablefilter_tablefilter__ = __webpack_require__(768);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__momentdate_momentdate__ = __webpack_require__(783);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tablefilter_tablefilter__ = __webpack_require__(784);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -142,7 +80,7 @@ var PipesModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 767:
+/***/ 783:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -183,7 +121,7 @@ var MomentdatePipe = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 768:
+/***/ 784:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -228,20 +166,18 @@ var TablefilterPipe = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 840:
+/***/ 857:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SystemsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__ = __webpack_require__(461);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_date_picker__ = __webpack_require__(465);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__ = __webpack_require__(472);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_forms__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_datepicker__ = __webpack_require__(746);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_moment__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecruitmentPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__ = __webpack_require__(465);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_date_picker__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -268,167 +204,232 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-
-
 /**
- * Generated class for the SystemsPage page.
+ * Generated class for the RecruitmentPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var SystemsPage = /** @class */ (function () {
-    function SystemsPage(loadingCtrl, navCtrl, modalCtrl, customDatePicker, alertCtrl, barcode, datePicker, firebase) {
+var RecruitmentPage = /** @class */ (function () {
+    function RecruitmentPage(loadingCtrl, alertCtrl, firebase, datePicker, navCtrl, ref) {
         this.loadingCtrl = loadingCtrl;
-        this.navCtrl = navCtrl;
-        this.modalCtrl = modalCtrl;
-        this.customDatePicker = customDatePicker;
         this.alertCtrl = alertCtrl;
-        this.barcode = barcode;
-        this.datePicker = datePicker;
         this.firebase = firebase;
-        this.Save = "Save";
-        this.systemsForm = new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormGroup"]({
-            $key: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"](null),
-            systemId: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(5)]),
-            keyboard: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
-            mouse: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
-            processor: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
-            memory: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(3)]),
-            hdd: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(3)]),
-            avExpiry: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
-            avValidity: new __WEBPACK_IMPORTED_MODULE_5__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_5__angular_forms__["Validators"].minLength(4)]),
+        this.datePicker = datePicker;
+        this.navCtrl = navCtrl;
+        this.ref = ref;
+        this.checked = false;
+        this.candidateSelected = true;
+        this.applicantDetails = []; // for storing the applciants retrieved from db
+        this.x = true;
+        //Initialising new applicant form
+        this.newApplicantForm = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormGroup"]({
+            $key: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"](null),
+            fName: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].minLength(2)]),
+            lName: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required),
+            mobile: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].minLength(10)]),
+            email: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
+            employer: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].minLength(3)]),
+            noticePeriod: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].minLength(5)]),
+            currentctc: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].minLength(4)]),
+            experience: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required),
+            expectedctc: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].minLength(4)]),
         });
-        this.systemArray = [];
-        this.systems = "newSystem";
-        this.getSystemList();
+        //Initialising schedule form
+        this.scheduleForm = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormGroup"]({
+            scheduleDate: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required),
+            scheduleTime: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required]),
+            contactPerson: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].minLength(4)]),
+            contactPersonNum: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].minLength(10)]),
+            applicants: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required)
+        });
+        // Function for selecting multiple applincants before assigning a interview schedule
+        this.applicantKeys = [];
+        // function for retrieving the history of schedules
+        this.interviewDate = [];
+        this.recruitment = "newApplicant";
+        this.getApplicants();
     }
-    SystemsPage.prototype.ionViewDidLeave = function () {
+    RecruitmentPage.prototype.ionViewDidLeave = function () {
         this.navCtrl.popToRoot();
     };
-    SystemsPage.prototype.getSystemList = function () {
-        this.systemsList = this.firebase.list('systems');
-        return this.systemsList.snapshotChanges();
+    RecruitmentPage.prototype.getApplicants = function () {
+        this.applicantList = this.firebase.list('Applicants');
+        return this.applicantList.snapshotChanges();
     };
-    SystemsPage.prototype.getSystems = function () {
+    ;
+    //
+    RecruitmentPage.prototype.getSchedules = function () {
+        this.scheduleList = this.firebase.list('Schedules');
+        return this.scheduleList.snapshotChanges();
+    };
+    ;
+    RecruitmentPage.prototype.showApplicants = function () {
         var _this = this;
-        this.loader = this.loadingCtrl.create({
+        var loader = this.loadingCtrl.create({
             spinner: 'dots',
             content: 'Loading',
             dismissOnPageChange: true
         });
-        this.loader.present();
-        this.systemsForm.reset();
-        this.getSystemList().subscribe(function (list) {
-            _this.systemArray = list.map(function (item) {
-                return __assign({ $key: item.key }, item.payload.val());
-            });
-        });
-        this.loader.dismiss();
-    };
-    SystemsPage.prototype.loadForm = function (systems) {
-        this.systems = "newSystem";
-        this.Save = "Update";
-        this.systemsForm.setValue(systems);
-    };
-    SystemsPage.prototype.updateSystems = function (systems) {
+        loader.present();
+        this.newApplicantForm.reset();
+        this.getApplicants().subscribe(function (res) {
+            _this.applicantDetails = res.map(function (item) {
+                if (!item.payload.hasChild('interviewDate')) //  retrieve the applicants who are not scheduled for an interview
+                    return __assign({ $key: item.key }, item.payload.val());
+                else
+                    return null;
+            }).filter(Boolean); //end of map
+            loader.dismiss();
+        }); //end of subscribe
+    }; //end of show applicant function
+    //Function for saving a new applicant to the database
+    RecruitmentPage.prototype.saveApplicant = function (applicantDetails) {
         var _this = this;
-        this.systemsList.update(systems.$key, {
-            systemId: systems.systemId,
-            keyboard: systems.keyboard,
-            mouse: systems.mouse,
-            processor: systems.processor,
-            memory: systems.memory,
-            hdd: systems.hdd,
-            avExpiry: systems.avExpiry,
-            avValidity: systems.avValidity
+        var loader = this.loadingCtrl.create({
+            spinner: 'dots',
+            dismissOnPageChange: true
+        });
+        loader.present();
+        this.applicantList.push({
+            fName: applicantDetails.fName,
+            lName: applicantDetails.lName,
+            mobile: applicantDetails.mobile,
+            email: applicantDetails.email,
+            employer: applicantDetails.employer,
+            noticePeriod: applicantDetails.noticePeriod,
+            currentctc: applicantDetails.currentctc,
+            experience: applicantDetails.experience,
+            expectedctc: applicantDetails.expectedctc
         }).then(function () {
+            loader.dismiss();
             var alert = _this.alertCtrl.create({
                 title: "Success",
-                subTitle: "System updated succesfuly ",
+                subTitle: "Applicant added succesfuly ",
                 buttons: ['OK']
             });
             alert.present();
         });
+    }; //end of function
+    RecruitmentPage.prototype.editCandidate = function (obj) {
+        this.newApplicantForm.setValue(obj);
+        this.recruitment = "newApplicant";
     };
-    SystemsPage.prototype.insertSystems = function (systems) {
+    RecruitmentPage.prototype.updateApplicant = function (applicantDetails) {
         var _this = this;
-        this.systemsList.push({
-            systemId: systems.systemId,
-            keyboard: systems.keyboard,
-            mouse: systems.mouse,
-            processor: systems.processor,
-            memory: systems.memory,
-            hdd: systems.hdd,
-            avExpiry: systems.avExpiry,
-            avValidity: systems.avValidity
+        var loader = this.loadingCtrl.create({
+            spinner: 'dots',
+            dismissOnPageChange: true
+        });
+        loader.present();
+        this.applicantList.update(applicantDetails.$key, {
+            fName: applicantDetails.fName,
+            lName: applicantDetails.lName,
+            mobile: applicantDetails.mobile,
+            email: applicantDetails.email,
+            employer: applicantDetails.employer,
+            noticePeriod: applicantDetails.noticePeriod,
+            currentctc: applicantDetails.currentctc,
+            experience: applicantDetails.experience,
+            expectedctc: applicantDetails.expectedctc
         }).then(function () {
+            loader.dismiss();
             var alert = _this.alertCtrl.create({
                 title: "Success",
-                subTitle: "System added succesfuly ",
+                subTitle: "Applicant Updated succesfuly ",
                 buttons: ['OK']
             });
             alert.present();
         });
-    };
-    SystemsPage.prototype.onSubmit = function () {
-        if (this.systemsForm.controls.$key.value == null) {
-            this.insertSystems(this.systemsForm.value);
-            this.systemsForm.reset();
+    }; //end of function
+    RecruitmentPage.prototype.onSubmit = function () {
+        if (this.newApplicantForm.controls.$key.value == null) {
+            this.saveApplicant(this.newApplicantForm.value); // function for saving the form data to the database
+            this.newApplicantForm.reset(); // reset applicant form after saving
         }
         else {
-            this.updateSystems(this.systemsForm.value);
-            this.systemsForm.reset();
+            this.updateApplicant(this.newApplicantForm.value); // function for saving the form data to the database
+            this.newApplicantForm.reset();
         }
     };
-    SystemsPage.prototype.scanBarCode = function (type) {
-        var _this = this;
-        this.barcode.scan().then(function (barcodeData) {
-            if (type == "system") {
-                _this.systemsForm.controls['systemId'].setValue(barcodeData.text);
-            }
-            else if (type == "keyboard") {
-                _this.systemsForm.controls['keyboard'].setValue(barcodeData.text);
-            }
-            else if (type == "mouse") {
-                _this.systemsForm.controls['mouse'].setValue(barcodeData.text);
-            }
-            else if (type == "db") {
-                _this.findSystem(barcodeData.text);
-            }
-        }).catch(function (err) {
-            console.log('Error', err);
-        });
-    };
-    SystemsPage.prototype.dispdate = function () {
+    RecruitmentPage.prototype.dispdate = function () {
         var _this = this;
         this.datePicker.show({
-            date: __WEBPACK_IMPORTED_MODULE_7_moment__().toDate(),
+            date: new Date(),
             mode: 'date',
             androidTheme: 5,
         }).then(function (date) {
-            _this.systemsForm.controls['avExpiry'].setValue(__WEBPACK_IMPORTED_MODULE_7_moment__(date['time']).format('D-MMM-YYYY'));
+            _this.scheduleForm.controls.scheduleDate.setValue(__WEBPACK_IMPORTED_MODULE_5_moment__(date).format('D-MMM-YYYY'));
         }, function (err) { return console.log('Error occurred while getting date: ', err); });
-    };
-    SystemsPage.prototype.findSystem = function (systemId) {
-        var result = [];
-        this.firebase.database.ref("systems").orderByChild('systemId').equalTo(systemId).on("value", function (snapshot) {
-            snapshot.forEach(function (childSnapshot) {
-                result = __assign({ $key: childSnapshot.key }, childSnapshot.val());
-                return false;
-            });
-        });
-        this.loadForm(result);
     }; //end of function
-    SystemsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
-            selector: 'page-systems',template:/*ion-inline-start:"F:\ionic-app\src\pages\systems\systems.html"*/'\n\n<ion-header no-border>\n\n  <page-header pageTitle="SYSTEMS"></page-header>\n\n</ion-header>\n\n\n\n\n\n\n\n  <ion-content>\n\n \n\n      <ion-segment [(ngModel)]="systems" color="white" >\n\n         <ion-segment-button value="newSystem">\n\n            Add System\n\n         </ion-segment-button>\n\n         <ion-segment-button value="allSystems" (click)="getSystems()">\n\n           All Systems\n\n         </ion-segment-button>\n\n      </ion-segment>\n\n  <div [ngSwitch]="systems">\n\n    <div *ngSwitchCase="\'newSystem\'">\n\n      <form [formGroup]="systemsForm" (ngSubmit)="onSubmit()">\n\n      <ion-list>\n\n          <h6 class="title">System Information</h6>\n\n        \n\n            <ion-item col-12>\n\n              <ion-input hidden formControlName="$key"></ion-input>\n\n              <ion-input hidden formControlName="avValidity"></ion-input>\n\n              <ion-label stacked>System Id</ion-label>\n\n              <ion-input type="text" formControlName="systemId"></ion-input>\n\n             \n\n                <button ion-button type="button" color="blue" (click)="scanBarCode(\'system\')" small item-right>\n\n                  <ion-icon name="barcode"> </ion-icon>\n\n                </button>\n\n               \n\n            </ion-item>\n\n            <ion-item  no-lines *ngIf="(systemsForm.get(\'systemId\').hasError(\'minlength\') || systemsForm.get(\'systemId\').hasError(\'required\') ) && systemsForm.get(\'systemId\').touched">\n\n\n\n              <ion-label stacked  color="danger" *ngIf="systemsForm.get(\'systemId\').hasError(\'required\') && systemsForm.get(\'systemId\').touched">\n\n              SystemId is required\n\n              </ion-label>\n\n              <ion-label stacked color="danger" *ngIf="systemsForm.get(\'systemId\').hasError(\'minlength\') && systemsForm.get(\'systemId\').touched">\n\n              Minimum of 5 characters\n\n              </ion-label>\n\n              </ion-item>\n\n       \n\n             \n\n                <ion-item col-12>\n\n                  <ion-label stacked>Keyboard</ion-label>\n\n                  <ion-input type="text" formControlName="keyboard" ></ion-input>\n\n                    <button ion-button small type="button" (click)="scanBarCode(\'keyboard\')" color="blue" item-right>\n\n                      <ion-icon name="barcode"> </ion-icon>\n\n                    </button>\n\n                  </ion-item>\n\n                  <ion-item  no-lines *ngIf="(systemsForm.get(\'keyboard\').hasError(\'minlength\') || systemsForm.get(\'keyboard\').hasError(\'required\') ) && systemsForm.get(\'keyboard\').touched">\n\n                    <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'keyboard\').hasError(\'required\')  || systemsForm.get(\'keyboard\').hasError(\'minlength\')) && systemsForm.get(\'keyboard\').touched" >\n\n                      Keyboard Details is Required\n\n                    </ion-label>\n\n                  </ion-item>\n\n           \n\n            \n\n                <ion-item col-12>\n\n                  <ion-label stacked>Mouse</ion-label>\n\n                  <ion-input type="text" formControlName="mouse"></ion-input>\n\n                    <button ion-button small type="button" (click)="scanBarCode(\'mouse\')" color="blue" item-right>\n\n                        <ion-icon name="barcode"> </ion-icon>\n\n                      </button>\n\n                  </ion-item>\n\n                  <ion-item  no-lines *ngIf="(systemsForm.get(\'mouse\').hasError(\'minlength\') || systemsForm.get(\'mouse\').hasError(\'required\') ) && systemsForm.get(\'mouse\').touched">\n\n                    <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'mouse\').hasError(\'required\')  || systemsForm.get(\'mouse\').hasError(\'minlength\')) && systemsForm.get(\'mouse\').touched" >\n\n                      Mouse Details is Required\n\n                    </ion-label>\n\n                  </ion-item>\n\n               \n\n\n\n              <ion-item col-12>\n\n                <ion-label stacked>Processor</ion-label>\n\n                <ion-input type="text" formControlName="processor" ></ion-input>\n\n              </ion-item>\n\n              <ion-item  no-lines *ngIf="(systemsForm.get(\'processor\').hasError(\'minlength\') || systemsForm.get(\'processor\').hasError(\'required\') ) && systemsForm.get(\'processor\').touched">\n\n                <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'processor\').hasError(\'required\')  || systemsForm.get(\'processor\').hasError(\'minlength\')) && systemsForm.get(\'processor\').touched" >\n\n                  Processor Details is Required\n\n                </ion-label>\n\n              </ion-item>\n\n             <ion-row  >\n\n              <ion-item  col-6>\n\n                <ion-label stacked>Primary Memory</ion-label>\n\n                <ion-input type="text" formControlName="memory" ></ion-input>\n\n              </ion-item>\n\n              \n\n\n\n              <ion-item no-lines col-6>\n\n                <ion-label stacked>Hard Disk</ion-label>\n\n                <ion-input type="text" formControlName="hdd" ></ion-input>\n\n              </ion-item>\n\n              \n\n            </ion-row>  \n\n            <ion-row>\n\n            <ion-item col-6 no-lines *ngIf="(systemsForm.get(\'memory\').hasError(\'minlength\') || systemsForm.get(\'memory\').hasError(\'required\') ) && systemsForm.get(\'memory\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'memory\').hasError(\'required\')  || systemsForm.get(\'memory\').hasError(\'minlength\')) && systemsForm.get(\'memory\').touched" >\n\n                Memory Details is Required\n\n              </ion-label>\n\n            </ion-item>\n\n            <ion-item col-6  no-lines *ngIf="(systemsForm.get(\'hdd\').hasError(\'minlength\') || systemsForm.get(\'hdd\').hasError(\'required\') ) && systemsForm.get(\'hdd\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'hdd\').hasError(\'required\')  || systemsForm.get(\'hdd\').hasError(\'minlength\')) && systemsForm.get(\'hdd\').touched" >\n\n                HDD Details is Required\n\n              </ion-label>\n\n            </ion-item>\n\n          </ion-row>\n\n        \n\n            <ion-item col-12>\n\n              <ion-label stacked>Antivirus Expiry</ion-label>\n\n              <ion-input type="text" readonly formControlName="avExpiry" (tap)="dispdate()"  ></ion-input>\n\n            </ion-item>\n\n            <ion-item  no-lines *ngIf="(systemsForm.get(\'avExpiry\').hasError(\'minlength\') || systemsForm.get(\'avExpiry\').hasError(\'required\') ) && systemsForm.get(\'avExpiry\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'avExpiry\').hasError(\'required\')  || systemsForm.get(\'avExpiry\').hasError(\'minlength\')) && systemsForm.get(\'avExpiry\').touched" >\n\n                Antivirus Details is Required\n\n              </ion-label>\n\n            </ion-item>\n\n          \n\n\n\n              <ion-row>\n\n                <ion-col col-6>\n\n                <button ion-button type="submit" [disabled]="systemsForm.invalid" icon-end full color=blue   >\n\n                  Save\n\n                </button>\n\n              </ion-col>\n\n              <ion-col col-6>\n\n                  <button ion-button type="reset"  icon-end full color=blue   >\n\n                    Cancel\n\n                  </button>\n\n                </ion-col>\n\n              </ion-row> \n\n             \n\n      </ion-list>\n\n    </form>\n\n\n\n    \n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'allSystems\'">\n\n      \n\n       <ion-row>\n\n          \n\n          <ion-item col-10  no-lines >\n\n              <ion-searchbar  placeholder="Search User"  [showCancelButton]="shouldShowCancel"  [(ngModel)]="searchString" ><ion-icon name="barcode" item-right> </ion-icon></ion-searchbar>\n\n          </ion-item>\n\n          <ion-item col-2>\n\n              <ion-icon  type="button" name="barcode" (click)="scanBarCode(\'db\')" color="blue"> </ion-icon>\n\n           </ion-item>\n\n        </ion-row>\n\n       \n\n      \n\n      <ion-item>\n\n        <ion-row class="table-title">\n\n          <ion-col col-4 >System Id</ion-col>\n\n          <ion-col col-3 >RAM</ion-col>\n\n          <ion-col col-3 >HDD</ion-col>\n\n          <ion-col col-2 >Antivirus</ion-col>\n\n          <ion-col hidden col-2 >View</ion-col>\n\n        </ion-row>\n\n      </ion-item>\n\n      <ion-item *ngFor=\'let system of systemArray | tableFilter : "systemId" : searchString; let i = index\'>\n\n        <ion-row class="col-text table-bottom-border" (click)="loadForm(system)" >\n\n            <ion-col col-4>{{system.systemId}}</ion-col><ion-col col-3>{{system.memory}}</ion-col><ion-col col-3>{{system.hdd}}</ion-col><ion-col col-2>{{system.avExpiry | momentdate}} Days</ion-col>\n\n        </ion-row>\n\n      </ion-item>\n\n\n\n      \n\n    </div>\n\n\n\n\n\n  </div>\n\n    \n\n  </ion-content>\n\n  \n\n '/*ion-inline-end:"F:\ionic-app\src\pages\systems\systems.html"*/,
+    //Funtion for saving interview schedules for the respective applicants
+    RecruitmentPage.prototype.saveSchedule = function () {
+        var _this = this;
+        var schedule = {
+            interviewTime: this.scheduleForm.controls.scheduleTime.value,
+            contactPerson: this.scheduleForm.controls.contactPerson.value,
+            contactNumber: this.scheduleForm.controls.contactPersonNum.value
+        };
+        //Schedule details is pushed first to the db and then the key of that particular record is retrieved
+        //Once the key is retrieved,that key is add as a reference to the interviewDate field for the selected candidated record. 
+        this.scheduleList.push({
+            interviewDate: this.scheduleForm.controls.scheduleDate.value,
+            interviewDetails: schedule
+        }).then(function (snap) {
+            // Save the interviewDate for the candidates who are scheduled for interiew
+            for (var i = 0; i < _this.applicantKeys.length; i++)
+                _this.applicantList.update(_this.applicantKeys[i], {
+                    interviewDate: snap.key
+                }).then(function () {
+                    var alert = _this.alertCtrl.create({
+                        title: "Success",
+                        subTitle: "Schedule created succesfuly ",
+                        buttons: ['OK']
+                    });
+                    alert.present();
+                    _this.scheduleForm.reset();
+                    _this.applicantKeys = [];
+                });
+        });
+    }; //end of save schedule function
+    // fucntion for toggling check all or uncheck all applicants
+    RecruitmentPage.prototype.selectAll = function () {
+        this.checked = !this.checked;
+    };
+    RecruitmentPage.prototype.clickSelectBox = function (itemKey) {
+        this.scheduleForm.controls['applicants'].setValue('');
+        var foundAt = this.applicantKeys.indexOf(itemKey);
+        if (foundAt >= 0)
+            this.applicantKeys.splice(foundAt, 1);
+        else
+            this.applicantKeys.push(itemKey);
+        if (this.applicantKeys.length > 0) {
+            this.candidateSelected = false;
+        }
+        this.scheduleForm.controls['applicants'].setValue(this.applicantKeys);
+    };
+    RecruitmentPage.prototype.viewInterviewDates = function () {
+        var _this = this;
+        this.scheduleForm.reset();
+        this.getSchedules().subscribe(function (res) {
+            _this.interviewDate = res.map(function (item) {
+                return __assign({ $key: item.key }, item.payload.val());
+            }); //end of map
+        }); //end of subscribe
+    }; //end of function
+    RecruitmentPage.prototype.interviewDetailsPage = function (interviewKey, interviewDate) {
+        this.navCtrl.push('InterviewDetailsPage', { 'key': interviewKey, 'date': interviewDate });
+    };
+    RecruitmentPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-recruitment',template:/*ion-inline-start:"F:\ionic-app\src\pages\recruitment\recruitment.html"*/'<ion-header no-border>\n\n  <navbar pageTitle="RECRUITMENT"></navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-segment [(ngModel)]="recruitment" color="white" >\n\n      <ion-segment-button  value="newApplicant" >\n\n         New Applicant\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="schedules" (click)="showApplicants()">\n\n         Schedules\n\n      </ion-segment-button>\n\n\n\n      <ion-segment-button value="interviews" (click)="viewInterviewDates()">\n\n          Interviews\n\n      </ion-segment-button>\n\n  </ion-segment>\n\n   \n\n    <div [ngSwitch]="recruitment">\n\n\n\n        <div *ngSwitchCase="\'newApplicant\'">\n\n          <form [formGroup]="newApplicantForm" (ngSubmit)="onSubmit()">\n\n         \n\n              <ion-input hidden formControlName="$key"></ion-input>\n\n           <ion-row>\n\n                   <ion-col col-6>\n\n                    <ion-item>\n\n                      <ion-label stacked>First Name</ion-label>\n\n                      <ion-input type="text" formControlName="fName" maxlength="15" ></ion-input>\n\n                    </ion-item> \n\n                    <ion-item  no-lines *ngIf="(newApplicantForm.get(\'fName\').hasError(\'minlength\') || newApplicantForm.get(\'fName\').hasError(\'required\') ) && newApplicantForm.get(\'fName\').touched">\n\n                        <ion-label stacked  color="danger" *ngIf="(newApplicantForm.get(\'fName\').hasError(\'required\')  || newApplicantForm.get(\'fName\').hasError(\'minlength\')) && newApplicantForm.get(\'fName\').touched" >\n\n                          Invalid First Name\n\n                        </ion-label>\n\n                      </ion-item>\n\n                  </ion-col>\n\n                  <ion-col col-6>\n\n                      <ion-item  >\n\n                        <ion-label stacked>Last Name</ion-label>\n\n                        <ion-input type="text"  formControlName="lName" maxlength="15" ></ion-input>\n\n                      </ion-item>\n\n                      <ion-item  no-lines *ngIf="(newApplicantForm.get(\'lName\').hasError(\'minlength\') || newApplicantForm.get(\'lName\').hasError(\'required\') ) && newApplicantForm.get(\'lName\').touched">\n\n                          <ion-label stacked  color="danger" *ngIf="(newApplicantForm.get(\'lName\').hasError(\'required\')  || newApplicantForm.get(\'lName\').hasError(\'minlength\')) && newApplicantForm.get(\'lName\').touched" >\n\n                            Invalid Last Name\n\n                          </ion-label>\n\n                        </ion-item>\n\n                    </ion-col>\n\n             </ion-row>\n\n\n\n               \n\n                    <ion-item  > \n\n                        <ion-label stacked>Mobile</ion-label>\n\n                        <ion-input type="text" formControlName="mobile" maxlength="10"></ion-input>\n\n                    </ion-item> \n\n                    <ion-item  no-lines *ngIf="(newApplicantForm.get(\'mobile\').hasError(\'minlength\') || newApplicantForm.get(\'mobile\').hasError(\'required\') ) && newApplicantForm.get(\'mobile\').touched">\n\n                      <ion-label stacked  color="danger" *ngIf="(newApplicantForm.get(\'mobile\').hasError(\'required\')  || newApplicantForm.get(\'mobile\').hasError(\'minlength\') ) && newApplicantForm.get(\'mobile\').touched" >\n\n                        Invalid Mobile Number\n\n                      </ion-label>\n\n                    </ion-item>\n\n                \n\n                      \n\n                  \n\n                    <ion-item> \n\n                       <ion-label stacked>Email</ion-label>\n\n                       <ion-input type="email" formControlName="email"  ></ion-input>\n\n                     </ion-item>\n\n                     <ion-item  no-lines *ngIf="(newApplicantForm.get(\'email\').hasError(\'minlength\') || newApplicantForm.get(\'email\').hasError(\'required\') || newApplicantForm.get(\'email\').hasError(\'pattern\') ) && newApplicantForm.get(\'email\').touched">\n\n                      <ion-label stacked  color="danger" *ngIf="(newApplicantForm.get(\'email\').hasError(\'minlength\') || newApplicantForm.get(\'email\').hasError(\'required\') || newApplicantForm.get(\'email\').hasError(\'pattern\') ) && newApplicantForm.get(\'email\').touched" >\n\n                        Invalid Email ID\n\n                      </ion-label>\n\n                    </ion-item>\n\n                   \n\n\n\n                   <h6 class="title section-title ">Employer And Salary</h6>\n\n                 \n\n                     <ion-item > \n\n                        <ion-label stacked>Current Employer</ion-label>\n\n                        <ion-input type="text"  formControlName="employer" maxlength="20"></ion-input>\n\n                      </ion-item>\n\n                      <ion-item  no-lines *ngIf="(newApplicantForm.get(\'employer\').hasError(\'minlength\') || newApplicantForm.get(\'employer\').hasError(\'required\') ) && newApplicantForm.get(\'employer\').touched">\n\n                        <ion-label stacked  color="danger" *ngIf="(newApplicantForm.get(\'employer\').hasError(\'required\')  || newApplicantForm.get(\'employer\').hasError(\'minlength\')) && newApplicantForm.get(\'employer\').touched" >\n\n                          Employer details Required\n\n                        </ion-label>\n\n                      </ion-item>\n\n                   \n\n                    \n\n                    <ion-row>\n\n                      <ion-col col-6>\n\n                          <ion-item > \n\n                              <ion-label stacked>Notice Period</ion-label>\n\n                              <ion-input type="text"  formControlName="noticePeriod" maxlength="10"></ion-input>\n\n                            </ion-item>\n\n                            <ion-item  no-lines *ngIf="(newApplicantForm.get(\'noticePeriod\').hasError(\'minlength\') || newApplicantForm.get(\'noticePeriod\').hasError(\'required\') ) && newApplicantForm.get(\'noticePeriod\').touched">\n\n                              <ion-label stacked  color="danger" *ngIf="(newApplicantForm.get(\'noticePeriod\').hasError(\'required\')  || newApplicantForm.get(\'noticePeriod\').hasError(\'minlength\')) && newApplicantForm.get(\'noticePeriod\').touched" >\n\n                                Notice Period Required\n\n                              </ion-label>\n\n                            </ion-item>\n\n                            \n\n                      </ion-col>\n\n                    \n\n                   \n\n                       <ion-col col-6>\n\n                         <ion-item>\n\n                          <ion-label stacked>Current CTC</ion-label>\n\n                          <ion-input type="Number" formControlName="currentctc" maxlength="7"></ion-input>\n\n                        </ion-item>\n\n\n\n                        <ion-item  no-lines *ngIf="(newApplicantForm.get(\'currentctc\').hasError(\'minlength\') || newApplicantForm.get(\'currentctc\').hasError(\'required\') ) && newApplicantForm.get(\'currentctc\').touched">\n\n                          <ion-label stacked  color="danger" *ngIf="(newApplicantForm.get(\'currentctc\').hasError(\'required\')  || newApplicantForm.get(\'currentctc\').hasError(\'minlength\')) && newApplicantForm.get(\'currentctc\').touched" >\n\n                            CTC Required\n\n                          </ion-label>\n\n                        </ion-item>\n\n                        </ion-col>\n\n                     </ion-row> \n\n                    \n\n                    <h6 class="title section-title">Experience Details</h6>\n\n                   <ion-row >\n\n                     <ion-col col-6>\n\n                     <ion-item >\n\n                            <ion-label stacked>Total Experience</ion-label>\n\n                            <ion-select    formControlName="experience">\n\n                              <ion-option value="Below 1 Year">Below 1 Year</ion-option>\n\n                              <ion-option value="1 - 2 Years">1 - 2 Years</ion-option>\n\n                              <ion-option value="2 - 3 Years">2 - 3 Years</ion-option>\n\n                              <ion-option value="3 - 4 Years">3 - 4 Years</ion-option>\n\n                              <ion-option value="4 - 5 Years">4 - 5 Years</ion-option>\n\n                              <ion-option value="Above 5 Years">Above 5 Years</ion-option>\n\n                            </ion-select>\n\n                          </ion-item>\n\n                          <ion-item  no-lines *ngIf="(newApplicantForm.get(\'experience\').hasError(\'minlength\') || newApplicantForm.get(\'experience\').hasError(\'required\') ) && newApplicantForm.get(\'experience\').touched">\n\n                            <ion-label stacked  color="danger" *ngIf="(newApplicantForm.get(\'experience\').hasError(\'required\')  || newApplicantForm.get(\'experience\').hasError(\'minlength\')) && newApplicantForm.get(\'experience\').touched" >\n\n                             Invalid Experience\n\n                            </ion-label>\n\n                          </ion-item>\n\n                        </ion-col>\n\n                     \n\n                    <ion-col col-6>\n\n                        <ion-item >\n\n                          <ion-label stacked>Expected CTC</ion-label>\n\n                          <ion-input type="text"  formControlName="expectedctc" maxlength="7"> </ion-input>\n\n                        </ion-item>\n\n                        <ion-item  no-lines *ngIf="(newApplicantForm.get(\'expectedctc\').hasError(\'minlength\') || newApplicantForm.get(\'expectedctc\').hasError(\'required\') ) && newApplicantForm.get(\'expectedctc\').touched">\n\n                          <ion-label stacked  color="danger" *ngIf="(newApplicantForm.get(\'expectedctc\').hasError(\'required\')  || newApplicantForm.get(\'expectedctc\').hasError(\'minlength\')) && newApplicantForm.get(\'expectedctc\').touched" >\n\n                            Invalid Expected CTC\n\n                          </ion-label>\n\n                        </ion-item>\n\n                      </ion-col>\n\n                  </ion-row>\n\n                       \n\n                      <ion-row>\n\n                        <ion-col col-6>\n\n                        <button ion-button type="submit" [disabled]="newApplicantForm.invalid" ion-button  icon-end  full color=blue >\n\n                           Save\n\n                         </button>\n\n                        </ion-col>\n\n                        <ion-col col-6>\n\n                            <button ion-button type="reset"  icon-end full color=blue   >\n\n                              Cancel\n\n                            </button>\n\n                            </ion-col>\n\n                      </ion-row> \n\n                       \n\n            \n\n          </form>\n\n        </div>\n\n          \n\n     <div *ngSwitchCase="\'schedules\'">\n\n        \n\n      <ion-list >\n\n        \n\n         <ion-searchbar placeholder="Search User" [(ngModel)]=searchString  [showCancelButton]="shouldShowCancel"></ion-searchbar>\n\n        \n\n                \n\n                 \n\n                  \n\n                <form [formGroup]="scheduleForm" (ngSubmit)="saveSchedule()">\n\n\n\n                    <ion-row no-margin class="table-title row-bottom-border">\n\n                        <ion-col col-1 > \n\n                          <ion-checkbox (ionChange)=\'selectAll()\'></ion-checkbox>\n\n                        </ion-col>\n\n                        <ion-col col-3>Name</ion-col>\n\n                         <ion-col col-3>Exp</ion-col>\n\n                         <ion-col col-3>Interview Date</ion-col>\n\n                         <ion-col col-2>Edit</ion-col>\n\n                     </ion-row>\n\n     \n\n                     <ion-row no-margin class=" col-text  row-bottom-border" *ngFor=\'let x of applicantDetails | tableFilter : "fName" : searchString; let i = index\'  >\n\n                         <ion-col col-1 > \n\n                             <ion-checkbox (ionChange)="clickSelectBox(x.$key)"></ion-checkbox>\n\n                           </ion-col>\n\n                           <ion-col col-3>{{x.fName}} {{x.lName}}</ion-col>\n\n                            <ion-col col-3 >{{x.experience}}</ion-col>\n\n                            <ion-col col-3>Not Set</ion-col>\n\n                            <ion-col col-2 (click)="editCandidate(x)">Edit</ion-col>\n\n                      </ion-row>\n\n                      <ion-item hidden >\n\n                        <ion-input type="text" formControlName="applicants" ></ion-input>\n\n                      </ion-item>\n\n                      <ion-item  no-lines *ngIf=" scheduleForm.get(\'applicants\').hasError(\'required\') && scheduleForm.get(\'applicants\').touched">\n\n                          <ion-label stacked  color="danger" *ngIf=" scheduleForm.get(\'applicants\').hasError(\'required\')" >\n\n                            Select Candidate\n\n                          </ion-label>\n\n                        </ion-item>\n\n\n\n                <h6 class="title section-title">Schedule Details</h6>\n\n                \n\n                \n\n\n\n\n\n                <ion-row>\n\n                  <ion-col col-6>\n\n                    <ion-item >\n\n                      <ion-label stacked>Interview Date</ion-label>\n\n                      <ion-input type="text" readonly  (click)="dispdate()" (ionFocus)="dispdate()" formControlName="scheduleDate"></ion-input>\n\n                    </ion-item>\n\n                    <ion-item  no-lines *ngIf=" scheduleForm.get(\'scheduleDate\').hasError(\'required\')  && scheduleForm.get(\'scheduleDate\').touched">\n\n                        <ion-label stacked  color="danger">\n\n                          Invalid Date\n\n                        </ion-label>\n\n                      </ion-item>\n\n                  </ion-col>\n\n\n\n               <ion-col col-6>\n\n                    <ion-item >\n\n                        <ion-label stacked>Interview Time</ion-label>\n\n                        <ion-datetime type="text" pickerFormat="h:mm A"  formControlName="scheduleTime" readonly></ion-datetime>\n\n                    </ion-item>\n\n                    <ion-item  no-lines *ngIf=" scheduleForm.get(\'scheduleTime\').hasError(\'required\')  && scheduleForm.get(\'scheduleTime\').touched">\n\n                        <ion-label stacked  color="danger" *ngIf="scheduleForm.get(\'scheduleTime\').hasError(\'required\')  && scheduleForm.get(\'scheduleTime\').touched" >\n\n                          Invalid Time\n\n                        </ion-label>\n\n                      </ion-item>\n\n                  </ion-col>\n\n                \n\n\n\n                  </ion-row>\n\n\n\n                      <ion-item>\n\n                        <ion-label stacked>Contact Person</ion-label>\n\n                        <ion-input formControlName="contactPerson" ></ion-input>\n\n                      </ion-item>\n\n                      <ion-item  no-lines *ngIf="(scheduleForm.get(\'contactPerson\').hasError(\'minlength\') || scheduleForm.get(\'contactPerson\').hasError(\'required\') ) && scheduleForm.get(\'contactPerson\').touched">\n\n                          <ion-label stacked  color="danger">\n\n                            Invalid Name\n\n                          </ion-label>\n\n                        </ion-item>\n\n                      \n\n                    \n\n                    \n\n                        <ion-item >\n\n                          <ion-label stacked>Contact Number</ion-label>\n\n                          <ion-input type="text" maxLength="10" formControlName="contactPersonNum" ></ion-input>\n\n                        </ion-item>\n\n                        <ion-item  no-lines *ngIf="(scheduleForm.get(\'contactPersonNum\').hasError(\'minlength\') || scheduleForm.get(\'contactPersonNum\').hasError(\'required\') ) && scheduleForm.get(\'contactPersonNum\').touched">\n\n                            <ion-label stacked  color="danger" >\n\n                              Invalid Contact Number\n\n                            </ion-label>\n\n                          </ion-item>\n\n\n\n                    <ion-row>\n\n                      <ion-col col-6>\n\n                        <button ion-button type="submit" [disabled]="scheduleForm.invalid" ion-button  icon-end  full color=blue >\n\n                           Save\n\n                         </button>\n\n                      </ion-col>\n\n                         <ion-col col-6>\n\n                          <button ion-button type="reset"  icon-end full color=blue   >\n\n                            Cancel\n\n                          </button>\n\n                        </ion-col>\n\n                      </ion-row>\n\n                     \n\n                    </form>\n\n        </ion-list>\n\n      \n\n\n\n\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'interviews\'" >\n\n        \n\n      <ion-list >\n\n        \n\n       <ion-searchbar placeholder="Search fUser" [(ngModel)]="searchInterview"  [showCancelButton]="shouldShowCancel"></ion-searchbar>\n\n        \n\n                <ion-row no-margin class="table-title row-bottom-border">\n\n                <ion-col col-4>Interview Date</ion-col>\n\n                    <ion-col col-5>Contact Person</ion-col>\n\n                    <ion-col col-3>Action</ion-col>\n\n                </ion-row>\n\n\n\n                <ion-row no-margin class=" col-text  row-bottom-border" *ngFor=\'let x of interviewDate | tableFilter : "contactPerson" : searchInterview; let i = index\' >\n\n                    \n\n                      <ion-col col-4>{{x.interviewDate}} </ion-col>\n\n                       <ion-col col-5 >{{x.interviewDetails.contactPerson}}</ion-col>\n\n                       <ion-col col-3 (click)="interviewDetailsPage(x.$key,x.interviewDate)">View Details</ion-col>\n\n                </ion-row>\n\n                \n\n        </ion-list>\n\n      \n\n\n\n\n\n    </div>\n\n\n\n\n\n\n\n    </div>\n\n</ion-content>'/*ion-inline-end:"F:\ionic-app\src\pages\recruitment\recruitment.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4_ionic_angular__["LoadingController"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_6__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_2__ionic_native_barcode_scanner__["a" /* BarcodeScanner */], __WEBPACK_IMPORTED_MODULE_1__ionic_native_date_picker__["a" /* DatePicker */], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */]])
-    ], SystemsPage);
-    return SystemsPage;
-}()); //end of class
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_date_picker__["a" /* DatePicker */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"]])
+    ], RecruitmentPage);
+    return RecruitmentPage;
+}());
 
-//# sourceMappingURL=systems.js.map
+//# sourceMappingURL=recruitment.js.map
 
 /***/ })
 

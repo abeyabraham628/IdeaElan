@@ -1,15 +1,15 @@
 webpackJsonp([13],{
 
-/***/ 736:
+/***/ 746:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModifysystemsPageModule", function() { return ModifysystemsPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(462);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(466);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modifysystems__ = __webpack_require__(842);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modifysystems__ = __webpack_require__(847);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,19 +41,19 @@ var ModifysystemsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 842:
+/***/ 847:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModifysystemsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_barcode_scanner__ = __webpack_require__(468);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_date_picker__ = __webpack_require__(464);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__ = __webpack_require__(461);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_barcode_scanner__ = __webpack_require__(474);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_date_picker__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__ = __webpack_require__(465);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_form_service__ = __webpack_require__(469);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_form_service__ = __webpack_require__(475);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -88,6 +88,7 @@ var ModifysystemsPage = /** @class */ (function () {
         this.showDefault = false;
         this.showSystemUser = false;
         this.showavExpiry = false;
+        this.fieldErr = true;
         this.employeeList = [];
         this.getUsers();
         this.params = navParams.data[0];
@@ -145,6 +146,7 @@ var ModifysystemsPage = /** @class */ (function () {
     };
     ModifysystemsPage.prototype.updateSystems = function () {
         var _this = this;
+        console.log(":fds");
         var value;
         var flag = false;
         var uname;
@@ -166,30 +168,36 @@ var ModifysystemsPage = /** @class */ (function () {
                 uname = empObj.fName + " " + empObj.lName;
                 break;
         }
-        this.firebase.list("maintenance/" + this.params.$key).push({
-            'type': { 'name': this.params.fieldName, 'value': flag ? uname : value },
-            date: __WEBPACK_IMPORTED_MODULE_5_moment__().format('D-MMM-YYYY'),
-            userKey: this.params.userKey != this.systemUser ? this.params.userKey : value,
-            userName: this.params.userName
-        }).then(function () {
-            var _a;
-            _this.firebase.list("systems").update(_this.params.$key, (_a = {},
-                _a[_this.params.fieldName] = value,
-                _a)).then(function () {
-                var alert = _this.alertCtrl.create({
-                    title: "Success",
-                    message: _this.fieldName + " updated successfully",
-                    buttons: [{
-                            text: 'OK',
-                            handler: function () {
-                                _this.formData.changeValue(value);
-                                _this.navCtrl.pop();
-                            }
-                        }]
+        if (value == null || value == "" || value.length < 3) {
+            this.fieldErr = false;
+        }
+        else {
+            this.fieldErr = true;
+            this.firebase.list("maintenance/" + this.params.$key).push({
+                'type': { 'name': this.params.fieldName, 'value': flag ? uname : value },
+                date: __WEBPACK_IMPORTED_MODULE_5_moment__().format('D-MMM-YYYY'),
+                userKey: this.params.userKey != this.systemUser ? this.params.userKey : value,
+                userName: this.params.userName
+            }).then(function () {
+                var _a;
+                _this.firebase.list("systems").update(_this.params.$key, (_a = {},
+                    _a[_this.params.fieldName] = value,
+                    _a)).then(function () {
+                    var alert = _this.alertCtrl.create({
+                        title: "Success",
+                        message: _this.fieldName + " updated successfully",
+                        buttons: [{
+                                text: 'OK',
+                                handler: function () {
+                                    _this.formData.changeValue(value);
+                                    _this.navCtrl.pop();
+                                }
+                            }]
+                    });
+                    alert.present();
                 });
-                alert.present();
             });
-        });
+        } //end of if else error
     };
     ModifysystemsPage.prototype.dispdate = function () {
         var _this = this;

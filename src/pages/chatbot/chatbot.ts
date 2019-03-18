@@ -22,7 +22,7 @@ export class ChatbotPage {
         clientAccessToken: "eefd359fd25447899a07c6e5404be212"
       }).then(result => console.log(result));
     });
-    this.chat.push({'question':'ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffsssssssssssssssssssssssssssssssssss'})
+   
   }
 
   ionViewDidLeave() {
@@ -34,6 +34,7 @@ chat=[]
   answer:any=[];
   ask(question) {
     this.chat.push({'question':question})
+    
   
     
     ApiAIPromises.requestText({

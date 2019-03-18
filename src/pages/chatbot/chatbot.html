@@ -2,34 +2,29 @@
 <ion-header no-border>
   <page-header pageTitle="CHATBOT"></page-header>
 </ion-header>
-
-<ion-content padding >
-
-  <ion-input type="text" [(ngModel)]="question" hidden=true></ion-input>
-
-  <button ion-button (click)="ask(question)" hidden=true>Ask</button>
+<ion-content padding>
+    <div class="chats">
+      <div class="chatbox">
+        <div *ngFor="let chat of chat">
+          <div class="message sent" *ngIf="chat.question!='' && chat.question!=null">
+            {{chat.question}}
+            
+          </div>
+          <div class="message received"  *ngIf="chat.answer!='' && chat.answer!=null">
+            {{chat.answer}}
+            
+          </div>
+        </div>
+      </div>
+      </div>
 
   
-
-
- 
-
-
-  <p text-center *ngIf="sending">sending...</p>
-  <ion-item  *ngFor="let c of chat" style="left:0px" no-lines >
-
-    <ion-label text-wrap  name="title" class="msgClass" *ngIf="c.question!='' && c.question!=null">{{c.question}}</ion-label>
-    <ion-label text-wrap name="title" class="msgClass" style="color:red" *ngIf="c.answer!='' && c.answer!=null">{{c.answer}}</ion-label>
-     
-  </ion-item>
-
- 
- 
 </ion-content>
+
 
 <ion-footer>
     <ion-item>
-    <ion-input [(ngModel)]="question" name="message" class="input_message" placeholder="Ask me anything"></ion-input>
+    <ion-input [(ngModel)]="question" name="message" placeholder="Ask me anything"></ion-input>
     <button ion-button (click)="ask(question)" item-right  color="orange"> <ion-icon  name="send" ></ion-icon></button>
    
   </ion-item>
