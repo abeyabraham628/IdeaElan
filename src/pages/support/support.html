@@ -4,7 +4,7 @@
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
 -->
-<ion-header>
+<ion-header no-border>
   <navbar pageTitle="Support"></navbar>
 </ion-header>
 
@@ -15,6 +15,9 @@
     </ion-segment-button>
     <ion-segment-button value="pastIssues" (click)="resetFields()">
       History
+    </ion-segment-button>
+    <ion-segment-button value="messages" (click)="resetFields()" *ngIf="user=='admin' || user=='hr' ">
+      Messsages
     </ion-segment-button>
  </ion-segment>
 
@@ -34,8 +37,8 @@
       <ion-item>
         <ion-label stacked>I need Help With</ion-label>
           <ion-select [(ngModel)]="subject">
-            <ion-option value="Internet Connectivity">Internet Connectivity</ion-option>
-            <ion-option value="Computer Related">Computer Related</ion-option>
+            <ion-option value="Internet">Internet Connectivity</ion-option>
+            <ion-option value="Computer">Computer Related</ion-option>
             <ion-option value="Other">Other</ion-option>
           </ion-select>
       </ion-item>
@@ -67,12 +70,30 @@
              
             </ion-row>
           </ion-item>
-          <ion-item *ngFor='let r of myRequests'>
-              <ion-row class="col-text table-bottom-border"  >
+          <ion-item *ngFor='let r of myRequests' class={{r.status}}>
+              <ion-row class='col-text table-bottom-border '  >
                   <ion-col col-3>{{r.date}}</ion-col><ion-col col-2>{{r.recipient}}</ion-col><ion-col col-5>{{r.subject}}</ion-col><ion-col col-2>{{r.status}}</ion-col>
               </ion-row>
             </ion-item>
     </div>
+
+    <div *ngSwitchCase="'messages'">
+      <ion-item>
+          <ion-row class="table-title">
+            <ion-col col-3 >Date</ion-col>
+            <ion-col col-3 >User</ion-col>
+             <ion-col col-4 >Subject</ion-col>
+            <ion-col col-2 >Status</ion-col>
+           
+          </ion-row>
+        </ion-item>
+        <ion-item *ngFor='let s of supportMessage' class={{s.status}}>
+            <ion-row class="col-text table-bottom-border" (click)="changeStatus(s)" >
+                <ion-col col-3>{{s.date}}</ion-col><ion-col col-3>{{s.userName}}</ion-col><ion-col col-4>{{s.subject}}</ion-col><ion-col col-2>{{s.status}}</ion-col>
+            </ion-row>
+          </ion-item>
+  </div>
+
  </div>
 
  

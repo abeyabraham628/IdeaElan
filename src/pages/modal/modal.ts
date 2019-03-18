@@ -1,5 +1,6 @@
+import { DataService } from './../../providers/form-service';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams ,ViewController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ViewController, LoadingController } from 'ionic-angular';
 import { Camera, CameraOptions } from '@ionic-native/camera';
 import { AngularFireAuth } from '@angular/fire/auth';
 import {  AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
@@ -24,11 +25,19 @@ export class ModalPage {
 
   image: string; // base64
 uri:any
+
+loader:any
   constructor(
     private view: ViewController,
     public storage: AngularFireStorage,
+    public data:DataService,
+    public loadingCtrl:LoadingController,
     public navCtrl: NavController, public navParams: NavParams,private camera: Camera,private afAuth:AngularFireAuth) {
-  }
+      //this.hid=false;
+
+   
+    }
+
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ModalPage');
@@ -43,6 +52,7 @@ closemodal()
   //this.view.dismiss();
 }
 async uploadHandler() {
+  
   const base64 = await this.changeimage();
   this.createUploadTask(base64);
  
@@ -62,15 +72,25 @@ async uploadHandler() {
 }
   
 createUploadTask(file: string): void {
-  //this.hid=false;
+  this.loader=this.loadingCtrl.create({
+    spinner:'dots',
+    content:'Please wait...',
+     dismissOnPageChange:true
+   })
+  this.loader.present() 
     const filePath = `${this.afAuth.auth.currentUser.uid}.jpg`;
-  
     this.image = 'data:image/jpg;base64,' + file;
     this.uri=this.image;
+
+    this.data.changeUri(this.uri)
     
-    this.task = this.storage.ref(filePath).putString(this.image, 'data_url');
+     this.storage.ref(filePath).putString(this.image, 'data_url').then(()=>{
+       this.loader.dismiss()
+        this.view.dismiss();
+     })
+    }
   
-    this.progress = this.task.snapshotChanges().pipe(map(s => s.state));
+    //this.progress = this.task.snapshotChanges().pipe(map(s => s.state));
    
-  }
+  
 }

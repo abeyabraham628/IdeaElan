@@ -1,13 +1,17 @@
 
 <ion-header no-border>
-  <page-header pageTitle="RECRUITMENTS"></page-header>
+  <navbar pageTitle="Interview Details"></navbar>
 </ion-header>
 
 <ion-content  >
  <ion-list >
-       {{eventDate}}  <button item-right ion-button (click)="goBack()">Back</button>
-       <button item-right ion-button (click)="interviewSummary(eventKey)">Summary</button>
-         <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel"></ion-searchbar>
+      <ion-item>
+        Interview Date: {{eventDate}} 
+      </ion-item>
+      
+       
+      <ion-searchbar  placeholder="Search User"  [showCancelButton]="shouldShowCancel"  [(ngModel)]="searchString" ></ion-searchbar>
+
         
                 <ion-row no-margin class="table-title row-bottom-border"> 
                    
@@ -16,11 +20,11 @@
                     <ion-col col-3>Status</ion-col>
                 </ion-row>
 
-                <ion-row no-margin class="table-title row-bottom-border" *ngFor="let x of applicantsData"> 
+                <ion-row no-margin class="table-title row-bottom-border" *ngFor='let x of applicantsData | tableFilter : "fName" : searchString; let i = index'> 
                    
-                  <ion-col col-4>{{x.fName}} {{x.lName}}</ion-col>
+                  <ion-col col-4>{{x.fName | titlecase}} {{x.lName  | titlecase}}</ion-col>
                    <ion-col col-3>{{x.mobile}}</ion-col>
-                   <ion-col col-3>{{x.interviewStatus}}</ion-col>
+                   <ion-col col-3>{{x.interviewStatus  | titlecase}}</ion-col>
                    <ion-col col-2 (click)="changeStatus(x)">Change</ion-col>
                </ion-row>
 
@@ -30,3 +34,8 @@
 
 
 </ion-content>
+<ion-footer>
+  
+    <button full ion-button color="blue" (click)="interviewSummary(eventKey,eventDate)">View Summary</button>
+  
+</ion-footer>

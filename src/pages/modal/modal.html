@@ -16,15 +16,18 @@
      
 
    
-    
+    <ion-item no-lines style="text-align:center;background-color: lightgrey">
+            
+        <img [hidden]="this.hid" src="{{uri}}" style="height:200px;width:200x;border-radius:5px;"/>
+
+  </ion-item>
 
      
-    <img [hidden]="this.hid" src="{{uri}}" style="height:300px;width:300x;border-radius:5px;padding:auto;margin: auto; border:2px solid gray"/>
     
        
     <ion-row>
         <ion-item col-6>
-          <button ion-button color="blue" (click)="uploadHandler()" full>Change Image</button>
+          <button ion-button color="blue" (click)="uploadHandler()" full>Upload Image</button>
          </ion-item>
     
          <ion-item col-6>
@@ -33,8 +36,5 @@
       </ion-row>  
 
 
-<ng-container *ngIf="progress | async as percent">
-    {{percent}}
-    <progress [value]="percent" max="100"></progress>
-  </ng-container>
+
 </ion-content>

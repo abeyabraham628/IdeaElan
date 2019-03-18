@@ -1,10 +1,10 @@
-import { Component,ChangeDetectorRef } from '@angular/core';
-import { IonicPage, NavController, AlertController, LoadingController } from 'ionic-angular';
+import { Component,ChangeDetectorRef, ViewChild } from '@angular/core';
+import { IonicPage, NavController, AlertController, LoadingController, ToastController, Content } from 'ionic-angular';
 import {AngularFireDatabase,AngularFireList} from '@angular/fire/database';
 import {FormControl,FormGroup,Validators}from '@angular/forms';
 import { DatePicker } from '@ionic-native/date-picker';
 import { InterviewDetailsPage } from '../interview-details/interview-details';
-import * as moment from 'moment';
+
 /**
  * Generated class for the RecruitmentPage page.
  *
@@ -18,21 +18,29 @@ import * as moment from 'moment';
   templateUrl: 'recruitment.html',
 })
 
+
 export class RecruitmentPage {
- 
+  @ViewChild(Content) content: Content;
+
   recruitment:string;
   scheduleDate: String
   checked:boolean=false
-  candidateSelected=true
+ 
   searchString:string
   searchInterview:string
-  constructor(public loadingCtrl:LoadingController,public alertCtrl:AlertController,private firebase:AngularFireDatabase, private datePicker:DatePicker,public navCtrl: NavController,private ref: ChangeDetectorRef) {
+  showDelete:boolean=false
+  showFooter:boolean=false
+  applicantsErr:boolean=false
+  applicantKeys:string[]=[]
+  constructor(public toastCtrl:ToastController,public loadingCtrl:LoadingController,public alertCtrl:AlertController,private firebase:AngularFireDatabase,public navCtrl: NavController,private ref: ChangeDetectorRef) {
     this.recruitment="newApplicant";
     this.getApplicants();
+    this.showApplicants()
   }
 
-  ionViewDidLeave() {
-    this.navCtrl.popToRoot();
+  ionViewDidEnter() {
+    this.applicantKeys=[]
+    this.applicantsErr=false
   }
 
 applicantList:AngularFireList<any>;
@@ -46,14 +54,15 @@ getApplicants(){
 
   //
   getSchedules(){
-    this.scheduleList=this.firebase.list('Schedules');
+    this.scheduleList=this.firebase.list('schedules');
     return this.scheduleList.snapshotChanges();
-    };
+   };
   
  
   applicantDetails=[];// for storing the applciants retrieved from db
   x:boolean=true
   showApplicants(){
+   
     let loader=this.loadingCtrl.create({
       spinner:'dots',
       content:'Loading',
@@ -73,6 +82,7 @@ getApplicants(){
          return null
       }).filter(Boolean);//end of map
       loader.dismiss()
+      this.content.resize()
  });//end of subscribe
 
 
@@ -97,8 +107,7 @@ newApplicantForm=new FormGroup({
   saveApplicant(applicantDetails:any){
     let loader=this.loadingCtrl.create({
       spinner:'dots',
-      
-       dismissOnPageChange:true
+      dismissOnPageChange:true
      })
      loader.present()
     this.applicantList.push({
@@ -116,7 +125,10 @@ newApplicantForm=new FormGroup({
       let alert = this.alertCtrl.create({
         title: "Success",
         subTitle: "Applicant added succesfuly ",
-        buttons: ['OK']
+        buttons:[{
+          text:"Ok",
+          handler:()=>{ this.showDelete=false;this.newApplicantForm.reset();}
+        }]
       });
       
       alert.present();
@@ -124,8 +136,11 @@ newApplicantForm=new FormGroup({
   }//end of function
 
   editCandidate(obj){
+    this.showFooter=false
+    this.content.resize()
     this.newApplicantForm.setValue(obj);
     this.recruitment="newApplicant"
+    this.showDelete=true
   }
 
 
@@ -151,116 +166,123 @@ newApplicantForm=new FormGroup({
       let alert = this.alertCtrl.create({
         title: "Success",
         subTitle: "Applicant Updated succesfuly ",
-        buttons: ['OK']
+        buttons:[{
+          text:"Ok",
+          handler:()=>{ this.showDelete=false;this.newApplicantForm.reset();}
+        }]
       });
       
+      
       alert.present();
+     
+      
     });
+    
   }//end of function
 
+  disableFooter(){
+    this.showFooter=false
+    this.content.resize()
+    this.applicantKeys=[]
+  }
+  enableFooter(){
+    this.showFooter=true
+    this.content.resize()
+    this.resetApplciantForm()
+  }
 
+  deleteApplicant(){
+    let alert=this.alertCtrl.create({
+      title:'Confirm',
+      message:'Do you want to delete this applicant',
+      buttons:[
+        {
+        text:"Yes",
+        handler:()=>{
+          this.applicantList.remove(this.newApplicantForm.controls['$key'].value)
+          let toast=this.toastCtrl.create({
+            message:'Applicant deteled successfully',
+            duration:3000
+          })
+          toast.present()
+          this.resetApplciantForm()
+        }
+      },
+      {
+        text:'No',
+        handler: () => {}
+  
+      }
+    ]
+    })
+    alert.present()
+  }
+  
 
   onSubmit(){//submit function of save applicant form 
     if(this.newApplicantForm.controls.$key.value==null){
       this.saveApplicant(this.newApplicantForm.value);// function for saving the form data to the database
-      this.newApplicantForm.reset();// reset applicant form after saving
+     
     }
     else{
       this.updateApplicant(this.newApplicantForm.value);// function for saving the form data to the database
-      this.newApplicantForm.reset();
     }
   }
 
-  dispdate(){// Funciton for displaying the date picker for selecting interview date
-    this.datePicker.show({
-      date:new Date(),
-      mode:'date',
-      androidTheme: 5,
-    }).then(
-      date=>{
-        this.scheduleForm.controls.scheduleDate.setValue(moment(date).format('D-MMM-YYYY'))
-       },
-      err => console.log('Error occurred while getting date: ', err)
-    )
-  }//end of function
-
-
-  //Initialising schedule form
-  scheduleForm=new FormGroup({
-      scheduleDate:new FormControl('',Validators.required),
-      scheduleTime:new FormControl('',[Validators.required]),
-      contactPerson:new FormControl('',[Validators.required,Validators.minLength(4)]),
-      contactPersonNum: new FormControl('',[Validators.required,Validators.minLength(10)]),
-      applicants: new FormControl('', Validators.required)
-     
-  });
-
- 
-  //Funtion for saving interview schedules for the respective applicants
-  saveSchedule(){
+  resetApplciantForm(){
     
-    
-    let schedule={  
-                    interviewTime:this.scheduleForm.controls.scheduleTime.value, 
-                    contactPerson:this.scheduleForm.controls.contactPerson.value,
-                    contactNumber:this.scheduleForm.controls.contactPersonNum.value
-                  }
-      
-                  
-      //Schedule details is pushed first to the db and then the key of that particular record is retrieved
-      //Once the key is retrieved,that key is add as a reference to the interviewDate field for the selected candidated record. 
-      
-      
-
-
-      this.scheduleList.push({//New schedule is created
-        interviewDate:this.scheduleForm.controls.scheduleDate.value,
-        interviewDetails:schedule
-      }).then((snap) => {// call back function
-        // Save the interviewDate for the candidates who are scheduled for interiew
-        for(let i=0;i<this.applicantKeys.length;i++)
-        this.applicantList.update(this.applicantKeys[i],{
-            interviewDate:snap.key
-            
-        }).then(()=>{
-          let alert = this.alertCtrl.create({
-            title: "Success",
-            subTitle: "Schedule created succesfuly ",
-            buttons: ['OK']
-          });
-          
-          alert.present();
-          this.scheduleForm.reset()
-        this.applicantKeys=[]
-          
-
-        });
-        
-     });
-     
-   }//end of save schedule function
- 
-    
-  // fucntion for toggling check all or uncheck all applicants
-  selectAll(){
-    this.checked=!this.checked;
+    this.newApplicantForm.reset()
+    this.showDelete=false// hide the delete button
     
   }
 
+  
+
+
+ 
+
+ 
+  //Funtion for saving interview schedules for the respective applicants
+  
+ 
+    
+  // fucntion for toggling check all or uncheck all applicants
+  checkAll:boolean=false
+  selectAll(){
+    if(this.checkAll)
+    this.checked=true;
+    else
+      this.checked=false
+
+      
+   
+  }
+
+  gotoCreateSchedule(){
+    if(this.applicantKeys.length<1)
+      this.applicantsErr=true
+      else
+        this.navCtrl.push('InterviewSchedulePage',this.applicantKeys)
+  }
+
 // Function for selecting multiple applincants before assigning a interview schedule
-applicantKeys:string[] = [];
+
   clickSelectBox(itemKey){
-    this.scheduleForm.controls['applicants'].setValue('')
+    
     const foundAt = this.applicantKeys.indexOf(itemKey);
       if (foundAt >= 0) 
         this.applicantKeys.splice(foundAt, 1);
       else 
         this.applicantKeys.push(itemKey);
+
+        /*if(this.applicantKeys.length<1){
+        this.checkAll=false
+        this.selectAll()
+        
+        }*/
        
-        if(this.applicantKeys.length>0){
-          this.candidateSelected=false
-        }
-        this.scheduleForm.controls['applicants'].setValue(this.applicantKeys)
+       
+
 }
 
 
@@ -269,7 +291,8 @@ applicantKeys:string[] = [];
 // function for retrieving the history of schedules
 interviewDate=[]
 viewInterviewDates(){
-  this.scheduleForm.reset()
+  this.showFooter=false
+  
     this.getSchedules().subscribe(
       res=>{
        this.interviewDate= res.map(item=>{
@@ -278,6 +301,8 @@ viewInterviewDates(){
             ...item.payload.val()}
         });//end of map
       });//end of subscribe
+      console.log(this.interviewDate)
+      this.content.resize()
 }//end of function
   
 

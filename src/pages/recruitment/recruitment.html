@@ -4,11 +4,11 @@
 
 <ion-content>
   <ion-segment [(ngModel)]="recruitment" color="white" >
-      <ion-segment-button  value="newApplicant" >
+      <ion-segment-button  value="newApplicant" (click)="disableFooter()" >
          New Applicant
       </ion-segment-button>
 
-      <ion-segment-button value="schedules" (click)="showApplicants()">
+      <ion-segment-button value="schedules" (click)="enableFooter()">
          Schedules
       </ion-segment-button>
 
@@ -23,6 +23,7 @@
           <form [formGroup]="newApplicantForm" (ngSubmit)="onSubmit()">
          
               <ion-input hidden formControlName="$key"></ion-input>
+              
            <ion-row>
                    <ion-col col-6>
                     <ion-item>
@@ -149,13 +150,18 @@
                   </ion-row>
                        
                       <ion-row>
-                        <ion-col col-6>
+                        <ion-col (col-6)="showDelete" (col-4)="!showDelete">
                         <button ion-button type="submit" [disabled]="newApplicantForm.invalid" ion-button  icon-end  full color=blue >
                            Save
                          </button>
                         </ion-col>
-                        <ion-col col-6>
-                            <button ion-button type="reset"  icon-end full color=blue   >
+                        <ion-col *ngIf="showDelete" col-4 >
+                          <button  ion-button type="button" (click)="deleteApplicant()"  ion-button  icon-end  full color=blue >
+                             Delete
+                           </button>
+                          </ion-col>
+                          <ion-col (col-6)="showDelete" (col-4)="!showDelete">
+                            <button ion-button type="reset" (click)="resetApplciantForm()"  icon-end full color=blue   >
                               Cancel
                             </button>
                             </ion-col>
@@ -167,18 +173,10 @@
           
      <div *ngSwitchCase="'schedules'">
         
-      <ion-list >
-        
-         <ion-searchbar placeholder="Search User" [(ngModel)]=searchString  [showCancelButton]="shouldShowCancel"></ion-searchbar>
-        
-                
-                 
-                  
-                <form [formGroup]="scheduleForm" (ngSubmit)="saveSchedule()">
-
-                    <ion-row no-margin class="table-title row-bottom-border">
+         <ion-searchbar placeholder="Search Applicant" [(ngModel)]=searchString  [showCancelButton]="shouldShowCancel"></ion-searchbar>
+         <ion-row no-margin class="table-title row-bottom-border">
                         <ion-col col-1 > 
-                          <ion-checkbox (ionChange)='selectAll()'></ion-checkbox>
+                          <ion-checkbox [(ngModel)]="checkAll" (ionChange)='selectAll()'></ion-checkbox>
                         </ion-col>
                         <ion-col col-3>Name</ion-col>
                          <ion-col col-3>Exp</ion-col>
@@ -195,106 +193,29 @@
                             <ion-col col-3>Not Set</ion-col>
                             <ion-col col-2 (click)="editCandidate(x)">Edit</ion-col>
                       </ion-row>
-                      <ion-item hidden >
-                        <ion-input type="text" formControlName="applicants" ></ion-input>
-                      </ion-item>
-                      <ion-item  no-lines *ngIf=" scheduleForm.get('applicants').hasError('required') && scheduleForm.get('applicants').touched">
-                          <ion-label stacked  color="danger" *ngIf=" scheduleForm.get('applicants').hasError('required')" >
-                            Select Candidate
-                          </ion-label>
-                        </ion-item>
-
-                <h6 class="title section-title">Schedule Details</h6>
-                
-                
-
-
-                <ion-row>
-                  <ion-col col-6>
-                    <ion-item >
-                      <ion-label stacked>Interview Date</ion-label>
-                      <ion-input type="text" readonly  (click)="dispdate()" (ionFocus)="dispdate()" formControlName="scheduleDate"></ion-input>
-                    </ion-item>
-                    <ion-item  no-lines *ngIf=" scheduleForm.get('scheduleDate').hasError('required')  && scheduleForm.get('scheduleDate').touched">
-                        <ion-label stacked  color="danger">
-                          Invalid Date
-                        </ion-label>
-                      </ion-item>
-                  </ion-col>
-
-               <ion-col col-6>
-                    <ion-item >
-                        <ion-label stacked>Interview Time</ion-label>
-                        <ion-datetime type="text" pickerFormat="h:mm A"  formControlName="scheduleTime" readonly></ion-datetime>
-                    </ion-item>
-                    <ion-item  no-lines *ngIf=" scheduleForm.get('scheduleTime').hasError('required')  && scheduleForm.get('scheduleTime').touched">
-                        <ion-label stacked  color="danger" *ngIf="scheduleForm.get('scheduleTime').hasError('required')  && scheduleForm.get('scheduleTime').touched" >
-                          Invalid Time
-                        </ion-label>
-                      </ion-item>
-                  </ion-col>
-                
-
-                  </ion-row>
-
-                      <ion-item>
-                        <ion-label stacked>Contact Person</ion-label>
-                        <ion-input formControlName="contactPerson" ></ion-input>
-                      </ion-item>
-                      <ion-item  no-lines *ngIf="(scheduleForm.get('contactPerson').hasError('minlength') || scheduleForm.get('contactPerson').hasError('required') ) && scheduleForm.get('contactPerson').touched">
-                          <ion-label stacked  color="danger">
-                            Invalid Name
-                          </ion-label>
-                        </ion-item>
-                      
-                    
-                    
-                        <ion-item >
-                          <ion-label stacked>Contact Number</ion-label>
-                          <ion-input type="text" maxLength="10" formControlName="contactPersonNum" ></ion-input>
-                        </ion-item>
-                        <ion-item  no-lines *ngIf="(scheduleForm.get('contactPersonNum').hasError('minlength') || scheduleForm.get('contactPersonNum').hasError('required') ) && scheduleForm.get('contactPersonNum').touched">
-                            <ion-label stacked  color="danger" >
-                              Invalid Contact Number
-                            </ion-label>
-                          </ion-item>
-
-                    <ion-row>
-                      <ion-col col-6>
-                        <button ion-button type="submit" [disabled]="scheduleForm.invalid" ion-button  icon-end  full color=blue >
-                           Save
-                         </button>
-                      </ion-col>
-                         <ion-col col-6>
-                          <button ion-button type="reset"  icon-end full color=blue   >
-                            Cancel
-                          </button>
-                        </ion-col>
-                      </ion-row>
                      
-                    </form>
-        </ion-list>
-      
-
-
+                     
+                      
+                  
+                    
     </div>
 
     <div *ngSwitchCase="'interviews'" >
         
       <ion-list >
         
-       <ion-searchbar placeholder="Search fUser" [(ngModel)]="searchInterview"  [showCancelButton]="shouldShowCancel"></ion-searchbar>
-        
+      <!-- <ion-searchbar placeholder="Search User" [(ngModel)]="searchInterview"  [showCancelButton]="shouldShowCancel"></ion-searchbar>
+        -->
                 <ion-row no-margin class="table-title row-bottom-border">
                 <ion-col col-4>Interview Date</ion-col>
-                    <ion-col col-5>Contact Person</ion-col>
-                    <ion-col col-3>Action</ion-col>
+                    <ion-col col-5>Interview Time</ion-col>
+                     <ion-col col-3>Action</ion-col>
                 </ion-row>
 
                 <ion-row no-margin class=" col-text  row-bottom-border" *ngFor='let x of interviewDate | tableFilter : "contactPerson" : searchInterview; let i = index' >
                     
                       <ion-col col-4>{{x.interviewDate}} </ion-col>
-                       <ion-col col-5 >{{x.interviewDetails.contactPerson}}</ion-col>
+                       <ion-col col-5 >{{x.interviewDetails.interviewTime}}</ion-col>
                        <ion-col col-3 (click)="interviewDetailsPage(x.$key,x.interviewDate)">View Details</ion-col>
                 </ion-row>
                 
@@ -308,3 +229,11 @@
 
     </div>
 </ion-content>
+<ion-footer *ngIf="showFooter">
+    <ion-item  no-lines *ngIf="applicantsErr">
+        <ion-label stacked  color="danger" >
+          Select Candidate
+        </ion-label>
+      </ion-item>
+  <button ion-button color="blue" full (click)="gotoCreateSchedule()">Create Schedules</button>
+</ion-footer>

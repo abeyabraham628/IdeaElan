@@ -1,3 +1,4 @@
+import { DataService } from './../../providers/form-service';
 import { ChatbotPage } from './../chatbot/chatbot';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -51,11 +52,13 @@ export class TabsPage {
   leaveRequest:boolean=true
   sendMessage:boolean=true
   controllPanel:boolean=false
-  constructor(private fdb:AngularFireDatabase,public storage: AngularFireStorage,private camera: Camera,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth) {
+  user:any=""
+  constructor(private data:DataService,private fdb:AngularFireDatabase,public storage: AngularFireStorage,private camera: Camera,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth) {
     this.roles=navParams.get('roles')
+    
     this.tab0Params=this.roles
     if(this.roles[0]!="null"){
-        
+       this.user="admin" 
       this.users=false
       this.recruitment=false
       this.systems=false
@@ -79,6 +82,7 @@ export class TabsPage {
       this.controllPanel=true
       }
       if(this.roles[4]!="null"){
+        if(this.user!='admin')this.user="hr"
       this.recruitment=false
       this.controllPanel=true
       }
@@ -91,6 +95,10 @@ export class TabsPage {
       this.controllPanel=true
       }
     
+      if(this.user=="hr" || this.user=="admin"){
+        this.getSupportMessages()
+      }
+
     this.getusername();
     this.getMessages()
     this.hid=false;
@@ -100,8 +108,11 @@ export class TabsPage {
       
     
    
-    this.uri=`https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/${this.afAuth.auth.currentUser.uid}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b5`
+    //.uri=`https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/${this.afAuth.auth.currentUser.uid}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b5`
+      this.data.currentUri.subscribe(item=>this.uri=item)
   }
+
+  
 
  
 
@@ -190,6 +201,27 @@ this.messageCount++;
 }
 
 
+SupportMessages=[]
+supportMessagecount:number
+getSupportMessages(){
+  this.fdb.list(`support/${this.user}`).snapshotChanges().subscribe(snap=>{
+    this.SupportMessages=snap.map(item=>{
+      return{
+        $key:item.key,
+        ...item.payload.val()
+      }
 
+    })
 
+    this.supportMessagecount=0;
+    for( let i=0;i<this.SupportMessages.length;i++)
+      {
+        if((this.SupportMessages[i]['status']=='pending') || ( this.SupportMessages[i]['status']=='review'  ))
+        this.supportMessagecount++;
+      }
+    console.log("messages is ",this.SupportMessages[0]['status'])
+    console.log(this.SupportMessages.length)
+    console.log("actual SUPPORT count ", this.supportMessagecount);
+  })
+}
 }

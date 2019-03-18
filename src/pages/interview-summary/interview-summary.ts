@@ -15,18 +15,16 @@ import{AngularFireDatabase,AngularFireList} from '@angular/fire/database'
 })
 export class InterviewSummaryPage {
 eventDate:any
+eventKey:any
   constructor(public navCtrl: NavController, public navParams: NavParams,private firebase:AngularFireDatabase) {
+      this.eventKey=navParams.get('eventKey')
       this.eventDate=navParams.get('eventDate')
-      this.interviewSummary(this.eventDate)
+      this.interviewSummary(this.eventKey)
+      
   }
 
-  ionViewDidLeave() {
-    this.navCtrl.popToRoot();
-  }
+ 
 
-  goBack(){
-    this.navCtrl.pop();
-  }
 
 
   
@@ -34,6 +32,7 @@ eventDate:any
   total_Count:number=0
   attended_Count:number=0
   selected_Count:number=0
+
   async interviewSummary(eventKey:any){
 
     

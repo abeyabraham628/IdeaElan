@@ -1,0 +1,88 @@
+<!--
+  Generated template for the InterviewSchedulePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header no-border>
+  <navbar pageTitle="Interview Schedule"></navbar>
+</ion-header>
+
+<ion-content padding>
+    <form [formGroup]="scheduleForm" (ngSubmit)="saveSchedule()">
+  <h6 class="title section-title">Schedule Details</h6>
+                
+                
+
+
+  <ion-item >
+      <ion-label stacked>Job Title</ion-label>
+      <ion-input  type="text"   formControlName="jobTitle"></ion-input>
+    </ion-item>
+    <ion-item  no-lines *ngIf=" scheduleForm.get('jobTitle').hasError('required')  && scheduleForm.get('jobTitle').touched">
+        <ion-label stacked  color="danger">
+          Invalid Job Title
+        </ion-label>
+      </ion-item>
+      <ion-item >
+        <ion-label stacked>Interview Date</ion-label>
+        <ion-input    (click)="dispdate()" (ionFocus)="dispdate()" formControlName="scheduleDate"></ion-input>
+      </ion-item>
+      <ion-item  no-lines *ngIf=" scheduleForm.get('scheduleDate').hasError('required')  && scheduleForm.get('scheduleDate').touched">
+          <ion-label stacked  color="danger">
+            Invalid Date
+          </ion-label>
+        </ion-item>
+   
+
+ 
+      <ion-item >
+          <ion-label stacked>Interview Time</ion-label>
+          <ion-datetime pickerFormat="h:mm A"  formControlName="scheduleTime" readonly></ion-datetime>
+      </ion-item>
+      <ion-item  no-lines *ngIf=" scheduleForm.get('scheduleTime').hasError('required')  && scheduleForm.get('scheduleTime').touched">
+          <ion-label stacked  color="danger" *ngIf="scheduleForm.get('scheduleTime').hasError('required')  && scheduleForm.get('scheduleTime').touched" >
+            Invalid Time
+          </ion-label>
+        </ion-item>
+    
+  
+
+  
+
+        <ion-item>
+          <ion-label stacked>Contact Person</ion-label>
+          <ion-input formControlName="contactPerson" ></ion-input>
+        </ion-item>
+        <ion-item  no-lines *ngIf="(scheduleForm.get('contactPerson').hasError('minlength') || scheduleForm.get('contactPerson').hasError('required') ) && scheduleForm.get('contactPerson').touched">
+            <ion-label stacked  color="danger">
+              Invalid Name
+            </ion-label>
+          </ion-item>
+        
+      
+      
+          <ion-item >
+            <ion-label stacked>Contact Number</ion-label>
+            <ion-input type="text" maxLength="10" formControlName="contactPersonNum" ></ion-input>
+          </ion-item>
+          <ion-item  no-lines *ngIf="(scheduleForm.get('contactPersonNum').hasError('minlength') || scheduleForm.get('contactPersonNum').hasError('required') ) && scheduleForm.get('contactPersonNum').touched">
+              <ion-label stacked  color="danger" >
+                Invalid Contact Number
+              </ion-label>
+            </ion-item>
+
+      <ion-row>
+        <ion-col col-6>
+          <button ion-button type="submit" [disabled]="scheduleForm.invalid" ion-button  icon-end  full color=blue >
+             Save
+           </button>
+        </ion-col>
+           <ion-col col-6>
+            <button ion-button type="reset"  icon-end full color=blue   >
+              Cancel
+            </button>
+          </ion-col>
+        </ion-row>
+        </form>
+</ion-content>

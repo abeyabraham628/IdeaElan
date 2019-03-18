@@ -27,13 +27,12 @@ export class InterviewDetailsPage {
     this.eventDate=navParams.get('date')
     this.eventKey=navParams.get('key')
     this.loadApplicants(this.eventKey)
+    
   }
   
 
 
-  ionViewDidLeave() {
-    this.navCtrl.popToRoot();
-  }
+ 
 
   goBack() {
     this.navCtrl.pop();
@@ -84,8 +83,10 @@ changeStatus(data:any){
       statusAlert.addButton({
         text: 'OK',
         handler: status => {
+          if(status!=null){
          this.firebase.list('Applicants').update(data.$key,{interviewStatus:status})
           this.loadApplicants(this.eventKey)
+          }
         }
       });
      
@@ -95,9 +96,11 @@ changeStatus(data:any){
 }
 
 
-interviewSummary(eventDate:any){
-       let summaryModal=this.modalCtrl.create('InterviewSummaryPage',{eventDate:eventDate})
-       summaryModal.present();
+interviewSummary(eventKey:any,eventDate:any){
+  
+
+    this.navCtrl.push('InterviewSummaryPage',{eventDate:eventDate,eventKey:eventKey})
+       
 }
 
 }
