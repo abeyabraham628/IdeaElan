@@ -39,6 +39,7 @@
     "@types/node": "^10.12.29",
     "@types/nodemailer": "^4.6.6",
     "cordova-android": "7.1.4",
+    "cordova-ios": "4.5.5",
     "cordova-plugin-camera": "4.0.3",
     "cordova-plugin-datepicker": "0.9.3",
     "cordova-plugin-device": "^2.0.2",
@@ -72,7 +73,8 @@
     "tslib": "^1.9.3",
     "typescript": "^3.0.1",
     "typescript-require": "^0.2.10",
-    "zone.js": "0.8.26"
+    "zone.js": "0.8.26",
+    "cordova-plugin-apiai": "~1.7.4"
   },
   "devDependencies": {
     "@angular/cli": "^7.3.4",
@@ -106,6 +108,8 @@
       "cordova-plugin-network-information": {},
       "cordova-plugin-screen-orientation": {}
     },
-    "platforms": []
+    "platforms": [
+      "ios"
+    ]
   }
 }

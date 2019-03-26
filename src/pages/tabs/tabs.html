@@ -9,13 +9,13 @@
 <ion-menu [content]="mycontent" persistent="true" class="sideMenuList">
     
       <ion-header>
-      <ion-item no-lines style="text-align:center;background-color: #2679b0">
+      <ion-item no-lines style="text-align:center;background-color: #2679b0" (click)="goto('MyprofilePage')">
             
                 <img src="{{uri}}" onerror="this.src='assets/imgs/companylogo.png'" style="height:50px;width:50px;border-radius:30%;margin: auto"> 
               
             <h4 style="color:#ffffff">{{this.uname | titlecase }}</h4>
             <h6 style="color:#ffffff">{{this.position | titlecase }}</h6>
-            <ion-icon name="arrow-dropright" item-right (click)="goto('MyprofilePage')" menuClose></ion-icon>
+            
           </ion-item>
         </ion-header>
       
@@ -36,10 +36,7 @@
            Company Policy
       </ion-item>
       
-      <ion-item no-lines (click)="logout()"  class="sideMenuList">
-          <ion-icon name="power" item-end small></ion-icon>
-           Logout
-      </ion-item>
+      
 
       <ion-list-header *ngIf="controllPanel">
           Control Panel
@@ -74,6 +71,10 @@
     </ion-content>
 
      <ion-footer>
+        <ion-item (click)="logout()"  class="sideMenuList">
+            <ion-icon name="power" item-end small></ion-icon>
+             Logout
+        </ion-item>
        <ion-item no-lines>
          <ion-label>IdeaElan | version 0.0.1</ion-label>
        </ion-item>
@@ -84,7 +85,7 @@
 <ion-nav #mycontent [root]="rootPage"></ion-nav>
  
 
-<ion-tabs  >
+<ion-tabs >
   <ion-tab [root]="tab0Root"   tabTitle="Home" tabIcon="home"  [rootParams]="tab0Params" ></ion-tab>
   <ion-tab [root]="tab1Root"   tabTitle="Leave" tabIcon="person" ></ion-tab>
   <ion-tab [root]="tab2Root"   tabTitle="Chatbot" tabIcon="document" ></ion-tab>

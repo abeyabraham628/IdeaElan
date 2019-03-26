@@ -95,6 +95,9 @@
     .list{
         flex: 1 0 auto
     }
+    -webkit-overflow-scrolling: auto;
+    padding-bottom: 0px !important;
+    scroll-behavior: smooth;
 }
 
 .pending{
@@ -106,3 +109,4 @@
 .rejected{
   color:red;
 }
+

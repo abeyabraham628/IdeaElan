@@ -22,6 +22,7 @@
     <preference name="ShowSplashScreen" value="true" />
     <preference name="FadeSplashScreen" value="true" />
     <preference name="ShowSplashScreenSpinner" value="false" />
+    
     <platform name="android">
         <allow-intent href="market:*" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
@@ -100,4 +101,5 @@
     <plugin name="cordova-plugin-screen-orientation" spec="3.0.1" />
     <plugin name="cordova-plugin-network-information" spec="2.0.1" />
     <plugin name="cordova-plugin-datepicker" spec="0.9.3" />
+    <engine name="ios" spec="4.5.5" />
 </widget>
