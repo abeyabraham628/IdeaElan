@@ -1,11 +1,11 @@
-import { InterviewSummaryPage } from './../interview-summary/interview-summary';
+
 
 
 //import { Firebase } from '@ionic-native/firebase';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController,AlertController, Alert } from 'ionic-angular';
 import{AngularFireDatabase,AngularFireList} from '@angular/fire/database'
-import { FormsModule } from '@angular/forms';
+
 
 
 /**

@@ -7,6 +7,7 @@ import {FormControl,FormGroup,Validators}from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Designations } from '../../providers/designations';
 import * as moment from 'moment'
+import { tokenKey } from '@angular/core/src/view';
 
 /**
  * Generated class for the UploadEventsPage page.
@@ -108,20 +109,30 @@ async publishMessage(){
 
 
  recipients=[]
+  ck=false
  addRecipients(){
-   
+   let i=0
+    let tony=false
   let alert = this.alertCtrl.create();
   alert.setTitle('Choose Recipients');
   alert.addInput({
     type: 'checkbox',
     label: "All",
-    value: "All"
+    value: "All",
+    id:'tony',
+    handler:()=>{
+      tony=true
+    }
 });
-  this.designations.forEach(item=>{
+
+  this.designations.forEach((item)=>{
+    let t:boolean=Boolean('f'+i)
       alert.addInput({
          type: 'checkbox',
          label: item.position,
-         value: item.value
+         value: item.value,
+         checked:tony,
+         
     });
  })
  alert.addButton('Cancel');
@@ -136,6 +147,8 @@ async publishMessage(){
  alert.present();
  
  }
+
+
 
 
 sentItems=[]

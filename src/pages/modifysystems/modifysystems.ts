@@ -1,7 +1,8 @@
-import { concatAll } from 'rxjs/operators';
-import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { DatePicker } from '@ionic-native/date-picker';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+
+import { BarcodeScanner } from '@ionic-native/barcode-scanner';
+
+
 import {  AngularFireDatabase } from '@angular/fire/database';
 
 import { Component, Injectable } from '@angular/core';

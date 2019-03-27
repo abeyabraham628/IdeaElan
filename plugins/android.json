@@ -44,6 +44,9 @@
     },
     "cordova-plugin-datepicker": {
       "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-calendar": {
+      "PACKAGE_NAME": "idea.elan"
     }
   },
   "dependent_plugins": {

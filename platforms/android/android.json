@@ -47,6 +47,10 @@
             {
               "xml": "<feature name=\"DatePickerPlugin\"><param name=\"android-package\" value=\"com.plugin.datepicker.DatePickerPlugin\" /></feature>",
               "count": 1
+            },
+            {
+              "xml": "<feature name=\"Calendar\"><param name=\"android-package\" value=\"nl.xservices.plugins.Calendar\" /></feature>",
+              "count": 1
             }
           ],
           "widget": [
@@ -100,6 +104,14 @@
             },
             {
               "xml": "<uses-permission android:name=\"android.permission.RECORD_AUDIO\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.READ_CALENDAR\" />",
+              "count": 1
+            },
+            {
+              "xml": "<uses-permission android:name=\"android.permission.WRITE_CALENDAR\" />",
               "count": 1
             }
           ],
@@ -181,6 +193,9 @@
       "PACKAGE_NAME": "idea.elan"
     },
     "cordova-plugin-datepicker": {
+      "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-calendar": {
       "PACKAGE_NAME": "idea.elan"
     }
   },
@@ -326,6 +341,14 @@
       "clobbers": [
         "datePicker"
       ]
+    },
+    {
+      "id": "cordova-plugin-calendar.Calendar",
+      "file": "plugins/cordova-plugin-calendar/www/Calendar.js",
+      "pluginId": "cordova-plugin-calendar",
+      "clobbers": [
+        "Calendar"
+      ]
     }
   ],
   "plugin_metadata": {
@@ -341,6 +364,7 @@
     "cordova-plugin-network-information": "2.0.1",
     "es6-promise-plugin": "4.2.2",
     "cordova-plugin-screen-orientation": "3.0.1",
-    "cordova-plugin-datepicker": "0.9.3"
+    "cordova-plugin-datepicker": "0.9.3",
+    "cordova-plugin-calendar": "5.1.4"
   }
 }

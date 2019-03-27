@@ -1,9 +1,8 @@
 import { Camera } from '@ionic-native/camera';
 import { AngularFireStorage } from '@angular/fire/storage';
-import { PipesModule } from './../pipes/pipes.module';
-import { MomentdatePipe } from './../pipes/momentdate/momentdate';
+
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
-import { DatepickerDirective } from './../directives/datepicker/datepicker';
+
 
 import { ChatbotPage } from './../pages/chatbot/chatbot';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
@@ -15,7 +14,7 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http';
 
-import { DatePicker } from '@ionic-native/date-picker';
+import {  DatePicker } from '@ionic-native/date-picker';
 import { ReactiveFormsModule } from '@angular/forms'
 import { DatePipe } from '@angular/common';
 import { Firebase } from '@ionic-native/firebase';
@@ -32,7 +31,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { ComponentsModule } from '../components/components.module';
 import { DataService } from '../providers/form-service';
 import { Network } from '@ionic-native/network';
-
+import {Calendar} from '@ionic-native/calendar'
 
 
 
@@ -77,7 +76,7 @@ import { Network } from '@ionic-native/network';
     StatusBar,
     Firebase,
     SplashScreen,
-    DatePicker,
+   DatePicker,
     BarcodeScanner,
     DatePipe,
     FCM,
@@ -86,6 +85,8 @@ import { Network } from '@ionic-native/network';
     ScreenOrientation,
     AngularFireStorage,
     Camera,
+    Calendar,
+  
     
     
     

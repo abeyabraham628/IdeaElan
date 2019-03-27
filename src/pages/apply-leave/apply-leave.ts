@@ -1,5 +1,5 @@
 import { DatePicker } from '@ionic-native/date-picker';
-import { leave } from '@angular/core/src/profile/wtf_impl';
+
 import { leaveCount,leaves } from './../../providers/user-leaves';
 import { Component} from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, Form, AlertController, LoadingController } from 'ionic-angular';
@@ -9,11 +9,11 @@ import { LeaveModel } from '../../models/leave.model';
 import { CustomDatePicker } from '../../models/datepicker';
 
 import { AngularFireAuth } from '@angular/fire/auth';
-import {FormControl, FormGroup,Validators, FormBuilder} from '@angular/forms'
+import {Validators, FormBuilder} from '@angular/forms'
 
 import { AngularFireDatabase } from '@angular/fire/database';
 import * as moment from 'moment'
-import { concatAll } from 'rxjs/operators';
+
 
 
 

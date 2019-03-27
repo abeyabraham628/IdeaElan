@@ -38,6 +38,7 @@ export class InterviewSchedulePage {
     this.datePicker.show({
       date:new Date(),
       mode:'date',
+      
       androidTheme: 5,
     }).then(
       date=>{

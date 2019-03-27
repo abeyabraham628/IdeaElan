@@ -1,4 +1,4 @@
-import { Firebase } from '@ionic-native/firebase';
+
 import { DatePicker } from '@ionic-native/date-picker';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireAuth} from '@angular/fire/auth';
@@ -33,7 +33,7 @@ export class NewuserPage {
     dob: new FormControl('',[Validators.required,Validators.minLength(5)]),
     mobile: new FormControl('',[Validators.required,Validators.minLength(5)]),
     doj: new FormControl('',[Validators.required,Validators.minLength(5)]),
-    email: new FormControl('',[Validators.required,Validators.minLength(5), Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')] ),
+    email: new FormControl('',[Validators.required,Validators.minLength(5), Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
     position: new FormControl('',[Validators.required,Validators.minLength(5)]),
 
 
@@ -235,8 +235,11 @@ getItems(searchbar) {
     }*/
 
     dispdate(type:String){
+      
       this.datePicker.show({
       date: moment().toDate(),
+      maxDate:moment().valueOf(),
+      allowFutureDates:false,
       mode: 'date',
       androidTheme: 5,
       

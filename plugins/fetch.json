@@ -65,14 +65,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-datepicker": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-datepicker@0.9.3"
-    },
-    "is_top_level": true,
-    "variables": {}
-  },
   "cordova-plugin-firebase": {
     "source": {
       "type": "registry",
@@ -151,6 +143,22 @@
       "id": "es6-promise-plugin@^4.1.0"
     },
     "is_top_level": false,
+    "variables": {}
+  },
+  "cordova-plugin-datepicker": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-datepicker"
+    },
+    "is_top_level": true,
+    "variables": {}
+  },
+  "cordova-plugin-calendar": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-calendar@5.1.4"
+    },
+    "is_top_level": true,
     "variables": {}
   }
 }

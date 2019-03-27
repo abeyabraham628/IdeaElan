@@ -1,9 +1,10 @@
+import { DatePicker } from '@ionic-native/date-picker';
 import { DataService } from './../../providers/form-service';
 
 
 
 import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
-import { DatePicker } from '@ionic-native/date-picker';
+
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { Component } from '@angular/core';
 import { IonicPage, AlertController, ModalController, NavController, LoadingController } from 'ionic-angular';
@@ -11,7 +12,7 @@ import {FormControl, FormGroup,Validators} from '@angular/forms'
 import { CustomDatePicker } from '../../models/datepicker';
 
 import * as moment from 'moment'
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+
 
 
 

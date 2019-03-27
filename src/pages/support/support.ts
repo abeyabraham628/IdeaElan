@@ -1,3 +1,4 @@
+import { map } from 'rxjs/operators';
 import { Subject } from 'rxjs';
 import { resolve } from 'path';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -6,6 +7,7 @@ import { AngularFireDatabase } from '@angular/fire/database';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, AlertController } from 'ionic-angular';
 import * as moment from 'moment';
+import { createHostListener } from '@angular/compiler/src/core';
 
 /**
  * Generated class for the SupportPage page.
@@ -63,7 +65,8 @@ user:any
   contactSupport(){
     
     this.subject==null?this.subjectErr=false:this.subjectErr=true;
-    this.matter==null?this.commentErr=false:this.commentErr=true
+
+    this.matter==null||this.matter==""|| this.matter.length<5?this.commentErr=false:this.commentErr=true
     this.recipient==null?this.recpErr=false:this.recpErr=true
     
     if(this.subjectErr&& this.commentErr&& this.recpErr){
@@ -99,6 +102,15 @@ user:any
   myRequests=[]
   getMyRequests(){
     
+    /*this.firebase.list('support').snapshotChanges().subscribe(snap=>{
+        this.myRequests=snap.map(child=>{
+          child.(item=>{
+
+          })
+        })
+    })*/
+
+
     this.firebase.database.ref(`support`).on('value',(snap)=>{
       snap.forEach((child)=>{
           child.forEach(item=>{
@@ -108,7 +120,8 @@ user:any
           })
       })
     })
-    
+
+   
   }
 
   supportMessage=[]
@@ -120,7 +133,7 @@ user:any
          $key:item.key,
          ...item.payload.val()
        }
-     }) 
+     }).reverse()
     
    
       
@@ -140,9 +153,9 @@ userType(roles){
 changeStatus(message){
   
   let alert = this.alertCtrl.create();
-  alert.setTitle(message.subject)
-  alert.setSubTitle("Sent by: "+message.userName)
-  alert.setMessage(message.matter)
+  alert.setTitle("Subject: "+message.subject)
+  alert.setSubTitle("From: "+message.userName)
+  alert.setMessage("Issue: "+message.matter)
   
   alert.addInput({
     type: 'radio',

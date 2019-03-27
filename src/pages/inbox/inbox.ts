@@ -60,6 +60,7 @@ viewMessage(x) {
   const alert = this.alertCtrl.create({
     title: x.subject,
     message:x.message,
+    enableBackdropDismiss : false,
     buttons: [{
       text:'OK',
       handler:()=>{
@@ -69,6 +70,7 @@ viewMessage(x) {
       }
     
     }]
+    
   });
   alert.present();
 }

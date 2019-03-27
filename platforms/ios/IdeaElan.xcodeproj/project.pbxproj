@@ -29,8 +29,6 @@
 		E204F0AFC75243E3BF98DC78 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6A08864D8B145B0A384F456 /* ImageIO.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4F1E440C66D64058A288527A /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 524F810E77684630A2E969F3 /* CoreLocation.framework */; };
 		6890AB96282B416DBC76C6EB /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F51A8645F43418C9196D3FF /* AVFoundation.framework */; };
-		66D293ADB08C47CBB5056283 /* DatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = DD47ADDB149048F29E8C957F /* DatePicker.m */; };
-		4130E478DCA7408384BFE51F /* DatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3B11F071F964DD3B169BA6D /* DatePicker.xib */; };
 		B5A18D555526484FA27C35B5 /* CDVDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = 060CCADDD5954CE7BEE36CF9 /* CDVDevice.m */; };
 		B6E9EE97691E4CE08481E537 /* APPEmailComposer.m in Sources */ = {isa = PBXBuildFile; fileRef = 96AF1E9628EC4D89AFE7F326 /* APPEmailComposer.m */; };
 		F2FE207B4FD24940831CB11B /* APPEmailComposerImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = A6E8496A6AA04FD3A0D77E7F /* APPEmailComposerImpl.m */; };
@@ -106,6 +104,11 @@
 		A4B5A94F951E4157B1085629 /* CDVBarcodeScanner.mm in Resources */ = {isa = PBXBuildFile; fileRef = 21E9CE2E6D4545238DBA75AD /* CDVBarcodeScanner.mm */; };
 		17E20D2AD6D144A8B06FC30F /* scannerOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40180812C1194EB6BE12C4F1 /* scannerOverlay.xib */; };
 		62A260B2F7BE44C9B842E7FB /* CDVBarcodeScanner.bundle in Resources */ = {isa = PBXBuildFile; fileRef = D3785850A9BF47EEB5D2366E /* CDVBarcodeScanner.bundle */; };
+		D4C8BCAF4DB447719FE9FC59 /* DatePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CFE286AE723431E890051A3 /* DatePicker.m */; };
+		9107C780F174425894F99E04 /* DatePicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2407F0B605C0476B90A0367F /* DatePicker.xib */; };
+		CE47086D7C5448FDBAB75D0C /* Calendar.m in Sources */ = {isa = PBXBuildFile; fileRef = 622B8DB1493F40BF8D22964B /* Calendar.m */; };
+		43731B12FB034FB1B241B7D1 /* EventKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC3AC42ACACE4895B3233781 /* EventKit.framework */; };
+		32F8EB3C0044408B805AEEE3 /* EventKitUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3B0A53C53C614DCB9BF9C284 /* EventKitUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -164,9 +167,6 @@
 		C6A08864D8B145B0A384F456 /* ImageIO.framework */ = {isa = PBXFileReference; name = "ImageIO.framework"; path = "System/Library/Frameworks/ImageIO.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		524F810E77684630A2E969F3 /* CoreLocation.framework */ = {isa = PBXFileReference; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 		8F51A8645F43418C9196D3FF /* AVFoundation.framework */ = {isa = PBXFileReference; name = "AVFoundation.framework"; path = "System/Library/Frameworks/AVFoundation.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
-		DD47ADDB149048F29E8C957F /* DatePicker.m */ = {isa = PBXFileReference; name = "DatePicker.m"; path = "cordova-plugin-datepicker/DatePicker.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		C78F4E92361642929FE34624 /* DatePicker.h */ = {isa = PBXFileReference; name = "DatePicker.h"; path = "cordova-plugin-datepicker/DatePicker.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
-		D3B11F071F964DD3B169BA6D /* DatePicker.xib */ = {isa = PBXFileReference; name = "DatePicker.xib"; path = "DatePicker.xib"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = file.xib; explicitFileType = undefined; includeInIndex = 0; };
 		060CCADDD5954CE7BEE36CF9 /* CDVDevice.m */ = {isa = PBXFileReference; name = "CDVDevice.m"; path = "cordova-plugin-device/CDVDevice.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
 		63858F70472F4B43B29A1D07 /* CDVDevice.h */ = {isa = PBXFileReference; name = "CDVDevice.h"; path = "cordova-plugin-device/CDVDevice.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 		96AF1E9628EC4D89AFE7F326 /* APPEmailComposer.m */ = {isa = PBXFileReference; name = "APPEmailComposer.m"; path = "cordova-plugin-email-composer/APPEmailComposer.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
@@ -282,6 +282,13 @@
 		21E9CE2E6D4545238DBA75AD /* CDVBarcodeScanner.mm */ = {isa = PBXFileReference; name = "CDVBarcodeScanner.mm"; path = "phonegap-plugin-barcodescanner/CDVBarcodeScanner.mm"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 		40180812C1194EB6BE12C4F1 /* scannerOverlay.xib */ = {isa = PBXFileReference; name = "scannerOverlay.xib"; path = "scannerOverlay.xib"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = file.xib; explicitFileType = undefined; includeInIndex = 0; };
 		D3785850A9BF47EEB5D2366E /* CDVBarcodeScanner.bundle */ = {isa = PBXFileReference; name = "CDVBarcodeScanner.bundle"; path = "CDVBarcodeScanner.bundle"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = wrapper.plug-in; explicitFileType = undefined; includeInIndex = 0; };
+		0CFE286AE723431E890051A3 /* DatePicker.m */ = {isa = PBXFileReference; name = "DatePicker.m"; path = "cordova-plugin-datepicker/DatePicker.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		3EDDF49DEDDC4472ABF1DE3A /* DatePicker.h */ = {isa = PBXFileReference; name = "DatePicker.h"; path = "cordova-plugin-datepicker/DatePicker.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		2407F0B605C0476B90A0367F /* DatePicker.xib */ = {isa = PBXFileReference; name = "DatePicker.xib"; path = "DatePicker.xib"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = file.xib; explicitFileType = undefined; includeInIndex = 0; };
+		622B8DB1493F40BF8D22964B /* Calendar.m */ = {isa = PBXFileReference; name = "Calendar.m"; path = "cordova-plugin-calendar/Calendar.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
+		A20CFDF25926493EB9202A50 /* Calendar.h */ = {isa = PBXFileReference; name = "Calendar.h"; path = "cordova-plugin-calendar/Calendar.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
+		FC3AC42ACACE4895B3233781 /* EventKit.framework */ = {isa = PBXFileReference; name = "EventKit.framework"; path = "System/Library/Frameworks/EventKit.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
+		3B0A53C53C614DCB9BF9C284 /* EventKitUI.framework */ = {isa = PBXFileReference; name = "EventKitUI.framework"; path = "System/Library/Frameworks/EventKitUI.framework"; sourceTree = SDKROOT; fileEncoding = undefined; lastKnownFileType = wrapper.framework; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,6 +340,8 @@
 				BEC9033D48B54E6EBE85783B /* SystemConfiguration.framework in Frameworks */,
 				F9CB64C9AC904256AA1200D3 /* CoreTelephony.framework in Frameworks */,
 				1CF58D65F49145B7B69F4FD6 /* QuartzCore.framework in Frameworks */,
+				43731B12FB034FB1B241B7D1 /* EventKit.framework in Frameworks */,
+				32F8EB3C0044408B805AEEE3 /* EventKitUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -396,10 +405,10 @@
 				8D1107310486CEB800E47090 /* IdeaElan-Info.plist */,
 				6AFF5BF81D6E424B00AB3073 /* CDVLaunchScreen.storyboard */,
 				BF72CFC8611445CFB4ABD8EF /* beep.caf */,
-				D3B11F071F964DD3B169BA6D /* DatePicker.xib */,
 				760906EA5B7A4BD4B0F115CB /* GoogleService-Info.plist */,
 				40180812C1194EB6BE12C4F1 /* scannerOverlay.xib */,
 				D3785850A9BF47EEB5D2366E /* CDVBarcodeScanner.bundle */,
+				2407F0B605C0476B90A0367F /* DatePicker.xib */,
 			);
 			name = Resources;
 			path = "IdeaElan/Resources";
@@ -451,6 +460,8 @@
 				113305A046624C689F263BA1 /* SystemConfiguration.framework */,
 				40F3FD7827254DC0B8450C13 /* CoreTelephony.framework */,
 				E936224FE5824F0BB7E686DC /* QuartzCore.framework */,
+				FC3AC42ACACE4895B3233781 /* EventKit.framework */,
+				3B0A53C53C614DCB9BF9C284 /* EventKitUI.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -485,8 +496,6 @@
 				C773DCB3EF6A42A599934278 /* CDVCamera.h */,
 				399755241DBD4C8B9D64AC4F /* CDVJpegHeaderWriter.h */,
 				7C6CADF8739443FE8C2D0C13 /* CDVExif.h */,
-				DD47ADDB149048F29E8C957F /* DatePicker.m */,
-				C78F4E92361642929FE34624 /* DatePicker.h */,
 				060CCADDD5954CE7BEE36CF9 /* CDVDevice.m */,
 				63858F70472F4B43B29A1D07 /* CDVDevice.h */,
 				96AF1E9628EC4D89AFE7F326 /* APPEmailComposer.m */,
@@ -564,6 +573,10 @@
 				E1538442F4B14D6FBA4FEA2E /* IonicKeyboard.m */,
 				41473149918540A2AF89C037 /* IonicKeyboard.h */,
 				21E9CE2E6D4545238DBA75AD /* CDVBarcodeScanner.mm */,
+				0CFE286AE723431E890051A3 /* DatePicker.m */,
+				3EDDF49DEDDC4472ABF1DE3A /* DatePicker.h */,
+				622B8DB1493F40BF8D22964B /* Calendar.m */,
+				A20CFDF25926493EB9202A50 /* Calendar.h */,
 			);
 			name = Plugins;
 			path = "IdeaElan/Plugins";
@@ -646,10 +659,10 @@
 				0207DA581B56EA530066E2B4 /* Images.xcassets in Resources */,
 				6AFF5BF91D6E424B00AB3073 /* CDVLaunchScreen.storyboard in Resources */,
 				D777A0EFF3B74F79A68ED3B7 /* beep.caf in Resources */,
-				4130E478DCA7408384BFE51F /* DatePicker.xib in Resources */,
 				34E5CA88DCFD476594A3A2BC /* GoogleService-Info.plist in Resources */,
 				17E20D2AD6D144A8B06FC30F /* scannerOverlay.xib in Resources */,
 				62A260B2F7BE44C9B842E7FB /* CDVBarcodeScanner.bundle in Resources */,
+				9107C780F174425894F99E04 /* DatePicker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -685,7 +698,6 @@
 				6DD3C45588DE426F95AC3AD3 /* UIImage+CropScaleOrientation.m in Sources */,
 				845DF65C4ECA4C199FC0F1F5 /* CDVCamera.m in Sources */,
 				1430DB4007FC4CF0A4DBCCD8 /* CDVJpegHeaderWriter.m in Sources */,
-				66D293ADB08C47CBB5056283 /* DatePicker.m in Sources */,
 				B5A18D555526484FA27C35B5 /* CDVDevice.m in Sources */,
 				B6E9EE97691E4CE08481E537 /* APPEmailComposer.m in Sources */,
 				F2FE207B4FD24940831CB11B /* APPEmailComposerImpl.m in Sources */,
@@ -723,6 +735,8 @@
 				49BF480C984D482E87A4DEDC /* sqlite3.c in Resources */,
 				D5C3BA3C0B9B4446A86D486C /* IonicKeyboard.m in Sources */,
 				A4B5A94F951E4157B1085629 /* CDVBarcodeScanner.mm in Resources */,
+				D4C8BCAF4DB447719FE9FC59 /* DatePicker.m in Sources */,
+				CE47086D7C5448FDBAB75D0C /* Calendar.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

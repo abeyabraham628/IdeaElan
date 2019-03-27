@@ -46,11 +46,11 @@
           <ion-label color="danger" stacked>Subject cannot be blank</ion-label>
         </ion-item>
       <ion-item>
-        <ion-label stacked>Please enter you concern</ion-label>
+        <ion-label stacked>Please enter your issue</ion-label>
         <ion-textarea rows=5 [(ngModel)]="matter"></ion-textarea>
       </ion-item>
       <ion-item  no-lines [hidden]="commentErr">
-          <ion-label color="danger" stacked>Comments cannot be blank</ion-label>
+          <ion-label color="danger" stacked>Minimum 5 Characters</ion-label>
         </ion-item>
 
       <ion-row>
@@ -64,15 +64,15 @@
         <ion-item>
             <ion-row class="table-title">
               <ion-col col-3 >Date</ion-col>
-              <ion-col col-2 >Send To</ion-col>
-               <ion-col col-5 >Subject</ion-col>
+              <ion-col col-3 >Send To</ion-col>
+               <ion-col col-4 >Subject</ion-col>
               <ion-col col-2 >Status</ion-col>
              
             </ion-row>
           </ion-item>
-          <ion-item *ngFor='let r of myRequests' class={{r.status}}>
-              <ion-row class='col-text table-bottom-border '  >
-                  <ion-col col-3>{{r.date}}</ion-col><ion-col col-2>{{r.recipient}}</ion-col><ion-col col-5>{{r.subject}}</ion-col><ion-col col-2>{{r.status}}</ion-col>
+          <ion-item *ngFor='let r of myRequests' [ngClass]=r.status  >
+              <ion-row class='col-text table-bottom-border'  >
+                  <ion-col col-3>{{r.date}}</ion-col><ion-col col-3>{{r.recipient}}</ion-col><ion-col col-4>{{r.subject}}</ion-col><ion-col col-2>{{r.status}}</ion-col>
               </ion-row>
             </ion-item>
     </div>
@@ -81,15 +81,16 @@
       <ion-item>
           <ion-row class="table-title">
             <ion-col col-3 >Date</ion-col>
-            <ion-col col-3 >User</ion-col>
-             <ion-col col-4 >Subject</ion-col>
+            <ion-col col-4 >From</ion-col>
+             <ion-col col-3 >Subject</ion-col>
             <ion-col col-2 >Status</ion-col>
            
           </ion-row>
         </ion-item>
-        <ion-item *ngFor='let s of supportMessage' class={{s.status}}>
-            <ion-row class="col-text table-bottom-border" (click)="changeStatus(s)" >
-                <ion-col col-3>{{s.date}}</ion-col><ion-col col-3>{{s.userName}}</ion-col><ion-col col-4>{{s.subject}}</ion-col><ion-col col-2>{{s.status}}</ion-col>
+        
+        <ion-item *ngFor='let s of supportMessage' >
+            <ion-row class="col-text table-bottom-border " [ngClass]=s.status (click)="changeStatus(s)" >
+                <ion-col col-3>{{s.date}}</ion-col><ion-col col-4>{{s.userName}}</ion-col><ion-col col-3>{{s.subject}}</ion-col><ion-col col-2>{{s.status}}</ion-col>
             </ion-row>
           </ion-item>
   </div>
