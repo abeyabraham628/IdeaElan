@@ -1,3 +1,4 @@
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 import { Component, ViewChild, Input, NgZone } from '@angular/core';
@@ -19,14 +20,17 @@ export class MyApp {
  
   isOffline:boolean=false
   showOffline:boolean=true
-  rootPage:string = 'LoginPage'//'ApplyLeavePage';//CompanyPolicyComponent;//HomePage
+  rootPage:string= 'LoginPage'//'ApplyLeavePage';//CompanyPolicyComponent;//HomePage
   
   @ViewChild('nav') nav : NavController;
-  constructor(public zone:NgZone,public screenOrientation:ScreenOrientation,public network:Network,public app:App,private platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private alertCtrl:AlertController) {
+  constructor(public afAuth:AngularFireAuth,public zone:NgZone,public screenOrientation:ScreenOrientation,public network:Network,public app:App,private platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private alertCtrl:AlertController) {
     
+
+
+
     this.checkConnection();
     this.checkDisconnection();
-   
+    
     this.platform.ready().then(() => {
       
       this.screenOrientation.lock(this.screenOrientation.ORIENTATIONS.PORTRAIT)
@@ -108,6 +112,10 @@ presentConfirm() {
       this.alertShown=true;
     });
   }
+
+ 
+   
+  
 
   
  

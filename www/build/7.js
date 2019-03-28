@@ -75,7 +75,7 @@ var Designations = [
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_designations__ = __webpack_require__(787);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_moment__);
@@ -165,7 +165,6 @@ var UploadEventsPage = /** @class */ (function () {
             date: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"](''),
         });
         this.recipients = [];
-        this.ck = false;
         this.sentItems = [];
         this.messages = "compose";
     }
@@ -234,36 +233,72 @@ var UploadEventsPage = /** @class */ (function () {
     };
     UploadEventsPage.prototype.addRecipients = function () {
         var _this = this;
-        var i = 0;
-        var tony = false;
+        var allSelected;
         var alert = this.alertCtrl.create();
         alert.setTitle('Choose Recipients');
         alert.addInput({
             type: 'checkbox',
             label: "All",
-            value: "All",
-            id: 'tony',
-            handler: function () {
-                tony = true;
+            value: 'All',
+            handler: function (x) {
+                if (x.checked) {
+                    allSelected = true;
+                    for (var i = 1; i < alert.data.inputs.length; i++)
+                        alert.data.inputs[i].checked = true;
+                }
+                else {
+                    allSelected = false;
+                    for (var i = 1; i < alert.data.inputs.length; i++)
+                        alert.data.inputs[i].checked = false;
+                }
             }
         });
         this.designations.forEach(function (item) {
-            var t = Boolean('f' + i);
             alert.addInput({
                 type: 'checkbox',
                 label: item.position,
                 value: item.value,
-                checked: tony,
+                checked: false,
+                handler: function () {
+                    allSelected = false;
+                    alert.data.inputs[0].checked = false;
+                }
             });
         });
         alert.addButton('Cancel');
         alert.addButton({
             text: 'OK',
             handler: function (data) {
-                _this.recipients = data;
-                _this.PublishMessageForm.controls['recipients'].setValue(data);
-            }
+                if (data == "" || data == null) {
+                    _this.recipients = data;
+                    _this.PublishMessageForm.controls['recipients'].setValue(_this.recipients);
+                }
+                else if (allSelected) {
+                    data = 'All';
+                    _this.recipients = data;
+                    _this.PublishMessageForm.controls['recipients'].setValue(_this.recipients);
+                }
+                else {
+                    _this.recipients = data;
+                    _this.PublishMessageForm.controls['recipients'].setValue(_this.recipients);
+                }
+            } //end of handler function
         });
+        //Conditions to enable tick for the checkbox when displaying the alert.
+        if (this.recipients.length > 0) {
+            if (this.recipients.toString() == 'All') {
+                for (var i = 0; i < alert.data.inputs.length; i++) {
+                    alert.data.inputs[i].checked = true;
+                }
+            }
+            else {
+                for (var i = 0; i < alert.data.inputs.length; i++) {
+                    for (var j = 0; j < this.recipients.length; j++)
+                        if (alert.data.inputs[i].value == this.recipients[j])
+                            alert.data.inputs[i].checked = true;
+                }
+            }
+        }
         alert.present();
     };
     UploadEventsPage.prototype.getSentItems = function () {

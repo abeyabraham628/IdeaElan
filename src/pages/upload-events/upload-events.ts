@@ -109,40 +109,77 @@ async publishMessage(){
 
 
  recipients=[]
-  ck=false
  addRecipients(){
-   let i=0
-    let tony=false
+   
+  let allSelected:boolean
   let alert = this.alertCtrl.create();
+  
   alert.setTitle('Choose Recipients');
   alert.addInput({
     type: 'checkbox',
     label: "All",
-    value: "All",
-    id:'tony',
-    handler:()=>{
-      tony=true
+    value:'All',
+    handler:(x)=>{
+    if(x.checked){
+        allSelected=true
+      for(let i=1;i<alert.data.inputs.length;i++)
+        alert.data.inputs[i].checked=true
+      }
+      else{
+        allSelected=false
+      for(let i=1;i<alert.data.inputs.length;i++)
+        alert.data.inputs[i].checked=false
+      }
+      
     }
 });
 
   this.designations.forEach((item)=>{
-    let t:boolean=Boolean('f'+i)
       alert.addInput({
          type: 'checkbox',
          label: item.position,
          value: item.value,
-         checked:tony,
-         
+         checked:false,
+        handler:()=>{
+          allSelected=false
+          alert.data.inputs[0].checked=false
+        }
     });
  })
  alert.addButton('Cancel');
  alert.addButton({
    text: 'OK',
    handler: data => {
-    this.recipients = data;
-    this.PublishMessageForm.controls['recipients'].setValue(data);
-   }
+          if(data=="" || data==null){
+            this.recipients = data;
+            this.PublishMessageForm.controls['recipients'].setValue(this.recipients);
+          }
+          else if(allSelected){
+              data='All'
+              this.recipients = data;
+              this.PublishMessageForm.controls['recipients'].setValue(this.recipients);
+            }
+          else{
+            this.recipients = data;
+            this.PublishMessageForm.controls['recipients'].setValue(this.recipients);
+          }
+   }//end of handler function
  });
+//Conditions to enable tick for the checkbox when displaying the alert.
+ if(this.recipients.length>0){
+   if(this.recipients.toString()=='All'){
+    for(let i=0;i<alert.data.inputs.length;i++){
+      alert.data.inputs[i].checked=true
+    }
+  }
+  else{
+    for(let i=0;i<alert.data.inputs.length;i++){
+      for(let j=0;j<this.recipients.length;j++)
+      if(alert.data.inputs[i].value==this.recipients[j])
+        alert.data.inputs[i].checked=true
+    }
+  }
+}
 
  alert.present();
  

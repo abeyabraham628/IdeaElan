@@ -46,7 +46,7 @@ var SupportPageModule = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SupportPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__ = __webpack_require__(466);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
@@ -124,7 +124,7 @@ var SupportPage = /** @class */ (function () {
     SupportPage.prototype.contactSupport = function () {
         var _this = this;
         this.subject == null ? this.subjectErr = false : this.subjectErr = true;
-        this.matter == null ? this.commentErr = false : this.commentErr = true;
+        this.matter == null || this.matter == "" || this.matter.length < 5 ? this.commentErr = false : this.commentErr = true;
         this.recipient == null ? this.recpErr = false : this.recpErr = true;
         if (this.subjectErr && this.commentErr && this.recpErr) {
             var empObj = this.employeeList.find(function (key) { return key.$key == _this.afAuth.auth.currentUser.uid; });
@@ -153,6 +153,13 @@ var SupportPage = /** @class */ (function () {
         this.recpErr = this.subjectErr = this.commentErr = true;
     };
     SupportPage.prototype.getMyRequests = function () {
+        /*this.firebase.list('support').snapshotChanges().subscribe(snap=>{
+            this.myRequests=snap.map(child=>{
+              child.(item=>{
+    
+              })
+            })
+        })*/
         var _this = this;
         this.firebase.database.ref("support").on('value', function (snap) {
             snap.forEach(function (child) {
@@ -169,7 +176,7 @@ var SupportPage = /** @class */ (function () {
         this.firebase.list("support/" + this.user).snapshotChanges().subscribe(function (snap) {
             _this.supportMessage = snap.map(function (item) {
                 return __assign({ $key: item.key }, item.payload.val());
-            });
+            }).reverse();
         });
     };
     SupportPage.prototype.userType = function (roles) {
@@ -181,9 +188,9 @@ var SupportPage = /** @class */ (function () {
     SupportPage.prototype.changeStatus = function (message) {
         var _this = this;
         var alert = this.alertCtrl.create();
-        alert.setTitle(message.subject);
-        alert.setSubTitle("Sent by: " + message.userName);
-        alert.setMessage(message.matter);
+        alert.setTitle("Subject: " + message.subject);
+        alert.setSubTitle("From: " + message.userName);
+        alert.setMessage("Issue: " + message.matter);
         alert.addInput({
             type: 'radio',
             label: "Under Review",
