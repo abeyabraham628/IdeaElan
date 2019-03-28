@@ -1,7 +1,7 @@
-import { map } from 'rxjs/operators';
+import { map, count } from 'rxjs/operators';
 import { Firebase } from '@ionic-native/firebase';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { Component } from '@angular/core';
+import { Component, ANALYZE_FOR_ENTRY_COMPONENTS } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';
 import {FormControl,FormGroup,Validators}from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/auth';
@@ -141,8 +141,10 @@ async publishMessage(){
          value: item.value,
          checked:false,
         handler:()=>{
+         
           allSelected=false
           alert.data.inputs[0].checked=false
+          
         }
     });
  })
@@ -162,27 +164,27 @@ async publishMessage(){
           else{
             this.recipients = data;
             this.PublishMessageForm.controls['recipients'].setValue(this.recipients);
+
           }
+
    }//end of handler function
  });
 //Conditions to enable tick for the checkbox when displaying the alert.
  if(this.recipients.length>0){
    if(this.recipients.toString()=='All'){
-    for(let i=0;i<alert.data.inputs.length;i++){
+    for(let i=0;i<alert.data.inputs.length;i++){//Check all fields is the the array contains 'All'
       alert.data.inputs[i].checked=true
     }
   }
   else{
-    for(let i=0;i<alert.data.inputs.length;i++){
+    for(let i=0;i<alert.data.inputs.length;i++){  // Compare the all degsignations with the selected recipients. If  deisgnation mathches with the recipient the check that field. This function is user to load the already selected recipients
       for(let j=0;j<this.recipients.length;j++)
       if(alert.data.inputs[i].value==this.recipients[j])
         alert.data.inputs[i].checked=true
     }
   }
 }
-
  alert.present();
- 
  }
 
 

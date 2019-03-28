@@ -47,8 +47,9 @@ var MyprofilePageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_storage__ = __webpack_require__(474);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(466);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(46);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -58,6 +59,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+
 
 
 
@@ -81,6 +83,12 @@ var MyprofilePage = /** @class */ (function () {
         this.navParams = navParams;
         this.firebase = firebase;
         this.afauth = afauth;
+        this.profileForm = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormGroup"]({
+            $key: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"](null),
+            fName: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].pattern('[a-zA-Z]*'), __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].minLength(2)]),
+            lName: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required),
+            mobile: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required),
+        });
         this.retrieveProfile();
         //.uri=`https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/${this.afauth.auth.currentUser.uid}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b5${new Date().toLocaleTimeString()}`
         this.data.currentUri.subscribe(function (item) { return _this.uri = item; });
@@ -88,11 +96,13 @@ var MyprofilePage = /** @class */ (function () {
     MyprofilePage.prototype.retrieveProfile = function () {
         var _this = this;
         this.firebase.database.ref("users/" + this.afauth.auth.currentUser.uid).once('value', function (snap) {
-            _this.$key = snap.key;
-            _this.fName = snap.child('fname').val();
-            _this.lName = snap.child('lname').val();
+            _this.profileForm.controls['$key'].setValue(snap.key);
+            //$key=snap.key
+            _this.profileForm.get('fName').setValue(_this.fName = snap.child('fname').val());
+            _this.profileForm.get('lName').setValue(_this.lName = snap.child('lname').val());
+            _this.profileForm.get('mobile').setValue(_this.mobile = snap.child('mobile').val());
+            //$key=snap.key
             _this.email = snap.child('email').val();
-            _this.mobile = snap.child('mobile').val();
             _this.doj = snap.child('doj').val();
             _this.dob = snap.child('dob').val();
             _this.jobTitle = snap.child('position').val();
@@ -132,11 +142,12 @@ var MyprofilePage = /** @class */ (function () {
         });
         modal.present();
     };
+    var _a, _b, _c, _d, _e, _f, _g, _h;
     MyprofilePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_4__angular_core__["Component"])({
-            selector: 'page-myprofile',template:/*ion-inline-start:"F:\ionic-app\src\pages\myprofile\myprofile.html"*/'<ion-header>\n  <ion-navbar color="blue">\n    <ion-title>\n      My Profile\n    </ion-title>\n    <ion-buttons end >\n        <button ion-button icon-only (click)="updateProfile()"> <ion-icon item-left name="checkmark"></ion-icon>Save</button>\n        \n    </ion-buttons>\n   </ion-navbar>\n</ion-header>\n<ion-content>\n    \n   \n        \n      <ion-item  style="text-align:center;" (click)="showmodal()">\n            \n            <img src="{{uri}}" onerror="this.src=\'assets/imgs/companylogo.png\'" style="height:100px;width:100px;border-radius:30%;margin: auto"> \n          \n        <h4 >{{this.fName | titlecase }} {{this.lName | titlecase }}</h4>\n        <h6>{{this.jobTitle | titlecase }} </h6>\n        <h6>{{this.email}}</h6>\n        \n        \n      </ion-item>\n            \n          <ion-row>\n              <ion-item col-6>\n                <ion-input hidden [(ngModel)]="$key"></ion-input>\n                \n                <ion-label stacked>First Name</ion-label>\n                <ion-input type="text" [(ngModel)]="fName" ></ion-input>\n              </ion-item>\n              <ion-item col-6>\n                  <ion-label stacked>Last Name</ion-label>\n                  <ion-input type="text"[(ngModel)]="lName"  ></ion-input>\n                </ion-item>\n          </ion-row> \n            \n          <ion-item>\n              <ion-label stacked>Mobile Number</ion-label>\n              <ion-input type="number" [(ngModel)]="mobile" ></ion-input>\n            </ion-item>  \n            \n            <ion-item>\n              <ion-label stacked>Date Of Birth</ion-label>\n              <ion-input disabled type="text" [(ngModel)]="dob" ></ion-input>\n            </ion-item>  \n            <ion-item>\n              <ion-label stacked>Date Of Join</ion-label>\n              <ion-input disabled type="text" [(ngModel)]="doj"></ion-input>\n            </ion-item>  \n            \n\n          \n          </ion-content>'/*ion-inline-end:"F:\ionic-app\src\pages\myprofile\myprofile.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["Component"])({
+            selector: 'page-myprofile',template:/*ion-inline-start:"F:\ionic-app\src\pages\myprofile\myprofile.html"*/'<ion-header>\n  <ion-navbar color="blue">\n    <ion-title>\n      My Profile\n    </ion-title>\n    <ion-buttons end >\n        <button ion-button icon-only (click)="updateProfile()"> <ion-icon item-left name="checkmark"></ion-icon>Save</button>\n        \n    </ion-buttons>\n   </ion-navbar>\n</ion-header>\n<ion-content>\n    \n   <form [formGroup]="profileForm">\n        \n      <ion-item  style="text-align:center;" (click)="showmodal()">\n            \n            <img src="{{uri}}" onerror="this.src=\'assets/imgs/companylogo.png\'" style="height:100px;width:100px;border-radius:30%;margin: auto"> \n          \n        <h4 >{{this.fName | titlecase }} {{this.lName | titlecase }}</h4>\n        <h6>{{this.jobTitle | titlecase }} </h6>\n        <h6>{{this.email}}</h6>\n        \n        \n      </ion-item>\n            \n          <ion-row>\n              <ion-item col-6>\n                <ion-input hidden formControlName="$key" ></ion-input>\n                \n                <ion-label stacked>First Name</ion-label>\n                <ion-input type="text" formControlName="fName" maxlength=15 ></ion-input>\n              </ion-item>\n              <ion-item col-6>\n                  <ion-label stacked>Last Name</ion-label>\n                  <ion-input type="text" formControlName="lName" maxlength=15   ></ion-input>\n                </ion-item>\n          </ion-row> \n            \n          <ion-item>\n              <ion-label stacked>Mobile Number</ion-label>\n              <ion-input type="tel" formControlName="mobile" maxlength=10 ></ion-input>\n            </ion-item>  \n            \n            <ion-item>\n              <ion-label stacked>Date Of Birth</ion-label>\n              <ion-input disabled type="text" [(ngModel)]="dob"  [ngModelOptions]="{standalone: true}" ></ion-input>\n            </ion-item>  \n            <ion-item>\n              <ion-label stacked>Date Of Join</ion-label>\n              <ion-input disabled type="text" [(ngModel)]="doj"  [ngModelOptions]="{standalone: true}"></ion-input>\n            </ion-item>  \n          </form>\n\n          \n          </ion-content>'/*ion-inline-end:"F:\ionic-app\src\pages\myprofile\myprofile.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__providers_form_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["ToastController"], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__providers_form_service__["a" /* DataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__providers_form_service__["a" /* DataService */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["ModalController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["ModalController"]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["ToastController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["ToastController"]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["NavController"]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["NavParams"]) === "function" ? _f : Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */]) === "function" ? _g : Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */]) === "function" ? _h : Object])
     ], MyprofilePage);
     return MyprofilePage;
 }());

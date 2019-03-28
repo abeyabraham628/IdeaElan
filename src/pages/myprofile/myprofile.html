@@ -11,7 +11,7 @@
 </ion-header>
 <ion-content>
     
-   
+   <form [formGroup]="profileForm">
         
       <ion-item  style="text-align:center;" (click)="showmodal()">
             
@@ -26,31 +26,31 @@
             
           <ion-row>
               <ion-item col-6>
-                <ion-input hidden [(ngModel)]="$key"></ion-input>
+                <ion-input hidden formControlName="$key" ></ion-input>
                 
                 <ion-label stacked>First Name</ion-label>
-                <ion-input type="text" [(ngModel)]="fName" ></ion-input>
+                <ion-input type="text" formControlName="fName" maxlength=15 ></ion-input>
               </ion-item>
               <ion-item col-6>
                   <ion-label stacked>Last Name</ion-label>
-                  <ion-input type="text"[(ngModel)]="lName"  ></ion-input>
+                  <ion-input type="text" formControlName="lName" maxlength=15   ></ion-input>
                 </ion-item>
           </ion-row> 
             
           <ion-item>
               <ion-label stacked>Mobile Number</ion-label>
-              <ion-input type="number" [(ngModel)]="mobile" ></ion-input>
+              <ion-input type="tel" formControlName="mobile" maxlength=10 ></ion-input>
             </ion-item>  
             
             <ion-item>
               <ion-label stacked>Date Of Birth</ion-label>
-              <ion-input disabled type="text" [(ngModel)]="dob" ></ion-input>
+              <ion-input disabled type="text" [(ngModel)]="dob"  [ngModelOptions]="{standalone: true}" ></ion-input>
             </ion-item>  
             <ion-item>
               <ion-label stacked>Date Of Join</ion-label>
-              <ion-input disabled type="text" [(ngModel)]="doj"></ion-input>
+              <ion-input disabled type="text" [(ngModel)]="doj"  [ngModelOptions]="{standalone: true}"></ion-input>
             </ion-item>  
-            
+          </form>
 
           
           </ion-content>

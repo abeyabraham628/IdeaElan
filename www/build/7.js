@@ -287,12 +287,12 @@ var UploadEventsPage = /** @class */ (function () {
         //Conditions to enable tick for the checkbox when displaying the alert.
         if (this.recipients.length > 0) {
             if (this.recipients.toString() == 'All') {
-                for (var i = 0; i < alert.data.inputs.length; i++) {
+                for (var i = 0; i < alert.data.inputs.length; i++) { //Check all fields is the the array contains 'All'
                     alert.data.inputs[i].checked = true;
                 }
             }
             else {
-                for (var i = 0; i < alert.data.inputs.length; i++) {
+                for (var i = 0; i < alert.data.inputs.length; i++) { // Compare the all degsignations with the selected recipients. If  deisgnation mathches with the recipient the check that field. This function is user to load the already selected recipients
                     for (var j = 0; j < this.recipients.length; j++)
                         if (alert.data.inputs[i].value == this.recipients[j])
                             alert.data.inputs[i].checked = true;

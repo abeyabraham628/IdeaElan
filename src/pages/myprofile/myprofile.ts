@@ -2,7 +2,7 @@ import { DataService } from './../../providers/form-service';
 import { Storage } from '@ionic/storage';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, ModalController } from 'ionic-angular';
 
@@ -30,6 +30,13 @@ export class MyprofilePage {
   doj:    any
   jobTitle:any
 
+  profileForm=new FormGroup({
+    $key:new FormControl(null),
+    fName:new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*'), Validators.minLength(2)]),
+    lName:new FormControl('',Validators.required),
+    mobile:new FormControl('',Validators.required),
+
+  })
 
   constructor(public data:DataService,public cache: Storage,public myModal:ModalController,public toastCtrl:ToastController,public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public afauth:AngularFireAuth) {
     this.retrieveProfile()
@@ -42,11 +49,18 @@ export class MyprofilePage {
 
   retrieveProfile(){
     this.firebase.database.ref(`users/${this.afauth.auth.currentUser.uid}`).once('value',(snap)=>{
-      this.$key=snap.key
-      this.fName=snap.child('fname').val()
-      this.lName=snap.child('lname').val()
+      this.profileForm.controls['$key'].setValue(snap.key)
+      //$key=snap.key
+    
+      this.profileForm.get('fName').setValue(this.fName=snap.child('fname').val())
+     this.profileForm.get('lName').setValue(this.lName=snap.child('lname').val())
+     this.profileForm.get('mobile').setValue(this.mobile=snap.child('mobile').val())
+      //$key=snap.key
+      
+      
+     
       this.email=snap.child('email').val()
-      this.mobile=snap.child('mobile').val()
+      
       this.doj=snap.child('doj').val()
       this.dob=snap.child('dob').val()
       this.jobTitle=snap.child('position').val()
