@@ -54,7 +54,8 @@ export class TabsPage {
   controllPanel:boolean=false
   user:any=""
   constructor(private data:DataService,private fdb:AngularFireDatabase,public storage: AngularFireStorage,private camera: Camera,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth) {
-    this.roles=navParams.get('roles')
+    this.roles=this.navParams.data
+    console.log(this.roles)
     
     this.tab0Params=this.roles
     if(this.roles[0]!="null"){
@@ -211,6 +212,8 @@ getSupportMessages(){
     })
 
     this.supportMessagecount=0;
+    
+    if(this.SupportMessages.length>0){
     for( let i=0;i<this.SupportMessages.length;i++)
       {
         if((this.SupportMessages[i]['status']=='pending') || ( this.SupportMessages[i]['status']=='review'  ))
@@ -219,6 +222,7 @@ getSupportMessages(){
     console.log("messages is ",this.SupportMessages[0]['status'])
     console.log(this.SupportMessages.length)
     console.log("actual SUPPORT count ", this.supportMessagecount);
+    }
   })
 }
 }

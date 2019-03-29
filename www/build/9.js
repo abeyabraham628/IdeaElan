@@ -96,6 +96,7 @@ var SupportPage = /** @class */ (function () {
         this.recpErr = true;
         this.employeeList = [];
         this.myRequests = [];
+        this.messages = [];
         this.supportMessage = [];
         this.support = "newIssue";
         this.roles = navParams.data;
@@ -129,7 +130,7 @@ var SupportPage = /** @class */ (function () {
         if (this.subjectErr && this.commentErr && this.recpErr) {
             var empObj = this.employeeList.find(function (key) { return key.$key == _this.afAuth.auth.currentUser.uid; });
             var empName = empObj.fName + " " + empObj.lName;
-            this.firebase.list("support/" + this.recipient).push({
+            this.firebase.list("support").push({
                 subject: this.subject,
                 matter: this.matter,
                 recipient: this.recipient,
@@ -153,30 +154,20 @@ var SupportPage = /** @class */ (function () {
         this.recpErr = this.subjectErr = this.commentErr = true;
     };
     SupportPage.prototype.getMyRequests = function () {
-        /*this.firebase.list('support').snapshotChanges().subscribe(snap=>{
-            this.myRequests=snap.map(child=>{
-              child.(item=>{
-    
-              })
-            })
-        })*/
         var _this = this;
-        this.firebase.database.ref("support").on('value', function (snap) {
-            snap.forEach(function (child) {
-                child.forEach(function (item) {
-                    if (item.child('userId').val() === _this.afAuth.auth.currentUser.uid) {
-                        _this.myRequests.push(item.val());
-                    }
-                });
-            });
+        this.firebase.list('support', function (ref) { return ref.orderByChild('userId').equalTo("" + _this.afAuth.auth.currentUser.uid); }).snapshotChanges().subscribe(function (snap) {
+            _this.myRequests = snap.map(function (item) {
+                return __assign({}, item.payload.val());
+            }).reverse();
         });
     };
     SupportPage.prototype.getSupportMessage = function () {
         var _this = this;
-        this.firebase.list("support/" + this.user).snapshotChanges().subscribe(function (snap) {
+        this.firebase.list("support", function (ref) { return ref.orderByChild("recipient").equalTo("" + _this.user); }).snapshotChanges().subscribe(function (snap) {
             _this.supportMessage = snap.map(function (item) {
                 return __assign({ $key: item.key }, item.payload.val());
             }).reverse();
+            _this.messages = _this.supportMessage;
         });
     };
     SupportPage.prototype.userType = function (roles) {
@@ -187,7 +178,7 @@ var SupportPage = /** @class */ (function () {
     };
     SupportPage.prototype.changeStatus = function (message) {
         var _this = this;
-        var alert = this.alertCtrl.create();
+        var alert = this.alertCtrl.create({ enableBackdropDismiss: false });
         alert.setTitle("Subject: " + message.subject);
         alert.setSubTitle("From: " + message.userName);
         alert.setMessage("Issue: " + message.matter);
@@ -206,22 +197,27 @@ var SupportPage = /** @class */ (function () {
             text: 'OK',
             handler: function (data) {
                 if (data != null) {
-                    _this.firebase.database.ref("support/" + _this.user + "/" + message.$key).update({
+                    _this.firebase.list("support").update(message.$key, {
                         status: data
                     });
                 } //end of if
+                _this.filter = 'all';
             } //end of handler  
         }); //end of ok button
         alert.present();
     };
-    SupportPage.prototype.tony = function (ctxt) {
-        console.log(ctxt);
-        var tt = this.supportMessage;
-        tt = tt.filter(function (item) { return item.status === ctxt; });
+    SupportPage.prototype.filterRequests = function (ctxt) {
+        if (ctxt != 'all') {
+            this.messages = this.supportMessage;
+            this.messages = this.supportMessage.filter(function (item) { return item.status === ctxt; });
+        }
+        else {
+            this.messages = this.supportMessage;
+        }
     };
     SupportPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
-            selector: 'page-support',template:/*ion-inline-start:"F:\ionic-app\src\pages\support\support.html"*/'<!--\n  Generated template for the SupportPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n  <navbar pageTitle="Support"></navbar>\n</ion-header>\n\n<ion-content>\n  <ion-segment [(ngModel)]="support" color="white" >\n    <ion-segment-button value="newIssue">\n       New Issue\n    </ion-segment-button>\n    <ion-segment-button value="pastIssues" (click)="resetFields()">\n      History\n    </ion-segment-button>\n    <ion-segment-button value="messages" (click)="resetFields()" *ngIf="user==\'admin\' || user==\'hr\' ">\n      Messsages\n    </ion-segment-button>\n </ion-segment>\n\n <div [ngSwitch]="support">\n    <div *ngSwitchCase="\'newIssue\'">\n        <ion-item>\n            <ion-label stacked>Send To</ion-label>\n              <ion-select [(ngModel)]="recipient">\n                <ion-option value="hr">HR</ion-option>\n                <ion-option value="admin">Admin</ion-option>\n              </ion-select>\n          </ion-item>\n          <ion-item  no-lines [hidden]="recpErr">\n            <ion-label color="danger" stacked>Recipient cannot be blank</ion-label>\n          </ion-item>\n     \n      <ion-item>\n        <ion-label stacked>I need Help With</ion-label>\n          <ion-select [(ngModel)]="subject">\n            <ion-option value="Internet">Internet Connectivity</ion-option>\n            <ion-option value="Computer">Computer Related</ion-option>\n            <ion-option value="Other">Other</ion-option>\n          </ion-select>\n      </ion-item>\n      <ion-item no-lines [hidden]="subjectErr">\n          <ion-label color="danger" stacked>Subject cannot be blank</ion-label>\n        </ion-item>\n      <ion-item>\n        <ion-label stacked>Please enter your issue</ion-label>\n        <ion-textarea rows=5 [(ngModel)]="matter"></ion-textarea>\n      </ion-item>\n      <ion-item  no-lines [hidden]="commentErr">\n          <ion-label color="danger" stacked>Minimum 5 Characters</ion-label>\n        </ion-item>\n\n      <ion-row>\n        <ion-col col-6><button ion-button  type="button" color="blue" full (click)="contactSupport()">Send</button></ion-col>\n        <ion-col col-6><button ion-button  type="reset" color="blue" full (click)="resetFields()">Cancel</button></ion-col>\n       \n      </ion-row>\n      \n    </div>\n    <div *ngSwitchCase="\'pastIssues\'">\n        <ion-item>\n            <ion-row class="table-title">\n              <ion-col col-3 >Date</ion-col>\n              <ion-col col-3 >Send To</ion-col>\n               <ion-col col-4 >Subject</ion-col>\n              <ion-col col-2 >Status</ion-col>\n             \n            </ion-row>\n          </ion-item>\n          <ion-item *ngFor=\'let r of myRequests\' [ngClass]=r.status  >\n              <ion-row class=\'col-text table-bottom-border\'  >\n                  <ion-col col-3>{{r.date}}</ion-col><ion-col col-3>{{r.recipient}}</ion-col><ion-col col-4>{{r.subject}}</ion-col><ion-col col-2>{{r.status}}</ion-col>\n              </ion-row>\n            </ion-item>\n    </div>\n\n    <div *ngSwitchCase="\'messages\'">\n     <ion-item>\n       <ion-label >Filter Messages By</ion-label>\n      <ion-select interface="popover" (ionChange)="filterRequests($event)" [(ngModel)]="filter">\n          <ion-option value="all" selected>All</ion-option>\n        <ion-option value="pending">Pending</ion-option>\n        <ion-option value="review">Under Review</ion-option>\n        <ion-option value="closed">Closed</ion-option>\n      </ion-select>\n    </ion-item>\n       \n      <ion-item>\n          <ion-row class="table-title">\n            <ion-col col-3 >Date</ion-col>\n            <ion-col col-4 >From</ion-col>\n             <ion-col col-3 >Subject</ion-col>\n            <ion-col col-2 >Status</ion-col>\n           \n          </ion-row>\n        </ion-item>\n        \n        <ion-item *ngFor=\'let s of messages\' >\n            <ion-row class="col-text table-bottom-border " [ngClass]=s.status (click)="changeStatus(s)" >\n                <ion-col col-3>{{s.date}}</ion-col><ion-col col-4>{{s.userName}}</ion-col><ion-col col-3>{{s.subject}}</ion-col><ion-col col-2>{{s.status}}</ion-col>\n            </ion-row>\n          </ion-item>\n  </div>\n\n </div>\n\n \n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\support\support.html"*/,
+            selector: 'page-support',template:/*ion-inline-start:"F:\ionic-app\src\pages\support\support.html"*/'<!--\n  Generated template for the SupportPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n  <page-header pageTitle="Support"></page-header>\n</ion-header>\n\n<ion-content>\n  <ion-segment [(ngModel)]="support" color="white" >\n    <ion-segment-button value="newIssue">\n       New Issue\n    </ion-segment-button>\n    <ion-segment-button value="pastIssues" (click)="resetFields()">\n      History\n    </ion-segment-button>\n    <ion-segment-button value="messages" (click)="resetFields()" *ngIf="user==\'admin\' || user==\'hr\' ">\n      Messsages\n    </ion-segment-button>\n </ion-segment>\n\n <div [ngSwitch]="support">\n    <div *ngSwitchCase="\'newIssue\'">\n        <ion-item>\n            <ion-label stacked>Send To</ion-label>\n              <ion-select [(ngModel)]="recipient">\n                <ion-option value="hr">HR</ion-option>\n                <ion-option value="admin">Admin</ion-option>\n              </ion-select>\n          </ion-item>\n          <ion-item  no-lines [hidden]="recpErr">\n            <ion-label color="danger" stacked>Recipient cannot be blank</ion-label>\n          </ion-item>\n     \n      <ion-item>\n        <ion-label stacked>I need Help With</ion-label>\n          <ion-select [(ngModel)]="subject">\n            <ion-option value="Internet">Internet Connectivity</ion-option>\n            <ion-option value="Computer">Computer Related</ion-option>\n            <ion-option value="Other">Other</ion-option>\n          </ion-select>\n      </ion-item>\n      <ion-item no-lines [hidden]="subjectErr">\n          <ion-label color="danger" stacked>Subject cannot be blank</ion-label>\n        </ion-item>\n      <ion-item>\n        <ion-label stacked>Please enter your issue</ion-label>\n        <ion-textarea rows=5 [(ngModel)]="matter"></ion-textarea>\n      </ion-item>\n      <ion-item  no-lines [hidden]="commentErr">\n          <ion-label color="danger" stacked>Minimum 5 Characters</ion-label>\n        </ion-item>\n\n      <ion-row>\n        <ion-col col-6><button ion-button  type="button" color="blue" full (click)="contactSupport()">Send</button></ion-col>\n        <ion-col col-6><button ion-button  type="reset" color="blue" full (click)="resetFields()">Cancel</button></ion-col>\n       \n      </ion-row>\n      \n    </div>\n    <div *ngSwitchCase="\'pastIssues\'">\n        <ion-item>\n            <ion-row class="table-title">\n              <ion-col col-3 >Date</ion-col>\n              <ion-col col-3 >Send To</ion-col>\n               <ion-col col-4 >Subject</ion-col>\n              <ion-col col-2 >Status</ion-col>\n             \n            </ion-row>\n          </ion-item>\n          <ion-item *ngFor=\'let r of myRequests\' [ngClass]=r.status  >\n              <ion-row class=\'col-text table-bottom-border\'  >\n                  <ion-col col-3>{{r.date}}</ion-col><ion-col col-3>{{r.recipient}}</ion-col><ion-col col-4>{{r.subject}}</ion-col><ion-col col-2>{{r.status}}</ion-col>\n              </ion-row>\n            </ion-item>\n    </div>\n\n    <div *ngSwitchCase="\'messages\'">\n     <ion-item>\n       <ion-label >Filter Messages By</ion-label>\n      <ion-select interface="popover" (ionChange)="filterRequests($event)" [(ngModel)]="filter">\n          <ion-option value="all" selected>All</ion-option>\n        <ion-option value="pending">Pending</ion-option>\n        <ion-option value="review">Under Review</ion-option>\n        <ion-option value="closed">Closed</ion-option>\n      </ion-select>\n    </ion-item>\n       \n      <ion-item>\n          <ion-row class="table-title">\n            <ion-col col-3 >Date</ion-col>\n            <ion-col col-4 >From</ion-col>\n             <ion-col col-3 >Subject</ion-col>\n            <ion-col col-2 >Status</ion-col>\n           \n          </ion-row>\n        </ion-item>\n        \n        <ion-item *ngFor=\'let s of messages\' >\n            <ion-row class="col-text table-bottom-border " [ngClass]=s.status (click)="changeStatus(s)" >\n                <ion-col col-3>{{s.date}}</ion-col><ion-col col-4>{{s.userName}}</ion-col><ion-col col-3>{{s.subject}}</ion-col><ion-col col-2>{{s.status}}</ion-col>\n            </ion-row>\n          </ion-item>\n  </div>\n\n </div>\n\n \n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\support\support.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ToastController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */]])
     ], SupportPage);

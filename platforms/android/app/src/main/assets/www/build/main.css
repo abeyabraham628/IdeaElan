@@ -35698,7 +35698,7 @@ ion-navbar.toolbar {
 }
 
 .row-bottom-border {
-  border-bottom: 1px solid #194D43;
+  border-bottom: 1px solid #008577;
   padding-bottom: 10px;
   padding-top: 10px;
 }
@@ -35747,6 +35747,9 @@ ion-navbar.toolbar {
   -webkit-align-items: center;
   -ms-flex-align: center;
   align-items: center;
+  -webkit-overflow-scrolling: auto;
+  padding-bottom: 0px !important;
+  scroll-behavior: smooth;
 }
 
 .login >
@@ -35767,6 +35770,19 @@ ion-navbar.toolbar {
 
 .rejected {
   color: red;
+}
+
+ion-header button, .back-button {
+  z-index: 5;
+}
+
+ion-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
 }
 
 .card-md .item-inner {
@@ -35914,6 +35930,25 @@ margin-top: -10px;
   border-color: transparent transparent transparent #e1ffc7;
   top: 0;
   right: -10px;
+}
+
+page-forgotpassword .item-md.item-block .item-inner,
+page-forgotpassword .item-md.item-input.input-has-focus .item-inner,
+page-forgotpassword .item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner,
+page-forgotpassword .item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner,
+page-forgotpassword .list-md .item-input.input-has-focus:last-child,
+page-forgotpassword .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child,
+page-forgotpassword .list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child {
+  border-bottom: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+page-forgotpassword .list-md .item-input.input-has-focus:last-child .item-inner,
+page-forgotpassword .list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child .item-inner,
+page-forgotpassword .list-md .item-input.ng-invalid.ng-touched:not(.input-has-focus):last-child .item-inner {
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .box-events {

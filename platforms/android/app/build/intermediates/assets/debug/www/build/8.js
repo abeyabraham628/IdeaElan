@@ -1,6 +1,6 @@
 webpackJsonp([8],{
 
-/***/ 754:
+/***/ 755:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -10,7 +10,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_storage__ = __webpack_require__(473);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs__ = __webpack_require__(856);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs__ = __webpack_require__(857);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(467);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -49,7 +49,7 @@ var TabsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 856:
+/***/ 857:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -58,7 +58,7 @@ var TabsPageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__chatbot_chatbot__ = __webpack_require__(477);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_camera__ = __webpack_require__(472);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_fire_database__ = __webpack_require__(466);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_fire_storage__ = __webpack_require__(473);
@@ -213,17 +213,15 @@ var TabsPage = /** @class */ (function () {
     }
     TabsPage.prototype.getusername = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var uname, position;
+            var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.fdb.database.ref("/users/" + this.afAuth.auth.currentUser.uid).once('value', function (snap) {
-                            uname = snap.child('fname').val() + " " + snap.child('lname').val();
-                            position = snap.child('position').val();
+                    case 0: return [4 /*yield*/, this.fdb.database.ref("/users/" + this.afAuth.auth.currentUser.uid).on('value', function (snap) {
+                            _this.uname = snap.child('fname').val() + " " + snap.child('lname').val();
+                            _this.position = snap.child('position').val();
                         })];
                     case 1:
                         _a.sent();
-                        this.uname = uname;
-                        this.position = position;
                         return [2 /*return*/];
                 }
             });
@@ -300,23 +298,25 @@ var TabsPage = /** @class */ (function () {
     };
     TabsPage.prototype.getSupportMessages = function () {
         var _this = this;
-        this.fdb.list("support/" + this.user).snapshotChanges().subscribe(function (snap) {
+        this.fdb.list("support", function (ref) { return ref.orderByChild("recipient").equalTo("" + _this.user); }).snapshotChanges().subscribe(function (snap) {
             _this.SupportMessages = snap.map(function (item) {
                 return __assign({ $key: item.key }, item.payload.val());
             });
             _this.supportMessagecount = 0;
-            for (var i = 0; i < _this.SupportMessages.length; i++) {
-                if ((_this.SupportMessages[i]['status'] == 'pending') || (_this.SupportMessages[i]['status'] == 'review'))
-                    _this.supportMessagecount++;
+            if (_this.SupportMessages.length > 0) {
+                for (var i = 0; i < _this.SupportMessages.length; i++) {
+                    if ((_this.SupportMessages[i]['status'] == 'pending') || (_this.SupportMessages[i]['status'] == 'review'))
+                        _this.supportMessagecount++;
+                }
+                console.log("messages is ", _this.SupportMessages[0]['status']);
+                console.log(_this.SupportMessages.length);
+                console.log("actual SUPPORT count ", _this.supportMessagecount);
             }
-            console.log("messages is ", _this.SupportMessages[0]['status']);
-            console.log(_this.SupportMessages.length);
-            console.log("actual SUPPORT count ", _this.supportMessagecount);
         });
     };
     TabsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
-            selector: 'page-tabs',template:/*ion-inline-start:"F:\ionic-app\src\pages\tabs\tabs.html"*/'<!--\n\n  Generated template for the TabsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n<ion-menu [content]="mycontent" persistent="true" class="sideMenuList">\n\n    \n\n      <ion-header>\n\n      <ion-item no-lines style="text-align:center;background-color: #2679b0">\n\n            \n\n                <img src="{{uri}}" onerror="this.src=\'assets/imgs/companylogo.png\'" style="height:50px;width:50px;border-radius:30%;margin: auto"> \n\n              \n\n            <h4 style="color:#ffffff">{{this.uname | titlecase }}</h4>\n\n            <h6 style="color:#ffffff">{{this.position | titlecase }}</h6>\n\n            <ion-icon name="arrow-dropright" item-right (click)="goto(\'MyprofilePage\')" menuClose></ion-icon>\n\n          </ion-item>\n\n        </ion-header>\n\n      \n\n<ion-content>\n\n  \n\n      <ion-item hidden (click)="uploadHandler()" class="sideMenuList">\n\n          <ion-icon name="images" item-end small></ion-icon>\n\n          Change Image\n\n      </ion-item>\n\n     \n\n      <ion-item (click)="changepassword()" menuClose class="sideMenuList">\n\n          <ion-icon name="lock" item-end small></ion-icon>\n\n          Change Password\n\n      </ion-item>\n\n\n\n      <ion-item (click)="goto(\'PolicyPage\')" menuClose class="sideMenuList">\n\n          <ion-icon name="document" item-end small></ion-icon>\n\n           Company Policy\n\n      </ion-item>\n\n      \n\n      <ion-item no-lines (click)="logout()"  class="sideMenuList">\n\n          <ion-icon name="power" item-end small></ion-icon>\n\n           Logout\n\n      </ion-item>\n\n\n\n      <ion-list-header *ngIf="controllPanel">\n\n          Control Panel\n\n        </ion-list-header>\n\n\n\n      <ion-item (click)="goto(\'NewuserPage\')" menuClose [hidden]=users>\n\n        <ion-icon name="arrow-forward" small item-end></ion-icon>\n\n        Users\n\n      </ion-item>\n\n      <ion-item (click)="goto(\'SystemsPage\')" menuClose [hidden]=systems>\n\n        <ion-icon name="arrow-forward" small item-end></ion-icon>\n\n        Systems\n\n      </ion-item>\n\n      <ion-item (click)="goto(\'RecruitmentPage\')" menuClose [hidden]=recruitment>\n\n        <ion-icon name="arrow-forward" small item-end></ion-icon>\n\n        Recruitment\n\n      </ion-item>\n\n      <ion-item (click)="goto(\'LeavesAdminPage\')" menuClose [hidden]=leaveRequest>\n\n        <ion-icon name="arrow-forward" small item-end></ion-icon>\n\n        Leave Requests\n\n      </ion-item>\n\n      <ion-item (click)="goto(\'UploadEventsPage\')" menuClose [hidden]="sendMessage">\n\n          <ion-icon name="arrow-forward" small item-end></ion-icon>\n\n        Send Message\n\n      </ion-item>\n\n      <ng-container *ngIf="progress | async as percent">\n\n        \n\n          <progress [value]="percent" max="100"></progress>\n\n        \n\n        </ng-container>\n\n     \n\n    </ion-content>\n\n\n\n     <ion-footer>\n\n       <ion-item no-lines>\n\n         <ion-label>IdeaElan | version 0.0.1</ion-label>\n\n       </ion-item>\n\n     </ion-footer>\n\n\n\n      \n\n</ion-menu>\n\n<ion-nav #mycontent [root]="rootPage"></ion-nav>\n\n \n\n\n\n<ion-tabs  >\n\n  <ion-tab [root]="tab0Root"   tabTitle="Home" tabIcon="home"  [rootParams]="tab0Params" ></ion-tab>\n\n  <ion-tab [root]="tab1Root"   tabTitle="Leave" tabIcon="person" ></ion-tab>\n\n  <ion-tab [root]="tab2Root"   tabTitle="Chatbot" tabIcon="document" ></ion-tab>\n\n  <ion-tab [root]="tab3Root"  tabTitle="Inbox" tabIcon="chatboxes" [tabBadge]=\'this.messageCount>0?this.messageCount:null\' tabBadgeStyle="danger" ></ion-tab>\n\n  <ion-tab [root]="tab4Root"  tabTitle="Support" tabIcon="quote"  [rootParams]="tab0Params" [tabBadge]=\'this.supportMessagecount>0?this.supportMessagecount:null\' tabBadgeStyle="danger"></ion-tab>\n\n</ion-tabs>\n\n\n\n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\tabs\tabs.html"*/,
+            selector: 'page-tabs',template:/*ion-inline-start:"F:\ionic-app\src\pages\tabs\tabs.html"*/'<!--\n\n  Generated template for the TabsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n<ion-menu [content]="mycontent" persistent="true" class="sideMenuList">\n\n    \n\n      <ion-header>\n\n      <ion-item no-lines style="text-align:center;background-color: #2679b0" (click)="goto(\'MyprofilePage\')">\n\n            \n\n                <img src="{{uri}}" onerror="this.src=\'assets/imgs/companylogo.png\'" style="height:50px;width:50px;border-radius:30%;margin: auto"> \n\n              \n\n            <h4 style="color:#ffffff">{{this.uname | titlecase }}</h4>\n\n            <h6 style="color:#ffffff">{{this.position | titlecase }}</h6>\n\n            \n\n          </ion-item>\n\n        </ion-header>\n\n      \n\n<ion-content>\n\n  \n\n      <ion-item hidden (click)="uploadHandler()" class="sideMenuList">\n\n          <ion-icon name="images" item-end small></ion-icon>\n\n          Change Image\n\n      </ion-item>\n\n     \n\n      <ion-item (click)="changepassword()" menuClose class="sideMenuList">\n\n          <ion-icon name="lock" item-end small></ion-icon>\n\n          Change Password\n\n      </ion-item>\n\n\n\n      <ion-item (click)="goto(\'PolicyPage\')" menuClose class="sideMenuList">\n\n          <ion-icon name="document" item-end small></ion-icon>\n\n           Company Policy\n\n      </ion-item>\n\n      \n\n      \n\n\n\n      <ion-list-header *ngIf="controllPanel">\n\n          Control Panel\n\n        </ion-list-header>\n\n\n\n      <ion-item (click)="goto(\'NewuserPage\')" menuClose [hidden]=users>\n\n        <ion-icon name="arrow-forward" small item-end></ion-icon>\n\n        Users\n\n      </ion-item>\n\n      <ion-item (click)="goto(\'SystemsPage\')" menuClose [hidden]=systems>\n\n        <ion-icon name="arrow-forward" small item-end></ion-icon>\n\n        Systems\n\n      </ion-item>\n\n      <ion-item (click)="goto(\'RecruitmentPage\')" menuClose [hidden]=recruitment>\n\n        <ion-icon name="arrow-forward" small item-end></ion-icon>\n\n        Recruitment\n\n      </ion-item>\n\n      <ion-item (click)="goto(\'LeavesAdminPage\')" menuClose [hidden]=leaveRequest>\n\n        <ion-icon name="arrow-forward" small item-end></ion-icon>\n\n        Leave Requests\n\n      </ion-item>\n\n      <ion-item (click)="goto(\'UploadEventsPage\')" menuClose [hidden]="sendMessage">\n\n          <ion-icon name="arrow-forward" small item-end></ion-icon>\n\n        Send Message\n\n      </ion-item>\n\n      <ng-container *ngIf="progress | async as percent">\n\n        \n\n          <progress [value]="percent" max="100"></progress>\n\n        \n\n        </ng-container>\n\n     \n\n    </ion-content>\n\n\n\n     <ion-footer>\n\n        <ion-item (click)="logout()"  class="sideMenuList">\n\n            <ion-icon name="power" item-end small></ion-icon>\n\n             Logout\n\n        </ion-item>\n\n       <ion-item no-lines>\n\n         <ion-label>IdeaElan | version 0.0.1</ion-label>\n\n       </ion-item>\n\n     </ion-footer>\n\n\n\n      \n\n</ion-menu>\n\n<ion-nav #mycontent [root]="rootPage"></ion-nav>\n\n \n\n\n\n<ion-tabs >\n\n  <ion-tab [root]="tab0Root"   tabTitle="Home" tabIcon="home"  [rootParams]="tab0Params" ></ion-tab>\n\n  <ion-tab [root]="tab1Root"   tabTitle="Leave" tabIcon="person" ></ion-tab>\n\n  <ion-tab [root]="tab2Root"   tabTitle="Chatbot" tabIcon="document" ></ion-tab>\n\n  <ion-tab [root]="tab3Root"  tabTitle="Inbox" tabIcon="chatboxes" [tabBadge]=\'this.messageCount>0?this.messageCount:null\' tabBadgeStyle="danger" ></ion-tab>\n\n  <ion-tab [root]="tab4Root"  tabTitle="Support" tabIcon="quote"  [rootParams]="tab0Params" [tabBadge]=\'this.supportMessagecount>0?this.supportMessagecount:null\' tabBadgeStyle="danger"></ion-tab>\n\n</ion-tabs>\n\n\n\n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\tabs\tabs.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__providers_form_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_6__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_7__angular_fire_storage__["a" /* AngularFireStorage */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__["a" /* AngularFireAuth */]])
     ], TabsPage);

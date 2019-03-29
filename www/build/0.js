@@ -13285,15 +13285,16 @@ var NewuserPage = /** @class */ (function () {
         this.customDatePicker = customDatePicker;
         this.afAuth = afAuth;
         this.modalCtrl = modalCtrl;
+        //VALIDATION PART 
         this.slideOneForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormGroup"]({
             $key: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"](null),
-            fname: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(5)]),
-            lname: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(5)]),
+            fname: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(1)]),
+            lname: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(1)]),
             dob: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(5)]),
-            mobile: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(5)]),
-            doj: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(5)]),
-            email: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(5), __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
-            position: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(5)]),
+            mobile: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(9)]),
+            doj: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(1)]),
+            email: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(1), __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
+            position: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(1)]),
         });
         this.designations = __WEBPACK_IMPORTED_MODULE_10__providers_designations__["a" /* Designations */];
         this.itemslist = [];
@@ -13304,6 +13305,7 @@ var NewuserPage = /** @class */ (function () {
         this.butn = "save";
         this.page = 0;
         this.x = true;
+        this.xy = true;
         this.statuss = false;
         this.i = 0;
         this.v1 = -1;
@@ -13313,6 +13315,7 @@ var NewuserPage = /** @class */ (function () {
         this.v5 = 0;
         this.v6 = 0;
         this.v7 = 0;
+        this.list = false;
         this.status = "active";
         this.userItem = {};
         this.selectedPrivileges = "";
@@ -13322,43 +13325,15 @@ var NewuserPage = /** @class */ (function () {
         this.users = "newUser";
         this.itemRef = fdb.database.ref("/users/");
     }
-    /*
-    ionViewDidLoad() {
-    
-    this.itemRef.on('value', itemSnapshot => {
-      this.items = [];
-      itemSnapshot.forEach( itemSnap => {
-        this.items.push(itemSnap.val());
-        console.log(this.items);
-        //console.log("HI");
-        return false;
-      });
-      this.itemslist=this.items;
-      //this.loaditems=this.items;
-    });
-  
-  
-  
-  
-    //new
-    //this.itemslist=this.items;
-    //this.loaditems=this.items;
-    //console.log("START");
-   // console.log(this.itemslist);
-    //console.log("STOP");
-    //console.log("START");
-   // console.log(this.items);
-   // console.log("STOP");
-  } */
-    //new
     NewuserPage.prototype.ionViewDidLeave = function () {
         this.navCtrl.popToRoot();
     };
     NewuserPage.prototype.new = function () {
         var _this = this;
+        this.selectedPrivileges = "";
         this.fnameShow = true;
         this.x = true;
-        console.log("NEW CALLED ");
+        //LOADER
         this.loader = this.loadingCtrl.create({
             spinner: 'dots',
             content: 'Loading',
@@ -13369,8 +13344,6 @@ var NewuserPage = /** @class */ (function () {
             _this.items = [];
             itemSnapshot.forEach(function (itemSnap) {
                 _this.items.push(itemSnap.val());
-                console.log(_this.items);
-                //console.log("HI");
                 return false;
             });
             _this.itemslist = _this.items;
@@ -13378,30 +13351,23 @@ var NewuserPage = /** @class */ (function () {
             _this.ref.detectChanges();
         });
         this.loader.dismiss();
-        console.log("PRINT ");
-        console.log(this.itemslist);
-        console.log("NEW ENDED");
-        console.log("try1");
         this.itemslist = this.items;
-        console.log(this.itemslist);
-        console.log("try1 end");
-        console.log(this.loaditems);
         this.clear();
         this.butn = "save";
+        this.fnameShow = true;
+        this.slideOneForm.reset();
+        this.userItem.data = null;
+        this.sp = false;
+        this.x = true;
+        this.selectedPrivileges = "";
     };
     NewuserPage.prototype.initializeItems = function () {
-        //console.log(this.itemslist);
         this.itemslist = this.loaditems;
-        console.log("reason ", this.itemslist);
-        console.log("reasonssss ", this.items);
     };
-    //new
+    //SEARCHBAR
     NewuserPage.prototype.getItems = function (searchbar) {
-        // Reset items back to all of the items
         this.initializeItems();
-        // set q to the value of the searchbar
         var q = searchbar.srcElement.value;
-        // if the value is an empty string don't filter the items
         if (!q) {
             return;
         }
@@ -13413,47 +13379,11 @@ var NewuserPage = /** @class */ (function () {
                 return false;
             }
         });
-        console.log(q, this.itemslist.length);
-        console.log(this.itemslist);
     };
-    /*dispdate(type){
-      let pickMode='single'
-      let dateLimit=new Date().setDate(new Date().getDate()+45)// Display  45 days from today
-      var defaultScrollTo=new Date()
-       let disableWeek=[0,6]// disable Sunday-0 and Saturday-6
-       
-         let from=new Date('2/1/2019')
-         var options=this.customDatePicker.datePickerOptions(pickMode,defaultScrollTo,from)
-         
-        let myCalendar =  this.modalCtrl.create(CalendarModal, {
-         options: options,
-         });
-            
-         myCalendar.present();
-          
-         myCalendar.onDidDismiss((date: CalendarResult[]) => {
-          
-           
-           if(date!=null){
-             if(type=="birth"){
-  
-  
-               this.userItem.dob=moment(date['time']).format('D-MMM-YYYY')
-             }
-             else if(type=="join"){
-               this.userItem.doj=moment(date['time']).format('D-MMM-YYYY')
-             }
-           
-         }
-        
-        })//end of displayCalendar function
-      }*/
     NewuserPage.prototype.dispdate = function (type) {
         var _this = this;
         this.datePicker.show({
             date: __WEBPACK_IMPORTED_MODULE_9_moment__().toDate(),
-            maxDate: __WEBPACK_IMPORTED_MODULE_9_moment__().valueOf(),
-            allowFutureDates: false,
             mode: 'date',
             androidTheme: 5,
         }).then(function (date) {
@@ -13466,7 +13396,6 @@ var NewuserPage = /** @class */ (function () {
         }, function (err) { return console.log('Error occurred while getting date: ', err); });
     };
     NewuserPage.prototype.s = function (keys) {
-        console.log(keys);
         this.userItemRef$.remove(keys);
     };
     NewuserPage.prototype.btn = function (userItem) {
@@ -13601,20 +13530,19 @@ var NewuserPage = /** @class */ (function () {
                         });
                         alert_1.present();
                         this.clear();
+                        this.list = true;
                         return [3 /*break*/, 10];
                     case 9:
-                        //this.clear();
-                        //update code
-                        console.log("update try 1");
-                        console.log(this.userItem.data);
-                        //console.log(this.userItem.$key);
+                        if (this.slideOneForm.get('fname').hasError('mobile') || this.slideOneForm.get('fname').hasError('required') || this.slideOneForm.get('email').hasError('required') || this.slideOneForm.get('position').hasError('required') || this.slideOneForm.get('doj').hasError('required') || this.slideOneForm.get('dob').hasError('required') || this.slideOneForm.get('lname').hasError('required')) {
+                            this.fnameShow = false;
+                            return [2 /*return*/];
+                        }
                         if (this.statuss == true) {
                             this.status = "inactive";
                         }
                         else {
                             this.status = "active";
                         }
-                        //this.fdb.object("/users/-LVIJAIZlMtJO4GVN1j5" )
                         this.fdb.object("/users/" + this.userItem.$key)
                             .update({ fname: this.userItem.fname, lname: this.userItem.lname, dob: this.userItem.dob, mobile: this.userItem.mobile, email: this.userItem.email, doj: this.userItem.doj, position: this.userItem.position, data: this.userItem.data, status: this.status });
                         alert_2 = this.alertCtrl.create({
@@ -13622,13 +13550,11 @@ var NewuserPage = /** @class */ (function () {
                             subTitle: "Data has been updated succesfuly ",
                             buttons: ['OK']
                         });
+                        this.fnameShow = true;
                         alert_2.present();
-                        //this.sp.checked=false;
-                        //this.sp.checked = false;
                         this.sp = false;
-                        console.log("nadakunillaaa");
-                        //console.log(this.sp.checked);
                         this.clear();
+                        this.list = true;
                         this.userItem.data = null;
                         this.butn = "save";
                         this.x = true;
@@ -13641,6 +13567,7 @@ var NewuserPage = /** @class */ (function () {
     };
     NewuserPage.prototype.collect = function (keys, fname, lname, dob, mobile, email, doj, position, data, status) {
         var _this = this;
+        this.slideOneForm.reset();
         this.userItem.fname = fname;
         this.userItem.lname = lname;
         this.userItem.mobile = mobile;
@@ -13649,13 +13576,36 @@ var NewuserPage = /** @class */ (function () {
         this.userItem.email = email;
         this.userItem.position = position;
         this.userItem.$key = keys;
+        this.selectedPrivileges = "";
+        this.userItem.data = null;
         this.userItem.data = data;
         this.butn = "update";
         this.chk = 0;
         this.x = false;
         this.userItem.status = status;
+        this.list = false;
+        if (this.userItem.data[0] == "value1") {
+            this.selectedPrivileges = this.selectedPrivileges + " Admin , ";
+        }
+        if (this.userItem.data[1] == "value2") {
+            this.selectedPrivileges = this.selectedPrivileges + " Leave Approval , ";
+        }
+        if (this.userItem.data[2] == "value3") {
+            this.selectedPrivileges = this.selectedPrivileges + " View Policy, ";
+        }
+        if (this.userItem.data[3] == "value4") {
+            this.selectedPrivileges = this.selectedPrivileges + " Send Message, ";
+        }
+        if (this.userItem.data[4] == "value5") {
+            this.selectedPrivileges = this.selectedPrivileges + " Recruitment , ";
+        }
+        if (this.userItem.data[5] == "value6") {
+            this.selectedPrivileges = this.selectedPrivileges + " Systems, ";
+        }
+        if (this.userItem.data[6] == "value7") {
+            this.selectedPrivileges = this.selectedPrivileges + " Add User, ";
+        }
         if (status != "active") {
-            //console.log("inaaaaactiveeee",status);
             this.statuss = true;
         }
         else {
@@ -13668,15 +13618,7 @@ var NewuserPage = /** @class */ (function () {
         }
         if (this.chk == 1) {
             this.sp = true;
-            // console.log("checkbox validation failed")
         }
-        // console.log("reason 1",this.items);
-        //console.log("reason 2",data);
-        //console.log("reason",this.itemslist);
-        //console.log("kerunundonn nokitha",this.userItem.data);
-        /*this.slides.lockSwipes(false);
-        this.slider.slideTo(0);
-        this.slides.lockSwipes(true);*/
         this.zone.run(function () {
             _this.users = "newUser";
         });
@@ -13689,26 +13631,26 @@ var NewuserPage = /** @class */ (function () {
         this.userItem.doj = "";
         this.userItem.email = "";
         this.userItem.position = "";
-        //this.userItem.data="null";
+        this.selectedPrivileges = "";
+        this.fnameShow = true;
+        this.slideOneForm.reset();
+        this.userItem.data = null;
+        this.sp = false;
+        this.x = true;
     };
     NewuserPage.prototype.showCheckbox = function (e, userItem) {
-        //console.log(this.datas);
-        //e.checked = true;
         var _this = this;
-        //console.log("kerunillaa")
+        this.list = false;
+        this.datas = null;
+        this.v1 = -1;
+        this.v2 = this.v3 = this.v4 = this.v5 = this.v6 = this.v7 = 0;
         this.datas = this.userItem.data;
-        //console.log(this.datas);
         if (this.datas != null) //null allaaaaaa
          {
-            //console.log("kerunnuu");
-            //console.log("what comes in ");
-            //console.log(this.datas);
-            //console.log(this.v1);
             for (this.i = 0; this.i <= 6; this.i++) {
                 if (this.datas[this.i] == "value1")
                     this.v1 = 0;
             }
-            console.log("check1", this.v1);
             for (this.i = 0; this.i <= 6; this.i++) {
                 if (this.datas[this.i] == "value2")
                     this.v2 = 1;
@@ -13733,11 +13675,6 @@ var NewuserPage = /** @class */ (function () {
                 if (this.datas[this.i] == "value7")
                     this.v7 = 6;
             }
-            //console.log("after condition check ");
-            //console.log(this.datas);
-            console.log(this.v1, this.v2, this.v3, this.v4, this.v5, this.v6, this.v7);
-            //-1 1 2 3 4 5 6 
-            //null 
             if (this.v1 == -1) {
                 this.datas[0] = "null";
             }
@@ -13781,252 +13718,319 @@ var NewuserPage = /** @class */ (function () {
             else {
                 this.datas[6] = "value7";
             }
-            //console.log(this.v1,this.v2,this.v3,this.v4,this.v5,this.v6,this.v7);
-            console.log('Cdatas look like  value :', this.datas);
+            if (this.datas[0] == "value1") {
+            }
             this.chk1 = 0;
-            //console.log(this.datas[0]=="value1"?false:true);
-            //this.datas=['value1'];
-            /*if(this.datas!=null){
-              for(this.i=0;this.i<7;this.i++){
-               if(this.datas[this.i]=="value1"){this.v1=true}
-                if(this.datas[this.i]=="value2"){this.v2=true}
-                if(this.datas[this.i]=="value3"){this.v3=true}
-                if(this.datas[this.i]=="value4"){this.v4=true}
-                if(this.datas[this.i]=="value5"){this.v5=true}
-                if(this.datas[this.i]=="value6"){this.v6=true}
-                if(this.datas[this.i]=="value7"){this.v7=true}
-                
-              }
-              }
-            //console.log("c "+this.datas[0]);
-            */
         }
-        if (e.checked) {
-            var alert_3 = this.alertCtrl.create();
-            alert_3.setTitle('Privilleges');
-            //
-            alert_3.addInput({
-                type: 'checkbox',
-                label: 'Admin',
-                value: 'value1',
-                checked: this.datas == null ? false : this.datas[0] == "value1" ? true : false
-            });
-            //console.log("hi");
-            alert_3.addInput({
-                type: 'checkbox',
-                label: 'Leave Approvals',
-                value: 'value2',
-                // checked:this.datas[1]!="null"?this.datas[1]=="value2"?true:false:false
-                checked: this.datas == null ? false : this.datas[1] == "value2" ? true : false
-            });
-            alert_3.addInput({
-                type: 'checkbox',
-                label: 'View Policy',
-                value: 'value3',
-                // checked:this.datas[2]!="null"?this.datas[2]=="value3"?true:false:false
-                checked: this.datas == null ? false : this.datas[2] == "value3" ? true : false
-            });
-            alert_3.addInput({
-                type: 'checkbox',
-                label: 'Send Message',
-                value: 'value4',
-                //checked:this.datas[3]!="null"?this.datas[3]=="value4"?true:false:false
-                checked: this.datas == null ? false : this.datas[3] == "value4" ? true : false
-            });
-            alert_3.addInput({
-                type: 'checkbox',
-                label: 'Recruitment',
-                value: 'value5',
-                //checked:this.datas[4]!="null"?this.datas[4]=="value5"?true:false:false
-                checked: this.datas == null ? false : this.datas[4] == "value5" ? true : false
-            });
-            alert_3.addInput({
-                type: 'checkbox',
-                label: 'System',
-                value: 'value6',
-                // checked:this.datas[5]!="null"?this.datas[5]=="value6"?true:false:false
-                checked: this.datas == null ? false : this.datas[5] == "value6" ? true : false
-            });
-            alert_3.addInput({
-                type: 'checkbox',
-                label: 'Add Users ',
-                value: 'value7',
-                // checked:this.datas[6]!="null"?this.datas[6]=="value7"?true:false:false
-                checked: this.datas == null ? false : this.datas[6] == "value7" ? true : false
-            });
-            alert_3.addButton({
-                text: "cancel",
-                handler: function (data) {
-                    if (_this.butn == "save" || _this.butn == "update") {
-                        _this.chk = 0;
-                        _this.chk1 = 0;
-                        if (_this.userItem.data == null) {
-                            _this.sp = false;
-                            console.log(" one ");
-                        }
-                        else {
-                            {
-                                for (_this.i = 0; _this.i < 6; _this.i++) {
-                                    if (_this.userItem.data[_this.i] == "null") {
-                                        _this.chk1 = 1;
-                                    }
-                                }
-                                if (_this.chk1 == 1)
-                                    _this.sp = false;
-                            }
-                            for (_this.i = 0; _this.i < 6; _this.i++) {
-                                if (_this.userItem.data[_this.i] != "null") {
-                                    _this.chk = 1;
-                                }
-                            }
-                            if (_this.chk == 1)
-                                _this.sp = true;
-                        }
+        var alert = this.alertCtrl.create();
+        alert.setTitle('Privilleges');
+        alert.addInput({
+            type: 'checkbox',
+            label: 'Admin',
+            value: 'value1',
+            handler: function (e) {
+                if (e.checked) {
+                    for (var i = 1; i < alert.instance['d'].inputs.length; i++)
+                        alert.instance['d'].inputs[i].checked = true;
+                }
+                else {
+                    for (var i = 1; i < alert.instance['d'].inputs.length; i++)
+                        alert.instance['d'].inputs[i].checked = false;
+                }
+            },
+            checked: this.datas == null ? false : this.datas[0] == "value1" ? true : false
+        });
+        alert.addInput({
+            type: 'checkbox',
+            label: 'Leave Approvals',
+            handler: function (e) {
+                var count = 0;
+                if (!e.checked) {
+                    alert.instance['d'].inputs[0].checked = false;
+                }
+                for (var i = 1; i < alert.instance['d'].inputs.length; i++) {
+                    if (alert.instance['d'].inputs[i].checked == true) {
+                        count++;
                     }
                 }
-            });
-            alert_3.addButton({
-                text: 'Okay',
-                handler: function (data) {
-                    _this.selectedPrivileges = "";
-                    if (data != null) {
-                        for (_this.i = 0; _this.i <= 6; _this.i++) {
-                            if (data[_this.i] == "value1")
-                                _this.v1 = 0;
-                        }
-                        //console.log("check1",this.v1);
-                        for (_this.i = 0; _this.i <= 6; _this.i++) {
-                            if (data[_this.i] == "value2")
-                                _this.v2 = 1;
-                        }
-                        for (_this.i = 0; _this.i <= 6; _this.i++) {
-                            if (data[_this.i] == "value3")
-                                _this.v3 = 2;
-                        }
-                        for (_this.i = 0; _this.i <= 6; _this.i++) {
-                            if (data[_this.i] == "value4")
-                                _this.v4 = 3;
-                        }
-                        for (_this.i = 0; _this.i <= 6; _this.i++) {
-                            if (data[_this.i] == "value5")
-                                _this.v5 = 4;
-                        }
-                        for (_this.i = 0; _this.i <= 6; _this.i++) {
-                            if (data[_this.i] == "value6")
-                                _this.v6 = 5;
-                        }
-                        for (_this.i = 0; _this.i <= 6; _this.i++) {
-                            if (data[_this.i] == "value7")
-                                _this.v7 = 6;
-                        }
-                        if (_this.v1 == -1) {
-                            data[0] = "null";
-                        }
-                        else {
-                            data[0] = "value1";
-                        }
-                        if (_this.v2 == 0) {
-                            data[1] = "null";
-                        }
-                        else {
-                            data[1] = "value2";
-                        }
-                        if (_this.v3 == 0) {
-                            data[2] = "null";
-                        }
-                        else {
-                            data[2] = "value3";
-                        }
-                        if (_this.v4 == 0) {
-                            data[3] = "null";
-                        }
-                        else {
-                            data[3] = "value4";
-                        }
-                        if (_this.v5 == 0) {
-                            data[4] = "null";
-                        }
-                        else {
-                            data[4] = "value5";
-                        }
-                        9;
-                        if (_this.v6 == 0) {
-                            data[5] = "null";
-                        }
-                        else {
-                            data[5] = "value6";
-                        }
-                        if (_this.v7 == 0) {
-                            data[6] = "null";
-                        }
-                        else {
-                            data[6] = "value7";
-                        }
+                if (e.checked) {
+                    if (count == 6) {
+                        alert.instance['d'].inputs[0].checked = true;
                     }
-                    _this.userItem.data = data;
-                    // console.log("database:",data);
-                    //console.log("database:",data);
-                    if (_this.userItem.data[0] == "value1") {
-                        _this.selectedPrivileges = _this.selectedPrivileges + " Admin , ";
-                    }
-                    if (_this.userItem.data[1] == "value2") {
-                        _this.selectedPrivileges = _this.selectedPrivileges + " Leave Approval , ";
-                    }
-                    if (_this.userItem.data[2] == "value3") {
-                        _this.selectedPrivileges = _this.selectedPrivileges + " View Policy, ";
-                    }
-                    if (_this.userItem.data[3] == "value4") {
-                        _this.selectedPrivileges = _this.selectedPrivileges + " Send Message, ";
-                    }
-                    if (_this.userItem.data[4] == "value5") {
-                        _this.selectedPrivileges = _this.selectedPrivileges + " Recruitment , ";
-                    }
-                    if (_this.userItem.data[5] == "value6") {
-                        _this.selectedPrivileges = _this.selectedPrivileges + " Systems, ";
-                    }
-                    if (_this.userItem.data[6] == "value7") {
-                        _this.selectedPrivileges = _this.selectedPrivileges + " Add User, ";
-                    }
-                    _this.testCheckboxOpen = true;
-                    _this.testCheckboxResult = data;
-                    if (_this.butn == "save" || _this.butn == "update") {
-                        _this.chk = 0;
-                        _this.chk1 = 0;
-                        if (_this.userItem.data == null) {
-                            console.log("onen");
-                            _this.sp = false;
-                        }
-                        else {
-                            {
-                                for (_this.i = 0; _this.i < 6; _this.i++) {
-                                    if (_this.userItem.data[_this.i] == "null") {
-                                        _this.chk1 = 1;
-                                    }
-                                }
-                                if (_this.chk1 == 1)
-                                    _this.sp = false;
-                                console.log("ones");
-                            }
-                            for (_this.i = 0; _this.i < 6; _this.i++) {
-                                if (_this.userItem.data[_this.i] != "null") {
-                                    _this.chk = 1;
-                                }
-                            }
-                            if (_this.chk == 1)
-                                _this.sp = true;
-                            console.log("trues");
-                        }
-                    }
-                    // if(this.butn=="save")
-                    //  this.sp=false;
-                    //if(data==null)
-                    // this.sp=false;
-                    // data=null;
                 }
-            });
-            alert_3.present();
-            console.log('Cdatas value :', this.datas);
-        }
+            },
+            value: 'value2',
+            checked: this.datas == null ? false : this.datas[1] == "value2" ? true : false
+        });
+        alert.addInput({
+            type: 'checkbox',
+            label: 'View Policy',
+            handler: function (e) {
+                var count = 0;
+                if (!e.checked) {
+                    alert.instance['d'].inputs[0].checked = false;
+                }
+                for (var i = 1; i < alert.instance['d'].inputs.length; i++) {
+                    if (alert.instance['d'].inputs[i].checked == true) {
+                        count++;
+                    }
+                }
+                if (e.checked) {
+                    if (count == 6) {
+                        alert.instance['d'].inputs[0].checked = true;
+                    }
+                }
+            },
+            value: 'value3',
+            checked: this.datas == null ? false : this.datas[2] == "value3" ? true : false
+        });
+        alert.addInput({
+            type: 'checkbox',
+            label: 'Send Message',
+            handler: function (e) {
+                var count = 0;
+                if (!e.checked) {
+                    alert.instance['d'].inputs[0].checked = false;
+                }
+                for (var i = 1; i < alert.instance['d'].inputs.length; i++) {
+                    if (alert.instance['d'].inputs[i].checked == true) {
+                        count++;
+                    }
+                }
+                if (e.checked) {
+                    if (count == 6) {
+                        alert.instance['d'].inputs[0].checked = true;
+                    }
+                }
+            },
+            value: 'value4',
+            checked: this.datas == null ? false : this.datas[3] == "value4" ? true : false
+        });
+        alert.addInput({
+            type: 'checkbox',
+            label: 'Recruitment',
+            handler: function (e) {
+                var count = 0;
+                if (!e.checked) {
+                    alert.instance['d'].inputs[0].checked = false;
+                }
+                for (var i = 1; i < alert.instance['d'].inputs.length; i++) {
+                    if (alert.instance['d'].inputs[i].checked == true) {
+                        count++;
+                    }
+                }
+                if (e.checked) {
+                    if (count == 6) {
+                        alert.instance['d'].inputs[0].checked = true;
+                    }
+                }
+            },
+            value: 'value5',
+            checked: this.datas == null ? false : this.datas[4] == "value5" ? true : false
+        });
+        alert.addInput({
+            type: 'checkbox',
+            label: 'System',
+            handler: function (e) {
+                var count = 0;
+                if (!e.checked) {
+                    alert.instance['d'].inputs[0].checked = false;
+                }
+                for (var i = 1; i < alert.instance['d'].inputs.length; i++) {
+                    if (alert.instance['d'].inputs[i].checked == true) {
+                        count++;
+                    }
+                }
+                if (e.checked) {
+                    if (count == 6) {
+                        alert.instance['d'].inputs[0].checked = true;
+                    }
+                }
+            },
+            value: 'value6',
+            checked: this.datas == null ? false : this.datas[5] == "value6" ? true : false
+        });
+        alert.addInput({
+            type: 'checkbox',
+            label: 'Add Users ',
+            handler: function (e) {
+                var count = 0;
+                if (!e.checked) {
+                    alert.instance['d'].inputs[0].checked = false;
+                }
+                for (var i = 1; i < alert.instance['d'].inputs.length; i++) {
+                    if (alert.instance['d'].inputs[i].checked == true) {
+                        count++;
+                    }
+                }
+                if (e.checked) {
+                    if (count == 6) {
+                        alert.instance['d'].inputs[0].checked = true;
+                    }
+                }
+            },
+            value: 'value7',
+            checked: this.datas == null ? false : this.datas[6] == "value7" ? true : false
+        });
+        alert.addButton({
+            text: "cancel",
+            handler: function (data) {
+                if (_this.butn == "save" || _this.butn == "update") {
+                    _this.chk = 0;
+                    _this.chk1 = 0;
+                    if (_this.userItem.data == null) {
+                        _this.sp = false;
+                    }
+                    else {
+                        {
+                            for (_this.i = 0; _this.i < 6; _this.i++) {
+                                if (_this.userItem.data[_this.i] == "null") {
+                                    _this.chk1 = 1;
+                                }
+                            }
+                            if (_this.chk1 == 1)
+                                _this.sp = false;
+                        }
+                        for (_this.i = 0; _this.i < 6; _this.i++) {
+                            if (_this.userItem.data[_this.i] != "null") {
+                                _this.chk = 1;
+                            }
+                        }
+                        if (_this.chk == 1)
+                            _this.sp = true;
+                    }
+                }
+            }
+        });
+        alert.addButton({
+            text: 'Okay',
+            handler: function (data) {
+                _this.selectedPrivileges = "";
+                if (data != null) {
+                    for (_this.i = 0; _this.i <= 6; _this.i++) {
+                        if (data[_this.i] == "value1")
+                            _this.v1 = 0;
+                    }
+                    for (_this.i = 0; _this.i <= 6; _this.i++) {
+                        if (data[_this.i] == "value2")
+                            _this.v2 = 1;
+                    }
+                    for (_this.i = 0; _this.i <= 6; _this.i++) {
+                        if (data[_this.i] == "value3")
+                            _this.v3 = 2;
+                    }
+                    for (_this.i = 0; _this.i <= 6; _this.i++) {
+                        if (data[_this.i] == "value4")
+                            _this.v4 = 3;
+                    }
+                    for (_this.i = 0; _this.i <= 6; _this.i++) {
+                        if (data[_this.i] == "value5")
+                            _this.v5 = 4;
+                    }
+                    for (_this.i = 0; _this.i <= 6; _this.i++) {
+                        if (data[_this.i] == "value6")
+                            _this.v6 = 5;
+                    }
+                    for (_this.i = 0; _this.i <= 6; _this.i++) {
+                        if (data[_this.i] == "value7")
+                            _this.v7 = 6;
+                    }
+                    if (_this.v1 == -1) {
+                        data[0] = "null";
+                    }
+                    else {
+                        data[0] = "value1";
+                    }
+                    if (_this.v2 == 0) {
+                        data[1] = "null";
+                    }
+                    else {
+                        data[1] = "value2";
+                    }
+                    if (_this.v3 == 0) {
+                        data[2] = "null";
+                    }
+                    else {
+                        data[2] = "value3";
+                    }
+                    if (_this.v4 == 0) {
+                        data[3] = "null";
+                    }
+                    else {
+                        data[3] = "value4";
+                    }
+                    if (_this.v5 == 0) {
+                        data[4] = "null";
+                    }
+                    else {
+                        data[4] = "value5";
+                    }
+                    9;
+                    if (_this.v6 == 0) {
+                        data[5] = "null";
+                    }
+                    else {
+                        data[5] = "value6";
+                    }
+                    if (_this.v7 == 0) {
+                        data[6] = "null";
+                    }
+                    else {
+                        data[6] = "value7";
+                    }
+                }
+                _this.userItem.data = data;
+                if (_this.userItem.data[0] == "value1") {
+                    _this.selectedPrivileges = _this.selectedPrivileges + " Admin , ";
+                }
+                if (_this.userItem.data[1] == "value2") {
+                    _this.selectedPrivileges = _this.selectedPrivileges + " Leave Approval , ";
+                }
+                if (_this.userItem.data[2] == "value3") {
+                    _this.selectedPrivileges = _this.selectedPrivileges + " View Policy, ";
+                }
+                if (_this.userItem.data[3] == "value4") {
+                    _this.selectedPrivileges = _this.selectedPrivileges + " Send Message, ";
+                }
+                if (_this.userItem.data[4] == "value5") {
+                    _this.selectedPrivileges = _this.selectedPrivileges + " Recruitment , ";
+                }
+                if (_this.userItem.data[5] == "value6") {
+                    _this.selectedPrivileges = _this.selectedPrivileges + " Systems, ";
+                }
+                if (_this.userItem.data[6] == "value7") {
+                    _this.selectedPrivileges = _this.selectedPrivileges + " Add User, ";
+                }
+                _this.testCheckboxOpen = true;
+                _this.testCheckboxResult = data;
+                if (_this.butn == "save" || _this.butn == "update") {
+                    _this.chk = 0;
+                    _this.chk1 = 0;
+                    if (_this.userItem.data == null) {
+                        _this.sp = false;
+                    }
+                    else {
+                        {
+                            for (_this.i = 0; _this.i < 6; _this.i++) {
+                                if (_this.userItem.data[_this.i] == "null") {
+                                    _this.chk1 = 1;
+                                }
+                            }
+                            if (_this.chk1 == 1)
+                                _this.sp = false;
+                        }
+                        for (_this.i = 0; _this.i < 6; _this.i++) {
+                            if (_this.userItem.data[_this.i] != "null") {
+                                _this.chk = 1;
+                            }
+                        }
+                        if (_this.chk == 1)
+                            _this.sp = true;
+                    }
+                }
+            }
+        });
+        alert.present();
         this.v1 = -1;
         this.v2 = 0;
         this.v3 = 0;
@@ -14041,9 +14045,10 @@ var NewuserPage = /** @class */ (function () {
         this.userItem.data = null;
         this.sp = false;
         this.x = true;
+        this.selectedPrivileges = "";
+        this.butn = "save";
     };
     NewuserPage.prototype.email = function (name, to_email, password) {
-        console.log(name);
         var templateParams = {
             to_name: name,
             user_email: to_email,
@@ -14058,7 +14063,7 @@ var NewuserPage = /** @class */ (function () {
     };
     NewuserPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
-            selector: 'page-newuser',template:/*ion-inline-start:"F:\ionic-app\src\pages\newuser\newuser.html"*/'<!--\n\n  Generated template for the NewuserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n  <navbar pageTitle="USERS"></navbar>\n\n</ion-header>\n\n\n\n<ion-content  >\n\n  <ion-segment [(ngModel)]="users" color="white" (click)="new1()">\n\n    <ion-segment-button value="newUser"  >\n\n    \n\n     New User\n\n    </ion-segment-button>\n\n    <ion-segment-button value="allUsers" (click)="new()">\n\n   \n\n    All User\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n     \n\n      <div [ngSwitch]="users">\n\n\n\n          <div *ngSwitchCase="\'newUser\'">\n\n              \n\n           \n\n          <form  [formGroup]="slideOneForm">\n\n              <h6 class="title section-title ">User Information</h6>\n\n                <ion-row>\n\n                   <ion-item col-6 > \n\n                        <ion-label stacked>First Name</ion-label>\n\n                        <ion-input type="text"  [(ngModel)]="userItem.fname" class="form-control" formControlName="fname" name="fname" ></ion-input>\n\n                    </ion-item> \n\n\n\n                        <ion-item col-6> \n\n                          <ion-label stacked>Last Name</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.lname" formControlName="lname" name="lname" ></ion-input>\n\n                        </ion-item>\n\n                     </ion-row> \n\n\n\n                      <ion-row>\n\n                        <ion-item [hidden]="fnameShow" col-6  no-lines *ngIf=" slideOneForm.get(\'fname\').hasError(\'required\') ">\n\n                         <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'fname\').hasError(\'required\')">\n\n                              first name is required\n\n                          </ion-label>\n\n                          </ion-item>\n\n\n\n                       <ion-item [hidden]="fnameShow" col-6 no-lines *ngIf=" slideOneForm.get(\'lname\').hasError(\'required\') ">\n\n\n\n                        <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'lname\').hasError(\'required\')">\n\n                            lname is required\n\n                        </ion-label>\n\n                        </ion-item>\n\n                    </ion-row>\n\n                  \n\n                    <ion-row>\n\n                      <ion-item  > \n\n                          <ion-label stacked>Date Of Birth</ion-label>\n\n                          <ion-input type="text" readOnly  (tap)="dispdate(\'birth\')" [(ngModel)]="userItem.dob"  formControlName="dob" name="dob"  ></ion-input>\n\n                        </ion-item> \n\n                    </ion-row> \n\n                    <ion-row>\n\n                        <ion-item [hidden]="fnameShow" no-lines *ngIf=" slideOneForm.get(\'dob\').hasError(\'required\') ">\n\n                          <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'dob\').hasError(\'required\')">\n\n                              Date of Birth is required\n\n                          </ion-label>\n\n                          </ion-item>\n\n                    </ion-row>  \n\n                    \n\n                    <ion-row>\n\n                      <ion-item > \n\n                         <ion-label stacked>Mobile Number</ion-label>\n\n                         <ion-input type="text" [(ngModel)]="userItem.mobile" formControlName="mobile" name="mobile" ></ion-input>\n\n                       </ion-item>\n\n                       <ion-item  [hidden]="fnameShow"  no-lines *ngIf=" slideOneForm.get(\'mobile\').hasError(\'required\') ">\n\n\n\n                        <ion-label stacked  color="danger" *ngIf="slideOneForm.get(\'mobile\').hasError(\'required\')">\n\n                           mobile number is required\n\n                        </ion-label>\n\n                        </ion-item>\n\n                     </ion-row> \n\n                   \n\n                    <ion-row>\n\n                       <ion-item> \n\n                          <ion-label stacked>Email Id</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.email" class="form-control"  formControlName="email" name="email"   ></ion-input>\n\n                        </ion-item>\n\n                        \n\n                        <ion-item [hidden]="fnameShow" no-lines *ngIf="slideOneForm.get(\'email\').hasError(\'pattern\') || slideOneForm.get(\'email\').hasError(\'required\')">\n\n                          <ion-label  stacked  color="danger"  *ngIf="slideOneForm.get(\'email\').hasError(\'pattern\') || slideOneForm.get(\'email\').hasError(\'required\')">\n\n                          please enter a valid email id \n\n                          </ion-label>\n\n                          </ion-item>\n\n                      </ion-row>\n\n                    \n\n                      \n\n                      <h6 class="title section-title">Job Details</h6>\n\n\n\n                        <ion-row>\n\n                            <ion-item col-6> \n\n                                <ion-label stacked>Date Of Joining</ion-label>\n\n                                <ion-input type="text" readOnly  (tap)="dispdate(\'join\')" [(ngModel)]="userItem.doj" formControlName="doj" name="doj" ></ion-input>\n\n                              </ion-item>\n\n\n\n                              <ion-item [hidden]="fnameShow"  col-6  no-lines *ngIf=" slideOneForm.get(\'doj\').hasError(\'required\') ">\n\n\n\n                                <ion-label stacked  color="danger" *ngIf="slideOneForm.get(\'doj\').hasError(\'required\')">\n\n                                  Date of Joining is required\n\n                                </ion-label>\n\n                                </ion-item>\n\n                                \n\n                             <ion-item col-6> \n\n                                <ion-label stacked>Position</ion-label>\n\n                               \n\n                                <ion-select   [(ngModel)]="userItem.position" formControlName="position" name="position">\n\n                                  <ion-option *ngFor="let p of designations" [value]=\'p.value\'>{{p.position}}</ion-option>\n\n                                </ion-select>\n\n                                \n\n                              </ion-item>\n\n                              <ion-item [hidden]="fnameShow" col-6 no-lines *ngIf=" slideOneForm.get(\'position\').hasError(\'required\') ">\n\n\n\n                                <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'position\').hasError(\'required\')">\n\n                                   position is required\n\n                                </ion-label>\n\n                                </ion-item>\n\n                           </ion-row>  \n\n                          </form> \n\n                          \n\n                         <ion-row>\n\n                              <ion-col col-6>\n\n                                <ion-label>Set privileges</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>\n\n                                 </ion-col>\n\n\n\n                                <ion-col col-6  [hidden]="x">\n\n                                  <ion-label stacked>Deactivate user</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="statuss" ></ion-checkbox>\n\n                                </ion-col>\n\n                              </ion-row> \n\n                              <ion-row>\n\n                                  <ion-item>\n\n                                      \n\n                                          <ion-col style=" font-size: 9px" col-12>\n\n                                            {{selectedPrivileges}}\n\n                                          </ion-col>\n\n                                      \n\n                                  </ion-item>\n\n                              </ion-row>\n\n                              <ion-row>\n\n                                  \n\n                           <button ion-button  icon-end  full color=blue (click)="btn(userItem)" >\n\n                             {{butn}}\n\n                             \n\n                             </button>\n\n                          </ion-row> \n\n                        \n\n             \n\n           \n\n          </div>\n\n            \n\n       <div *ngSwitchCase="\'allUsers\'">\n\n        <ion-list >\n\n            <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>\n\n          <ion-item>\n\n           <ion-row no-margin class="table-title" >\n\n                <ion-col col-6 >Name</ion-col><ion-col col-4>Position </ion-col><ion-col col-2>Action</ion-col>\n\n              </ion-row>\n\n          </ion-item>\n\n           \n\n           <ion-item>\n\n            <ion-row  class="col-text row-bottom-border" *ngFor="let item of itemslist" >\n\n                <ion-col col-6  style="color: #66887F;">\n\n                  {{ item.fname }}\n\n                </ion-col>\n\n                <ion-col col-4  style="color:#2679B0;" >\n\n                  {{ item.position }}\n\n                </ion-col>\n\n                <ion-col col-2 text-center (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position,item.data,item.status)">\n\n                <ion-icon name="create" ></ion-icon>\n\n                </ion-col>\n\n              </ion-row>\n\n           </ion-item>\n\n           \n\n            <!-- <ion-item>\n\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n            </ion-item> -->\n\n         </ion-list>\n\n      </div>\n\n      </div>\n\n</ion-content>\n\n\n\n \n\n\n\n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\newuser\newuser.html"*/,
+            selector: 'page-newuser',template:/*ion-inline-start:"F:\ionic-app\src\pages\newuser\newuser.html"*/'<!--\n\n  Generated template for the NewuserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n  <navbar pageTitle="USERS"></navbar>\n\n</ion-header>\n\n\n\n<ion-content  >\n\n  <ion-segment [(ngModel)]="users" color="white" (click)="new1()">\n\n    <ion-segment-button value="newUser"  >\n\n    \n\n     New User\n\n    </ion-segment-button>\n\n    <ion-segment-button value="allUsers" (click)="new()">\n\n   \n\n    All User\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n     \n\n      <div [ngSwitch]="users">\n\n\n\n          <div *ngSwitchCase="\'newUser\'">\n\n              \n\n           \n\n          <form  [formGroup]="slideOneForm">\n\n              <h6 class="title section-title ">User Information</h6>\n\n                <ion-row>\n\n                   <ion-item col-6 > \n\n                        <ion-label stacked>First Name</ion-label>\n\n                        <ion-input type="text"  [(ngModel)]="userItem.fname" class="form-control" formControlName="fname" name="fname" ></ion-input>\n\n                    </ion-item> \n\n\n\n                        <ion-item col-6> \n\n                          <ion-label stacked>Last Name</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.lname" formControlName="lname" name="lname" ></ion-input>\n\n                        </ion-item>\n\n                     </ion-row> \n\n\n\n                      <ion-row>\n\n                        <ion-item [hidden]="fnameShow" col-6  no-lines *ngIf=" slideOneForm.get(\'fname\').hasError(\'required\') ">\n\n                         <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'fname\').hasError(\'required\')">\n\n                              first name is required\n\n                          </ion-label>\n\n                          </ion-item>\n\n\n\n                       <ion-item [hidden]="fnameShow" col-6 no-lines *ngIf=" slideOneForm.get(\'lname\').hasError(\'required\') ">\n\n\n\n                        <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'lname\').hasError(\'required\')">\n\n                            lname is required\n\n                        </ion-label>\n\n                        </ion-item>\n\n                    </ion-row>\n\n                  \n\n                    <ion-row>\n\n                      <ion-item  > \n\n                          <ion-label stacked>Date Of Birth</ion-label>\n\n                          <ion-input type="text" readOnly  (tap)="dispdate(\'birth\')" [(ngModel)]="userItem.dob"  formControlName="dob" name="dob"  ></ion-input>\n\n                        </ion-item> \n\n                    </ion-row> \n\n                    <ion-row>\n\n                        <ion-item [hidden]="fnameShow" no-lines *ngIf=" slideOneForm.get(\'dob\').hasError(\'required\') ">\n\n                          <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'dob\').hasError(\'required\')">\n\n                              Date of Birth is required\n\n                          </ion-label>\n\n                          </ion-item>\n\n                    </ion-row>  \n\n                    \n\n                    <ion-row>\n\n                      <ion-item > \n\n                         <ion-label stacked>Mobile Number</ion-label>\n\n                         <ion-input type="text" [(ngModel)]="userItem.mobile" formControlName="mobile" name="mobile" ></ion-input>\n\n                       </ion-item>\n\n                       <ion-item  [hidden]="fnameShow"  no-lines *ngIf=" slideOneForm.get(\'mobile\').hasError(\'required\') ">\n\n\n\n                        <ion-label stacked  color="danger" *ngIf="slideOneForm.get(\'mobile\').hasError(\'required\')">\n\n                           mobile number is required\n\n                        </ion-label>\n\n                        </ion-item>\n\n                     </ion-row> \n\n                   \n\n                    <ion-row>\n\n                       <ion-item> \n\n                          <ion-label stacked>Email Id</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.email" class="form-control"  formControlName="email" name="email"   ></ion-input>\n\n                        </ion-item>\n\n                        \n\n                        <ion-item [hidden]="fnameShow" no-lines *ngIf="slideOneForm.get(\'email\').hasError(\'pattern\') || slideOneForm.get(\'email\').hasError(\'required\')">\n\n                          <ion-label  stacked  color="danger"  *ngIf="slideOneForm.get(\'email\').hasError(\'pattern\') || slideOneForm.get(\'email\').hasError(\'required\')">\n\n                          please enter a valid email id \n\n                          </ion-label>\n\n                          </ion-item>\n\n                      </ion-row>\n\n                    \n\n                      \n\n                      <h6 class="title section-title">Job Details</h6>\n\n\n\n                        <ion-row>\n\n                            <ion-item col-6> \n\n                                <ion-label stacked>Date Of Joining</ion-label>\n\n                                <ion-input type="text" readOnly  (tap)="dispdate(\'join\')" [(ngModel)]="userItem.doj" formControlName="doj" name="doj" ></ion-input>\n\n                              </ion-item>\n\n\n\n                              <ion-item [hidden]="fnameShow"  col-6  no-lines *ngIf=" slideOneForm.get(\'doj\').hasError(\'required\') ">\n\n\n\n                                <ion-label stacked  color="danger" *ngIf="slideOneForm.get(\'doj\').hasError(\'required\')">\n\n                                  Date of Joining is required\n\n                                </ion-label>\n\n                                </ion-item>\n\n                                \n\n                             <ion-item col-6> \n\n                                <ion-label stacked>Position</ion-label>\n\n                               \n\n                                <ion-select   [(ngModel)]="userItem.position" formControlName="position" name="position">\n\n                                  <ion-option *ngFor="let p of designations" [value]=\'p.value\'>{{p.position}}</ion-option>\n\n                                </ion-select>\n\n                                \n\n                              </ion-item>\n\n                              <ion-item [hidden]="fnameShow" col-6 no-lines *ngIf=" slideOneForm.get(\'position\').hasError(\'required\') ">\n\n\n\n                                <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'position\').hasError(\'required\')">\n\n                                   position is required\n\n                                </ion-label>\n\n                                </ion-item>\n\n                           </ion-row>  \n\n                          </form> \n\n                          <ion-item>\n\n                              <ion-label stacked>Set privileges</ion-label>\n\n                              <ion-textarea [(ngModel)]=\'selectedPrivileges\' rows=\'2\'  readonly (tap)="showCheckbox($event,userItem)" > </ion-textarea>\n\n                           <!--   <ion-checkbox  [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>\n\n                               --> \n\n                              </ion-item>\n\n                         <ion-row>\n\n                              \n\n\n\n                                <ion-col col-6  [hidden]="x">\n\n                                  <ion-label stacked>Deactivate user</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="statuss" ></ion-checkbox>\n\n                                </ion-col>\n\n                              </ion-row> \n\n                            \n\n                           \n\n                             \n\n                             \n\n                              <ion-row>\n\n\n\n\n\n                           <button ion-button  icon-end  full color=blue (click)="btn(userItem)" >\n\n                             {{butn}}\n\n                             \n\n                             </button>\n\n                          </ion-row> \n\n                        \n\n             \n\n           \n\n          </div>\n\n            \n\n       <div *ngSwitchCase="\'allUsers\'">\n\n        <ion-list >\n\n            <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>\n\n          <ion-item>\n\n           <ion-row no-margin class="table-title" >\n\n                <ion-col col-6 >Name</ion-col><ion-col col-4>Position </ion-col><ion-col col-2>Action</ion-col>\n\n              </ion-row>\n\n          </ion-item>\n\n           \n\n           <ion-item>\n\n              <div *ngIf="(this.itemslist.length==0)" style="text-align:center">No record found</div>\n\n            <ion-row  class="col-text row-bottom-border" *ngFor="let item of itemslist" >\n\n                <ion-col col-6  style="color: #66887F;">\n\n                  {{ item.fname }}\n\n                </ion-col>\n\n                <ion-col col-4  style="color:#2679B0;" >\n\n                  {{ item.position }}\n\n                </ion-col>\n\n                <ion-col col-2 text-center (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position,item.data,item.status)">\n\n                <ion-icon name="create" ></ion-icon>\n\n                </ion-col>\n\n              </ion-row>\n\n             \n\n           </ion-item>\n\n           \n\n            <!-- <ion-item>\n\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n            </ion-item> -->\n\n         </ion-list>\n\n      </div>\n\n      </div>\n\n</ion-content>\n\n\n\n \n\n\n\n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\newuser\newuser.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__ionic_native_date_picker__["a" /* DatePicker */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["LoadingController"], __WEBPACK_IMPORTED_MODULE_3__angular_core__["NgZone"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_3__angular_core__["ChangeDetectorRef"], __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_8__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["ModalController"]])
     ], NewuserPage);

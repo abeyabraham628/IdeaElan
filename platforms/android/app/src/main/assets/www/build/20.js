@@ -1,6 +1,6 @@
 webpackJsonp([20],{
 
-/***/ 739:
+/***/ 740:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(467);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__inbox__ = __webpack_require__(841);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__inbox__ = __webpack_require__(842);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,12 +41,12 @@ var InboxPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 841:
+/***/ 842:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InboxPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__ = __webpack_require__(191);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__ = __webpack_require__(466);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
@@ -118,6 +118,7 @@ var InboxPage = /** @class */ (function () {
         var alert = this.alertCtrl.create({
             title: x.subject,
             message: x.message,
+            enableBackdropDismiss: false,
             buttons: [{
                     text: 'OK',
                     handler: function () {
@@ -131,7 +132,7 @@ var InboxPage = /** @class */ (function () {
     };
     InboxPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
-            selector: 'page-inbox',template:/*ion-inline-start:"F:\ionic-app\src\pages\inbox\inbox.html"*/'<!--\n\n  Generated template for the InboxPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n  <page-header pageTitle="INBOX"></page-header>\n\n</ion-header>\n\n\n\n<ion-content >\n\n    <ion-card *ngFor="let x of messages" >\n\n      <ion-card-header (click)="viewMessage(x)" class={{x.status}}>\n\n      <ion-item>\n\n          <ion-avatar item-start>\n\n            <img src="assets/imgs/companylogo.png">\n\n          </ion-avatar>\n\n          <h4 style="text-transform:capitalize">{{x.postedBy}}</h4>\n\n          <p >Subject:{{x.subject | titlecase}}</p>\n\n          <p>{{x.date}} {{x.time}}</p>\n\n        </ion-item>\n\n      </ion-card-header>\n\n     \n\n      </ion-card>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\inbox\inbox.html"*/,
+            selector: 'page-inbox',template:/*ion-inline-start:"F:\ionic-app\src\pages\inbox\inbox.html"*/'<!--\n\n  Generated template for the InboxPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n  <page-header pageTitle="INBOX"></page-header>\n\n</ion-header>\n\n\n\n<ion-content >\n\n    <ion-card *ngFor="let x of messages" >\n\n      <ion-card-header (click)="viewMessage(x)" class={{x.status}}>\n\n      <ion-item>\n\n          <ion-avatar item-start>\n\n            <img src="assets/imgs/companylogo.png">\n\n          </ion-avatar>\n\n          <h4 style="text-transform:capitalize">From: {{x.postedBy}}</h4>\n\n          <p >Subject: {{x.subject | titlecase}}</p>\n\n          <p>{{x.date}} {{x.time}}</p>\n\n        </ion-item>\n\n      </ion-card-header>\n\n     \n\n      </ion-card>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\inbox\inbox.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["LoadingController"], __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ModalController"]])
     ], InboxPage);

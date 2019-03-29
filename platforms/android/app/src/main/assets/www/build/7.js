@@ -1,6 +1,6 @@
 webpackJsonp([7],{
 
-/***/ 755:
+/***/ 756:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(467);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__upload_events__ = __webpack_require__(857);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__upload_events__ = __webpack_require__(858);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,7 +41,7 @@ var UploadEventsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 786:
+/***/ 787:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66,7 +66,7 @@ var Designations = [
 
 /***/ }),
 
-/***/ 857:
+/***/ 858:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -75,8 +75,8 @@ var Designations = [
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__ = __webpack_require__(191);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_designations__ = __webpack_require__(786);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_designations__ = __webpack_require__(787);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_moment__);
 var __assign = (this && this.__assign) || function () {
@@ -233,28 +233,72 @@ var UploadEventsPage = /** @class */ (function () {
     };
     UploadEventsPage.prototype.addRecipients = function () {
         var _this = this;
+        var allSelected;
         var alert = this.alertCtrl.create();
         alert.setTitle('Choose Recipients');
         alert.addInput({
             type: 'checkbox',
             label: "All",
-            value: "All"
+            value: 'All',
+            handler: function (x) {
+                if (x.checked) {
+                    allSelected = true;
+                    for (var i = 1; i < alert.data.inputs.length; i++)
+                        alert.data.inputs[i].checked = true;
+                }
+                else {
+                    allSelected = false;
+                    for (var i = 1; i < alert.data.inputs.length; i++)
+                        alert.data.inputs[i].checked = false;
+                }
+            }
         });
         this.designations.forEach(function (item) {
             alert.addInput({
                 type: 'checkbox',
                 label: item.position,
-                value: item.value
+                value: item.value,
+                checked: false,
+                handler: function () {
+                    allSelected = false;
+                    alert.data.inputs[0].checked = false;
+                }
             });
         });
         alert.addButton('Cancel');
         alert.addButton({
             text: 'OK',
             handler: function (data) {
-                _this.recipients = data;
-                _this.PublishMessageForm.controls['recipients'].setValue(data);
-            }
+                if (data == "" || data == null) {
+                    _this.recipients = data;
+                    _this.PublishMessageForm.controls['recipients'].setValue(_this.recipients);
+                }
+                else if (allSelected) {
+                    data = 'All';
+                    _this.recipients = data;
+                    _this.PublishMessageForm.controls['recipients'].setValue(_this.recipients);
+                }
+                else {
+                    _this.recipients = data;
+                    _this.PublishMessageForm.controls['recipients'].setValue(_this.recipients);
+                }
+            } //end of handler function
         });
+        //Conditions to enable tick for the checkbox when displaying the alert.
+        if (this.recipients.length > 0) {
+            if (this.recipients.toString() == 'All') {
+                for (var i = 0; i < alert.data.inputs.length; i++) { //Check all fields is the the array contains 'All'
+                    alert.data.inputs[i].checked = true;
+                }
+            }
+            else {
+                for (var i = 0; i < alert.data.inputs.length; i++) { // Compare the all degsignations with the selected recipients. If  deisgnation mathches with the recipient the check that field. This function is user to load the already selected recipients
+                    for (var j = 0; j < this.recipients.length; j++)
+                        if (alert.data.inputs[i].value == this.recipients[j])
+                            alert.data.inputs[i].checked = true;
+                }
+            }
+        }
         alert.present();
     };
     UploadEventsPage.prototype.getSentItems = function () {
@@ -274,17 +318,16 @@ var UploadEventsPage = /** @class */ (function () {
         this.loader.dismiss();
     };
     UploadEventsPage.prototype.viewMessage = function (message) {
-        var alert = this.alertCtrl.create({
-            title: "Subject: " + message.subject,
-            subTitle: "Recipients: " + message.recipients,
-            message: "Message: " + message.message,
-            buttons: ['OK']
-        });
+        var alert = this.alertCtrl.create();
+        alert.setTitle("Subject: " + message.subject);
+        alert.setSubTitle("Recipients: " + message.recipients);
+        alert.setMessage("Message: " + message.message);
+        alert.addButton('OK');
         alert.present();
     };
     UploadEventsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-upload-events',template:/*ion-inline-start:"F:\ionic-app\src\pages\upload-events\upload-events.html"*/'<!--\n  Generated template for the UploadEventsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n  <navbar pageTitle="SEND MESSAGE"></navbar>\n</ion-header>\n\n<ion-content>\n    <ion-segment [(ngModel)]="messages" color="white" >\n        <ion-segment-button value="compose">\n           Compose\n        </ion-segment-button>\n        <ion-segment-button value="sentItems" (click)="getSentItems()">\n          Sent Items\n        </ion-segment-button>\n     </ion-segment>\n\n     <div [ngSwitch]="messages">\n        <div *ngSwitchCase="\'compose\'">\n    <form [formGroup]="PublishMessageForm" (ngSubmit)="publishMessage()">\n        \n       \n          <ion-item>\n                <ion-label floating>Recipients</ion-label>\n                <ion-input type="text" formControlName="recipients" readonly (click)="addRecipients()" (ionFocus)="addRecipients()"></ion-input>\n           </ion-item>    \n\n    <ion-item>\n      <ion-label floating>Subject</ion-label>\n        <ion-input type="text" formControlName="subject"></ion-input>\n    </ion-item>\n    <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'subject\').hasError(\'required\')  && PublishMessageForm.get(\'subject\').touched">\n        <ion-label stacked  color="danger">\n          Subject Is Required\n        </ion-label>\n      </ion-item>\n    <ion-item>\n        <ion-label floating>Message</ion-label>\n          <ion-textarea rows="10" formControlName="message"></ion-textarea>\n      </ion-item>\n      <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'message\').hasError(\'required\')  && PublishMessageForm.get(\'message\').touched">\n          <ion-label stacked  color="danger">\n            Message Is Required\n          </ion-label>\n        </ion-item>\n\n       <ion-row>\n            <ion-col col-6>\n                <button type="submit"  [disabled]="PublishMessageForm.invalid" color="blue" full ion-button>Send Message</button>\n          </ion-col>\n          <ion-col col-6>\n              <button ion-button type="reset"  icon-end full color=blue   >\n                Cancel\n              </button>\n            </ion-col>\n          </ion-row> \n         </form>\n  </div>\n\n  <div *ngSwitchCase="\'sentItems\'" >\n      <ion-item>\n          <ion-row class="table-title">\n            <ion-col col-5 >Recipients</ion-col>\n            <ion-col col-4 >Subject</ion-col>\n            <ion-col col-3 >Date</ion-col>\n            \n          </ion-row>\n        </ion-item>\n        <ion-item *ngFor="let message of sentItems">\n          <ion-row class="col-text table-bottom-border" (click)="viewMessage(message)" >\n              <ion-col col-5 *ngFor="let recipients of message.recipients">{{recipients}}</ion-col><ion-col col-4>{{message.subject}}</ion-col><ion-col col-3>{{message.date}}</ion-col>\n          </ion-row>\n        </ion-item>\n    </div>\n\n\n         </div>\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\upload-events\upload-events.html"*/,
+            selector: 'page-upload-events',template:/*ion-inline-start:"F:\ionic-app\src\pages\upload-events\upload-events.html"*/'<!--\n  Generated template for the UploadEventsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n  <navbar pageTitle="SEND MESSAGE"></navbar>\n</ion-header>\n\n<ion-content>\n    <ion-segment [(ngModel)]="messages" color="white" >\n        <ion-segment-button value="compose">\n           Compose\n        </ion-segment-button>\n        <ion-segment-button value="sentItems" (click)="getSentItems()">\n          Sent Items\n        </ion-segment-button>\n     </ion-segment>\n\n     <div [ngSwitch]="messages">\n        <div *ngSwitchCase="\'compose\'">\n    <form [formGroup]="PublishMessageForm" (ngSubmit)="publishMessage()">\n        \n       \n          <ion-item>\n                <ion-label floating>Recipients</ion-label>\n                <ion-input type="text" formControlName="recipients" readonly (click)="addRecipients()" (ionFocus)="addRecipients()"></ion-input>\n           </ion-item>    \n\n    <ion-item>\n      <ion-label floating>Subject</ion-label>\n        <ion-input type="text" formControlName="subject"></ion-input>\n    </ion-item>\n    <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'subject\').hasError(\'required\')  && PublishMessageForm.get(\'subject\').touched">\n        <ion-label stacked  color="danger">\n          Subject Is Required\n        </ion-label>\n      </ion-item>\n    <ion-item>\n        <ion-label floating>Message</ion-label>\n          <ion-textarea rows="10" formControlName="message"></ion-textarea>\n      </ion-item>\n      <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'message\').hasError(\'required\')  && PublishMessageForm.get(\'message\').touched">\n          <ion-label stacked  color="danger">\n            Message Is Required\n          </ion-label>\n        </ion-item>\n\n       <ion-row>\n            <ion-col col-6>\n                <button type="submit"  [disabled]="PublishMessageForm.invalid" color="blue" full ion-button>Send Message</button>\n          </ion-col>\n          <ion-col col-6>\n              <button ion-button type="reset"  icon-end full color=blue   >\n                Cancel\n              </button>\n            </ion-col>\n          </ion-row> \n         </form>\n  </div>\n\n  <div *ngSwitchCase="\'sentItems\'" >\n      <ion-item>\n          <ion-row class="table-title">\n            <ion-col col-5 >Recipients</ion-col>\n            <ion-col col-5 >Subject</ion-col>\n            <ion-col col-2 >Date</ion-col>\n            \n          </ion-row>\n        </ion-item>\n        <ion-item *ngFor="let message of sentItems">\n          <ion-row class="col-text table-bottom-border" (click)="viewMessage(message)" >\n              <ion-col col-5><p style="font-size:10px; text-transform:uppercase"  *ngFor="let recipients of message.recipients">{{recipients}}</p></ion-col><ion-col col-5 style="overflow:hidden !important;\n              text-overflow: ellipsis;">{{message.subject}}</ion-col><ion-col col-2>{{message.date}}</ion-col>\n          </ion-row>\n        </ion-item>\n    </div>\n\n\n         </div>\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\upload-events\upload-events.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["LoadingController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__["a" /* AngularFireAuth */]])
     ], UploadEventsPage);

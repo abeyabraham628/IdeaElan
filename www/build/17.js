@@ -131,16 +131,16 @@ var LoginPage = /** @class */ (function () {
                     case 0:
                         _a.trys.push([0, 5, , 6]);
                         this.loader.present();
-                        return [4 /*yield*/, this.afAuth.auth.signInWithEmailAndPassword('tony.manuel@mca.christuniversity.in', '1647249')];
+                        return [4 /*yield*/, this.afAuth.auth.signInWithEmailAndPassword(user.emailId, user.password)];
                     case 1:
                         loginSuccess = _a.sent();
                         if (!loginSuccess) return [3 /*break*/, 4];
                         this.storage.set('emailId', user.emailId);
-                        return [4 /*yield*/, this.firebase.database.ref("users/" + loginSuccess.user.uid).child('data').once('value')
-                            //check whether the user has changed the temporary password
-                        ];
+                        return [4 /*yield*/, this.firebase.database.ref("users/" + loginSuccess.user.uid).child('data').once('value')];
                     case 2:
                         privilleges = _a.sent();
+                        this.storage.set('roles', privilleges.val());
+                        this.storage.set('userId', loginSuccess.user.uid);
                         return [4 /*yield*/, this.firebase.database.ref("TempLogin/" + loginSuccess.user.uid).once('value')];
                     case 3:
                         tempPassword = _a.sent();
@@ -171,17 +171,12 @@ var LoginPage = /** @class */ (function () {
         //const modal = this.modalCtrl.create('ForgotpasswordPage');
         // modal.present();
     };
+    var _a, _b, _c, _d, _e, _f, _g;
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
             selector: 'page-login',template:/*ion-inline-start:"F:\ionic-app\src\pages\login\login.html"*/'\n\n<ion-content padding class="top-botton-border login">\n\n  \n\n\n\n<ion-list>\n\n  <ion-thumbnail >\n\n    <ion-img class="ionImage" [src]="companyLogo"></ion-img>\n\n  </ion-thumbnail>\n\n  <ion-item no-lines> \n\n    <ion-input text-center type="email" [(ngModel)]="credentials.emailId" class="input-border" placeholder="EMAIL ID"></ion-input>\n\n   </ion-item>\n\n  \n\n  <ion-item no-lines    >\n\n    <ion-input text-center type="password" class="input-border" [(ngModel)]="credentials.password" placeholder="PASSWORD"></ion-input>\n\n   </ion-item>\n\n\n\n   \n\n      <button type="button"  full default ion-button color="blue" style="height:40px; border-radius:5px;" (click)="signIn(credentials)">Sign In</button>\n\n      <ion-label color="orange"  text-right (click)="forgotPassword()">Forgot Password</ion-label>\n\n    </ion-list>\n\n\n\n   \n\n   \n\n  \n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\login\login.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ToastController"],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["LoadingController"],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ModalController"],
-            __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"],
-            __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */],
-            __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */],
-            __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ToastController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ToastController"]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["LoadingController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["LoadingController"]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ModalController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["ModalController"]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */]) === "function" ? _f : Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]) === "function" ? _g : Object])
     ], LoginPage);
     return LoginPage;
 }());

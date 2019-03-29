@@ -1,3 +1,4 @@
+import { Storage } from '@ionic/storage';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 
@@ -20,11 +21,11 @@ export class MyApp {
  
   isOffline:boolean=false
   showOffline:boolean=true
-  rootPage:string= 'LoginPage'//'ApplyLeavePage';//CompanyPolicyComponent;//HomePage
-  
+  rootPage:string//='LoginPage'//'ApplyLeavePage';//CompanyPolicyComponent;//HomePage
+  rootParams:any
   @ViewChild('nav') nav : NavController;
-  constructor(public afAuth:AngularFireAuth,public zone:NgZone,public screenOrientation:ScreenOrientation,public network:Network,public app:App,private platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private alertCtrl:AlertController) {
-    
+  constructor(public storage:Storage,public afAuth:AngularFireAuth,public zone:NgZone,public screenOrientation:ScreenOrientation,public network:Network,public app:App,private platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private alertCtrl:AlertController) {
+    this.tony()
 
 
 
@@ -113,7 +114,26 @@ presentConfirm() {
     });
   }
 
- 
+  
+  tony(){
+   
+      this.storage.get('roles').then((roles)=>{
+        if(roles){
+        this.storage.get('userId').then((x)=>{
+          this.rootParams=[roles,x]
+          this.rootPage='TabsPage';
+        })
+        
+        }
+       else{
+        console.log(roles)
+        this.rootPage='LoginPage'
+      }
+      })
+    
+   
+    
+  }
    
   
 
