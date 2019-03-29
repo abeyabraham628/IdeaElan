@@ -78,6 +78,16 @@
     </div>
 
     <div *ngSwitchCase="'messages'">
+     <ion-item>
+       <ion-label >Filter Messages By</ion-label>
+      <ion-select interface="popover" (ionChange)="tony($event)">
+          <ion-option value="All">All</ion-option>
+        <ion-option value="pending">Pending</ion-option>
+        <ion-option value="review">Under Review</ion-option>
+        <ion-option value="closed">Closed</ion-option>
+      </ion-select>
+    </ion-item>
+       
       <ion-item>
           <ion-row class="table-title">
             <ion-col col-3 >Date</ion-col>

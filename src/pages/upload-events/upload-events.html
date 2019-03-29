@@ -64,14 +64,15 @@
       <ion-item>
           <ion-row class="table-title">
             <ion-col col-5 >Recipients</ion-col>
-            <ion-col col-4 >Subject</ion-col>
-            <ion-col col-3 >Date</ion-col>
+            <ion-col col-5 >Subject</ion-col>
+            <ion-col col-2 >Date</ion-col>
             
           </ion-row>
         </ion-item>
         <ion-item *ngFor="let message of sentItems">
           <ion-row class="col-text table-bottom-border" (click)="viewMessage(message)" >
-              <ion-col col-5 *ngFor="let recipients of message.recipients">{{recipients}}</ion-col><ion-col col-4>{{message.subject}}</ion-col><ion-col col-3>{{message.date}}</ion-col>
+              <ion-col col-5><p style="font-size:10px; text-transform:uppercase"  *ngFor="let recipients of message.recipients">{{recipients}}</p></ion-col><ion-col col-5 style="overflow:hidden !important;
+              text-overflow: ellipsis;">{{message.subject}}</ion-col><ion-col col-2>{{message.date}}</ion-col>
           </ion-row>
         </ion-item>
     </div>

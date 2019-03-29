@@ -1,17 +1,17 @@
+
 <ion-header>
   <ion-navbar color="blue">
     <ion-title>
       My Profile
     </ion-title>
     <ion-buttons end >
-        <button ion-button icon-only (click)="updateProfile()"> <ion-icon item-left name="checkmark"></ion-icon>Save</button>
-        
+        <button ion-button type="submit" form="profile"  icon-only > <ion-icon  name="checkmark"></ion-icon>Save</button>
     </ion-buttons>
    </ion-navbar>
 </ion-header>
 <ion-content>
     
-   <form [formGroup]="profileForm">
+    <form [formGroup]="profileForm" (ngSubmit)="updateProfile()" id="profile">
         
       <ion-item  style="text-align:center;" (click)="showmodal()">
             
@@ -27,21 +27,42 @@
           <ion-row>
               <ion-item col-6>
                 <ion-input hidden formControlName="$key" ></ion-input>
-                
                 <ion-label stacked>First Name</ion-label>
                 <ion-input type="text" formControlName="fName" maxlength=15 ></ion-input>
               </ion-item>
+             
               <ion-item col-6>
                   <ion-label stacked>Last Name</ion-label>
                   <ion-input type="text" formControlName="lName" maxlength=15   ></ion-input>
                 </ion-item>
+                
           </ion-row> 
+          <ion-row>
+            <ion-col col-6>
+            <ion-item   no-lines *ngIf="(profileForm.get('fName').hasError('pattern') || profileForm.get('fName').hasError('minlength') || profileForm.get('fName').hasError('required') ) && profileForm.get('fName').touched">
+              <ion-label stacked  color="danger" *ngIf="(profileForm.get('fName').hasError('pattern') || profileForm.get('fName').hasError('required')  || profileForm.get('fName').hasError('minlength')) && profileForm.get('fName').touched" >
+                Invalid First Name
+              </ion-label>
+            </ion-item>
+          </ion-col>
+          <ion-col col-6>
+            <ion-item   no-lines *ngIf="(profileForm.get('lName').hasError('pattern') || profileForm.get('lName').hasError('minlength') || profileForm.get('lName').hasError('required') ) && profileForm.get('lName').touched">
+              <ion-label stacked  color="danger" *ngIf="(profileForm.get('lName').hasError('pattern') || profileForm.get('lName').hasError('required')  || profileForm.get('lName').hasError('minlength')) && profileForm.get('lName').touched" >
+                Invalid Last Name
+              </ion-label>
+            </ion-item>
+          </ion-col>
+          </ion-row>
             
           <ion-item>
               <ion-label stacked>Mobile Number</ion-label>
               <ion-input type="tel" formControlName="mobile" maxlength=10 ></ion-input>
             </ion-item>  
-            
+            <ion-item   no-lines *ngIf="(profileForm.get('mobile').hasError('pattern') || profileForm.get('mobile').hasError('minlength') || profileForm.get('mobile').hasError('required') ) && profileForm.get('mobile').touched">
+                <ion-label stacked  color="danger" *ngIf="(profileForm.get('mobile').hasError('pattern') || profileForm.get('mobile').hasError('required')  || profileForm.get('mobile').hasError('minlength')) && profileForm.get('mobile').touched" >
+                  Invalid Mobile Number
+                </ion-label>
+              </ion-item>
             <ion-item>
               <ion-label stacked>Date Of Birth</ion-label>
               <ion-input disabled type="text" [(ngModel)]="dob"  [ngModelOptions]="{standalone: true}" ></ion-input>
@@ -50,7 +71,8 @@
               <ion-label stacked>Date Of Join</ion-label>
               <ion-input disabled type="text" [(ngModel)]="doj"  [ngModelOptions]="{standalone: true}"></ion-input>
             </ion-item>  
+          
           </form>
-
           
           </ion-content>
+       

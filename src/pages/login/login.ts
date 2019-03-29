@@ -81,8 +81,9 @@ export class LoginPage {
     
 
      forgotPassword(){
-     const modal = this.modalCtrl.create('ForgotpasswordPage');
-     modal.present();
+       this.navCtrl.push('ForgotpasswordPage')
+     //const modal = this.modalCtrl.create('ForgotpasswordPage');
+    // modal.present();
      
 
      }

@@ -184,5 +184,14 @@ alert.addInput({
  
  }
 
+ tony(ctxt: string): void {
+ console.log(ctxt)
+ let tt=this.supportMessage
+
+    this.supportMessage= tt.filter(item => item.status === ctxt); 
+    
+  }
+ 
+
 
 }//end of class

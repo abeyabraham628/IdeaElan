@@ -33,9 +33,9 @@ export class MyprofilePage {
   profileForm=new FormGroup({
     $key:new FormControl(null),
     fName:new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*'), Validators.minLength(2)]),
-    lName:new FormControl('',Validators.required),
-    mobile:new FormControl('',Validators.required),
-
+    lName:new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z]*'), Validators.minLength(2)]),
+    mobile:new FormControl('', [Validators.required, Validators.pattern('^([6-9])([0-9]{9})$'), Validators.minLength(10)]),
+   
   })
 
   constructor(public data:DataService,public cache: Storage,public myModal:ModalController,public toastCtrl:ToastController,public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public afauth:AngularFireAuth) {
@@ -48,45 +48,37 @@ export class MyprofilePage {
  
 
   retrieveProfile(){
-    this.firebase.database.ref(`users/${this.afauth.auth.currentUser.uid}`).once('value',(snap)=>{
-      this.profileForm.controls['$key'].setValue(snap.key)
-      //$key=snap.key
-    
-      this.profileForm.get('fName').setValue(this.fName=snap.child('fname').val())
-     this.profileForm.get('lName').setValue(this.lName=snap.child('lname').val())
-     this.profileForm.get('mobile').setValue(this.mobile=snap.child('mobile').val())
-      //$key=snap.key
-      
-      
-     
-      this.email=snap.child('email').val()
-      
-      this.doj=snap.child('doj').val()
-      this.dob=snap.child('dob').val()
-      this.jobTitle=snap.child('position').val()
+    this.firebase.database.ref(`users/${this.afauth.auth.currentUser.uid}`).on('value',(snap)=>{
+    this.profileForm.controls['$key'].setValue(this.$key=snap.key)
+    this.profileForm.get('fName').setValue(this.fName=snap.child('fname').val())
+    this.profileForm.get('lName').setValue(this.lName=snap.child('lname').val())
+    this.profileForm.get('mobile').setValue(this.mobile=snap.child('mobile').val())
+    this.email=snap.child('email').val()
+    this.doj=snap.child('doj').val()
+    this.dob=snap.child('dob').val()
+    this.jobTitle=snap.child('position').val()
     })
   }
 
-  updateProfile(){
-    if(this.$key!="")
-    this.firebase.list('users').update(this.$key,{
-        fname:this.fName,
-        lname:this.lName,
-        mobile:this.mobile
-    }).then(()=>{
-        let toast=this.toastCtrl.create({
-          message:'Profile updated successfully',
-          duration:3000
-        })
-        toast.present()
-    })
-  }
-
-  public clearCache(){
-    this.cache.clear();
-    localStorage.clear();
  
+  updateProfile(){
+  if(this.profileForm.valid){
+    if(this.$key!="")
+      this.firebase.list('users').update(this.$key,{
+          fname: this.profileForm.get('fName').value,
+          lname:this.profileForm.get('lName').value,
+          mobile:this.profileForm.get('mobile').value
+      }).then(()=>{
+          let toast=this.toastCtrl.create({
+            message:'Profile updated successfully',
+            duration:3000
+          })
+          toast.present()
+      })
+    }
   }
+
+ 
 
   showmodal()
   {
@@ -97,9 +89,6 @@ export class MyprofilePage {
     const modal=this.myModal.create('ModalPage',{mydata});
     modal.onDidDismiss(() => {
      
-     this.clearCache();
-     this.clearCache;
-     this.uri.clearCache;
      this.uri=`https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/${this.afauth.auth.currentUser.uid}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b5${new Date().toLocaleTimeString()}`
   
   });

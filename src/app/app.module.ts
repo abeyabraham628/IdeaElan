@@ -1,9 +1,6 @@
 import { Camera } from '@ionic-native/camera';
 import { AngularFireStorage } from '@angular/fire/storage';
-
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
-
-
 import { ChatbotPage } from './../pages/chatbot/chatbot';
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
 import { BrowserModule } from '@angular/platform-browser';
@@ -13,7 +10,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { HttpClientModule } from '@angular/common/http'; 
 import { HttpModule } from '@angular/http';
-
 import {  DatePicker } from '@ionic-native/date-picker';
 import { ReactiveFormsModule } from '@angular/forms'
 import { DatePipe } from '@angular/common';
@@ -22,9 +18,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { CalendarModule } from "ion2-calendar";
-
 import { MyApp } from './app.component';
-
 import { FIREBASE_CONFIG } from '../providers/firebase-service'
 import {FCM} from '@ionic-native/fcm'
 import { IonicStorageModule } from '@ionic/storage';
@@ -40,8 +34,6 @@ import {Calendar} from '@ionic-native/calendar'
   declarations: [
     MyApp,
     ChatbotPage,
-    
-    
     ],
 
   imports: [

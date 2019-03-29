@@ -1,3 +1,5 @@
+import { AngularFireDatabase } from '@angular/fire/database';
+
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Component } from '@angular/core';
@@ -19,7 +21,8 @@ export class ForgotpasswordPage {
               public navCtrl: NavController, 
               public navParams: NavParams,
               public afauth:AngularFireAuth,
-              public storage:Storage
+              public storage:Storage,
+              public firebase:AngularFireDatabase
               ) {
                 
                 
@@ -39,7 +42,7 @@ export class ForgotpasswordPage {
       let navCtrl=this.navCtrl
       var auth = this.afauth.auth;
       var emailAddress = this.passwordResetForm.controls['email'].value;
-
+     
             auth.sendPasswordResetEmail(emailAddress).then(()=> {
               const toast = this.toastCtrl.create({
                 message: 'Password reset link has been sent to your mail.',
@@ -64,6 +67,6 @@ export class ForgotpasswordPage {
           }
 
           goBack(){
-            this.navCtrl.setRoot('LoginPage')
+            this.navCtrl.popToRoot()
           }
 }

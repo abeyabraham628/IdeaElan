@@ -212,12 +212,12 @@ sentItems=[]
 
 
  viewMessage(message) {
-  const alert = this.alertCtrl.create({
-    title: "Subject: "+message.subject,
-    subTitle:"Recipients: "+message.recipients,
-    message:"Message: "+message.message,
-    buttons: ['OK']
-  });
+ let  alert = this.alertCtrl.create();
+    alert.setTitle("Subject: "+message.subject)
+    alert.setSubTitle("Recipients: "+message.recipients)
+    alert.setMessage("Message: "+message.message)
+    alert.addButton('OK')
+  
   alert.present();
 }
  

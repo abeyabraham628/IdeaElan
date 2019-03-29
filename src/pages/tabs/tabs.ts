@@ -117,16 +117,13 @@ export class TabsPage {
  
 
  async getusername(){
-  var uname:any
-  var position:any
-    await this.fdb.database.ref(`/users/${this.afAuth.auth.currentUser.uid}`).once('value',function(snap){
-      uname=snap.child('fname').val() +" "+snap.child('lname').val()
-      position=snap.child('position').val()
+  
+    await this.fdb.database.ref(`/users/${this.afAuth.auth.currentUser.uid}`).on('value',snap=>{
+      this.uname=snap.child('fname').val() +" "+snap.child('lname').val()
+      this.position=snap.child('position').val()
    
      });
-     this.uname=uname;
-     this.position=position;
-   
+     
   }
   
   async changeimage()
