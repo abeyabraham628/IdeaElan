@@ -31,6 +31,7 @@ matter:string
 recipient:string
 roles:any
 user:any
+filter:string
   constructor(public alertCtrl:AlertController,public toastCtrl:ToastController,public navCtrl: NavController, public navParams: NavParams,public firebase:AngularFireDatabase,public afAuth:AngularFireAuth) {
     this.support="newIssue"
     this.roles=navParams.data
@@ -65,14 +66,13 @@ user:any
   contactSupport(){
     
     this.subject==null?this.subjectErr=false:this.subjectErr=true;
-
     this.matter==null||this.matter==""|| this.matter.length<5?this.commentErr=false:this.commentErr=true
     this.recipient==null?this.recpErr=false:this.recpErr=true
     
     if(this.subjectErr&& this.commentErr&& this.recpErr){
       let empObj=this.employeeList.find(key=>key.$key==this.afAuth.auth.currentUser.uid)
-        let empName=empObj.fName+" "+empObj.lName
-      this.firebase.list(`support/${this.recipient}`).push({
+      let empName=empObj.fName+" "+empObj.lName
+      this.firebase.list(`support`).push({
         subject:this.subject,
         matter:this.matter,
         recipient:this.recipient,
@@ -101,45 +101,29 @@ user:any
 
   myRequests=[]
   getMyRequests(){
-    
-    /*this.firebase.list('support').snapshotChanges().subscribe(snap=>{
-        this.myRequests=snap.map(child=>{
-          child.(item=>{
-
-          })
-        })
-    })*/
-
-
-    this.firebase.database.ref(`support`).on('value',(snap)=>{
-      snap.forEach((child)=>{
-          child.forEach(item=>{
-            if(item.child('userId').val()===this.afAuth.auth.currentUser.uid){
-              this.myRequests.push(item.val())
-            }
-          })
-      })
+    this.firebase.list('support',ref=>ref.orderByChild('userId').equalTo(`${this.afAuth.auth.currentUser.uid}`)).snapshotChanges().subscribe(snap=>{
+        this.myRequests=snap.map(item=>{
+          return{
+            ...item.payload.val()
+          }
+        }).reverse()
     })
+ }
 
-   
-  }
-
+  messages=[]
   supportMessage=[]
   getSupportMessage(){
-    
-    this.firebase.list(`support/${this.user}`).snapshotChanges().subscribe(snap=>{
+    this.firebase.list(`support`,ref=>ref.orderByChild(`recipient`).equalTo(`${this.user}`)).snapshotChanges().subscribe(snap=>{
      this.supportMessage=snap.map(item=>{
        return{
          $key:item.key,
          ...item.payload.val()
        }
      }).reverse()
-    
-   
-      
+     this.messages=this.supportMessage
     })
     
-    
+   
   }
   
 userType(roles){
@@ -147,15 +131,15 @@ userType(roles){
     this.user="admin"
   else if(roles[4]=="value5")
     this.user="hr"
-    
 }
 
 changeStatus(message){
   
-  let alert = this.alertCtrl.create();
+  let alert = this.alertCtrl.create({enableBackdropDismiss: false});
   alert.setTitle("Subject: "+message.subject)
   alert.setSubTitle("From: "+message.userName)
   alert.setMessage("Issue: "+message.matter)
+  
   
   alert.addInput({
     type: 'radio',
@@ -171,26 +155,31 @@ alert.addInput({
  alert.addButton('Cancel');
  alert.addButton({
    text: 'OK',
+   
    handler: data => {
     if(data!=null){
-      this.firebase.database.ref(`support/${this.user}/${message.$key}`).update({
+      this.firebase.list(`support`).update(message.$key,{
           status:data
       })
       
     }//end of if
+    this.filter='all'
   } //end of handler  
 })//end of ok button
+
  alert.present();
  
  }
 
- tony(ctxt: string): void {
- console.log(ctxt)
- let tt=this.supportMessage
 
-    this.supportMessage= tt.filter(item => item.status === ctxt); 
-    
-  }
+ filterRequests(ctxt: string): void {
+   if(ctxt!='all'){
+    this.messages=this.supportMessage
+    this.messages= this.supportMessage.filter(item => item.status === ctxt); 
+   }else{
+    this.messages=this.supportMessage
+   }
+}
  
 
 

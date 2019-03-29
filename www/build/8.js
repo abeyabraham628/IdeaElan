@@ -213,17 +213,15 @@ var TabsPage = /** @class */ (function () {
     }
     TabsPage.prototype.getusername = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var uname, position;
+            var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.fdb.database.ref("/users/" + this.afAuth.auth.currentUser.uid).once('value', function (snap) {
-                            uname = snap.child('fname').val() + " " + snap.child('lname').val();
-                            position = snap.child('position').val();
+                    case 0: return [4 /*yield*/, this.fdb.database.ref("/users/" + this.afAuth.auth.currentUser.uid).on('value', function (snap) {
+                            _this.uname = snap.child('fname').val() + " " + snap.child('lname').val();
+                            _this.position = snap.child('position').val();
                         })];
                     case 1:
                         _a.sent();
-                        this.uname = uname;
-                        this.position = position;
                         return [2 /*return*/];
                 }
             });

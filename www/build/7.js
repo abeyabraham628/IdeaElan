@@ -318,12 +318,11 @@ var UploadEventsPage = /** @class */ (function () {
         this.loader.dismiss();
     };
     UploadEventsPage.prototype.viewMessage = function (message) {
-        var alert = this.alertCtrl.create({
-            title: "Subject: " + message.subject,
-            subTitle: "Recipients: " + message.recipients,
-            message: "Message: " + message.message,
-            buttons: ['OK']
-        });
+        var alert = this.alertCtrl.create();
+        alert.setTitle("Subject: " + message.subject);
+        alert.setSubTitle("Recipients: " + message.recipients);
+        alert.setMessage("Message: " + message.message);
+        alert.addButton('OK');
         alert.present();
     };
     UploadEventsPage = __decorate([

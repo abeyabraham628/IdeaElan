@@ -167,8 +167,9 @@ var LoginPage = /** @class */ (function () {
         });
     }; //end of sign in function
     LoginPage.prototype.forgotPassword = function () {
-        var modal = this.modalCtrl.create('ForgotpasswordPage');
-        modal.present();
+        this.navCtrl.push('ForgotpasswordPage');
+        //const modal = this.modalCtrl.create('ForgotpasswordPage');
+        // modal.present();
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({

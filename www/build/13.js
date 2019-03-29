@@ -86,8 +86,8 @@ var MyprofilePage = /** @class */ (function () {
         this.profileForm = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormGroup"]({
             $key: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"](null),
             fName: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].pattern('[a-zA-Z]*'), __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].minLength(2)]),
-            lName: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required),
-            mobile: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required),
+            lName: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].pattern('[a-zA-Z]*'), __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].minLength(2)]),
+            mobile: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].pattern('^([6-9])([0-9]{9})$'), __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].minLength(10)]),
         });
         this.retrieveProfile();
         //.uri=`https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/${this.afauth.auth.currentUser.uid}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b5${new Date().toLocaleTimeString()}`
@@ -95,13 +95,11 @@ var MyprofilePage = /** @class */ (function () {
     }
     MyprofilePage.prototype.retrieveProfile = function () {
         var _this = this;
-        this.firebase.database.ref("users/" + this.afauth.auth.currentUser.uid).once('value', function (snap) {
-            _this.profileForm.controls['$key'].setValue(snap.key);
-            //$key=snap.key
+        this.firebase.database.ref("users/" + this.afauth.auth.currentUser.uid).on('value', function (snap) {
+            _this.profileForm.controls['$key'].setValue(_this.$key = snap.key);
             _this.profileForm.get('fName').setValue(_this.fName = snap.child('fname').val());
             _this.profileForm.get('lName').setValue(_this.lName = snap.child('lname').val());
             _this.profileForm.get('mobile').setValue(_this.mobile = snap.child('mobile').val());
-            //$key=snap.key
             _this.email = snap.child('email').val();
             _this.doj = snap.child('doj').val();
             _this.dob = snap.child('dob').val();
@@ -110,22 +108,20 @@ var MyprofilePage = /** @class */ (function () {
     };
     MyprofilePage.prototype.updateProfile = function () {
         var _this = this;
-        if (this.$key != "")
-            this.firebase.list('users').update(this.$key, {
-                fname: this.fName,
-                lname: this.lName,
-                mobile: this.mobile
-            }).then(function () {
-                var toast = _this.toastCtrl.create({
-                    message: 'Profile updated successfully',
-                    duration: 3000
+        if (this.profileForm.valid) {
+            if (this.$key != "")
+                this.firebase.list('users').update(this.$key, {
+                    fname: this.profileForm.get('fName').value,
+                    lname: this.profileForm.get('lName').value,
+                    mobile: this.profileForm.get('mobile').value
+                }).then(function () {
+                    var toast = _this.toastCtrl.create({
+                        message: 'Profile updated successfully',
+                        duration: 3000
+                    });
+                    toast.present();
                 });
-                toast.present();
-            });
-    };
-    MyprofilePage.prototype.clearCache = function () {
-        this.cache.clear();
-        localStorage.clear();
+        }
     };
     MyprofilePage.prototype.showmodal = function () {
         var _this = this;
@@ -135,9 +131,6 @@ var MyprofilePage = /** @class */ (function () {
         };
         var modal = this.myModal.create('ModalPage', { mydata: mydata });
         modal.onDidDismiss(function () {
-            _this.clearCache();
-            _this.clearCache;
-            _this.uri.clearCache;
             _this.uri = "https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/" + _this.afauth.auth.currentUser.uid + ".jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b5" + new Date().toLocaleTimeString();
         });
         modal.present();

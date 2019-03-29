@@ -39,13 +39,13 @@ public waitForPop: BehaviorSubject<boolean> = new BehaviorSubject(true);
      this.leaveRecords=this.userLeave.getPastLeaves(this.userLeaveDetails.userId)
   }
 
-  ionViewDidLeave() {
+  /*ionViewDidLeave() {
     this.waitForPop.subscribe((ok) => { 
       if (ok) {
         this.navCtrl.popToRoot()  
       } 
    });
-}
+}*/
   
   datePicker(pickMode){
     
@@ -85,9 +85,9 @@ public waitForPop: BehaviorSubject<boolean> = new BehaviorSubject(true);
   }
 
   goBack(){
-    this.waitForPop.next(false);
-  
-    this.navCtrl.push('LeavesAdminPage')
+    /*this.waitForPop.next(false);
+    this.navCtrl
+    this.navCtrl.push('LeavesAdminPage')*/
     
   }
   showConfirm(data,status:string) {

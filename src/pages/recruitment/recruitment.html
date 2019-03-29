@@ -139,7 +139,7 @@
                     <ion-col col-6>
                         <ion-item >
                           <ion-label stacked>Expected CTC</ion-label>
-                          <ion-input type="text"  formControlName="expectedctc" maxlength="7"> </ion-input>
+                          <ion-input type="Number"  formControlName="expectedctc" maxlength="7"> </ion-input>
                         </ion-item>
                         <ion-item  no-lines *ngIf="(newApplicantForm.get('expectedctc').hasError('minlength') || newApplicantForm.get('expectedctc').hasError('required') ) && newApplicantForm.get('expectedctc').touched">
                           <ion-label stacked  color="danger" *ngIf="(newApplicantForm.get('expectedctc').hasError('required')  || newApplicantForm.get('expectedctc').hasError('minlength')) && newApplicantForm.get('expectedctc').touched" >

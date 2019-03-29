@@ -201,7 +201,7 @@ this.messageCount++;
 SupportMessages=[]
 supportMessagecount:number
 getSupportMessages(){
-  this.fdb.list(`support/${this.user}`).snapshotChanges().subscribe(snap=>{
+  this.fdb.list(`support`,ref=>ref.orderByChild(`recipient`).equalTo(`${this.user}`)).snapshotChanges().subscribe(snap=>{
     this.SupportMessages=snap.map(item=>{
       return{
         $key:item.key,

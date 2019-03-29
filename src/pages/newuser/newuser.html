@@ -126,29 +126,27 @@
                                 </ion-item>
                            </ion-row>  
                           </form> 
-                          
+                          <ion-item>
+                              <ion-label stacked>Set privileges</ion-label>
+                              <ion-textarea [(ngModel)]='selectedPrivileges' rows='2'  readonly (tap)="showCheckbox($event,userItem)" > </ion-textarea>
+                           <!--   <ion-checkbox  [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>
+                               --> 
+                              </ion-item>
                          <ion-row>
-                              <ion-col col-6>
-                                <ion-label>Set privileges</ion-label>
-                                  <ion-checkbox  [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>
-                                 </ion-col>
+                              
 
                                 <ion-col col-6  [hidden]="x">
                                   <ion-label stacked>Deactivate user</ion-label>
                                   <ion-checkbox  [(ngModel)]="statuss" ></ion-checkbox>
                                 </ion-col>
                               </ion-row> 
+                            
+                           
+                             
+                             
                               <ion-row>
-                                  <ion-item>
-                                      
-                                          <ion-col style=" font-size: 9px" col-12>
-                                            {{selectedPrivileges}}
-                                          </ion-col>
-                                      
-                                  </ion-item>
-                              </ion-row>
-                              <ion-row>
-                                  
+
+
                            <button ion-button  icon-end  full color=blue (click)="btn(userItem)" >
                              {{butn}}
                              
@@ -169,6 +167,7 @@
           </ion-item>
            
            <ion-item>
+              <div *ngIf="(this.itemslist.length==0)" style="text-align:center">No record found</div>
             <ion-row  class="col-text row-bottom-border" *ngFor="let item of itemslist" >
                 <ion-col col-6  style="color: #66887F;">
                   {{ item.fname }}
@@ -180,6 +179,7 @@
                 <ion-icon name="create" ></ion-icon>
                 </ion-col>
               </ion-row>
+             
            </ion-item>
            
             <!-- <ion-item>

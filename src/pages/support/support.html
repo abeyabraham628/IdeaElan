@@ -80,8 +80,8 @@
     <div *ngSwitchCase="'messages'">
      <ion-item>
        <ion-label >Filter Messages By</ion-label>
-      <ion-select interface="popover" (ionChange)="tony($event)">
-          <ion-option value="All">All</ion-option>
+      <ion-select interface="popover" (ionChange)="filterRequests($event)" [(ngModel)]="filter">
+          <ion-option value="all" selected>All</ion-option>
         <ion-option value="pending">Pending</ion-option>
         <ion-option value="review">Under Review</ion-option>
         <ion-option value="closed">Closed</ion-option>
@@ -98,7 +98,7 @@
           </ion-row>
         </ion-item>
         
-        <ion-item *ngFor='let s of supportMessage' >
+        <ion-item *ngFor='let s of messages' >
             <ion-row class="col-text table-bottom-border " [ngClass]=s.status (click)="changeStatus(s)" >
                 <ion-col col-3>{{s.date}}</ion-col><ion-col col-4>{{s.userName}}</ion-col><ion-col col-3>{{s.subject}}</ion-col><ion-col col-2>{{s.status}}</ion-col>
             </ion-row>

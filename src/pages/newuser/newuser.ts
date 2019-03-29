@@ -1,15 +1,12 @@
-
+import { Firebase } from '@ionic-native/firebase';
 import { DatePicker } from '@ionic-native/date-picker';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireAuth} from '@angular/fire/auth';
-
 import { userItem } from './../../models/user-item/user-item.interface';
 import { Component, ChangeDetectorRef, NgZone } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ModalController, LoadingController } from 'ionic-angular';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import { Subscription } from 'rxjs/Subscription';
-
-
 import * as keygen from 'generate-password';
 import * as emailjs from 'emailjs-com';
 import { CustomDatePicker } from '../../models/datepicker';
@@ -26,162 +23,117 @@ Designations
 
 
 export class NewuserPage {
+  
+
+  //VALIDATION PART 
   slideOneForm = new FormGroup({
     $key      :new FormControl(null),
-    fname: new FormControl('',[Validators.required,Validators.minLength(5)]),
-    lname: new FormControl('',[Validators.required,Validators.minLength(5)]),
+    fname: new FormControl('',[Validators.required,Validators.minLength(1)]),
+    lname: new FormControl('',[Validators.required,Validators.minLength(1)]),
     dob: new FormControl('',[Validators.required,Validators.minLength(5)]),
-    mobile: new FormControl('',[Validators.required,Validators.minLength(5)]),
-    doj: new FormControl('',[Validators.required,Validators.minLength(5)]),
-    email: new FormControl('',[Validators.required,Validators.minLength(5), Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
-    position: new FormControl('',[Validators.required,Validators.minLength(5)]),
-
-
-  });
+    mobile: new FormControl('',[Validators.required,Validators.minLength(9)]),
+    doj: new FormControl('',[Validators.required,Validators.minLength(1)]),
+    email: new FormControl('',[Validators.required,Validators.minLength(1), Validators.pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')] ),
+    position: new FormControl('',[Validators.required,Validators.minLength(1)]),
+   });
 
   
   
-  designations=Designations
-  public itemslist: Array<any> = [];
- 
- public items: Array<any> = [];
- public loaditems:Array<any>=[];
- //public itemRef: firebase.database.Reference = firebase.database().ref("/users/");
- public itemRef: firebase.database.Reference
-  //@ViewChild('slider') slider:Slides;
-  //@ViewChild(Slides) slides: Slides;
+designations=Designations
+public itemslist: Array<any> = [];
+public items: Array<any> = [];
+public loaditems:Array<any>=[];
+public itemRef: firebase.database.Reference
+userItemSubscription: Subscription;
+arrData=[];
+dnew=[];
+data:any ;
+chk:any;
+chk1:any;
+butn : any= "save";
+datas:any;
+sp:any;
+fame:any;
+page=0;
+testCheckboxOpen:any;
+testCheckboxResult:any;
+x:boolean = true;
+xy:boolean=true;
+statuss:boolean=false;
+i:number=0
+v1:any=-1
+v2:any=0
+v3:any=0
+v4:any=0
+v5:any=0
+v6:any=0
+v7:any=0
+list:boolean=false;
+status:string="active";
+isCheckeds :boolean
+users:String
+userItem = {} as userItem;
+userItemRef$: AngularFireList<userItem>
+selectedPrivileges : any = ""
+icons:string="0";
+fnameShow:boolean=true;
+loader:any
 
-  userItemSubscription: Subscription;
-  arrData=[];
-  dnew=[];
-  tmp:any;
-  data:any ;
-  chk:any;
-  chk1:any;
-   butn : any= "save";
-   datas:any;
-   sp:any;
-  fame:any;
-  glu:any;
-  page=0;
-  sss:any;
-  testCheckboxOpen:any;
-  testCheckboxResult:any;
-  x:boolean = true;
-  statuss:boolean=false;
-  i:number=0
-  v1:any=-1
-  v2:any=0
-  v3:any=0
-  v4:any=0
-  v5:any=0
-  v6:any=0
-  v7:any=0
-  disa:any;
-  status:string="active";
-  isCheckeds :boolean
-  users:String
-  userItem = {} as userItem;
-  userItemRef$: AngularFireList<userItem>
-  selectedPrivileges : any = ""
-  icons:string="0";
-  fnameShow:boolean=true;
-  loader:any
-  constructor(private datePicker:DatePicker,public loadingCtrl:LoadingController,public zone:NgZone,public navCtrl: NavController,private ref: ChangeDetectorRef, private fdb:AngularFireDatabase,public navParams: NavParams,public alertCtrl: AlertController,private customDatePicker:CustomDatePicker,private afAuth:AngularFireAuth,private modalCtrl:ModalController) {
-   
-   
+
+  constructor(private datePicker:DatePicker,public loadingCtrl:LoadingController,public zone:NgZone,public navCtrl: NavController,private ref: ChangeDetectorRef, private fdb:AngularFireDatabase,public navParams: NavParams,public alertCtrl: AlertController,private customDatePicker:CustomDatePicker,private afAuth:AngularFireAuth,private modalCtrl:ModalController)
+   {
     this.icons="0";
     this.users="newUser";
     this.itemRef= fdb.database.ref("/users/");
-   
    }
-  /*
-  ionViewDidLoad() {
   
-  this.itemRef.on('value', itemSnapshot => {
-    this.items = [];
-    itemSnapshot.forEach( itemSnap => {
-      this.items.push(itemSnap.val());
-      console.log(this.items);
-      //console.log("HI");
-      return false;
-    });
-    this.itemslist=this.items;
-    //this.loaditems=this.items;
-  });
-
-
-
-
-  //new
-  //this.itemslist=this.items;
-  //this.loaditems=this.items;
-  //console.log("START");
- // console.log(this.itemslist);
-  //console.log("STOP");
-  //console.log("START");
- // console.log(this.items);
- // console.log("STOP");
-} */
-//new
 
 ionViewDidLeave() {
   this.navCtrl.popToRoot();
 }
-new()
-{
-  this.fnameShow=true;
-  this.x=true;
-  console.log("NEW CALLED ");
-  this.loader=this.loadingCtrl.create({
-    spinner:'dots',
-    content:'Loading',
-     dismissOnPageChange:true
-   })
-  this.loader.present()
-  this.itemRef.on('value', itemSnapshot => {
-    this.items = [];
-    itemSnapshot.forEach( itemSnap => {
-      this.items.push(itemSnap.val());
-      console.log(this.items);
-      //console.log("HI");
-      return false;
-    });
-    this.itemslist=this.items;
-    this.loaditems=this.items;
-    this.ref.detectChanges();
-  });
-  this.loader.dismiss();
- 
-  console.log("PRINT ");
-  console.log(this.itemslist);
-  console.log("NEW ENDED");
-  console.log("try1");
-  this.itemslist=this.items;
-  console.log(this.itemslist);
-  console.log("try1 end");
-  console.log(this.loaditems);
-  this.clear();
-  this.butn="save";
+    new() //METHOD WHEN ALL USERS PART IS TAPPED 
+      {
+        this.selectedPrivileges="";
+        this.fnameShow=true;
+        this.x=true;
+            //LOADER
+            this.loader=this.loadingCtrl.create({
+            spinner:'dots',
+            content:'Loading',
+            dismissOnPageChange:true
+            })
+        this.loader.present()
+        this.itemRef.on('value', itemSnapshot => {
+        this.items = [];
+            itemSnapshot.forEach( itemSnap => {
+            this.items.push(itemSnap.val());
+            return false;
+           });
+        this.itemslist=this.items;
+        this.loaditems=this.items;
+        this.ref.detectChanges();
+            });
+        this.loader.dismiss();
+        this.itemslist=this.items;         
+        this.clear();
+       this.butn="save";
+       this.fnameShow=true;
+        this.slideOneForm.reset();
+        this.userItem.data=null;
+        this.sp=false;
+        this.x=true;
+        this.selectedPrivileges="";
 
 }
 
 initializeItems(): void {
-  //console.log(this.itemslist);
  this.itemslist = this.loaditems;
- console.log("reason ",this.itemslist);
- console.log("reasonssss ",this.items);
 }
-//new
+
+//SEARCHBAR
 getItems(searchbar) {
-  // Reset items back to all of the items
   this.initializeItems();
-
-  // set q to the value of the searchbar
   var q = searchbar.srcElement.value;
-
-
-  // if the value is an empty string don't filter the items
   if (!q) {
     return;
   }
@@ -194,52 +146,12 @@ getItems(searchbar) {
       return false;
     }
   });
-
-  console.log(q, this.itemslist.length);
-  
-  console.log(this.itemslist);
 }
 
-  
-  /*dispdate(type){
-    let pickMode='single'
-    let dateLimit=new Date().setDate(new Date().getDate()+45)// Display  45 days from today
-    var defaultScrollTo=new Date()
-     let disableWeek=[0,6]// disable Sunday-0 and Saturday-6
-     
-       let from=new Date('2/1/2019')
-       var options=this.customDatePicker.datePickerOptions(pickMode,defaultScrollTo,from)
-       
-      let myCalendar =  this.modalCtrl.create(CalendarModal, {
-       options: options,
-       });
-          
-       myCalendar.present();
-        
-       myCalendar.onDidDismiss((date: CalendarResult[]) => {
-        
-         
-         if(date!=null){
-           if(type=="birth"){
-
-
-             this.userItem.dob=moment(date['time']).format('D-MMM-YYYY')
-           }
-           else if(type=="join"){
-             this.userItem.doj=moment(date['time']).format('D-MMM-YYYY')
-           }
-         
-       }
-      
-      })//end of displayCalendar function
-    }*/
 
     dispdate(type:String){
-      
       this.datePicker.show({
       date: moment().toDate(),
-      maxDate:moment().valueOf(),
-      allowFutureDates:false,
       mode: 'date',
       androidTheme: 5,
       
@@ -259,7 +171,6 @@ getItems(searchbar) {
 
  
   s( keys:any) {
-    console.log(keys);
     this.userItemRef$.remove(keys);   
   }
 
@@ -388,14 +299,20 @@ getItems(searchbar) {
   alert.present();
 
 this.clear();
+this.list=true
 }
-else{
-  //this.clear();
-  //update code
+else
+//UPDATION PART OF USER
+{
  
-  console.log("update try 1");
-  console.log(this.userItem.data);
-  //console.log(this.userItem.$key);
+  if (this.slideOneForm.get('fname').hasError('mobile') ||this.slideOneForm.get('fname').hasError('required') ||this.slideOneForm.get('email').hasError('required') ||this.slideOneForm.get('position').hasError('required') ||this.slideOneForm.get('doj').hasError('required') ||this.slideOneForm.get('dob').hasError('required') ||this.slideOneForm.get('lname').hasError('required'))
+  {
+   this.fnameShow=false;
+   
+ return;
+  }
+
+
   if(this.statuss==true)
   {
     this.status="inactive";
@@ -403,23 +320,19 @@ else{
   else{
     this.status="active";
   }
-    //this.fdb.object("/users/-LVIJAIZlMtJO4GVN1j5" )
+  
   this.fdb.object("/users/"+this.userItem.$key)
-
  .update({ fname:this.userItem.fname, lname:this.userItem.lname,dob:this.userItem.dob,mobile:this.userItem.mobile,email:this.userItem.email,doj:this.userItem.doj,position:this.userItem.position,data:this.userItem.data,status:this.status});
  let alert = this.alertCtrl.create({
   title: "SUCCESS",
   subTitle: "Data has been updated succesfuly ",
   buttons: ['OK']
 });
-
+this.fnameShow=true;
 alert.present();
-//this.sp.checked=false;
-//this.sp.checked = false;
 this.sp=false;
-console.log("nadakunillaaa");
-//console.log(this.sp.checked);
 this.clear();
+this.list=true 
 this.userItem.data=null;
 this.butn="save";
 this.x=true;
@@ -430,6 +343,7 @@ this.status="active";
 
 
 collect(keys:any,fname:any,lname:any,dob:any,mobile:any,email:any,doj:any,position:any,data:any,status:any){
+  this.slideOneForm.reset();
   this.userItem.fname=fname;
   this.userItem.lname=lname;
   this.userItem.mobile=mobile;
@@ -438,15 +352,49 @@ collect(keys:any,fname:any,lname:any,dob:any,mobile:any,email:any,doj:any,positi
   this.userItem.email=email;
   this.userItem.position=position;
   this.userItem.$key=keys;
+  this.selectedPrivileges="";
+  this.userItem.data=null;
   this.userItem.data=data;
   
   this.butn="update";
   this.chk=0;
   this.x=false;
   this.userItem.status=status;
+  this.list=false
+  
+ 
+  if(this.userItem.data[0]=="value1")
+  {
+    this.selectedPrivileges=this.selectedPrivileges+" Admin , ";
+  
+  }
+  if(this.userItem.data[1]=="value2")
+  {
+    this.selectedPrivileges=this.selectedPrivileges+" Leave Approval , ";
+  }
+  if(this.userItem.data[2]=="value3")
+  {
+    this.selectedPrivileges=this.selectedPrivileges+" View Policy, ";
+  }
+  if(this.userItem.data[3]=="value4")
+  {
+    this.selectedPrivileges=this.selectedPrivileges+" Send Message, ";
+  }
+  if(this.userItem.data[4]=="value5")
+  {
+    this.selectedPrivileges=this.selectedPrivileges+" Recruitment , ";
+  }
+  if(this.userItem.data[5]=="value6")
+  {
+    this.selectedPrivileges=this.selectedPrivileges+" Systems, ";
+  }
+  if(this.userItem.data[6]=="value7")
+  {
+    this.selectedPrivileges=this.selectedPrivileges+" Add User, ";
+  }
+  
   if(status!="active")
   {
-    //console.log("inaaaaactiveeee",status);
   this.statuss=true;
   }
   else{
@@ -463,16 +411,8 @@ collect(keys:any,fname:any,lname:any,dob:any,mobile:any,email:any,doj:any,positi
   if(this.chk==1)
   {
   this.sp=true;
- // console.log("checkbox validation failed")
   }
- // console.log("reason 1",this.items);
-  //console.log("reason 2",data);
-  //console.log("reason",this.itemslist);
-  
-  //console.log("kerunundonn nokitha",this.userItem.data);
-  /*this.slides.lockSwipes(false);
-  this.slider.slideTo(0);
-  this.slides.lockSwipes(true);*/
+ 
   this.zone.run(()=>{
       this.users="newUser";
   })
@@ -486,31 +426,30 @@ clear(){
  this.userItem.doj="";
  this.userItem.email="";
  this.userItem.position="";
- //this.userItem.data="null";
+ this.selectedPrivileges="";
+ this.fnameShow=true;
+  this.slideOneForm.reset();
+  this.userItem.data=null; 
+  this.sp=false;
+  this.x=true;
 
 }
 showCheckbox(e:any,userItem: userItem) {
-  
-//console.log(this.datas);
-//e.checked = true;
 
- //console.log("kerunillaa")
+this.list=false
+this.datas=null
+this.v1=-1;
+this.v2=this.v3=this.v4=this.v5=this.v6=this.v7=0;
 this.datas=this.userItem.data;
-//console.log(this.datas);
-
 
 if(this.datas!=null)//null allaaaaaa
 {
-  //console.log("kerunnuu");
-//console.log("what comes in ");
-//console.log(this.datas);
-//console.log(this.v1);
+  
 for(this.i=0;this.i<=6;this.i++)
 {
   if(this.datas[this.i]=="value1")
 this.v1=0;
 }
-console.log("check1",this.v1);
 for(this.i=0;this.i<=6;this.i++)
 {
  if(this.datas[this.i]=="value2")
@@ -541,11 +480,7 @@ for(this.i=0;this.i<=6;this.i++)
   if(this.datas[this.i]=="value7")
 this.v7=6;
 }
-//console.log("after condition check ");
-//console.log(this.datas);
-console.log(this.v1,this.v2,this.v3,this.v4,this.v5,this.v6,this.v7);
-//-1 1 2 3 4 5 6 
-//null 
+
 if(this.v1==-1)
 {
   this.datas[0]="null";
@@ -603,58 +538,93 @@ else
   this.datas[6]="value7";
 }
 
+if(this.datas[0]=="value1"){
 
-//console.log(this.v1,this.v2,this.v3,this.v4,this.v5,this.v6,this.v7);
-console.log('Cdatas look like  value :', this.datas);
- this.chk1=0;
-
-//console.log(this.datas[0]=="value1"?false:true);
-//this.datas=['value1'];
-/*if(this.datas!=null){
-  for(this.i=0;this.i<7;this.i++){
-   if(this.datas[this.i]=="value1"){this.v1=true}
-    if(this.datas[this.i]=="value2"){this.v2=true}
-    if(this.datas[this.i]=="value3"){this.v3=true}
-    if(this.datas[this.i]=="value4"){this.v4=true}
-    if(this.datas[this.i]=="value5"){this.v5=true}
-    if(this.datas[this.i]=="value6"){this.v6=true}
-    if(this.datas[this.i]=="value7"){this.v7=true}
-    
-  }
-  }
-//console.log("c "+this.datas[0]);
-*/
 }
-  if(e.checked)
-{
+ this.chk1=0;
+}
+ 
  
   let alert = this.alertCtrl.create();
   alert.setTitle('Privilleges');
-//
+
   alert.addInput({
     type: 'checkbox',
     label: 'Admin',
     value: 'value1',
+    handler:(e)=>{
+      if(e.checked){
+      for(let i=1;i<alert.instance['d'].inputs.length;i++)
+        alert.instance['d'].inputs[i].checked=true
+      }
+      else{
+      for(let i=1;i<alert.instance['d'].inputs.length;i++)
+        alert.instance['d'].inputs[i].checked=false
+      }
+      
+    },
    checked:this.datas==null?false:this.datas[0]=="value1"?true:false
  
   });
  
-  //console.log("hi");
-  
-
   alert.addInput({
     type: 'checkbox',
     label: 'Leave Approvals',
+    handler:(e)=>{
+     let count=0;
+     if(!e.checked){
+      alert.instance['d'].inputs[0].checked=false
+     }
+     for(let i=1;i<alert.instance['d'].inputs.length;i++)
+     {
+       if(alert.instance['d'].inputs[i].checked==true){
+         count++;
+       }
+        
+      }
+      if(e.checked){
+      
+        if(count==6)
+        {
+          alert.instance['d'].inputs[0].checked=true;
+         
+        }
+        
+      }
+     
+      
+    },
     value: 'value2',
-   // checked:this.datas[1]!="null"?this.datas[1]=="value2"?true:false:false
    checked:this.datas==null?false:this.datas[1]=="value2"?true:false
   });
  
   alert.addInput({
     type: 'checkbox',
     label: 'View Policy',
+    handler:(e)=>{
+      let count=0;
+      if(!e.checked){
+       alert.instance['d'].inputs[0].checked=false
+      }
+      for(let i=1;i<alert.instance['d'].inputs.length;i++)
+      {
+        if(alert.instance['d'].inputs[i].checked==true){
+          count++;
+        }
+         
+       }
+       if(e.checked){
+       
+         if(count==6)
+         {
+           alert.instance['d'].inputs[0].checked=true;
+         }
+         
+       }
+      
+       
+     },
     value: 'value3',
-   // checked:this.datas[2]!="null"?this.datas[2]=="value3"?true:false:false
    checked:this.datas==null?false:this.datas[2]=="value3"?true:false
   });
   
@@ -662,32 +632,122 @@ console.log('Cdatas look like  value :', this.datas);
   alert.addInput({
     type: 'checkbox',
     label: 'Send Message',
+    handler:(e)=>{
+      let count=0;
+      if(!e.checked){
+       alert.instance['d'].inputs[0].checked=false
+      }
+      for(let i=1;i<alert.instance['d'].inputs.length;i++)
+      {
+        if(alert.instance['d'].inputs[i].checked==true){
+          count++;
+        }
+         
+       }
+      
+       if(e.checked){
+       
+         if(count==6)
+         {
+           alert.instance['d'].inputs[0].checked=true;
+        
+         }
+         
+       }
+      
+       
+     },
     value: 'value4',
-    //checked:this.datas[3]!="null"?this.datas[3]=="value4"?true:false:false
     checked:this.datas==null?false:this.datas[3]=="value4"?true:false
   });
  
   alert.addInput({
     type: 'checkbox',
     label: 'Recruitment',
+    handler:(e)=>{
+      let count=0;
+      if(!e.checked){
+       alert.instance['d'].inputs[0].checked=false
+      }
+      for(let i=1;i<alert.instance['d'].inputs.length;i++)
+      {
+        if(alert.instance['d'].inputs[i].checked==true){
+          count++;
+        }
+         
+       }
+       if(e.checked){
+       
+         if(count==6)
+         {
+           alert.instance['d'].inputs[0].checked=true;
+         }
+         
+       }
+      
+       
+     },
     value: 'value5',
-    //checked:this.datas[4]!="null"?this.datas[4]=="value5"?true:false:false
     checked:this.datas==null?false:this.datas[4]=="value5"?true:false
   });
  
   alert.addInput({
     type: 'checkbox',
     label: 'System',
+    handler:(e)=>{
+      let count=0;
+      if(!e.checked){
+       alert.instance['d'].inputs[0].checked=false
+      }
+      for(let i=1;i<alert.instance['d'].inputs.length;i++)
+      {
+        if(alert.instance['d'].inputs[i].checked==true){
+          count++;
+        }
+         
+       }
+       if(e.checked){
+       
+         if(count==6)
+         {
+           alert.instance['d'].inputs[0].checked=true;
+         }
+         
+       }
+      
+       
+     },
     value: 'value6',
-   // checked:this.datas[5]!="null"?this.datas[5]=="value6"?true:false:false
    checked:this.datas==null?false:this.datas[5]=="value6"?true:false
   });
   
   alert.addInput({
     type: 'checkbox',
     label: 'Add Users ',
+    handler:(e)=>{
+      let count=0;
+      if(!e.checked){
+       alert.instance['d'].inputs[0].checked=false
+      }
+      for(let i=1;i<alert.instance['d'].inputs.length;i++)
+      {
+        if(alert.instance['d'].inputs[i].checked==true){
+          count++;
+        }
+         
+       }
+       if(e.checked){
+       
+         if(count==6)
+         {
+           alert.instance['d'].inputs[0].checked=true;
+         }
+         
+       }
+      
+       
+     },
     value: 'value7',
-   // checked:this.datas[6]!="null"?this.datas[6]=="value7"?true:false:false
    checked:this.datas==null?false:this.datas[6]=="value7"?true:false
   });
 
@@ -700,8 +760,7 @@ console.log('Cdatas look like  value :', this.datas);
                                      this.chk1=0;
                                      if(this.userItem.data==null)
                                      {
-                                     this.sp=false;
-                                     console.log(" one ");
+                                     this.sp=false;  
                                      }
                                      else{
                                        
@@ -718,11 +777,6 @@ console.log('Cdatas look like  value :', this.datas);
                                            if(this.chk1==1)
                                               this.sp=false;
                                        }
-
-
-
-
-
                                           for( this.i=0;this.i<6;this.i++)
                                               {
                                                   if(this.userItem.data[this.i]!="null")
@@ -745,15 +799,11 @@ console.log('Cdatas look like  value :', this.datas);
       this.selectedPrivileges="";
     if(data!=null)
     {
-    
-
-    
     for(this.i=0;this.i<=6;this.i++)
     {
       if(data[this.i]=="value1")
     this.v1=0;
     }
-    //console.log("check1",this.v1);
     for(this.i=0;this.i<=6;this.i++)
     {
      if(data[this.i]=="value2")
@@ -843,10 +893,6 @@ console.log('Cdatas look like  value :', this.datas);
     }
   }
   this.userItem.data=data;
-
- // console.log("database:",data);
-  
-  //console.log("database:",data);
   if(this.userItem.data[0]=="value1")
   {
     this.selectedPrivileges=this.selectedPrivileges+" Admin , ";
@@ -883,7 +929,6 @@ console.log('Cdatas look like  value :', this.datas);
                                      this.chk1=0;
                                      if(this.userItem.data==null)
                                      {
-                                       console.log("onen");
                                      this.sp=false;
                                      }
                                      else{
@@ -900,7 +945,6 @@ console.log('Cdatas look like  value :', this.datas);
                                       }
                                           if(this.chk1==1)
                                              this.sp=false;
-                                             console.log("ones");
                                       }
 
                                       for( this.i=0;this.i<6;this.i++)
@@ -913,26 +957,12 @@ console.log('Cdatas look like  value :', this.datas);
                                      }
                  if(this.chk==1)
                   this.sp=true;
-                  console.log("trues");
-
                                     }
 }
-     // if(this.butn=="save")
-        //  this.sp=false;
-      //if(data==null)
-     // this.sp=false;
-     // data=null;
     }
   });
 
   alert.present();
-  
-  
-  console.log('Cdatas value :', this.datas);
-
- 
-}
-
 this.v1=-1;
 this.v2=0;
 this.v3=0;
@@ -949,11 +979,12 @@ new1()
   this.userItem.data=null;
   this.sp=false;
   this.x=true;
+  this.selectedPrivileges="";
+  this.butn="save";
 }
 
 
 email(name:string,to_email:string,password:any){
-console.log(name)
      var templateParams = {
       to_name: name,
       user_email:to_email,
@@ -966,7 +997,4 @@ console.log(name)
       console.log('FAILED...', err);
     });
     }
-
-    
-    
 }
