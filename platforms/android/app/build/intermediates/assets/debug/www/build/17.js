@@ -46,9 +46,12 @@ var LoginPageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(466);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_strings__ = __webpack_require__(469);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(474);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_strings__ = __webpack_require__(470);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase_app__ = __webpack_require__(476);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_firebase_app___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_firebase_app__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_fire__ = __webpack_require__(86);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -99,8 +102,10 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
+
 var LoginPage = /** @class */ (function () {
-    function LoginPage(toastCtrl, loadingCtrl, modalCtrl, navCtrl, afAuth, firebase, storage) {
+    function LoginPage(toastCtrl, loadingCtrl, modalCtrl, navCtrl, afAuth, firebase, storage, fb) {
         this.toastCtrl = toastCtrl;
         this.loadingCtrl = loadingCtrl;
         this.modalCtrl = modalCtrl;
@@ -108,6 +113,7 @@ var LoginPage = /** @class */ (function () {
         this.afAuth = afAuth;
         this.firebase = firebase;
         this.storage = storage;
+        this.fb = fb;
         this.credentials = {};
         this.companyLogo = __WEBPACK_IMPORTED_MODULE_4__providers_strings__["a" /* AppConst */].logo;
     }
@@ -125,23 +131,26 @@ var LoginPage = /** @class */ (function () {
     };
     LoginPage.prototype.signIn = function (user) {
         return __awaiter(this, void 0, void 0, function () {
-            var loginSuccess, privilleges, tempPassword, error_1, errMsg, toast;
+            var loggedIn, userId, privilleges, tempPassword, error_1, errMsg, toast;
+            var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
                         _a.trys.push([0, 5, , 6]);
                         this.loader.present();
-                        return [4 /*yield*/, this.afAuth.auth.signInWithEmailAndPassword(user.emailId, user.password)];
+                        return [4 /*yield*/, this.afAuth.auth.setPersistence(__WEBPACK_IMPORTED_MODULE_6_firebase_app__["auth"].Auth.Persistence.LOCAL).then(function () {
+                                return _this.afAuth.auth.signInWithEmailAndPassword(user.emailId, user.password);
+                            })];
                     case 1:
-                        loginSuccess = _a.sent();
-                        if (!loginSuccess) return [3 /*break*/, 4];
+                        loggedIn = _a.sent();
+                        if (!loggedIn) return [3 /*break*/, 4];
+                        userId = this.afAuth.auth.currentUser.uid;
                         this.storage.set('emailId', user.emailId);
-                        return [4 /*yield*/, this.firebase.database.ref("users/" + loginSuccess.user.uid).child('data').once('value')
-                            //check whether the user has changed the temporary password
-                        ];
+                        return [4 /*yield*/, this.firebase.database.ref("users/" + userId).child('data').once('value')];
                     case 2:
                         privilleges = _a.sent();
-                        return [4 /*yield*/, this.firebase.database.ref("TempLogin/" + loginSuccess.user.uid).once('value')];
+                        this.storage.set('roles', privilleges.val());
+                        return [4 /*yield*/, this.firebase.database.ref("TempLogin/" + userId).once('value')];
                     case 3:
                         tempPassword = _a.sent();
                         // If user is signing in for first time then the user is redirected to change the temporary password
@@ -181,7 +190,8 @@ var LoginPage = /** @class */ (function () {
             __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"],
             __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */],
             __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */],
-            __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]])
+            __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */],
+            __WEBPACK_IMPORTED_MODULE_7__angular_fire__["a" /* AngularFireModule */]])
     ], LoginPage);
     return LoginPage;
 }());

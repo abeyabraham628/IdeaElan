@@ -87,14 +87,6 @@ module.exports = [
     ]
   },
   {
-    "id": "cordova-plugin-fcm-with-dependecy-updated.FCMPlugin",
-    "file": "plugins/cordova-plugin-fcm-with-dependecy-updated/www/FCMPlugin.js",
-    "pluginId": "cordova-plugin-fcm-with-dependecy-updated",
-    "clobbers": [
-      "FCMPlugin"
-    ]
-  },
-  {
     "id": "cordova-plugin-firebase.FirebasePlugin",
     "file": "plugins/cordova-plugin-firebase/www/firebase.js",
     "pluginId": "cordova-plugin-firebase",
@@ -205,6 +197,14 @@ module.exports = [
     "clobbers": [
       "cordova.plugins.barcodeScanner"
     ]
+  },
+  {
+    "id": "cordova-plugin-fcm-with-dependecy-updated.FCMPlugin",
+    "file": "plugins/cordova-plugin-fcm-with-dependecy-updated/www/FCMPlugin.js",
+    "pluginId": "cordova-plugin-fcm-with-dependecy-updated",
+    "clobbers": [
+      "FCMPlugin"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -216,7 +216,6 @@ module.exports.metadata =
   "cordova-plugin-datepicker": "0.9.3",
   "cordova-plugin-device": "2.0.2",
   "cordova-plugin-email-composer": "0.9.2",
-  "cordova-plugin-fcm-with-dependecy-updated": "2.4.0",
   "cordova-plugin-firebase": "2.0.5",
   "cordova-plugin-ionic-keyboard": "2.1.3",
   "cordova-plugin-ionic-webview": "2.2.5",
@@ -229,7 +228,8 @@ module.exports.metadata =
   "cordova-sqlite-storage": "3.1.0",
   "es6-promise-plugin": "4.2.2",
   "ionic-plugin-keyboard": "2.2.1",
-  "phonegap-plugin-barcodescanner": "8.0.1"
+  "phonegap-plugin-barcodescanner": "8.0.1",
+  "cordova-plugin-fcm-with-dependecy-updated": "2.4.0"
 };
 // BOTTOM OF METADATA
 });

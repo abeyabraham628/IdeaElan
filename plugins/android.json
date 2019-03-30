@@ -21,9 +21,6 @@
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "idea.elan"
     },
-    "cordova-plugin-fcm-with-dependecy-updated": {
-      "PACKAGE_NAME": "idea.elan"
-    },
     "cordova-plugin-x-toast": {
       "PACKAGE_NAME": "idea.elan"
     },
@@ -46,6 +43,12 @@
       "PACKAGE_NAME": "idea.elan"
     },
     "cordova-plugin-calendar": {
+      "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-firebase": {
+      "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-fcm-with-dependecy-updated": {
       "PACKAGE_NAME": "idea.elan"
     }
   },

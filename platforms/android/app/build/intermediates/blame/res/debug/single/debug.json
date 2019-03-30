@@ -8,8 +8,16 @@
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\layout\\abc_select_dialog_material.xml"
     },
     {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_dark_normal.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable\\common_google_signin_btn_icon_dark_normal.xml"
+    },
+    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_loading_icon.png.flat",
         "source": "F:\\ionic-app\\platforms\\android\\app\\src\\main\\res\\drawable-hdpi\\loading_icon.png"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_light_focused.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable\\common_google_signin_btn_text_light_focused.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_list_menu_item_radio.xml.flat",
@@ -53,31 +61,31 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\drawable-xhdpi-v4\\notification_bg_low_pressed.9.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_pressed_holo_light.9.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xxhdpi-v4\\abc_list_pressed_holo_light.9.png"
     },
     {
-        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_media_custom.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\5cbac25f7dbb75a01f0e56776e0645cb\\res\\layout\\notification_template_media_custom.xml"
-    },
-    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_spinner_textfield_background_material.xml.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable\\abc_spinner_textfield_background_material.xml"
     },
     {
-        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_media_custom.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\b346f730cda1712dccc697c8e99c1877\\res\\layout\\notification_template_media_custom.xml"
     },
     {
-        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-mdpi-v4\\abc_popup_background_mtrl_mult.9.png"
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_low_normal.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\drawable-mdpi-v4\\notification_bg_low_normal.9.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_action_menu_layout.xml.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\layout\\abc_action_menu_layout.xml"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-mdpi-v4\\abc_popup_background_mtrl_mult.9.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_ab_back_mtrl_am_alpha.png.flat",
@@ -94,6 +102,10 @@
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_search_book_contents_list_item.xml.flat",
         "source": "C:\\Users\\Tony\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\4c0211dcb9baa237991ccfe0f5748068\\res\\layout\\search_book_contents_list_item.xml"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\color_common_google_signin_btn_tint.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\color\\common_google_signin_btn_tint.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
@@ -120,24 +132,32 @@
         "source": "F:\\ionic-app\\platforms\\android\\app\\src\\main\\res\\layout\\actionbar_custom_view_done_discard.xml"
     },
     {
-        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_star_black_36dp.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xhdpi-v4\\abc_ic_star_black_36dp.png"
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_googleg_standard_color_18.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-mdpi-v4\\googleg_standard_color_18.png"
     },
     {
-        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_star_black_16dp.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_16dp.png"
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_ic_star_black_36dp.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xhdpi-v4\\abc_ic_star_black_36dp.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_clear_mtrl_alpha.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-mdpi-v4\\abc_ic_clear_mtrl_alpha.png"
     },
     {
-        "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-ldpi_icon.png.flat",
-        "source": "D:\\IdeaElan\\platforms\\android\\app\\src\\main\\res\\mipmap-ldpi\\icon.png"
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_star_black_16dp.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xxxhdpi-v4\\abc_ic_star_black_16dp.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-ldpi_screen.png.flat",
         "source": "F:\\ionic-app\\platforms\\android\\app\\src\\main\\res\\drawable-land-ldpi\\screen.png"
+    },
+    {
+        "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-ldpi_icon.png.flat",
+        "source": "D:\\IdeaElan\\platforms\\android\\app\\src\\main\\res\\mipmap-ldpi\\icon.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxhdpi-v17_abc_ic_ab_back_mtrl_am_alpha.png.flat",
@@ -149,7 +169,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-land_encode.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\layout-land\\encode.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\layout-land\\encode.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_screen_simple_overlay_action_mode.xml.flat",
@@ -184,12 +204,16 @@
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-mdpi-v4\\abc_ic_star_black_16dp.png"
     },
     {
-        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_list_menu_item_icon.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\layout\\abc_list_menu_item_icon.xml"
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_googleg_standard_color_18.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-hdpi-v4\\googleg_standard_color_18.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_star_black_16dp.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-hdpi-v4\\abc_ic_star_black_16dp.png"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_list_menu_item_icon.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\layout\\abc_list_menu_item_icon.xml"
     },
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_toggle_torch.png.flat",
@@ -216,16 +240,16 @@
         "source": "C:\\Users\\Tony\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\4c0211dcb9baa237991ccfe0f5748068\\res\\layout\\share.xml"
     },
     {
-        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xxxhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
-    },
-    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_btn_radio_material.xml.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable\\abc_btn_radio_material.xml"
     },
     {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_btn_check_to_on_mtrl_015.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xxxhdpi-v4\\abc_btn_check_to_on_mtrl_015.png"
+    },
+    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_action.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\layout\\notification_action.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\layout\\notification_action.xml"
     },
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml_config.xml.flat",
@@ -240,8 +264,12 @@
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\anim\\abc_fade_in.xml"
     },
     {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_light_normal.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable\\common_google_signin_btn_icon_light_normal.xml"
+    },
+    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_normal_pressed.9.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\drawable-mdpi-v4\\notification_bg_normal_pressed.9.png"
     },
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_share_via_barcode.png.flat",
@@ -277,7 +305,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_low_normal.9.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable-xhdpi-v4\\notification_bg_low_normal.9.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\drawable-xhdpi-v4\\notification_bg_low_normal.9.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_menu_paste_mtrl_am_alpha.png.flat",
@@ -289,11 +317,11 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_tile_bg.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable\\notification_tile_bg.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\drawable\\notification_tile_bg.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_launcher_icon.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\drawable-xxhdpi\\launcher_icon.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\drawable-xxhdpi\\launcher_icon.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xhdpi-v17_abc_ic_ab_back_mtrl_am_alpha.png.flat",
@@ -305,11 +333,11 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-land_share.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\layout-land\\share.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\layout-land\\share.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable-hdpi-v4\\notification_bg_low_normal.9.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\drawable-hdpi-v4\\notification_bg_low_normal.9.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_action_bar_view_list_nav_layout.xml.flat",
@@ -336,16 +364,16 @@
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-mdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
     },
     {
-        "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_search_book_contents_header.xml.flat",
-        "source": "C:\\Users\\Tony\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\4c0211dcb9baa237991ccfe0f5748068\\res\\layout\\search_book_contents_header.xml"
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher.png.flat",
+        "source": "F:\\ionic-app\\platforms\\android\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
     },
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_lines_media.xml.flat",
         "source": "C:\\Users\\Tony\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\d7f0aa9e6c695a3e50eec5db01feca9f\\res\\layout\\notification_template_lines_media.xml"
     },
     {
-        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_launcher.png.flat",
-        "source": "F:\\ionic-app\\platforms\\android\\app\\src\\main\\res\\drawable-xhdpi\\ic_launcher.png"
+        "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_search_book_contents_header.xml.flat",
+        "source": "C:\\Users\\Tony\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\4c0211dcb9baa237991ccfe0f5748068\\res\\layout\\search_book_contents_header.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
@@ -400,12 +428,20 @@
         "source": "F:\\ionic-app\\platforms\\android\\app\\src\\main\\res\\drawable-land-xxxhdpi\\screen.png"
     },
     {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_disabled.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable\\common_google_signin_btn_icon_disabled.xml"
+    },
+    {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_media_action.xml.flat",
         "source": "C:\\Users\\Tony\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\d7f0aa9e6c695a3e50eec5db01feca9f\\res\\layout\\notification_media_action.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_search_book_contents.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\layout\\search_book_contents.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\layout\\search_book_contents.xml"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\color_common_google_signin_btn_text_light.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\color\\common_google_signin_btn_text_light.xml"
     },
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-hdpi_screen.png.flat",
@@ -424,16 +460,20 @@
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xhdpi-v4\\abc_list_focused_holo.9.png"
     },
     {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_dark.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable\\common_google_signin_btn_text_dark.xml"
+    },
+    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_clear_mtrl_alpha.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xxxhdpi-v4\\abc_ic_clear_mtrl_alpha.png"
     },
     {
-        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xxhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
-    },
-    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xhdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xxhdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_shrink_fade_out_from_bottom.xml.flat",
@@ -461,27 +501,31 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\drawable-mdpi-v4\\notification_bg_normal.9.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\drawable-mdpi-v4\\notification_bg_low_pressed.9.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_part_chronometer.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\layout\\notification_template_part_chronometer.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\color_common_google_signin_btn_text_dark.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\color\\common_google_signin_btn_text_dark.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_scrubber_primary_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-hdpi-v4\\abc_scrubber_primary_mtrl_alpha.9.png"
     },
     {
-        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_icon_background.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable\\notification_icon_background.xml"
-    },
-    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_menu_selectall_mtrl_alpha.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xxxhdpi-v4\\abc_ic_menu_selectall_mtrl_alpha.png"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_icon_background.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\drawable\\notification_icon_background.xml"
     },
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
@@ -489,11 +533,15 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_search_book_contents_header.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\layout\\search_book_contents_header.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\layout\\search_book_contents_header.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-ldpi_screen.png.flat",
         "source": "F:\\ionic-app\\platforms\\android\\app\\src\\main\\res\\drawable-port-ldpi\\screen.png"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_menu_moreoverflow_mtrl_alpha.png.flat",
@@ -504,12 +552,12 @@
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-mdpi-v4\\abc_spinner_mtrl_am_alpha.9.png"
     },
     {
-        "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_narrow.xml.flat",
-        "source": "C:\\Users\\Tony\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\d7f0aa9e6c695a3e50eec5db01feca9f\\res\\layout\\notification_template_big_media_narrow.xml"
-    },
-    {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
         "source": "C:\\Users\\Tony\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\aac860c777d335c41d25e060003041f4\\res\\drawable-xhdpi-v4\\notification_bg_normal.9.png"
+    },
+    {
+        "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_narrow.xml.flat",
+        "source": "C:\\Users\\Tony\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\d7f0aa9e6c695a3e50eec5db01feca9f\\res\\layout\\notification_template_big_media_narrow.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_list_longpressed_holo.9.png.flat",
@@ -524,6 +572,10 @@
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-hdpi-v4\\abc_ic_ab_back_mtrl_am_alpha.png"
     },
     {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_light.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable\\common_google_signin_btn_text_light.xml"
+    },
+    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ic_voice_search_api_mtrl_alpha.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-hdpi-v4\\abc_ic_voice_search_api_mtrl_alpha.png"
     },
@@ -532,12 +584,20 @@
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\layout\\abc_expanded_menu_layout.xml"
     },
     {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_googleg_disabled_color_18.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-mdpi-v4\\googleg_disabled_color_18.png"
+    },
+    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable-hdpi-v4\\notification_bg_normal_pressed.9.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\drawable-hdpi-v4\\notification_bg_normal_pressed.9.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-mdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_common_full_open_on_phone.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-hdpi-v4\\common_full_open_on_phone.png"
     },
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_icon.png.flat",
@@ -561,7 +621,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\drawable-mdpi-v4\\notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-ldpi_icon.png.flat",
@@ -569,7 +629,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\menu_capture.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\menu\\capture.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\menu\\capture.xml"
     },
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-land-mdpi_screen.png.flat",
@@ -581,7 +641,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_low_pressed.9.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\drawable-hdpi-v4\\notification_bg_low_pressed.9.png"
     },
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_low_normal.9.png.flat",
@@ -589,7 +649,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_narrow_custom.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\5cbac25f7dbb75a01f0e56776e0645cb\\res\\layout\\notification_template_big_media_narrow_custom.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\b346f730cda1712dccc697c8e99c1877\\res\\layout\\notification_template_big_media_narrow_custom.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\color_switch_thumb_material_light.xml.flat",
@@ -597,7 +657,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\raw_beep.ogg.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\raw\\beep.ogg"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\raw\\beep.ogg"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-mdpi-v17_abc_ic_ab_back_mtrl_am_alpha.png.flat",
@@ -625,7 +685,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-ldpi_capture.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\layout-ldpi\\capture.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\layout-ldpi\\capture.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_popup_background_mtrl_mult.9.png.flat",
@@ -709,7 +769,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_custom.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\5cbac25f7dbb75a01f0e56776e0645cb\\res\\layout\\notification_template_big_media_custom.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\b346f730cda1712dccc697c8e99c1877\\res\\layout\\notification_template_big_media_custom.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_switch_to_on_mtrl_00001.9.png.flat",
@@ -720,8 +780,12 @@
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-mdpi-v4\\abc_tab_indicator_mtrl_alpha.9.png"
     },
     {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_light_focused.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable\\common_google_signin_btn_icon_light_focused.xml"
+    },
+    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_launcher_icon.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\drawable\\launcher_icon.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\drawable\\launcher_icon.png"
     },
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_search_book_contents.xml.flat",
@@ -729,7 +793,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_search_book_contents_list_item.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\layout\\search_book_contents_list_item.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\layout\\search_book_contents_list_item.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_btn_default_mtrl_shape.xml.flat",
@@ -745,7 +809,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_flip_camera.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\drawable\\flip_camera.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\drawable\\flip_camera.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-mdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
@@ -769,7 +833,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_history_list_item.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\layout\\history_list_item.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\layout\\history_list_item.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_dialog_title_material.xml.flat",
@@ -781,7 +845,11 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_share_via_barcode.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\drawable\\share_via_barcode.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\drawable\\share_via_barcode.png"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_googleg_standard_color_18.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-xxhdpi-v4\\googleg_standard_color_18.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_popup_exit.xml.flat",
@@ -816,8 +884,12 @@
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable\\abc_btn_colored_material.xml"
     },
     {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_googleg_disabled_color_18.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-hdpi-v4\\googleg_disabled_color_18.png"
+    },
+    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\menu_history.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\menu\\history.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\menu\\history.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_star_half_black_16dp.png.flat",
@@ -869,11 +941,15 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\drawable-xhdpi-v4\\notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_share.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\layout\\share.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\layout\\share.xml"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_slide_in_bottom.xml.flat",
@@ -917,7 +993,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_app_picker_list_item.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\layout\\app_picker_list_item.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\layout\\app_picker_list_item.xml"
     },
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi_launcher_icon.png.flat",
@@ -933,7 +1009,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_action_tombstone.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\layout\\notification_action_tombstone.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\layout\\notification_action_tombstone.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
@@ -961,7 +1037,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\5cbac25f7dbb75a01f0e56776e0645cb\\res\\layout\\notification_template_big_media.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\b346f730cda1712dccc697c8e99c1877\\res\\layout\\notification_template_big_media.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_ic_action_discard_dark.png.flat",
@@ -978,6 +1054,10 @@
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-hdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_light_normal.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable\\common_google_signin_btn_text_light_normal.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxhdpi_icon.png.flat",
@@ -1041,7 +1121,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_notification_action_background.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable-v21\\notification_action_background.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\drawable-v21\\notification_action_background.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
@@ -1057,7 +1137,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_toggle_torch.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\drawable\\toggle_torch.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\drawable\\toggle_torch.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_menu_hardkey_panel_mtrl_mult.9.png.flat",
@@ -1072,6 +1152,10 @@
         "source": "C:\\Users\\Tony\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\aac860c777d335c41d25e060003041f4\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
     },
     {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_dark.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable\\common_google_signin_btn_icon_dark.xml"
+    },
+    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-mdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png"
     },
@@ -1084,12 +1168,16 @@
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-ldrtl-xxxhdpi-v17\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_disabled.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable\\common_google_signin_btn_text_disabled.xml"
+    },
+    {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21_notification_action_background.xml.flat",
         "source": "C:\\Users\\Tony\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\aac860c777d335c41d25e060003041f4\\res\\drawable-v21\\notification_action_background.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_lines_media.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\5cbac25f7dbb75a01f0e56776e0645cb\\res\\layout\\notification_template_lines_media.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\b346f730cda1712dccc697c8e99c1877\\res\\layout\\notification_template_lines_media.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_ic_voice_search_api_mtrl_alpha.png.flat",
@@ -1109,7 +1197,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notify_panel_notification_icon_bg.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\drawable-hdpi-v4\\notify_panel_notification_icon_bg.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml_emailcomposer_provider_paths.xml.flat",
@@ -1117,7 +1205,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi_launcher_icon.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\drawable-hdpi\\launcher_icon.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\drawable-hdpi\\launcher_icon.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
@@ -1148,6 +1236,14 @@
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\color-v11\\abc_background_cache_hint_selector_material_light.xml"
     },
     {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-mdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_dark_focused.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable\\common_google_signin_btn_icon_dark_focused.xml"
+    },
+    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ic_voice_search_api_mtrl_alpha.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-mdpi-v4\\abc_ic_voice_search_api_mtrl_alpha.png"
     },
@@ -1166,6 +1262,10 @@
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v16_notification_template_custom_big.xml.flat",
         "source": "C:\\Users\\Tony\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\aac860c777d335c41d25e060003041f4\\res\\layout-v16\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\anim_abc_slide_in_top.xml.flat",
@@ -1209,7 +1309,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_bookmark_picker_list_item.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\layout\\bookmark_picker_list_item.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\layout\\bookmark_picker_list_item.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
@@ -1264,8 +1364,20 @@
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-hdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
     },
     {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_googleg_disabled_color_18.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-xxhdpi-v4\\googleg_disabled_color_18.png"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_textfield_default_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xhdpi-v4\\abc_textfield_default_mtrl_alpha.9.png"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_radio_to_on_mtrl_015.png.flat",
@@ -1309,7 +1421,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_narrow.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\5cbac25f7dbb75a01f0e56776e0645cb\\res\\layout\\notification_template_big_media_narrow.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\b346f730cda1712dccc697c8e99c1877\\res\\layout\\notification_template_big_media_narrow.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_support_simple_spinner_dropdown_item.xml.flat",
@@ -1317,7 +1429,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v16_notification_template_custom_big.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\layout-v16\\notification_template_custom_big.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\layout-v16\\notification_template_custom_big.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
@@ -1325,7 +1437,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi_launcher_icon.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\drawable-xhdpi\\launcher_icon.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\drawable-xhdpi\\launcher_icon.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_abc_list_menu_item_checkbox.xml.flat",
@@ -1341,19 +1453,23 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_normal_pressed.9.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable-xhdpi-v4\\notification_bg_normal_pressed.9.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\drawable-xhdpi-v4\\notification_bg_normal_pressed.9.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_textfield_search_activated_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xhdpi-v4\\abc_textfield_search_activated_mtrl_alpha.9.png"
     },
     {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_bg_low.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable\\notification_bg_low.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\drawable\\notification_bg_low.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_help.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\layout\\help.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\layout\\help.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-port-hdpi_screen.png.flat",
@@ -1388,12 +1504,16 @@
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
     },
     {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-hdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_abc_textfield_search_default_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xxhdpi-v4\\abc_textfield_search_default_mtrl_alpha.9.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_custom_big.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\layout-v21\\notification_template_custom_big.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\layout-v21\\notification_template_custom_big.xml"
     },
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_bg_low.xml.flat",
@@ -1424,8 +1544,16 @@
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable\\abc_seekbar_track_material.xml"
     },
     {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_common_google_signin_btn_icon_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-mdpi-v4\\common_google_signin_btn_icon_dark_normal_background.9.png"
+    },
+    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_action.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\layout-v21\\notification_action.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\layout-v21\\notification_action.xml"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_googleg_standard_color_18.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-xhdpi-v4\\googleg_standard_color_18.png"
     },
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_normal_pressed.9.png.flat",
@@ -1485,7 +1613,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_media_cancel_action.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\5cbac25f7dbb75a01f0e56776e0645cb\\res\\layout\\notification_media_cancel_action.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\b346f730cda1712dccc697c8e99c1877\\res\\layout\\notification_media_cancel_action.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_list_selector_holo_dark.xml.flat",
@@ -1501,7 +1629,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_icon_group.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\layout\\notification_template_icon_group.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\layout\\notification_template_icon_group.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xhdpi-v17_abc_ic_menu_copy_mtrl_am_alpha.png.flat",
@@ -1517,7 +1645,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\menu_encode.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\menu\\encode.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\menu\\encode.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_ab_back_mtrl_am_alpha.png.flat",
@@ -1538,6 +1666,14 @@
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xhdpi-v4\\abc_btn_check_to_on_mtrl_000.png"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-xhdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_cab_background_top_mtrl_alpha.9.png.flat",
@@ -1569,11 +1705,11 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_part_time.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\layout\\notification_template_part_time.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\layout\\notification_template_part_time.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_media.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\5cbac25f7dbb75a01f0e56776e0645cb\\res\\layout\\notification_template_media.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\b346f730cda1712dccc697c8e99c1877\\res\\layout\\notification_template_media.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_tab_indicator_mtrl_alpha.9.png.flat",
@@ -1588,6 +1724,10 @@
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xxxhdpi-v4\\abc_ic_search_api_mtrl_alpha.png"
     },
     {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_dark_focused.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable\\common_google_signin_btn_text_dark_focused.xml"
+    },
+    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\color_switch_thumb_material_dark.xml.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\color\\switch_thumb_material_dark.xml"
     },
@@ -1597,7 +1737,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_media_action.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\5cbac25f7dbb75a01f0e56776e0645cb\\res\\layout\\notification_media_action.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-media-compat-27.1.1.aar\\b346f730cda1712dccc697c8e99c1877\\res\\layout\\notification_media_action.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_ab_share_pack_mtrl_alpha.9.png.flat",
@@ -1689,7 +1829,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\xml_preferences.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\xml\\preferences.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\xml\\preferences.xml"
     },
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_normal.9.png.flat",
@@ -1701,11 +1841,11 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_bg.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable\\notification_bg.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\drawable\\notification_bg.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_capture.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\layout\\capture.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\layout\\capture.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_check_to_on_mtrl_000.png.flat",
@@ -1741,7 +1881,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_action_tombstone.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\layout-v21\\notification_action_tombstone.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\layout-v21\\notification_action_tombstone.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ratingbar_full_material.xml.flat",
@@ -1753,7 +1893,11 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_encode.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\be51807e8ab930d937e83a4a77956bea\\res\\layout\\encode.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\76afa7416a8f26b8318b7128ffcd1f4d\\res\\layout\\encode.xml"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_icon_light.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable\\common_google_signin_btn_icon_light.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_abc_btn_rating_star_off_mtrl_alpha.png.flat",
@@ -1761,7 +1905,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable-xhdpi-v4\\notification_bg_normal.9.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\drawable-xhdpi-v4\\notification_bg_normal.9.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxhdpi-v17_abc_ic_menu_cut_mtrl_alpha.png.flat",
@@ -1780,6 +1924,10 @@
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xhdpi-v4\\abc_ic_menu_copy_mtrl_am_alpha.png"
     },
     {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_google_signin_btn_icon_light_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-xhdpi-v4\\common_google_signin_btn_icon_light_normal_background.9.png"
+    },
+    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_ic_voice_search_api_mtrl_alpha.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xxxhdpi-v4\\abc_ic_voice_search_api_mtrl_alpha.png"
     },
@@ -1794,6 +1942,10 @@
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_abc_btn_switch_to_on_mtrl_00012.9.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-hdpi-v4\\abc_btn_switch_to_on_mtrl_00012.9.png"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-mdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
     },
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_media.xml.flat",
@@ -1853,11 +2005,15 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_notification_bg_normal.9.png.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\drawable-hdpi-v4\\notification_bg_normal.9.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-ldrtl-xxxhdpi-v17_abc_spinner_mtrl_am_alpha.9.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-ldrtl-xxxhdpi-v17\\abc_spinner_mtrl_am_alpha.9.png"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_googleg_disabled_color_18.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-xhdpi-v4\\googleg_disabled_color_18.png"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_abc_ratingbar_indicator_material.xml.flat",
@@ -1872,6 +2028,10 @@
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable\\abc_btn_borderless_material.xml"
     },
     {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_common_full_open_on_phone.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-xhdpi-v4\\common_full_open_on_phone.png"
+    },
+    {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi-v4_abc_switch_track_mtrl_alpha.9.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xhdpi-v4\\abc_switch_track_mtrl_alpha.9.png"
     },
@@ -1881,7 +2041,7 @@
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout-v21_notification_template_icon_group.xml.flat",
-        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\5d9e55cb82d37ed7387288d0f1dc660a\\res\\layout-v21\\notification_template_icon_group.xml"
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-27.1.1.aar\\f62fe69b548855ed9dcc9414076e4bd8\\res\\layout-v21\\notification_template_icon_group.xml"
     },
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_select_dialog_singlechoice_material.xml.flat",
@@ -1890,6 +2050,10 @@
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_help.xml.flat",
         "source": "C:\\Users\\Tony\\.gradle\\caches\\transforms-1\\files-1.1\\barcodescanner-release-2.1.5.aar\\4c0211dcb9baa237991ccfe0f5748068\\res\\layout\\help.xml"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_common_google_signin_btn_text_dark_normal.xml.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable\\common_google_signin_btn_text_dark_normal.xml"
     },
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable_notification_icon_background.xml.flat",
@@ -1914,6 +2078,10 @@
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_abc_scrubber_control_to_pressed_mtrl_005.png.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-xxxhdpi-v4\\abc_scrubber_control_to_pressed_mtrl_005.png"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
     },
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_media_custom.xml.flat",
@@ -1986,6 +2154,10 @@
     {
         "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v23_abc_control_background_material.xml.flat",
         "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-23.4.0.aar\\a3a6066b80aa0d72811df5c12a99e37b\\res\\drawable-v23\\abc_control_background_material.xml"
+    },
+    {
+        "merged": "F:\\ionic-app\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi-v4_common_google_signin_btn_text_dark_normal_background.9.png.flat",
+        "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-16.0.1.aar\\e3fd608f54fb08bb2d0d16991b2d8e91\\res\\drawable-hdpi-v4\\common_google_signin_btn_text_dark_normal_background.9.png"
     },
     {
         "merged": "D:\\IdeaElan\\platforms\\android\\app\\build\\intermediates\\res\\merged\\debug\\layout_notification_template_big_media_custom.xml.flat",

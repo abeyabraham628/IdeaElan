@@ -1,3 +1,4 @@
+import { Firebase } from '@ionic-native/firebase';
 import { concatAll } from 'rxjs/operators';
 
 
@@ -28,7 +29,7 @@ wlength:any=0;
 
 devicetoken : any ="abc";
 
-  constructor(public storage:Storage,private fcm:FCM,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
+  constructor(public storage:Storage,private fcm:Firebase,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
     
     
   
@@ -48,7 +49,7 @@ devicetoken : any ="abc";
       this.checks();
       //alert("updated");
     });
-    this.fcm.onNotification().subscribe(data => {
+    this.fcm.onNotificationOpen().subscribe(data => {
       if(data.wasTapped){
         this.navCtrl.push(HomePage);
         

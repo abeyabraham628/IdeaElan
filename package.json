@@ -103,7 +103,6 @@
       "cordova-plugin-email-composer": {
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
       },
-      "cordova-plugin-fcm-with-dependecy-updated": {},
       "cordova-plugin-x-toast": {},
       "cordova-sqlite-storage": {},
       "cordova-plugin-camera": {},
@@ -114,7 +113,8 @@
       "cordova-plugin-calendar": {
         "CALENDAR_USAGE_DESCRIPTION": " ",
         "CONTACTS_USAGE_DESCRIPTION": " "
-      }
+      },
+      "cordova-plugin-fcm-with-dependecy-updated": {}
     },
     "platforms": [
       "ios"

@@ -25,14 +25,6 @@ module.exports = [
     ]
   },
   {
-    "id": "cordova-plugin-fcm-with-dependecy-updated.FCMPlugin",
-    "file": "plugins/cordova-plugin-fcm-with-dependecy-updated/www/FCMPlugin.js",
-    "pluginId": "cordova-plugin-fcm-with-dependecy-updated",
-    "clobbers": [
-      "FCMPlugin"
-    ]
-  },
-  {
     "id": "cordova-plugin-x-toast.Toast",
     "file": "plugins/cordova-plugin-x-toast/www/Toast.js",
     "pluginId": "cordova-plugin-x-toast",
@@ -148,6 +140,22 @@ module.exports = [
     "clobbers": [
       "Calendar"
     ]
+  },
+  {
+    "id": "cordova-plugin-firebase.FirebasePlugin",
+    "file": "plugins/cordova-plugin-firebase/www/firebase.js",
+    "pluginId": "cordova-plugin-firebase",
+    "clobbers": [
+      "FirebasePlugin"
+    ]
+  },
+  {
+    "id": "cordova-plugin-fcm-with-dependecy-updated.FCMPlugin",
+    "file": "plugins/cordova-plugin-fcm-with-dependecy-updated/www/FCMPlugin.js",
+    "pluginId": "cordova-plugin-fcm-with-dependecy-updated",
+    "clobbers": [
+      "FCMPlugin"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -157,7 +165,6 @@ module.exports.metadata =
   "phonegap-plugin-barcodescanner": "8.0.1",
   "cordova-plugin-email-composer": "0.9.2",
   "cordova-plugin-whitelist": "1.3.3",
-  "cordova-plugin-fcm-with-dependecy-updated": "2.4.0",
   "cordova-plugin-x-toast": "2.7.2",
   "cordova-sqlite-storage": "3.1.0",
   "cordova-plugin-camera": "4.0.3",
@@ -166,7 +173,9 @@ module.exports.metadata =
   "es6-promise-plugin": "4.2.2",
   "cordova-plugin-screen-orientation": "3.0.1",
   "cordova-plugin-datepicker": "0.9.3",
-  "cordova-plugin-calendar": "5.1.4"
+  "cordova-plugin-calendar": "5.1.4",
+  "cordova-plugin-firebase": "2.0.5",
+  "cordova-plugin-fcm-with-dependecy-updated": "2.4.0"
 };
 // BOTTOM OF METADATA
 });
