@@ -22,8 +22,14 @@
     <feature name="ApiAIPlugin">
         <param name="ios-package" value="ApiAIPlugin" />
     </feature>
+    <feature name="Calendar">
+        <param name="ios-package" value="Calendar" />
+    </feature>
     <feature name="Camera">
         <param name="ios-package" value="CDVCamera" />
+    </feature>
+    <feature name="DatePicker">
+        <param name="ios-package" value="DatePicker" />
     </feature>
     <feature name="Device">
         <param name="ios-package" value="CDVDevice" />
@@ -144,10 +150,4 @@
     <preference name="ShowSplashScreen" value="true" />
     <preference name="FadeSplashScreen" value="true" />
     <preference name="ShowSplashScreenSpinner" value="false" />
-    <feature name="DatePicker">
-        <param name="ios-package" value="DatePicker" />
-    </feature>
-    <feature name="Calendar">
-        <param name="ios-package" value="Calendar" />
-    </feature>
 </widget>

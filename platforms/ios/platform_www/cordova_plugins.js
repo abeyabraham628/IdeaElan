@@ -23,6 +23,14 @@ module.exports = [
     ]
   },
   {
+    "id": "cordova-plugin-calendar.Calendar",
+    "file": "plugins/cordova-plugin-calendar/www/Calendar.js",
+    "pluginId": "cordova-plugin-calendar",
+    "clobbers": [
+      "Calendar"
+    ]
+  },
+  {
     "id": "cordova-plugin-camera.Camera",
     "file": "plugins/cordova-plugin-camera/www/CameraConstants.js",
     "pluginId": "cordova-plugin-camera",
@@ -52,6 +60,14 @@ module.exports = [
     "pluginId": "cordova-plugin-camera",
     "clobbers": [
       "CameraPopoverHandle"
+    ]
+  },
+  {
+    "id": "cordova-plugin-datepicker.DatePicker",
+    "file": "plugins/cordova-plugin-datepicker/www/ios/DatePicker.js",
+    "pluginId": "cordova-plugin-datepicker",
+    "clobbers": [
+      "datePicker"
     ]
   },
   {
@@ -189,29 +205,15 @@ module.exports = [
     "clobbers": [
       "cordova.plugins.barcodeScanner"
     ]
-  },
-  {
-    "id": "cordova-plugin-datepicker.DatePicker",
-    "file": "plugins/cordova-plugin-datepicker/www/ios/DatePicker.js",
-    "pluginId": "cordova-plugin-datepicker",
-    "clobbers": [
-      "datePicker"
-    ]
-  },
-  {
-    "id": "cordova-plugin-calendar.Calendar",
-    "file": "plugins/cordova-plugin-calendar/www/Calendar.js",
-    "pluginId": "cordova-plugin-calendar",
-    "clobbers": [
-      "Calendar"
-    ]
   }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
   "cordova-plugin-apiai": "1.7.4",
+  "cordova-plugin-calendar": "5.1.4",
   "cordova-plugin-camera": "4.0.3",
+  "cordova-plugin-datepicker": "0.9.3",
   "cordova-plugin-device": "2.0.2",
   "cordova-plugin-email-composer": "0.9.2",
   "cordova-plugin-fcm-with-dependecy-updated": "2.4.0",
@@ -227,9 +229,7 @@ module.exports.metadata =
   "cordova-sqlite-storage": "3.1.0",
   "es6-promise-plugin": "4.2.2",
   "ionic-plugin-keyboard": "2.2.1",
-  "phonegap-plugin-barcodescanner": "8.0.1",
-  "cordova-plugin-datepicker": "0.9.3",
-  "cordova-plugin-calendar": "5.1.4"
+  "phonegap-plugin-barcodescanner": "8.0.1"
 };
 // BOTTOM OF METADATA
 });

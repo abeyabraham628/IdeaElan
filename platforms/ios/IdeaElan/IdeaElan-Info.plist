@@ -67,10 +67,6 @@
     </dict>
     <key>UILaunchStoryboardName</key>
     <string>CDVLaunchScreen</string>
-    <key>LSApplicationQueriesSchemes</key>
-    <array>
-      <string>mailto</string>
-    </array>
     <key>CFBundleLocalizations</key>
     <array>
       <string>en</string>
@@ -81,8 +77,12 @@
       <string>pt-BR</string>
     </array>
     <key>NSCalendarsUsageDescription</key>
-    <string></string>
+    <string/>
     <key>NSContactsUsageDescription</key>
-    <string></string>
+    <string/>
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+      <string>mailto</string>
+    </array>
   </dict>
 </plist>

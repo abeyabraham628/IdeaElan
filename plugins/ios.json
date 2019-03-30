@@ -10,7 +10,15 @@
     "cordova-plugin-apiai": {
       "PACKAGE_NAME": "idea.elan"
     },
+    "cordova-plugin-calendar": {
+      "CALENDAR_USAGE_DESCRIPTION": " ",
+      "CONTACTS_USAGE_DESCRIPTION": " ",
+      "PACKAGE_NAME": "idea.elan"
+    },
     "cordova-plugin-camera": {
+      "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-datepicker": {
       "PACKAGE_NAME": "idea.elan"
     },
     "cordova-plugin-device": {
@@ -56,14 +64,6 @@
       "PACKAGE_NAME": "idea.elan"
     },
     "phonegap-plugin-barcodescanner": {
-      "PACKAGE_NAME": "idea.elan"
-    },
-    "cordova-plugin-datepicker": {
-      "PACKAGE_NAME": "idea.elan"
-    },
-    "cordova-plugin-calendar": {
-      "CALENDAR_USAGE_DESCRIPTION": " ",
-      "CONTACTS_USAGE_DESCRIPTION": " ",
       "PACKAGE_NAME": "idea.elan"
     }
   },

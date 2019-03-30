@@ -1,10 +1,10 @@
-import { Firebase } from '@ionic-native/firebase';
+
 import { DatePicker } from '@ionic-native/date-picker';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireAuth} from '@angular/fire/auth';
 import { userItem } from './../../models/user-item/user-item.interface';
 import { Component, ChangeDetectorRef, NgZone } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController, ModalController, LoadingController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, ModalController, LoadingController, ToastController } from 'ionic-angular';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import { Subscription } from 'rxjs/Subscription';
 import * as keygen from 'generate-password';
@@ -44,7 +44,7 @@ public itemslist: Array<any> = [];
 public items: Array<any> = [];
 public loaditems:Array<any>=[];
 public itemRef: firebase.database.Reference
-userItemSubscription: Subscription;
+
 arrData=[];
 dnew=[];
 data:any ;
@@ -73,14 +73,14 @@ status:string="active";
 isCheckeds :boolean
 users:String
 userItem = {} as userItem;
-userItemRef$: AngularFireList<userItem>
+
 selectedPrivileges : any = ""
 icons:string="0";
 fnameShow:boolean=true;
 loader:any
 
 
-  constructor(private datePicker:DatePicker,public loadingCtrl:LoadingController,public zone:NgZone,public navCtrl: NavController,private ref: ChangeDetectorRef, private fdb:AngularFireDatabase,public navParams: NavParams,public alertCtrl: AlertController,private customDatePicker:CustomDatePicker,private afAuth:AngularFireAuth,private modalCtrl:ModalController)
+  constructor(public toastCtrl:ToastController,private datePicker:DatePicker,public loadingCtrl:LoadingController,public zone:NgZone,public navCtrl: NavController,private ref: ChangeDetectorRef, private fdb:AngularFireDatabase,public navParams: NavParams,public alertCtrl: AlertController,private customDatePicker:CustomDatePicker,private afAuth:AngularFireAuth,private modalCtrl:ModalController)
    {
     this.icons="0";
     this.users="newUser";
@@ -111,7 +111,7 @@ ionViewDidLeave() {
            });
         this.itemslist=this.items;
         this.loaditems=this.items;
-        this.ref.detectChanges();
+        //this.ref.detectChanges();
             });
         this.loader.dismiss();
         this.itemslist=this.items;         
@@ -169,10 +169,7 @@ getItems(searchbar) {
     }
 
 
- 
-  s( keys:any) {
-    this.userItemRef$.remove(keys);   
-  }
+
 
 
 
@@ -240,7 +237,14 @@ getItems(searchbar) {
      });//end of create user
       this.email(this.userItem.fname, this.userItem.email,password)
       }catch(e){
-        console.error(e)
+        //this.loader.dismiss()
+     // var errMsg = AppConst.FirebaseError.find(e=>e.code==error.code) 
+      var errMsg = e
+      let toast=this.toastCtrl.create({
+          message:errMsg.error,
+          duration:5000,
+        })
+        toast.present()
       }
    }
   else{
@@ -284,7 +288,13 @@ getItems(searchbar) {
  });//end of create user
     this.email(this.userItem.fname, this.userItem.email,password);
      }catch(e){
-       console.error(e)
+      var errMsg = e
+      let toast=this.toastCtrl.create({
+          message:errMsg.error,
+          duration:5000,
+        })
+        toast.present()
+      
      }
 
     }// end of function

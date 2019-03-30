@@ -6,3 +6,4 @@ export const FIREBASE_CONFIG = {
   storageBucket: "sopaa-b37c1.appspot.com",
   messagingSenderId: "500138839182"
 };
+
