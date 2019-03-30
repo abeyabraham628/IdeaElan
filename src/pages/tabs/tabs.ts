@@ -55,7 +55,7 @@ export class TabsPage {
   user:any=""
   constructor(private data:DataService,private fdb:AngularFireDatabase,public storage: AngularFireStorage,private camera: Camera,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth) {
     this.roles=this.navParams.data
-    console.log(this.roles)
+    
     
     this.tab0Params=this.roles
     if(this.roles[0]!="null"){
@@ -140,10 +140,20 @@ export class TabsPage {
 
     return await this.camera.getPicture(options)
 }
-  logout(){
+  async logout(){
+      
+    alert(this.afAuth.auth.currentUser.uid);
+   await this.fdb.database.ref('tokensNotificationId').orderByChild('userIdTocken').equalTo(`${this.afAuth.auth.currentUser.uid}`).once("value",(snap)=>{
+    snap.forEach((child) => {
+        this.fdb.object("/tokensNotificationId/"+child.key).update({ tokenid:"null",userIdTocken : this.afAuth.auth.currentUser.uid});
+       })
+    });
+
+
     this.afAuth.auth.signOut()
             .then(() => this.navCtrl.setRoot('LoginPage'));
   }
+
 
   changepassword(){
    

@@ -1,11 +1,19 @@
+import { AngularFireStorage } from '@angular/fire/storage';
+
+
+
 
 import { credentials } from './../../providers/login';
-import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, ModalController, LoadingController } from 'ionic-angular';
-import { AngularFireDatabase } from '@angular/fire/database';
+import { AngularFireDatabase} from '@angular/fire/database';
 import { AppConst } from '../../providers/strings';
 import { Storage } from '@ionic/storage';
+import * as firebase from 'firebase/app';
+import { enableDebugTools } from '@angular/platform-browser';
+import { AngularFireModule } from '@angular/fire';
+
 
 
 @IonicPage()
@@ -26,7 +34,11 @@ export class LoginPage {
               public navCtrl: NavController, 
               public  afAuth:AngularFireAuth,
               public firebase:AngularFireDatabase,
-              public storage:Storage) {}
+              public storage:Storage,
+              public fb:AngularFireModule
+             ) {}
+
+           
     
 
   ionViewDidLoad(){
@@ -46,25 +58,33 @@ export class LoginPage {
    
    try{
      this.loader.present()
-     const loginSuccess=await this.afAuth.auth.signInWithEmailAndPassword(user.emailId,user.password);
+     let loggedIn=await this.afAuth.auth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(()=>{
+      return this.afAuth.auth.signInWithEmailAndPassword(user.emailId,user.password);
+      
+     })
+     
+     if(loggedIn){
+      let userId=this.afAuth.auth.currentUser.uid
+        this.storage.set('emailId',user.emailId)
+        //retrieve the user specific roles
+        const privilleges=await this.firebase.database.ref(`users/${userId}`).child('data').once('value')
+        this.storage.set('roles',privilleges.val())
+        //this.storage.set('userId',loginSuccess.user.uid)
+        //check whether the user has changed the temporary password
+        const tempPassword=await this.firebase.database.ref(`TempLogin/${userId}`).once('value');
+        // If user is signing in for first time then the user is redirected to change the temporary password
+        if(tempPassword.val()==null)
+          this.navCtrl.setRoot('ChangepasswordPage',{'existingUser':false})
+        else
+         this.navCtrl.setRoot('TabsPage',{'roles': privilleges.val()})
+    } 
+    
+   
+   //  const loginSuccess=await this.afAuth.auth.signInWithEmailAndPassword(user.emailId,user.password);
     //const loginSuccess=await this.afAuth.auth.signInWithEmailAndPassword('tony.manuel@mca.christuniversity.in','1647249');
     
     
-     if(loginSuccess){
-            this.storage.set('emailId',user.emailId)
-            //retrieve the user specific roles
-            const privilleges=await this.firebase.database.ref(`users/${loginSuccess.user.uid}`).child('data').once('value')
-            this.storage.set('roles',privilleges.val())
-            this.storage.set('userId',loginSuccess.user.uid)
-                        //check whether the user has changed the temporary password
-            const tempPassword=await this.firebase.database.ref(`TempLogin/${loginSuccess.user.uid}`).once('value');
-            // If user is signing in for first time then the user is redirected to change the temporary password
-            if(tempPassword.val()==null)
-              this.navCtrl.setRoot('ChangepasswordPage',{'existingUser':false})
-            else
-                
-             this.navCtrl.setRoot('TabsPage',{'roles': privilleges.val()})
-        }
+    
     }catch(error){
       this.loader.dismiss()
       var errMsg = AppConst.FirebaseError.find(e=>e.code==error.code) 

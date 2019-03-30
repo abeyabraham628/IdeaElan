@@ -1,13 +1,15 @@
 import { concatAll } from 'rxjs/operators';
 
+
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController} from 'ionic-angular';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
+import { AngularFireDatabase } from '@angular/fire/database';
 import { LoadingController } from 'ionic-angular';
 import {FCM} from '@ionic-native/fcm'
 import * as moment from 'moment'
-import { symlink } from 'fs';
+import { Storage } from '@ionic/storage';
+
 
 @IonicPage()
 @Component({
@@ -26,8 +28,9 @@ wlength:any=0;
 
 devicetoken : any ="abc";
 
-  constructor(private fcm:FCM,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
-    this.userType=this.navParams.data
+  constructor(public storage:Storage,private fcm:FCM,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
+    
+    
   
     
     
@@ -149,7 +152,7 @@ devicetoken : any ="abc";
    let timeDiff:number
    */
 
-    await this.firebase.database.ref(`users`).once('value',(snap)=>{
+    await this.firebase.database.ref(`users`).on('value',(snap)=>{
       
       snap.forEach(snap=>{
         bday=snap.child('dob').val()
@@ -222,18 +225,20 @@ devicetoken : any ="abc";
     })
   });//end of systems event list
   
-
-  console.log(this.userType)
-  if(this.userType[0]=="value1"){//for admin
-    this.systemEvents.forEach(item=>this.events.push(item))
-    this.interviewEvents.forEach(item=>this.events.push(item))
-  }
-  if(this.userType[0]!="value1" && this.userType[4]=="value5"){//recruitment
-    this.interviewEvents.forEach(item=>this.events.push(item))
-  }
-  if(this.userType[0]!="value1" && this.userType[4]!="value5" && this.userType[5]=="value6"){//system
-    this.systemEvents.forEach(item=>this.events.push(item))
-  }
+  this.storage.get('roles').then(userType=>{
+    if(userType[0]=="value1"){//for admin
+      this.systemEvents.forEach(item=>this.events.push(item))
+      this.interviewEvents.forEach(item=>this.events.push(item))
+    }
+    else if(this.userType[4]=="value5"){//recruitment
+      this.interviewEvents.forEach(item=>this.events.push(item))
+    }
+    else if(this.userType[5]=="value6"){//system
+      this.systemEvents.forEach(item=>this.events.push(item))
+    }
+  })
+  
+ 
   
 
 

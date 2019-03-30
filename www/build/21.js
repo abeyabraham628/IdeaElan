@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(859);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(468);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -49,10 +49,11 @@ var HomePageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(466);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_fcm__ = __webpack_require__(479);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_fcm__ = __webpack_require__(480);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(193);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -104,9 +105,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
+
 var HomePage = /** @class */ (function () {
-    function HomePage(fcm, modalCtrl, navCtrl, navParams, afAuth, firebase, loadingCtrl) {
+    function HomePage(storage, fcm, modalCtrl, navCtrl, navParams, afAuth, firebase, loadingCtrl) {
         var _this = this;
+        this.storage = storage;
         this.fcm = fcm;
         this.modalCtrl = modalCtrl;
         this.navCtrl = navCtrl;
@@ -146,7 +149,6 @@ var HomePage = /** @class */ (function () {
         this.employeeList = [];
         this.bevents = [];
         this.wevents = [];
-        this.userType = this.navParams.data;
         this.lrcountcheck();
         this.fcm.getToken().then(function (token) {
             //backend.registerToken(token);
@@ -222,7 +224,7 @@ var HomePage = /** @class */ (function () {
                     let diffDays:number
                     let timeDiff:number
                     */
-                    return [4 /*yield*/, this.firebase.database.ref("users").once('value', function (snap) {
+                    return [4 /*yield*/, this.firebase.database.ref("users").on('value', function (snap) {
                             snap.forEach(function (snap) {
                                 bday = snap.child('dob').val();
                                 anniversary = snap.child('doj').val();
@@ -287,17 +289,18 @@ var HomePage = /** @class */ (function () {
                             })];
                     case 3:
                         _a.sent(); //end of systems event list
-                        console.log(this.userType);
-                        if (this.userType[0] == "value1") { //for admin
-                            this.systemEvents.forEach(function (item) { return _this.events.push(item); });
-                            this.interviewEvents.forEach(function (item) { return _this.events.push(item); });
-                        }
-                        if (this.userType[0] != "value1" && this.userType[4] == "value5") { //recruitment
-                            this.interviewEvents.forEach(function (item) { return _this.events.push(item); });
-                        }
-                        if (this.userType[0] != "value1" && this.userType[4] != "value5" && this.userType[5] == "value6") { //system
-                            this.systemEvents.forEach(function (item) { return _this.events.push(item); });
-                        }
+                        this.storage.get('roles').then(function (userType) {
+                            if (userType[0] == "value1") { //for admin
+                                _this.systemEvents.forEach(function (item) { return _this.events.push(item); });
+                                _this.interviewEvents.forEach(function (item) { return _this.events.push(item); });
+                            }
+                            else if (_this.userType[4] == "value5") { //recruitment
+                                _this.interviewEvents.forEach(function (item) { return _this.events.push(item); });
+                            }
+                            else if (_this.userType[5] == "value6") { //system
+                                _this.systemEvents.forEach(function (item) { return _this.events.push(item); });
+                            }
+                        });
                         return [2 /*return*/];
                 }
             });
@@ -359,7 +362,7 @@ var HomePage = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
             selector: 'page-home',template:/*ion-inline-start:"F:\ionic-app\src\pages\home\home.html"*/'<ion-header no-border>\n\n  <page-header pageTitle="HOME"></page-header>\n\n</ion-header>\n\n\n\n\n\n\n\n<ion-content padding>\n\n    <div *ngIf="(events.length==0)">No Upcoming Events</div>\n\n  <h5  *ngIf="(events.length!=0)">Upcoming Events ({{events.length}})</h5>\n\n  \n\n \n\n    <ion-list >\n\n      <ion-item *ngFor="let event of events">\n\n        <ion-avatar item-start>\n\n            <img src="https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/{{event.userId}}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b" onerror="this.src=\'assets/imgs/companylogo.png\'"> \n\n\n\n        </ion-avatar>\n\n        <h5> {{event.title}}</h5>\n\n        <p>{{event.user}}</p>\n\n        <p>{{event.date}}</p>\n\n      </ion-item>\n\n    </ion-list>\n\n    \n\n\n\n \n\n  \n\n</ion-content>\n\n\n\n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\home\home.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_4__ionic_native_fcm__["a" /* FCM */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_4__ionic_native_fcm__["a" /* FCM */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["LoadingController"]])
     ], HomePage);
     return HomePage;
 }());

@@ -2,7 +2,7 @@ import { Storage } from '@ionic/storage';
 import { AngularFireAuth } from '@angular/fire/auth';
 
 
-import { Component, ViewChild, Input, NgZone } from '@angular/core';
+import { Component, ViewChild, Input, NgZone, ChangeDetectorRef } from '@angular/core';
 import { Platform, AlertController, NavController, App, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -25,7 +25,7 @@ export class MyApp {
   rootParams:any
   @ViewChild('nav') nav : NavController;
   constructor(public storage:Storage,public afAuth:AngularFireAuth,public zone:NgZone,public screenOrientation:ScreenOrientation,public network:Network,public app:App,private platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen,private alertCtrl:AlertController) {
-    this.tony()
+    
 
 
 
@@ -44,10 +44,10 @@ export class MyApp {
           this.presentConfirm();  
         }
       }, 0)
-          
+    
     });
    
-   
+    this.checkUserState()
 
   }
   
@@ -115,29 +115,33 @@ presentConfirm() {
   }
 
   
-  tony(){
-   
-      this.storage.get('roles').then((roles)=>{
-        if(roles){
-        this.storage.get('userId').then((x)=>{
-          this.rootParams=[roles,x]
-          this.rootPage='TabsPage';
-        })
-        
-        }
-       else{
-        console.log(roles)
-        this.rootPage='LoginPage'
+ checkUserState(){
+    this.afAuth.auth.onAuthStateChanged(user =>{
+      if (user){
+        this.storage.get('roles').then(roles=>{
+          if(roles){
+            this.zone.run(() => {
+              this.rootParams=roles
+            this.rootPage='TabsPage';
+              });
+          }
+          else{
+            this.zone.run(() => {
+              this.rootPage='LoginPage'
+              });
+           
+          }
+       })
       }
-      })
-    
-   
-    
-  }
-   
-  
+      else {
+        this.zone.run(() => {
+          this.rootPage='LoginPage'
+          });
+      }
+    });
 
-  
- 
+  }
+      
+      
 }
 
