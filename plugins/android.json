@@ -50,10 +50,16 @@
     },
     "cordova-plugin-fcm-with-dependecy-updated": {
       "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-advanced-http": {
+      "PACKAGE_NAME": "idea.elan"
     }
   },
   "dependent_plugins": {
     "es6-promise-plugin": {
+      "PACKAGE_NAME": "idea.elan"
+    },
+    "cordova-plugin-file": {
       "PACKAGE_NAME": "idea.elan"
     }
   }

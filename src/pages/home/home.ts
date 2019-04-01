@@ -1,6 +1,6 @@
 import { Firebase } from '@ionic-native/firebase';
-import { concatAll } from 'rxjs/operators';
 
+import { HTTP } from '@ionic-native/http';
 
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController} from 'ionic-angular';
@@ -11,6 +11,7 @@ import {FCM} from '@ionic-native/fcm'
 import * as moment from 'moment'
 import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
+import { RequestOptions } from '@angular/http';
 
 
 @IonicPage()
@@ -62,13 +63,20 @@ devicetoken : any ="abc";
     
   }
 
-  tony(){
-  
-    this.http.get('src\server\admin\index.ts').subscribe((response) => {
+  /*tony(){
+    
+    
+    let headers = new Headers();
+headers.append('Content-Type', 'application/json');
+let data=JSON.stringify({username:"raja"});
+    
+    
+    let body = JSON.stringify(data);
+    this.http.post('http://localhost:3000/createUser',data,headers).subscribe((response) => {
       console.log(response);
   });
   }
-  
+  */
 
   lrstatus=[]
   async lrcountcheck(){

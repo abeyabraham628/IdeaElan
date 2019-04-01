@@ -280,6 +280,7 @@ dependencies {
     compile "com.google.firebase:firebase-perf:+"
     compile "com.google.firebase:firebase-core:10.+"
     compile "com.google.firebase:firebase-messaging:10.+"
+    compile "com.squareup.okhttp3:okhttp-urlconnection:3.10.0"
     // SUB-PROJECT DEPENDENCIES END
 }
 

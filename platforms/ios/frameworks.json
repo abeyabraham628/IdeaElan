@@ -1,5 +1,5 @@
 {
-    "Security.framework": 2,
+    "Security.framework": 3,
     "Foundation.framework": 1,
     "CoreAudio.framework": 1,
     "AudioToolbox.framework": 2,
@@ -11,7 +11,7 @@
     "MessageUI.framework": 1,
     "libz.tbd": 3,
     "WebKit.framework": 1,
-    "SystemConfiguration.framework": 1,
+    "SystemConfiguration.framework": 2,
     "CoreTelephony.framework": 1,
     "QuartzCore.framework": 1,
     "libc++.tbd": 1,
