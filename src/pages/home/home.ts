@@ -10,6 +10,7 @@ import { LoadingController } from 'ionic-angular';
 import {FCM} from '@ionic-native/fcm'
 import * as moment from 'moment'
 import { Storage } from '@ionic/storage';
+import { HttpClient } from '@angular/common/http';
 
 
 @IonicPage()
@@ -29,7 +30,7 @@ wlength:any=0;
 
 devicetoken : any ="abc";
 
-  constructor(public storage:Storage,private fcm:Firebase,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
+  constructor(private http:HttpClient,public storage:Storage,private fcm:Firebase,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
     
     
   
@@ -61,7 +62,12 @@ devicetoken : any ="abc";
     
   }
 
-
+  tony(){
+  
+    this.http.get('src\server\admin\index.ts').subscribe((response) => {
+      console.log(response);
+  });
+  }
   
 
   lrstatus=[]

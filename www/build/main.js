@@ -402,7 +402,7 @@ var AppModule = /** @class */ (function () {
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_5__angular_platform_browser__["a" /* BrowserModule */],
-                __WEBPACK_IMPORTED_MODULE_10__angular_common_http__["a" /* HttpClientModule */],
+                __WEBPACK_IMPORTED_MODULE_10__angular_common_http__["b" /* HttpClientModule */],
                 __WEBPACK_IMPORTED_MODULE_11__angular_http__["a" /* HttpModule */],
                 __WEBPACK_IMPORTED_MODULE_7_ionic_angular__["IonicModule"].forRoot(__WEBPACK_IMPORTED_MODULE_20__app_component__["a" /* MyApp */], { navExitApp: false }, {
                     links: [
@@ -1037,6 +1037,14 @@ var FIREBASE_CONFIG = {
     storageBucket: "sopaa-b37c1.appspot.com",
     messagingSenderId: "500138839182"
 };
+/*export const FIREBASE_CONFIG = {
+  apiKey: "AIzaSyCRDymxcDEMORc4U1TjW5_SKiB22G45buM",
+  authDomain: "sopaa-b37c1.firebaseapp.com",
+  databaseURL: "https://sopaa-b37c1.firebaseio.com",
+  projectId: "sopaa-b37c1",
+  storageBucket: "sopaa-b37c1.appspot.com",
+  messagingSenderId: "500138839182"
+};*/
 //# sourceMappingURL=firebase-service.js.map
 
 /***/ })

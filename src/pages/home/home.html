@@ -7,7 +7,7 @@
 <ion-content padding>
     <div *ngIf="(events.length==0)">No Upcoming Events</div>
   <h5  *ngIf="(events.length!=0)">Upcoming Events ({{events.length}})</h5>
-  
+  <button ion-button (click)="tony()">Hello</button>
  
     <ion-list >
       <ion-item *ngFor="let event of events">

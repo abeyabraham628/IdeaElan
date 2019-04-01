@@ -1,3 +1,4 @@
+import { HttpModule } from '@angular/http';
 
 import { DatePicker } from '@ionic-native/date-picker';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
@@ -13,6 +14,7 @@ import { CustomDatePicker } from '../../models/datepicker';
 import { CalendarModal,CalendarResult} from "ion2-calendar";
 import * as moment from 'moment'
 import { Designations } from '../../providers/designations';
+import { HttpClient } from '@angular/common/http';
 Designations
 
 @IonicPage()
@@ -80,7 +82,7 @@ fnameShow:boolean=true;
 loader:any
 
 
-  constructor(public toastCtrl:ToastController,private datePicker:DatePicker,public loadingCtrl:LoadingController,public zone:NgZone,public navCtrl: NavController,private ref: ChangeDetectorRef, private fdb:AngularFireDatabase,public navParams: NavParams,public alertCtrl: AlertController,private customDatePicker:CustomDatePicker,private afAuth:AngularFireAuth,private modalCtrl:ModalController)
+  constructor(public http:HttpClient,public toastCtrl:ToastController,private datePicker:DatePicker,public loadingCtrl:LoadingController,public zone:NgZone,public navCtrl: NavController,private ref: ChangeDetectorRef, private fdb:AngularFireDatabase,public navParams: NavParams,public alertCtrl: AlertController,private customDatePicker:CustomDatePicker,private afAuth:AngularFireAuth,private modalCtrl:ModalController)
    {
     this.icons="0";
     this.users="newUser";

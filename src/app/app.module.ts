@@ -44,6 +44,7 @@ import {Calendar} from '@ionic-native/calendar'
     IonicStorageModule.forRoot(),
     AngularFireDatabaseModule,
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
+
     ReactiveFormsModule,
     AngularFireAuthModule,
     CalendarModule,
