@@ -86,7 +86,7 @@
                   <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify('mouse')">
                       <ion-icon  small name="create" ></ion-icon>
                     </button>
-                    <button *ngIf="!replace" ion-button small type="button"  color="blue" item-right>
+                    <button *ngIf="!replace" ion-button small type="button" (click)="scanBarCode('mouse')"  color="blue" item-right>
                         <ion-icon name="barcode"> </ion-icon>
                       </button>
                   </ion-item>

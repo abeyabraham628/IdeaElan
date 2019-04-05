@@ -1,9 +1,13 @@
+
+import { ElementRef, Renderer } from '@angular/core';
+
+
 import * as  mdDateTimePicker  from 'md-date-time-picker/dist/js/mdDateTimePicker.js';
 import { Firebase } from '@ionic-native/firebase';
 
 import { HTTP } from '@ionic-native/http';
 
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams,ModalController} from 'ionic-angular';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFireDatabase } from '@angular/fire/database';
@@ -32,11 +36,12 @@ wlength:any=0;
 
 devicetoken : any ="abc";
 x:any
-  constructor(private http:HttpClient,public storage:Storage,private fcm:Firebase,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
-    
-    this.x = new mdDateTimePicker.default({
-      type: 'date'
-    });
+
+@ViewChild('hh' ,{ read: ElementRef }) myElement:ElementRef;
+  constructor(public elementRef: ElementRef,private renderer:Renderer,private http:HttpClient,public storage:Storage,private fcm:Firebase,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
+   
+  
+
 
   
     
@@ -84,11 +89,9 @@ let data=JSON.stringify({username:"raja"});
 
   
    xx() {
-     console.log("fsd")
-    
-      this.x.toggle()
-
-    }
+   this.x.toggle()
+        
+      }
 
     
   
@@ -126,8 +129,19 @@ let data=JSON.stringify({username:"raja"});
       });
    }
  
- 
+ gg:any
    ionViewDidLoad() {
+    this.x = new mdDateTimePicker.default({
+      type: 'date',
+      trigger : this.myElement.nativeElement
+      
+    });
+
+    this.renderer.listen(this.myElement.nativeElement, 'onOk', () => {
+      this.myElement.nativeElement.s
+      this.gg=moment(this.x.time).format('DD-MMM-YYYY')
+    })
+    
       //this.getMessages()
       this.getUpComingEvents()
       this.getUpComingEventsNotification()
