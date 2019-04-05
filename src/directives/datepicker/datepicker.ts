@@ -1,3 +1,4 @@
+//Author Tony Manuel
 import { CustomDatePicker } from './../../models/datepicker';
 import { Directive,ElementRef,HostListener, Host, Input } from "@angular/core";
 import { ModalController } from "ionic-angular";

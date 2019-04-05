@@ -1,3 +1,4 @@
+//Author Tony Manuel
 import { Storage } from '@ionic/storage';
 import { AngularFireAuth } from '@angular/fire/auth';
 

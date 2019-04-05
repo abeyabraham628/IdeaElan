@@ -96,14 +96,14 @@
     <plugin name="cordova-plugin-camera" spec="4.0.3" />
     <plugin name="cordova-plugin-apiai" spec="~1.7.4" />
     <plugin name="cordova-plugin-screen-orientation" spec="3.0.1" />
-    <plugin name="cordova-plugin-network-information" spec="2.0.1" />
     <plugin name="cordova-plugin-datepicker" spec="0.9.3" />
     <plugin name="cordova-plugin-calendar" spec="5.1.4">
         <variable name="CALENDAR_USAGE_DESCRIPTION" value=" " />
         <variable name="CONTACTS_USAGE_DESCRIPTION" value=" " />
     </plugin>
-    <plugin name="cordova-plugin-firebase" spec="2.0.5" />
     <plugin name="cordova-plugin-fcm-with-dependecy-updated" spec="2.4.0" />
     <engine name="ios" spec="4.5.4" />
+    <plugin name="cordova-plugin-network-information" spec="2.0.1" />
     <plugin name="cordova-plugin-advanced-http" spec="2.0.6" />
+    <plugin name="cordova-plugin-firebase" spec="2.0.5" />
 </widget>

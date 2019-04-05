@@ -1,3 +1,5 @@
+//Author Tony Manuel
+
 import { AppConst } from './../../providers/strings';
 import { Component } from '@angular/core';
 

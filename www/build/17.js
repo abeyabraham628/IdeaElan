@@ -1,6 +1,6 @@
 webpackJsonp([17],{
 
-/***/ 746:
+/***/ 745:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(468);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__maintenancehistory__ = __webpack_require__(848);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__maintenancehistory__ = __webpack_require__(847);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,7 +41,7 @@ var MaintenancehistoryPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 848:
+/***/ 847:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -49,6 +49,7 @@ var MaintenancehistoryPageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__ = __webpack_require__(467);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
+//Tony Manuel
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -105,11 +106,12 @@ var MaintenancehistoryPage = /** @class */ (function () {
             loader.dismiss();
         });
     };
+    var _a, _b, _c, _d;
     MaintenancehistoryPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-maintenancehistory',template:/*ion-inline-start:"F:\ionic-app\src\pages\maintenancehistory\maintenancehistory.html"*/'<!--\n  Generated template for the MaintenancehistoryPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <navbar pageTitle="Maintenance History"></navbar>\n</ion-header>\n\n<ion-content>\n  <ion-item>\n    <ion-row class="table-title">\n      <ion-col col-3 >Date</ion-col>\n      <ion-col col-3 >New Item</ion-col>\n      <ion-col col-3 >New ID</ion-col>\n      <ion-col col-3 >User</ion-col>\n    </ion-row>\n  </ion-item>\n  <ion-item>\n    <ion-row class="col-text table-bottom-border" *ngFor="let h of history"> \n      <ion-col col-3>{{h.date}}</ion-col><ion-col col-3 >{{h.type.name}}</ion-col><ion-col col-3 >{{h.type.value}}</ion-col><ion-col col-3>{{h.userName}}</ion-col>\n    </ion-row>\n  </ion-item>\n  \n\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\maintenancehistory\maintenancehistory.html"*/,
+            selector: 'page-maintenancehistory',template:/*ion-inline-start:"D:\IdeaElan\src\pages\maintenancehistory\maintenancehistory.html"*/'<!--\n\n  Tony Manuel\n\n-->\n\n<ion-header>\n\n  <navbar pageTitle="Maintenance History"></navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-item>\n\n    <ion-row class="table-title">\n\n      <ion-col col-3 >Date</ion-col>\n\n      <ion-col col-3 >New Item</ion-col>\n\n      <ion-col col-3 >New ID</ion-col>\n\n      <ion-col col-3 >User</ion-col>\n\n    </ion-row>\n\n  </ion-item>\n\n  <ion-item>\n\n    <ion-row class="col-text table-bottom-border" *ngFor="let h of history"> \n\n      <ion-col col-3>{{h.date}}</ion-col><ion-col col-3 >{{h.type.name}}</ion-col><ion-col col-3 >{{h.type.value}}</ion-col><ion-col col-3>{{h.userName}}</ion-col>\n\n    </ion-row>\n\n  </ion-item>\n\n  \n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\maintenancehistory\maintenancehistory.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["LoadingController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["LoadingController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["LoadingController"]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */]) === "function" ? _d : Object])
     ], MaintenancehistoryPage);
     return MaintenancehistoryPage;
 }()); // end of class

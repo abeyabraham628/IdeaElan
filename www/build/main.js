@@ -22,104 +22,100 @@ webpackEmptyAsyncContext.id = 227;
 
 var map = {
 	"../pages/admin/admin.module": [
-		735,
-		24
+		734,
+		50
 	],
 	"../pages/apply-leave/apply-leave.module": [
-		736,
-		7
+		735,
+		34
 	],
 	"../pages/approve-leave/approve-leave.module": [
-		737,
-		6
+		736,
+		33
 	],
 	"../pages/changepassword/changepassword.module": [
-		738,
-		23
+		737,
+		49
 	],
 	"../pages/forgotpassword/forgotpassword.module": [
-		739,
-		22
+		738,
+		48
 	],
 	"../pages/home/home.module": [
-		757,
-		1
+		756,
+		28
 	],
 	"../pages/inbox/inbox.module": [
-		740,
-		21
+		739,
+		47
 	],
 	"../pages/interview-details/interview-details.module": [
-		741,
-		4
+		740,
+		31
 	],
 	"../pages/interview-schedule/interview-schedule.module": [
-		742,
-		20
+		741,
+		46
 	],
 	"../pages/interview-summary/interview-summary.module": [
-		743,
-		19
+		742,
+		45
 	],
 	"../pages/leaves-admin/leaves-admin.module": [
-		744,
-		5
+		743,
+		32
 	],
 	"../pages/login/login.module": [
-		745,
-		18
+		744,
+		44
 	],
 	"../pages/maintenancehistory/maintenancehistory.module": [
-		746,
-		17
+		745,
+		43
 	],
 	"../pages/modal/modal.module": [
-		747,
-		16
+		746,
+		42
 	],
 	"../pages/modifysystems/modifysystems.module": [
-		748,
-		15
+		747,
+		41
 	],
 	"../pages/myprofile/myprofile.module": [
-		749,
-		14
+		748,
+		40
 	],
 	"../pages/newuser/newuser.module": [
-		759,
-		0
+		758,
+		27
 	],
 	"../pages/nointernet/nointernet.module": [
-		750,
-		13
-	],
-	"../pages/payslip/payslip.module": [
-		751,
-		12
+		749,
+		39
 	],
 	"../pages/policy/policy.module": [
-		752,
-		11
+		751,
+		38
 	],
 	"../pages/recruitment/recruitment.module": [
-		758,
-		3
+		757,
+		30
 	],
 	"../pages/support/support.module": [
-		753,
-		10
+		752,
+		37
 	],
 	"../pages/systems/systems.module": [
-		754,
-		2
+		753,
+		29
 	],
 	"../pages/tabs/tabs.module": [
-		755,
-		9
+		754,
+		36
 	],
 	"../pages/upload-events/upload-events.module": [
-		756,
-		8
+		755,
+		35
 	]
 };
 function webpackAsyncContext(req) {
@@ -298,7 +294,7 @@ var ChatbotPage = /** @class */ (function () {
     };
     ChatbotPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-chatbot',template:/*ion-inline-start:"F:\ionic-app\src\pages\chatbot\chatbot.html"*/'\n<ion-header no-border>\n  <page-header pageTitle="CHATBOT"></page-header>\n</ion-header>\n<ion-content padding>\n    <div class="chats">\n      <div class="chatbox">\n        <div *ngFor="let chat of chat">\n          <div class="message sent" *ngIf="chat.question!=\'\' && chat.question!=null">\n            {{chat.question}}\n            \n          </div>\n          <div class="message received"  *ngIf="chat.answer!=\'\' && chat.answer!=null">\n            {{chat.answer}}\n            \n          </div>\n        </div>\n      </div>\n      </div>\n\n  \n</ion-content>\n\n\n<ion-footer>\n    <ion-item>\n    <ion-input [(ngModel)]="question" name="message" placeholder="Ask me anything"></ion-input>\n    <button ion-button (click)="ask(question)" item-right  color="orange"> <ion-icon  name="send" ></ion-icon></button>\n   \n  </ion-item>\n</ion-footer>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\chatbot\chatbot.html"*/,
+            selector: 'page-chatbot',template:/*ion-inline-start:"D:\IdeaElan\src\pages\chatbot\chatbot.html"*/'<!--Author Abey Abraham-->\n\n<ion-header no-border>\n\n  <page-header pageTitle="CHATBOT"></page-header>\n\n</ion-header>\n\n<ion-content padding>\n\n    <div class="chats">\n\n      <div class="chatbox">\n\n        <div *ngFor="let chat of chat">\n\n          <div class="message sent" *ngIf="chat.question!=\'\' && chat.question!=null">\n\n            {{chat.question}}\n\n            \n\n          </div>\n\n          <div class="message received"  *ngIf="chat.answer!=\'\' && chat.answer!=null">\n\n            {{chat.answer}}\n\n            \n\n          </div>\n\n        </div>\n\n      </div>\n\n      </div>\n\n\n\n  \n\n</ion-content>\n\n\n\n\n\n<ion-footer>\n\n    <ion-item>\n\n    <ion-input [(ngModel)]="question" name="message" placeholder="Ask me anything"></ion-input>\n\n    <button ion-button (click)="ask(question)" item-right  color="orange"> <ion-icon  name="send" ></ion-icon></button>\n\n   \n\n  </ion-item>\n\n</ion-footer>\n\n\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\chatbot\chatbot.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["Platform"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"]])
     ], ChatbotPage);
@@ -356,14 +352,12 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__components_components_module__ = __webpack_require__(468);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__providers_form_service__ = __webpack_require__(471);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_26__ionic_native_network__ = __webpack_require__(466);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_27__ionic_native_calendar__ = __webpack_require__(734);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -459,7 +453,6 @@ var AppModule = /** @class */ (function () {
                 __WEBPACK_IMPORTED_MODULE_2__ionic_native_screen_orientation__["a" /* ScreenOrientation */],
                 __WEBPACK_IMPORTED_MODULE_1__angular_fire_storage__["a" /* AngularFireStorage */],
                 __WEBPACK_IMPORTED_MODULE_0__ionic_native_camera__["a" /* Camera */],
-                __WEBPACK_IMPORTED_MODULE_27__ionic_native_calendar__["a" /* Calendar */],
                 { provide: __WEBPACK_IMPORTED_MODULE_6__angular_core__["ErrorHandler"], useClass: __WEBPACK_IMPORTED_MODULE_7_ionic_angular__["IonicErrorHandler"] }
             ]
         })
@@ -1013,7 +1006,7 @@ var MyApp = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({template:/*ion-inline-start:"F:\ionic-app\src\app\app.html"*/'\n\n  <offline [hidden]=showOffline></offline>\n\n  \n\n  <ion-nav nav [root]="rootPage" [rootParams]="rootParams" [hidden]="isOffline "></ion-nav>\n\n'/*ion-inline-end:"F:\ionic-app\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({template:/*ion-inline-start:"D:\IdeaElan\src\app\app.html"*/'\n\n  <offline [hidden]=showOffline></offline>\n\n  \n\n  <ion-nav nav [root]="rootPage" [rootParams]="rootParams" [hidden]="isOffline "></ion-nav>\n\n'/*ion-inline-end:"D:\IdeaElan\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_2__angular_core__["NgZone"], __WEBPACK_IMPORTED_MODULE_7__ionic_native_screen_orientation__["a" /* ScreenOrientation */], __WEBPACK_IMPORTED_MODULE_6__ionic_native_network__["a" /* Network */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["App"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["Platform"], __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["AlertController"]])
     ], MyApp);

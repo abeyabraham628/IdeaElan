@@ -1,6 +1,6 @@
 webpackJsonp([24],{
 
-/***/ 735:
+/***/ 734:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(468);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__admin__ = __webpack_require__(837);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__admin__ = __webpack_require__(836);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,7 +41,7 @@ var AdminPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 837:
+/***/ 836:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -102,7 +102,7 @@ var AdminPage = /** @class */ (function () {
     };
     AdminPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-admin',template:/*ion-inline-start:"F:\ionic-app\src\pages\admin\admin.html"*/'<!--\n  Generated template for the AdminPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n    <page-header pageTitle="ADMINISTRATOR"></page-header>\n  </ion-header>\n\n<ion-footer padding class="privilleges" >\n    <h5>Control Panel</h5>\n    <ion-list no-lines>\n      <button ion-item  (click)="goto(\'NewuserPage\')" [hidden]=users >\n          Users\n      </button>\n      \n   \n        <button ion-item  (click)="goto(\'SystemsPage\')" [hidden]=systems >\n            Systems\n        </button>\n      \n        <button ion-item (click)="goto(\'RecruitmentPage\')" [hidden]=recruitment>\n          Recruitment\n       </button>\n     \n       \n            <button ion-item  (click)="goto(\'LeavesAdminPage\')" [hidden]=leaveRequest>\n               Leave Request\n               <ion-badge color="danger">{{lrstatus.length}}</ion-badge>\n            </button>\n         \n              <button ion-item   (click)="goto(\'UploadEventsPage\')" [hidden]="sendMessage">\n                  Send Message\n              </button>\n            </ion-list>\n            \n    \n  </ion-footer>\n'/*ion-inline-end:"F:\ionic-app\src\pages\admin\admin.html"*/,
+            selector: 'page-admin',template:/*ion-inline-start:"D:\IdeaElan\src\pages\admin\admin.html"*/'<!--\n\n  Generated template for the AdminPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n    <page-header pageTitle="ADMINISTRATOR"></page-header>\n\n  </ion-header>\n\n\n\n<ion-footer padding class="privilleges" >\n\n    <h5>Control Panel</h5>\n\n    <ion-list no-lines>\n\n      <button ion-item  (click)="goto(\'NewuserPage\')" [hidden]=users >\n\n          Users\n\n      </button>\n\n      \n\n   \n\n        <button ion-item  (click)="goto(\'SystemsPage\')" [hidden]=systems >\n\n            Systems\n\n        </button>\n\n      \n\n        <button ion-item (click)="goto(\'RecruitmentPage\')" [hidden]=recruitment>\n\n          Recruitment\n\n       </button>\n\n     \n\n       \n\n            <button ion-item  (click)="goto(\'LeavesAdminPage\')" [hidden]=leaveRequest>\n\n               Leave Request\n\n               <ion-badge color="danger">{{lrstatus.length}}</ion-badge>\n\n            </button>\n\n         \n\n              <button ion-item   (click)="goto(\'UploadEventsPage\')" [hidden]="sendMessage">\n\n                  Send Message\n\n              </button>\n\n            </ion-list>\n\n            \n\n    \n\n  </ion-footer>\n\n'/*ion-inline-end:"D:\IdeaElan\src\pages\admin\admin.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"]])
     ], AdminPage);

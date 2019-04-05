@@ -1,5 +1,4 @@
-import { map, count } from 'rxjs/operators';
-import { Firebase } from '@ionic-native/firebase';
+//Abey Abraham
 import { AngularFireDatabase } from '@angular/fire/database';
 import { Component, ANALYZE_FOR_ENTRY_COMPONENTS } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, LoadingController } from 'ionic-angular';

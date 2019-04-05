@@ -1,4 +1,4 @@
-import { concatAll } from 'rxjs/operators';
+//Author Tony Manuel
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FormGroup, FormControl, Validators } from '@angular/forms';

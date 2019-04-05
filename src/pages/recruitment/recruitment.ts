@@ -1,3 +1,4 @@
+//Tony Manuel
 import { Component,ChangeDetectorRef, ViewChild } from '@angular/core';
 import { IonicPage, NavController, AlertController, LoadingController, ToastController, Content } from 'ionic-angular';
 import {AngularFireDatabase,AngularFireList} from '@angular/fire/database';

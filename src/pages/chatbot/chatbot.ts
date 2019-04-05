@@ -1,3 +1,4 @@
+//Author Abey Abraham
 import { Component , NgZone  } from '@angular/core';
 import { IonicPage, NavController, NavParams , Platform } from 'ionic-angular';
 

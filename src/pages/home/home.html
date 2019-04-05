@@ -1,3 +1,4 @@
+<!--Author Tony Manuel-->
 <ion-header no-border>
   <page-header pageTitle="HOME"></page-header>
 </ion-header>
@@ -5,10 +6,11 @@
 
 
 <ion-content padding>
-  <ion-input type="text"  #hh [(ngModel)]="gg"></ion-input>
+ 
     <div *ngIf="(events.length==0)">No Upcoming Events</div>
   <h5  *ngIf="(events.length!=0)">Upcoming Events ({{events.length}})</h5>
- <button ion-button  (click)="xx($event)">Hello</button>
+<!--<button ion-button  (click)="xx($event)">Hello</button>
+ <ion-input type="text"  #hh [(ngModel)]="gg"></ion-input>-->
  
     <ion-list >
       <ion-item *ngFor="let event of events">
