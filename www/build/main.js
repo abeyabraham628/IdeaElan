@@ -27,11 +27,11 @@ var map = {
 	],
 	"../pages/apply-leave/apply-leave.module": [
 		736,
-		6
+		7
 	],
 	"../pages/approve-leave/approve-leave.module": [
 		737,
-		5
+		6
 	],
 	"../pages/changepassword/changepassword.module": [
 		738,
@@ -43,47 +43,47 @@ var map = {
 	],
 	"../pages/home/home.module": [
 		757,
-		21
+		1
 	],
 	"../pages/inbox/inbox.module": [
 		740,
-		20
+		21
 	],
 	"../pages/interview-details/interview-details.module": [
 		741,
-		3
+		4
 	],
 	"../pages/interview-schedule/interview-schedule.module": [
 		742,
-		19
+		20
 	],
 	"../pages/interview-summary/interview-summary.module": [
 		743,
-		18
+		19
 	],
 	"../pages/leaves-admin/leaves-admin.module": [
 		744,
-		4
+		5
 	],
 	"../pages/login/login.module": [
 		745,
-		17
+		18
 	],
 	"../pages/maintenancehistory/maintenancehistory.module": [
 		746,
-		16
+		17
 	],
 	"../pages/modal/modal.module": [
 		747,
-		15
+		16
 	],
 	"../pages/modifysystems/modifysystems.module": [
 		748,
-		14
+		15
 	],
 	"../pages/myprofile/myprofile.module": [
 		749,
-		13
+		14
 	],
 	"../pages/newuser/newuser.module": [
 		759,
@@ -91,35 +91,35 @@ var map = {
 	],
 	"../pages/nointernet/nointernet.module": [
 		750,
-		12
+		13
 	],
 	"../pages/payslip/payslip.module": [
 		751,
-		11
+		12
 	],
 	"../pages/policy/policy.module": [
 		752,
-		10
+		11
 	],
 	"../pages/recruitment/recruitment.module": [
 		758,
-		2
+		3
 	],
 	"../pages/support/support.module": [
 		753,
-		9
+		10
 	],
 	"../pages/systems/systems.module": [
 		754,
-		1
+		2
 	],
 	"../pages/tabs/tabs.module": [
 		755,
-		8
+		9
 	],
 	"../pages/upload-events/upload-events.module": [
 		756,
-		7
+		8
 	]
 };
 function webpackAsyncContext(req) {

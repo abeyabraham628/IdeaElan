@@ -1,3 +1,4 @@
+import * as  mdDateTimePicker  from 'md-date-time-picker/dist/js/mdDateTimePicker.js';
 import { Firebase } from '@ionic-native/firebase';
 
 import { HTTP } from '@ionic-native/http';
@@ -11,7 +12,7 @@ import {FCM} from '@ionic-native/fcm'
 import * as moment from 'moment'
 import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
-import { RequestOptions } from '@angular/http';
+
 
 
 @IonicPage()
@@ -30,10 +31,13 @@ wlength:any=0;
 //lrcount:any=0;
 
 devicetoken : any ="abc";
-
+x:any
   constructor(private http:HttpClient,public storage:Storage,private fcm:Firebase,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
     
-    
+    this.x = new mdDateTimePicker.default({
+      type: 'date'
+    });
+
   
     
     
@@ -77,6 +81,17 @@ let data=JSON.stringify({username:"raja"});
   });
   }
   */
+
+  
+   xx() {
+     console.log("fsd")
+    
+      this.x.toggle()
+
+    }
+
+    
+  
 
   lrstatus=[]
   async lrcountcheck(){

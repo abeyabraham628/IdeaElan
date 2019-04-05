@@ -1,15 +1,15 @@
 webpackJsonp([20],{
 
-/***/ 740:
+/***/ 742:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InboxPageModule", function() { return InboxPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(468);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__inbox__ = __webpack_require__(842);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InterviewSchedulePageModule", function() { return InterviewSchedulePageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__interview_schedule__ = __webpack_require__(844);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(468);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,47 +20,39 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var InboxPageModule = /** @class */ (function () {
-    function InboxPageModule() {
+var InterviewSchedulePageModule = /** @class */ (function () {
+    function InterviewSchedulePageModule() {
     }
-    InboxPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+    InterviewSchedulePageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__inbox__["a" /* InboxPage */],
+                __WEBPACK_IMPORTED_MODULE_2__interview_schedule__["a" /* InterviewSchedulePage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_3__inbox__["a" /* InboxPage */]),
-                __WEBPACK_IMPORTED_MODULE_0__components_components_module__["a" /* ComponentsModule */]
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__interview_schedule__["a" /* InterviewSchedulePage */]),
+                __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* ComponentsModule */]
             ],
         })
-    ], InboxPageModule);
-    return InboxPageModule;
+    ], InterviewSchedulePageModule);
+    return InterviewSchedulePageModule;
 }());
 
-//# sourceMappingURL=inbox.module.js.map
+//# sourceMappingURL=interview-schedule.module.js.map
 
 /***/ }),
 
-/***/ 842:
+/***/ 844:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InboxPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__ = __webpack_require__(467);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
-var __assign = (this && this.__assign) || function () {
-    __assign = Object.assign || function(t) {
-        for (var s, i = 1, n = arguments.length; i < n; i++) {
-            s = arguments[i];
-            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
-                t[p] = s[p];
-        }
-        return t;
-    };
-    return __assign.apply(this, arguments);
-};
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InterviewSchedulePage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_date_picker__ = __webpack_require__(469);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__ = __webpack_require__(467);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -74,72 +66,91 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
+
+
 /**
- * Generated class for the InboxPage page.
+ * Generated class for the InterviewSchedulePage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var InboxPage = /** @class */ (function () {
-    function InboxPage(loadingCtrl, afauth, alertCtrl, navCtrl, navParams, firebase, modalCtrl) {
-        this.loadingCtrl = loadingCtrl;
-        this.afauth = afauth;
+var InterviewSchedulePage = /** @class */ (function () {
+    function InterviewSchedulePage(alertCtrl, datePicker, navCtrl, navParams, firebase) {
         this.alertCtrl = alertCtrl;
+        this.datePicker = datePicker;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.firebase = firebase;
-        this.modalCtrl = modalCtrl;
-        this.messages = [];
+        this.applicantKeys = [];
+        //Initialising schedule form
+        this.scheduleForm = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormGroup"]({
+            scheduleDate: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required),
+            scheduleTime: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required]),
+            contactPerson: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].minLength(4)]),
+            contactPersonNum: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].minLength(10)]),
+            jobTitle: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"]('', __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required)
+        });
+        this.applicantList = this.firebase.list('Applicants');
+        this.applicantKeys = this.navParams.data;
+        this.getSchedules();
     }
-    InboxPage.prototype.ionViewDidLoad = function () {
-        this.getMessages();
-    };
-    InboxPage.prototype.ionViewDidLeave = function () {
-        this.navCtrl.popToRoot();
-    };
-    InboxPage.prototype.getMessages = function () {
+    InterviewSchedulePage.prototype.dispdate = function () {
         var _this = this;
-        this.loader = this.loadingCtrl.create({
-            spinner: 'dots',
-            content: 'Loading',
-            dismissOnPageChange: true
-        });
-        this.loader.present();
-        this.firebase.list("messages/" + this.afauth.auth.currentUser.uid).snapshotChanges().subscribe(function (snap) {
-            _this.messages = snap.map(function (item) {
-                return __assign({ $key: item.key }, item.payload.val());
-            }).reverse();
-        });
-        this.loader.dismiss();
+        this.datePicker.show({
+            date: new Date(),
+            mode: 'date',
+            androidTheme: 5,
+        }).then(function (date) {
+            _this.scheduleForm.controls.scheduleDate.setValue(__WEBPACK_IMPORTED_MODULE_4_moment__(date).format('D-MMM-YYYY'));
+        }, function (err) { return console.log('Error occurred while getting date: ', err); });
+    }; //end of function
+    //
+    InterviewSchedulePage.prototype.getSchedules = function () {
+        this.scheduleList = this.firebase.list('schedules');
+        return this.scheduleList.snapshotChanges();
     };
-    InboxPage.prototype.viewMessage = function (x) {
+    ;
+    InterviewSchedulePage.prototype.saveSchedule = function () {
         var _this = this;
-        console.log(x.$key);
-        var alert = this.alertCtrl.create({
-            title: x.subject,
-            message: x.message,
-            enableBackdropDismiss: false,
-            buttons: [{
-                    text: 'OK',
-                    handler: function () {
-                        _this.firebase.object("messages/" + _this.afauth.auth.currentUser.uid + "/" + x.$key).update({
-                            status: 'read'
-                        });
-                    }
-                }]
+        var schedule = {
+            jobTitle: this.scheduleForm.controls.jobTitle.value,
+            interviewTime: this.scheduleForm.controls.scheduleTime.value,
+            contactPerson: this.scheduleForm.controls.contactPerson.value,
+            contactNumber: this.scheduleForm.controls.contactPersonNum.value
+        };
+        //Schedule details is pushed first to the db and then the key of that particular record is retrieved
+        //Once the key is retrieved,that key is add as a reference to the interviewDate field for the selected candidated record. 
+        this.scheduleList.push({
+            interviewDate: this.scheduleForm.controls.scheduleDate.value,
+            interviewDetails: schedule
+        }).then(function (snap) {
+            // Save the interviewDate for the candidates who are scheduled for interiew
+            for (var i = 0; i < _this.applicantKeys.length; i++)
+                _this.applicantList.update(_this.applicantKeys[i], {
+                    interviewDate: snap.key,
+                    interviewStatus: 'Not Reported'
+                }).then(function () {
+                    var alert = _this.alertCtrl.create({
+                        title: "Success",
+                        subTitle: "Schedule created succesfuly ",
+                        buttons: ['OK']
+                    });
+                    alert.present();
+                    _this.scheduleForm.reset();
+                    _this.applicantKeys = [];
+                });
         });
-        alert.present();
-    };
-    InboxPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
-            selector: 'page-inbox',template:/*ion-inline-start:"F:\ionic-app\src\pages\inbox\inbox.html"*/'<!--\n\n  Generated template for the InboxPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n  <page-header pageTitle="INBOX"></page-header>\n\n</ion-header>\n\n\n\n<ion-content >\n\n    <ion-card *ngFor="let x of messages" >\n\n      <ion-card-header (click)="viewMessage(x)" class={{x.status}}>\n\n      <ion-item>\n\n          <ion-avatar item-start>\n\n            <img src="assets/imgs/companylogo.png">\n\n          </ion-avatar>\n\n          <h4 style="text-transform:capitalize">From: {{x.postedBy}}</h4>\n\n          <p >Subject: {{x.subject | titlecase}}</p>\n\n          <p>{{x.date}} {{x.time}}</p>\n\n        </ion-item>\n\n      </ion-card-header>\n\n     \n\n      </ion-card>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\inbox\inbox.html"*/,
+    }; //end of save schedule function
+    InterviewSchedulePage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-interview-schedule',template:/*ion-inline-start:"F:\ionic-app\src\pages\interview-schedule\interview-schedule.html"*/'<!--\n  Generated template for the InterviewSchedulePage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n  <navbar pageTitle="Interview Schedule"></navbar>\n</ion-header>\n\n<ion-content padding>\n    <form [formGroup]="scheduleForm" (ngSubmit)="saveSchedule()">\n  <h6 class="title section-title">Schedule Details</h6>\n                \n                \n\n\n  <ion-item >\n      <ion-label stacked>Job Title</ion-label>\n      <ion-input  type="text"   formControlName="jobTitle"></ion-input>\n    </ion-item>\n    <ion-item  no-lines *ngIf=" scheduleForm.get(\'jobTitle\').hasError(\'required\')  && scheduleForm.get(\'jobTitle\').touched">\n        <ion-label stacked  color="danger">\n          Invalid Job Title\n        </ion-label>\n      </ion-item>\n      <ion-item >\n        <ion-label stacked>Interview Date</ion-label>\n        <ion-input    (click)="dispdate()" (ionFocus)="dispdate()" formControlName="scheduleDate"></ion-input>\n      </ion-item>\n      <ion-item  no-lines *ngIf=" scheduleForm.get(\'scheduleDate\').hasError(\'required\')  && scheduleForm.get(\'scheduleDate\').touched">\n          <ion-label stacked  color="danger">\n            Invalid Date\n          </ion-label>\n        </ion-item>\n   \n\n \n      <ion-item >\n          <ion-label stacked>Interview Time</ion-label>\n          <ion-datetime pickerFormat="h:mm A"  formControlName="scheduleTime" readonly></ion-datetime>\n      </ion-item>\n      <ion-item  no-lines *ngIf=" scheduleForm.get(\'scheduleTime\').hasError(\'required\')  && scheduleForm.get(\'scheduleTime\').touched">\n          <ion-label stacked  color="danger" *ngIf="scheduleForm.get(\'scheduleTime\').hasError(\'required\')  && scheduleForm.get(\'scheduleTime\').touched" >\n            Invalid Time\n          </ion-label>\n        </ion-item>\n    \n  \n\n  \n\n        <ion-item>\n          <ion-label stacked>Contact Person</ion-label>\n          <ion-input formControlName="contactPerson" ></ion-input>\n        </ion-item>\n        <ion-item  no-lines *ngIf="(scheduleForm.get(\'contactPerson\').hasError(\'minlength\') || scheduleForm.get(\'contactPerson\').hasError(\'required\') ) && scheduleForm.get(\'contactPerson\').touched">\n            <ion-label stacked  color="danger">\n              Invalid Name\n            </ion-label>\n          </ion-item>\n        \n      \n      \n          <ion-item >\n            <ion-label stacked>Contact Number</ion-label>\n            <ion-input type="text" maxLength="10" formControlName="contactPersonNum" ></ion-input>\n          </ion-item>\n          <ion-item  no-lines *ngIf="(scheduleForm.get(\'contactPersonNum\').hasError(\'minlength\') || scheduleForm.get(\'contactPersonNum\').hasError(\'required\') ) && scheduleForm.get(\'contactPersonNum\').touched">\n              <ion-label stacked  color="danger" >\n                Invalid Contact Number\n              </ion-label>\n            </ion-item>\n\n      <ion-row>\n        <ion-col col-6>\n          <button ion-button type="submit" [disabled]="scheduleForm.invalid" ion-button  icon-end  full color=blue >\n             Save\n           </button>\n        </ion-col>\n           <ion-col col-6>\n            <button ion-button type="reset"  icon-end full color=blue   >\n              Cancel\n            </button>\n          </ion-col>\n        </ion-row>\n        </form>\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\interview-schedule\interview-schedule.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["LoadingController"], __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ModalController"]])
-    ], InboxPage);
-    return InboxPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_3__ionic_native_date_picker__["a" /* DatePicker */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__["a" /* AngularFireDatabase */]])
+    ], InterviewSchedulePage);
+    return InterviewSchedulePage;
 }());
 
-//# sourceMappingURL=inbox.js.map
+//# sourceMappingURL=interview-schedule.js.map
 
 /***/ })
 
