@@ -1,14 +1,15 @@
 webpackJsonp([14],{
 
-/***/ 749:
+/***/ 747:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MyprofilePageModule", function() { return MyprofilePageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__myprofile__ = __webpack_require__(857);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ModifysystemsPageModule", function() { return ModifysystemsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__modifysystems__ = __webpack_require__(854);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,39 +19,42 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var MyprofilePageModule = /** @class */ (function () {
-    function MyprofilePageModule() {
+
+var ModifysystemsPageModule = /** @class */ (function () {
+    function ModifysystemsPageModule() {
     }
-    MyprofilePageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    ModifysystemsPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__myprofile__["a" /* MyprofilePage */],
+                __WEBPACK_IMPORTED_MODULE_3__modifysystems__["a" /* ModifysystemsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__myprofile__["a" /* MyprofilePage */]),
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_3__modifysystems__["a" /* ModifysystemsPage */]),
+                __WEBPACK_IMPORTED_MODULE_0__components_components_module__["a" /* ComponentsModule */]
             ],
         })
-    ], MyprofilePageModule);
-    return MyprofilePageModule;
+    ], ModifysystemsPageModule);
+    return ModifysystemsPageModule;
 }());
 
-//# sourceMappingURL=myprofile.module.js.map
+//# sourceMappingURL=modifysystems.module.js.map
 
 /***/ }),
 
-/***/ 857:
+/***/ 854:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyprofilePage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_form_service__ = __webpack_require__(471);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_storage__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(467);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_forms__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(46);
-//Abey Abraham
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ModifysystemsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_date_picker__ = __webpack_require__(470);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_barcode_scanner__ = __webpack_require__(475);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_form_service__ = __webpack_require__(471);
+//Tony Manuel
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -68,85 +72,163 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 /**
- * Generated class for the MyprofilePage page.
+ * Generated class for the ModifysystemsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var MyprofilePage = /** @class */ (function () {
-    function MyprofilePage(data, cache, myModal, toastCtrl, navCtrl, navParams, firebase, afauth) {
-        //this.retrieveProfile()
-        var _this = this;
-        this.data = data;
-        this.cache = cache;
-        this.myModal = myModal;
-        this.toastCtrl = toastCtrl;
+var ModifysystemsPage = /** @class */ (function () {
+    function ModifysystemsPage(barcode, datePicker, formData, navCtrl, navParams, firebase, alertCtrl) {
+        this.barcode = barcode;
+        this.datePicker = datePicker;
+        this.formData = formData;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.firebase = firebase;
-        this.afauth = afauth;
-        this.profileForm = new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormGroup"]({
-            $key: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"](null),
-            fName: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].pattern('[a-zA-Z]*'), __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].minLength(2)]),
-            lName: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].pattern('[a-zA-Z]*'), __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].minLength(2)]),
-            mobile: new __WEBPACK_IMPORTED_MODULE_4__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].pattern('^([6-9])([0-9]{9})$'), __WEBPACK_IMPORTED_MODULE_4__angular_forms__["Validators"].minLength(10)]),
-        });
-        //.uri=`https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/${this.afauth.auth.currentUser.uid}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b5${new Date().toLocaleTimeString()}`
-        this.data.currentUri.subscribe(function (item) { return _this.uri = item; });
+        this.alertCtrl = alertCtrl;
+        this.showDefault = false;
+        this.showSystemUser = false;
+        this.showavExpiry = false;
+        this.fieldErr = true;
+        this.employeeList = [];
+        this.getUsers();
+        this.params = navParams.data[0];
     }
-    MyprofilePage.prototype.retrieveProfile = function () {
-        var _this = this;
-        this.firebase.database.ref("users/" + this.afauth.auth.currentUser.uid).on('value', function (snap) {
-            _this.profileForm.controls['$key'].setValue(_this.$key = snap.key);
-            _this.profileForm.get('fName').setValue(_this.fName = snap.child('fname').val());
-            _this.profileForm.get('lName').setValue(_this.lName = snap.child('lname').val());
-            _this.profileForm.get('mobile').setValue(_this.mobile = snap.child('mobile').val());
-            _this.email = snap.child('email').val();
-            _this.doj = snap.child('doj').val();
-            _this.dob = snap.child('dob').val();
-            _this.jobTitle = snap.child('position').val();
-        });
-    };
-    MyprofilePage.prototype.updateProfile = function () {
-        var _this = this;
-        if (this.profileForm.valid) {
-            if (this.$key != "")
-                this.firebase.list('users').update(this.$key, {
-                    fname: this.profileForm.get('fName').value,
-                    lname: this.profileForm.get('lName').value,
-                    mobile: this.profileForm.get('mobile').value
-                }).then(function () {
-                    var toast = _this.toastCtrl.create({
-                        message: 'Profile updated successfully',
-                        duration: 3000
-                    });
-                    toast.present();
-                });
+    ModifysystemsPage.prototype.ionViewDidLoad = function () {
+        switch (this.params.fieldName) {
+            case 'keyboard':
+                this.fieldName = 'Key Board';
+                this.default = this.params.fieldVal;
+                this.showDefault = true;
+                break;
+            case 'mouse':
+                this.fieldName = 'Mouse';
+                this.default = this.params.fieldVal;
+                this.showDefault = true;
+                break;
+            case 'processor':
+                this.fieldName = 'Processor';
+                this.default = this.params.fieldVal;
+                this.showDefault = true;
+                break;
+            case 'hdd':
+                this.fieldName = 'Hard Disk';
+                this.default = this.params.fieldVal;
+                this.showDefault = true;
+                break;
+            case 'memory':
+                this.fieldName = 'Ram';
+                this.default = this.params.fieldVal;
+                this.showDefault = true;
+                break;
+            case 'avExpiry':
+                this.fieldName = 'Antivirus Expiry';
+                this.avExpiry = this.params.fieldVal;
+                this.showavExpiry = true;
+                break;
+            case 'systemUser':
+                this.fieldName = 'System User';
+                this.systemUser = this.params.fieldVal;
+                this.showSystemUser = true;
+                break;
         }
     };
-    MyprofilePage.prototype.showmodal = function () {
+    ModifysystemsPage.prototype.getUsers = function () {
         var _this = this;
-        console.log("hiiii");
-        var mydata = {
-            uri: "" + this.uri
-        };
-        var modal = this.myModal.create('ModalPage', { mydata: mydata });
-        modal.onDidDismiss(function () {
-            _this.uri = "https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/" + _this.afauth.auth.currentUser.uid + ".jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b5" + new Date().toLocaleTimeString();
+        this.firebase.list("users").snapshotChanges().subscribe(function (list) {
+            _this.employeeList = list.map(function (item) {
+                return {
+                    '$key': item.key,
+                    'fName': item.payload.child('fname').val(),
+                    'lName': item.payload.child('lname').val()
+                };
+            });
         });
-        modal.present();
     };
-    var _a, _b, _c, _d, _e, _f, _g, _h;
-    MyprofilePage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_5__angular_core__["Component"])({
-            selector: 'page-myprofile',template:/*ion-inline-start:"F:\ionic-app\src\pages\myprofile\myprofile.html"*/'<!--Abey Abraham-->\n\n<ion-header>\n\n  <ion-navbar color="blue">\n\n    <ion-title>\n\n      My Profile\n\n    </ion-title>\n\n    <ion-buttons end >\n\n        <button ion-button type="submit" form="profile"  icon-only > <ion-icon  name="checkmark"></ion-icon>Save</button>\n\n    </ion-buttons>\n\n   </ion-navbar>\n\n</ion-header>\n\n<ion-content>\n\n    \n\n    <form [formGroup]="profileForm" (ngSubmit)="updateProfile()" id="profile">\n\n        \n\n      <ion-item  style="text-align:center;" (click)="showmodal()">\n\n            \n\n            <img src="{{uri}}" onerror="this.src=\'assets/imgs/companylogo.png\'" style="height:100px;width:100px;border-radius:30%;margin: auto"> \n\n          \n\n        <h4 >{{this.fName | titlecase }} {{this.lName | titlecase }}</h4>\n\n        <h6>{{this.jobTitle | titlecase }} </h6>\n\n        <h6>{{this.email}}</h6>\n\n        \n\n        \n\n      </ion-item>\n\n            \n\n          <ion-row>\n\n              <ion-item col-6>\n\n                <ion-input hidden formControlName="$key" ></ion-input>\n\n                <ion-label stacked>First Name</ion-label>\n\n                <ion-input type="text" formControlName="fName" maxlength=15 ></ion-input>\n\n              </ion-item>\n\n             \n\n              <ion-item col-6>\n\n                  <ion-label stacked>Last Name</ion-label>\n\n                  <ion-input type="text" formControlName="lName" maxlength=15   ></ion-input>\n\n                </ion-item>\n\n                \n\n          </ion-row> \n\n          <ion-row>\n\n            <ion-col col-6>\n\n            <ion-item   no-lines *ngIf="(profileForm.get(\'fName\').hasError(\'pattern\') || profileForm.get(\'fName\').hasError(\'minlength\') || profileForm.get(\'fName\').hasError(\'required\') ) && profileForm.get(\'fName\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(profileForm.get(\'fName\').hasError(\'pattern\') || profileForm.get(\'fName\').hasError(\'required\')  || profileForm.get(\'fName\').hasError(\'minlength\')) && profileForm.get(\'fName\').touched" >\n\n                Invalid First Name\n\n              </ion-label>\n\n            </ion-item>\n\n          </ion-col>\n\n          <ion-col col-6>\n\n            <ion-item   no-lines *ngIf="(profileForm.get(\'lName\').hasError(\'pattern\') || profileForm.get(\'lName\').hasError(\'minlength\') || profileForm.get(\'lName\').hasError(\'required\') ) && profileForm.get(\'lName\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(profileForm.get(\'lName\').hasError(\'pattern\') || profileForm.get(\'lName\').hasError(\'required\')  || profileForm.get(\'lName\').hasError(\'minlength\')) && profileForm.get(\'lName\').touched" >\n\n                Invalid Last Name\n\n              </ion-label>\n\n            </ion-item>\n\n          </ion-col>\n\n          </ion-row>\n\n            \n\n          <ion-item>\n\n              <ion-label stacked>Mobile Number</ion-label>\n\n              <ion-input type="tel" formControlName="mobile" maxlength=10 ></ion-input>\n\n            </ion-item>  \n\n            <ion-item   no-lines *ngIf="(profileForm.get(\'mobile\').hasError(\'pattern\') || profileForm.get(\'mobile\').hasError(\'minlength\') || profileForm.get(\'mobile\').hasError(\'required\') ) && profileForm.get(\'mobile\').touched">\n\n                <ion-label stacked  color="danger" *ngIf="(profileForm.get(\'mobile\').hasError(\'pattern\') || profileForm.get(\'mobile\').hasError(\'required\')  || profileForm.get(\'mobile\').hasError(\'minlength\')) && profileForm.get(\'mobile\').touched" >\n\n                  Invalid Mobile Number\n\n                </ion-label>\n\n              </ion-item>\n\n            <ion-item>\n\n              <ion-label stacked>Date Of Birth</ion-label>\n\n              <ion-input disabled type="text" [(ngModel)]="dob"  [ngModelOptions]="{standalone: true}" ></ion-input>\n\n            </ion-item>  \n\n            <ion-item>\n\n              <ion-label stacked>Date Of Join</ion-label>\n\n              <ion-input disabled type="text" [(ngModel)]="doj"  [ngModelOptions]="{standalone: true}"></ion-input>\n\n            </ion-item>  \n\n          \n\n          </form>\n\n          \n\n          </ion-content>\n\n       '/*ion-inline-end:"F:\ionic-app\src\pages\myprofile\myprofile.html"*/,
+    ModifysystemsPage.prototype.updateSystems = function () {
+        var _this = this;
+        console.log(":fds");
+        var value;
+        var flag = false;
+        var uname;
+        switch (this.params.fieldName) {
+            case 'keyboard':
+            case 'mouse':
+            case 'processor':
+            case 'hdd':
+            case 'memory':
+                value = this.default;
+                break;
+            case 'avExpiry':
+                value = this.avExpiry;
+                break;
+            case 'systemUser':
+                flag = true;
+                value = this.systemUser;
+                var empObj = this.employeeList.find(function (key) { return key.$key == _this.systemUser; });
+                uname = empObj.fName + " " + empObj.lName;
+                break;
+        }
+        if (value == null || value == "" || value.length < 3) {
+            this.fieldErr = false;
+        }
+        else {
+            this.fieldErr = true;
+            this.firebase.list("maintenance/" + this.params.$key).push({
+                'type': { 'name': this.params.fieldName, 'value': flag ? uname : value },
+                date: __WEBPACK_IMPORTED_MODULE_5_moment__().format('D-MMM-YYYY'),
+                userKey: this.params.userKey != this.systemUser ? this.params.userKey : value,
+                userName: this.params.userName
+            }).then(function () {
+                var _a;
+                _this.firebase.list("systems").update(_this.params.$key, (_a = {},
+                    _a[_this.params.fieldName] = value,
+                    _a)).then(function () {
+                    var alert = _this.alertCtrl.create({
+                        title: "Success",
+                        message: _this.fieldName + " updated successfully",
+                        buttons: [{
+                                text: 'OK',
+                                handler: function () {
+                                    _this.formData.changeValue(value);
+                                    _this.navCtrl.pop();
+                                }
+                            }]
+                    });
+                    alert.present();
+                });
+            });
+        } //end of if else error
+    };
+    ModifysystemsPage.prototype.dispdate = function () {
+        var _this = this;
+        this.datePicker.show({
+            date: __WEBPACK_IMPORTED_MODULE_5_moment__().toDate(),
+            mode: 'date',
+            androidTheme: 5,
+        }).then(function (date) {
+            _this.avExpiry = __WEBPACK_IMPORTED_MODULE_5_moment__(date).format('D-MMM-YYYY');
+        }, function (err) { return console.log('Error occurred while getting date: ', err); });
+    };
+    ModifysystemsPage.prototype.scanBarCode = function (type) {
+        var _this = this;
+        this.barcode.scan().then(function (barcodeData) {
+            _this.default = barcodeData.text;
+        }).catch(function (err) {
+            console.log('Error', err);
+        });
+    };
+    ModifysystemsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
+            selector: 'page-modifysystems',template:/*ion-inline-start:"F:\ionic-app\src\pages\modifysystems\modifysystems.html"*/'<!--\n\n Tony Manuel\n\n-->\n\n<ion-header>\n\n  <navbar pageTitle="System"></navbar>\n\n</ion-header>\n\n\n\n\n\n<ion-content padding >\n\n    \n\n    \n\n   \n\n\n\n      <ion-item no-lines>\n\n        <h3 style="font-size:20px">Change {{fieldName}}</h3>\n\n        <p style="font-size:12px">Enter the new {{fieldName}} details.</p>\n\n        </ion-item>\n\n\n\n       <ion-item >\n\n        <ion-label stacked></ion-label>\n\n        <ion-input *ngIf="showDefault" type="text"  [(ngModel)]="default" ></ion-input>\n\n        <button *ngIf="showDefault"  ion-button small type="button" (click)="scanBarCode(\'keyboard\')" color="blue" item-right>\n\n          <ion-icon name="barcode"> </ion-icon>\n\n        </button>\n\n        <ion-select *ngIf="showSystemUser" [(ngModel)]="systemUser">\n\n          <ion-option *ngFor="let emp of employeeList" [value]="emp.$key">{{emp.fName}} {{emp.lName}}</ion-option>\n\n        </ion-select>\n\n        <ion-input *ngIf="showavExpiry" type="text" readonly [(ngModel)]="avExpiry" (tap)="dispDate()"></ion-input>\n\n        </ion-item>\n\n        <ion-item no-lines [hidden]="fieldErr">\n\n          <ion-label stacked color="danger">{{fieldName}} value is invalid</ion-label>\n\n        </ion-item>\n\n       \n\n      \n\n      \n\n     <ion-row>\n\n       <ion-item col-6 no-lines>\n\n         <button ion-button color="blue" style="height:40px;" type="button" (click)="updateSystems()">Save Details</button>\n\n       </ion-item>\n\n       \n\n     </ion-row>\n\n    \n\n  \n\n    <hr/>\n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\modifysystems\modifysystems.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__providers_form_service__["a" /* DataService */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__providers_form_service__["a" /* DataService */]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["ModalController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["ModalController"]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["ToastController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["ToastController"]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["NavController"]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["NavParams"]) === "function" ? _f : Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */]) === "function" ? _g : Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */]) === "function" ? _h : Object])
-    ], MyprofilePage);
-    return MyprofilePage;
+        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_native_barcode_scanner__["a" /* BarcodeScanner */], __WEBPACK_IMPORTED_MODULE_0__ionic_native_date_picker__["a" /* DatePicker */], __WEBPACK_IMPORTED_MODULE_6__providers_form_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["AlertController"]])
+    ], ModifysystemsPage);
+    return ModifysystemsPage;
 }());
 
-//# sourceMappingURL=myprofile.js.map
+//# sourceMappingURL=modifysystems.js.map
 
 /***/ })
 

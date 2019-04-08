@@ -1,6 +1,6 @@
 webpackJsonp([8],{
 
-/***/ 756:
+/***/ 754:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -9,7 +9,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(468);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__upload_events__ = __webpack_require__(864);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__upload_events__ = __webpack_require__(861);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -41,7 +41,7 @@ var UploadEventsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 793:
+/***/ 791:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -66,7 +66,7 @@ var Designations = [
 
 /***/ }),
 
-/***/ 864:
+/***/ 861:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -76,7 +76,7 @@ var Designations = [
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_designations__ = __webpack_require__(793);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_designations__ = __webpack_require__(791);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_moment__);
 var __assign = (this && this.__assign) || function () {
@@ -326,12 +326,11 @@ var UploadEventsPage = /** @class */ (function () {
         alert.addButton('OK');
         alert.present();
     };
-    var _a, _b, _c, _d, _e, _f;
     UploadEventsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
             selector: 'page-upload-events',template:/*ion-inline-start:"F:\ionic-app\src\pages\upload-events\upload-events.html"*/'<!--\n\n  Abey Abraham\n\n-->\n\n<ion-header no-border>\n\n  <navbar pageTitle="SEND MESSAGE"></navbar>\n\n</ion-header>\n\n\n\n<ion-content>\n\n    <ion-segment [(ngModel)]="messages" color="white" >\n\n        <ion-segment-button value="compose">\n\n           Compose\n\n        </ion-segment-button>\n\n        <ion-segment-button value="sentItems" (click)="getSentItems()">\n\n          Sent Items\n\n        </ion-segment-button>\n\n     </ion-segment>\n\n\n\n     <div [ngSwitch]="messages">\n\n        <div *ngSwitchCase="\'compose\'">\n\n    <form [formGroup]="PublishMessageForm" (ngSubmit)="publishMessage()">\n\n        \n\n       \n\n          <ion-item>\n\n                <ion-label floating>Recipients</ion-label>\n\n                <ion-input type="text" formControlName="recipients" readonly (click)="addRecipients()" (ionFocus)="addRecipients()"></ion-input>\n\n           </ion-item>    \n\n\n\n    <ion-item>\n\n      <ion-label floating>Subject</ion-label>\n\n        <ion-input type="text" formControlName="subject"></ion-input>\n\n    </ion-item>\n\n    <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'subject\').hasError(\'required\')  && PublishMessageForm.get(\'subject\').touched">\n\n        <ion-label stacked  color="danger">\n\n          Subject Is Required\n\n        </ion-label>\n\n      </ion-item>\n\n    <ion-item>\n\n        <ion-label floating>Message</ion-label>\n\n          <ion-textarea rows="10" formControlName="message"></ion-textarea>\n\n      </ion-item>\n\n      <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'message\').hasError(\'required\')  && PublishMessageForm.get(\'message\').touched">\n\n          <ion-label stacked  color="danger">\n\n            Message Is Required\n\n          </ion-label>\n\n        </ion-item>\n\n\n\n       <ion-row>\n\n            <ion-col col-6>\n\n                <button type="submit"  [disabled]="PublishMessageForm.invalid" color="blue" full ion-button>Send Message</button>\n\n          </ion-col>\n\n          <ion-col col-6>\n\n              <button ion-button type="reset"  icon-end full color=blue   >\n\n                Cancel\n\n              </button>\n\n            </ion-col>\n\n          </ion-row> \n\n         </form>\n\n  </div>\n\n\n\n  <div *ngSwitchCase="\'sentItems\'" >\n\n      <ion-item>\n\n          <ion-row class="table-title">\n\n            <ion-col col-5 >Recipients</ion-col>\n\n            <ion-col col-5 >Subject</ion-col>\n\n            <ion-col col-2 >Date</ion-col>\n\n            \n\n          </ion-row>\n\n        </ion-item>\n\n        <ion-item *ngFor="let message of sentItems">\n\n          <ion-row class="col-text table-bottom-border" (click)="viewMessage(message)" >\n\n              <ion-col col-5><p style="font-size:10px; text-transform:uppercase"  *ngFor="let recipients of message.recipients">{{recipients}}</p></ion-col><ion-col col-5 style="overflow:hidden !important;\n\n              text-overflow: ellipsis;">{{message.subject}}</ion-col><ion-col col-2>{{message.date}}</ion-col>\n\n          </ion-row>\n\n        </ion-item>\n\n    </div>\n\n\n\n\n\n         </div>\n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\upload-events\upload-events.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["LoadingController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["LoadingController"]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["AlertController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["AlertController"]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__["a" /* AngularFireAuth */]) === "function" ? _f : Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["LoadingController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__["a" /* AngularFireAuth */]])
     ], UploadEventsPage);
     return UploadEventsPage;
 }());

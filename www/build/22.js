@@ -1,15 +1,14 @@
 webpackJsonp([22],{
 
-/***/ 739:
+/***/ 737:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ForgotpasswordPageModule", function() { return ForgotpasswordPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ChangepasswordPageModule", function() { return ChangepasswordPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__forgotpassword__ = __webpack_require__(847);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__changepassword__ = __webpack_require__(844);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -19,40 +18,37 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-var ForgotpasswordPageModule = /** @class */ (function () {
-    function ForgotpasswordPageModule() {
+var ChangepasswordPageModule = /** @class */ (function () {
+    function ChangepasswordPageModule() {
     }
-    ForgotpasswordPageModule = __decorate([
+    ChangepasswordPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__forgotpassword__["a" /* ForgotpasswordPage */],
+                __WEBPACK_IMPORTED_MODULE_2__changepassword__["a" /* ChangepasswordPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__forgotpassword__["a" /* ForgotpasswordPage */]),
-                __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* ComponentsModule */]
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__changepassword__["a" /* ChangepasswordPage */]),
             ],
         })
-    ], ForgotpasswordPageModule);
-    return ForgotpasswordPageModule;
+    ], ChangepasswordPageModule);
+    return ChangepasswordPageModule;
 }());
 
-//# sourceMappingURL=forgotpassword.module.js.map
+//# sourceMappingURL=changepassword.module.js.map
 
 /***/ }),
 
-/***/ 847:
+/***/ 844:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ForgotpasswordPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__ = __webpack_require__(467);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_strings__ = __webpack_require__(469);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__ionic_storage__ = __webpack_require__(193);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ChangepasswordPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_strings__ = __webpack_require__(469);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__ = __webpack_require__(112);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__ = __webpack_require__(467);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -62,67 +58,146 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-//Author Abey Abraham
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __generator = (this && this.__generator) || function (thisArg, body) {
+    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
+    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
+    function verb(n) { return function (v) { return step([n, v]); }; }
+    function step(op) {
+        if (f) throw new TypeError("Generator is already executing.");
+        while (_) try {
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
+            switch (op[0]) {
+                case 0: case 1: t = op; break;
+                case 4: _.label++; return { value: op[1], done: false };
+                case 5: _.label++; y = op[1]; op = [0]; continue;
+                case 7: op = _.ops.pop(); _.trys.pop(); continue;
+                default:
+                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
+                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
+                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
+                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
+                    if (t[2]) _.ops.pop();
+                    _.trys.pop(); continue;
+            }
+            op = body.call(thisArg, _);
+        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
+        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
+    }
+};
+//Author Tony Manuel
 
 
 
 
 
 
-
-var ForgotpasswordPage = /** @class */ (function () {
-    function ForgotpasswordPage(toastCtrl, navCtrl, navParams, afauth, storage, firebase) {
-        this.toastCtrl = toastCtrl;
+/**
+ * Generated class for the ChangepasswordPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var ChangepasswordPage = /** @class */ (function () {
+    function ChangepasswordPage(toast, navCtrl, navParams, afAuth, firebase) {
+        this.toast = toast;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.afauth = afauth;
-        this.storage = storage;
+        this.afAuth = afAuth;
         this.firebase = firebase;
-        this.passwordResetForm = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormGroup"]({
-            email: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')])
+        this.companyLogo = __WEBPACK_IMPORTED_MODULE_0__providers_strings__["a" /* AppConst */].passwordImg;
+        this.changePasswordForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormGroup"]({
+            password: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(6), __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].maxLength(15)]),
+            confirmPassword: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(6), __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].maxLength(15), this.equalto('password')])
         });
+        this.existingUser = this.navParams.get('existingUser');
     }
-    ForgotpasswordPage.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        this.storage.get('emailId').then(function (email) { return _this.passwordResetForm.controls['email'].setValue(email); });
+    ChangepasswordPage.prototype.ionViewDidLeave = function () {
+        //this.navCtrl.popToRoot();
     };
-    ForgotpasswordPage.prototype.resetPassword = function () {
-        var _this = this;
-        var navCtrl = this.navCtrl;
-        var auth = this.afauth.auth;
-        var emailAddress = this.passwordResetForm.controls['email'].value;
-        auth.sendPasswordResetEmail(emailAddress).then(function () {
-            var toast = _this.toastCtrl.create({
-                message: 'Password reset link has been sent to your mail.',
-                duration: 4000
+    ChangepasswordPage.prototype.equalto = function (field_name) {
+        return function (control) {
+            var input = control.value;
+            var isValid = control.root.value[field_name] == input;
+            if (!isValid)
+                return { 'equalTo': { isValid: isValid } };
+            else
+                return null;
+        };
+    };
+    ChangepasswordPage.prototype.updatePassword = function (formValue) {
+        return __awaiter(this, void 0, void 0, function () {
+            var user, newPassword, firebase, navCtrl, toastCtrl;
+            var _this = this;
+            return __generator(this, function (_a) {
+                user = this.afAuth.auth.currentUser;
+                newPassword = formValue.password;
+                firebase = this.firebase;
+                navCtrl = this.navCtrl;
+                toastCtrl = this.toast;
+                if (this.existingUser == null) {
+                    user.updatePassword(newPassword).then(function () {
+                        _this.afAuth.auth.signOut()
+                            .then(function () {
+                            var toast = toastCtrl.create({
+                                message: 'Password Updated Successfully. Please login to continue',
+                                duration: 5000
+                            });
+                            toast.present().then(function () { return navCtrl.setRoot('LoginPage'); });
+                        });
+                    });
+                }
+                else if (!this.existingUser) {
+                    user.updatePassword(newPassword).then(function () {
+                        firebase.object("TempLogin/" + user.uid).set({
+                            status: "Set",
+                        }).then(function () {
+                            return __awaiter(this, void 0, void 0, function () {
+                                var privilleges, priv;
+                                return __generator(this, function (_a) {
+                                    switch (_a.label) {
+                                        case 0:
+                                            privilleges = [];
+                                            return [4 /*yield*/, firebase.database.ref("users/" + user.uid).child('data').once('value', function (snapshot) {
+                                                    privilleges = snapshot.val();
+                                                })];
+                                        case 1:
+                                            priv = _a.sent();
+                                            navCtrl.push('TabsPage', { 'roles': privilleges });
+                                            return [2 /*return*/];
+                                    }
+                                });
+                            });
+                        }); // end of push
+                    }).catch(function (error) {
+                        alert(error);
+                    });
+                }
+                return [2 /*return*/];
             });
-            toast.present();
-            setTimeout(function () {
-                navCtrl.setRoot('LoginPage');
-            }, 4500);
-        }).catch(function (error) {
-            var errMsg = __WEBPACK_IMPORTED_MODULE_5__providers_strings__["a" /* AppConst */].FirebaseError.find(function (e) { return e.code == error.code; });
-            var toast = _this.toastCtrl.create({
-                message: errMsg.error,
-                duration: 3000
-            });
-            toast.present();
         });
     };
-    ForgotpasswordPage.prototype.goBack = function () {
-        this.navCtrl.popToRoot();
+    ChangepasswordPage.prototype.cancel = function () {
+        this.navCtrl.pop();
     };
-    var _a, _b, _c, _d, _e, _f;
-    ForgotpasswordPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
-            selector: 'page-forgotpassword',template:/*ion-inline-start:"F:\ionic-app\src\pages\forgotpassword\forgotpassword.html"*/'<!--Authour Abey Abraham-->\n\n<ion-header no-border>\n\n  <navbar pageTitle="RESET PASSWORD"></navbar>\n\n</ion-header>\n\n\n\n\n\n\n\n<ion-content padding >\n\n    \n\n        <form [formGroup]="passwordResetForm" (ngSubmit)="resetPassword()">\n\n       \n\n\n\n          <ion-item no-lines>\n\n            <h3 style="font-size:20px"> Forgot Password?</h3>\n\n            <p style="font-size:12px">Enter your email address to reset your password</p>\n\n            </ion-item>\n\n           <ion-item no-lines>\n\n            <ion-input type="email" style="border:1px solid #f6a253" full  formControlName="email" ></ion-input>\n\n          </ion-item>\n\n          <ion-item  no-lines *ngIf="(passwordResetForm.get(\'email\').hasError(\'minlength\') || passwordResetForm.get(\'email\').hasError(\'required\') || passwordResetForm.get(\'email\').hasError(\'pattern\') ) && passwordResetForm.get(\'email\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(passwordResetForm.get(\'email\').hasError(\'minlength\') || passwordResetForm.get(\'email\').hasError(\'required\') || passwordResetForm.get(\'email\').hasError(\'pattern\') ) && passwordResetForm.get(\'email\').touched" >\n\n                Invalid Email ID\n\n              </ion-label>\n\n            </ion-item>\n\n       \n\n         <ion-row>\n\n           <ion-item col-6 no-lines>\n\n             <button ion-button color="blue" style="height:40px;" type="submit"  [disabled]="passwordResetForm.invalid">Reset Password</button>\n\n           </ion-item>\n\n           <ion-item col-6 no-lines>\n\n              <button type="reset" ion-button color="light" style="height:40px;" (click)="goBack()">Cancel</button>\n\n            </ion-item>\n\n         </ion-row>\n\n        \n\n      </form>\n\n        <hr/>\n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\forgotpassword\forgotpassword.html"*/,
+    ChangepasswordPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
+            selector: 'page-changepassword',template:/*ion-inline-start:"F:\ionic-app\src\pages\changepassword\changepassword.html"*/'<!--\n\n  Author Tony Manuel\n\n-->\n\n\n\n<ion-header no-border>\n\n    <ion-toolbar color="blue">\n\n     <ion-title text-center>IdeaElan</ion-title>\n\n   </ion-toolbar>\n\n  </ion-header>\n\n\n\n<ion-content padding class="top-botton-border" style="margin-top:auto;margin-bottom:auto">\n\n    <form [formGroup]="changePasswordForm" (ngSubmit)="updatePassword(changePasswordForm.value,true)" >\n\n  <ion-card>\n\n    <ion-card-header text-center>\n\n        <ion-thumbnail >\n\n            <img [src]="companyLogo" class="logo1" />\n\n          </ion-thumbnail>\n\n          <br/>CHANGE PASSWORD\n\n    </ion-card-header>\n\n    <ion-card-content>\n\n      <ion-list>\n\n         \n\n            <ion-item no-lines>\n\n              <ion-label floating>New Password</ion-label>\n\n              <ion-input type="password" formControlName="password" ></ion-input>\n\n              \n\n            </ion-item>\n\n            \n\n            <ion-item no-lines  *ngIf="(changePasswordForm.get(\'password\').hasError(\'required\') ) && changePasswordForm.get(\'password\').touched">\n\n\n\n                <ion-label stacked color="danger" *ngIf="changePasswordForm.get(\'password\').hasError(\'required\') && changePasswordForm.get(\'password\').touched">\n\n                   Password is required\n\n                </ion-label>\n\n            </ion-item>\n\n         \n\n          \n\n            <ion-item>\n\n              <ion-label floating>Confirm Password</ion-label>\n\n              <ion-input type="password"  formControlName="confirmPassword"></ion-input>\n\n            </ion-item>\n\n\n\n            <ion-item no-lines *ngIf="( changePasswordForm.get(\'confirmPassword\').hasError(\'equalTo\') || changePasswordForm.get(\'confirmPassword\').hasError(\'required\') ) && changePasswordForm.get(\'confirmPassword\').touched">\n\n              <ion-label stacked color="danger" *ngIf="changePasswordForm.get(\'confirmPassword\').hasError(\'required\') && changePasswordForm.get(\'confirmPassword\').touched">\n\n                Confirm password is required\n\n              </ion-label>\n\n              <ion-label stacked color="danger" *ngIf="changePasswordForm.get(\'confirmPassword\').hasError(\'equalTo\') && changePasswordForm.get(\'confirmPassword\').touched">\n\n                 Password Mismatch\n\n              </ion-label>\n\n            </ion-item>\n\n          \n\n          </ion-list> \n\n          \n\n\n\n    </ion-card-content>\n\n    <ion-row class="cardfooter">\n\n        <ion-col col-6>\n\n            <button ion-button type="submit" full  color="blue" >Save</button>\n\n           \n\n        </ion-col>\n\n        <ion-col col-6>\n\n        \n\n            <button ion-button full type="reset" color="blue" (click)="cancel()">Cancel</button>\n\n        </ion-col>\n\n      </ion-row>\n\n  </ion-card>\n\n</form>\n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\changepassword\changepassword.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["ToastController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["ToastController"]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavController"]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavParams"]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_fire_auth__["a" /* AngularFireAuth */]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__ionic_storage__["b" /* Storage */]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */]) === "function" ? _f : Object])
-    ], ForgotpasswordPage);
-    return ForgotpasswordPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ToastController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__["a" /* AngularFireDatabase */]])
+    ], ChangepasswordPage);
+    return ChangepasswordPage;
 }());
 
-//# sourceMappingURL=forgotpassword.js.map
+//# sourceMappingURL=changepassword.js.map
 
 /***/ })
 

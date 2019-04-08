@@ -1,6 +1,6 @@
 webpackJsonp([10],{
 
-/***/ 753:
+/***/ 751:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SupportPageModule", function() { return SupportPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__support__ = __webpack_require__(861);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__support__ = __webpack_require__(858);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(468);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -41,7 +41,7 @@ var SupportPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 861:
+/***/ 858:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -215,12 +215,11 @@ var SupportPage = /** @class */ (function () {
             this.messages = this.supportMessage;
         }
     };
-    var _a, _b, _c, _d, _e, _f;
     SupportPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
             selector: 'page-support',template:/*ion-inline-start:"F:\ionic-app\src\pages\support\support.html"*/'<!--\n\n Abey Abraham\n\n-->\n\n<ion-header no-border>\n\n  <page-header pageTitle="Support"></page-header>\n\n</ion-header>\n\n\n\n<ion-content>\n\n  <ion-segment [(ngModel)]="support" color="white" >\n\n    <ion-segment-button value="newIssue">\n\n       New Issue\n\n    </ion-segment-button>\n\n    <ion-segment-button value="pastIssues" (click)="resetFields()">\n\n      History\n\n    </ion-segment-button>\n\n    <ion-segment-button value="messages" (click)="resetFields()" *ngIf="user==\'admin\' || user==\'hr\' ">\n\n      Messsages\n\n    </ion-segment-button>\n\n </ion-segment>\n\n\n\n <div [ngSwitch]="support">\n\n    <div *ngSwitchCase="\'newIssue\'">\n\n        <ion-item>\n\n            <ion-label stacked>Send To</ion-label>\n\n              <ion-select [(ngModel)]="recipient">\n\n                <ion-option value="hr">HR</ion-option>\n\n                <ion-option value="admin">Admin</ion-option>\n\n              </ion-select>\n\n          </ion-item>\n\n          <ion-item  no-lines [hidden]="recpErr">\n\n            <ion-label color="danger" stacked>Recipient cannot be blank</ion-label>\n\n          </ion-item>\n\n     \n\n      <ion-item>\n\n        <ion-label stacked>I need Help With</ion-label>\n\n          <ion-select [(ngModel)]="subject">\n\n            <ion-option value="Internet">Internet Connectivity</ion-option>\n\n            <ion-option value="Computer">Computer Related</ion-option>\n\n            <ion-option value="Other">Other</ion-option>\n\n          </ion-select>\n\n      </ion-item>\n\n      <ion-item no-lines [hidden]="subjectErr">\n\n          <ion-label color="danger" stacked>Subject cannot be blank</ion-label>\n\n        </ion-item>\n\n      <ion-item>\n\n        <ion-label stacked>Please enter your issue</ion-label>\n\n        <ion-textarea rows=5 [(ngModel)]="matter"></ion-textarea>\n\n      </ion-item>\n\n      <ion-item  no-lines [hidden]="commentErr">\n\n          <ion-label color="danger" stacked>Minimum 5 Characters</ion-label>\n\n        </ion-item>\n\n\n\n      <ion-row>\n\n        <ion-col col-6><button ion-button  type="button" color="blue" full (click)="contactSupport()">Send</button></ion-col>\n\n        <ion-col col-6><button ion-button  type="reset" color="blue" full (click)="resetFields()">Cancel</button></ion-col>\n\n       \n\n      </ion-row>\n\n      \n\n    </div>\n\n    <div *ngSwitchCase="\'pastIssues\'">\n\n        <ion-item>\n\n            <ion-row class="table-title">\n\n              <ion-col col-3 >Date</ion-col>\n\n              <ion-col col-3 >Send To</ion-col>\n\n               <ion-col col-4 >Subject</ion-col>\n\n              <ion-col col-2 >Status</ion-col>\n\n             \n\n            </ion-row>\n\n          </ion-item>\n\n          <ion-item *ngFor=\'let r of myRequests\' [ngClass]=r.status  >\n\n              <ion-row class=\'col-text table-bottom-border\'  >\n\n                  <ion-col col-3>{{r.date}}</ion-col><ion-col col-3>{{r.recipient}}</ion-col><ion-col col-4>{{r.subject}}</ion-col><ion-col col-2>{{r.status}}</ion-col>\n\n              </ion-row>\n\n            </ion-item>\n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'messages\'">\n\n     <ion-item>\n\n       <ion-label >Filter Messages By</ion-label>\n\n      <ion-select interface="popover" (ionChange)="filterRequests($event)" [(ngModel)]="filter">\n\n          <ion-option value="all" selected>All</ion-option>\n\n        <ion-option value="pending">Pending</ion-option>\n\n        <ion-option value="review">Under Review</ion-option>\n\n        <ion-option value="closed">Closed</ion-option>\n\n      </ion-select>\n\n    </ion-item>\n\n       \n\n      <ion-item>\n\n          <ion-row class="table-title">\n\n            <ion-col col-3 >Date</ion-col>\n\n            <ion-col col-4 >From</ion-col>\n\n             <ion-col col-3 >Subject</ion-col>\n\n            <ion-col col-2 >Status</ion-col>\n\n           \n\n          </ion-row>\n\n        </ion-item>\n\n        \n\n        <ion-item *ngFor=\'let s of messages\' >\n\n            <ion-row class="col-text table-bottom-border " [ngClass]=s.status (click)="changeStatus(s)" >\n\n                <ion-col col-3>{{s.date}}</ion-col><ion-col col-4>{{s.userName}}</ion-col><ion-col col-3>{{s.subject}}</ion-col><ion-col col-2>{{s.status}}</ion-col>\n\n            </ion-row>\n\n          </ion-item>\n\n  </div>\n\n\n\n </div>\n\n\n\n \n\n</ion-content>\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\support\support.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["AlertController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["AlertController"]) === "function" ? _a : Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ToastController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ToastController"]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__["a" /* AngularFireDatabase */]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */]) === "function" ? _f : Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ToastController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_1__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_0__angular_fire_auth__["a" /* AngularFireAuth */]])
     ], SupportPage);
     return SupportPage;
 }()); //end of class

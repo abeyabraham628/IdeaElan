@@ -1,6 +1,9 @@
+
+//Author Tony Manuel
 import { ElementRef, Renderer } from '@angular/core';
-import { concatAll } from 'rxjs/operators';
+
 import { Component, ViewChild } from '@angular/core';
+
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DatePicker } from '@ionic-native/date-picker';

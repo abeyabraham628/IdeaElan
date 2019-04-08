@@ -1,18 +1,18 @@
 webpackJsonp([2],{
 
-/***/ 744:
+/***/ 743:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "LeavesAdminPageModule", function() { return LeavesAdminPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(468);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_employee_model__ = __webpack_require__(807);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__models_employee_model__ = __webpack_require__(805);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__leaves_admin__ = __webpack_require__(852);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_leave_model__ = __webpack_require__(774);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_datepicker__ = __webpack_require__(764);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__leaves_admin__ = __webpack_require__(850);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_leave_model__ = __webpack_require__(772);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__models_datepicker__ = __webpack_require__(762);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -48,7 +48,7 @@ var LeavesAdminPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 764:
+/***/ 762:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -96,10 +96,9 @@ var CustomDatePicker = /** @class */ (function () {
             { 'monthName': 'November', 'value': '11' },
             { 'monthName': 'December', 'value': '12' }];
     };
-    var _a;
     CustomDatePicker = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"]) === "function" ? _a : Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"]])
     ], CustomDatePicker);
     return CustomDatePicker;
 }());
@@ -108,12 +107,12 @@ var CustomDatePicker = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 767:
+/***/ 765:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
 	if (true) {
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(1), __webpack_require__(768)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(1), __webpack_require__(766)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -1572,7 +1571,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 /***/ }),
 
-/***/ 768:
+/***/ 766:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -1590,8 +1589,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
   if ( true ) {
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-        __webpack_require__(769),
-        __webpack_require__(770)
+        __webpack_require__(767),
+        __webpack_require__(768)
       ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( getSize, Unidragger ) {
         return factory( window, getSize, Unidragger );
       }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -2024,7 +2023,7 @@ return Draggabilly;
 
 /***/ }),
 
-/***/ 769:
+/***/ 767:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -2242,7 +2241,7 @@ return getSize;
 
 /***/ }),
 
-/***/ 770:
+/***/ 768:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -2260,7 +2259,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
   if ( true ) {
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-      __webpack_require__(771)
+      __webpack_require__(769)
     ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( Unipointer ) {
       return factory( window, Unipointer );
     }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -2529,7 +2528,7 @@ return Unidragger;
 
 /***/ }),
 
-/***/ 771:
+/***/ 769:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -2546,7 +2545,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
   if ( true ) {
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-      __webpack_require__(772)
+      __webpack_require__(770)
     ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( EvEmitter ) {
       return factory( window, EvEmitter );
     }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -2838,7 +2837,7 @@ return Unipointer;
 
 /***/ }),
 
-/***/ 772:
+/***/ 770:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -2961,7 +2960,7 @@ return EvEmitter;
 
 /***/ }),
 
-/***/ 774:
+/***/ 772:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3351,7 +3350,7 @@ var LeaveModel = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 807:
+/***/ 805:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -3452,21 +3451,21 @@ var Employee = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 852:
+/***/ 850:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LeavesAdminPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_date_picker__ = __webpack_require__(470);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_datepicker__ = __webpack_require__(764);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_leave_model__ = __webpack_require__(774);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__models_datepicker__ = __webpack_require__(762);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__models_leave_model__ = __webpack_require__(772);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_employee_model__ = __webpack_require__(807);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__models_employee_model__ = __webpack_require__(805);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs__ = __webpack_require__(15);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_md_date_time_picker_dist_js_mdDateTimePicker_js__ = __webpack_require__(767);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_md_date_time_picker_dist_js_mdDateTimePicker_js__ = __webpack_require__(765);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_md_date_time_picker_dist_js_mdDateTimePicker_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_md_date_time_picker_dist_js_mdDateTimePicker_js__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -3512,6 +3511,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
+//Tony Manuel
 
 
 
@@ -3626,7 +3626,7 @@ var LeavesAdminPage = /** @class */ (function () {
     ], LeavesAdminPage.prototype, "dateToElem", void 0);
     LeavesAdminPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-leaves-admin',template:/*ion-inline-start:"F:\ionic-app\src\pages\leaves-admin\leaves-admin.html"*/'<ion-header no-border>\n\n  <navbar pageTitle="LEAVE REQUESTS"></navbar>\n\n</ion-header>\n\n\n\n\n\n\n\n  <ion-content>\n\n\n\n      <ion-segment [(ngModel)]="leaves" color="white" >\n\n         <ion-segment-button value="viewLeaveRequests" (click)="viewLeaveRequests()">\n\n            Leave Requests\n\n         </ion-segment-button>\n\n         <ion-segment-button value="leaveHistory" (click)="getEmployee()" >\n\n          History\n\n         </ion-segment-button>\n\n      </ion-segment>\n\n  <div [ngSwitch]="leaves">\n\n    <div *ngSwitchCase="\'viewLeaveRequests\'">\n\n    \n\n        \n\n        <div *ngIf="(leaveRequests.length==0)" style="text-align:center">No Leave Requests</div>\n\n      <ion-card (click)="goto(\'ApproveLeavePage\',user)" *ngFor="let user of leaveRequests">\n\n         \n\n        <ion-item>\n\n          <!-- <ion-avatar item-start>\n\n              <img src="https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/{{user.userId}}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b" onerror="this.src=\'assets/imgs/companylogo.png\'"> \n\n           <img src="assets/imgs/companylogo.png">\n\n          </ion-avatar>-->\n\n          <h2>{{user.name |  titlecase}}</h2>\n\n          <p>{{user.leaveType | titlecase}}</p>\n\n          <p *ngFor="let x of user.date">{{x}}</p>\n\n        </ion-item>\n\n        \n\n        \n\n      </ion-card>\n\n    \n\n\n\n    \n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'leaveHistory\'">\n\n       \n\n      <ion-item>\n\n          <ion-label>Employee Name</ion-label>\n\n        <ion-select [(ngModel)]="employeeKey" (ionChange)="clearDatePicker()">\n\n                 <ion-option *ngFor="let emp of employeeName" value="{{emp.$key}}">{{emp.fname | titlecase}} {{emp.lname | titlecase}}</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n      \n\n      <ion-row>\n\n        <ion-item col-6>\n\n               <ion-label floating>From Date</ion-label>\n\n               <ion-input readonly (tap)="dispDate(\'from\')" [(ngModel)]="dateFrom" #dateFromElem full color="blue"></ion-input>\n\n               <ion-icon name="calendar" item-right></ion-icon>\n\n             </ion-item>\n\n             <ion-item col-6>\n\n               <ion-label floating>To Date</ion-label>\n\n               <ion-input readonly (tap)="dispDate(\'to\')" [(ngModel)]="dateTo" #dateToElem full color="blue"></ion-input>\n\n               <ion-icon name="calendar" item-right></ion-icon>\n\n             </ion-item>\n\n         </ion-row>\n\n         <ion-item>\n\n           <button ion-button (click)="leaveHistory(dateFrom,dateTo)" color="blue">Show</button>\n\n         </ion-item>\n\n              \n\n           \n\n      \n\n\n\n      \n\n      <ion-list>\n\n        \n\n          <h6 text-center class="title section-title">{{dateRange}}</h6>\n\n          <div *ngIf="(leaveRecords.length==0)" style="text-align:center">No record found</div>\n\n          <ion-list >\n\n            <ion-item *ngFor="let x of leaveRecords" style="background-color:honeydew">\n\n              <h3>{{x.leaveType | titlecase}} Leave</h3>\n\n              <h5 *ngFor="let date of x.date" > {{date}}</h5>\n\n              <h5 [ngClass]=\'x.status\'>{{x.status}}</h5>\n\n              <div *ngIf="x.reason!=null && x.reason!=\'\' ">\n\n                  Comments: {{x.reason}}\n\n                </div>\n\n                \n\n            </ion-item>\n\n          </ion-list>\n\n  \n\n             \n\n          </ion-list>\n\n\n\n      \n\n    </div>\n\n\n\n\n\n  </div>\n\n    \n\n  </ion-content>\n\n  \n\n '/*ion-inline-end:"F:\ionic-app\src\pages\leaves-admin\leaves-admin.html"*/,
+            selector: 'page-leaves-admin',template:/*ion-inline-start:"F:\ionic-app\src\pages\leaves-admin\leaves-admin.html"*/'<!--Tony Manuel-->\n\n<ion-header no-border>\n\n  <navbar pageTitle="LEAVE REQUESTS"></navbar>\n\n</ion-header>\n\n\n\n\n\n\n\n  <ion-content>\n\n\n\n      <ion-segment [(ngModel)]="leaves" color="white" >\n\n         <ion-segment-button value="viewLeaveRequests" (click)="viewLeaveRequests()">\n\n            Leave Requests\n\n         </ion-segment-button>\n\n         <ion-segment-button value="leaveHistory" (click)="getEmployee()" >\n\n          History\n\n         </ion-segment-button>\n\n      </ion-segment>\n\n  <div [ngSwitch]="leaves">\n\n    <div *ngSwitchCase="\'viewLeaveRequests\'">\n\n    \n\n        \n\n        <div *ngIf="(leaveRequests.length==0)" style="text-align:center">No Leave Requests</div>\n\n      <ion-card (click)="goto(\'ApproveLeavePage\',user)" *ngFor="let user of leaveRequests">\n\n         \n\n        <ion-item>\n\n          <!-- <ion-avatar item-start>\n\n              <img src="https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/{{user.userId}}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b" onerror="this.src=\'assets/imgs/companylogo.png\'"> \n\n           <img src="assets/imgs/companylogo.png">\n\n          </ion-avatar>-->\n\n          <h2>{{user.name |  titlecase}}</h2>\n\n          <p>{{user.leaveType | titlecase}}</p>\n\n          <p *ngFor="let x of user.date">{{x}}</p>\n\n        </ion-item>\n\n        \n\n        \n\n      </ion-card>\n\n    \n\n\n\n    \n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'leaveHistory\'">\n\n       \n\n      <ion-item>\n\n          <ion-label>Employee Name</ion-label>\n\n        <ion-select [(ngModel)]="employeeKey" (ionChange)="clearDatePicker()">\n\n                 <ion-option *ngFor="let emp of employeeName" value="{{emp.$key}}">{{emp.fname | titlecase}} {{emp.lname | titlecase}}</ion-option>\n\n        </ion-select>\n\n      </ion-item>\n\n      \n\n      <ion-row>\n\n        <ion-item col-6>\n\n               <ion-label floating>From Date</ion-label>\n\n               <ion-input readonly (tap)="dispDate(\'from\')" [(ngModel)]="dateFrom" #dateFromElem full color="blue"></ion-input>\n\n               <ion-icon name="calendar" item-right></ion-icon>\n\n             </ion-item>\n\n             <ion-item col-6>\n\n               <ion-label floating>To Date</ion-label>\n\n               <ion-input readonly (tap)="dispDate(\'to\')" [(ngModel)]="dateTo" #dateToElem full color="blue"></ion-input>\n\n               <ion-icon name="calendar" item-right></ion-icon>\n\n             </ion-item>\n\n         </ion-row>\n\n         <ion-item>\n\n           <button ion-button (click)="leaveHistory(dateFrom,dateTo)" color="blue">Show</button>\n\n         </ion-item>\n\n              \n\n           \n\n      \n\n\n\n      \n\n      <ion-list>\n\n        \n\n          <h6 text-center class="title section-title">{{dateRange}}</h6>\n\n          <div *ngIf="(leaveRecords.length==0)" style="text-align:center">No record found</div>\n\n          <ion-list >\n\n            <ion-item *ngFor="let x of leaveRecords" style="background-color:honeydew">\n\n              <h3>{{x.leaveType | titlecase}} Leave</h3>\n\n              <h5 *ngFor="let date of x.date" > {{date}}</h5>\n\n              <h5 [ngClass]=\'x.status\'>{{x.status}}</h5>\n\n              <div *ngIf="x.reason!=null && x.reason!=\'\' ">\n\n                  Comments: {{x.reason}}\n\n                </div>\n\n                \n\n            </ion-item>\n\n          </ion-list>\n\n  \n\n             \n\n          </ion-list>\n\n\n\n      \n\n    </div>\n\n\n\n\n\n  </div>\n\n    \n\n  </ion-content>\n\n  \n\n '/*ion-inline-end:"F:\ionic-app\src\pages\leaves-admin\leaves-admin.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], __WEBPACK_IMPORTED_MODULE_1__ionic_native_date_picker__["a" /* DatePicker */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_3__models_leave_model__["a" /* LeaveModel */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_5__models_employee_model__["a" /* Employee */], __WEBPACK_IMPORTED_MODULE_2__models_datepicker__["a" /* CustomDatePicker */]])
     ], LeavesAdminPage);

@@ -1,4 +1,4 @@
-
+//Author Abey and Tony
 import { ElementRef, Renderer } from '@angular/core';
 
 
@@ -39,15 +39,7 @@ devicetoken : any ="abc";
 
 
   constructor(public elementRef: ElementRef,private renderer:Renderer,private http:HttpClient,public storage:Storage,private fcm:Firebase,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
-   
-  
-
-
-  
-    
-    
-    
-    this.lrcountcheck();
+   this.lrcountcheck();
     
     this.fcm.getToken().then(token => {
       //backend.registerToken(token);

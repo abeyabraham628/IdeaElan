@@ -1,5 +1,10 @@
+//Author:Tony Manuel
 
 import { ElementRef, Renderer } from '@angular/core';
+
+
+
+import { DatePicker } from '@ionic-native/date-picker';
 
 
 import { leaveCount,leaves } from './../../providers/user-leaves';
@@ -16,8 +21,6 @@ import {Validators, FormBuilder} from '@angular/forms'
 import { AngularFireDatabase } from '@angular/fire/database';
 import * as moment from 'moment'
 import * as  mdDateTimePicker  from 'md-date-time-picker/dist/js/mdDateTimePicker.js';
-
-
 
 
 
