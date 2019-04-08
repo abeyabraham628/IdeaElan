@@ -142,7 +142,7 @@ export class TabsPage {
 }
   async logout(){
       
-    alert(this.afAuth.auth.currentUser.uid);
+    
    await this.fdb.database.ref('tokensNotificationId').orderByChild('userIdTocken').equalTo(`${this.afAuth.auth.currentUser.uid}`).once("value",(snap)=>{
     snap.forEach((child) => {
         this.fdb.object("/tokensNotificationId/"+child.key).update({ tokenid:"null",userIdTocken : this.afAuth.auth.currentUser.uid});

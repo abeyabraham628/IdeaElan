@@ -6,11 +6,11 @@ webpackJsonp([9],{
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabsPageModule", function() { return TabsPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_camera__ = __webpack_require__(473);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_storage__ = __webpack_require__(474);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_camera__ = __webpack_require__(472);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_storage__ = __webpack_require__(473);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs__ = __webpack_require__(857);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs__ = __webpack_require__(863);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(468);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -49,7 +49,7 @@ var TabsPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 857:
+/***/ 863:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -59,10 +59,10 @@ var TabsPageModule = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_camera__ = __webpack_require__(473);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_camera__ = __webpack_require__(472);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_fire_database__ = __webpack_require__(467);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_fire_storage__ = __webpack_require__(474);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_strings__ = __webpack_require__(470);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_fire_storage__ = __webpack_require__(473);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_strings__ = __webpack_require__(469);
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -252,13 +252,11 @@ var TabsPage = /** @class */ (function () {
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0:
-                        alert(this.afAuth.auth.currentUser.uid);
-                        return [4 /*yield*/, this.fdb.database.ref('tokensNotificationId').orderByChild('userIdTocken').equalTo("" + this.afAuth.auth.currentUser.uid).once("value", function (snap) {
-                                snap.forEach(function (child) {
-                                    _this.fdb.object("/tokensNotificationId/" + child.key).update({ tokenid: "null", userIdTocken: _this.afAuth.auth.currentUser.uid });
-                                });
-                            })];
+                    case 0: return [4 /*yield*/, this.fdb.database.ref('tokensNotificationId').orderByChild('userIdTocken').equalTo("" + this.afAuth.auth.currentUser.uid).once("value", function (snap) {
+                            snap.forEach(function (child) {
+                                _this.fdb.object("/tokensNotificationId/" + child.key).update({ tokenid: "null", userIdTocken: _this.afAuth.auth.currentUser.uid });
+                            });
+                        })];
                     case 1:
                         _a.sent();
                         this.afAuth.auth.signOut()

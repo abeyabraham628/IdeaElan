@@ -50,12 +50,12 @@
       <ion-row>
         <ion-item col-6>
                <ion-label floating>From Date</ion-label>
-               <ion-input readonly (tap)="dispDate('from')" [(ngModel)]="dateFrom" full color="blue"></ion-input>
+               <ion-input readonly (tap)="dispDate('from')" [(ngModel)]="dateFrom" #dateFromElem full color="blue"></ion-input>
                <ion-icon name="calendar" item-right></ion-icon>
              </ion-item>
              <ion-item col-6>
                <ion-label floating>To Date</ion-label>
-               <ion-input readonly (tap)="dispDate('to')" [(ngModel)]="dateTo" full color="blue"></ion-input>
+               <ion-input readonly (tap)="dispDate('to')" [(ngModel)]="dateTo" #dateToElem full color="blue"></ion-input>
                <ion-icon name="calendar" item-right></ion-icon>
              </ion-item>
          </ion-row>

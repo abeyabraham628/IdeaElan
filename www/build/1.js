@@ -1,15 +1,17 @@
 webpackJsonp([1],{
 
-/***/ 757:
+/***/ 754:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomePageModule", function() { return HomePageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(859);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(468);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "SystemsPageModule", function() { return SystemsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_datepicker__ = __webpack_require__(764);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__components_components_module__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__systems__ = __webpack_require__(862);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__ = __webpack_require__(779);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,43 +22,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HomePageModule = /** @class */ (function () {
-    function HomePageModule() {
+
+
+var SystemsPageModule = /** @class */ (function () {
+    function SystemsPageModule() {
     }
-    HomePageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+    SystemsPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */],
+                __WEBPACK_IMPORTED_MODULE_4__systems__["a" /* SystemsPage */],
             ],
+            providers: [__WEBPACK_IMPORTED_MODULE_0__models_datepicker__["a" /* CustomDatePicker */]],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* HomePage */]),
-                __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* ComponentsModule */]
+                __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_4__systems__["a" /* SystemsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1__components_components_module__["a" /* ComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_5__pipes_pipes_module__["a" /* PipesModule */],
             ],
         })
-    ], HomePageModule);
-    return HomePageModule;
+    ], SystemsPageModule);
+    return SystemsPageModule;
 }());
 
-//# sourceMappingURL=home.module.js.map
+//# sourceMappingURL=systems.module.js.map
 
 /***/ }),
 
-/***/ 859:
+/***/ 764:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return CustomDatePicker; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_md_date_time_picker_dist_js_mdDateTimePicker_js__ = __webpack_require__(860);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_md_date_time_picker_dist_js_mdDateTimePicker_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_md_date_time_picker_dist_js_mdDateTimePicker_js__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_firebase__ = __webpack_require__(481);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__ = __webpack_require__(467);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_storage__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__angular_common_http__ = __webpack_require__(476);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -66,356 +63,55 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
 
 
-
-
-
-
-
-
-
-
-
-var HomePage = /** @class */ (function () {
-    function HomePage(elementRef, renderer, http, storage, fcm, modalCtrl, navCtrl, navParams, afAuth, firebase, loadingCtrl) {
-        var _this = this;
-        this.elementRef = elementRef;
-        this.renderer = renderer;
-        this.http = http;
-        this.storage = storage;
-        this.fcm = fcm;
+var CustomDatePicker = /** @class */ (function () {
+    function CustomDatePicker(modalCtrl) {
         this.modalCtrl = modalCtrl;
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.afAuth = afAuth;
-        this.firebase = firebase;
-        this.loadingCtrl = loadingCtrl;
-        this.blength = 0;
-        this.wlength = 0;
-        //lrcount:any=0;
-        this.devicetoken = "abc";
-        this.lrstatus = [];
-        /*messages=[]
-        getMessages(){
-          this.firebase.list('messages').snapshotChanges().subscribe(snap=>{
-            this.messages=snap.map(item=>{
-              return{
-                $key:item.key,
-                ...item.payload.val()
-              }
-        
-            })
-          })
-          
-        }
-        
-        viewMessages(x){
-            let modal=this.modalCtrl.create({
-              title:x.subject,
-           })
-            modal.present()
-        }*/
-        this.events = [];
-        this.systemEvents = [];
-        this.interviewEvents = [];
-        this.allEvents = [];
-        this.employeeList = [];
-        this.bevents = [];
-        this.wevents = [];
-        this.lrcountcheck();
-        this.fcm.getToken().then(function (token) {
-            //backend.registerToken(token);
-            _this.devicetoken = token;
-            _this.checks();
-            //alert(token);
-        });
-        this.fcm.onTokenRefresh().subscribe(function (token) {
-            _this.devicetoken = token;
-            _this.checks();
-            //alert("updated");
-        });
-        this.fcm.onNotificationOpen().subscribe(function (data) {
-            if (data.wasTapped) {
-                _this.navCtrl.push(HomePage_1);
-            }
-            else {
-                _this.navCtrl.push(HomePage_1);
-            }
-            ;
-        });
+        this.t = 5;
     }
-    HomePage_1 = HomePage;
-    /*tony(){
-      
-      
-      let headers = new Headers();
-  headers.append('Content-Type', 'application/json');
-  let data=JSON.stringify({username:"raja"});
-      
-      
-      let body = JSON.stringify(data);
-      this.http.post('http://localhost:3000/createUser',data,headers).subscribe((response) => {
-        console.log(response);
-    });
-    }
-    */
-    HomePage.prototype.xx = function () {
-        this.x.toggle();
+    CustomDatePicker.prototype.datePickerOptions = function (pickMode, defaultScrollTo, from, dateLimitTo, disableWeeks) {
+        var options = {
+            pickMode: pickMode,
+            showAdjacentMonthDay: false,
+            disableWeeks: disableWeeks,
+            from: from,
+            to: dateLimitTo,
+            defaultScrollTo: defaultScrollTo,
+        };
+        return options;
     };
-    HomePage.prototype.lrcountcheck = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var lrstatus;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        lrstatus = [];
-                        return [4 /*yield*/, this.firebase.database.ref("EmployeeLeaves").once('value', function (snap) {
-                                snap.forEach(function (snap) {
-                                    if (snap.child('status').val() == "pending") {
-                                        lrstatus.push(snap.child('status').val());
-                                    }
-                                });
-                            })];
-                    case 1:
-                        _a.sent();
-                        this.lrstatus = lrstatus;
-                        return [2 /*return*/];
-                }
-            });
-        });
+    CustomDatePicker.prototype.getMonths = function () {
+        return [{ 'monthName': 'January', 'value': '01' },
+            { 'monthName': 'February', 'value': '02' },
+            { 'monthName': 'March', 'value': '03' },
+            { 'monthName': 'April', 'value': '04' },
+            { 'monthName': 'May', 'value': '05' },
+            { 'monthName': 'June', 'value': '06' },
+            { 'monthName': 'July', 'value': '07' },
+            { 'monthName': 'August', 'value': '08' },
+            { 'monthName': 'September', 'value': '09' },
+            { 'monthName': 'October', 'value': '10' },
+            { 'monthName': 'November', 'value': '11' },
+            { 'monthName': 'December', 'value': '12' }];
     };
-    HomePage.prototype.checks = function () {
-        var _this = this;
-        var idOftoken, tokenStatus;
-        this.firebase.database.ref('tokensNotificationId').orderByChild('userIdTocken').equalTo("" + this.afAuth.auth.currentUser.uid).once("value", function (snap) {
-            snap.forEach(function (child) {
-                _this.firebase.object("/tokensNotificationId/" + child.key)
-                    .update({ tokenid: _this.devicetoken, userIdTocken: _this.afAuth.auth.currentUser.uid });
-            });
-            //if not exsist , needed to be added , but already user will have an entry to token list as it is added in newuser.ts file 
-        });
-    };
-    HomePage.prototype.ionViewDidLoad = function () {
-        var _this = this;
-        this.x = new __WEBPACK_IMPORTED_MODULE_1_md_date_time_picker_dist_js_mdDateTimePicker_js__["default"]({
-            type: 'date',
-            trigger: this.myElement.nativeElement
-        });
-        this.renderer.listen(this.myElement.nativeElement, 'onOk', function () {
-            _this.myElement.nativeElement.s;
-            _this.gg = __WEBPACK_IMPORTED_MODULE_6_moment__(_this.x.time).format('DD-MMM-YYYY');
-        });
-        //this.getMessages()
-        this.getUpComingEvents();
-        this.getUpComingEventsNotification();
-    };
-    HomePage.prototype.goto = function (page) {
-        this.navCtrl.push(page);
-    };
-    HomePage.prototype.getUpComingEvents = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var bday, anniversary, avExpiry, interviewDate;
-            var _this = this;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: 
-                    /*let org:any
-                    let diffDays:number
-                    let timeDiff:number
-                    */
-                    return [4 /*yield*/, this.firebase.database.ref("users").on('value', function (snap) {
-                            snap.forEach(function (snap) {
-                                bday = snap.child('dob').val();
-                                anniversary = snap.child('doj').val();
-                                _this.employeeList.push({
-                                    '$key': snap.key,
-                                    'fName': snap.child('fname').val(),
-                                    'lName': snap.child('lname').val()
-                                });
-                                if (parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__().format('M')) == parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__(bday).format('M')) && parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__().format('D')) <= parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__(bday).format('D'))) {
-                                    _this.events.push({
-                                        'title': 'Birthday',
-                                        'user': snap.child('fname').val() + " " + snap.child('lname').val(),
-                                        'userId': snap.child('userId').val(),
-                                        'date': __WEBPACK_IMPORTED_MODULE_6_moment__(bday).format('D-MMM') + "-" + __WEBPACK_IMPORTED_MODULE_6_moment__().format('YYYY')
-                                    });
-                                }
-                                if (parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__().format('M')) == parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__(anniversary).format('M')) && parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__().format('D')) <= parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__(anniversary).format('D'))) {
-                                    _this.events.push({
-                                        'title': 'Work Anniversary',
-                                        'user': snap.child('fname').val() + " " + snap.child('lname').val(),
-                                        'userId': snap.child('userId').val(),
-                                        'date': __WEBPACK_IMPORTED_MODULE_6_moment__(anniversary).format('D-MMM') + "-" + __WEBPACK_IMPORTED_MODULE_6_moment__().format('YYYY')
-                                    });
-                                }
-                            });
-                        })];
-                    case 1:
-                        /*let org:any
-                        let diffDays:number
-                        let timeDiff:number
-                        */
-                        _a.sent();
-                        return [4 /*yield*/, this.firebase.database.ref("systems").once('value', function (snap) {
-                                snap.forEach(function (snap) {
-                                    avExpiry = snap.child('avExpiry').val();
-                                    var empObj = _this.employeeList.find(function (key) { return key.$key == snap.child('systemUser').val(); });
-                                    var empName = "User: " + empObj.fName + " " + empObj.lName;
-                                    if (parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__().format('M')) == parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__(avExpiry).format('M')) && parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__().format('D')) <= parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__(avExpiry).format('D'))) {
-                                        _this.systemEvents.push({
-                                            'title': 'Anti Virus Expiry',
-                                            'user': empName,
-                                            'userId': snap.child('systemId').val(),
-                                            'date': __WEBPACK_IMPORTED_MODULE_6_moment__(avExpiry).format('D-MMM') + "-" + __WEBPACK_IMPORTED_MODULE_6_moment__().format('YYYY')
-                                        });
-                                    }
-                                });
-                            })];
-                    case 2:
-                        _a.sent(); //end of systems event list
-                        return [4 /*yield*/, this.firebase.database.ref("Schedules").once('value', function (snap) {
-                                snap.forEach(function (snap) {
-                                    interviewDate = snap.child('interviewDate').val();
-                                    if (parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__().format('M')) == parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__(interviewDate).format('M')) && parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__().format('D')) <= parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__(interviewDate).format('D'))) {
-                                        _this.interviewEvents.push({
-                                            'title': 'Upcoming Interview',
-                                            'user': null,
-                                            'userId': null,
-                                            'date': __WEBPACK_IMPORTED_MODULE_6_moment__(interviewDate).format('D-MMM') + "-" + __WEBPACK_IMPORTED_MODULE_6_moment__().format('YYYY')
-                                        });
-                                    }
-                                });
-                            })];
-                    case 3:
-                        _a.sent(); //end of systems event list
-                        this.storage.get('roles').then(function (userType) {
-                            if (userType[0] == "value1") { //for admin
-                                _this.systemEvents.forEach(function (item) { return _this.events.push(item); });
-                                _this.interviewEvents.forEach(function (item) { return _this.events.push(item); });
-                            }
-                            else if (_this.userType[4] == "value5") { //recruitment
-                                _this.interviewEvents.forEach(function (item) { return _this.events.push(item); });
-                            }
-                            else if (_this.userType[5] == "value6") { //system
-                                _this.systemEvents.forEach(function (item) { return _this.events.push(item); });
-                            }
-                        });
-                        return [2 /*return*/];
-                }
-            });
-        });
-    }; //end of getupcoming events function
-    HomePage.prototype.getUpComingEventsNotification = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var bevents, wevents, bday, anniversary, org, diffDays, timeDiff;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        bevents = [];
-                        wevents = [];
-                        return [4 /*yield*/, this.firebase.database.ref("users").once('value', function (snap) {
-                                snap.forEach(function (snap) {
-                                    bday = snap.child('dob').val();
-                                    anniversary = snap.child('doj').val();
-                                    if (parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__().format('M')) == parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__(bday).format('M')) && parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__().format('D')) <= parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__(bday).format('D'))) {
-                                        bevents.push({
-                                            'title': 'Birthday',
-                                            'user': snap.child('fname').val() + " " + snap.child('lname').val(),
-                                            'userId': snap.child('userId').val(),
-                                            'date': __WEBPACK_IMPORTED_MODULE_6_moment__(bday).format('D-MMM') + "-" + __WEBPACK_IMPORTED_MODULE_6_moment__().format('YYYY')
-                                        });
-                                    }
-                                    if (parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__().format('M')) == parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__(anniversary).format('M')) && parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__().format('D')) <= parseInt(__WEBPACK_IMPORTED_MODULE_6_moment__(anniversary).format('D'))) {
-                                        wevents.push({
-                                            'title': 'Work Anniversary',
-                                            'user': snap.child('fname').val() + " " + snap.child('lname').val(),
-                                            'userId': snap.child('userId').val(),
-                                            'date': __WEBPACK_IMPORTED_MODULE_6_moment__(anniversary).format('D-MMM') + "-" + __WEBPACK_IMPORTED_MODULE_6_moment__().format('YYYY')
-                                        });
-                                    }
-                                });
-                            })];
-                    case 1:
-                        _a.sent();
-                        this.bevents = bevents;
-                        this.wevents = wevents;
-                        this.blength = bevents.length;
-                        this.wlength = wevents.length;
-                        return [4 /*yield*/, this.firebase.database.ref("eventTrigger/WorkEvents").update({
-                                length: this.wlength,
-                            })];
-                    case 2:
-                        _a.sent();
-                        return [4 /*yield*/, this.firebase.database.ref("eventTrigger/birthdayEvents").update({
-                                length: this.blength,
-                            })];
-                    case 3:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
-    };
-    var HomePage_1, _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m;
-    __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('hh', { read: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] }),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" ? _a : Object)
-    ], HomePage.prototype, "myElement", void 0);
-    HomePage = HomePage_1 = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-home',template:/*ion-inline-start:"F:\ionic-app\src\pages\home\home.html"*/'<ion-header no-border>\n\n  <page-header pageTitle="HOME"></page-header>\n\n</ion-header>\n\n\n\n\n\n\n\n<ion-content padding>\n\n  <ion-input type="text"  #hh [(ngModel)]="gg"></ion-input>\n\n    <div *ngIf="(events.length==0)">No Upcoming Events</div>\n\n  <h5  *ngIf="(events.length!=0)">Upcoming Events ({{events.length}})</h5>\n\n <button ion-button  (click)="xx($event)">Hello</button>\n\n \n\n    <ion-list >\n\n      <ion-item *ngFor="let event of events">\n\n        <ion-avatar item-start>\n\n            <img src="https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/{{event.userId}}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b" onerror="this.src=\'assets/imgs/companylogo.png\'"> \n\n\n\n        </ion-avatar>\n\n        <h5> {{event.title}}</h5>\n\n        <p>{{event.user}}</p>\n\n        <p>{{event.date}}</p>\n\n      </ion-item>\n\n    </ion-list>\n\n    \n\n\n\n \n\n  \n\n</ion-content>\n\n\n\n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\home\home.html"*/,
-        }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"]) === "function" ? _b : Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"]) === "function" ? _c : Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_8__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_8__angular_common_http__["a" /* HttpClient */]) === "function" ? _d : Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_7__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__ionic_storage__["b" /* Storage */]) === "function" ? _e : Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_firebase__["a" /* Firebase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_firebase__["a" /* Firebase */]) === "function" ? _f : Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ModalController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["ModalController"]) === "function" ? _g : Object, typeof (_h = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"]) === "function" ? _h : Object, typeof (_j = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"]) === "function" ? _j : Object, typeof (_k = typeof __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__["a" /* AngularFireAuth */]) === "function" ? _k : Object, typeof (_l = typeof __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__["a" /* AngularFireDatabase */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__["a" /* AngularFireDatabase */]) === "function" ? _l : Object, typeof (_m = typeof __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["LoadingController"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["LoadingController"]) === "function" ? _m : Object])
-    ], HomePage);
-    return HomePage;
+    CustomDatePicker = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"]])
+    ], CustomDatePicker);
+    return CustomDatePicker;
 }());
 
-//# sourceMappingURL=home.js.map
+//# sourceMappingURL=datepicker.js.map
 
 /***/ }),
 
-/***/ 860:
+/***/ 767:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
 	if (true) {
-		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(1), __webpack_require__(861)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(1), __webpack_require__(768)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
 				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
 				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
 				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
@@ -1874,7 +1570,7 @@ var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_
 
 /***/ }),
 
-/***/ 861:
+/***/ 768:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -1892,8 +1588,8 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
   if ( true ) {
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-        __webpack_require__(862),
-        __webpack_require__(863)
+        __webpack_require__(769),
+        __webpack_require__(770)
       ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( getSize, Unidragger ) {
         return factory( window, getSize, Unidragger );
       }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -2326,7 +2022,7 @@ return Draggabilly;
 
 /***/ }),
 
-/***/ 862:
+/***/ 769:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -2544,7 +2240,7 @@ return getSize;
 
 /***/ }),
 
-/***/ 863:
+/***/ 770:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -2562,7 +2258,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
   if ( true ) {
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-      __webpack_require__(864)
+      __webpack_require__(771)
     ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( Unipointer ) {
       return factory( window, Unipointer );
     }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -2831,7 +2527,7 @@ return Unidragger;
 
 /***/ }),
 
-/***/ 864:
+/***/ 771:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -2848,7 +2544,7 @@ var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
   if ( true ) {
     // AMD
     !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
-      __webpack_require__(865)
+      __webpack_require__(772)
     ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( EvEmitter ) {
       return factory( window, EvEmitter );
     }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
@@ -3140,7 +2836,7 @@ return Unipointer;
 
 /***/ }),
 
-/***/ 865:
+/***/ 772:
 /***/ (function(module, exports, __webpack_require__) {
 
 var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
@@ -3260,6 +2956,408 @@ return EvEmitter;
 
 }));
 
+
+/***/ }),
+
+/***/ 779:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PipesModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__momentdate_momentdate__ = __webpack_require__(780);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tablefilter_tablefilter__ = __webpack_require__(781);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var PipesModule = /** @class */ (function () {
+    function PipesModule() {
+    }
+    PipesModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [__WEBPACK_IMPORTED_MODULE_1__momentdate_momentdate__["a" /* MomentdatePipe */],
+                __WEBPACK_IMPORTED_MODULE_2__tablefilter_tablefilter__["a" /* TablefilterPipe */]],
+            imports: [],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__momentdate_momentdate__["a" /* MomentdatePipe */],
+                __WEBPACK_IMPORTED_MODULE_2__tablefilter_tablefilter__["a" /* TablefilterPipe */]]
+        })
+    ], PipesModule);
+    return PipesModule;
+}());
+
+//# sourceMappingURL=pipes.module.js.map
+
+/***/ }),
+
+/***/ 780:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MomentdatePipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+/**
+ * Generated class for the MomentdatePipe pipe.
+ *
+ * See https://angular.io/api/core/Pipe for more info on Angular Pipes.
+ */
+var MomentdatePipe = /** @class */ (function () {
+    function MomentdatePipe() {
+        this.currentDate = __WEBPACK_IMPORTED_MODULE_1_moment__();
+    }
+    MomentdatePipe.prototype.transform = function (date) {
+        var expiryDate = __WEBPACK_IMPORTED_MODULE_1_moment__(date);
+        return expiryDate.diff(this.currentDate, 'days');
+    };
+    MomentdatePipe = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
+            name: 'momentdate',
+        })
+    ], MomentdatePipe);
+    return MomentdatePipe;
+}());
+
+//# sourceMappingURL=momentdate.js.map
+
+/***/ }),
+
+/***/ 781:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TablefilterPipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+/**
+ * Generated class for the TablefilterPipe pipe.
+ *
+ * See https://angular.io/api/core/Pipe for more info on Angular Pipes.
+ */
+var TablefilterPipe = /** @class */ (function () {
+    function TablefilterPipe() {
+    }
+    TablefilterPipe.prototype.transform = function (items, field, value) {
+        console.log(value);
+        if (!items) {
+            return [];
+        }
+        if (!field || !value) {
+            return items;
+        }
+        return items.filter(function (singleItem) {
+            return singleItem[field].toLowerCase().includes(value.toLowerCase());
+        });
+    };
+    TablefilterPipe = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
+            name: 'tableFilter',
+        })
+    ], TablefilterPipe);
+    return TablefilterPipe;
+}());
+
+//# sourceMappingURL=tablefilter.js.map
+
+/***/ }),
+
+/***/ 862:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SystemsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_date_picker__ = __webpack_require__(470);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_form_service__ = __webpack_require__(471);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_barcode_scanner__ = __webpack_require__(475);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_forms__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__models_datepicker__ = __webpack_require__(764);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_moment__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_8_moment__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_md_date_time_picker_dist_js_mdDateTimePicker_js__ = __webpack_require__(767);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_md_date_time_picker_dist_js_mdDateTimePicker_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_md_date_time_picker_dist_js_mdDateTimePicker_js__);
+var __assign = (this && this.__assign) || function () {
+    __assign = Object.assign || function(t) {
+        for (var s, i = 1, n = arguments.length; i < n; i++) {
+            s = arguments[i];
+            for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p))
+                t[p] = s[p];
+        }
+        return t;
+    };
+    return __assign.apply(this, arguments);
+};
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+
+
+
+
+
+/**
+ * Generated class for the SystemsPage page.
+ *
+ * See https://ionicframework.com/docs/components/#navigation for more info on
+ * Ionic pages and navigation.
+ */
+var SystemsPage = /** @class */ (function () {
+    function SystemsPage(renderer, data, loadingCtrl, navCtrl, modalCtrl, customDatePicker, alertCtrl, barcode, datePicker, firebase) {
+        this.renderer = renderer;
+        this.data = data;
+        this.loadingCtrl = loadingCtrl;
+        this.navCtrl = navCtrl;
+        this.modalCtrl = modalCtrl;
+        this.customDatePicker = customDatePicker;
+        this.alertCtrl = alertCtrl;
+        this.barcode = barcode;
+        this.datePicker = datePicker;
+        this.firebase = firebase;
+        this.Save = "Save";
+        this.replace = false;
+        this.systemsForm = new __WEBPACK_IMPORTED_MODULE_6__angular_forms__["FormGroup"]({
+            $key: new __WEBPACK_IMPORTED_MODULE_6__angular_forms__["FormControl"](null),
+            purchaseDate: new __WEBPACK_IMPORTED_MODULE_6__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_6__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_6__angular_forms__["Validators"].minLength(4)]),
+            systemId: new __WEBPACK_IMPORTED_MODULE_6__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_6__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_6__angular_forms__["Validators"].minLength(5)]),
+            keyboard: new __WEBPACK_IMPORTED_MODULE_6__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_6__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_6__angular_forms__["Validators"].minLength(4)]),
+            mouse: new __WEBPACK_IMPORTED_MODULE_6__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_6__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_6__angular_forms__["Validators"].minLength(4)]),
+            processor: new __WEBPACK_IMPORTED_MODULE_6__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_6__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_6__angular_forms__["Validators"].minLength(3)]),
+            memory: new __WEBPACK_IMPORTED_MODULE_6__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_6__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_6__angular_forms__["Validators"].minLength(3)]),
+            hdd: new __WEBPACK_IMPORTED_MODULE_6__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_6__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_6__angular_forms__["Validators"].minLength(3)]),
+            avExpiry: new __WEBPACK_IMPORTED_MODULE_6__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_6__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_6__angular_forms__["Validators"].minLength(4)]),
+            systemUser: new __WEBPACK_IMPORTED_MODULE_6__angular_forms__["FormControl"](''),
+        });
+        this.systemArray = [];
+        this.employeeList = [];
+        this.systems = "newSystem";
+        this.getSystemList();
+        this.getUsers();
+    }
+    SystemsPage.prototype.tony = function () {
+        this.navCtrl.push('MaintenancehistoryPage', this.systemsForm.controls['$key'].value);
+    };
+    SystemsPage.prototype.ionViewDidLoad = function () {
+        var _this = this;
+        this.data.currentValue.subscribe(function (item) { return _this.formFieldVal = item; });
+    };
+    SystemsPage.prototype.ionViewWillEnter = function () {
+        if (this.formField != null && this.formFieldVal != null) {
+            this.systemsForm.controls[this.formField].setValue(this.formFieldVal);
+            this.data.changeValue(null);
+        }
+    };
+    SystemsPage.prototype.getSystemList = function () {
+        this.systemsList = this.firebase.list('systems');
+        return this.systemsList.snapshotChanges();
+    };
+    SystemsPage.prototype.getSystems = function () {
+        var _this = this;
+        this.loader = this.loadingCtrl.create({
+            spinner: 'dots',
+            content: 'Loading',
+            dismissOnPageChange: true
+        });
+        this.loader.present();
+        this.systemsForm.reset();
+        this.getSystemList().subscribe(function (list) {
+            _this.systemArray = list.map(function (item) {
+                return __assign({ $key: item.key }, item.payload.val());
+            });
+        });
+        this.loader.dismiss();
+        this.replace = false;
+    };
+    SystemsPage.prototype.loadForm = function (systems) {
+        this.replace = true;
+        this.systems = "newSystem";
+        this.Save = "Update";
+        this.systemsForm.setValue(systems);
+    };
+    SystemsPage.prototype.updateSystems = function (systems) {
+        var _this = this;
+        this.systemsList.update(systems.$key, {
+            purchaseDate: systems.purchaseDate,
+            systemId: systems.systemId,
+            keyboard: systems.keyboard,
+            mouse: systems.mouse,
+            processor: systems.processor,
+            memory: systems.memory,
+            hdd: systems.hdd,
+            avExpiry: systems.avExpiry,
+        }).then(function () {
+            var alert = _this.alertCtrl.create({
+                title: "Success",
+                subTitle: "System updated succesfuly ",
+                buttons: ['OK']
+            });
+            alert.present();
+        });
+    };
+    SystemsPage.prototype.insertSystems = function (systems) {
+        var _this = this;
+        this.systemsList.push({
+            purchaseDate: systems.purchaseDate,
+            systemId: systems.systemId,
+            keyboard: systems.keyboard,
+            mouse: systems.mouse,
+            processor: systems.processor,
+            memory: systems.memory,
+            hdd: systems.hdd,
+            avExpiry: systems.avExpiry,
+            systemUser: systems.systemUser,
+        }).then(function () {
+            var alert = _this.alertCtrl.create({
+                title: "Success",
+                subTitle: "System added succesfuly ",
+                buttons: ['OK']
+            });
+            alert.present();
+        });
+    };
+    SystemsPage.prototype.onSubmit = function () {
+        if (this.systemsForm.controls.$key.value == null) {
+            this.insertSystems(this.systemsForm.value);
+            this.systemsForm.reset();
+        }
+        else {
+            this.updateSystems(this.systemsForm.value);
+            this.systemsForm.reset();
+        }
+    };
+    SystemsPage.prototype.scanBarCode = function (type) {
+        var _this = this;
+        this.barcode.scan().then(function (barcodeData) {
+            if (type == "system") {
+                _this.systemsForm.controls['systemId'].setValue(barcodeData.text);
+            }
+            else if (type == "keyboard") {
+                _this.systemsForm.controls['keyboard'].setValue(barcodeData.text);
+            }
+            else if (type == "mouse") {
+                _this.systemsForm.controls['mouse'].setValue(barcodeData.text);
+            }
+            else if (type == "db") {
+                _this.findSystem(barcodeData.text);
+            }
+        }).catch(function (err) {
+            console.log('Error', err);
+        });
+    };
+    SystemsPage.prototype.dispdate = function (type) {
+        var _this = this;
+        if (type === "purchaseDate") {
+            var datePicker_1 = new __WEBPACK_IMPORTED_MODULE_9_md_date_time_picker_dist_js_mdDateTimePicker_js__["default"]({
+                type: 'date',
+                trigger: this.purchaseDateElem.nativeElement
+            });
+            datePicker_1.toggle();
+            this.renderer.listen(this.purchaseDateElem.nativeElement, 'onOk', function () {
+                _this.systemsForm.controls['purchaseDate'].setValue(__WEBPACK_IMPORTED_MODULE_8_moment__(datePicker_1.time).format('D-MMM-YYYY'));
+            });
+        }
+        else if (type == 'antivirus') {
+            var datePicker_2 = new __WEBPACK_IMPORTED_MODULE_9_md_date_time_picker_dist_js_mdDateTimePicker_js__["default"]({
+                type: 'date',
+                past: __WEBPACK_IMPORTED_MODULE_8_moment__(),
+                future: __WEBPACK_IMPORTED_MODULE_8_moment__().add(3, 'years'),
+                trigger: this.antiVirusElem.nativeElement
+            });
+            datePicker_2.toggle();
+            this.renderer.listen(this.antiVirusElem.nativeElement, 'onOk', function () {
+                _this.systemsForm.controls['avExpiry'].setValue(__WEBPACK_IMPORTED_MODULE_8_moment__(datePicker_2.time).format('D-MMM-YYYY'));
+            });
+        }
+    };
+    SystemsPage.prototype.findSystem = function (systemId) {
+        var result = [];
+        this.firebase.database.ref("systems").orderByChild('systemId').equalTo(systemId).on("value", function (snapshot) {
+            snapshot.forEach(function (childSnapshot) {
+                result = __assign({ $key: childSnapshot.key }, childSnapshot.val());
+                return false;
+            });
+        });
+        this.loadForm(result);
+    }; //end of function
+    SystemsPage.prototype.getUsers = function () {
+        var _this = this;
+        this.firebase.list("users").snapshotChanges().subscribe(function (list) {
+            _this.employeeList = list.map(function (item) {
+                return {
+                    '$key': item.key,
+                    'fName': item.payload.child('fname').val(),
+                    'lName': item.payload.child('lname').val()
+                };
+            });
+        });
+    };
+    SystemsPage.prototype.formReset = function () {
+        this.systemsForm.reset();
+        this.replace = false;
+    };
+    SystemsPage.prototype.modify = function (fieldName) {
+        this.formField = fieldName;
+        var fieldVal = this.systemsForm.controls[fieldName].value;
+        var $key = this.systemsForm.controls['$key'].value;
+        var $userKey = this.systemsForm.controls['systemUser'].value;
+        var empObj = this.employeeList.find(function (key) { return key.$key == $userKey; });
+        var empName = empObj.fName + " " + empObj.lName;
+        var params = [
+            { 'fieldName': fieldName, 'fieldVal': fieldVal, '$key': $key, 'userKey': $userKey, 'userName': empName }
+        ];
+        this.navCtrl.push('ModifysystemsPage', params);
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('purchaseDateElem', { read: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] }),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
+    ], SystemsPage.prototype, "purchaseDateElem", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('antiVirusElem', { read: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] }),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
+    ], SystemsPage.prototype, "antiVirusElem", void 0);
+    SystemsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-systems',template:/*ion-inline-start:"F:\ionic-app\src\pages\systems\systems.html"*/'\n\n<ion-header no-border>\n\n  <navbar pageTitle="SYSTEMS"></navbar>\n\n</ion-header>\n\n\n\n\n\n\n\n  <ion-content>\n\n   \n\n\n\n      <ion-segment [(ngModel)]="systems" color="white" >\n\n         <ion-segment-button value="newSystem">\n\n            Add System\n\n         </ion-segment-button>\n\n         <ion-segment-button value="allSystems" (click)="getSystems()">\n\n           All Systems\n\n         </ion-segment-button>\n\n      </ion-segment>\n\n  <div [ngSwitch]="systems">\n\n    <div *ngSwitchCase="\'newSystem\'">\n\n      <form [formGroup]="systemsForm" (ngSubmit)="onSubmit()">\n\n      <ion-item no-lines>\n\n          <ion-label class="title">System Information</ion-label>\n\n          <button *ngIf="replace" ion-button item-right small color="blue" type="button" (click)="tony()" >Maintenance History</button>\n\n        </ion-item>\n\n          <ion-item>\n\n            <ion-label stacked>Purchase Date</ion-label>\n\n            <ion-input [disabled]="replace" type="text" readonly formControlName="purchaseDate" (tap)="dispdate(\'purchaseDate\')" #purchaseDateElem ></ion-input>\n\n          </ion-item>\n\n        \n\n          <ion-item  no-lines *ngIf="(systemsForm.get(\'purchaseDate\').hasError(\'minlength\') || systemsForm.get(\'purchaseDate\').hasError(\'required\') ) && systemsForm.get(\'purchaseDate\').touched">\n\n            <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'purchaseDate\').hasError(\'required\')  || systemsForm.get(\'purchaseDate\').hasError(\'minlength\')) && systemsForm.get(\'purchaseDate\').touched" >\n\n              Purchase date is required\n\n            </ion-label>\n\n          </ion-item>\n\n\n\n          \n\n         \n\n   \n\n\n\n            <ion-item col-12>\n\n              <ion-input hidden formControlName="$key"></ion-input>\n\n             \n\n              <ion-label stacked>System Id</ion-label>\n\n              <ion-input type="text" [disabled]="replace" formControlName="systemId"></ion-input>\n\n             \n\n                <button *ngIf="!replace" ion-button type="button" color="blue" (click)="scanBarCode(\'system\')" small item-right>\n\n                  <ion-icon name="barcode"> </ion-icon>\n\n                </button>\n\n               \n\n            </ion-item>\n\n            <ion-item  no-lines *ngIf="(systemsForm.get(\'systemId\').hasError(\'minlength\') || systemsForm.get(\'systemId\').hasError(\'required\') ) && systemsForm.get(\'systemId\').touched">\n\n\n\n              <ion-label stacked  color="danger" *ngIf="systemsForm.get(\'systemId\').hasError(\'required\') && systemsForm.get(\'systemId\').touched">\n\n              SystemId is required\n\n              </ion-label>\n\n              <ion-label stacked color="danger" *ngIf="systemsForm.get(\'systemId\').hasError(\'minlength\') && systemsForm.get(\'systemId\').touched">\n\n              Minimum of 5 characters\n\n              </ion-label>\n\n              </ion-item>\n\n       \n\n             \n\n                <ion-item col-12>\n\n                  <ion-label stacked>Keyboard</ion-label>\n\n                  <ion-input type="text" [readonly]="replace" formControlName="keyboard" ></ion-input>\n\n                 \n\n                  <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify(\'keyboard\')">\n\n                    <ion-icon  small name="create" ></ion-icon>\n\n                  </button>\n\n                  \n\n                  \n\n                  <button *ngIf="!replace"  ion-button small type="button" (click)="scanBarCode(\'keyboard\')" color="blue" item-right>\n\n                      <ion-icon name="barcode"> </ion-icon>\n\n                    </button>\n\n                  </ion-item>\n\n                  <ion-item  no-lines *ngIf="(systemsForm.get(\'keyboard\').hasError(\'minlength\') || systemsForm.get(\'keyboard\').hasError(\'required\') ) && systemsForm.get(\'keyboard\').touched">\n\n                    <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'keyboard\').hasError(\'required\')  || systemsForm.get(\'keyboard\').hasError(\'minlength\')) && systemsForm.get(\'keyboard\').touched" >\n\n                      Keyboard Details is Required\n\n                    </ion-label>\n\n                  </ion-item>\n\n           \n\n            \n\n                <ion-item col-12>\n\n                  <ion-label stacked>Mouse</ion-label>\n\n                  <ion-input type="text" [disabled]="replace" formControlName="mouse"></ion-input>\n\n                  <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify(\'mouse\')">\n\n                      <ion-icon  small name="create" ></ion-icon>\n\n                    </button>\n\n                    <button *ngIf="!replace" ion-button small type="button" (click)="scanBarCode(\'mouse\')"  color="blue" item-right>\n\n                        <ion-icon name="barcode"> </ion-icon>\n\n                      </button>\n\n                  </ion-item>\n\n                  <ion-item  no-lines *ngIf="(systemsForm.get(\'mouse\').hasError(\'minlength\') || systemsForm.get(\'mouse\').hasError(\'required\') ) && systemsForm.get(\'mouse\').touched">\n\n                    <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'mouse\').hasError(\'required\')  || systemsForm.get(\'mouse\').hasError(\'minlength\')) && systemsForm.get(\'mouse\').touched" >\n\n                      Mouse Details is Required\n\n                    </ion-label>\n\n                  </ion-item>\n\n               \n\n\n\n              <ion-item col-12>\n\n                <ion-label stacked>Processor</ion-label>\n\n                <ion-input type="text" [disabled]="replace" formControlName="processor" ></ion-input>\n\n                <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify(\'processor\')">\n\n                    <ion-icon  small name="create" ></ion-icon>\n\n                  </button>\n\n              </ion-item>\n\n              <ion-item  no-lines *ngIf="(systemsForm.get(\'processor\').hasError(\'minlength\') || systemsForm.get(\'processor\').hasError(\'required\') ) && systemsForm.get(\'processor\').touched">\n\n                <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'processor\').hasError(\'required\')  || systemsForm.get(\'processor\').hasError(\'minlength\')) && systemsForm.get(\'processor\').touched" >\n\n                  Processor Details is Required\n\n                </ion-label>\n\n              </ion-item>\n\n             <ion-row  >\n\n              <ion-item  col-6>\n\n                <ion-label stacked>Primary Memory</ion-label>\n\n                <ion-input type="text" [disabled]="replace" formControlName="memory" ></ion-input>\n\n                <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify(\'memory\')">\n\n                    <ion-icon  small name="create" ></ion-icon>\n\n                  </button>\n\n              </ion-item>\n\n              \n\n\n\n              <ion-item col-6>\n\n                <ion-label stacked>Hard Disk</ion-label>\n\n                <ion-input type="text" [disabled]="replace" formControlName="hdd" ></ion-input>\n\n                <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify(\'hdd\')">\n\n                    <ion-icon  small name="create" ></ion-icon>\n\n                  </button>\n\n              </ion-item>\n\n              \n\n            </ion-row>  \n\n            <ion-row>\n\n              <ion-col col-6>\n\n            <ion-item no-lines *ngIf="(systemsForm.get(\'memory\').hasError(\'minlength\') || systemsForm.get(\'memory\').hasError(\'required\') ) && systemsForm.get(\'memory\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'memory\').hasError(\'required\')  || systemsForm.get(\'memory\').hasError(\'minlength\')) && systemsForm.get(\'memory\').touched" >\n\n                Memory is Required\n\n              </ion-label>\n\n            </ion-item>\n\n          </ion-col>\n\n          <ion-col col-6>\n\n            <ion-item  no-lines *ngIf="(systemsForm.get(\'hdd\').hasError(\'minlength\') || systemsForm.get(\'hdd\').hasError(\'required\') ) && systemsForm.get(\'hdd\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'hdd\').hasError(\'required\')  || systemsForm.get(\'hdd\').hasError(\'minlength\')) && systemsForm.get(\'hdd\').touched" >\n\n                HDD Details is Required\n\n              </ion-label>\n\n            </ion-item>\n\n          </ion-col>\n\n          </ion-row>\n\n        \n\n            <ion-item col-12>\n\n              <ion-label stacked>Antivirus Expiry</ion-label>\n\n              <ion-input type="text" [disabled]="replace" readonly formControlName="avExpiry" (tap)="dispdate(\'antivirus\')" #antiVirusElem ></ion-input>\n\n              <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify(\'avExpiry\')">\n\n                  <ion-icon  small name="create" ></ion-icon>\n\n                </button>\n\n            </ion-item>\n\n            <ion-item  no-lines *ngIf="(systemsForm.get(\'avExpiry\').hasError(\'minlength\') || systemsForm.get(\'avExpiry\').hasError(\'required\') ) && systemsForm.get(\'avExpiry\').touched">\n\n              <ion-label stacked  color="danger" *ngIf="(systemsForm.get(\'avExpiry\').hasError(\'required\')  || systemsForm.get(\'avExpiry\').hasError(\'minlength\')) && systemsForm.get(\'avExpiry\').touched" >\n\n                Antivirus Details is Required\n\n              </ion-label>\n\n            </ion-item>\n\n\n\n            <ion-item col-12>\n\n              <ion-label stacked>User</ion-label>\n\n              <ion-select [disabled]="replace" formControlName="systemUser">\n\n                <ion-option *ngFor="let emp of employeeList" [value]="emp.$key">{{emp.fName}} {{emp.lName}}</ion-option>\n\n              </ion-select>\n\n              <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify(\'systemUser\')">\n\n                  <ion-icon  small name="create" ></ion-icon>\n\n                </button>\n\n\n\n            </ion-item>\n\n\n\n\n\n            \n\n          \n\n\n\n              <ion-row>\n\n                <ion-col col-6 [hidden]="replace">\n\n                <button ion-button type="submit"  [disabled]="systemsForm.invalid" icon-end full color=blue   >\n\n                  Save\n\n                </button>\n\n              </ion-col>\n\n              <ion-col (col-6)="!replace" (col-12)="replace">\n\n                  <button ion-button type="button" (click)=formReset()  icon-end full color=blue   >\n\n                    Cancel\n\n                  </button>\n\n                </ion-col>\n\n              </ion-row> \n\n             \n\n     \n\n    </form>\n\n\n\n    \n\n    </div>\n\n\n\n    <div *ngSwitchCase="\'allSystems\'">\n\n      \n\n       <ion-row>\n\n          \n\n          <ion-item col-10  no-lines >\n\n              <ion-searchbar  placeholder="Search User"  [showCancelButton]="shouldShowCancel"  [(ngModel)]="searchString" ><ion-icon name="barcode" item-right> </ion-icon></ion-searchbar>\n\n          </ion-item>\n\n          <ion-item col-2>\n\n              <ion-icon  type="button" name="barcode" (click)="scanBarCode(\'db\')" color="blue"> </ion-icon>\n\n           </ion-item>\n\n        </ion-row>\n\n       \n\n      \n\n      <ion-item>\n\n        <ion-row class="table-title">\n\n          <ion-col col-4 >System Id</ion-col>\n\n           <ion-col col-3 >RAM</ion-col>\n\n          <ion-col col-3 >HDD</ion-col>\n\n          <ion-col col-2 >Antivirus</ion-col>\n\n        </ion-row>\n\n      </ion-item>\n\n      <ion-item *ngFor=\'let system of systemArray | tableFilter : "systemId" : searchString; let i = index\'>\n\n        <ion-row class="col-text table-bottom-border" (click)="loadForm(system)" >\n\n            <ion-col col-4>{{system.systemId}}</ion-col><ion-col col-3>{{system.memory}}</ion-col><ion-col col-3>{{system.hdd}}</ion-col><ion-col col-2>{{system.avExpiry | momentdate}} Days</ion-col>\n\n        </ion-row>\n\n      </ion-item>\n\n\n\n      \n\n    </div>\n\n\n\n\n\n  </div>\n\n    \n\n  </ion-content>\n\n  \n\n '/*ion-inline-end:"F:\ionic-app\src\pages\systems\systems.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], __WEBPACK_IMPORTED_MODULE_2__providers_form_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["LoadingController"], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_7__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_4__ionic_native_barcode_scanner__["a" /* BarcodeScanner */], __WEBPACK_IMPORTED_MODULE_1__ionic_native_date_picker__["a" /* DatePicker */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_database__["a" /* AngularFireDatabase */]])
+    ], SystemsPage);
+    return SystemsPage;
+}()); //end of class
+
+//# sourceMappingURL=systems.js.map
 
 /***/ })
 

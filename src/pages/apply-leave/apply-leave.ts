@@ -1,7 +1,9 @@
-import { DatePicker } from '@ionic-native/date-picker';
+
+import { ElementRef, Renderer } from '@angular/core';
+
 
 import { leaveCount,leaves } from './../../providers/user-leaves';
-import { Component} from '@angular/core';
+import { Component, ViewChild} from '@angular/core';
 import { IonicPage, NavController, NavParams, ModalController, Form, AlertController, LoadingController } from 'ionic-angular';
 import { CalendarModal,CalendarResult} from "ion2-calendar";
 
@@ -13,6 +15,7 @@ import {Validators, FormBuilder} from '@angular/forms'
 
 import { AngularFireDatabase } from '@angular/fire/database';
 import * as moment from 'moment'
+import * as  mdDateTimePicker  from 'md-date-time-picker/dist/js/mdDateTimePicker.js';
 
 
 
@@ -35,8 +38,9 @@ leaveRecords:any
 leaveDates:any
 dateRange:any="This Month Leave"
 months=this.customDatePicker.getMonths()
-
- constructor(public nativeDatePicker:DatePicker,private alertCtrl:AlertController,private formBuilder:FormBuilder,private afauth:AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,private modalCtrl:ModalController,private customDatePicker:CustomDatePicker,private userLeave:LeaveModel,private firebase:AngularFireDatabase) {
+@ViewChild('dateFromElem' ,{ read: ElementRef }) dateF:ElementRef;
+@ViewChild('dateToElem' ,{ read: ElementRef }) dateT:ElementRef;
+ constructor(public renderer:Renderer,private alertCtrl:AlertController,private formBuilder:FormBuilder,private afauth:AngularFireAuth,public navCtrl: NavController, public navParams: NavParams,private modalCtrl:ModalController,private customDatePicker:CustomDatePicker,private userLeave:LeaveModel,private firebase:AngularFireDatabase) {
     //this.getRemainingLeave()
     
             
@@ -84,8 +88,15 @@ months=this.customDatePicker.getMonths()
 
 
    datePicker(pickMode){
-    
-   let dateLimit=moment().add(45, 'days');// Display  45 days from today
+     let dateLimit:any
+     if(this.leaveInfo.leaveType==null)
+      return
+    if(this.leaveInfo.leaveType=='sick'){
+       dateLimit=moment().add(5, 'days');
+    }
+    else{
+    dateLimit=moment().add(45, 'days');// Display  45 days from today
+    }
    var defaultScrollTo=moment()// scroll to curren date
     let disableWeek=[0,6]// disable Sunday-0 and Saturday-6
     if(pickMode=='multi'){// Select multiple dates fron date picker
@@ -128,27 +139,34 @@ months=this.customDatePicker.getMonths()
 
      })//end of displayCalendar function
     }// end of datepicker function
-
-dateFrom:any
-dateTo:any
+    dateFrom:any
+    dateTo:any
+    dateLimit:any=null
     dispDate(type:String){
-      this.nativeDatePicker.show({
-      date: moment().toDate(),
-      mode: 'date',
-      androidTheme: 5,
+      if(type==="from"){
+        let datePicker = new mdDateTimePicker.default({
+          type: 'date',
+          trigger : this.dateF.nativeElement
+        });
+        datePicker.toggle()
+        this.renderer.listen(this.dateF.nativeElement, 'onOk', () => {
+        this.dateFrom=moment(datePicker.time).format('D-MMM-YYYY')
+        this.dateLimit=moment(datePicker.time)
+      })
+    }
+    else if(type=='to' && this.dateLimit!=null){
+      let datePicker = new mdDateTimePicker.default({
+        type: 'date',
+        past:this.dateLimit,
+        trigger : this.dateT.nativeElement
+      });
+      datePicker.toggle()
+      this.renderer.listen(this.dateT.nativeElement, 'onOk', () => {
+        this.dateTo=moment(datePicker.time).format('D-MMM-YYYY')
+        this.dateRange=this.dateFrom+" to "+this.dateTo
+      })
+    }
       
-    }).then(
-      date=>{
-       if(type==="from"){
-         this.dateFrom = moment(date).format('D-MMM-YYYY')
-       }
-       else{
-         this.dateTo =  moment(date).format('D-MMM-YYYY')
-         this.dateRange=this.dateFrom+" to "+this.dateTo
-       }
-     },err => console.log('Error occurred while getting date: ', err)
-
-     );
     }
 
 
@@ -188,6 +206,7 @@ getMyLeaves(){
       this.dateRange="This Month Leave"
       this.dateFrom=""
       this.dateTo=""
+      this.dateLimit=null
       this.leaveRecords=[]
       this.leaveDates=""
       

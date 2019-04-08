@@ -201,7 +201,8 @@
 
 .mddtp-picker-time .mddtp-picker__header {
   vertical-align: middle;
-  width: 125px; }
+  width: 125px;
+  }
   .mddtp-picker-time .mddtp-picker__header .mddtp-picker__title {
     text-align: right;
     font-size: 0; }
@@ -226,7 +227,7 @@
   height: 250px;
   margin: 20px;
   border-radius: 50%;
-  background-color: #eeeeee; }
+  background-color: #FFFFFF; }
 
 .mddtp-picker__circularView {
   position: absolute;
@@ -252,7 +253,7 @@
       text-align: center;
       margin-right: 8px; }
     .mddtp-picker__circularView .mddtp-picker__cell--selected span, .mddtp-picker__circularView .mddtp-picker__body .mddtp-picker__viewHolder .mddtp-picker__grid .mddtp-picker__tr .mddtp-picker__cell:hover span, .mddtp-picker__body .mddtp-picker__viewHolder .mddtp-picker__grid .mddtp-picker__tr .mddtp-picker__circularView .mddtp-picker__cell:hover span {
-      color: #fff; }
+      color: #FFFFFF; }
   .mddtp-picker__circularView--hidden {
     display: none; }
 
@@ -281,7 +282,7 @@
   transition: 0.3s cubic-bezier(0.42, 0, 0.58, 1); }
   .mddtp-picker__selection span {
     display: inline-block;
-    background-color: #009688;
+    background-color: #2679b0;
     height: 2px;
     vertical-align: middle; }
     .mddtp-picker__selection span.mddtp-picker__dot {
@@ -1475,8 +1476,8 @@
       .mddtp-picker.mddtp-picker-date .mddtp-picker__title div#mddtp-date__titleMonth {
         margin-left: 8px; }
     .mddtp-picker.mddtp-picker-time .mddtp-picker__header {
-      text-align: right;
-      width: calc(100% - 48px); }
+      text-align: center;
+      width: calc(100%); }
       .mddtp-picker.mddtp-picker-time .mddtp-picker__header .mddtp-picker__title {
         display: inline-block; }
       .mddtp-picker.mddtp-picker-time .mddtp-picker__header .mddtp-picker__subtitle {

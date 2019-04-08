@@ -1,13 +1,14 @@
+import { ElementRef, Renderer } from '@angular/core';
 import { DatePicker } from '@ionic-native/date-picker';
 import { CustomDatePicker } from './../../models/datepicker';
 import { LeaveModel } from './../../models/leave.model';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavParams, ModalController, NavController } from 'ionic-angular';
 import { Employee } from '../../models/employee.model';
 import { CalendarModal,CalendarResult} from "ion2-calendar";
 import { BehaviorSubject } from 'rxjs';
 import * as moment from 'moment'
-
+import * as  mdDateTimePicker  from 'md-date-time-picker/dist/js/mdDateTimePicker.js';
 /**
  * Generated class for the LeavesAdminPage page.
  *
@@ -30,7 +31,9 @@ export class LeavesAdminPage {
   
   leaveRecords:any=[]
   public waitForPop: BehaviorSubject<boolean> = new BehaviorSubject(true);
-  constructor(public nativeDatePicker:DatePicker,public navCtrl:NavController,private userLeave:LeaveModel,public modalCtrl:ModalController,public navParams: NavParams,private empDetails:Employee,private customDatePicker: CustomDatePicker) {
+  @ViewChild('dateFromElem' ,{ read: ElementRef }) dateFromElem:ElementRef;
+@ViewChild('dateToElem' ,{ read: ElementRef }) dateToElem:ElementRef;
+  constructor(public renderer:Renderer,public nativeDatePicker:DatePicker,public navCtrl:NavController,private userLeave:LeaveModel,public modalCtrl:ModalController,public navParams: NavParams,private empDetails:Employee,private customDatePicker: CustomDatePicker) {
     this.leaves='viewLeaveRequests';
     this.viewLeaveRequests()
     
@@ -49,14 +52,18 @@ resetFields(){
   this.leaveRecords=[]
   this.dateRange="";
   this.employeeKey=""
+  this.dateFrom=""
+  this.dateTo=""
+  this.dateLimit=null
 
 }
 
 clearDatePicker(){
   this.dateRange=""
+
 }
 
-datePicker(pickMode){
+/*datePicker(pickMode){
     
   
   var defaultScrollTo=new Date()
@@ -82,28 +89,37 @@ datePicker(pickMode){
      })
 
     }// end of datepicker function
-
+*/
     dateFrom:any
-dateTo:any
+    dateTo:any
+    dateLimit:any=null
     dispDate(type:String){
-      this.nativeDatePicker.show({
-      date: moment().toDate(),
-      mode: 'date',
-      androidTheme: 5,
-      
-    }).then(
-      date=>{
-       if(type==="from"){
-         this.dateFrom = moment(date).format('D-MMM-YYYY')
-       }
-       else{
-         this.dateTo =  moment(date).format('D-MMM-YYYY')
-         this.dateRange=this.dateFrom+" to "+this.dateTo
-       }
-     },err => console.log('Error occurred while getting date: ', err)
-
-     );
+      if(type==="from"){
+        let datePicker = new mdDateTimePicker.default({
+          type: 'date',
+          trigger : this.dateFromElem.nativeElement
+        });
+        datePicker.toggle()
+        this.renderer.listen(this.dateFromElem.nativeElement, 'onOk', () => {
+        this.dateFrom=moment(datePicker.time).format('D-MMM-YYYY')
+        this.dateLimit=moment(datePicker.time)
+      })
     }
+    else if(type=='to' && this.dateLimit!=null){
+      let datePicker = new mdDateTimePicker.default({
+        type: 'date',
+        past:this.dateLimit,
+        trigger : this.dateToElem.nativeElement
+      });
+      datePicker.toggle()
+      this.renderer.listen(this.dateToElem.nativeElement, 'onOk', () => {
+        this.dateTo=moment(datePicker.time).format('D-MMM-YYYY')
+        this.dateRange=this.dateFrom+" to "+this.dateTo
+      })
+    }
+      
+    }
+
    
      goto(page:string,data?:object){
        

@@ -1,10 +1,12 @@
+import { ElementRef, Renderer } from '@angular/core';
 import { concatAll } from 'rxjs/operators';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { DatePicker } from '@ionic-native/date-picker';
 import * as moment from 'moment';
 import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
+import * as  mdDateTimePicker  from 'md-date-time-picker/dist/js/mdDateTimePicker.js';
 
 /**
  * Generated class for the InterviewSchedulePage page.
@@ -29,24 +31,48 @@ export class InterviewSchedulePage {
   jobTitle: new FormControl('', Validators.required)
  
 });
-  constructor(public alertCtrl:AlertController, private datePicker:DatePicker,public navCtrl: NavController, public navParams: NavParams,private firebase:AngularFireDatabase) {
+@ViewChild('dateElem' ,{ read: ElementRef }) dateElem:ElementRef;
+@ViewChild('timeElem' ,{ read: ElementRef }) timeElem:ElementRef;
+  constructor(public renderer:Renderer,public alertCtrl:AlertController, private datePicker:DatePicker,public navCtrl: NavController, public navParams: NavParams,private firebase:AngularFireDatabase) {
     this.applicantKeys=this.navParams.data
    this.getSchedules()
   }
 
-  dispdate(){// Funciton for displaying the date picker for selecting interview date
-    this.datePicker.show({
-      date:new Date(),
-      mode:'date',
+  
+
+  
+    dispDate(type:string){
+      if(type=="date"){
+        let datePicker = new mdDateTimePicker.default({
+          type: 'date',
+          past:moment(),
+          future:moment().add(5,'months'),
+          trigger : this.dateElem.nativeElement
+        });
+        datePicker.toggle()
+        this.renderer.listen(this.dateElem.nativeElement, 'onOk', () => {
+        this.scheduleForm.controls.scheduleDate.setValue(moment(datePicker.time).format('D-MMM-YYYY'))
       
-      androidTheme: 5,
-    }).then(
-      date=>{
-        this.scheduleForm.controls.scheduleDate.setValue(moment(date).format('D-MMM-YYYY'))
-       },
-      err => console.log('Error occurred while getting date: ', err)
-    )
-  }//end of function
+      })
+    }
+    else{
+      let datePicker = new mdDateTimePicker.default({
+        type: 'time',
+        //past:moment(),
+        //future:moment().add(5,'months'),
+        trigger : this.dateElem.nativeElement
+      });
+      datePicker.toggle()
+      this.renderer.listen(this.dateElem.nativeElement, 'onOk', () => {
+      this.scheduleForm.controls.scheduleTime.setValue(moment(datePicker.time).format('h:m A'))
+    
+    })
+
+    }
+    }
+    
+      
+    
 
   applicantList:AngularFireList<any>=this.firebase.list('Applicants');
   scheduleList:AngularFireList<any>;

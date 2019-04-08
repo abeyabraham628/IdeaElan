@@ -3597,7 +3597,7 @@ SafeBuffer.allocUnsafeSlow = function (size) {
 
 var base64 = __webpack_require__(872)
 var ieee754 = __webpack_require__(873)
-var isArray = __webpack_require__(802)
+var isArray = __webpack_require__(808)
 
 exports.Buffer = Buffer
 exports.SlowBuffer = SlowBuffer
@@ -5448,8 +5448,8 @@ var elliptic = exports;
 
 elliptic.version = __webpack_require__(914).version;
 elliptic.utils = __webpack_require__(915);
-elliptic.rand = __webpack_require__(824);
-elliptic.curve = __webpack_require__(785);
+elliptic.rand = __webpack_require__(830);
+elliptic.curve = __webpack_require__(791);
 elliptic.curves = __webpack_require__(920);
 
 // Protocols
@@ -5478,6 +5478,2859 @@ assert.equal = function assertEqual(l, r, msg) {
 /***/ }),
 
 /***/ 767:
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;(function (global, factory) {
+	if (true) {
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(1), __webpack_require__(768)], __WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__)) : __WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else if (typeof exports !== "undefined") {
+		factory(exports, require('moment'), require('draggabilly'));
+	} else {
+		var mod = {
+			exports: {}
+		};
+		factory(mod.exports, global.moment, global.draggabilly);
+		global.mdDateTimePicker = mod.exports;
+	}
+})(this, function (exports, _moment, _draggabilly) {
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _moment2 = _interopRequireDefault(_moment);
+
+	var _draggabilly2 = _interopRequireDefault(_draggabilly);
+
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : {
+			default: obj
+		};
+	}
+
+	function _classCallCheck(instance, Constructor) {
+		if (!(instance instanceof Constructor)) {
+			throw new TypeError("Cannot call a class as a function");
+		}
+	}
+
+	var _createClass = function () {
+		function defineProperties(target, props) {
+			for (var i = 0, descriptor; i < props.length; i++) {
+				descriptor = props[i];
+				descriptor.enumerable = descriptor.enumerable || !1;
+				descriptor.configurable = !0;
+				if ("value" in descriptor) descriptor.writable = !0;
+				Object.defineProperty(target, descriptor.key, descriptor);
+			}
+		}
+
+		return function (Constructor, protoProps, staticProps) {
+			if (protoProps) defineProperties(Constructor.prototype, protoProps);
+			if (staticProps) defineProperties(Constructor, staticProps);
+			return Constructor;
+		};
+	}();
+
+	var mdDateTimePicker = function () {
+		/**
+  * [constructor of the mdDateTimePicker]
+  *
+  * @method constructor
+  *
+  * @param  {String}   type = 'date' or 'time 				[type of dialog]
+  * @param  {moment}   init 						[initial value for the dialog date or time, defaults to today] [@default = today]
+  * @param  {moment}   past 						[the past moment till which the calendar shall render] [@default = exactly 21 Years ago from init]
+  * @param  {moment}   future	 					[the future moment till which the calendar shall render] [@default = init]
+  * @param  {Boolean}  mode 						[this value tells whether the time dialog will have the 24 hour mode (true) or 12 hour mode (false)] [@default = false]
+  * @param  {String}   orientation = 'LANDSCAPE' or 'PORTRAIT'		[force the orientation of the picker @default = 'LANDSCAPE']
+  * @param  {element}  trigger						[element on which all the events will be dispatched e.g var foo = document.getElementById('bar'), here element = foo]
+  * @param  {String}  ok = 'ok'						[ok button's text]
+  * @param  {String}  cancel = 'cancel'					[cancel button's text]
+  * @param  {Boolean} colon = true					[add an option to enable quote in 24 hour mode]
+  * @param  {Boolean} autoClose = false					[close dialog on date/time selection]
+  * @param  {Boolean} inner24 = false					[if 24-hour mode and (true), the PM hours shows in an inner dial]
+  * @param  {String} prevHandle = <div class="mddtp-prev-handle"></div>	[The HTML content of the handle to go to previous month]
+  * @param  {String} nextHandle = <div class="mddtp-next-handle"></div>	[The HTML content of the handle to go to next month]
+  *
+  * @return {Object}							[mdDateTimePicker]
+  */
+		function mdDateTimePicker(_ref) {
+			var type = _ref.type,
+			    _ref$init = _ref.init,
+			    init = _ref$init === undefined ? (0, _moment2.default)() : _ref$init,
+			    _ref$past = _ref.past,
+			    past = _ref$past === undefined ? (0, _moment2.default)().subtract(21, 'years') : _ref$past,
+			    _ref$future = _ref.future,
+			    future = _ref$future === undefined ? init : _ref$future,
+			    _ref$mode = _ref.mode,
+			    mode = _ref$mode === undefined ? !1 : _ref$mode,
+			    _ref$orientation = _ref.orientation,
+			    orientation = _ref$orientation === undefined ? 'LANDSCAPE' : _ref$orientation,
+			    _ref$trigger = _ref.trigger,
+			    trigger = _ref$trigger === undefined ? '' : _ref$trigger,
+			    _ref$ok = _ref.ok,
+			    ok = _ref$ok === undefined ? 'ok' : _ref$ok,
+			    _ref$cancel = _ref.cancel,
+			    cancel = _ref$cancel === undefined ? 'cancel' : _ref$cancel,
+			    _ref$colon = _ref.colon,
+			    colon = _ref$colon === undefined ? !0 : _ref$colon,
+			    _ref$autoClose = _ref.autoClose,
+			    autoClose = _ref$autoClose === undefined ? !1 : _ref$autoClose,
+			    _ref$inner = _ref.inner24,
+			    inner24 = _ref$inner === undefined ? !1 : _ref$inner,
+			    _ref$prevHandle = _ref.prevHandle,
+			    prevHandle = _ref$prevHandle === undefined ? '<div class="mddtp-prev-handle"></div>' : _ref$prevHandle,
+			    _ref$nextHandle = _ref.nextHandle,
+			    nextHandle = _ref$nextHandle === undefined ? '<div class="mddtp-next-handle"></div>' : _ref$nextHandle;
+
+			_classCallCheck(this, mdDateTimePicker);
+
+			this._type = type;
+			this._init = init;
+			this._past = past;
+			this._future = future;
+			this._mode = mode;
+			this._orientation = orientation;
+			this._trigger = trigger;
+			this._ok = ok;
+			this._cancel = cancel;
+			this._colon = colon;
+			this._autoClose = autoClose;
+			this._inner24 = inner24;
+			this._prevHandle = prevHandle;
+			this._nextHandle = nextHandle;
+
+			/**
+   * [dialog selected classes have the same structure as dialog but one level down]
+   * @type {Object}
+   * All declarations starting with _ are considered @private
+   * e.g
+   * sDialog = {
+   *   picker: 'some-picker-selected'
+   * }
+   */
+			this._sDialog = {};
+			// attach the dialog if not present
+			if (typeof document !== 'undefined' && !document.getElementById('mddtp-picker__' + this._type)) {
+				this._buildDialog();
+			}
+		}
+
+		/**
+  * [time to get or set the current picker's moment]
+  *
+  * @method time
+  *
+  * @param  {moment} m
+  *
+  */
+
+
+		_createClass(mdDateTimePicker, [{
+			key: 'hide',
+			value: function hide() {
+				this._selectDialog();
+				this._hideDialog();
+			}
+		}, {
+			key: 'show',
+			value: function show() {
+				this._selectDialog();
+				if (this._type === 'date') {
+					this._initDateDialog(this._init);
+				} else if (this._type === 'time') {
+					this._initTimeDialog(this._init);
+				}
+				this._showDialog();
+			}
+		}, {
+			key: 'isOpen',
+			value: function isOpen() {
+				this._selectDialog();
+
+				return !!mdDateTimePicker.dialog.state;
+			}
+		}, {
+			key: 'isClosed',
+			value: function isClosed() {
+				this._selectDialog();
+
+				return !mdDateTimePicker.dialog.state;
+			}
+		}, {
+			key: 'toggle',
+			value: function toggle() {
+				this._selectDialog();
+				// work according to the current state of the dialog
+				if (mdDateTimePicker.dialog.state) {
+					this.hide();
+				} else {
+					this.show();
+				}
+			}
+		}, {
+			key: '_selectDialog',
+			value: function _selectDialog() {
+				// now do what you normally would do
+				this._sDialog.picker = document.getElementById('mddtp-picker__' + [this._type]);
+				/**
+    * [sDialogEls stores all inner components of the selected dialog or sDialog to be later getElementById]
+    *
+    * @type {Array}
+    */
+				var sDialogEls = ['viewHolder', 'years', 'header', 'cancel', 'ok', 'left', 'right', 'previous', 'current', 'next', 'subtitle', 'title', 'titleDay', 'titleMonth', 'AM', 'PM', 'needle', 'hourView', 'minuteView', 'hour', 'minute', 'fakeNeedle', 'circularHolder', 'circle', 'dotSpan'],
+				    i = sDialogEls.length;
+
+				while (i--) {
+					this._sDialog[sDialogEls[i]] = document.getElementById('mddtp-' + this._type + '__' + sDialogEls[i]);
+				}
+
+				this._sDialog.tDate = this._init.clone();
+				this._sDialog.sDate = this._init.clone();
+			}
+		}, {
+			key: '_showDialog',
+			value: function _showDialog() {
+				var me = this,
+				    zoomIn = 'zoomIn';
+
+				mdDateTimePicker.dialog.state = !0;
+				this._sDialog.picker.classList.remove('mddtp-picker--inactive');
+				this._sDialog.picker.classList.add(zoomIn);
+				// if the dialog is forced into portrait mode
+				if (this._orientation === 'PORTRAIT') {
+					this._sDialog.picker.classList.add('mddtp-picker--portrait');
+				}
+				setTimeout(function () {
+					me._sDialog.picker.classList.remove(zoomIn);
+				}, 300);
+			}
+		}, {
+			key: '_hideDialog',
+			value: function _hideDialog() {
+				var me = this,
+				    years = this._sDialog.years,
+				    title = me._sDialog.title,
+				    subtitle = me._sDialog.subtitle,
+				    viewHolder = this._sDialog.viewHolder,
+				    AM = this._sDialog.AM,
+				    PM = this._sDialog.PM,
+				    minute = this._sDialog.minute,
+				    hour = this._sDialog.hour,
+				    minuteView = this._sDialog.minuteView,
+				    hourView = this._sDialog.hourView,
+				    picker = this._sDialog.picker,
+				    needle = this._sDialog.needle,
+				    dotSpan = this._sDialog.dotSpan,
+				    active = 'mddtp-picker__color--active',
+				    inactive = 'mddtp-picker--inactive',
+				    invisible = 'mddtp-picker__years--invisible',
+				    zoomIn = 'zoomIn',
+				    zoomOut = 'zoomOut',
+				    hidden = 'mddtp-picker__circularView--hidden',
+				    selection = 'mddtp-picker__selection';
+
+				mdDateTimePicker.dialog.state = !1;
+				mdDateTimePicker.dialog.view = !0;
+				this._sDialog.picker.classList.add(zoomOut);
+				// reset classes
+				if (this._type === 'date') {
+					years.classList.remove(zoomIn, zoomOut);
+					years.classList.add(invisible);
+					title.classList.remove(active);
+					subtitle.classList.add(active);
+					viewHolder.classList.remove(zoomOut);
+				} else {
+					AM.classList.remove(active);
+					PM.classList.remove(active);
+					minute.classList.remove(active);
+					hour.classList.add(active);
+					minuteView.classList.add(hidden);
+					hourView.classList.remove(hidden);
+					subtitle.setAttribute('style', 'display: none');
+					dotSpan.setAttribute('style', 'display: none');
+					needle.className = selection;
+				}
+				setTimeout(function () {
+					// remove portrait mode
+					me._sDialog.picker.classList.remove('mddtp-picker--portrait');
+					me._sDialog.picker.classList.remove(zoomOut);
+					me._sDialog.picker.classList.add(inactive);
+					// clone elements and add them again to clear events attached to them
+					var pickerClone = picker.cloneNode(!0);
+					picker.parentNode.replaceChild(pickerClone, picker);
+				}, 300);
+			}
+		}, {
+			key: '_buildDialog',
+			value: function _buildDialog() {
+				var type = this._type,
+				    docfrag = document.createDocumentFragment(),
+				    container = document.createElement('div'),
+				    header = document.createElement('div'),
+				    body = document.createElement('div'),
+				    action = document.createElement('div'),
+				    cancel = document.createElement('button'),
+				    ok = document.createElement('button');
+				// outer most container of the picker
+
+				// header container of the picker
+
+				// body container of the picker
+
+				// action elements container
+
+				// ... add properties to them
+				container.id = 'mddtp-picker__' + type;
+				container.classList.add('mddtp-picker');
+				container.classList.add('mddtp-picker-' + type);
+				container.classList.add('mddtp-picker--inactive');
+				container.classList.add('animated');
+				this._addId(header, 'header');
+				this._addClass(header, 'header');
+				// add header to container
+				container.appendChild(header);
+				this._addClass(body, 'body');
+				body.appendChild(action);
+				// add body to container
+				container.appendChild(body);
+				// add stuff to header and body according to dialog type
+				if (this._type === 'date') {
+					var subtitle = document.createElement('div'),
+					    title = document.createElement('div'),
+					    titleDay = document.createElement('div'),
+					    titleMonth = document.createElement('div'),
+					    viewHolder = document.createElement('div'),
+					    views = document.createElement('ul'),
+					    previous = document.createElement('li'),
+					    current = document.createElement('li'),
+					    next = document.createElement('li'),
+					    left = document.createElement('button'),
+					    right = document.createElement('button'),
+					    years = document.createElement('ul');
+
+					// inside header
+					// adding properties to them
+					this._addId(subtitle, 'subtitle');
+					this._addClass(subtitle, 'subtitle');
+					this._addId(title, 'title');
+					this._addClass(title, 'title', ['mddtp-picker__color--active']);
+					this._addId(titleDay, 'titleDay');
+					this._addId(titleMonth, 'titleMonth');
+					// add title stuff to it
+					title.appendChild(titleDay);
+					title.appendChild(titleMonth);
+					// add them to header
+					header.appendChild(subtitle);
+					header.appendChild(title);
+					// inside body
+					// inside viewHolder
+					this._addId(viewHolder, 'viewHolder');
+					this._addClass(viewHolder, 'viewHolder', ['animated']);
+					this._addClass(views, 'views');
+					this._addId(previous, 'previous');
+					previous.classList.add('mddtp-picker__view');
+					this._addId(current, 'current');
+					current.classList.add('mddtp-picker__view');
+					this._addId(next, 'next');
+					next.classList.add('mddtp-picker__view');
+					// fill the views
+					this._addView(previous);
+					this._addView(current);
+					this._addView(next);
+					// add them
+					viewHolder.appendChild(views);
+					views.appendChild(previous);
+					views.appendChild(current);
+					views.appendChild(next);
+					// inside body again
+					this._addId(left, 'left');
+					left.classList.add('mddtp-button');
+					this._addClass(left, 'left');
+					left.setAttribute('type', 'button');
+					left.innerHTML = this._prevHandle;
+
+					this._addId(right, 'right');
+					right.classList.add('mddtp-button');
+					this._addClass(right, 'right');
+					right.setAttribute('type', 'button');
+					right.innerHTML = this._nextHandle;
+
+					this._addId(years, 'years');
+					this._addClass(years, 'years', ['mddtp-picker__years--invisible', 'animated']);
+					// add them to body
+					body.appendChild(viewHolder);
+					body.appendChild(left);
+					body.appendChild(right);
+					body.appendChild(years);
+				} else {
+					var _title = document.createElement('div'),
+					    hour = document.createElement('span'),
+					    span = document.createElement('span'),
+					    minute = document.createElement('span'),
+					    _subtitle = document.createElement('div'),
+					    AM = document.createElement('div'),
+					    PM = document.createElement('div'),
+					    circularHolder = document.createElement('div'),
+					    needle = document.createElement('div'),
+					    dot = document.createElement('span'),
+					    line = document.createElement('span'),
+					    circle = document.createElement('span'),
+					    minuteView = document.createElement('div'),
+					    fakeNeedle = document.createElement('div'),
+					    hourView = document.createElement('div');
+
+					// add properties to them
+					// inside header
+					this._addId(_title, 'title');
+					this._addClass(_title, 'title');
+					this._addId(hour, 'hour');
+					hour.classList.add('mddtp-picker__color--active');
+					span.textContent = ':';
+					this._addId(span, 'dotSpan');
+					span.setAttribute('style', 'display: none');
+					this._addId(minute, 'minute');
+					this._addId(_subtitle, 'subtitle');
+					this._addClass(_subtitle, 'subtitle');
+					_subtitle.setAttribute('style', 'display: none');
+					this._addId(AM, 'AM');
+					//AM.textContent = 'AM'
+					// Change to 'AM' to Locale Meridiem
+					AM.textContent = (0, _moment2.default)().localeData().meridiem(1, 1, !0);
+					this._addId(PM, 'PM');
+					//PM.textContent = 'PM'
+					// Change to 'PM' to Locale Meridiem
+					PM.textContent = (0, _moment2.default)().localeData().meridiem(13, 1, !0);
+					// add them to title and subtitle
+					_title.appendChild(hour);
+					_title.appendChild(span);
+					_title.appendChild(minute);
+					_subtitle.appendChild(AM);
+					_subtitle.appendChild(PM);
+					// add them to header
+					header.appendChild(_title);
+					header.appendChild(_subtitle);
+					// inside body
+					this._addId(circularHolder, 'circularHolder');
+					this._addClass(circularHolder, 'circularHolder');
+					this._addId(needle, 'needle');
+					needle.classList.add('mddtp-picker__selection');
+					this._addClass(dot, 'dot');
+					this._addClass(line, 'line');
+					this._addId(circle, 'circle');
+					this._addClass(circle, 'circle');
+					this._addId(minuteView, 'minuteView');
+					minuteView.classList.add('mddtp-picker__circularView');
+					minuteView.classList.add('mddtp-picker__circularView--hidden');
+					this._addId(fakeNeedle, 'fakeNeedle');
+					fakeNeedle.classList.add('mddtp-picker__circle--fake');
+					this._addId(hourView, 'hourView');
+					hourView.classList.add('mddtp-picker__circularView');
+					// add them to needle
+					needle.appendChild(dot);
+					needle.appendChild(line);
+					needle.appendChild(circle);
+					// add them to circularHolder
+					circularHolder.appendChild(needle);
+					circularHolder.appendChild(minuteView);
+					circularHolder.appendChild(fakeNeedle);
+					circularHolder.appendChild(hourView);
+					// add them to body
+					body.appendChild(circularHolder);
+				}
+				action.classList.add('mddtp-picker__action');
+
+				if (this._autoClose === !0) {
+					action.style.display = "none";
+				}
+
+				this._addId(cancel, 'cancel');
+				cancel.classList.add('mddtp-button');
+				cancel.setAttribute('type', 'button');
+				this._addId(ok, 'ok');
+				ok.classList.add('mddtp-button');
+				ok.setAttribute('type', 'button');
+				// add actions
+				action.appendChild(cancel);
+				action.appendChild(ok);
+				// add actions to body
+				body.appendChild(action);
+				docfrag.appendChild(container);
+				// add the container to the end of body
+				document.getElementsByTagName('body').item(0).appendChild(docfrag);
+			}
+		}, {
+			key: '_initTimeDialog',
+			value: function _initTimeDialog(m) {
+				var hour = this._sDialog.hour,
+				    minute = this._sDialog.minute,
+				    subtitle = this._sDialog.subtitle,
+				    dotSpan = this._sDialog.dotSpan;
+
+				// switch according to 12 hour or 24 hour mode
+				if (this._mode) {
+					// CHANGED exception case for 24 => 0 issue #57
+					var text = parseInt(m.format('H'), 10);
+					if (text === 0) {
+						text = '00';
+					}
+					this._fillText(hour, text);
+					// add the configurable colon in this mode issue #56
+					if (this._colon) {
+						dotSpan.removeAttribute('style');
+					}
+				} else {
+					this._fillText(hour, m.format('h'));
+					//this._sDialog[m.format('A')].classList.add('mddtp-picker__color--active')
+					// Using isPM function for Find PM
+					if (m._locale.isPM(m.format('A'))) {
+						this._sDialog.PM.classList.add('mddtp-picker__color--active');
+					} else {
+						this._sDialog.AM.classList.add('mddtp-picker__color--active');
+					}
+					subtitle.removeAttribute('style');
+					dotSpan.removeAttribute('style');
+				}
+				this._fillText(minute, m.format('mm'));
+				this._initHour();
+				this._initMinute();
+				this._attachEventHandlers();
+				this._changeM();
+				this._dragDial();
+				this._switchToView(hour);
+				this._switchToView(minute);
+				this._addClockEvent();
+				this._setButtonText();
+			}
+		}, {
+			key: '_initHour',
+			value: function _initHour() {
+				var hourView = this._sDialog.hourView,
+				    needle = this._sDialog.needle,
+				    hour = 'mddtp-hour__selected',
+				    selected = 'mddtp-picker__cell--selected',
+				    rotate = 'mddtp-picker__cell--rotate-',
+				    rotate24 = 'mddtp-picker__cell--rotate24',
+				    cell = 'mddtp-picker__cell',
+				    docfrag = document.createDocumentFragment(),
+				    hourNow = void 0;
+
+				if (this._mode) {
+					var degreeStep = this._inner24 === !0 ? 10 : 5;
+					hourNow = parseInt(this._sDialog.tDate.format('H'), 10);
+					for (var i = 1, j = degreeStep; i <= 24; i++, j += degreeStep) {
+						var div = document.createElement('div'),
+						    span = document.createElement('span');
+
+						div.classList.add(cell);
+						// CHANGED exception case for 24 => 0 issue #57
+						if (i === 24) {
+							span.textContent = '00';
+						} else {
+							span.textContent = i;
+						}
+
+						var position = j;
+						if (this._inner24 === !0 && i > 12) {
+							position -= 120;
+							div.classList.add(rotate24);
+						}
+
+						div.classList.add(rotate + position);
+						if (hourNow === i) {
+							div.id = hour;
+							div.classList.add(selected);
+							needle.classList.add(rotate + position);
+						}
+						// CHANGED exception case for 24 => 0 issue #58
+						if (i === 24 && hourNow === 0) {
+							div.id = hour;
+							div.classList.add(selected);
+							needle.classList.add(rotate + position);
+						}
+						div.appendChild(span);
+						docfrag.appendChild(div);
+					}
+				} else {
+					hourNow = parseInt(this._sDialog.tDate.format('h'), 10);
+					for (var _i = 1, _j = 10; _i <= 12; _i++, _j += 10) {
+						var _div = document.createElement('div'),
+						    _span = document.createElement('span');
+
+						_div.classList.add(cell);
+						_span.textContent = _i;
+						_div.classList.add(rotate + _j);
+						if (hourNow === _i) {
+							_div.id = hour;
+							_div.classList.add(selected);
+							needle.classList.add(rotate + _j);
+						}
+						_div.appendChild(_span);
+						docfrag.appendChild(_div);
+					}
+				}
+				//empty the hours
+				while (hourView.lastChild) {
+					hourView.removeChild(hourView.lastChild);
+				}
+				// set inner html accordingly
+				hourView.appendChild(docfrag);
+			}
+		}, {
+			key: '_initMinute',
+			value: function _initMinute() {
+				var minuteView = this._sDialog.minuteView,
+				    minuteNow = parseInt(this._sDialog.tDate.format('m'), 10),
+				    sMinute = 'mddtp-minute__selected',
+				    selected = 'mddtp-picker__cell--selected',
+				    rotate = 'mddtp-picker__cell--rotate-',
+				    cell = 'mddtp-picker__cell',
+				    docfrag = document.createDocumentFragment();
+
+				for (var i = 5, j = 10; i <= 60; i += 5, j += 10) {
+					var div = document.createElement('div'),
+					    span = document.createElement('span');
+
+					div.classList.add(cell);
+					if (i === 60) {
+						span.textContent = this._numWithZero(0);
+					} else {
+						span.textContent = this._numWithZero(i);
+					}
+					if (minuteNow === 0) {
+						minuteNow = 60;
+					}
+					div.classList.add(rotate + j);
+					// (minuteNow === 1 && i === 60) for corner case highlight 00 at 01
+					if (minuteNow === i || minuteNow - 1 === i || minuteNow + 1 === i || minuteNow === 1 && i === 60) {
+						div.id = sMinute;
+						div.classList.add(selected);
+					}
+					div.appendChild(span);
+					docfrag.appendChild(div);
+				}
+				//empty the hours
+				while (minuteView.lastChild) {
+					minuteView.removeChild(minuteView.lastChild);
+				}
+				// set inner html accordingly
+				minuteView.appendChild(docfrag);
+			}
+		}, {
+			key: '_initDateDialog',
+			value: function _initDateDialog(m) {
+				var subtitle = this._sDialog.subtitle,
+				    title = this._sDialog.title,
+				    titleDay = this._sDialog.titleDay,
+				    titleMonth = this._sDialog.titleMonth;
+
+				this._fillText(subtitle, m.format('YYYY'));
+				this._fillText(titleDay, m.format('ddd, '));
+				this._fillText(titleMonth, m.format('MMM D'));
+				this._initYear();
+				this._initViewHolder();
+				this._attachEventHandlers();
+				this._changeMonth();
+				this._switchToView(subtitle);
+				this._switchToView(title);
+				this._setButtonText();
+			}
+		}, {
+			key: '_initViewHolder',
+			value: function _initViewHolder() {
+				var m = this._sDialog.tDate,
+				    current = this._sDialog.current,
+				    previous = this._sDialog.previous,
+				    next = this._sDialog.next,
+				    past = this._past,
+				    future = this._future;
+
+				if (m.isBefore(past, 'month')) {
+					m = past.clone();
+				}
+				if (m.isAfter(future, 'month')) {
+					m = future.clone();
+				}
+				this._sDialog.tDate = m;
+				this._initMonth(current, m);
+				this._initMonth(next, (0, _moment2.default)(this._getMonth(m, 1)));
+				this._initMonth(previous, (0, _moment2.default)(this._getMonth(m, -1)));
+				this._toMoveMonth();
+			}
+		}, {
+			key: '_initMonth',
+			value: function _initMonth(view, m) {
+				var displayMonth = m.format('MMMM YYYY'),
+				    innerDivs = view.getElementsByTagName('div');
+				// get the .mddtp-picker__month element using innerDivs[0]
+
+				this._fillText(innerDivs[0], displayMonth);
+				var docfrag = document.createDocumentFragment(),
+				    tr = innerDivs[3],
+				    firstDayOfMonth = _moment2.default.weekdays(!0).indexOf(_moment2.default.weekdays(!1, (0, _moment2.default)(m).date(1).day())),
+				    today = -1,
+				    selected = -1,
+				    lastDayOfMonth = parseInt((0, _moment2.default)(m).endOf('month').format('D'), 10) + firstDayOfMonth - 1,
+				    past = firstDayOfMonth,
+				    cellClass = 'mddtp-picker__cell',
+				    future = lastDayOfMonth;
+				// get the .mddtp-picker__tr element using innerDivs[3]
+
+				/*
+    * @netTrek - first day of month dependented from moment.locale
+    */
+
+				if ((0, _moment2.default)().isSame(m, 'month')) {
+					today = parseInt((0, _moment2.default)().format('D'), 10);
+					today += firstDayOfMonth - 1;
+				}
+				if (this._past.isSame(m, 'month')) {
+					past = parseInt(this._past.format('D'), 10);
+					past += firstDayOfMonth - 1;
+				}
+				if (this._future.isSame(m, 'month')) {
+					future = parseInt(this._future.format('D'), 10);
+					future += firstDayOfMonth - 1;
+				}
+				if (this._sDialog.sDate.isSame(m, 'month')) {
+					selected = parseInt((0, _moment2.default)(m).format('D'), 10);
+					selected += firstDayOfMonth - 1;
+				}
+				for (var i = 0; i < 42; i++) {
+					// create cell
+					var cell = document.createElement('span'),
+					    currentDay = i - firstDayOfMonth + 1;
+
+					if (i >= firstDayOfMonth && i <= lastDayOfMonth) {
+						if (i > future || i < past) {
+							cell.classList.add(cellClass + '--disabled');
+						} else {
+							cell.classList.add(cellClass);
+						}
+						this._fillText(cell, currentDay);
+					}
+					if (today === i) {
+						cell.classList.add(cellClass + '--today');
+					}
+					if (selected === i) {
+						cell.classList.add(cellClass + '--selected');
+						cell.id = 'mddtp-date__selected';
+					}
+					docfrag.appendChild(cell);
+				}
+				//empty the tr
+				while (tr.lastChild) {
+					tr.removeChild(tr.lastChild);
+				}
+				// set inner html accordingly
+				tr.appendChild(docfrag);
+				this._addCellClickEvent(tr);
+			}
+		}, {
+			key: '_initYear',
+			value: function _initYear() {
+				var years = this._sDialog.years,
+				    currentYear = this._sDialog.tDate.year(),
+				    docfrag = document.createDocumentFragment(),
+				    past = this._past.year(),
+				    future = this._future.year();
+
+				for (var year = past, li; year <= future; year++) {
+					li = document.createElement('li');
+
+					li.textContent = year;
+					if (year === currentYear) {
+						li.id = 'mddtp-date__currentYear';
+						li.classList.add('mddtp-picker__li--current');
+					}
+					docfrag.appendChild(li);
+				}
+				//empty the years ul
+				while (years.lastChild) {
+					years.removeChild(years.lastChild);
+				}
+				// set inner html accordingly
+				years.appendChild(docfrag);
+				// attach event handler to the ul to get the benefit of event delegation
+				this._changeYear(years);
+			}
+		}, {
+			key: '_pointNeedle',
+			value: function _pointNeedle(me) {
+				var spoke = 60,
+				    value = void 0,
+				    circle = this._sDialog.circle,
+				    fakeNeedle = this._sDialog.fakeNeedle,
+				    circularHolder = this._sDialog.circularHolder,
+				    selection = 'mddtp-picker__selection',
+				    needle = me._sDialog.needle;
+
+				// move the needle to correct position
+				needle.className = '';
+				needle.classList.add(selection);
+				if (!mdDateTimePicker.dialog.view) {
+					value = me._sDialog.sDate.format('m');
+
+					// Need to desactivate for the autoClose mode as it mess things up.  If you have an idea, feel free to give it a shot !
+					if (me._autoClose !== !0) {
+						// move the fakeNeedle to correct position
+						setTimeout(function () {
+							var hOffset = circularHolder.getBoundingClientRect(),
+							    cOffset = circle.getBoundingClientRect();
+
+							fakeNeedle.setAttribute('style', 'left:' + (cOffset.left - hOffset.left) + 'px;top:' + (cOffset.top - hOffset.top) + 'px');
+						}, 300);
+					}
+				} else {
+					if (me._mode) {
+						spoke = 24;
+						value = parseInt(me._sDialog.sDate.format('H'), 10);
+						// CHANGED exception for 24 => 0 issue #58
+						if (value === 0) {
+							value = 24;
+						}
+					} else {
+						spoke = 12;
+						value = me._sDialog.sDate.format('h');
+					}
+				}
+				var rotationClass = me._calcRotation(spoke, parseInt(value, 10));
+				if (rotationClass) {
+					needle.classList.add(rotationClass);
+				}
+			}
+		}, {
+			key: '_switchToView',
+			value: function _switchToView(el) {
+				var me = this;
+				// attach the view change button
+				if (this._type == 'date') {
+					el.onclick = function () {
+						me._switchToDateView(el, me);
+					};
+				} else {
+					if (this._inner24 === !0 && me._mode) {
+						if (parseInt(me._sDialog.sDate.format('H'), 10) > 12) {
+							me._sDialog.needle.classList.add('mddtp-picker__cell--rotate24');
+						} else {
+							me._sDialog.needle.classList.remove('mddtp-picker__cell--rotate24');
+						}
+					}
+
+					el.onclick = function () {
+						me._switchToTimeView(me);
+					};
+				}
+			}
+		}, {
+			key: '_switchToTimeView',
+			value: function _switchToTimeView(me) {
+				var hourView = me._sDialog.hourView,
+				    minuteView = me._sDialog.minuteView,
+				    hour = me._sDialog.hour,
+				    minute = me._sDialog.minute,
+				    activeClass = 'mddtp-picker__color--active',
+				    hidden = 'mddtp-picker__circularView--hidden',
+				    selection = 'mddtp-picker__selection';
+
+				// toggle view classes
+				hourView.classList.toggle(hidden);
+				minuteView.classList.toggle(hidden);
+				hour.classList.toggle(activeClass);
+				minute.classList.toggle(activeClass);
+				// move the needle to correct position
+				// toggle the view type
+				mdDateTimePicker.dialog.view = !mdDateTimePicker.dialog.view;
+				me._pointNeedle(me);
+			}
+		}, {
+			key: '_switchToDateView',
+			value: function _switchToDateView(el, me) {
+				el.setAttribute('disabled', '');
+				var viewHolder = me._sDialog.viewHolder,
+				    years = me._sDialog.years,
+				    title = me._sDialog.title,
+				    subtitle = me._sDialog.subtitle,
+				    currentYear = document.getElementById('mddtp-date__currentYear');
+
+				if (mdDateTimePicker.dialog.view) {
+					viewHolder.classList.add('zoomOut');
+					years.classList.remove('mddtp-picker__years--invisible');
+					years.classList.add('zoomIn');
+					// scroll into the view
+					currentYear.scrollIntoViewIfNeeded && currentYear.scrollIntoViewIfNeeded();
+				} else {
+					years.classList.add('zoomOut');
+					viewHolder.classList.remove('zoomOut');
+					viewHolder.classList.add('zoomIn');
+					setTimeout(function () {
+						years.classList.remove('zoomIn', 'zoomOut');
+						years.classList.add('mddtp-picker__years--invisible');
+						viewHolder.classList.remove('zoomIn');
+					}, 300);
+				}
+				title.classList.toggle('mddtp-picker__color--active');
+				subtitle.classList.toggle('mddtp-picker__color--active');
+				mdDateTimePicker.dialog.view = !mdDateTimePicker.dialog.view;
+				setTimeout(function () {
+					el.removeAttribute('disabled');
+				}, 300);
+			}
+		}, {
+			key: '_addClockEvent',
+			value: function _addClockEvent() {
+				var me = this,
+				    hourView = this._sDialog.hourView,
+				    minuteView = this._sDialog.minuteView,
+				    sClass = 'mddtp-picker__cell--selected';
+
+				hourView.onclick = function (e) {
+					var sHour = 'mddtp-hour__selected',
+					    selectedHour = document.getElementById(sHour),
+					    setHour = 0;
+
+					if (e.target && e.target.nodeName == 'SPAN') {
+						// clear the previously selected hour
+						selectedHour.id = '';
+						selectedHour.classList.remove(sClass);
+						// select the new hour
+						e.target.parentNode.classList.add(sClass);
+						e.target.parentNode.id = sHour;
+						// set the sDate according to 24 or 12 hour mode
+						if (me._mode) {
+							setHour = parseInt(e.target.textContent, 10);
+						} else {
+							if (me._sDialog.sDate.format('A') === 'AM') {
+								setHour = e.target.textContent;
+							} else {
+								setHour = parseInt(e.target.textContent, 10) + 12;
+							}
+						}
+						me._sDialog.sDate.hour(setHour);
+						// set the display hour
+						me._sDialog.hour.textContent = e.target.textContent;
+						// switch the view
+						me._pointNeedle(me);
+						setTimeout(function () {
+							me._switchToTimeView(me);
+						}, 700);
+					}
+				};
+				minuteView.onclick = function (e) {
+					var sMinute = 'mddtp-minute__selected',
+					    selectedMinute = document.getElementById(sMinute),
+					    setMinute = 0;
+
+					if (e.target && e.target.nodeName == 'SPAN') {
+						// clear the previously selected hour
+						if (selectedMinute) {
+							selectedMinute.id = '';
+							selectedMinute.classList.remove(sClass);
+						}
+						// select the new minute
+						e.target.parentNode.classList.add(sClass);
+						e.target.parentNode.id = sMinute;
+						// set the sDate minute
+						setMinute = e.target.textContent;
+						me._sDialog.sDate.minute(setMinute);
+						// set the display minute
+						me._sDialog.minute.textContent = setMinute;
+						me._pointNeedle(me);
+
+						if (me._autoClose === !0) {
+							me._sDialog.ok.onclick();
+						}
+					}
+				};
+			}
+		}, {
+			key: '_addCellClickEvent',
+			value: function _addCellClickEvent(el) {
+				var me = this;
+				el.onclick = function (e) {
+					if (e.target && e.target.nodeName == 'SPAN' && e.target.classList.contains('mddtp-picker__cell')) {
+						var day = e.target.textContent,
+						    currentDate = me._sDialog.tDate.date(day),
+						    sId = 'mddtp-date__selected',
+						    sClass = 'mddtp-picker__cell--selected',
+						    selected = document.getElementById(sId),
+						    subtitle = me._sDialog.subtitle,
+						    titleDay = me._sDialog.titleDay,
+						    titleMonth = me._sDialog.titleMonth;
+
+						if (selected) {
+							selected.classList.remove(sClass);
+							selected.id = '';
+						}
+						e.target.classList.add(sClass);
+						e.target.id = sId;
+
+						// update temp date object with the date selected
+						me._sDialog.sDate = currentDate.clone();
+
+						me._fillText(subtitle, currentDate.year());
+						me._fillText(titleDay, currentDate.format('ddd, '));
+						me._fillText(titleMonth, currentDate.format('MMM D'));
+
+						if (me._autoClose === !0) {
+							me._sDialog.ok.onclick();
+						}
+					}
+				};
+			}
+		}, {
+			key: '_toMoveMonth',
+			value: function _toMoveMonth() {
+				var m = this._sDialog.tDate,
+				    left = this._sDialog.left,
+				    right = this._sDialog.right,
+				    past = this._past,
+				    future = this._future;
+
+				left.removeAttribute('disabled');
+				right.removeAttribute('disabled');
+				left.classList.remove('mddtp-button--disabled');
+				right.classList.remove('mddtp-button--disabled');
+				if (m.isSame(past, 'month')) {
+					left.setAttribute('disabled', '');
+					left.classList.add('mddtp-button--disabled');
+				}
+				if (m.isSame(future, 'month')) {
+					right.setAttribute('disabled', '');
+					right.classList.add('mddtp-button--disabled');
+				}
+			}
+		}, {
+			key: '_changeMonth',
+			value: function _changeMonth() {
+				var me = this,
+				    left = this._sDialog.left,
+				    right = this._sDialog.right,
+				    mLeftClass = 'mddtp-picker__view--left',
+				    mRightClass = 'mddtp-picker__view--right',
+				    pause = 'mddtp-picker__view--pause';
+
+				left.onclick = function () {
+					moveStep(mRightClass, me._sDialog.previous);
+				};
+
+				right.onclick = function () {
+					moveStep(mLeftClass, me._sDialog.next);
+				};
+
+				function moveStep(aClass, to) {
+					/**
+     * [stepBack to know if the to step is going back or not]
+     *
+     * @type {Boolean}
+     */
+					var stepBack = !1,
+					    next = me._sDialog.next,
+					    current = me._sDialog.current,
+					    previous = me._sDialog.previous;
+
+					left.setAttribute('disabled', '');
+					right.setAttribute('disabled', '');
+					current.classList.add(aClass);
+					previous.classList.add(aClass);
+					next.classList.add(aClass);
+					var clone = to.cloneNode(!0),
+					    del = void 0;
+
+					if (to === next) {
+						del = previous;
+						current.parentNode.appendChild(clone);
+						next.id = current.id;
+						current.id = previous.id;
+						previous = current;
+						current = next;
+						next = clone;
+					} else {
+						stepBack = !0;
+						del = next;
+						previous.id = current.id;
+						current.id = next.id;
+						next = current;
+						current = previous;
+					}
+					setTimeout(function () {
+						if (to === previous) {
+							current.parentNode.insertBefore(clone, current);
+							previous = clone;
+						}
+						// update real values to match these values
+						me._sDialog.next = next;
+						me._sDialog.current = current;
+						me._sDialog.previous = previous;
+						current.classList.add(pause);
+						next.classList.add(pause);
+						previous.classList.add(pause);
+						current.classList.remove(aClass);
+						next.classList.remove(aClass);
+						previous.classList.remove(aClass);
+						del.parentNode.removeChild(del);
+					}, 300);
+					// REVIEW replace below code with requestAnimationFrame
+					setTimeout(function () {
+						current.classList.remove(pause);
+						next.classList.remove(pause);
+						previous.classList.remove(pause);
+						if (stepBack) {
+							me._sDialog.tDate = me._getMonth(me._sDialog.tDate, -1);
+						} else {
+							me._sDialog.tDate = me._getMonth(me._sDialog.tDate, 1);
+						}
+						me._initViewHolder();
+					}, 350);
+					setTimeout(function () {
+						if (!left.classList.contains('mddtp-button--disabled')) {
+							left.removeAttribute('disabled');
+						}
+						if (!right.classList.contains('mddtp-button--disabled')) {
+							right.removeAttribute('disabled');
+						}
+					}, 400);
+				}
+			}
+		}, {
+			key: '_changeYear',
+			value: function _changeYear(el) {
+				var me = this;
+				el.onclick = function (e) {
+					if (e.target && e.target.nodeName == 'LI') {
+						var selected = document.getElementById('mddtp-date__currentYear');
+						// clear previous selected
+						selected.id = '';
+						selected.classList.remove('mddtp-picker__li--current');
+						// add the properties to the newer one
+						e.target.id = 'mddtp-date__currentYear';
+						e.target.classList.add('mddtp-picker__li--current');
+						// switch view
+						me._switchToDateView(el, me);
+						// set the tdate to it
+						me._sDialog.tDate.year(parseInt(e.target.textContent, 10));
+						// update the dialog
+						me._initViewHolder();
+					}
+				};
+			}
+		}, {
+			key: '_changeM',
+			value: function _changeM() {
+				var me = this,
+				    AM = this._sDialog.AM,
+				    PM = this._sDialog.PM;
+
+				AM.onclick = function (e) {
+					//let m = me._sDialog.sDate.format('A')
+					// Change Locale Meridiem to AM/PM String
+					var m = 'AM';
+					if (me._sDialog.sDate._locale.isPM(me._sDialog.sDate.format('A'))) {
+						m = 'PM';
+					}
+					if (m === 'PM') {
+						me._sDialog.sDate.subtract(12, 'h');
+						AM.classList.toggle('mddtp-picker__color--active');
+						PM.classList.toggle('mddtp-picker__color--active');
+					}
+				};
+				PM.onclick = function (e) {
+					//let m = me._sDialog.sDate.format('A')
+					// Change Locale Meridiem to AM/PM String
+					var m = 'AM';
+					if (me._sDialog.sDate._locale.isPM(me._sDialog.sDate.format('A'))) {
+						m = 'PM';
+					}
+					if (m === 'AM') {
+						me._sDialog.sDate.add(12, 'h');
+						AM.classList.toggle('mddtp-picker__color--active');
+						PM.classList.toggle('mddtp-picker__color--active');
+					}
+				};
+			}
+		}, {
+			key: '_dragDial',
+			value: function _dragDial() {
+				var me = this,
+				    needle = this._sDialog.needle,
+				    circle = this._sDialog.circle,
+				    fakeNeedle = this._sDialog.fakeNeedle,
+				    circularHolder = this._sDialog.circularHolder,
+				    minute = this._sDialog.minute,
+				    quick = 'mddtp-picker__selection--quick',
+				    selection = 'mddtp-picker__selection',
+				    selected = 'mddtp-picker__cell--selected',
+				    rotate = 'mddtp-picker__cell--rotate-',
+				    hOffset = circularHolder.getBoundingClientRect(),
+				    divides = void 0,
+				    fakeNeedleDraggabilly = new _draggabilly2.default(fakeNeedle, {
+					containment: !0
+				});
+
+				fakeNeedleDraggabilly.on('pointerDown', function (e) {
+					//console.info ( 'pointerDown' , e );
+					hOffset = circularHolder.getBoundingClientRect();
+				});
+				/**
+     * netTrek
+     * fixes for iOS - drag
+     */
+				fakeNeedleDraggabilly.on('pointerMove', function (e) {
+
+					var clientX = e.clientX,
+					    clientY = e.clientY;
+
+
+					if (clientX === undefined) {
+
+						if (e.pageX === undefined) {
+							if (e.touches && e.touches.length > 0) {
+								clientX = e.touches[0].clientX;
+								clientY = e.touches[0].clientY;
+							} else {
+								console.error('coult not detect pageX, pageY');
+							}
+						} else {
+							clientX = pageX - document.body.scrollLeft - document.documentElement.scrollLeft;
+							clientY = pageY - document.body.scrollTop - document.documentElement.scrollTop;
+						}
+					}
+					//console.info ( 'Drag clientX' , clientX, clientY, e );
+
+					var xPos = clientX - hOffset.left - hOffset.width / 2,
+					    yPos = clientY - hOffset.top - hOffset.height / 2,
+					    slope = Math.atan2(-yPos, xPos);
+
+					needle.className = '';
+					if (slope < 0) {
+						slope += 2 * Math.PI;
+					}
+					slope *= 180 / Math.PI;
+					slope = 360 - slope;
+					if (slope > 270) {
+						slope -= 360;
+					}
+					divides = parseInt(slope / 6);
+					var same = Math.abs(6 * divides - slope),
+					    upper = Math.abs(6 * (divides + 1) - slope);
+
+					if (upper < same) {
+						divides++;
+					}
+					divides += 15;
+					needle.classList.add(selection);
+					needle.classList.add(quick);
+					needle.classList.add(rotate + divides * 2);
+				});
+				/**
+     * netTrek
+     * fixes for iOS - drag
+     */
+				var onDragEnd = function onDragEnd(e) {
+					var minuteViewChildren = me._sDialog.minuteView.getElementsByTagName('div'),
+					    sMinute = 'mddtp-minute__selected',
+					    selectedMinute = document.getElementById(sMinute),
+					    cOffset = circle.getBoundingClientRect();
+
+					fakeNeedle.setAttribute('style', 'left:' + (cOffset.left - hOffset.left) + 'px;top:' + (cOffset.top - hOffset.top) + 'px');
+					needle.classList.remove(quick);
+					var select = divides;
+					if (select === 1) {
+						select = 60;
+					}
+					select = me._nearestDivisor(select, 5);
+					// normalize 60 => 0
+					if (divides === 60) {
+						divides = 0;
+					}
+					// remove previously selected value
+					if (selectedMinute) {
+						selectedMinute.id = '';
+						selectedMinute.classList.remove(selected);
+					}
+					// add the new selected
+					if (select > 0) {
+						select /= 5;
+						select--;
+						minuteViewChildren[select].id = sMinute;
+						minuteViewChildren[select].classList.add(selected);
+					}
+					minute.textContent = me._numWithZero(divides);
+					me._sDialog.sDate.minutes(divides);
+				};
+
+				fakeNeedleDraggabilly.on('pointerUp', onDragEnd);
+				fakeNeedleDraggabilly.on('dragEnd', onDragEnd);
+			}
+		}, {
+			key: '_attachEventHandlers',
+			value: function _attachEventHandlers() {
+				var me = this,
+				    ok = this._sDialog.ok,
+				    cancel = this._sDialog.cancel,
+				    onCancel = new CustomEvent('onCancel'),
+				    onOk = new CustomEvent('onOk');
+				// create cutom events to dispatch
+
+				cancel.onclick = function () {
+					me.toggle();
+					if (me._trigger) {
+						me._trigger.dispatchEvent(onCancel);
+					}
+				};
+				ok.onclick = function () {
+					me._init = me._sDialog.sDate;
+					me.toggle();
+					if (me._trigger) {
+						me._trigger.dispatchEvent(onOk);
+					}
+				};
+			}
+		}, {
+			key: '_setButtonText',
+			value: function _setButtonText() {
+				this._sDialog.cancel.textContent = this._cancel;
+				this._sDialog.ok.textContent = this._ok;
+			}
+		}, {
+			key: '_getMonth',
+			value: function _getMonth(moment, count) {
+				var m = void 0;
+				m = moment.clone();
+				if (count > 0) {
+					return m.add(Math.abs(count), 'M');
+				} else {
+					return m.subtract(Math.abs(count), 'M');
+				}
+			}
+		}, {
+			key: '_nearestDivisor',
+			value: function _nearestDivisor(number, divided) {
+				if (number % divided === 0) {
+					return number;
+				} else if ((number - 1) % divided === 0) {
+					return number - 1;
+				} else if ((number + 1) % divided === 0) {
+					return number + 1;
+				}
+				return -1;
+			}
+		}, {
+			key: '_numWithZero',
+			value: function _numWithZero(n) {
+				return n > 9 ? '' + n : '0' + n;
+			}
+		}, {
+			key: '_fillText',
+			value: function _fillText(el, text) {
+				if (el.firstChild) {
+					el.firstChild.nodeValue = text;
+				} else {
+					el.appendChild(document.createTextNode(text));
+				}
+			}
+		}, {
+			key: '_addId',
+			value: function _addId(el, id) {
+				el.id = 'mddtp-' + this._type + '__' + id;
+			}
+		}, {
+			key: '_addClass',
+			value: function _addClass(el, aClass, more) {
+				el.classList.add('mddtp-picker__' + aClass);
+				var i = 0;
+				if (more) {
+					i = more.length;
+					more.reverse();
+				}
+				while (i--) {
+					el.classList.add(more[i]);
+				}
+			}
+		}, {
+			key: '_addView',
+			value: function _addView(view) {
+				var month = document.createElement('div'),
+				    grid = document.createElement('div'),
+				    th = document.createElement('div'),
+				    tr = document.createElement('div'),
+				    weekDays = _moment2.default.weekdaysMin(!0).reverse(),
+				    week = 7;
+				/**
+    * @netTrek - weekday dependented from moment.locale
+    */
+
+				while (week--) {
+					var span = document.createElement('span');
+					span.textContent = weekDays[week];
+					th.appendChild(span);
+				}
+				// add properties to them
+				this._addClass(month, 'month');
+				this._addClass(grid, 'grid');
+				this._addClass(th, 'th');
+				this._addClass(tr, 'tr');
+				// add them to the view
+				view.appendChild(month);
+				view.appendChild(grid);
+				grid.appendChild(th);
+				grid.appendChild(tr);
+			}
+		}, {
+			key: '_calcRotation',
+			value: function _calcRotation(spoke, value) {
+				// set clocks top and right side value
+				if (spoke === 12) {
+					value *= 10;
+				} else if (spoke === 24) {
+					value *= 5;
+				} else {
+					value *= 2;
+				}
+				// special case for 00 => 60
+				if (spoke === 60 && value === 0) {
+					value = 120;
+				}
+				return 'mddtp-picker__cell--rotate-' + value;
+			}
+		}, {
+			key: 'time',
+			get: function get() {
+				return this._init;
+			},
+			set: function set(m) {
+				if (m) {
+					this._init = m;
+				}
+			}
+		}, {
+			key: 'trigger',
+			get: function get() {
+				return this._trigger;
+			},
+			set: function set(el) {
+				if (el) {
+					this._trigger = el;
+				}
+			}
+		}], [{
+			key: 'dialog',
+			get: function get() {
+				return mdDateTimePicker._dialog;
+			},
+			set: function set(value) {
+				mdDateTimePicker.dialog = value;
+			}
+		}]);
+
+		return mdDateTimePicker;
+	}();
+
+	mdDateTimePicker._dialog = {
+		view: !0,
+		state: !1
+	};
+
+	exports.default = mdDateTimePicker;
+});
+
+/***/ }),
+
+/***/ 768:
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * Draggabilly v2.2.0
+ * Make that shiz draggable
+ * https://draggabilly.desandro.com
+ * MIT license
+ */
+
+/*jshint browser: true, strict: true, undef: true, unused: true */
+
+( function( window, factory ) {
+  // universal module definition
+  /* jshint strict: false */ /*globals define, module, require */
+  if ( true ) {
+    // AMD
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+        __webpack_require__(769),
+        __webpack_require__(770)
+      ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( getSize, Unidragger ) {
+        return factory( window, getSize, Unidragger );
+      }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if ( typeof module == 'object' && module.exports ) {
+    // CommonJS
+    module.exports = factory(
+      window,
+      require('get-size'),
+      require('unidragger')
+    );
+  } else {
+    // browser global
+    window.Draggabilly = factory(
+      window,
+      window.getSize,
+      window.Unidragger
+    );
+  }
+
+}( window, function factory( window, getSize, Unidragger ) {
+
+'use strict';
+
+// -------------------------- helpers & variables -------------------------- //
+
+// extend objects
+function extend( a, b ) {
+  for ( var prop in b ) {
+    a[ prop ] = b[ prop ];
+  }
+  return a;
+}
+
+function noop() {}
+
+var jQuery = window.jQuery;
+
+// --------------------------  -------------------------- //
+
+function Draggabilly( element, options ) {
+  // querySelector if string
+  this.element = typeof element == 'string' ?
+    document.querySelector( element ) : element;
+
+  if ( jQuery ) {
+    this.$element = jQuery( this.element );
+  }
+
+  // options
+  this.options = extend( {}, this.constructor.defaults );
+  this.option( options );
+
+  this._create();
+}
+
+// inherit Unidragger methods
+var proto = Draggabilly.prototype = Object.create( Unidragger.prototype );
+
+Draggabilly.defaults = {
+};
+
+/**
+ * set options
+ * @param {Object} opts
+ */
+proto.option = function( opts ) {
+  extend( this.options, opts );
+};
+
+// css position values that don't need to be set
+var positionValues = {
+  relative: true,
+  absolute: true,
+  fixed: true
+};
+
+proto._create = function() {
+  // properties
+  this.position = {};
+  this._getPosition();
+
+  this.startPoint = { x: 0, y: 0 };
+  this.dragPoint = { x: 0, y: 0 };
+
+  this.startPosition = extend( {}, this.position );
+
+  // set relative positioning
+  var style = getComputedStyle( this.element );
+  if ( !positionValues[ style.position ] ) {
+    this.element.style.position = 'relative';
+  }
+
+  // events, bridge jQuery events from vanilla
+  this.on( 'pointerDown', this.onPointerDown );
+  this.on( 'pointerMove', this.onPointerMove );
+  this.on( 'pointerUp', this.onPointerUp );
+
+  this.enable();
+  this.setHandles();
+};
+
+/**
+ * set this.handles and bind start events to 'em
+ */
+proto.setHandles = function() {
+  this.handles = this.options.handle ?
+    this.element.querySelectorAll( this.options.handle ) : [ this.element ];
+
+  this.bindHandles();
+};
+
+/**
+ * emits events via EvEmitter and jQuery events
+ * @param {String} type - name of event
+ * @param {Event} event - original event
+ * @param {Array} args - extra arguments
+ */
+proto.dispatchEvent = function( type, event, args ) {
+  var emitArgs = [ event ].concat( args );
+  this.emitEvent( type, emitArgs );
+  this.dispatchJQueryEvent( type, event, args );
+};
+
+proto.dispatchJQueryEvent = function( type, event, args ) {
+  var jQuery = window.jQuery;
+  // trigger jQuery event
+  if ( !jQuery || !this.$element ) {
+    return;
+  }
+  // create jQuery event
+  var $event = jQuery.Event( event );
+  $event.type = type;
+  this.$element.trigger( $event, args );
+};
+
+// -------------------------- position -------------------------- //
+
+// get x/y position from style
+proto._getPosition = function() {
+  var style = getComputedStyle( this.element );
+  var x = this._getPositionCoord( style.left, 'width' );
+  var y = this._getPositionCoord( style.top, 'height' );
+  // clean up 'auto' or other non-integer values
+  this.position.x = isNaN( x ) ? 0 : x;
+  this.position.y = isNaN( y ) ? 0 : y;
+
+  this._addTransformPosition( style );
+};
+
+proto._getPositionCoord = function( styleSide, measure ) {
+  if ( styleSide.indexOf('%') != -1 ) {
+    // convert percent into pixel for Safari, #75
+    var parentSize = getSize( this.element.parentNode );
+    // prevent not-in-DOM element throwing bug, #131
+    return !parentSize ? 0 :
+      ( parseFloat( styleSide ) / 100 ) * parentSize[ measure ];
+  }
+  return parseInt( styleSide, 10 );
+};
+
+// add transform: translate( x, y ) to position
+proto._addTransformPosition = function( style ) {
+  var transform = style.transform;
+  // bail out if value is 'none'
+  if ( transform.indexOf('matrix') !== 0 ) {
+    return;
+  }
+  // split matrix(1, 0, 0, 1, x, y)
+  var matrixValues = transform.split(',');
+  // translate X value is in 12th or 4th position
+  var xIndex = transform.indexOf('matrix3d') === 0 ? 12 : 4;
+  var translateX = parseInt( matrixValues[ xIndex ], 10 );
+  // translate Y value is in 13th or 5th position
+  var translateY = parseInt( matrixValues[ xIndex + 1 ], 10 );
+  this.position.x += translateX;
+  this.position.y += translateY;
+};
+
+// -------------------------- events -------------------------- //
+
+proto.onPointerDown = function( event, pointer ) {
+  this.element.classList.add('is-pointer-down');
+  this.dispatchJQueryEvent( 'pointerDown', event, [ pointer ] );
+};
+
+/**
+ * drag start
+ * @param {Event} event
+ * @param {Event or Touch} pointer
+ */
+proto.dragStart = function( event, pointer ) {
+  if ( !this.isEnabled ) {
+    return;
+  }
+  this._getPosition();
+  this.measureContainment();
+  // position _when_ drag began
+  this.startPosition.x = this.position.x;
+  this.startPosition.y = this.position.y;
+  // reset left/top style
+  this.setLeftTop();
+
+  this.dragPoint.x = 0;
+  this.dragPoint.y = 0;
+
+  this.element.classList.add('is-dragging');
+  this.dispatchEvent( 'dragStart', event, [ pointer ] );
+  // start animation
+  this.animate();
+};
+
+proto.measureContainment = function() {
+  var container = this.getContainer();
+  if ( !container ) {
+    return;
+  }
+
+  var elemSize = getSize( this.element );
+  var containerSize = getSize( container );
+  var elemRect = this.element.getBoundingClientRect();
+  var containerRect = container.getBoundingClientRect();
+
+  var borderSizeX = containerSize.borderLeftWidth + containerSize.borderRightWidth;
+  var borderSizeY = containerSize.borderTopWidth + containerSize.borderBottomWidth;
+
+  var position = this.relativeStartPosition = {
+    x: elemRect.left - ( containerRect.left + containerSize.borderLeftWidth ),
+    y: elemRect.top - ( containerRect.top + containerSize.borderTopWidth )
+  };
+
+  this.containSize = {
+    width: ( containerSize.width - borderSizeX ) - position.x - elemSize.width,
+    height: ( containerSize.height - borderSizeY ) - position.y - elemSize.height
+  };
+};
+
+proto.getContainer = function() {
+  var containment = this.options.containment;
+  if ( !containment ) {
+    return;
+  }
+  var isElement = containment instanceof HTMLElement;
+  // use as element
+  if ( isElement ) {
+    return containment;
+  }
+  // querySelector if string
+  if ( typeof containment == 'string' ) {
+    return document.querySelector( containment );
+  }
+  // fallback to parent element
+  return this.element.parentNode;
+};
+
+// ----- move event ----- //
+
+proto.onPointerMove = function( event, pointer, moveVector ) {
+  this.dispatchJQueryEvent( 'pointerMove', event, [ pointer, moveVector ] );
+};
+
+/**
+ * drag move
+ * @param {Event} event
+ * @param {Event or Touch} pointer
+ */
+proto.dragMove = function( event, pointer, moveVector ) {
+  if ( !this.isEnabled ) {
+    return;
+  }
+  var dragX = moveVector.x;
+  var dragY = moveVector.y;
+
+  var grid = this.options.grid;
+  var gridX = grid && grid[0];
+  var gridY = grid && grid[1];
+
+  dragX = applyGrid( dragX, gridX );
+  dragY = applyGrid( dragY, gridY );
+
+  dragX = this.containDrag( 'x', dragX, gridX );
+  dragY = this.containDrag( 'y', dragY, gridY );
+
+  // constrain to axis
+  dragX = this.options.axis == 'y' ? 0 : dragX;
+  dragY = this.options.axis == 'x' ? 0 : dragY;
+
+  this.position.x = this.startPosition.x + dragX;
+  this.position.y = this.startPosition.y + dragY;
+  // set dragPoint properties
+  this.dragPoint.x = dragX;
+  this.dragPoint.y = dragY;
+
+  this.dispatchEvent( 'dragMove', event, [ pointer, moveVector ] );
+};
+
+function applyGrid( value, grid, method ) {
+  method = method || 'round';
+  return grid ? Math[ method ]( value / grid ) * grid : value;
+}
+
+proto.containDrag = function( axis, drag, grid ) {
+  if ( !this.options.containment ) {
+    return drag;
+  }
+  var measure = axis == 'x' ? 'width' : 'height';
+
+  var rel = this.relativeStartPosition[ axis ];
+  var min = applyGrid( -rel, grid, 'ceil' );
+  var max = this.containSize[ measure ];
+  max = applyGrid( max, grid, 'floor' );
+  return  Math.max( min, Math.min( max, drag ) );
+};
+
+// ----- end event ----- //
+
+/**
+ * pointer up
+ * @param {Event} event
+ * @param {Event or Touch} pointer
+ */
+proto.onPointerUp = function( event, pointer ) {
+  this.element.classList.remove('is-pointer-down');
+  this.dispatchJQueryEvent( 'pointerUp', event, [ pointer ] );
+};
+
+/**
+ * drag end
+ * @param {Event} event
+ * @param {Event or Touch} pointer
+ */
+proto.dragEnd = function( event, pointer ) {
+  if ( !this.isEnabled ) {
+    return;
+  }
+  // use top left position when complete
+  this.element.style.transform = '';
+  this.setLeftTop();
+  this.element.classList.remove('is-dragging');
+  this.dispatchEvent( 'dragEnd', event, [ pointer ] );
+};
+
+// -------------------------- animation -------------------------- //
+
+proto.animate = function() {
+  // only render and animate if dragging
+  if ( !this.isDragging ) {
+    return;
+  }
+
+  this.positionDrag();
+
+  var _this = this;
+  requestAnimationFrame( function animateFrame() {
+    _this.animate();
+  });
+
+};
+
+// left/top positioning
+proto.setLeftTop = function() {
+  this.element.style.left = this.position.x + 'px';
+  this.element.style.top  = this.position.y + 'px';
+};
+
+proto.positionDrag = function() {
+  this.element.style.transform = 'translate3d( ' + this.dragPoint.x +
+    'px, ' + this.dragPoint.y + 'px, 0)';
+};
+
+// ----- staticClick ----- //
+
+proto.staticClick = function( event, pointer ) {
+  this.dispatchEvent( 'staticClick', event, [ pointer ] );
+};
+
+// ----- methods ----- //
+
+/**
+ * @param {Number} x
+ * @param {Number} y
+ */
+proto.setPosition = function( x, y ) {
+  this.position.x = x;
+  this.position.y = y;
+  this.setLeftTop();
+};
+
+proto.enable = function() {
+  this.isEnabled = true;
+};
+
+proto.disable = function() {
+  this.isEnabled = false;
+  if ( this.isDragging ) {
+    this.dragEnd();
+  }
+};
+
+proto.destroy = function() {
+  this.disable();
+  // reset styles
+  this.element.style.transform = '';
+  this.element.style.left = '';
+  this.element.style.top = '';
+  this.element.style.position = '';
+  // unbind handles
+  this.unbindHandles();
+  // remove jQuery data
+  if ( this.$element ) {
+    this.$element.removeData('draggabilly');
+  }
+};
+
+// ----- jQuery bridget ----- //
+
+// required for jQuery bridget
+proto._init = noop;
+
+if ( jQuery && jQuery.bridget ) {
+  jQuery.bridget( 'draggabilly', Draggabilly );
+}
+
+// -----  ----- //
+
+return Draggabilly;
+
+}));
+
+
+/***/ }),
+
+/***/ 769:
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * getSize v2.0.3
+ * measure size of elements
+ * MIT license
+ */
+
+/* jshint browser: true, strict: true, undef: true, unused: true */
+/* globals console: false */
+
+( function( window, factory ) {
+  /* jshint strict: false */ /* globals define, module */
+  if ( true ) {
+    // AMD
+    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if ( typeof module == 'object' && module.exports ) {
+    // CommonJS
+    module.exports = factory();
+  } else {
+    // browser global
+    window.getSize = factory();
+  }
+
+})( window, function factory() {
+'use strict';
+
+// -------------------------- helpers -------------------------- //
+
+// get a number from a string, not a percentage
+function getStyleSize( value ) {
+  var num = parseFloat( value );
+  // not a percent like '100%', and a number
+  var isValid = value.indexOf('%') == -1 && !isNaN( num );
+  return isValid && num;
+}
+
+function noop() {}
+
+var logError = typeof console == 'undefined' ? noop :
+  function( message ) {
+    console.error( message );
+  };
+
+// -------------------------- measurements -------------------------- //
+
+var measurements = [
+  'paddingLeft',
+  'paddingRight',
+  'paddingTop',
+  'paddingBottom',
+  'marginLeft',
+  'marginRight',
+  'marginTop',
+  'marginBottom',
+  'borderLeftWidth',
+  'borderRightWidth',
+  'borderTopWidth',
+  'borderBottomWidth'
+];
+
+var measurementsLength = measurements.length;
+
+function getZeroSize() {
+  var size = {
+    width: 0,
+    height: 0,
+    innerWidth: 0,
+    innerHeight: 0,
+    outerWidth: 0,
+    outerHeight: 0
+  };
+  for ( var i=0; i < measurementsLength; i++ ) {
+    var measurement = measurements[i];
+    size[ measurement ] = 0;
+  }
+  return size;
+}
+
+// -------------------------- getStyle -------------------------- //
+
+/**
+ * getStyle, get style of element, check for Firefox bug
+ * https://bugzilla.mozilla.org/show_bug.cgi?id=548397
+ */
+function getStyle( elem ) {
+  var style = getComputedStyle( elem );
+  if ( !style ) {
+    logError( 'Style returned ' + style +
+      '. Are you running this code in a hidden iframe on Firefox? ' +
+      'See https://bit.ly/getsizebug1' );
+  }
+  return style;
+}
+
+// -------------------------- setup -------------------------- //
+
+var isSetup = false;
+
+var isBoxSizeOuter;
+
+/**
+ * setup
+ * check isBoxSizerOuter
+ * do on first getSize() rather than on page load for Firefox bug
+ */
+function setup() {
+  // setup once
+  if ( isSetup ) {
+    return;
+  }
+  isSetup = true;
+
+  // -------------------------- box sizing -------------------------- //
+
+  /**
+   * Chrome & Safari measure the outer-width on style.width on border-box elems
+   * IE11 & Firefox<29 measures the inner-width
+   */
+  var div = document.createElement('div');
+  div.style.width = '200px';
+  div.style.padding = '1px 2px 3px 4px';
+  div.style.borderStyle = 'solid';
+  div.style.borderWidth = '1px 2px 3px 4px';
+  div.style.boxSizing = 'border-box';
+
+  var body = document.body || document.documentElement;
+  body.appendChild( div );
+  var style = getStyle( div );
+  // round value for browser zoom. desandro/masonry#928
+  isBoxSizeOuter = Math.round( getStyleSize( style.width ) ) == 200;
+  getSize.isBoxSizeOuter = isBoxSizeOuter;
+
+  body.removeChild( div );
+}
+
+// -------------------------- getSize -------------------------- //
+
+function getSize( elem ) {
+  setup();
+
+  // use querySeletor if elem is string
+  if ( typeof elem == 'string' ) {
+    elem = document.querySelector( elem );
+  }
+
+  // do not proceed on non-objects
+  if ( !elem || typeof elem != 'object' || !elem.nodeType ) {
+    return;
+  }
+
+  var style = getStyle( elem );
+
+  // if hidden, everything is 0
+  if ( style.display == 'none' ) {
+    return getZeroSize();
+  }
+
+  var size = {};
+  size.width = elem.offsetWidth;
+  size.height = elem.offsetHeight;
+
+  var isBorderBox = size.isBorderBox = style.boxSizing == 'border-box';
+
+  // get all measurements
+  for ( var i=0; i < measurementsLength; i++ ) {
+    var measurement = measurements[i];
+    var value = style[ measurement ];
+    var num = parseFloat( value );
+    // any 'auto', 'medium' value will be 0
+    size[ measurement ] = !isNaN( num ) ? num : 0;
+  }
+
+  var paddingWidth = size.paddingLeft + size.paddingRight;
+  var paddingHeight = size.paddingTop + size.paddingBottom;
+  var marginWidth = size.marginLeft + size.marginRight;
+  var marginHeight = size.marginTop + size.marginBottom;
+  var borderWidth = size.borderLeftWidth + size.borderRightWidth;
+  var borderHeight = size.borderTopWidth + size.borderBottomWidth;
+
+  var isBorderBoxSizeOuter = isBorderBox && isBoxSizeOuter;
+
+  // overwrite width and height if we can get it from style
+  var styleWidth = getStyleSize( style.width );
+  if ( styleWidth !== false ) {
+    size.width = styleWidth +
+      // add padding and border unless it's already including it
+      ( isBorderBoxSizeOuter ? 0 : paddingWidth + borderWidth );
+  }
+
+  var styleHeight = getStyleSize( style.height );
+  if ( styleHeight !== false ) {
+    size.height = styleHeight +
+      // add padding and border unless it's already including it
+      ( isBorderBoxSizeOuter ? 0 : paddingHeight + borderHeight );
+  }
+
+  size.innerWidth = size.width - ( paddingWidth + borderWidth );
+  size.innerHeight = size.height - ( paddingHeight + borderHeight );
+
+  size.outerWidth = size.width + marginWidth;
+  size.outerHeight = size.height + marginHeight;
+
+  return size;
+}
+
+return getSize;
+
+});
+
+
+/***/ }),
+
+/***/ 770:
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * Unidragger v2.3.0
+ * Draggable base class
+ * MIT license
+ */
+
+/*jshint browser: true, unused: true, undef: true, strict: true */
+
+( function( window, factory ) {
+  // universal module definition
+  /*jshint strict: false */ /*globals define, module, require */
+
+  if ( true ) {
+    // AMD
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+      __webpack_require__(771)
+    ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( Unipointer ) {
+      return factory( window, Unipointer );
+    }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if ( typeof module == 'object' && module.exports ) {
+    // CommonJS
+    module.exports = factory(
+      window,
+      require('unipointer')
+    );
+  } else {
+    // browser global
+    window.Unidragger = factory(
+      window,
+      window.Unipointer
+    );
+  }
+
+}( window, function factory( window, Unipointer ) {
+
+'use strict';
+
+// -------------------------- Unidragger -------------------------- //
+
+function Unidragger() {}
+
+// inherit Unipointer & EvEmitter
+var proto = Unidragger.prototype = Object.create( Unipointer.prototype );
+
+// ----- bind start ----- //
+
+proto.bindHandles = function() {
+  this._bindHandles( true );
+};
+
+proto.unbindHandles = function() {
+  this._bindHandles( false );
+};
+
+/**
+ * Add or remove start event
+ * @param {Boolean} isAdd
+ */
+proto._bindHandles = function( isAdd ) {
+  // munge isAdd, default to true
+  isAdd = isAdd === undefined ? true : isAdd;
+  // bind each handle
+  var bindMethod = isAdd ? 'addEventListener' : 'removeEventListener';
+  var touchAction = isAdd ? this._touchActionValue : '';
+  for ( var i=0; i < this.handles.length; i++ ) {
+    var handle = this.handles[i];
+    this._bindStartEvent( handle, isAdd );
+    handle[ bindMethod ]( 'click', this );
+    // touch-action: none to override browser touch gestures. metafizzy/flickity#540
+    if ( window.PointerEvent ) {
+      handle.style.touchAction = touchAction;
+    }
+  }
+};
+
+// prototype so it can be overwriteable by Flickity
+proto._touchActionValue = 'none';
+
+// ----- start event ----- //
+
+/**
+ * pointer start
+ * @param {Event} event
+ * @param {Event or Touch} pointer
+ */
+proto.pointerDown = function( event, pointer ) {
+  var isOkay = this.okayPointerDown( event );
+  if ( !isOkay ) {
+    return;
+  }
+  // track start event position
+  this.pointerDownPointer = pointer;
+
+  event.preventDefault();
+  this.pointerDownBlur();
+  // bind move and end events
+  this._bindPostStartEvents( event );
+  this.emitEvent( 'pointerDown', [ event, pointer ] );
+};
+
+// nodes that have text fields
+var cursorNodes = {
+  TEXTAREA: true,
+  INPUT: true,
+  SELECT: true,
+  OPTION: true,
+};
+
+// input types that do not have text fields
+var clickTypes = {
+  radio: true,
+  checkbox: true,
+  button: true,
+  submit: true,
+  image: true,
+  file: true,
+};
+
+// dismiss inputs with text fields. flickity#403, flickity#404
+proto.okayPointerDown = function( event ) {
+  var isCursorNode = cursorNodes[ event.target.nodeName ];
+  var isClickType = clickTypes[ event.target.type ];
+  var isOkay = !isCursorNode || isClickType;
+  if ( !isOkay ) {
+    this._pointerReset();
+  }
+  return isOkay;
+};
+
+// kludge to blur previously focused input
+proto.pointerDownBlur = function() {
+  var focused = document.activeElement;
+  // do not blur body for IE10, metafizzy/flickity#117
+  var canBlur = focused && focused.blur && focused != document.body;
+  if ( canBlur ) {
+    focused.blur();
+  }
+};
+
+// ----- move event ----- //
+
+/**
+ * drag move
+ * @param {Event} event
+ * @param {Event or Touch} pointer
+ */
+proto.pointerMove = function( event, pointer ) {
+  var moveVector = this._dragPointerMove( event, pointer );
+  this.emitEvent( 'pointerMove', [ event, pointer, moveVector ] );
+  this._dragMove( event, pointer, moveVector );
+};
+
+// base pointer move logic
+proto._dragPointerMove = function( event, pointer ) {
+  var moveVector = {
+    x: pointer.pageX - this.pointerDownPointer.pageX,
+    y: pointer.pageY - this.pointerDownPointer.pageY
+  };
+  // start drag if pointer has moved far enough to start drag
+  if ( !this.isDragging && this.hasDragStarted( moveVector ) ) {
+    this._dragStart( event, pointer );
+  }
+  return moveVector;
+};
+
+// condition if pointer has moved far enough to start drag
+proto.hasDragStarted = function( moveVector ) {
+  return Math.abs( moveVector.x ) > 3 || Math.abs( moveVector.y ) > 3;
+};
+
+// ----- end event ----- //
+
+/**
+ * pointer up
+ * @param {Event} event
+ * @param {Event or Touch} pointer
+ */
+proto.pointerUp = function( event, pointer ) {
+  this.emitEvent( 'pointerUp', [ event, pointer ] );
+  this._dragPointerUp( event, pointer );
+};
+
+proto._dragPointerUp = function( event, pointer ) {
+  if ( this.isDragging ) {
+    this._dragEnd( event, pointer );
+  } else {
+    // pointer didn't move enough for drag to start
+    this._staticClick( event, pointer );
+  }
+};
+
+// -------------------------- drag -------------------------- //
+
+// dragStart
+proto._dragStart = function( event, pointer ) {
+  this.isDragging = true;
+  // prevent clicks
+  this.isPreventingClicks = true;
+  this.dragStart( event, pointer );
+};
+
+proto.dragStart = function( event, pointer ) {
+  this.emitEvent( 'dragStart', [ event, pointer ] );
+};
+
+// dragMove
+proto._dragMove = function( event, pointer, moveVector ) {
+  // do not drag if not dragging yet
+  if ( !this.isDragging ) {
+    return;
+  }
+
+  this.dragMove( event, pointer, moveVector );
+};
+
+proto.dragMove = function( event, pointer, moveVector ) {
+  event.preventDefault();
+  this.emitEvent( 'dragMove', [ event, pointer, moveVector ] );
+};
+
+// dragEnd
+proto._dragEnd = function( event, pointer ) {
+  // set flags
+  this.isDragging = false;
+  // re-enable clicking async
+  setTimeout( function() {
+    delete this.isPreventingClicks;
+  }.bind( this ) );
+
+  this.dragEnd( event, pointer );
+};
+
+proto.dragEnd = function( event, pointer ) {
+  this.emitEvent( 'dragEnd', [ event, pointer ] );
+};
+
+// ----- onclick ----- //
+
+// handle all clicks and prevent clicks when dragging
+proto.onclick = function( event ) {
+  if ( this.isPreventingClicks ) {
+    event.preventDefault();
+  }
+};
+
+// ----- staticClick ----- //
+
+// triggered after pointer down & up with no/tiny movement
+proto._staticClick = function( event, pointer ) {
+  // ignore emulated mouse up clicks
+  if ( this.isIgnoringMouseUp && event.type == 'mouseup' ) {
+    return;
+  }
+
+  this.staticClick( event, pointer );
+
+  // set flag for emulated clicks 300ms after touchend
+  if ( event.type != 'mouseup' ) {
+    this.isIgnoringMouseUp = true;
+    // reset flag after 300ms
+    setTimeout( function() {
+      delete this.isIgnoringMouseUp;
+    }.bind( this ), 400 );
+  }
+};
+
+proto.staticClick = function( event, pointer ) {
+  this.emitEvent( 'staticClick', [ event, pointer ] );
+};
+
+// ----- utils ----- //
+
+Unidragger.getPointerPoint = Unipointer.getPointerPoint;
+
+// -----  ----- //
+
+return Unidragger;
+
+}));
+
+
+/***/ }),
+
+/***/ 771:
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+ * Unipointer v2.3.0
+ * base class for doing one thing with pointer event
+ * MIT license
+ */
+
+/*jshint browser: true, undef: true, unused: true, strict: true */
+
+( function( window, factory ) {
+  // universal module definition
+  /* jshint strict: false */ /*global define, module, require */
+  if ( true ) {
+    // AMD
+    !(__WEBPACK_AMD_DEFINE_ARRAY__ = [
+      __webpack_require__(772)
+    ], __WEBPACK_AMD_DEFINE_RESULT__ = (function( EvEmitter ) {
+      return factory( window, EvEmitter );
+    }).apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if ( typeof module == 'object' && module.exports ) {
+    // CommonJS
+    module.exports = factory(
+      window,
+      require('ev-emitter')
+    );
+  } else {
+    // browser global
+    window.Unipointer = factory(
+      window,
+      window.EvEmitter
+    );
+  }
+
+}( window, function factory( window, EvEmitter ) {
+
+'use strict';
+
+function noop() {}
+
+function Unipointer() {}
+
+// inherit EvEmitter
+var proto = Unipointer.prototype = Object.create( EvEmitter.prototype );
+
+proto.bindStartEvent = function( elem ) {
+  this._bindStartEvent( elem, true );
+};
+
+proto.unbindStartEvent = function( elem ) {
+  this._bindStartEvent( elem, false );
+};
+
+/**
+ * Add or remove start event
+ * @param {Boolean} isAdd - remove if falsey
+ */
+proto._bindStartEvent = function( elem, isAdd ) {
+  // munge isAdd, default to true
+  isAdd = isAdd === undefined ? true : isAdd;
+  var bindMethod = isAdd ? 'addEventListener' : 'removeEventListener';
+
+  // default to mouse events
+  var startEvent = 'mousedown';
+  if ( window.PointerEvent ) {
+    // Pointer Events
+    startEvent = 'pointerdown';
+  } else if ( 'ontouchstart' in window ) {
+    // Touch Events. iOS Safari
+    startEvent = 'touchstart';
+  }
+  elem[ bindMethod ]( startEvent, this );
+};
+
+// trigger handler methods for events
+proto.handleEvent = function( event ) {
+  var method = 'on' + event.type;
+  if ( this[ method ] ) {
+    this[ method ]( event );
+  }
+};
+
+// returns the touch that we're keeping track of
+proto.getTouch = function( touches ) {
+  for ( var i=0; i < touches.length; i++ ) {
+    var touch = touches[i];
+    if ( touch.identifier == this.pointerIdentifier ) {
+      return touch;
+    }
+  }
+};
+
+// ----- start event ----- //
+
+proto.onmousedown = function( event ) {
+  // dismiss clicks from right or middle buttons
+  var button = event.button;
+  if ( button && ( button !== 0 && button !== 1 ) ) {
+    return;
+  }
+  this._pointerDown( event, event );
+};
+
+proto.ontouchstart = function( event ) {
+  this._pointerDown( event, event.changedTouches[0] );
+};
+
+proto.onpointerdown = function( event ) {
+  this._pointerDown( event, event );
+};
+
+/**
+ * pointer start
+ * @param {Event} event
+ * @param {Event or Touch} pointer
+ */
+proto._pointerDown = function( event, pointer ) {
+  // dismiss right click and other pointers
+  // button = 0 is okay, 1-4 not
+  if ( event.button || this.isPointerDown ) {
+    return;
+  }
+
+  this.isPointerDown = true;
+  // save pointer identifier to match up touch events
+  this.pointerIdentifier = pointer.pointerId !== undefined ?
+    // pointerId for pointer events, touch.indentifier for touch events
+    pointer.pointerId : pointer.identifier;
+
+  this.pointerDown( event, pointer );
+};
+
+proto.pointerDown = function( event, pointer ) {
+  this._bindPostStartEvents( event );
+  this.emitEvent( 'pointerDown', [ event, pointer ] );
+};
+
+// hash of events to be bound after start event
+var postStartEvents = {
+  mousedown: [ 'mousemove', 'mouseup' ],
+  touchstart: [ 'touchmove', 'touchend', 'touchcancel' ],
+  pointerdown: [ 'pointermove', 'pointerup', 'pointercancel' ],
+};
+
+proto._bindPostStartEvents = function( event ) {
+  if ( !event ) {
+    return;
+  }
+  // get proper events to match start event
+  var events = postStartEvents[ event.type ];
+  // bind events to node
+  events.forEach( function( eventName ) {
+    window.addEventListener( eventName, this );
+  }, this );
+  // save these arguments
+  this._boundPointerEvents = events;
+};
+
+proto._unbindPostStartEvents = function() {
+  // check for _boundEvents, in case dragEnd triggered twice (old IE8 bug)
+  if ( !this._boundPointerEvents ) {
+    return;
+  }
+  this._boundPointerEvents.forEach( function( eventName ) {
+    window.removeEventListener( eventName, this );
+  }, this );
+
+  delete this._boundPointerEvents;
+};
+
+// ----- move event ----- //
+
+proto.onmousemove = function( event ) {
+  this._pointerMove( event, event );
+};
+
+proto.onpointermove = function( event ) {
+  if ( event.pointerId == this.pointerIdentifier ) {
+    this._pointerMove( event, event );
+  }
+};
+
+proto.ontouchmove = function( event ) {
+  var touch = this.getTouch( event.changedTouches );
+  if ( touch ) {
+    this._pointerMove( event, touch );
+  }
+};
+
+/**
+ * pointer move
+ * @param {Event} event
+ * @param {Event or Touch} pointer
+ * @private
+ */
+proto._pointerMove = function( event, pointer ) {
+  this.pointerMove( event, pointer );
+};
+
+// public
+proto.pointerMove = function( event, pointer ) {
+  this.emitEvent( 'pointerMove', [ event, pointer ] );
+};
+
+// ----- end event ----- //
+
+
+proto.onmouseup = function( event ) {
+  this._pointerUp( event, event );
+};
+
+proto.onpointerup = function( event ) {
+  if ( event.pointerId == this.pointerIdentifier ) {
+    this._pointerUp( event, event );
+  }
+};
+
+proto.ontouchend = function( event ) {
+  var touch = this.getTouch( event.changedTouches );
+  if ( touch ) {
+    this._pointerUp( event, touch );
+  }
+};
+
+/**
+ * pointer up
+ * @param {Event} event
+ * @param {Event or Touch} pointer
+ * @private
+ */
+proto._pointerUp = function( event, pointer ) {
+  this._pointerDone();
+  this.pointerUp( event, pointer );
+};
+
+// public
+proto.pointerUp = function( event, pointer ) {
+  this.emitEvent( 'pointerUp', [ event, pointer ] );
+};
+
+// ----- pointer done ----- //
+
+// triggered on pointer up & pointer cancel
+proto._pointerDone = function() {
+  this._pointerReset();
+  this._unbindPostStartEvents();
+  this.pointerDone();
+};
+
+proto._pointerReset = function() {
+  // reset properties
+  this.isPointerDown = false;
+  delete this.pointerIdentifier;
+};
+
+proto.pointerDone = noop;
+
+// ----- pointer cancel ----- //
+
+proto.onpointercancel = function( event ) {
+  if ( event.pointerId == this.pointerIdentifier ) {
+    this._pointerCancel( event, event );
+  }
+};
+
+proto.ontouchcancel = function( event ) {
+  var touch = this.getTouch( event.changedTouches );
+  if ( touch ) {
+    this._pointerCancel( event, touch );
+  }
+};
+
+/**
+ * pointer cancel
+ * @param {Event} event
+ * @param {Event or Touch} pointer
+ * @private
+ */
+proto._pointerCancel = function( event, pointer ) {
+  this._pointerDone();
+  this.pointerCancel( event, pointer );
+};
+
+// public
+proto.pointerCancel = function( event, pointer ) {
+  this.emitEvent( 'pointerCancel', [ event, pointer ] );
+};
+
+// -----  ----- //
+
+// utility function for getting x/y coords from event
+Unipointer.getPointerPoint = function( pointer ) {
+  return {
+    x: pointer.pageX,
+    y: pointer.pageY
+  };
+};
+
+// -----  ----- //
+
+return Unipointer;
+
+}));
+
+
+/***/ }),
+
+/***/ 772:
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_FACTORY__, __WEBPACK_AMD_DEFINE_RESULT__;/**
+ * EvEmitter v1.1.0
+ * Lil' event emitter
+ * MIT License
+ */
+
+/* jshint unused: true, undef: true, strict: true */
+
+( function( global, factory ) {
+  // universal module definition
+  /* jshint strict: false */ /* globals define, module, window */
+  if ( true ) {
+    // AMD - RequireJS
+    !(__WEBPACK_AMD_DEFINE_FACTORY__ = (factory),
+				__WEBPACK_AMD_DEFINE_RESULT__ = (typeof __WEBPACK_AMD_DEFINE_FACTORY__ === 'function' ?
+				(__WEBPACK_AMD_DEFINE_FACTORY__.call(exports, __webpack_require__, exports, module)) :
+				__WEBPACK_AMD_DEFINE_FACTORY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+  } else if ( typeof module == 'object' && module.exports ) {
+    // CommonJS - Browserify, Webpack
+    module.exports = factory();
+  } else {
+    // Browser globals
+    global.EvEmitter = factory();
+  }
+
+}( typeof window != 'undefined' ? window : this, function() {
+
+"use strict";
+
+function EvEmitter() {}
+
+var proto = EvEmitter.prototype;
+
+proto.on = function( eventName, listener ) {
+  if ( !eventName || !listener ) {
+    return;
+  }
+  // set events hash
+  var events = this._events = this._events || {};
+  // set listeners array
+  var listeners = events[ eventName ] = events[ eventName ] || [];
+  // only add once
+  if ( listeners.indexOf( listener ) == -1 ) {
+    listeners.push( listener );
+  }
+
+  return this;
+};
+
+proto.once = function( eventName, listener ) {
+  if ( !eventName || !listener ) {
+    return;
+  }
+  // add event
+  this.on( eventName, listener );
+  // set once flag
+  // set onceEvents hash
+  var onceEvents = this._onceEvents = this._onceEvents || {};
+  // set onceListeners object
+  var onceListeners = onceEvents[ eventName ] = onceEvents[ eventName ] || {};
+  // set flag
+  onceListeners[ listener ] = true;
+
+  return this;
+};
+
+proto.off = function( eventName, listener ) {
+  var listeners = this._events && this._events[ eventName ];
+  if ( !listeners || !listeners.length ) {
+    return;
+  }
+  var index = listeners.indexOf( listener );
+  if ( index != -1 ) {
+    listeners.splice( index, 1 );
+  }
+
+  return this;
+};
+
+proto.emitEvent = function( eventName, args ) {
+  var listeners = this._events && this._events[ eventName ];
+  if ( !listeners || !listeners.length ) {
+    return;
+  }
+  // copy over to avoid interference if .off() in listener
+  listeners = listeners.slice(0);
+  args = args || [];
+  // once stuff
+  var onceListeners = this._onceEvents && this._onceEvents[ eventName ];
+
+  for ( var i=0; i < listeners.length; i++ ) {
+    var listener = listeners[i]
+    var isOnce = onceListeners && onceListeners[ listener ];
+    if ( isOnce ) {
+      // remove listener
+      // remove before trigger to prevent recursion
+      this.off( eventName, listener );
+      // unset once flag
+      delete onceListeners[ listener ];
+    }
+    // trigger listener
+    listener.apply( this, args );
+  }
+
+  return this;
+};
+
+proto.allOff = function() {
+  delete this._events;
+  delete this._onceEvents;
+};
+
+return EvEmitter;
+
+}));
+
+
+/***/ }),
+
+/***/ 773:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5763,12 +8616,12 @@ exports.shr64_lo = shr64_lo;
 
 /***/ }),
 
-/***/ 769:
+/***/ 775:
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(761).Buffer
-var Transform = __webpack_require__(789).Transform
-var StringDecoder = __webpack_require__(793).StringDecoder
+var Transform = __webpack_require__(795).Transform
+var StringDecoder = __webpack_require__(799).StringDecoder
 var inherits = __webpack_require__(760)
 
 function CipherBase (hashMode) {
@@ -5869,7 +8722,7 @@ module.exports = CipherBase
 
 /***/ }),
 
-/***/ 770:
+/***/ 776:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -5903,7 +8756,7 @@ module.exports = CipherBase
 
 /*<replacement>*/
 
-var pna = __webpack_require__(782);
+var pna = __webpack_require__(788);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -5918,12 +8771,12 @@ var objectKeys = Object.keys || function (obj) {
 module.exports = Duplex;
 
 /*<replacement>*/
-var util = __webpack_require__(777);
+var util = __webpack_require__(783);
 util.inherits = __webpack_require__(760);
 /*</replacement>*/
 
-var Readable = __webpack_require__(804);
-var Writable = __webpack_require__(792);
+var Readable = __webpack_require__(810);
+var Writable = __webpack_require__(798);
 
 util.inherits(Duplex, Readable);
 
@@ -6007,7 +8860,7 @@ Duplex.prototype._destroy = function (err, cb) {
 
 /***/ }),
 
-/***/ 771:
+/***/ 777:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6066,7 +8919,7 @@ function randomBytes (size, cb) {
 
 /***/ }),
 
-/***/ 772:
+/***/ 778:
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(761).Buffer
@@ -6154,16 +9007,16 @@ module.exports = Hash
 
 /***/ }),
 
-/***/ 776:
+/***/ 782:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var inherits = __webpack_require__(760)
-var MD5 = __webpack_require__(788)
-var RIPEMD160 = __webpack_require__(794)
-var sha = __webpack_require__(795)
-var Base = __webpack_require__(769)
+var MD5 = __webpack_require__(794)
+var RIPEMD160 = __webpack_require__(800)
+var sha = __webpack_require__(801)
+var Base = __webpack_require__(775)
 
 function Hash (hash) {
   Base.call(this, 'digest')
@@ -6192,7 +9045,7 @@ module.exports = function createHash (alg) {
 
 /***/ }),
 
-/***/ 777:
+/***/ 783:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// Copyright Joyent, Inc. and other Node contributors.
@@ -6307,7 +9160,7 @@ function objectToString(o) {
 
 /***/ }),
 
-/***/ 778:
+/***/ 784:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {module.exports = function xor (a, b) {
@@ -6325,13 +9178,13 @@ function objectToString(o) {
 
 /***/ }),
 
-/***/ 779:
+/***/ 785:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(767);
+var utils = __webpack_require__(773);
 var assert = __webpack_require__(766);
 
 function BlockHash() {
@@ -6425,7 +9278,7 @@ BlockHash.prototype._pad = function pad() {
 
 /***/ }),
 
-/***/ 780:
+/***/ 786:
 /***/ (function(module, exports, __webpack_require__) {
 
 var asn1 = exports;
@@ -6433,28 +9286,28 @@ var asn1 = exports;
 asn1.bignum = __webpack_require__(762);
 
 asn1.define = __webpack_require__(936).define;
-asn1.base = __webpack_require__(781);
-asn1.constants = __webpack_require__(830);
+asn1.base = __webpack_require__(787);
+asn1.constants = __webpack_require__(836);
 asn1.decoders = __webpack_require__(942);
 asn1.encoders = __webpack_require__(944);
 
 
 /***/ }),
 
-/***/ 781:
+/***/ 787:
 /***/ (function(module, exports, __webpack_require__) {
 
 var base = exports;
 
 base.Reporter = __webpack_require__(939).Reporter;
-base.DecoderBuffer = __webpack_require__(829).DecoderBuffer;
-base.EncoderBuffer = __webpack_require__(829).EncoderBuffer;
+base.DecoderBuffer = __webpack_require__(835).DecoderBuffer;
+base.EncoderBuffer = __webpack_require__(835).EncoderBuffer;
 base.Node = __webpack_require__(940);
 
 
 /***/ }),
 
-/***/ 782:
+/***/ 788:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6507,7 +9360,7 @@ function nextTick(fn, arg1, arg2, arg3) {
 
 /***/ }),
 
-/***/ 783:
+/***/ 789:
 /***/ (function(module, exports, __webpack_require__) {
 
 // based on the aes implimentation in triple sec
@@ -6742,11 +9595,11 @@ module.exports.AES = AES
 
 /***/ }),
 
-/***/ 784:
+/***/ 790:
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(761).Buffer
-var MD5 = __webpack_require__(788)
+var MD5 = __webpack_require__(794)
 
 /* eslint-disable camelcase */
 function EVP_BytesToKey (password, salt, keyBits, ivLen) {
@@ -6794,7 +9647,7 @@ module.exports = EVP_BytesToKey
 
 /***/ }),
 
-/***/ 785:
+/***/ 791:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -6810,14 +9663,14 @@ curve.edwards = __webpack_require__(919);
 
 /***/ }),
 
-/***/ 786:
+/***/ 792:
 /***/ (function(module, exports, __webpack_require__) {
 
 var asn1 = __webpack_require__(935)
 var aesid = __webpack_require__(947)
 var fixProc = __webpack_require__(948)
-var ciphers = __webpack_require__(797)
-var compat = __webpack_require__(813)
+var ciphers = __webpack_require__(803)
+var compat = __webpack_require__(819)
 var Buffer = __webpack_require__(761).Buffer
 module.exports = parseKeys
 
@@ -6924,7 +9777,7 @@ function decrypt (data, password) {
 
 /***/ }),
 
-/***/ 787:
+/***/ 793:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -6949,13 +9802,13 @@ var Designations = [
 
 /***/ }),
 
-/***/ 788:
+/***/ 794:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var inherits = __webpack_require__(760)
-var HashBase = __webpack_require__(803)
+var HashBase = __webpack_require__(809)
 var Buffer = __webpack_require__(761).Buffer
 
 var ARRAY16 = new Array(16)
@@ -7103,7 +9956,7 @@ module.exports = MD5
 
 /***/ }),
 
-/***/ 789:
+/***/ 795:
 /***/ (function(module, exports, __webpack_require__) {
 
 // Copyright Joyent, Inc. and other Node contributors.
@@ -7129,11 +9982,11 @@ module.exports = MD5
 
 module.exports = Stream;
 
-var EE = __webpack_require__(790).EventEmitter;
+var EE = __webpack_require__(796).EventEmitter;
 var inherits = __webpack_require__(760);
 
 inherits(Stream, EE);
-Stream.Readable = __webpack_require__(791);
+Stream.Readable = __webpack_require__(797);
 Stream.Writable = __webpack_require__(879);
 Stream.Duplex = __webpack_require__(880);
 Stream.Transform = __webpack_require__(881);
@@ -7237,7 +10090,7 @@ Stream.prototype.pipe = function(dest, options) {
 
 /***/ }),
 
-/***/ 790:
+/***/ 796:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7693,21 +10546,21 @@ function unwrapListeners(arr) {
 
 /***/ }),
 
-/***/ 791:
+/***/ 797:
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(804);
+exports = module.exports = __webpack_require__(810);
 exports.Stream = exports;
 exports.Readable = exports;
-exports.Writable = __webpack_require__(792);
-exports.Duplex = __webpack_require__(770);
-exports.Transform = __webpack_require__(807);
+exports.Writable = __webpack_require__(798);
+exports.Duplex = __webpack_require__(776);
+exports.Transform = __webpack_require__(813);
 exports.PassThrough = __webpack_require__(878);
 
 
 /***/ }),
 
-/***/ 792:
+/***/ 798:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -7740,7 +10593,7 @@ exports.PassThrough = __webpack_require__(878);
 
 /*<replacement>*/
 
-var pna = __webpack_require__(782);
+var pna = __webpack_require__(788);
 /*</replacement>*/
 
 module.exports = Writable;
@@ -7777,7 +10630,7 @@ var Duplex;
 Writable.WritableState = WritableState;
 
 /*<replacement>*/
-var util = __webpack_require__(777);
+var util = __webpack_require__(783);
 util.inherits = __webpack_require__(760);
 /*</replacement>*/
 
@@ -7788,7 +10641,7 @@ var internalUtil = {
 /*</replacement>*/
 
 /*<replacement>*/
-var Stream = __webpack_require__(805);
+var Stream = __webpack_require__(811);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -7804,14 +10657,14 @@ function _isUint8Array(obj) {
 
 /*</replacement>*/
 
-var destroyImpl = __webpack_require__(806);
+var destroyImpl = __webpack_require__(812);
 
 util.inherits(Writable, Stream);
 
 function nop() {}
 
 function WritableState(options, stream) {
-  Duplex = Duplex || __webpack_require__(770);
+  Duplex = Duplex || __webpack_require__(776);
 
   options = options || {};
 
@@ -7961,7 +10814,7 @@ if (typeof Symbol === 'function' && Symbol.hasInstance && typeof Function.protot
 }
 
 function Writable(options) {
-  Duplex = Duplex || __webpack_require__(770);
+  Duplex = Duplex || __webpack_require__(776);
 
   // Writable ctor is applied to Duplexes, too.
   // `realHasInstance` is necessary because using plain `instanceof`
@@ -8402,7 +11255,7 @@ Writable.prototype._destroy = function (err, cb) {
 
 /***/ }),
 
-/***/ 793:
+/***/ 799:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8705,14 +11558,14 @@ function simpleEnd(buf) {
 
 /***/ }),
 
-/***/ 794:
+/***/ 800:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Buffer = __webpack_require__(763).Buffer
 var inherits = __webpack_require__(760)
-var HashBase = __webpack_require__(803)
+var HashBase = __webpack_require__(809)
 
 var ARRAY16 = new Array(16)
 
@@ -8876,7 +11729,7 @@ module.exports = RIPEMD160
 
 /***/ }),
 
-/***/ 795:
+/***/ 801:
 /***/ (function(module, exports, __webpack_require__) {
 
 var exports = module.exports = function SHA (algorithm) {
@@ -8891,14 +11744,14 @@ var exports = module.exports = function SHA (algorithm) {
 exports.sha = __webpack_require__(883)
 exports.sha1 = __webpack_require__(884)
 exports.sha224 = __webpack_require__(885)
-exports.sha256 = __webpack_require__(808)
+exports.sha256 = __webpack_require__(814)
 exports.sha384 = __webpack_require__(886)
-exports.sha512 = __webpack_require__(809)
+exports.sha512 = __webpack_require__(815)
 
 
 /***/ }),
 
-/***/ 796:
+/***/ 802:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -8913,12 +11766,12 @@ exports.EDE = __webpack_require__(896);
 
 /***/ }),
 
-/***/ 797:
+/***/ 803:
 /***/ (function(module, exports, __webpack_require__) {
 
 var ciphers = __webpack_require__(897)
 var deciphers = __webpack_require__(905)
-var modes = __webpack_require__(819)
+var modes = __webpack_require__(825)
 
 function getCiphers () {
   return Object.keys(modes)
@@ -8933,7 +11786,7 @@ exports.listCiphers = exports.getCiphers = getCiphers
 
 /***/ }),
 
-/***/ 798:
+/***/ 804:
 /***/ (function(module, exports, __webpack_require__) {
 
 var modeModules = {
@@ -8943,11 +11796,11 @@ var modeModules = {
   CFB8: __webpack_require__(901),
   CFB1: __webpack_require__(902),
   OFB: __webpack_require__(903),
-  CTR: __webpack_require__(817),
-  GCM: __webpack_require__(817)
+  CTR: __webpack_require__(823),
+  GCM: __webpack_require__(823)
 }
 
-var modes = __webpack_require__(819)
+var modes = __webpack_require__(825)
 
 for (var key in modes) {
   modes[key].module = modeModules[modes[key].mode]
@@ -8958,11 +11811,11 @@ module.exports = modes
 
 /***/ }),
 
-/***/ 799:
+/***/ 805:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var bn = __webpack_require__(762);
-var randomBytes = __webpack_require__(771);
+var randomBytes = __webpack_require__(777);
 module.exports = crt;
 function blind(priv) {
   var r = getr(priv);
@@ -9006,13 +11859,13 @@ function getr(priv) {
 
 /***/ }),
 
-/***/ 800:
+/***/ 806:
 /***/ (function(module, exports, __webpack_require__) {
 
 var hash = exports;
 
-hash.utils = __webpack_require__(767);
-hash.common = __webpack_require__(779);
+hash.utils = __webpack_require__(773);
+hash.common = __webpack_require__(785);
 hash.sha = __webpack_require__(921);
 hash.ripemd = __webpack_require__(925);
 hash.hmac = __webpack_require__(926);
@@ -9028,7 +11881,7 @@ hash.ripemd160 = hash.ripemd.ripemd160;
 
 /***/ }),
 
-/***/ 802:
+/***/ 808:
 /***/ (function(module, exports) {
 
 var toString = {}.toString;
@@ -9040,13 +11893,13 @@ module.exports = Array.isArray || function (arr) {
 
 /***/ }),
 
-/***/ 803:
+/***/ 809:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var Buffer = __webpack_require__(761).Buffer
-var Transform = __webpack_require__(789).Transform
+var Transform = __webpack_require__(795).Transform
 var inherits = __webpack_require__(760)
 
 function throwIfNotStringOrBuffer (val, prefix) {
@@ -9143,7 +11996,7 @@ module.exports = HashBase
 
 /***/ }),
 
-/***/ 804:
+/***/ 810:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -9172,13 +12025,13 @@ module.exports = HashBase
 
 /*<replacement>*/
 
-var pna = __webpack_require__(782);
+var pna = __webpack_require__(788);
 /*</replacement>*/
 
 module.exports = Readable;
 
 /*<replacement>*/
-var isArray = __webpack_require__(802);
+var isArray = __webpack_require__(808);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -9188,7 +12041,7 @@ var Duplex;
 Readable.ReadableState = ReadableState;
 
 /*<replacement>*/
-var EE = __webpack_require__(790).EventEmitter;
+var EE = __webpack_require__(796).EventEmitter;
 
 var EElistenerCount = function (emitter, type) {
   return emitter.listeners(type).length;
@@ -9196,7 +12049,7 @@ var EElistenerCount = function (emitter, type) {
 /*</replacement>*/
 
 /*<replacement>*/
-var Stream = __webpack_require__(805);
+var Stream = __webpack_require__(811);
 /*</replacement>*/
 
 /*<replacement>*/
@@ -9213,7 +12066,7 @@ function _isUint8Array(obj) {
 /*</replacement>*/
 
 /*<replacement>*/
-var util = __webpack_require__(777);
+var util = __webpack_require__(783);
 util.inherits = __webpack_require__(760);
 /*</replacement>*/
 
@@ -9228,7 +12081,7 @@ if (debugUtil && debugUtil.debuglog) {
 /*</replacement>*/
 
 var BufferList = __webpack_require__(875);
-var destroyImpl = __webpack_require__(806);
+var destroyImpl = __webpack_require__(812);
 var StringDecoder;
 
 util.inherits(Readable, Stream);
@@ -9248,7 +12101,7 @@ function prependListener(emitter, event, fn) {
 }
 
 function ReadableState(options, stream) {
-  Duplex = Duplex || __webpack_require__(770);
+  Duplex = Duplex || __webpack_require__(776);
 
   options = options || {};
 
@@ -9318,14 +12171,14 @@ function ReadableState(options, stream) {
   this.decoder = null;
   this.encoding = null;
   if (options.encoding) {
-    if (!StringDecoder) StringDecoder = __webpack_require__(793).StringDecoder;
+    if (!StringDecoder) StringDecoder = __webpack_require__(799).StringDecoder;
     this.decoder = new StringDecoder(options.encoding);
     this.encoding = options.encoding;
   }
 }
 
 function Readable(options) {
-  Duplex = Duplex || __webpack_require__(770);
+  Duplex = Duplex || __webpack_require__(776);
 
   if (!(this instanceof Readable)) return new Readable(options);
 
@@ -9474,7 +12327,7 @@ Readable.prototype.isPaused = function () {
 
 // backwards compatibility.
 Readable.prototype.setEncoding = function (enc) {
-  if (!StringDecoder) StringDecoder = __webpack_require__(793).StringDecoder;
+  if (!StringDecoder) StringDecoder = __webpack_require__(799).StringDecoder;
   this._readableState.decoder = new StringDecoder(enc);
   this._readableState.encoding = enc;
   return this;
@@ -10170,15 +13023,15 @@ function indexOf(xs, x) {
 
 /***/ }),
 
-/***/ 805:
+/***/ 811:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(790).EventEmitter;
+module.exports = __webpack_require__(796).EventEmitter;
 
 
 /***/ }),
 
-/***/ 806:
+/***/ 812:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10186,7 +13039,7 @@ module.exports = __webpack_require__(790).EventEmitter;
 
 /*<replacement>*/
 
-var pna = __webpack_require__(782);
+var pna = __webpack_require__(788);
 /*</replacement>*/
 
 // undocumented cb() API, needed for core, not for public API
@@ -10259,7 +13112,7 @@ module.exports = {
 
 /***/ }),
 
-/***/ 807:
+/***/ 813:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10330,10 +13183,10 @@ module.exports = {
 
 module.exports = Transform;
 
-var Duplex = __webpack_require__(770);
+var Duplex = __webpack_require__(776);
 
 /*<replacement>*/
-var util = __webpack_require__(777);
+var util = __webpack_require__(783);
 util.inherits = __webpack_require__(760);
 /*</replacement>*/
 
@@ -10480,7 +13333,7 @@ function done(stream, er, data) {
 
 /***/ }),
 
-/***/ 808:
+/***/ 814:
 /***/ (function(module, exports, __webpack_require__) {
 
 /**
@@ -10492,7 +13345,7 @@ function done(stream, er, data) {
  */
 
 var inherits = __webpack_require__(760)
-var Hash = __webpack_require__(772)
+var Hash = __webpack_require__(778)
 var Buffer = __webpack_require__(761).Buffer
 
 var K = [
@@ -10622,11 +13475,11 @@ module.exports = Sha256
 
 /***/ }),
 
-/***/ 809:
+/***/ 815:
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(760)
-var Hash = __webpack_require__(772)
+var Hash = __webpack_require__(778)
 var Buffer = __webpack_require__(761).Buffer
 
 var K = [
@@ -10889,19 +13742,19 @@ module.exports = Sha512
 
 /***/ }),
 
-/***/ 810:
+/***/ 816:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 var inherits = __webpack_require__(760)
 var Legacy = __webpack_require__(887)
-var Base = __webpack_require__(769)
+var Base = __webpack_require__(775)
 var Buffer = __webpack_require__(761).Buffer
-var md5 = __webpack_require__(811)
-var RIPEMD160 = __webpack_require__(794)
+var md5 = __webpack_require__(817)
+var RIPEMD160 = __webpack_require__(800)
 
-var sha = __webpack_require__(795)
+var sha = __webpack_require__(801)
 
 var ZEROS = Buffer.alloc(128)
 
@@ -10959,10 +13812,10 @@ module.exports = function createHmac (alg, key) {
 
 /***/ }),
 
-/***/ 811:
+/***/ 817:
 /***/ (function(module, exports, __webpack_require__) {
 
-var MD5 = __webpack_require__(788)
+var MD5 = __webpack_require__(794)
 
 module.exports = function (buffer) {
   return new MD5().update(buffer).digest()
@@ -10971,23 +13824,23 @@ module.exports = function (buffer) {
 
 /***/ }),
 
-/***/ 812:
+/***/ 818:
 /***/ (function(module, exports) {
 
 module.exports = {"sha224WithRSAEncryption":{"sign":"rsa","hash":"sha224","id":"302d300d06096086480165030402040500041c"},"RSA-SHA224":{"sign":"ecdsa/rsa","hash":"sha224","id":"302d300d06096086480165030402040500041c"},"sha256WithRSAEncryption":{"sign":"rsa","hash":"sha256","id":"3031300d060960864801650304020105000420"},"RSA-SHA256":{"sign":"ecdsa/rsa","hash":"sha256","id":"3031300d060960864801650304020105000420"},"sha384WithRSAEncryption":{"sign":"rsa","hash":"sha384","id":"3041300d060960864801650304020205000430"},"RSA-SHA384":{"sign":"ecdsa/rsa","hash":"sha384","id":"3041300d060960864801650304020205000430"},"sha512WithRSAEncryption":{"sign":"rsa","hash":"sha512","id":"3051300d060960864801650304020305000440"},"RSA-SHA512":{"sign":"ecdsa/rsa","hash":"sha512","id":"3051300d060960864801650304020305000440"},"RSA-SHA1":{"sign":"rsa","hash":"sha1","id":"3021300906052b0e03021a05000414"},"ecdsa-with-SHA1":{"sign":"ecdsa","hash":"sha1","id":""},"sha256":{"sign":"ecdsa","hash":"sha256","id":""},"sha224":{"sign":"ecdsa","hash":"sha224","id":""},"sha384":{"sign":"ecdsa","hash":"sha384","id":""},"sha512":{"sign":"ecdsa","hash":"sha512","id":""},"DSA-SHA":{"sign":"dsa","hash":"sha1","id":""},"DSA-SHA1":{"sign":"dsa","hash":"sha1","id":""},"DSA":{"sign":"dsa","hash":"sha1","id":""},"DSA-WITH-SHA224":{"sign":"dsa","hash":"sha224","id":""},"DSA-SHA224":{"sign":"dsa","hash":"sha224","id":""},"DSA-WITH-SHA256":{"sign":"dsa","hash":"sha256","id":""},"DSA-SHA256":{"sign":"dsa","hash":"sha256","id":""},"DSA-WITH-SHA384":{"sign":"dsa","hash":"sha384","id":""},"DSA-SHA384":{"sign":"dsa","hash":"sha384","id":""},"DSA-WITH-SHA512":{"sign":"dsa","hash":"sha512","id":""},"DSA-SHA512":{"sign":"dsa","hash":"sha512","id":""},"DSA-RIPEMD160":{"sign":"dsa","hash":"rmd160","id":""},"ripemd160WithRSA":{"sign":"rsa","hash":"rmd160","id":"3021300906052b2403020105000414"},"RSA-RIPEMD160":{"sign":"rsa","hash":"rmd160","id":"3021300906052b2403020105000414"},"md5WithRSAEncryption":{"sign":"rsa","hash":"md5","id":"3020300c06082a864886f70d020505000410"},"RSA-MD5":{"sign":"rsa","hash":"md5","id":"3020300c06082a864886f70d020505000410"}}
 
 /***/ }),
 
-/***/ 813:
+/***/ 819:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports.pbkdf2 = __webpack_require__(889)
-exports.pbkdf2Sync = __webpack_require__(816)
+exports.pbkdf2Sync = __webpack_require__(822)
 
 
 /***/ }),
 
-/***/ 814:
+/***/ 820:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var MAX_ALLOC = Math.pow(2, 30) - 1 // default in iojs
@@ -11023,7 +13876,7 @@ module.exports = function (password, salt, iterations, keylen) {
 
 /***/ }),
 
-/***/ 815:
+/***/ 821:
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(process) {var defaultEncoding
@@ -11041,15 +13894,15 @@ module.exports = defaultEncoding
 
 /***/ }),
 
-/***/ 816:
+/***/ 822:
 /***/ (function(module, exports, __webpack_require__) {
 
-var md5 = __webpack_require__(811)
-var RIPEMD160 = __webpack_require__(794)
-var sha = __webpack_require__(795)
+var md5 = __webpack_require__(817)
+var RIPEMD160 = __webpack_require__(800)
+var sha = __webpack_require__(801)
 
-var checkParameters = __webpack_require__(814)
-var defaultEncoding = __webpack_require__(815)
+var checkParameters = __webpack_require__(820)
+var defaultEncoding = __webpack_require__(821)
 var Buffer = __webpack_require__(761).Buffer
 var ZEROS = Buffer.alloc(128)
 var sizes = {
@@ -11152,12 +14005,12 @@ module.exports = pbkdf2
 
 /***/ }),
 
-/***/ 817:
+/***/ 823:
 /***/ (function(module, exports, __webpack_require__) {
 
-var xor = __webpack_require__(778)
+var xor = __webpack_require__(784)
 var Buffer = __webpack_require__(761).Buffer
-var incr32 = __webpack_require__(818)
+var incr32 = __webpack_require__(824)
 
 function getBlock (self) {
   var out = self._cipher.encryptBlockRaw(self._prev)
@@ -11189,7 +14042,7 @@ exports.encrypt = function (self, chunk) {
 
 /***/ }),
 
-/***/ 818:
+/***/ 824:
 /***/ (function(module, exports) {
 
 function incr32 (iv) {
@@ -11211,23 +14064,23 @@ module.exports = incr32
 
 /***/ }),
 
-/***/ 819:
+/***/ 825:
 /***/ (function(module, exports) {
 
 module.exports = {"aes-128-ecb":{"cipher":"AES","key":128,"iv":0,"mode":"ECB","type":"block"},"aes-192-ecb":{"cipher":"AES","key":192,"iv":0,"mode":"ECB","type":"block"},"aes-256-ecb":{"cipher":"AES","key":256,"iv":0,"mode":"ECB","type":"block"},"aes-128-cbc":{"cipher":"AES","key":128,"iv":16,"mode":"CBC","type":"block"},"aes-192-cbc":{"cipher":"AES","key":192,"iv":16,"mode":"CBC","type":"block"},"aes-256-cbc":{"cipher":"AES","key":256,"iv":16,"mode":"CBC","type":"block"},"aes128":{"cipher":"AES","key":128,"iv":16,"mode":"CBC","type":"block"},"aes192":{"cipher":"AES","key":192,"iv":16,"mode":"CBC","type":"block"},"aes256":{"cipher":"AES","key":256,"iv":16,"mode":"CBC","type":"block"},"aes-128-cfb":{"cipher":"AES","key":128,"iv":16,"mode":"CFB","type":"stream"},"aes-192-cfb":{"cipher":"AES","key":192,"iv":16,"mode":"CFB","type":"stream"},"aes-256-cfb":{"cipher":"AES","key":256,"iv":16,"mode":"CFB","type":"stream"},"aes-128-cfb8":{"cipher":"AES","key":128,"iv":16,"mode":"CFB8","type":"stream"},"aes-192-cfb8":{"cipher":"AES","key":192,"iv":16,"mode":"CFB8","type":"stream"},"aes-256-cfb8":{"cipher":"AES","key":256,"iv":16,"mode":"CFB8","type":"stream"},"aes-128-cfb1":{"cipher":"AES","key":128,"iv":16,"mode":"CFB1","type":"stream"},"aes-192-cfb1":{"cipher":"AES","key":192,"iv":16,"mode":"CFB1","type":"stream"},"aes-256-cfb1":{"cipher":"AES","key":256,"iv":16,"mode":"CFB1","type":"stream"},"aes-128-ofb":{"cipher":"AES","key":128,"iv":16,"mode":"OFB","type":"stream"},"aes-192-ofb":{"cipher":"AES","key":192,"iv":16,"mode":"OFB","type":"stream"},"aes-256-ofb":{"cipher":"AES","key":256,"iv":16,"mode":"OFB","type":"stream"},"aes-128-ctr":{"cipher":"AES","key":128,"iv":16,"mode":"CTR","type":"stream"},"aes-192-ctr":{"cipher":"AES","key":192,"iv":16,"mode":"CTR","type":"stream"},"aes-256-ctr":{"cipher":"AES","key":256,"iv":16,"mode":"CTR","type":"stream"},"aes-128-gcm":{"cipher":"AES","key":128,"iv":12,"mode":"GCM","type":"auth"},"aes-192-gcm":{"cipher":"AES","key":192,"iv":12,"mode":"GCM","type":"auth"},"aes-256-gcm":{"cipher":"AES","key":256,"iv":12,"mode":"GCM","type":"auth"}}
 
 /***/ }),
 
-/***/ 820:
+/***/ 826:
 /***/ (function(module, exports, __webpack_require__) {
 
-var aes = __webpack_require__(783)
+var aes = __webpack_require__(789)
 var Buffer = __webpack_require__(761).Buffer
-var Transform = __webpack_require__(769)
+var Transform = __webpack_require__(775)
 var inherits = __webpack_require__(760)
 var GHASH = __webpack_require__(904)
-var xor = __webpack_require__(778)
-var incr32 = __webpack_require__(818)
+var xor = __webpack_require__(784)
+var incr32 = __webpack_require__(824)
 
 function xorTest (a, b) {
   var out = 0
@@ -11342,12 +14195,12 @@ module.exports = StreamCipher
 
 /***/ }),
 
-/***/ 821:
+/***/ 827:
 /***/ (function(module, exports, __webpack_require__) {
 
-var aes = __webpack_require__(783)
+var aes = __webpack_require__(789)
 var Buffer = __webpack_require__(761).Buffer
-var Transform = __webpack_require__(769)
+var Transform = __webpack_require__(775)
 var inherits = __webpack_require__(760)
 
 function StreamCipher (mode, key, iv, decrypt) {
@@ -11376,16 +14229,16 @@ module.exports = StreamCipher
 
 /***/ }),
 
-/***/ 822:
+/***/ 828:
 /***/ (function(module, exports, __webpack_require__) {
 
-var randomBytes = __webpack_require__(771);
+var randomBytes = __webpack_require__(777);
 module.exports = findPrime;
 findPrime.simpleSieve = simpleSieve;
 findPrime.fermatTest = fermatTest;
 var BN = __webpack_require__(762);
 var TWENTYFOUR = new BN(24);
-var MillerRabin = __webpack_require__(823);
+var MillerRabin = __webpack_require__(829);
 var millerRabin = new MillerRabin();
 var ONE = new BN(1);
 var TWO = new BN(2);
@@ -11488,11 +14341,11 @@ function findPrime(bits, gen) {
 
 /***/ }),
 
-/***/ 823:
+/***/ 829:
 /***/ (function(module, exports, __webpack_require__) {
 
 var bn = __webpack_require__(762);
-var brorand = __webpack_require__(824);
+var brorand = __webpack_require__(830);
 
 function MillerRabin(rand) {
   this.rand = rand || new brorand.Rand();
@@ -11610,7 +14463,7 @@ MillerRabin.prototype.getDivisor = function getDivisor(n, k) {
 
 /***/ }),
 
-/***/ 824:
+/***/ 830:
 /***/ (function(module, exports, __webpack_require__) {
 
 var r;
@@ -11682,7 +14535,7 @@ if (typeof self === 'object') {
 
 /***/ }),
 
-/***/ 825:
+/***/ 831:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -11748,13 +14601,13 @@ utils.encode = function encode(arr, enc) {
 
 /***/ }),
 
-/***/ 826:
+/***/ 832:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(767);
+var utils = __webpack_require__(773);
 var rotr32 = utils.rotr32;
 
 function ft_1(s, x, y, z) {
@@ -11805,15 +14658,15 @@ exports.g1_256 = g1_256;
 
 /***/ }),
 
-/***/ 827:
+/***/ 833:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(767);
-var common = __webpack_require__(779);
-var shaCommon = __webpack_require__(826);
+var utils = __webpack_require__(773);
+var common = __webpack_require__(785);
+var shaCommon = __webpack_require__(832);
 var assert = __webpack_require__(766);
 
 var sum32 = utils.sum32;
@@ -11918,14 +14771,14 @@ SHA256.prototype._digest = function digest(enc) {
 
 /***/ }),
 
-/***/ 828:
+/***/ 834:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-var utils = __webpack_require__(767);
-var common = __webpack_require__(779);
+var utils = __webpack_require__(773);
+var common = __webpack_require__(785);
 var assert = __webpack_require__(766);
 
 var rotr64_hi = utils.rotr64_hi;
@@ -12256,11 +15109,11 @@ function g1_512_lo(xh, xl) {
 
 /***/ }),
 
-/***/ 829:
+/***/ 835:
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(760);
-var Reporter = __webpack_require__(781).Reporter;
+var Reporter = __webpack_require__(787).Reporter;
 var Buffer = __webpack_require__(763).Buffer;
 
 function DecoderBuffer(base, options) {
@@ -12379,7 +15232,7 @@ EncoderBuffer.prototype.join = function join(out, offset) {
 
 /***/ }),
 
-/***/ 830:
+/***/ 836:
 /***/ (function(module, exports, __webpack_require__) {
 
 var constants = exports;
@@ -12405,12 +15258,12 @@ constants.der = __webpack_require__(941);
 
 /***/ }),
 
-/***/ 831:
+/***/ 837:
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(760);
 
-var asn1 = __webpack_require__(780);
+var asn1 = __webpack_require__(786);
 var base = asn1.base;
 var bignum = asn1.bignum;
 
@@ -12736,13 +15589,13 @@ function derDecodeLen(buf, primitive, fail) {
 
 /***/ }),
 
-/***/ 832:
+/***/ 838:
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(760);
 var Buffer = __webpack_require__(763).Buffer;
 
-var asn1 = __webpack_require__(780);
+var asn1 = __webpack_require__(786);
 var base = asn1.base;
 
 // Import DER constants
@@ -13038,17 +15891,17 @@ function encodeTag(tag, primitive, cls, reporter) {
 
 /***/ }),
 
-/***/ 833:
+/***/ 839:
 /***/ (function(module, exports) {
 
 module.exports = {"1.3.132.0.10":"secp256k1","1.3.132.0.33":"p224","1.2.840.10045.3.1.1":"p192","1.2.840.10045.3.1.7":"p256","1.3.132.0.34":"p384","1.3.132.0.35":"p521"}
 
 /***/ }),
 
-/***/ 834:
+/***/ 840:
 /***/ (function(module, exports, __webpack_require__) {
 
-var createHash = __webpack_require__(776)
+var createHash = __webpack_require__(782)
 var Buffer = __webpack_require__(761).Buffer
 
 module.exports = function (seed, len) {
@@ -13071,7 +15924,7 @@ function i2ops (c) {
 
 /***/ }),
 
-/***/ 835:
+/***/ 841:
 /***/ (function(module, exports) {
 
 module.exports = function xor (a, b) {
@@ -13086,7 +15939,7 @@ module.exports = function xor (a, b) {
 
 /***/ }),
 
-/***/ 836:
+/***/ 842:
 /***/ (function(module, exports, __webpack_require__) {
 
 var BN = __webpack_require__(762)
@@ -13113,7 +15966,7 @@ module.exports = withPublic
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__models_datepicker__ = __webpack_require__(764);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ion2_calendar__ = __webpack_require__(472);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ion2_calendar__ = __webpack_require__(474);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ion2_calendar___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ion2_calendar__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_moment__);
@@ -13202,10 +16055,10 @@ var DatepickerDirective = /** @class */ (function () {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return NewuserPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_date_picker__ = __webpack_require__(469);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_forms__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_native_date_picker__ = __webpack_require__(470);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_forms__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_fire_auth__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_ionic_angular__ = __webpack_require__(46);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__ = __webpack_require__(467);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_generate_password__ = __webpack_require__(869);
@@ -13215,8 +16068,10 @@ var DatepickerDirective = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__models_datepicker__ = __webpack_require__(764);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_moment__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_moment__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_designations__ = __webpack_require__(787);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_designations__ = __webpack_require__(793);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__angular_common_http__ = __webpack_require__(476);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_md_date_time_picker_dist_js_mdDateTimePicker_js__ = __webpack_require__(767);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12_md_date_time_picker_dist_js_mdDateTimePicker_js___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_12_md_date_time_picker_dist_js_mdDateTimePicker_js__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -13273,9 +16128,11 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-__WEBPACK_IMPORTED_MODULE_10__providers_designations__["a" /* Designations */];
+
+
 var NewuserPage = /** @class */ (function () {
-    function NewuserPage(http, toastCtrl, datePicker, loadingCtrl, zone, navCtrl, ref, fdb, navParams, alertCtrl, customDatePicker, afAuth, modalCtrl) {
+    function NewuserPage(renderer, http, toastCtrl, datePicker, loadingCtrl, zone, navCtrl, ref, fdb, navParams, alertCtrl, customDatePicker, afAuth, modalCtrl) {
+        this.renderer = renderer;
         this.http = http;
         this.toastCtrl = toastCtrl;
         this.datePicker = datePicker;
@@ -13290,15 +16147,15 @@ var NewuserPage = /** @class */ (function () {
         this.afAuth = afAuth;
         this.modalCtrl = modalCtrl;
         //VALIDATION PART 
-        this.slideOneForm = new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormGroup"]({
-            $key: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"](null),
-            fname: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(1)]),
-            lname: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(1)]),
-            dob: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(5)]),
-            mobile: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(9)]),
-            doj: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(1)]),
-            email: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(1), __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
-            position: new __WEBPACK_IMPORTED_MODULE_1__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_1__angular_forms__["Validators"].minLength(1)]),
+        this.slideOneForm = new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormGroup"]({
+            $key: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"](null),
+            fname: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].minLength(1)]),
+            lname: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].minLength(1)]),
+            dob: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].minLength(5)]),
+            mobile: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].minLength(9)]),
+            doj: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].minLength(1)]),
+            email: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].minLength(1), __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].pattern('^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$')]),
+            position: new __WEBPACK_IMPORTED_MODULE_2__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].required, __WEBPACK_IMPORTED_MODULE_2__angular_forms__["Validators"].minLength(1)]),
         });
         this.designations = __WEBPACK_IMPORTED_MODULE_10__providers_designations__["a" /* Designations */];
         this.itemslist = [];
@@ -13386,18 +16243,28 @@ var NewuserPage = /** @class */ (function () {
     };
     NewuserPage.prototype.dispdate = function (type) {
         var _this = this;
-        this.datePicker.show({
-            date: __WEBPACK_IMPORTED_MODULE_9_moment__().toDate(),
-            mode: 'date',
-            androidTheme: 5,
-        }).then(function (date) {
-            if (type === "join") {
-                _this.userItem.doj = __WEBPACK_IMPORTED_MODULE_9_moment__(date).format('D-MMM-YYYY');
-            }
-            else {
-                _this.userItem.dob = __WEBPACK_IMPORTED_MODULE_9_moment__(date).format('D-MMM-YYYY');
-            }
-        }, function (err) { return console.log('Error occurred while getting date: ', err); });
+        if (type === "birth") {
+            var datePicker_1 = new __WEBPACK_IMPORTED_MODULE_12_md_date_time_picker_dist_js_mdDateTimePicker_js__["default"]({
+                type: 'date',
+                past: __WEBPACK_IMPORTED_MODULE_9_moment__().year(1950),
+                trigger: this.dobElem.nativeElement
+            });
+            datePicker_1.toggle();
+            this.renderer.listen(this.dobElem.nativeElement, 'onOk', function () {
+                _this.userItem.dob = __WEBPACK_IMPORTED_MODULE_9_moment__(datePicker_1.time).format('D-MMM-YYYY');
+            });
+        }
+        else if (type == 'join') {
+            var datePicker_2 = new __WEBPACK_IMPORTED_MODULE_12_md_date_time_picker_dist_js_mdDateTimePicker_js__["default"]({
+                type: 'date',
+                past: __WEBPACK_IMPORTED_MODULE_9_moment__().year(2005),
+                trigger: this.dojElem.nativeElement
+            });
+            datePicker_2.toggle();
+            this.renderer.listen(this.dojElem.nativeElement, 'onOk', function () {
+                _this.userItem.doj = __WEBPACK_IMPORTED_MODULE_9_moment__(datePicker_2.time).format('D-MMM-YYYY');
+            });
+        }
     };
     NewuserPage.prototype.btn = function (userItem) {
         return __awaiter(this, void 0, void 0, function () {
@@ -14072,11 +16939,19 @@ var NewuserPage = /** @class */ (function () {
             console.log('FAILED...', err);
         });
     };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('dobElem', { read: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] }),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
+    ], NewuserPage.prototype, "dobElem", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["ViewChild"])('dojElem', { read: __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"] }),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["ElementRef"])
+    ], NewuserPage.prototype, "dojElem", void 0);
     NewuserPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_3__angular_core__["Component"])({
-            selector: 'page-newuser',template:/*ion-inline-start:"F:\ionic-app\src\pages\newuser\newuser.html"*/'<!--\n\n  Generated template for the NewuserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n  <navbar pageTitle="USERS"></navbar>\n\n</ion-header>\n\n\n\n<ion-content  >\n\n  <ion-segment [(ngModel)]="users" color="white" (click)="new1()">\n\n    <ion-segment-button value="newUser"  >\n\n    \n\n     New User\n\n    </ion-segment-button>\n\n    <ion-segment-button value="allUsers" (click)="new()">\n\n   \n\n    All User\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n     \n\n      <div [ngSwitch]="users">\n\n\n\n          <div *ngSwitchCase="\'newUser\'">\n\n              \n\n           \n\n          <form  [formGroup]="slideOneForm">\n\n              <h6 class="title section-title ">User Information</h6>\n\n                <ion-row>\n\n                   <ion-item col-6 > \n\n                        <ion-label stacked>First Name</ion-label>\n\n                        <ion-input type="text"  [(ngModel)]="userItem.fname" class="form-control" formControlName="fname" name="fname" ></ion-input>\n\n                    </ion-item> \n\n\n\n                        <ion-item col-6> \n\n                          <ion-label stacked>Last Name</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.lname" formControlName="lname" name="lname" ></ion-input>\n\n                        </ion-item>\n\n                     </ion-row> \n\n\n\n                      <ion-row>\n\n                        <ion-item [hidden]="fnameShow" col-6  no-lines *ngIf=" slideOneForm.get(\'fname\').hasError(\'required\') ">\n\n                         <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'fname\').hasError(\'required\')">\n\n                              first name is required\n\n                          </ion-label>\n\n                          </ion-item>\n\n\n\n                       <ion-item [hidden]="fnameShow" col-6 no-lines *ngIf=" slideOneForm.get(\'lname\').hasError(\'required\') ">\n\n\n\n                        <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'lname\').hasError(\'required\')">\n\n                            lname is required\n\n                        </ion-label>\n\n                        </ion-item>\n\n                    </ion-row>\n\n                  \n\n                    <ion-row>\n\n                      <ion-item  > \n\n                          <ion-label stacked>Date Of Birth</ion-label>\n\n                          <ion-input type="text" readOnly  (tap)="dispdate(\'birth\')" [(ngModel)]="userItem.dob"  formControlName="dob" name="dob"  ></ion-input>\n\n                        </ion-item> \n\n                    </ion-row> \n\n                    <ion-row>\n\n                        <ion-item [hidden]="fnameShow" no-lines *ngIf=" slideOneForm.get(\'dob\').hasError(\'required\') ">\n\n                          <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'dob\').hasError(\'required\')">\n\n                              Date of Birth is required\n\n                          </ion-label>\n\n                          </ion-item>\n\n                    </ion-row>  \n\n                    \n\n                    <ion-row>\n\n                      <ion-item > \n\n                         <ion-label stacked>Mobile Number</ion-label>\n\n                         <ion-input type="text" [(ngModel)]="userItem.mobile" formControlName="mobile" name="mobile" ></ion-input>\n\n                       </ion-item>\n\n                       <ion-item  [hidden]="fnameShow"  no-lines *ngIf=" slideOneForm.get(\'mobile\').hasError(\'required\') ">\n\n\n\n                        <ion-label stacked  color="danger" *ngIf="slideOneForm.get(\'mobile\').hasError(\'required\')">\n\n                           mobile number is required\n\n                        </ion-label>\n\n                        </ion-item>\n\n                     </ion-row> \n\n                   \n\n                    <ion-row>\n\n                       <ion-item> \n\n                          <ion-label stacked>Email Id</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.email" class="form-control"  formControlName="email" name="email"   ></ion-input>\n\n                        </ion-item>\n\n                        \n\n                        <ion-item [hidden]="fnameShow" no-lines *ngIf="slideOneForm.get(\'email\').hasError(\'pattern\') || slideOneForm.get(\'email\').hasError(\'required\')">\n\n                          <ion-label  stacked  color="danger"  *ngIf="slideOneForm.get(\'email\').hasError(\'pattern\') || slideOneForm.get(\'email\').hasError(\'required\')">\n\n                          please enter a valid email id \n\n                          </ion-label>\n\n                          </ion-item>\n\n                      </ion-row>\n\n                    \n\n                      \n\n                      <h6 class="title section-title">Job Details</h6>\n\n\n\n                        <ion-row>\n\n                            <ion-item col-6> \n\n                                <ion-label stacked>Date Of Joining</ion-label>\n\n                                <ion-input type="text" readOnly  (tap)="dispdate(\'join\')" [(ngModel)]="userItem.doj" formControlName="doj" name="doj" ></ion-input>\n\n                              </ion-item>\n\n\n\n                              <ion-item [hidden]="fnameShow"  col-6  no-lines *ngIf=" slideOneForm.get(\'doj\').hasError(\'required\') ">\n\n\n\n                                <ion-label stacked  color="danger" *ngIf="slideOneForm.get(\'doj\').hasError(\'required\')">\n\n                                  Date of Joining is required\n\n                                </ion-label>\n\n                                </ion-item>\n\n                                \n\n                             <ion-item col-6> \n\n                                <ion-label stacked>Position</ion-label>\n\n                               \n\n                                <ion-select   [(ngModel)]="userItem.position" formControlName="position" name="position">\n\n                                  <ion-option *ngFor="let p of designations" [value]=\'p.value\'>{{p.position}}</ion-option>\n\n                                </ion-select>\n\n                                \n\n                              </ion-item>\n\n                              <ion-item [hidden]="fnameShow" col-6 no-lines *ngIf=" slideOneForm.get(\'position\').hasError(\'required\') ">\n\n\n\n                                <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'position\').hasError(\'required\')">\n\n                                   position is required\n\n                                </ion-label>\n\n                                </ion-item>\n\n                           </ion-row>  \n\n                          </form> \n\n                          <ion-item>\n\n                              <ion-label stacked>Set privileges</ion-label>\n\n                              <ion-textarea [(ngModel)]=\'selectedPrivileges\' rows=\'2\'  readonly (tap)="showCheckbox($event,userItem)" > </ion-textarea>\n\n                           <!--   <ion-checkbox  [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>\n\n                               --> \n\n                              </ion-item>\n\n                         <ion-row>\n\n                              \n\n\n\n                                <ion-col col-6  [hidden]="x">\n\n                                  <ion-label stacked>Deactivate user</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="statuss" ></ion-checkbox>\n\n                                </ion-col>\n\n                              </ion-row> \n\n                            \n\n                           \n\n                             \n\n                             \n\n                              <ion-row>\n\n\n\n\n\n                           <button ion-button  icon-end  full color=blue (click)="btn(userItem)" >\n\n                             {{butn}}\n\n                             \n\n                             </button>\n\n                          </ion-row> \n\n                        \n\n             \n\n           \n\n          </div>\n\n            \n\n       <div *ngSwitchCase="\'allUsers\'">\n\n        <ion-list >\n\n            <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>\n\n          <ion-item>\n\n           <ion-row no-margin class="table-title" >\n\n                <ion-col col-6 >Name</ion-col><ion-col col-4>Position </ion-col><ion-col col-2>Action</ion-col>\n\n              </ion-row>\n\n          </ion-item>\n\n           \n\n           <ion-item>\n\n              <div *ngIf="(this.itemslist.length==0)" style="text-align:center">No record found</div>\n\n            <ion-row  class="col-text row-bottom-border" *ngFor="let item of itemslist" >\n\n                <ion-col col-6  style="color: #66887F;">\n\n                  {{ item.fname }}\n\n                </ion-col>\n\n                <ion-col col-4  style="color:#2679B0;" >\n\n                  {{ item.position }}\n\n                </ion-col>\n\n                <ion-col col-2 text-center (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position,item.data,item.status)">\n\n                <ion-icon name="create" ></ion-icon>\n\n                </ion-col>\n\n              </ion-row>\n\n             \n\n           </ion-item>\n\n           \n\n            <!-- <ion-item>\n\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n            </ion-item> -->\n\n         </ion-list>\n\n      </div>\n\n      </div>\n\n</ion-content>\n\n\n\n \n\n\n\n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\newuser\newuser.html"*/,
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-newuser',template:/*ion-inline-start:"F:\ionic-app\src\pages\newuser\newuser.html"*/'<!--\n\n  Generated template for the NewuserPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n<ion-header no-border>\n\n  <navbar pageTitle="USERS"></navbar>\n\n</ion-header>\n\n\n\n<ion-content  >\n\n  <ion-segment [(ngModel)]="users" color="white" (click)="new1()">\n\n    <ion-segment-button value="newUser"  >\n\n    \n\n     New User\n\n    </ion-segment-button>\n\n    <ion-segment-button value="allUsers" (click)="new()">\n\n   \n\n    All User\n\n    </ion-segment-button>\n\n  </ion-segment>\n\n     \n\n      <div [ngSwitch]="users">\n\n\n\n          <div *ngSwitchCase="\'newUser\'">\n\n              \n\n           \n\n          <form  [formGroup]="slideOneForm">\n\n              <h6 class="title section-title ">User Information</h6>\n\n                <ion-row>\n\n                   <ion-item col-6 > \n\n                        <ion-label stacked>First Name</ion-label>\n\n                        <ion-input type="text"  [(ngModel)]="userItem.fname" class="form-control" formControlName="fname" name="fname" ></ion-input>\n\n                    </ion-item> \n\n\n\n                        <ion-item col-6> \n\n                          <ion-label stacked>Last Name</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.lname" formControlName="lname" name="lname" ></ion-input>\n\n                        </ion-item>\n\n                     </ion-row> \n\n\n\n                      <ion-row>\n\n                        <ion-item [hidden]="fnameShow" col-6  no-lines *ngIf=" slideOneForm.get(\'fname\').hasError(\'required\') ">\n\n                         <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'fname\').hasError(\'required\')">\n\n                              first name is required\n\n                          </ion-label>\n\n                          </ion-item>\n\n\n\n                       <ion-item [hidden]="fnameShow" col-6 no-lines *ngIf=" slideOneForm.get(\'lname\').hasError(\'required\') ">\n\n\n\n                        <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'lname\').hasError(\'required\')">\n\n                            lname is required\n\n                        </ion-label>\n\n                        </ion-item>\n\n                    </ion-row>\n\n                  \n\n                    <ion-row>\n\n                      <ion-item  > \n\n                          <ion-label stacked>Date Of Birth</ion-label>\n\n                          <ion-input type="text" readOnly  (tap)="dispdate(\'birth\')" [(ngModel)]="userItem.dob" #dobElem  formControlName="dob" name="dob"  ></ion-input>\n\n                        </ion-item> \n\n                    </ion-row> \n\n                    <ion-row>\n\n                        <ion-item [hidden]="fnameShow" no-lines *ngIf=" slideOneForm.get(\'dob\').hasError(\'required\') ">\n\n                          <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'dob\').hasError(\'required\')">\n\n                              Date of Birth is required\n\n                          </ion-label>\n\n                          </ion-item>\n\n                    </ion-row>  \n\n                    \n\n                    <ion-row>\n\n                      <ion-item > \n\n                         <ion-label stacked>Mobile Number</ion-label>\n\n                         <ion-input type="text" [(ngModel)]="userItem.mobile" formControlName="mobile" name="mobile" ></ion-input>\n\n                       </ion-item>\n\n                       <ion-item  [hidden]="fnameShow"  no-lines *ngIf=" slideOneForm.get(\'mobile\').hasError(\'required\') ">\n\n\n\n                        <ion-label stacked  color="danger" *ngIf="slideOneForm.get(\'mobile\').hasError(\'required\')">\n\n                           mobile number is required\n\n                        </ion-label>\n\n                        </ion-item>\n\n                     </ion-row> \n\n                   \n\n                    <ion-row>\n\n                       <ion-item> \n\n                          <ion-label stacked>Email Id</ion-label>\n\n                          <ion-input type="text" [(ngModel)]="userItem.email" class="form-control"  formControlName="email" name="email"   ></ion-input>\n\n                        </ion-item>\n\n                        \n\n                        <ion-item [hidden]="fnameShow" no-lines *ngIf="slideOneForm.get(\'email\').hasError(\'pattern\') || slideOneForm.get(\'email\').hasError(\'required\')">\n\n                          <ion-label  stacked  color="danger"  *ngIf="slideOneForm.get(\'email\').hasError(\'pattern\') || slideOneForm.get(\'email\').hasError(\'required\')">\n\n                          please enter a valid email id \n\n                          </ion-label>\n\n                          </ion-item>\n\n                      </ion-row>\n\n                    \n\n                      \n\n                      <h6 class="title section-title">Job Details</h6>\n\n\n\n                        <ion-row>\n\n                            <ion-item col-6> \n\n                                <ion-label stacked>Date Of Joining</ion-label>\n\n                                <ion-input type="text" readOnly  (tap)="dispdate(\'join\')" #dojElem [(ngModel)]="userItem.doj" formControlName="doj" name="doj" ></ion-input>\n\n                              </ion-item>\n\n\n\n                              <ion-item [hidden]="fnameShow"  col-6  no-lines *ngIf=" slideOneForm.get(\'doj\').hasError(\'required\') ">\n\n\n\n                                <ion-label stacked  color="danger" *ngIf="slideOneForm.get(\'doj\').hasError(\'required\')">\n\n                                  Date of Joining is required\n\n                                </ion-label>\n\n                                </ion-item>\n\n                                \n\n                             <ion-item col-6> \n\n                                <ion-label stacked>Position</ion-label>\n\n                               \n\n                                <ion-select   [(ngModel)]="userItem.position" formControlName="position" name="position">\n\n                                  <ion-option *ngFor="let p of designations" [value]=\'p.value\'>{{p.position}}</ion-option>\n\n                                </ion-select>\n\n                                \n\n                              </ion-item>\n\n                              <ion-item [hidden]="fnameShow" col-6 no-lines *ngIf=" slideOneForm.get(\'position\').hasError(\'required\') ">\n\n\n\n                                <ion-label  stacked  color="danger" *ngIf="slideOneForm.get(\'position\').hasError(\'required\')">\n\n                                   position is required\n\n                                </ion-label>\n\n                                </ion-item>\n\n                           </ion-row>  \n\n                          </form> \n\n                          <ion-item>\n\n                              <ion-label stacked>Set privileges</ion-label>\n\n                              <ion-textarea [(ngModel)]=\'selectedPrivileges\' rows=\'2\'  readonly (tap)="showCheckbox($event,userItem)" > </ion-textarea>\n\n                           <!--   <ion-checkbox  [(ngModel)]="sp" (ionChange)="showCheckbox($event,userItem)"></ion-checkbox>\n\n                               --> \n\n                              </ion-item>\n\n                         <ion-row>\n\n                              \n\n\n\n                                <ion-col col-6  [hidden]="x">\n\n                                  <ion-label stacked>Deactivate user</ion-label>\n\n                                  <ion-checkbox  [(ngModel)]="statuss" ></ion-checkbox>\n\n                                </ion-col>\n\n                              </ion-row> \n\n                            \n\n                           \n\n                             \n\n                             \n\n                              <ion-row>\n\n\n\n\n\n                           <button ion-button  icon-end  full color=blue (click)="btn(userItem)" >\n\n                             {{butn}}\n\n                             \n\n                             </button>\n\n                          </ion-row> \n\n                        \n\n             \n\n           \n\n          </div>\n\n            \n\n       <div *ngSwitchCase="\'allUsers\'">\n\n        <ion-list >\n\n            <ion-searchbar placeholder="Search User"  [showCancelButton]="shouldShowCancel" (ionInput)="getItems($event)"></ion-searchbar>\n\n          <ion-item>\n\n           <ion-row no-margin class="table-title" >\n\n                <ion-col col-6 >Name</ion-col><ion-col col-4>Position </ion-col><ion-col col-2>Action</ion-col>\n\n              </ion-row>\n\n          </ion-item>\n\n           \n\n           <ion-item>\n\n              <div *ngIf="(this.itemslist.length==0)" style="text-align:center">No record found</div>\n\n            <ion-row  class="col-text row-bottom-border" *ngFor="let item of itemslist" >\n\n                <ion-col col-6  style="color: #66887F;">\n\n                  {{ item.fname }}\n\n                </ion-col>\n\n                <ion-col col-4  style="color:#2679B0;" >\n\n                  {{ item.position }}\n\n                </ion-col>\n\n                <ion-col col-2 text-center (click)="collect(item.key,item.fname,item.lname,item.dob,item.mobile,item.email,item.doj,item.position,item.data,item.status)">\n\n                <ion-icon name="create" ></ion-icon>\n\n                </ion-col>\n\n              </ion-row>\n\n             \n\n           </ion-item>\n\n           \n\n            <!-- <ion-item>\n\n              <ion-input type="password" placeholder="Password" name="password" #password></ion-input>\n\n            </ion-item> -->\n\n         </ion-list>\n\n      </div>\n\n      </div>\n\n</ion-content>\n\n\n\n \n\n\n\n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\newuser\newuser.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_11__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["ToastController"], __WEBPACK_IMPORTED_MODULE_0__ionic_native_date_picker__["a" /* DatePicker */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["LoadingController"], __WEBPACK_IMPORTED_MODULE_3__angular_core__["NgZone"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_3__angular_core__["ChangeDetectorRef"], __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_8__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_2__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["ModalController"]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__angular_core__["Renderer"], __WEBPACK_IMPORTED_MODULE_11__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["ToastController"], __WEBPACK_IMPORTED_MODULE_1__ionic_native_date_picker__["a" /* DatePicker */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["LoadingController"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["NgZone"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_0__angular_core__["ChangeDetectorRef"], __WEBPACK_IMPORTED_MODULE_5__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_8__models_datepicker__["a" /* CustomDatePicker */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_auth__["a" /* AngularFireAuth */], __WEBPACK_IMPORTED_MODULE_4_ionic_angular__["ModalController"]])
     ], NewuserPage);
     return NewuserPage;
 }());
@@ -14224,9 +17099,9 @@ self.generateMultiple = function(amount, options) {
 "use strict";
 
 
-exports.randomBytes = exports.rng = exports.pseudoRandomBytes = exports.prng = __webpack_require__(771)
-exports.createHash = exports.Hash = __webpack_require__(776)
-exports.createHmac = exports.Hmac = __webpack_require__(810)
+exports.randomBytes = exports.rng = exports.pseudoRandomBytes = exports.prng = __webpack_require__(777)
+exports.createHash = exports.Hash = __webpack_require__(782)
+exports.createHmac = exports.Hmac = __webpack_require__(816)
 
 var algos = __webpack_require__(888)
 var algoKeys = Object.keys(algos)
@@ -14235,7 +17110,7 @@ exports.getHashes = function () {
   return hashes
 }
 
-var p = __webpack_require__(813)
+var p = __webpack_require__(819)
 exports.pbkdf2 = p.pbkdf2
 exports.pbkdf2Sync = p.pbkdf2Sync
 
@@ -14781,10 +17656,10 @@ function config (name) {
 
 module.exports = PassThrough;
 
-var Transform = __webpack_require__(807);
+var Transform = __webpack_require__(813);
 
 /*<replacement>*/
-var util = __webpack_require__(777);
+var util = __webpack_require__(783);
 util.inherits = __webpack_require__(760);
 /*</replacement>*/
 
@@ -14805,7 +17680,7 @@ PassThrough.prototype._transform = function (chunk, encoding, cb) {
 /***/ 879:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(792);
+module.exports = __webpack_require__(798);
 
 
 /***/ }),
@@ -14813,7 +17688,7 @@ module.exports = __webpack_require__(792);
 /***/ 880:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(770);
+module.exports = __webpack_require__(776);
 
 
 /***/ }),
@@ -14821,7 +17696,7 @@ module.exports = __webpack_require__(770);
 /***/ 881:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(791).Transform
+module.exports = __webpack_require__(797).Transform
 
 
 /***/ }),
@@ -14829,7 +17704,7 @@ module.exports = __webpack_require__(791).Transform
 /***/ 882:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(791).PassThrough
+module.exports = __webpack_require__(797).PassThrough
 
 
 /***/ }),
@@ -14846,7 +17721,7 @@ module.exports = __webpack_require__(791).PassThrough
  */
 
 var inherits = __webpack_require__(760)
-var Hash = __webpack_require__(772)
+var Hash = __webpack_require__(778)
 var Buffer = __webpack_require__(761).Buffer
 
 var K = [
@@ -14948,7 +17823,7 @@ module.exports = Sha
  */
 
 var inherits = __webpack_require__(760)
-var Hash = __webpack_require__(772)
+var Hash = __webpack_require__(778)
 var Buffer = __webpack_require__(761).Buffer
 
 var K = [
@@ -15053,8 +17928,8 @@ module.exports = Sha1
  */
 
 var inherits = __webpack_require__(760)
-var Sha256 = __webpack_require__(808)
-var Hash = __webpack_require__(772)
+var Sha256 = __webpack_require__(814)
+var Hash = __webpack_require__(778)
 var Buffer = __webpack_require__(761).Buffer
 
 var W = new Array(64)
@@ -15105,8 +17980,8 @@ module.exports = Sha224
 /***/ (function(module, exports, __webpack_require__) {
 
 var inherits = __webpack_require__(760)
-var SHA512 = __webpack_require__(809)
-var Hash = __webpack_require__(772)
+var SHA512 = __webpack_require__(815)
+var Hash = __webpack_require__(778)
 var Buffer = __webpack_require__(761).Buffer
 
 var W = new Array(160)
@@ -15173,7 +18048,7 @@ module.exports = Sha384
 var inherits = __webpack_require__(760)
 var Buffer = __webpack_require__(761).Buffer
 
-var Base = __webpack_require__(769)
+var Base = __webpack_require__(775)
 
 var ZEROS = Buffer.alloc(128)
 var blocksize = 64
@@ -15222,7 +18097,7 @@ module.exports = Hmac
 /***/ 888:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(812)
+module.exports = __webpack_require__(818)
 
 
 /***/ }),
@@ -15230,9 +18105,9 @@ module.exports = __webpack_require__(812)
 /***/ 889:
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global, process) {var checkParameters = __webpack_require__(814)
-var defaultEncoding = __webpack_require__(815)
-var sync = __webpack_require__(816)
+/* WEBPACK VAR INJECTION */(function(global, process) {var checkParameters = __webpack_require__(820)
+var defaultEncoding = __webpack_require__(821)
+var sync = __webpack_require__(822)
 var Buffer = __webpack_require__(761).Buffer
 
 var ZERO_BUF
@@ -15339,10 +18214,10 @@ module.exports = function (password, salt, iterations, keylen, digest, callback)
 /***/ (function(module, exports, __webpack_require__) {
 
 var DES = __webpack_require__(891)
-var aes = __webpack_require__(797)
-var aesModes = __webpack_require__(798)
+var aes = __webpack_require__(803)
+var aesModes = __webpack_require__(804)
 var desModes = __webpack_require__(906)
-var ebtk = __webpack_require__(784)
+var ebtk = __webpack_require__(790)
 
 function createCipher (suite, password) {
   suite = suite.toLowerCase()
@@ -15412,8 +18287,8 @@ exports.listCiphers = exports.getCiphers = getCiphers
 /***/ 891:
 /***/ (function(module, exports, __webpack_require__) {
 
-var CipherBase = __webpack_require__(769)
-var des = __webpack_require__(796)
+var CipherBase = __webpack_require__(775)
+var des = __webpack_require__(802)
 var inherits = __webpack_require__(760)
 var Buffer = __webpack_require__(761).Buffer
 
@@ -15888,7 +18763,7 @@ Cipher.prototype._finalDecrypt = function _finalDecrypt() {
 var assert = __webpack_require__(766);
 var inherits = __webpack_require__(760);
 
-var des = __webpack_require__(796);
+var des = __webpack_require__(802);
 var utils = des.utils;
 var Cipher = des.Cipher;
 
@@ -16112,7 +18987,7 @@ proto._update = function _update(inp, inOff, out, outOff) {
 var assert = __webpack_require__(766);
 var inherits = __webpack_require__(760);
 
-var des = __webpack_require__(796);
+var des = __webpack_require__(802);
 var Cipher = des.Cipher;
 var DES = des.DES;
 
@@ -16169,13 +19044,13 @@ EDE.prototype._unpad = DES.prototype._unpad;
 /***/ 897:
 /***/ (function(module, exports, __webpack_require__) {
 
-var MODES = __webpack_require__(798)
-var AuthCipher = __webpack_require__(820)
+var MODES = __webpack_require__(804)
+var AuthCipher = __webpack_require__(826)
 var Buffer = __webpack_require__(761).Buffer
-var StreamCipher = __webpack_require__(821)
-var Transform = __webpack_require__(769)
-var aes = __webpack_require__(783)
-var ebtk = __webpack_require__(784)
+var StreamCipher = __webpack_require__(827)
+var Transform = __webpack_require__(775)
+var aes = __webpack_require__(789)
+var ebtk = __webpack_require__(790)
 var inherits = __webpack_require__(760)
 
 function Cipher (mode, key, iv) {
@@ -16304,7 +19179,7 @@ exports.decrypt = function (self, block) {
 /***/ 899:
 /***/ (function(module, exports, __webpack_require__) {
 
-var xor = __webpack_require__(778)
+var xor = __webpack_require__(784)
 
 exports.encrypt = function (self, block) {
   var data = xor(block, self._prev)
@@ -16329,7 +19204,7 @@ exports.decrypt = function (self, block) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var Buffer = __webpack_require__(761).Buffer
-var xor = __webpack_require__(778)
+var xor = __webpack_require__(784)
 
 function encryptStart (self, data, decrypt) {
   var len = data.length
@@ -16449,7 +19324,7 @@ exports.encrypt = function (self, chunk, decrypt) {
 /***/ 903:
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var xor = __webpack_require__(778)
+/* WEBPACK VAR INJECTION */(function(Buffer) {var xor = __webpack_require__(784)
 
 function getBlock (self) {
   self._prev = self._cipher.encryptBlock(self._prev)
@@ -16569,13 +19444,13 @@ module.exports = GHASH
 /***/ 905:
 /***/ (function(module, exports, __webpack_require__) {
 
-var AuthCipher = __webpack_require__(820)
+var AuthCipher = __webpack_require__(826)
 var Buffer = __webpack_require__(761).Buffer
-var MODES = __webpack_require__(798)
-var StreamCipher = __webpack_require__(821)
-var Transform = __webpack_require__(769)
-var aes = __webpack_require__(783)
-var ebtk = __webpack_require__(784)
+var MODES = __webpack_require__(804)
+var StreamCipher = __webpack_require__(827)
+var Transform = __webpack_require__(775)
+var aes = __webpack_require__(789)
+var ebtk = __webpack_require__(790)
 var inherits = __webpack_require__(760)
 
 function Decipher (mode, key, iv) {
@@ -16731,7 +19606,7 @@ exports['des-ede'] = {
 /***/ 907:
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var generatePrime = __webpack_require__(822)
+/* WEBPACK VAR INJECTION */(function(Buffer) {var generatePrime = __webpack_require__(828)
 var primes = __webpack_require__(910)
 
 var DH = __webpack_require__(911)
@@ -16803,15 +19678,15 @@ module.exports = {"modp1":{"gen":"02","prime":"ffffffffffffffffc90fdaa22168c234c
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {var BN = __webpack_require__(762);
-var MillerRabin = __webpack_require__(823);
+var MillerRabin = __webpack_require__(829);
 var millerRabin = new MillerRabin();
 var TWENTYFOUR = new BN(24);
 var ELEVEN = new BN(11);
 var TEN = new BN(10);
 var THREE = new BN(3);
 var SEVEN = new BN(7);
-var primes = __webpack_require__(822);
-var randomBytes = __webpack_require__(771);
+var primes = __webpack_require__(828);
+var randomBytes = __webpack_require__(777);
 module.exports = DH;
 
 function setPublicKey(pub, enc) {
@@ -16974,13 +19849,13 @@ function formatReturnValue(bn, enc) {
 /***/ 912:
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(776)
-var stream = __webpack_require__(789)
+/* WEBPACK VAR INJECTION */(function(Buffer) {var createHash = __webpack_require__(782)
+var stream = __webpack_require__(795)
 var inherits = __webpack_require__(760)
 var sign = __webpack_require__(913)
 var verify = __webpack_require__(949)
 
-var algorithms = __webpack_require__(812)
+var algorithms = __webpack_require__(818)
 Object.keys(algorithms).forEach(function (key) {
   algorithms[key].id = new Buffer(algorithms[key].id, 'hex')
   algorithms[key.toLowerCase()] = algorithms[key]
@@ -17074,12 +19949,12 @@ module.exports = {
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(Buffer) {// much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
-var createHmac = __webpack_require__(810)
-var crt = __webpack_require__(799)
+var createHmac = __webpack_require__(816)
+var crt = __webpack_require__(805)
 var EC = __webpack_require__(765).ec
 var BN = __webpack_require__(762)
-var parseKeys = __webpack_require__(786)
-var curves = __webpack_require__(833)
+var parseKeys = __webpack_require__(792)
+var curves = __webpack_require__(839)
 
 function sign (hash, key, hashType, signType, tag) {
   var priv = parseKeys(key)
@@ -17239,7 +20114,7 @@ module.exports = {"_from":"elliptic@^6.0.0","_id":"elliptic@6.4.1","_inBundle":f
 var utils = exports;
 var BN = __webpack_require__(762);
 var minAssert = __webpack_require__(766);
-var minUtils = __webpack_require__(825);
+var minUtils = __webpack_require__(831);
 
 utils.assert = minAssert;
 utils.toArray = minUtils.toArray;
@@ -17747,7 +20622,7 @@ BasePoint.prototype.dblp = function dblp(k) {
 "use strict";
 
 
-var curve = __webpack_require__(785);
+var curve = __webpack_require__(791);
 var elliptic = __webpack_require__(765);
 var BN = __webpack_require__(762);
 var inherits = __webpack_require__(760);
@@ -18692,7 +21567,7 @@ JPoint.prototype.isInfinity = function isInfinity() {
 "use strict";
 
 
-var curve = __webpack_require__(785);
+var curve = __webpack_require__(791);
 var BN = __webpack_require__(762);
 var inherits = __webpack_require__(760);
 var Base = curve.base;
@@ -18880,7 +21755,7 @@ Point.prototype.getX = function getX() {
 "use strict";
 
 
-var curve = __webpack_require__(785);
+var curve = __webpack_require__(791);
 var elliptic = __webpack_require__(765);
 var BN = __webpack_require__(762);
 var inherits = __webpack_require__(760);
@@ -19323,7 +22198,7 @@ Point.prototype.mixedAdd = Point.prototype.add;
 
 var curves = exports;
 
-var hash = __webpack_require__(800);
+var hash = __webpack_require__(806);
 var elliptic = __webpack_require__(765);
 
 var assert = elliptic.utils.assert;
@@ -19536,9 +22411,9 @@ defineCurve('secp256k1', {
 
 exports.sha1 = __webpack_require__(922);
 exports.sha224 = __webpack_require__(923);
-exports.sha256 = __webpack_require__(827);
+exports.sha256 = __webpack_require__(833);
 exports.sha384 = __webpack_require__(924);
-exports.sha512 = __webpack_require__(828);
+exports.sha512 = __webpack_require__(834);
 
 
 /***/ }),
@@ -19549,9 +22424,9 @@ exports.sha512 = __webpack_require__(828);
 "use strict";
 
 
-var utils = __webpack_require__(767);
-var common = __webpack_require__(779);
-var shaCommon = __webpack_require__(826);
+var utils = __webpack_require__(773);
+var common = __webpack_require__(785);
+var shaCommon = __webpack_require__(832);
 
 var rotl32 = utils.rotl32;
 var sum32 = utils.sum32;
@@ -19631,8 +22506,8 @@ SHA1.prototype._digest = function digest(enc) {
 "use strict";
 
 
-var utils = __webpack_require__(767);
-var SHA256 = __webpack_require__(827);
+var utils = __webpack_require__(773);
+var SHA256 = __webpack_require__(833);
 
 function SHA224() {
   if (!(this instanceof SHA224))
@@ -19669,9 +22544,9 @@ SHA224.prototype._digest = function digest(enc) {
 "use strict";
 
 
-var utils = __webpack_require__(767);
+var utils = __webpack_require__(773);
 
-var SHA512 = __webpack_require__(828);
+var SHA512 = __webpack_require__(834);
 
 function SHA384() {
   if (!(this instanceof SHA384))
@@ -19712,8 +22587,8 @@ SHA384.prototype._digest = function digest(enc) {
 "use strict";
 
 
-var utils = __webpack_require__(767);
-var common = __webpack_require__(779);
+var utils = __webpack_require__(773);
+var common = __webpack_require__(785);
 
 var rotl32 = utils.rotl32;
 var sum32 = utils.sum32;
@@ -19866,7 +22741,7 @@ var sh = [
 "use strict";
 
 
-var utils = __webpack_require__(767);
+var utils = __webpack_require__(773);
 var assert = __webpack_require__(766);
 
 function Hmac(hash, key, enc) {
@@ -20956,8 +23831,8 @@ EC.prototype.getKeyRecoveryParam = function(e, signature, Q, enc) {
 "use strict";
 
 
-var hash = __webpack_require__(800);
-var utils = __webpack_require__(825);
+var hash = __webpack_require__(806);
+var utils = __webpack_require__(831);
 var assert = __webpack_require__(766);
 
 function HmacDRBG(options) {
@@ -21347,7 +24222,7 @@ Signature.prototype.toDER = function toDER(enc) {
 "use strict";
 
 
-var hash = __webpack_require__(800);
+var hash = __webpack_require__(806);
 var elliptic = __webpack_require__(765);
 var utils = elliptic.utils;
 var assert = utils.assert;
@@ -21653,7 +24528,7 @@ module.exports = Signature;
 // Fedor, you are amazing.
 
 
-var asn1 = __webpack_require__(780)
+var asn1 = __webpack_require__(786)
 
 exports.certificate = __webpack_require__(946)
 
@@ -21778,7 +24653,7 @@ exports.signature = asn1.define('signature', function () {
 /***/ 936:
 /***/ (function(module, exports, __webpack_require__) {
 
-var asn1 = __webpack_require__(780);
+var asn1 = __webpack_require__(786);
 var inherits = __webpack_require__(760);
 
 var api = exports;
@@ -22135,9 +25010,9 @@ ReporterError.prototype.rethrow = function rethrow(msg) {
 /***/ 940:
 /***/ (function(module, exports, __webpack_require__) {
 
-var Reporter = __webpack_require__(781).Reporter;
-var EncoderBuffer = __webpack_require__(781).EncoderBuffer;
-var DecoderBuffer = __webpack_require__(781).DecoderBuffer;
+var Reporter = __webpack_require__(787).Reporter;
+var EncoderBuffer = __webpack_require__(787).EncoderBuffer;
+var DecoderBuffer = __webpack_require__(787).DecoderBuffer;
 var assert = __webpack_require__(766);
 
 // Supported tags
@@ -22776,7 +25651,7 @@ Node.prototype._isPrintstr = function isPrintstr(str) {
 /***/ 941:
 /***/ (function(module, exports, __webpack_require__) {
 
-var constants = __webpack_require__(830);
+var constants = __webpack_require__(836);
 
 exports.tagClass = {
   0: 'universal',
@@ -22827,7 +25702,7 @@ exports.tagByName = constants._reverse(exports.tag);
 
 var decoders = exports;
 
-decoders.der = __webpack_require__(831);
+decoders.der = __webpack_require__(837);
 decoders.pem = __webpack_require__(943);
 
 
@@ -22839,7 +25714,7 @@ decoders.pem = __webpack_require__(943);
 var inherits = __webpack_require__(760);
 var Buffer = __webpack_require__(763).Buffer;
 
-var DERDecoder = __webpack_require__(831);
+var DERDecoder = __webpack_require__(837);
 
 function PEMDecoder(entity) {
   DERDecoder.call(this, entity);
@@ -22894,7 +25769,7 @@ PEMDecoder.prototype.decode = function decode(data, options) {
 
 var encoders = exports;
 
-encoders.der = __webpack_require__(832);
+encoders.der = __webpack_require__(838);
 encoders.pem = __webpack_require__(945);
 
 
@@ -22905,7 +25780,7 @@ encoders.pem = __webpack_require__(945);
 
 var inherits = __webpack_require__(760);
 
-var DEREncoder = __webpack_require__(832);
+var DEREncoder = __webpack_require__(838);
 
 function PEMEncoder(entity) {
   DEREncoder.call(this, entity);
@@ -22937,7 +25812,7 @@ PEMEncoder.prototype.encode = function encode(data, options) {
 
 
 
-var asn = __webpack_require__(780)
+var asn = __webpack_require__(786)
 
 var Time = asn.define('Time', function () {
   this.choice({
@@ -23039,8 +25914,8 @@ module.exports = {"2.16.840.1.101.3.4.1.1":"aes-128-ecb","2.16.840.1.101.3.4.1.2
 var findProc = /Proc-Type: 4,ENCRYPTED[\n\r]+DEK-Info: AES-((?:128)|(?:192)|(?:256))-CBC,([0-9A-H]+)[\n\r]+([0-9A-z\n\r\+\/\=]+)[\n\r]+/m
 var startRegex = /^-----BEGIN ((?:.*? KEY)|CERTIFICATE)-----/m
 var fullRegex = /^-----BEGIN ((?:.*? KEY)|CERTIFICATE)-----([0-9A-z\n\r\+\/\=]+)-----END \1-----$/m
-var evp = __webpack_require__(784)
-var ciphers = __webpack_require__(797)
+var evp = __webpack_require__(790)
+var ciphers = __webpack_require__(803)
 var Buffer = __webpack_require__(761).Buffer
 module.exports = function (okey, password) {
   var key = okey.toString()
@@ -23076,8 +25951,8 @@ module.exports = function (okey, password) {
 /* WEBPACK VAR INJECTION */(function(Buffer) {// much of this based on https://github.com/indutny/self-signed/blob/gh-pages/lib/rsa.js
 var BN = __webpack_require__(762)
 var EC = __webpack_require__(765).ec
-var parseKeys = __webpack_require__(786)
-var curves = __webpack_require__(833)
+var parseKeys = __webpack_require__(792)
+var curves = __webpack_require__(839)
 
 function verify (sig, hash, key, signType, tag) {
   var pub = parseKeys(key)
@@ -23313,14 +26188,14 @@ exports.publicDecrypt = function publicDecrypt (key, buf) {
 /***/ 952:
 /***/ (function(module, exports, __webpack_require__) {
 
-var parseKeys = __webpack_require__(786)
-var randomBytes = __webpack_require__(771)
-var createHash = __webpack_require__(776)
-var mgf = __webpack_require__(834)
-var xor = __webpack_require__(835)
+var parseKeys = __webpack_require__(792)
+var randomBytes = __webpack_require__(777)
+var createHash = __webpack_require__(782)
+var mgf = __webpack_require__(840)
+var xor = __webpack_require__(841)
 var BN = __webpack_require__(762)
-var withPublic = __webpack_require__(836)
-var crt = __webpack_require__(799)
+var withPublic = __webpack_require__(842)
+var crt = __webpack_require__(805)
 var Buffer = __webpack_require__(761).Buffer
 
 module.exports = function publicEncrypt (publicKey, msg, reverse) {
@@ -23408,13 +26283,13 @@ function nonZero (len) {
 /***/ 953:
 /***/ (function(module, exports, __webpack_require__) {
 
-var parseKeys = __webpack_require__(786)
-var mgf = __webpack_require__(834)
-var xor = __webpack_require__(835)
+var parseKeys = __webpack_require__(792)
+var mgf = __webpack_require__(840)
+var xor = __webpack_require__(841)
 var BN = __webpack_require__(762)
-var crt = __webpack_require__(799)
-var createHash = __webpack_require__(776)
-var withPublic = __webpack_require__(836)
+var crt = __webpack_require__(805)
+var createHash = __webpack_require__(782)
+var withPublic = __webpack_require__(842)
 var Buffer = __webpack_require__(761).Buffer
 
 module.exports = function privateDecrypt (privateKey, enc, reverse) {
@@ -23527,7 +26402,7 @@ function oldBrowser () {
   throw new Error('secure random number generation not supported by this browser\nuse chrome, FireFox or Internet Explorer 11')
 }
 var safeBuffer = __webpack_require__(761)
-var randombytes = __webpack_require__(771)
+var randombytes = __webpack_require__(777)
 var Buffer = safeBuffer.Buffer
 var kBufferMaxLength = safeBuffer.kMaxLength
 var crypto = global.crypto || global.msCrypto

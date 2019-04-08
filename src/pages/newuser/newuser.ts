@@ -1,10 +1,11 @@
+import { ElementRef, Renderer } from '@angular/core';
 import { HttpModule } from '@angular/http';
 
 import { DatePicker } from '@ionic-native/date-picker';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireAuth} from '@angular/fire/auth';
 import { userItem } from './../../models/user-item/user-item.interface';
-import { Component, ChangeDetectorRef, NgZone } from '@angular/core';
+import { Component, ChangeDetectorRef, NgZone, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController, ModalController, LoadingController, ToastController } from 'ionic-angular';
 import {AngularFireDatabase, AngularFireList} from '@angular/fire/database';
 import { Subscription } from 'rxjs/Subscription';
@@ -15,7 +16,8 @@ import { CalendarModal,CalendarResult} from "ion2-calendar";
 import * as moment from 'moment'
 import { Designations } from '../../providers/designations';
 import { HttpClient } from '@angular/common/http';
-Designations
+import * as  mdDateTimePicker  from 'md-date-time-picker/dist/js/mdDateTimePicker.js';
+
 
 @IonicPage()
 @Component({
@@ -81,8 +83,9 @@ icons:string="0";
 fnameShow:boolean=true;
 loader:any
 
-
-  constructor(public http:HttpClient,public toastCtrl:ToastController,private datePicker:DatePicker,public loadingCtrl:LoadingController,public zone:NgZone,public navCtrl: NavController,private ref: ChangeDetectorRef, private fdb:AngularFireDatabase,public navParams: NavParams,public alertCtrl: AlertController,private customDatePicker:CustomDatePicker,private afAuth:AngularFireAuth,private modalCtrl:ModalController)
+@ViewChild('dobElem' ,{ read: ElementRef }) dobElem:ElementRef;
+@ViewChild('dojElem' ,{ read: ElementRef }) dojElem:ElementRef; 
+  constructor(public renderer:Renderer ,public http:HttpClient,public toastCtrl:ToastController,private datePicker:DatePicker,public loadingCtrl:LoadingController,public zone:NgZone,public navCtrl: NavController,private ref: ChangeDetectorRef, private fdb:AngularFireDatabase,public navParams: NavParams,public alertCtrl: AlertController,private customDatePicker:CustomDatePicker,private afAuth:AngularFireAuth,private modalCtrl:ModalController)
    {
     this.icons="0";
     this.users="newUser";
@@ -151,23 +154,33 @@ getItems(searchbar) {
 }
 
 
-    dispdate(type:String){
-      this.datePicker.show({
-      date: moment().toDate(),
-      mode: 'date',
-      androidTheme: 5,
-      
-    }).then(
-      date=>{
-       if(type==="join"){
-         this.userItem.doj = moment(date).format('D-MMM-YYYY')
-       }
-       else{
-         this.userItem.dob =  moment(date).format('D-MMM-YYYY')
-       }
-     },err => console.log('Error occurred while getting date: ', err)
+    
 
-     );
+    dispdate(type:String){
+      if(type==="birth"){
+        let datePicker = new mdDateTimePicker.default({
+          type: 'date',
+          past:moment().year(1950),
+          trigger : this.dobElem.nativeElement
+        });
+        datePicker.toggle()
+        this.renderer.listen(this.dobElem.nativeElement, 'onOk', () => {
+          this.userItem.dob = moment(datePicker.time).format('D-MMM-YYYY')
+      })
+    }
+    else if(type=='join'){
+      let datePicker = new mdDateTimePicker.default({
+        type: 'date',
+        past:moment().year(2005),
+        
+        trigger : this.dojElem.nativeElement
+      });
+      datePicker.toggle()
+      this.renderer.listen(this.dojElem.nativeElement, 'onOk', () => {
+        this.userItem.doj = moment(datePicker.time).format('D-MMM-YYYY')
+      })
+    }
+      
     }
 
 

@@ -25,7 +25,7 @@
         </ion-item>
           <ion-item>
             <ion-label stacked>Purchase Date</ion-label>
-            <ion-input [disabled]="replace" type="text" readonly formControlName="purchaseDate" (tap)="dispdate('purchaseDate')"  ></ion-input>
+            <ion-input [disabled]="replace" type="text" readonly formControlName="purchaseDate" (tap)="dispdate('purchaseDate')" #purchaseDateElem ></ion-input>
           </ion-item>
         
           <ion-item  no-lines *ngIf="(systemsForm.get('purchaseDate').hasError('minlength') || systemsForm.get('purchaseDate').hasError('required') ) && systemsForm.get('purchaseDate').touched">
@@ -147,7 +147,7 @@
         
             <ion-item col-12>
               <ion-label stacked>Antivirus Expiry</ion-label>
-              <ion-input type="text" [disabled]="replace" readonly formControlName="avExpiry" (tap)="dispdate('antivirus')"  ></ion-input>
+              <ion-input type="text" [disabled]="replace" readonly formControlName="avExpiry" (tap)="dispdate('antivirus')" #antiVirusElem ></ion-input>
               <button ion-button item-right color="blue" type="button" *ngIf="replace" (click)="modify('avExpiry')">
                   <ion-icon  small name="create" ></ion-icon>
                 </button>

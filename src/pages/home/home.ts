@@ -35,9 +35,9 @@ wlength:any=0;
 //lrcount:any=0;
 
 devicetoken : any ="abc";
-x:any
 
-@ViewChild('hh' ,{ read: ElementRef }) myElement:ElementRef;
+
+
   constructor(public elementRef: ElementRef,private renderer:Renderer,private http:HttpClient,public storage:Storage,private fcm:Firebase,public modalCtrl:ModalController,public navCtrl: NavController, public navParams: NavParams,private afAuth:AngularFireAuth,private firebase:AngularFireDatabase,public loadingCtrl: LoadingController) {
    
   
@@ -87,11 +87,6 @@ let data=JSON.stringify({username:"raja"});
   }
   */
 
-  
-   xx() {
-   this.x.toggle()
-        
-      }
 
     
   
@@ -129,19 +124,9 @@ let data=JSON.stringify({username:"raja"});
       });
    }
  
- gg:any
-   ionViewDidLoad() {
-    this.x = new mdDateTimePicker.default({
-      type: 'date',
-      trigger : this.myElement.nativeElement
-      
-    });
 
-    this.renderer.listen(this.myElement.nativeElement, 'onOk', () => {
-      this.myElement.nativeElement.s
-      this.gg=moment(this.x.time).format('DD-MMM-YYYY')
-    })
-    
+   ionViewDidLoad() {
+   
       //this.getMessages()
       this.getUpComingEvents()
       this.getUpComingEventsNotification()

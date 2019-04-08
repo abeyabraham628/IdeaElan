@@ -26,7 +26,7 @@
       </ion-item>
       <ion-item >
         <ion-label stacked>Interview Date</ion-label>
-        <ion-input    (click)="dispdate()" (ionFocus)="dispdate()" formControlName="scheduleDate"></ion-input>
+        <ion-input    (tap)="dispDate('date')" formControlName="scheduleDate" #dateElem></ion-input>
       </ion-item>
       <ion-item  no-lines *ngIf=" scheduleForm.get('scheduleDate').hasError('required')  && scheduleForm.get('scheduleDate').touched">
           <ion-label stacked  color="danger">
@@ -38,7 +38,8 @@
  
       <ion-item >
           <ion-label stacked>Interview Time</ion-label>
-          <ion-datetime pickerFormat="h:mm A"  formControlName="scheduleTime" readonly></ion-datetime>
+          <ion-input    (tap)="dispDate('time')" formControlName="scheduleTime" #timeElem></ion-input>
+          <!--<ion-datetime pickerFormat="h:mm A"  formControlName="scheduleTime" readonly></ion-datetime>-->
       </ion-item>
       <ion-item  no-lines *ngIf=" scheduleForm.get('scheduleTime').hasError('required')  && scheduleForm.get('scheduleTime').touched">
           <ion-label stacked  color="danger" *ngIf="scheduleForm.get('scheduleTime').hasError('required')  && scheduleForm.get('scheduleTime').touched" >

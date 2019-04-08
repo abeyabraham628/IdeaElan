@@ -1,3 +1,4 @@
+import { ElementRef, Renderer } from '@angular/core';
 import { DatePicker } from '@ionic-native/date-picker';
 import { DataService } from './../../providers/form-service';
 
@@ -6,13 +7,13 @@ import { DataService } from './../../providers/form-service';
 import { AngularFireDatabase,AngularFireList } from '@angular/fire/database';
 
 import { BarcodeScanner } from '@ionic-native/barcode-scanner';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonicPage, AlertController, ModalController, NavController, LoadingController } from 'ionic-angular';
 import {FormControl, FormGroup,Validators} from '@angular/forms'
 import { CustomDatePicker } from '../../models/datepicker';
 
 import * as moment from 'moment'
-
+import * as  mdDateTimePicker  from 'md-date-time-picker/dist/js/mdDateTimePicker.js';
 
 
 
@@ -31,6 +32,7 @@ import * as moment from 'moment'
   templateUrl: 'systems.html',
   
 })
+
 export class SystemsPage {
   searchString: string;
   loader:any;
@@ -54,11 +56,12 @@ export class SystemsPage {
    
 });
 
-  
+@ViewChild('purchaseDateElem' ,{ read: ElementRef }) purchaseDateElem:ElementRef;
+@ViewChild('antiVirusElem' ,{ read: ElementRef }) antiVirusElem:ElementRef; 
 
  systems:string;
 
-  constructor(private data:DataService,public loadingCtrl:LoadingController,public navCtrl:NavController,public modalCtrl:ModalController,public customDatePicker:CustomDatePicker ,public alertCtrl:AlertController,private barcode:BarcodeScanner,private datePicker:DatePicker,private firebase:AngularFireDatabase) {
+  constructor(public renderer:Renderer,private data:DataService,public loadingCtrl:LoadingController,public navCtrl:NavController,public modalCtrl:ModalController,public customDatePicker:CustomDatePicker ,public alertCtrl:AlertController,private barcode:BarcodeScanner,private datePicker:DatePicker,private firebase:AngularFireDatabase) {
   this.systems="newSystem";
  this.getSystemList();
  this.getUsers()
@@ -216,24 +219,30 @@ insertSystems(systems:any){
   }
 
   AvValidity:any
-    dispdate(type){
-      this.datePicker.show({
-        date:moment().toDate(),
-        mode:'date',
-        androidTheme: 5,
-      }).then(
-        date=>{
-
-          if(type==="purchaseDate"){
-            this.systemsForm.controls['purchaseDate'].setValue(moment(date).format('D-MMM-YYYY'))
-          }
-          else{
-            this.systemsForm.controls['avExpiry'].setValue(moment(date).format('D-MMM-YYYY'))
-          }
-          
-         },
-        err => console.log('Error occurred while getting date: ', err)
-      )
+   dispdate(type:String){
+      if(type==="purchaseDate"){
+        let datePicker = new mdDateTimePicker.default({
+          type: 'date',
+          trigger : this.purchaseDateElem.nativeElement
+        });
+        datePicker.toggle()
+        this.renderer.listen(this.purchaseDateElem.nativeElement, 'onOk', () => {
+          this.systemsForm.controls['purchaseDate'].setValue(moment(datePicker.time).format('D-MMM-YYYY'))
+      })
+    }
+    else if(type=='antivirus'){
+      let datePicker = new mdDateTimePicker.default({
+        type: 'date',
+        past:moment(),
+        future:moment().add(3, 'years'),
+        trigger : this.antiVirusElem.nativeElement
+      });
+      datePicker.toggle()
+      this.renderer.listen(this.antiVirusElem.nativeElement, 'onOk', () => {
+        this.systemsForm.controls['avExpiry'].setValue(moment(datePicker.time).format('D-MMM-YYYY'))
+      })
+    }
+      
     }
 
 
