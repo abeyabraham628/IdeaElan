@@ -1,3 +1,4 @@
+//Author Abey & Tony
 import { Camera } from '@ionic-native/camera';
 import { AngularFireStorage } from '@angular/fire/storage';
 import { ScreenOrientation } from '@ionic-native/screen-orientation';
@@ -25,7 +26,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { ComponentsModule } from '../components/components.module';
 import { DataService } from '../providers/form-service';
 import { Network } from '@ionic-native/network';
-import {Calendar} from '@ionic-native/calendar'
+
 
 
 
@@ -78,7 +79,7 @@ import {Calendar} from '@ionic-native/calendar'
     ScreenOrientation,
     AngularFireStorage,
     Camera,
-    Calendar,
+    
   
     
     

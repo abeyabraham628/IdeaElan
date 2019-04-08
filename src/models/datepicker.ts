@@ -1,4 +1,4 @@
-
+//Author Tony Manuel
 import {CalendarComponentOptions,CalendarModalOptions } from "ion2-calendar";
 
 import { Component, Injectable } from '@angular/core'; 

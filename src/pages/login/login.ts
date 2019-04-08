@@ -1,17 +1,14 @@
-import { AngularFireStorage } from '@angular/fire/storage';
 
-
-
-
+//Tony Manuel
 import { credentials } from './../../providers/login';
-import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ToastController, ModalController, LoadingController } from 'ionic-angular';
 import { AngularFireDatabase} from '@angular/fire/database';
 import { AppConst } from '../../providers/strings';
 import { Storage } from '@ionic/storage';
 import * as firebase from 'firebase/app';
-import { enableDebugTools } from '@angular/platform-browser';
+
 import { AngularFireModule } from '@angular/fire';
 
 

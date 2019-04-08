@@ -1,5 +1,5 @@
 
-
+//Author Tony Manuel
 
 //import { Firebase } from '@ionic-native/firebase';
 import { Component } from '@angular/core';

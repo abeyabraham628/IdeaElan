@@ -1,3 +1,5 @@
+//Tony Manuel
+
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import{AngularFireDatabase,AngularFireList} from '@angular/fire/database'
