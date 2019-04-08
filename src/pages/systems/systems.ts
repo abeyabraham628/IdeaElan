@@ -69,7 +69,7 @@ export class SystemsPage {
  this.getUsers()
 }
 
-tony(){
+maintenanceHistory(){
  
   this.navCtrl.push('MaintenancehistoryPage',this.systemsForm.controls['$key'].value)
 
