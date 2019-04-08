@@ -202,7 +202,7 @@
         -->
         <service
             android:name="com.google.firebase.messaging.FirebaseMessagingService"
-            android:exported="true" >
+            android:exported="false" >
             <intent-filter android:priority="-500" >
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

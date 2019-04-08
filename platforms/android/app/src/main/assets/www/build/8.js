@@ -1,17 +1,15 @@
 webpackJsonp([8],{
 
-/***/ 755:
+/***/ 756:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TabsPageModule", function() { return TabsPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__ionic_native_camera__ = __webpack_require__(473);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_fire_storage__ = __webpack_require__(474);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__tabs__ = __webpack_require__(857);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__components_components_module__ = __webpack_require__(468);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UploadEventsPageModule", function() { return UploadEventsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__upload_events__ = __webpack_require__(864);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -22,47 +20,65 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-
-
-var TabsPageModule = /** @class */ (function () {
-    function TabsPageModule() {
+var UploadEventsPageModule = /** @class */ (function () {
+    function UploadEventsPageModule() {
     }
-    TabsPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["NgModule"])({
+    UploadEventsPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_4__tabs__["a" /* TabsPage */],
+                __WEBPACK_IMPORTED_MODULE_3__upload_events__["a" /* UploadEventsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_4__tabs__["a" /* TabsPage */]),
-                __WEBPACK_IMPORTED_MODULE_5__components_components_module__["a" /* ComponentsModule */]
+                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_3__upload_events__["a" /* UploadEventsPage */]),
+                __WEBPACK_IMPORTED_MODULE_0__components_components_module__["a" /* ComponentsModule */]
             ],
-            providers: [__WEBPACK_IMPORTED_MODULE_1__angular_fire_storage__["a" /* AngularFireStorage */], __WEBPACK_IMPORTED_MODULE_0__ionic_native_camera__["a" /* Camera */]],
-            exports: [
-                __WEBPACK_IMPORTED_MODULE_4__tabs__["a" /* TabsPage */]
-            ]
         })
-    ], TabsPageModule);
-    return TabsPageModule;
+    ], UploadEventsPageModule);
+    return UploadEventsPageModule;
 }());
 
-//# sourceMappingURL=tabs.module.js.map
+//# sourceMappingURL=upload-events.module.js.map
 
 /***/ }),
 
-/***/ 857:
+/***/ 793:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__providers_form_service__ = __webpack_require__(471);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__chatbot_chatbot__ = __webpack_require__(478);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ionic_angular__ = __webpack_require__(46);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Designations; });
+var Designations = [
+    { position: 'Intern', value: 'Intern' },
+    { position: 'Jr.Software Engineer', value: 'Jr.Software Engineer' },
+    { position: 'Product Manager', value: 'Product Manager' },
+    { position: 'Project Manager', value: 'Project Manager' },
+    { position: 'HR Execuitive', value: 'HR Execuitive' },
+    { position: 'QA Manager', value: 'QA Manager' },
+    { position: 'Sr.Software Engineer', value: 'Sr.Software Engineer' },
+    { position: 'Sr.Software Developer', value: 'Sr.Software Developer' },
+    { position: 'Support Specialist', value: 'Support Specialist' },
+    { position: 'Sales Support Manager', value: 'Sales Support Manager' },
+    { position: 'Software Developer', value: 'Software Developer' },
+    { position: 'Software Test Engineer', value: 'Software Test Engineer' },
+    { position: 'Sr.Support Specialist', value: 'Sr.Support Specialist' },
+    { position: 'Team Lead', value: 'Team Lead' }
+];
+//# sourceMappingURL=designations.js.map
+
+/***/ }),
+
+/***/ 864:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UploadEventsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__ = __webpack_require__(467);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_native_camera__ = __webpack_require__(473);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_fire_database__ = __webpack_require__(467);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_fire_storage__ = __webpack_require__(474);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_strings__ = __webpack_require__(470);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_designations__ = __webpack_require__(793);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_moment__);
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -125,221 +141,200 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 
 
 
-
-
 /**
- * Generated class for the TabsPage page.
+ * Generated class for the UploadEventsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var TabsPage = /** @class */ (function () {
-    function TabsPage(data, fdb, storage, camera, navCtrl, navParams, afAuth) {
-        var _this = this;
-        this.data = data;
-        this.fdb = fdb;
-        this.storage = storage;
-        this.camera = camera;
+var UploadEventsPage = /** @class */ (function () {
+    function UploadEventsPage(loadingCtrl, alertCtrl, navCtrl, navParams, firebase, afauth) {
+        this.loadingCtrl = loadingCtrl;
+        this.alertCtrl = alertCtrl;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this.afAuth = afAuth;
-        this.defaultImg = __WEBPACK_IMPORTED_MODULE_8__providers_strings__["a" /* AppConst */].logo;
-        this.tab0Root = 'HomePage';
-        this.tab1Root = 'ApplyLeavePage';
-        this.tab2Root = __WEBPACK_IMPORTED_MODULE_1__chatbot_chatbot__["a" /* ChatbotPage */];
-        this.tab3Root = 'InboxPage';
-        this.tab4Root = 'SupportPage';
-        this.messageCount = 0;
-        this.hid = true;
-        this.hideAdmin = true;
-        this.users = true;
-        this.recruitment = true;
-        this.systems = true;
-        this.policy = true;
-        this.leaveRequest = true;
-        this.sendMessage = true;
-        this.controllPanel = false;
-        this.user = "";
-        this.messages = [];
-        this.SupportMessages = [];
-        this.roles = this.navParams.data;
-        this.tab0Params = this.roles;
-        if (this.roles[0] != "null") {
-            this.user = "admin";
-            this.users = false;
-            this.recruitment = false;
-            this.systems = false;
-            this.policy = false;
-            this.leaveRequest = false;
-            this.sendMessage = false;
-            this.controllPanel = true;
-        }
-        if (this.roles[1] != "null") {
-            this.leaveRequest = false;
-            this.controllPanel = true;
-        }
-        if (this.roles[2] != "null") {
-            this.policy = false;
-            this.controllPanel = true;
-        }
-        if (this.roles[3] != "null") {
-            this.sendMessage = false;
-            this.controllPanel = true;
-        }
-        if (this.roles[4] != "null") {
-            if (this.user != 'admin')
-                this.user = "hr";
-            this.recruitment = false;
-            this.controllPanel = true;
-        }
-        if (this.roles[5] != "null") {
-            this.systems = false;
-            this.controllPanel = true;
-        }
-        if (this.roles[6] != "null") {
-            this.users = false;
-            this.controllPanel = true;
-        }
-        if (this.user == "hr" || this.user == "admin") {
-            this.getSupportMessages();
-        }
-        this.getusername();
-        this.getMessages();
-        this.hid = false;
-        //this.uname=this.afAuth.auth.currentUser.email
-        //console.log(this.uname);
-        //.uri=`https://firebasestorage.googleapis.com/v0/b/sopaa-b37c1.appspot.com/o/${this.afAuth.auth.currentUser.uid}.jpg?alt=media&token=36f41e79-9cfc-40c8-b4ca-192113ff40b5`
-        this.data.currentUri.subscribe(function (item) { return _this.uri = item; });
+        this.firebase = firebase;
+        this.afauth = afauth;
+        this.designations = __WEBPACK_IMPORTED_MODULE_5__providers_designations__["a" /* Designations */];
+        this.PublishMessageForm = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormGroup"]({
+            subject: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required]),
+            message: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required]),
+            recipients: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required]),
+            postedBy: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"](''),
+            time: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"](''),
+            date: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"](''),
+        });
+        this.recipients = [];
+        this.sentItems = [];
+        this.messages = "compose";
     }
-    TabsPage.prototype.getusername = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.fdb.database.ref("/users/" + this.afAuth.auth.currentUser.uid).on('value', function (snap) {
-                            _this.uname = snap.child('fname').val() + " " + snap.child('lname').val();
-                            _this.position = snap.child('position').val();
-                        })];
-                    case 1:
-                        _a.sent();
-                        return [2 /*return*/];
-                }
-            });
-        });
+    UploadEventsPage.prototype.ionViewDidLeave = function () {
+        this.navCtrl.popToRoot();
     };
-    TabsPage.prototype.changeimage = function () {
+    UploadEventsPage.prototype.publishMessage = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var options;
+            var sentTo, users, sender, i, alert;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        options = {
-                            quality: 100,
-                            destinationType: this.camera.DestinationType.DATA_URL,
-                            encodingType: this.camera.EncodingType.JPEG,
-                            mediaType: this.camera.MediaType.PICTURE,
-                            sourceType: this.camera.PictureSourceType.PHOTOLIBRARY,
-                            saveToPhotoAlbum: false
-                        };
-                        return [4 /*yield*/, this.camera.getPicture(options)];
-                    case 1: return [2 /*return*/, _a.sent()];
-                }
-            });
-        });
-    };
-    TabsPage.prototype.logout = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        alert(this.afAuth.auth.currentUser.uid);
-                        return [4 /*yield*/, this.fdb.database.ref('tokensNotificationId').orderByChild('userIdTocken').equalTo("" + this.afAuth.auth.currentUser.uid).once("value", function (snap) {
-                                snap.forEach(function (child) {
-                                    _this.fdb.object("/tokensNotificationId/" + child.key).update({ tokenid: "null", userIdTocken: _this.afAuth.auth.currentUser.uid });
-                                });
+                        sentTo = this.recipients;
+                        users = [];
+                        return [4 /*yield*/, this.firebase.database.ref("users/" + this.afauth.auth.currentUser.uid).once('value', function (snap) {
+                                sender = (snap.child('fname').val() + " " + snap.child('lname').val());
                             })];
                     case 1:
                         _a.sent();
-                        this.afAuth.auth.signOut()
-                            .then(function () { return _this.navCtrl.setRoot('LoginPage'); });
+                        return [4 /*yield*/, this.firebase.database.ref("users").once('value', function (snap) {
+                                snap.forEach(function (childSnapshot) {
+                                    if (childSnapshot.child('status').val() === "active") {
+                                        for (var i = 0; i < sentTo.length; i++)
+                                            if (sentTo[i] == "All") {
+                                                users.push(childSnapshot.key);
+                                            }
+                                            else {
+                                                if (childSnapshot.child('position').val() === sentTo[i])
+                                                    users.push(childSnapshot.key);
+                                            }
+                                    }
+                                });
+                            })];
+                    case 2:
+                        _a.sent();
+                        this.PublishMessageForm.controls['date'].setValue(__WEBPACK_IMPORTED_MODULE_6_moment__().format('D-MMM-YYYY'));
+                        this.PublishMessageForm.controls['time'].setValue(__WEBPACK_IMPORTED_MODULE_6_moment__().format('h:mm a'));
+                        this.PublishMessageForm.controls['postedBy'].setValue(sender);
+                        for (i = 0; i < users.length; i++)
+                            this.firebase.list("messages/" + users[i]).push({
+                                'date': this.PublishMessageForm.controls['date'].value,
+                                'message': this.PublishMessageForm.controls['message'].value,
+                                'postedBy': this.PublishMessageForm.controls['postedBy'].value,
+                                'subject': this.PublishMessageForm.controls['subject'].value,
+                                'time': this.PublishMessageForm.controls['time'].value,
+                                'status': 'unread'
+                            });
+                        this.firebase.list("sentmessages/" + this.afauth.auth.currentUser.uid).push({
+                            'recipients': this.recipients,
+                            'date': this.PublishMessageForm.controls['date'].value,
+                            'message': this.PublishMessageForm.controls['message'].value,
+                            'subject': this.PublishMessageForm.controls['subject'].value,
+                            'time': this.PublishMessageForm.controls['time'].value
+                        });
+                        alert = this.alertCtrl.create({
+                            title: "Success",
+                            subTitle: "Message Sent Successfully",
+                            buttons: ['OK']
+                        });
+                        alert.present();
+                        this.PublishMessageForm.reset();
                         return [2 /*return*/];
                 }
             });
         });
     };
-    TabsPage.prototype.changepassword = function () {
-        this.navCtrl.push('ChangepasswordPage');
-    };
-    TabsPage.prototype.goto = function (page) {
-        this.navCtrl.push(page);
-    };
-    TabsPage.prototype.createUploadTask = function (file) {
-        this.hid = false;
-        var filePath = this.afAuth.auth.currentUser.uid + ".jpg";
-        this.image = 'data:image/jpg;base64,' + file;
-        this.uri = this.image;
-        this.task = this.storage.ref(filePath).putString(this.image, 'data_url');
-        this.progress = this.task.percentageChanges();
-    };
-    TabsPage.prototype.uploadHandler = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var base64;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.changeimage()];
-                    case 1:
-                        base64 = _a.sent();
-                        this.createUploadTask(base64);
-                        return [2 /*return*/];
+    UploadEventsPage.prototype.addRecipients = function () {
+        var _this = this;
+        var allSelected;
+        var alert = this.alertCtrl.create();
+        alert.setTitle('Choose Recipients');
+        alert.addInput({
+            type: 'checkbox',
+            label: "All",
+            value: 'All',
+            handler: function (x) {
+                if (x.checked) {
+                    allSelected = true;
+                    for (var i = 1; i < alert.data.inputs.length; i++)
+                        alert.data.inputs[i].checked = true;
+                }
+                else {
+                    allSelected = false;
+                    for (var i = 1; i < alert.data.inputs.length; i++)
+                        alert.data.inputs[i].checked = false;
+                }
+            }
+        });
+        this.designations.forEach(function (item) {
+            alert.addInput({
+                type: 'checkbox',
+                label: item.position,
+                value: item.value,
+                checked: false,
+                handler: function () {
+                    allSelected = false;
+                    alert.data.inputs[0].checked = false;
                 }
             });
         });
-    };
-    TabsPage.prototype.getMessages = function () {
-        var _this = this;
-        this.fdb.list("messages/" + this.afAuth.auth.currentUser.uid).snapshotChanges().subscribe(function (snap) {
-            _this.messages = snap.map(function (item) {
-                return __assign({ $key: item.key }, item.payload.val());
-            });
-            _this.messageCount = 0;
-            for (var i = 0; i < _this.messages.length; i++) {
-                if (_this.messages[i]['status'] != 'read')
-                    _this.messageCount++;
-            }
-            console.log("messages is ", _this.messages[0]['status']);
-            console.log(_this.messages.length);
-            console.log("actual messagecount ", _this.messageCount);
-        });
-    };
-    TabsPage.prototype.getSupportMessages = function () {
-        var _this = this;
-        this.fdb.list("support", function (ref) { return ref.orderByChild("recipient").equalTo("" + _this.user); }).snapshotChanges().subscribe(function (snap) {
-            _this.SupportMessages = snap.map(function (item) {
-                return __assign({ $key: item.key }, item.payload.val());
-            });
-            _this.supportMessagecount = 0;
-            if (_this.SupportMessages.length > 0) {
-                for (var i = 0; i < _this.SupportMessages.length; i++) {
-                    if ((_this.SupportMessages[i]['status'] == 'pending') || (_this.SupportMessages[i]['status'] == 'review'))
-                        _this.supportMessagecount++;
+        alert.addButton('Cancel');
+        alert.addButton({
+            text: 'OK',
+            handler: function (data) {
+                if (data == "" || data == null) {
+                    _this.recipients = data;
+                    _this.PublishMessageForm.controls['recipients'].setValue(_this.recipients);
                 }
-                console.log("messages is ", _this.SupportMessages[0]['status']);
-                console.log(_this.SupportMessages.length);
-                console.log("actual SUPPORT count ", _this.supportMessagecount);
-            }
+                else if (allSelected) {
+                    data = 'All';
+                    _this.recipients = data;
+                    _this.PublishMessageForm.controls['recipients'].setValue(_this.recipients);
+                }
+                else {
+                    _this.recipients = data;
+                    _this.PublishMessageForm.controls['recipients'].setValue(_this.recipients);
+                }
+            } //end of handler function
         });
+        //Conditions to enable tick for the checkbox when displaying the alert.
+        if (this.recipients.length > 0) {
+            if (this.recipients.toString() == 'All') {
+                for (var i = 0; i < alert.data.inputs.length; i++) { //Check all fields is the the array contains 'All'
+                    alert.data.inputs[i].checked = true;
+                }
+            }
+            else {
+                for (var i = 0; i < alert.data.inputs.length; i++) { // Compare the all degsignations with the selected recipients. If  deisgnation mathches with the recipient the check that field. This function is user to load the already selected recipients
+                    for (var j = 0; j < this.recipients.length; j++)
+                        if (alert.data.inputs[i].value == this.recipients[j])
+                            alert.data.inputs[i].checked = true;
+                }
+            }
+        }
+        alert.present();
     };
-    TabsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_2__angular_core__["Component"])({
-            selector: 'page-tabs',template:/*ion-inline-start:"F:\ionic-app\src\pages\tabs\tabs.html"*/'<!--\n\n  Generated template for the TabsPage page.\n\n\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n\n  Ionic pages and navigation.\n\n-->\n\n\n\n\n\n<ion-menu [content]="mycontent" persistent="true" class="sideMenuList">\n\n    \n\n      <ion-header>\n\n      <ion-item no-lines style="text-align:center;background-color: #2679b0" (click)="goto(\'MyprofilePage\')">\n\n            \n\n                <img src="{{uri}}" onerror="this.src=\'assets/imgs/companylogo.png\'" style="height:50px;width:50px;border-radius:30%;margin: auto"> \n\n              \n\n            <h4 style="color:#ffffff">{{this.uname | titlecase }}</h4>\n\n            <h6 style="color:#ffffff">{{this.position | titlecase }}</h6>\n\n            \n\n          </ion-item>\n\n        </ion-header>\n\n      \n\n<ion-content>\n\n  \n\n      <ion-item hidden (click)="uploadHandler()" class="sideMenuList">\n\n          <ion-icon name="images" item-end small></ion-icon>\n\n          Change Image\n\n      </ion-item>\n\n     \n\n      <ion-item (click)="changepassword()" menuClose class="sideMenuList">\n\n          <ion-icon name="lock" item-end small></ion-icon>\n\n          Change Password\n\n      </ion-item>\n\n\n\n      <ion-item (click)="goto(\'PolicyPage\')" menuClose class="sideMenuList">\n\n          <ion-icon name="document" item-end small></ion-icon>\n\n           Company Policy\n\n      </ion-item>\n\n      \n\n      \n\n\n\n      <ion-list-header *ngIf="controllPanel">\n\n          Control Panel\n\n        </ion-list-header>\n\n\n\n      <ion-item (click)="goto(\'NewuserPage\')" menuClose [hidden]=users>\n\n        <ion-icon name="arrow-forward" small item-end></ion-icon>\n\n        Users\n\n      </ion-item>\n\n      <ion-item (click)="goto(\'SystemsPage\')" menuClose [hidden]=systems>\n\n        <ion-icon name="arrow-forward" small item-end></ion-icon>\n\n        Systems\n\n      </ion-item>\n\n      <ion-item (click)="goto(\'RecruitmentPage\')" menuClose [hidden]=recruitment>\n\n        <ion-icon name="arrow-forward" small item-end></ion-icon>\n\n        Recruitment\n\n      </ion-item>\n\n      <ion-item (click)="goto(\'LeavesAdminPage\')" menuClose [hidden]=leaveRequest>\n\n        <ion-icon name="arrow-forward" small item-end></ion-icon>\n\n        Leave Requests\n\n      </ion-item>\n\n      <ion-item (click)="goto(\'UploadEventsPage\')" menuClose [hidden]="sendMessage">\n\n          <ion-icon name="arrow-forward" small item-end></ion-icon>\n\n        Send Message\n\n      </ion-item>\n\n      <ng-container *ngIf="progress | async as percent">\n\n        \n\n          <progress [value]="percent" max="100"></progress>\n\n        \n\n        </ng-container>\n\n     \n\n    </ion-content>\n\n\n\n     <ion-footer>\n\n        <ion-item (click)="logout()"  class="sideMenuList">\n\n            <ion-icon name="power" item-end small></ion-icon>\n\n             Logout\n\n        </ion-item>\n\n       <ion-item no-lines>\n\n         <ion-label>IdeaElan | version 0.0.1</ion-label>\n\n       </ion-item>\n\n     </ion-footer>\n\n\n\n      \n\n</ion-menu>\n\n<ion-nav #mycontent [root]="rootPage"></ion-nav>\n\n \n\n\n\n<ion-tabs >\n\n  <ion-tab [root]="tab0Root"   tabTitle="Home" tabIcon="home"  [rootParams]="tab0Params" ></ion-tab>\n\n  <ion-tab [root]="tab1Root"   tabTitle="Leave" tabIcon="person" ></ion-tab>\n\n  <ion-tab [root]="tab2Root"   tabTitle="Chatbot" tabIcon="document" ></ion-tab>\n\n  <ion-tab [root]="tab3Root"  tabTitle="Inbox" tabIcon="chatboxes" [tabBadge]=\'this.messageCount>0?this.messageCount:null\' tabBadgeStyle="danger" ></ion-tab>\n\n  <ion-tab [root]="tab4Root"  tabTitle="Support" tabIcon="quote"  [rootParams]="tab0Params" [tabBadge]=\'this.supportMessagecount>0?this.supportMessagecount:null\' tabBadgeStyle="danger"></ion-tab>\n\n</ion-tabs>\n\n\n\n\n\n'/*ion-inline-end:"F:\ionic-app\src\pages\tabs\tabs.html"*/,
+    UploadEventsPage.prototype.getSentItems = function () {
+        var _this = this;
+        this.PublishMessageForm.reset();
+        this.loader = this.loadingCtrl.create({
+            spinner: 'dots',
+            content: 'Loading',
+            dismissOnPageChange: true
+        });
+        this.loader.present();
+        this.firebase.list("sentmessages/" + this.afauth.auth.currentUser.uid).snapshotChanges().subscribe(function (snap) {
+            _this.sentItems = snap.map(function (items) {
+                return __assign({ $key: items.key }, items.payload.val());
+            }).reverse();
+        });
+        this.loader.dismiss();
+    };
+    UploadEventsPage.prototype.viewMessage = function (message) {
+        var alert = this.alertCtrl.create();
+        alert.setTitle("Subject: " + message.subject);
+        alert.setSubTitle("Recipients: " + message.recipients);
+        alert.setMessage("Message: " + message.message);
+        alert.addButton('OK');
+        alert.present();
+    };
+    UploadEventsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
+            selector: 'page-upload-events',template:/*ion-inline-start:"F:\ionic-app\src\pages\upload-events\upload-events.html"*/'<!--\n  Generated template for the UploadEventsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n  <navbar pageTitle="SEND MESSAGE"></navbar>\n</ion-header>\n\n<ion-content>\n    <ion-segment [(ngModel)]="messages" color="white" >\n        <ion-segment-button value="compose">\n           Compose\n        </ion-segment-button>\n        <ion-segment-button value="sentItems" (click)="getSentItems()">\n          Sent Items\n        </ion-segment-button>\n     </ion-segment>\n\n     <div [ngSwitch]="messages">\n        <div *ngSwitchCase="\'compose\'">\n    <form [formGroup]="PublishMessageForm" (ngSubmit)="publishMessage()">\n        \n       \n          <ion-item>\n                <ion-label floating>Recipients</ion-label>\n                <ion-input type="text" formControlName="recipients" readonly (click)="addRecipients()" (ionFocus)="addRecipients()"></ion-input>\n           </ion-item>    \n\n    <ion-item>\n      <ion-label floating>Subject</ion-label>\n        <ion-input type="text" formControlName="subject"></ion-input>\n    </ion-item>\n    <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'subject\').hasError(\'required\')  && PublishMessageForm.get(\'subject\').touched">\n        <ion-label stacked  color="danger">\n          Subject Is Required\n        </ion-label>\n      </ion-item>\n    <ion-item>\n        <ion-label floating>Message</ion-label>\n          <ion-textarea rows="10" formControlName="message"></ion-textarea>\n      </ion-item>\n      <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'message\').hasError(\'required\')  && PublishMessageForm.get(\'message\').touched">\n          <ion-label stacked  color="danger">\n            Message Is Required\n          </ion-label>\n        </ion-item>\n\n       <ion-row>\n            <ion-col col-6>\n                <button type="submit"  [disabled]="PublishMessageForm.invalid" color="blue" full ion-button>Send Message</button>\n          </ion-col>\n          <ion-col col-6>\n              <button ion-button type="reset"  icon-end full color=blue   >\n                Cancel\n              </button>\n            </ion-col>\n          </ion-row> \n         </form>\n  </div>\n\n  <div *ngSwitchCase="\'sentItems\'" >\n      <ion-item>\n          <ion-row class="table-title">\n            <ion-col col-5 >Recipients</ion-col>\n            <ion-col col-5 >Subject</ion-col>\n            <ion-col col-2 >Date</ion-col>\n            \n          </ion-row>\n        </ion-item>\n        <ion-item *ngFor="let message of sentItems">\n          <ion-row class="col-text table-bottom-border" (click)="viewMessage(message)" >\n              <ion-col col-5><p style="font-size:10px; text-transform:uppercase"  *ngFor="let recipients of message.recipients">{{recipients}}</p></ion-col><ion-col col-5 style="overflow:hidden !important;\n              text-overflow: ellipsis;">{{message.subject}}</ion-col><ion-col col-2>{{message.date}}</ion-col>\n          </ion-row>\n        </ion-item>\n    </div>\n\n\n         </div>\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\upload-events\upload-events.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_0__providers_form_service__["a" /* DataService */], __WEBPACK_IMPORTED_MODULE_6__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_7__angular_fire_storage__["a" /* AngularFireStorage */], __WEBPACK_IMPORTED_MODULE_5__ionic_native_camera__["a" /* Camera */], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_3_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__["a" /* AngularFireAuth */]])
-    ], TabsPage);
-    return TabsPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["LoadingController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__["a" /* AngularFireAuth */]])
+    ], UploadEventsPage);
+    return UploadEventsPage;
 }());
 
-//# sourceMappingURL=tabs.js.map
+//# sourceMappingURL=upload-events.js.map
 
 /***/ })
 

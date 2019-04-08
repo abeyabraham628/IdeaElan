@@ -1,15 +1,16 @@
 webpackJsonp([7],{
 
-/***/ 756:
+/***/ 741:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "UploadEventsPageModule", function() { return UploadEventsPageModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__components_components_module__ = __webpack_require__(468);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__upload_events__ = __webpack_require__(858);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "InterviewDetailsPageModule", function() { return InterviewDetailsPageModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__interview_details__ = __webpack_require__(849);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_components_module__ = __webpack_require__(468);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pipes_pipes_module__ = __webpack_require__(779);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -20,65 +21,159 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var UploadEventsPageModule = /** @class */ (function () {
-    function UploadEventsPageModule() {
+
+var InterviewDetailsPageModule = /** @class */ (function () {
+    function InterviewDetailsPageModule() {
     }
-    UploadEventsPageModule = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["NgModule"])({
+    InterviewDetailsPageModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_3__upload_events__["a" /* UploadEventsPage */],
+                __WEBPACK_IMPORTED_MODULE_2__interview_details__["a" /* InterviewDetailsPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_3__upload_events__["a" /* UploadEventsPage */]),
-                __WEBPACK_IMPORTED_MODULE_0__components_components_module__["a" /* ComponentsModule */]
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["IonicPageModule"].forChild(__WEBPACK_IMPORTED_MODULE_2__interview_details__["a" /* InterviewDetailsPage */]),
+                __WEBPACK_IMPORTED_MODULE_3__components_components_module__["a" /* ComponentsModule */],
+                __WEBPACK_IMPORTED_MODULE_4__pipes_pipes_module__["a" /* PipesModule */]
             ],
         })
-    ], UploadEventsPageModule);
-    return UploadEventsPageModule;
+    ], InterviewDetailsPageModule);
+    return InterviewDetailsPageModule;
 }());
 
-//# sourceMappingURL=upload-events.module.js.map
+//# sourceMappingURL=interview-details.module.js.map
 
 /***/ }),
 
-/***/ 787:
+/***/ 779:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Designations; });
-var Designations = [
-    { position: 'Intern', value: 'Intern' },
-    { position: 'Jr.Software Engineer', value: 'Jr.Software Engineer' },
-    { position: 'Product Manager', value: 'Product Manager' },
-    { position: 'Project Manager', value: 'Project Manager' },
-    { position: 'HR Execuitive', value: 'HR Execuitive' },
-    { position: 'QA Manager', value: 'QA Manager' },
-    { position: 'Sr.Software Engineer', value: 'Sr.Software Engineer' },
-    { position: 'Sr.Software Developer', value: 'Sr.Software Developer' },
-    { position: 'Support Specialist', value: 'Support Specialist' },
-    { position: 'Sales Support Manager', value: 'Sales Support Manager' },
-    { position: 'Software Developer', value: 'Software Developer' },
-    { position: 'Software Test Engineer', value: 'Software Test Engineer' },
-    { position: 'Sr.Support Specialist', value: 'Sr.Support Specialist' },
-    { position: 'Team Lead', value: 'Team Lead' }
-];
-//# sourceMappingURL=designations.js.map
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return PipesModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__momentdate_momentdate__ = __webpack_require__(780);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tablefilter_tablefilter__ = __webpack_require__(781);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var PipesModule = /** @class */ (function () {
+    function PipesModule() {
+    }
+    PipesModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["NgModule"])({
+            declarations: [__WEBPACK_IMPORTED_MODULE_1__momentdate_momentdate__["a" /* MomentdatePipe */],
+                __WEBPACK_IMPORTED_MODULE_2__tablefilter_tablefilter__["a" /* TablefilterPipe */]],
+            imports: [],
+            exports: [__WEBPACK_IMPORTED_MODULE_1__momentdate_momentdate__["a" /* MomentdatePipe */],
+                __WEBPACK_IMPORTED_MODULE_2__tablefilter_tablefilter__["a" /* TablefilterPipe */]]
+        })
+    ], PipesModule);
+    return PipesModule;
+}());
+
+//# sourceMappingURL=pipes.module.js.map
 
 /***/ }),
 
-/***/ 858:
+/***/ 780:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return UploadEventsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__ = __webpack_require__(467);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(46);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_forms__ = __webpack_require__(23);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__ = __webpack_require__(112);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_designations__ = __webpack_require__(787);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_moment__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MomentdatePipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_moment___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_moment__);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+/**
+ * Generated class for the MomentdatePipe pipe.
+ *
+ * See https://angular.io/api/core/Pipe for more info on Angular Pipes.
+ */
+var MomentdatePipe = /** @class */ (function () {
+    function MomentdatePipe() {
+        this.currentDate = __WEBPACK_IMPORTED_MODULE_1_moment__();
+    }
+    MomentdatePipe.prototype.transform = function (date) {
+        var expiryDate = __WEBPACK_IMPORTED_MODULE_1_moment__(date);
+        return expiryDate.diff(this.currentDate, 'days');
+    };
+    MomentdatePipe = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
+            name: 'momentdate',
+        })
+    ], MomentdatePipe);
+    return MomentdatePipe;
+}());
+
+//# sourceMappingURL=momentdate.js.map
+
+/***/ }),
+
+/***/ 781:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TablefilterPipe; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+/**
+ * Generated class for the TablefilterPipe pipe.
+ *
+ * See https://angular.io/api/core/Pipe for more info on Angular Pipes.
+ */
+var TablefilterPipe = /** @class */ (function () {
+    function TablefilterPipe() {
+    }
+    TablefilterPipe.prototype.transform = function (items, field, value) {
+        console.log(value);
+        if (!items) {
+            return [];
+        }
+        if (!field || !value) {
+            return items;
+        }
+        return items.filter(function (singleItem) {
+            return singleItem[field].toLowerCase().includes(value.toLowerCase());
+        });
+    };
+    TablefilterPipe = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Pipe"])({
+            name: 'tableFilter',
+        })
+    ], TablefilterPipe);
+    return TablefilterPipe;
+}());
+
+//# sourceMappingURL=tablefilter.js.map
+
+/***/ }),
+
+/***/ 849:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return InterviewDetailsPage; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(46);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__ = __webpack_require__(467);
 var __assign = (this && this.__assign) || function () {
     __assign = Object.assign || function(t) {
         for (var s, i = 1, n = arguments.length; i < n; i++) {
@@ -134,207 +229,99 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-
-
-
-
+//import { Firebase } from '@ionic-native/firebase';
 
 
 
 /**
- * Generated class for the UploadEventsPage page.
+ * Generated class for the InterviewDetailsPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-var UploadEventsPage = /** @class */ (function () {
-    function UploadEventsPage(loadingCtrl, alertCtrl, navCtrl, navParams, firebase, afauth) {
-        this.loadingCtrl = loadingCtrl;
-        this.alertCtrl = alertCtrl;
+var InterviewDetailsPage = /** @class */ (function () {
+    function InterviewDetailsPage(navCtrl, navParams, firebase, modalCtrl, alertCtrl) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.firebase = firebase;
-        this.afauth = afauth;
-        this.designations = __WEBPACK_IMPORTED_MODULE_5__providers_designations__["a" /* Designations */];
-        this.PublishMessageForm = new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormGroup"]({
-            subject: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required]),
-            message: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required]),
-            recipients: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"]('', [__WEBPACK_IMPORTED_MODULE_3__angular_forms__["Validators"].required]),
-            postedBy: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"](''),
-            time: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"](''),
-            date: new __WEBPACK_IMPORTED_MODULE_3__angular_forms__["FormControl"](''),
-        });
-        this.recipients = [];
-        this.sentItems = [];
-        this.messages = "compose";
+        this.modalCtrl = modalCtrl;
+        this.alertCtrl = alertCtrl;
+        this.eventDate = navParams.get('date');
+        this.eventKey = navParams.get('key');
+        this.loadApplicants(this.eventKey);
     }
-    UploadEventsPage.prototype.ionViewDidLeave = function () {
-        this.navCtrl.popToRoot();
+    InterviewDetailsPage.prototype.goBack = function () {
+        this.navCtrl.pop();
     };
-    UploadEventsPage.prototype.publishMessage = function () {
+    InterviewDetailsPage.prototype.loadApplicants = function (key) {
         return __awaiter(this, void 0, void 0, function () {
-            var sentTo, users, sender, i, alert;
+            var result, x;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        sentTo = this.recipients;
-                        users = [];
-                        return [4 /*yield*/, this.firebase.database.ref("users/" + this.afauth.auth.currentUser.uid).once('value', function (snap) {
-                                sender = (snap.child('fname').val() + " " + snap.child('lname').val());
-                            })];
-                    case 1:
-                        _a.sent();
-                        return [4 /*yield*/, this.firebase.database.ref("users").once('value', function (snap) {
-                                snap.forEach(function (childSnapshot) {
-                                    if (childSnapshot.child('status').val() === "active") {
-                                        for (var i = 0; i < sentTo.length; i++)
-                                            if (sentTo[i] == "All") {
-                                                users.push(childSnapshot.key);
-                                            }
-                                            else {
-                                                if (childSnapshot.child('position').val() === sentTo[i])
-                                                    users.push(childSnapshot.key);
-                                            }
-                                    }
+                        this.applicantsData = [];
+                        result = [];
+                        /*this.firebase.database.ref("Schedules").orderByChild('interviewDate').equalTo(date).on("value",function(snapshot) {
+                            x=Object.keys(snapshot.val())[0];
+                        });//end of Schedules reference*/
+                        return [4 /*yield*/, this.firebase.database.ref("Applicants").orderByChild('interviewDate').equalTo(key).once("value", function (snapshot) {
+                                snapshot.forEach(function (childSnapshot) {
+                                    result.push(__assign({ $key: childSnapshot.key }, childSnapshot.val()));
+                                    return false;
                                 });
                             })];
-                    case 2:
-                        _a.sent();
-                        this.PublishMessageForm.controls['date'].setValue(__WEBPACK_IMPORTED_MODULE_6_moment__().format('D-MMM-YYYY'));
-                        this.PublishMessageForm.controls['time'].setValue(__WEBPACK_IMPORTED_MODULE_6_moment__().format('h:mm a'));
-                        this.PublishMessageForm.controls['postedBy'].setValue(sender);
-                        for (i = 0; i < users.length; i++)
-                            this.firebase.list("messages/" + users[i]).push({
-                                'date': this.PublishMessageForm.controls['date'].value,
-                                'message': this.PublishMessageForm.controls['message'].value,
-                                'postedBy': this.PublishMessageForm.controls['postedBy'].value,
-                                'subject': this.PublishMessageForm.controls['subject'].value,
-                                'time': this.PublishMessageForm.controls['time'].value,
-                                'status': 'unread'
-                            });
-                        this.firebase.list("sentmessages/" + this.afauth.auth.currentUser.uid).push({
-                            'recipients': this.recipients,
-                            'date': this.PublishMessageForm.controls['date'].value,
-                            'message': this.PublishMessageForm.controls['message'].value,
-                            'subject': this.PublishMessageForm.controls['subject'].value,
-                            'time': this.PublishMessageForm.controls['time'].value
-                        });
-                        alert = this.alertCtrl.create({
-                            title: "Success",
-                            subTitle: "Message Sent Successfully",
-                            buttons: ['OK']
-                        });
-                        alert.present();
-                        this.PublishMessageForm.reset();
+                    case 1:
+                        /*this.firebase.database.ref("Schedules").orderByChild('interviewDate').equalTo(date).on("value",function(snapshot) {
+                            x=Object.keys(snapshot.val())[0];
+                        });//end of Schedules reference*/
+                        _a.sent(); //end of Applicants reference
+                        this.applicantsData = result;
                         return [2 /*return*/];
                 }
             });
         });
-    };
-    UploadEventsPage.prototype.addRecipients = function () {
+    }; //end of function
+    InterviewDetailsPage.prototype.changeStatus = function (data) {
         var _this = this;
-        var allSelected;
-        var alert = this.alertCtrl.create();
-        alert.setTitle('Choose Recipients');
-        alert.addInput({
-            type: 'checkbox',
-            label: "All",
-            value: 'All',
-            handler: function (x) {
-                if (x.checked) {
-                    allSelected = true;
-                    for (var i = 1; i < alert.data.inputs.length; i++)
-                        alert.data.inputs[i].checked = true;
-                }
-                else {
-                    allSelected = false;
-                    for (var i = 1; i < alert.data.inputs.length; i++)
-                        alert.data.inputs[i].checked = false;
-                }
-            }
+        var statusAlert = this.alertCtrl.create();
+        statusAlert.addInput({
+            type: 'radio',
+            label: 'Reported',
+            value: 'reported',
+            checked: false
         });
-        this.designations.forEach(function (item) {
-            alert.addInput({
-                type: 'checkbox',
-                label: item.position,
-                value: item.value,
-                checked: false,
-                handler: function () {
-                    allSelected = false;
-                    alert.data.inputs[0].checked = false;
-                }
-            });
+        statusAlert.addInput({
+            type: 'radio',
+            label: 'Selected',
+            value: 'selected',
+            checked: false
         });
-        alert.addButton('Cancel');
-        alert.addButton({
+        statusAlert.addButton({
             text: 'OK',
-            handler: function (data) {
-                if (data == "" || data == null) {
-                    _this.recipients = data;
-                    _this.PublishMessageForm.controls['recipients'].setValue(_this.recipients);
-                }
-                else if (allSelected) {
-                    data = 'All';
-                    _this.recipients = data;
-                    _this.PublishMessageForm.controls['recipients'].setValue(_this.recipients);
-                }
-                else {
-                    _this.recipients = data;
-                    _this.PublishMessageForm.controls['recipients'].setValue(_this.recipients);
-                }
-            } //end of handler function
-        });
-        //Conditions to enable tick for the checkbox when displaying the alert.
-        if (this.recipients.length > 0) {
-            if (this.recipients.toString() == 'All') {
-                for (var i = 0; i < alert.data.inputs.length; i++) { //Check all fields is the the array contains 'All'
-                    alert.data.inputs[i].checked = true;
+            handler: function (status) {
+                if (status != null) {
+                    _this.firebase.list('Applicants').update(data.$key, { interviewStatus: status });
+                    _this.loadApplicants(_this.eventKey);
                 }
             }
-            else {
-                for (var i = 0; i < alert.data.inputs.length; i++) { // Compare the all degsignations with the selected recipients. If  deisgnation mathches with the recipient the check that field. This function is user to load the already selected recipients
-                    for (var j = 0; j < this.recipients.length; j++)
-                        if (alert.data.inputs[i].value == this.recipients[j])
-                            alert.data.inputs[i].checked = true;
-                }
-            }
-        }
-        alert.present();
-    };
-    UploadEventsPage.prototype.getSentItems = function () {
-        var _this = this;
-        this.PublishMessageForm.reset();
-        this.loader = this.loadingCtrl.create({
-            spinner: 'dots',
-            content: 'Loading',
-            dismissOnPageChange: true
         });
-        this.loader.present();
-        this.firebase.list("sentmessages/" + this.afauth.auth.currentUser.uid).snapshotChanges().subscribe(function (snap) {
-            _this.sentItems = snap.map(function (items) {
-                return __assign({ $key: items.key }, items.payload.val());
-            }).reverse();
-        });
-        this.loader.dismiss();
+        statusAlert.setTitle(data.fName + " " + data.lName);
+        statusAlert.addButton('Cancel');
+        statusAlert.present();
     };
-    UploadEventsPage.prototype.viewMessage = function (message) {
-        var alert = this.alertCtrl.create();
-        alert.setTitle("Subject: " + message.subject);
-        alert.setSubTitle("Recipients: " + message.recipients);
-        alert.setMessage("Message: " + message.message);
-        alert.addButton('OK');
-        alert.present();
+    InterviewDetailsPage.prototype.interviewSummary = function (eventKey, eventDate) {
+        this.navCtrl.push('InterviewSummaryPage', { eventDate: eventDate, eventKey: eventKey });
     };
-    UploadEventsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Component"])({
-            selector: 'page-upload-events',template:/*ion-inline-start:"F:\ionic-app\src\pages\upload-events\upload-events.html"*/'<!--\n  Generated template for the UploadEventsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header no-border>\n  <navbar pageTitle="SEND MESSAGE"></navbar>\n</ion-header>\n\n<ion-content>\n    <ion-segment [(ngModel)]="messages" color="white" >\n        <ion-segment-button value="compose">\n           Compose\n        </ion-segment-button>\n        <ion-segment-button value="sentItems" (click)="getSentItems()">\n          Sent Items\n        </ion-segment-button>\n     </ion-segment>\n\n     <div [ngSwitch]="messages">\n        <div *ngSwitchCase="\'compose\'">\n    <form [formGroup]="PublishMessageForm" (ngSubmit)="publishMessage()">\n        \n       \n          <ion-item>\n                <ion-label floating>Recipients</ion-label>\n                <ion-input type="text" formControlName="recipients" readonly (click)="addRecipients()" (ionFocus)="addRecipients()"></ion-input>\n           </ion-item>    \n\n    <ion-item>\n      <ion-label floating>Subject</ion-label>\n        <ion-input type="text" formControlName="subject"></ion-input>\n    </ion-item>\n    <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'subject\').hasError(\'required\')  && PublishMessageForm.get(\'subject\').touched">\n        <ion-label stacked  color="danger">\n          Subject Is Required\n        </ion-label>\n      </ion-item>\n    <ion-item>\n        <ion-label floating>Message</ion-label>\n          <ion-textarea rows="10" formControlName="message"></ion-textarea>\n      </ion-item>\n      <ion-item  no-lines *ngIf=" PublishMessageForm.get(\'message\').hasError(\'required\')  && PublishMessageForm.get(\'message\').touched">\n          <ion-label stacked  color="danger">\n            Message Is Required\n          </ion-label>\n        </ion-item>\n\n       <ion-row>\n            <ion-col col-6>\n                <button type="submit"  [disabled]="PublishMessageForm.invalid" color="blue" full ion-button>Send Message</button>\n          </ion-col>\n          <ion-col col-6>\n              <button ion-button type="reset"  icon-end full color=blue   >\n                Cancel\n              </button>\n            </ion-col>\n          </ion-row> \n         </form>\n  </div>\n\n  <div *ngSwitchCase="\'sentItems\'" >\n      <ion-item>\n          <ion-row class="table-title">\n            <ion-col col-5 >Recipients</ion-col>\n            <ion-col col-5 >Subject</ion-col>\n            <ion-col col-2 >Date</ion-col>\n            \n          </ion-row>\n        </ion-item>\n        <ion-item *ngFor="let message of sentItems">\n          <ion-row class="col-text table-bottom-border" (click)="viewMessage(message)" >\n              <ion-col col-5><p style="font-size:10px; text-transform:uppercase"  *ngFor="let recipients of message.recipients">{{recipients}}</p></ion-col><ion-col col-5 style="overflow:hidden !important;\n              text-overflow: ellipsis;">{{message.subject}}</ion-col><ion-col col-2>{{message.date}}</ion-col>\n          </ion-row>\n        </ion-item>\n    </div>\n\n\n         </div>\n</ion-content>\n'/*ion-inline-end:"F:\ionic-app\src\pages\upload-events\upload-events.html"*/,
+    InterviewDetailsPage = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
+            selector: 'page-interview-details',template:/*ion-inline-start:"F:\ionic-app\src\pages\interview-details\interview-details.html"*/'\n<ion-header no-border>\n  <navbar pageTitle="Interview Details"></navbar>\n</ion-header>\n\n<ion-content  >\n <ion-list >\n      <ion-item>\n        Interview Date: {{eventDate}} \n      </ion-item>\n      \n       \n      <ion-searchbar  placeholder="Search User"  [showCancelButton]="shouldShowCancel"  [(ngModel)]="searchString" ></ion-searchbar>\n\n        \n                <ion-row no-margin class="table-title row-bottom-border"> \n                   \n                   <ion-col col-4>Applicant Name</ion-col>\n                    <ion-col col-3>Phone</ion-col>\n                    <ion-col col-3>Status</ion-col>\n                </ion-row>\n\n                <ion-row no-margin class="table-title row-bottom-border" *ngFor=\'let x of applicantsData | tableFilter : "fName" : searchString; let i = index\'> \n                   \n                  <ion-col col-4>{{x.fName | titlecase}} {{x.lName  | titlecase}}</ion-col>\n                   <ion-col col-3>{{x.mobile}}</ion-col>\n                   <ion-col col-3>{{x.interviewStatus  | titlecase}}</ion-col>\n                   <ion-col col-2 (click)="changeStatus(x)">Change</ion-col>\n               </ion-row>\n\n                \n        </ion-list>\n      \n\n\n</ion-content>\n<ion-footer>\n  \n    <button full ion-button color="blue" (click)="interviewSummary(eventKey,eventDate)">View Summary</button>\n  \n</ion-footer>'/*ion-inline-end:"F:\ionic-app\src\pages\interview-details\interview-details.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["LoadingController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["AlertController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_0__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_4__angular_fire_auth__["a" /* AngularFireAuth */]])
-    ], UploadEventsPage);
-    return UploadEventsPage;
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["NavParams"], __WEBPACK_IMPORTED_MODULE_2__angular_fire_database__["a" /* AngularFireDatabase */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["ModalController"], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["AlertController"]])
+    ], InterviewDetailsPage);
+    return InterviewDetailsPage;
 }());
 
-//# sourceMappingURL=upload-events.js.map
+//# sourceMappingURL=interview-details.js.map
 
 /***/ })
 
